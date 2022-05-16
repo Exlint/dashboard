@@ -1,0 +1,41 @@
+{
+	"name": "exlint-dashboard",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Exlint dashboard",
+	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
+	"license": "UNLICENSED",
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"husky:install": "husky install",
+		"git:config": "git config --local include.path ../.gitconfig",
+		"setdev": "run-p husky:install git:config",
+		"onboarding": "node ./scripts/onboarding.cjs",
+		"prepare": "is-ci || run-s setdev onboarding",
+		"lint": "eslint -c ./.eslintrc.cjs \"**/*\" --resolve-plugins-relative-to .",
+		"lint:fix": "eslint -c ./.eslintrc.cjs --fix **/*",
+		"type-check": "tsc --project ./tsconfig.json",
+		"inflint": "inflint -c inflint.config.ts",
+		"depcheck": "depcheck --config .depcheckrc.json",
+		"format": "prettier --write \"**/*.{ts,js,cjs,json,yaml}\""
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "5.0.0",
+		"@typescript-eslint/parser": "5.23.0",
+		"chalk": "4.1.2",
+		"commitizen": "4.2.4",
+		"cz-vinyl": "1.3.2",
+		"eslint": "8.0.1",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-import": "2.26.0",
+		"eslint-plugin-node": "11.1.0",
+		"eslint-plugin-unused-imports": "2.0.0",
+		"figlet": "1.5.2",
+		"husky": "8.0.1",
+		"inflint": "1.2.2",
+		"is-ci": "3.0.1",
+		"npm-run-all": "4.1.5",
+		"pnpm": "7.1.0",
+		"typescript": "4.6.4"
+	}
+}
