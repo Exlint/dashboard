@@ -16,7 +16,7 @@ module.exports = {
 		sourceType: 'module',
 		extraFileExtensions: ['.cjs'],
 	},
-	plugins: ['@typescript-eslint', 'unused-imports', 'node', 'import'],
+	plugins: ['@typescript-eslint', 'unused-imports', 'import'],
 	rules: {
 		'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
 		'indent': ['error', 'tab'],
@@ -155,8 +155,6 @@ module.exports = {
 				groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
 			},
 		],
-
-		'node/no-sync': 'error',
 	},
 	overrides: [
 		{

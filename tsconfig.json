@@ -1,0 +1,5 @@
+{
+	"extends": "./tsconfig.base.json",
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules", "apps"] // TSConfig will be configured in each app
+}

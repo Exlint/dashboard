@@ -22,16 +22,16 @@ jobs:
               run: pnpm install
 
             - name: Check unused dependencies
-              run: pnpm depcheck
+              run: pnpm depcheck && pnpm -r depcheck
 
             - name: Check Files and Directories Linter
               run: pnpm inflint
 
             - name: Check Typescript
-              run: pnpm type-check
+              run: pnpm type-check && pnpm -r type-check
 
             - name: Check ESLint
-              run: pnpm lint
+              run: pnpm lint && pnpm -r lint
 
             - name: Check build command
-              run: pnpm build
+              run: pnpm -r build

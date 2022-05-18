@@ -8,4 +8,8 @@ module.exports = {
 		sourceType: 'module',
 		extraFileExtensions: ['.cjs'],
 	},
+	plugins: ['node'],
+	rules: {
+		'node/no-sync': 'error',
+	},
 };
