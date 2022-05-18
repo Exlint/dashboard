@@ -1,4 +1,4 @@
-name: "Feature Request"
+name: 'Feature Request'
 description: Suggest a feature
 
 body:
@@ -24,7 +24,7 @@ body:
       attributes:
           label: Do you want to create a pull request?
           options:
-              - "Yes"
-              - "No"
+              - 'Yes'
+              - 'No'
       validations:
           required: true
