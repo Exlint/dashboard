@@ -8,7 +8,7 @@ figlet('Exlint', (err, figletText) => {
 
 	console.log(chalk.bold(figletText));
 
-	console.log(chalk.bold.blue('Welcome to Exlint dashboard!!'));
+	console.log(chalk.bold.blue('Welcome to Exlint dashboard repository!!'));
 
 	console.log('🎉✨🎉✨🎉✨🎉✨🎉✨🎉✨🎉✨🎉✨\n');
 
