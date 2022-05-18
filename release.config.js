@@ -1,6 +1,6 @@
 module.exports = {
 	branches: ['main'],
-	repositoryUrl: 'git+https://github.com/Exlint/exlint-dashboard',
+	repositoryUrl: 'git+https://github.com/Exlint/dashboard',
 	plugins: [
 		'@semantic-release/commit-analyzer',
 		'@semantic-release/release-notes-generator',
