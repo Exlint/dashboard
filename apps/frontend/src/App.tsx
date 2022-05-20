@@ -1,14 +1,22 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
-import AppView from './App.view';
+import Header from './components/layout/Header';
+import GroupCenter from './components/containers/GroupCenter';
 
-interface Props {}
+function App() {
+	return (
+		<>
+			<header>
+				<Header />
+			</header>
+			<main>
+				<Route path="/groupCenter">
+					<GroupCenter />
+				</Route>
+			</main>
+		</>
+	);
+}
 
-const App: React.FC<Props> = () => {
-	return <AppView />;
-};
-
-App.displayName = 'App';
-App.defaultProps = {};
-
-export default React.memo(App);
+export default App;

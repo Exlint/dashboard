@@ -1,0 +1,19 @@
+.groupsList {
+	display: flex;
+
+	.innerGroupsList {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		&__dividerLine:not(:last-child) {
+			margin-bottom: 38px;
+		}
+
+		&__dividerLine {
+			margin-top: 38px;
+			border: 2px solid #e7e7e7;
+			width: 100%;
+		}
+	}
+}

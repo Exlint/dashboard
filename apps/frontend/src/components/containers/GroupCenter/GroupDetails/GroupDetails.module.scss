@@ -1,0 +1,13 @@
+.groupDetails {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	height: 100vh;
+	border: 3px solid blue;
+
+	.innerGroupDetails {
+		display: flex;
+		width: 100%;
+		border: 3px solid red;
+	}
+}

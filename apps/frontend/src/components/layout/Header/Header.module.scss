@@ -1,0 +1,97 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.header {
+	display: flex;
+	justify-content: center;
+	background-color: #0e0d14;
+	padding: 0 map.get($sizes, minimal-padding);
+
+	.innerHeader {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 16px 0;
+
+		.leftsideContainer {
+			display: flex;
+
+			&__brandLogo {
+				width: 48px;
+				height: 50px;
+				margin-right: 56px;
+			}
+
+			.navigationContainer {
+				display: flex;
+				align-items: center;
+
+				.linkContainer:not(:last-child) {
+					margin-right: 27px;
+				}
+				.linkContainer {
+					display: flex;
+					position: relative;
+					align-items: center;
+					justify-content: center;
+					text-decoration: none;
+					top: 8px;
+					padding-bottom: 10px;
+
+					&__icon {
+						margin-right: 6px;
+					}
+
+					&__icon--groupCenter {
+						width: 24px;
+						height: 26px;
+					}
+
+					&__icon--tokenManagement {
+						width: 30px;
+						height: 19px;
+					}
+
+					&__icon--userSettings {
+						width: 22px;
+						height: 22px;
+						border-radius: 50%;
+						background-color: #e7e7e7;
+					}
+
+					&__text {
+						font-size: 1.6rem;
+						font-weight: 460;
+						color: #e7e7e7;
+					}
+				}
+			}
+		}
+
+		.rightSideContainer {
+			display: flex;
+			align-items: center;
+
+			.linkContainer {
+				display: flex;
+				position: relative;
+				align-items: center;
+				text-decoration: none;
+				top: 3px;
+
+				&__text {
+					font-size: 1.6rem;
+					font-weight: 660;
+					color: #e7e7e7;
+					margin-right: 7px;
+				}
+
+				&__icon {
+					width: 17px;
+					height: 16px;
+				}
+			}
+		}
+	}
+}
