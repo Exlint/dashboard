@@ -1,3 +1,12 @@
 {
-	"ignores": ["chalk", "figlet", "pnpm", "commitizen", "lint-staged", "prettier", "@commitlint/cli"]
+	"ignores": [
+		"chalk",
+		"figlet",
+		"pnpm",
+		"commitizen",
+		"lint-staged",
+		"prettier",
+		"@commitlint/cli",
+		"@types/node"
+	]
 }

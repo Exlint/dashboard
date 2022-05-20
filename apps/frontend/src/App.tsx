@@ -1,7 +1,14 @@
 import React from 'react';
 
-function App() {
-	return <div className="App">XOMBILLAH</div>;
-}
+import AppView from './App.view';
 
-export default App;
+interface Props {}
+
+const App: React.FC<Props> = () => {
+	return <AppView />;
+};
+
+App.displayName = 'App';
+App.defaultProps = {};
+
+export default React.memo(App);

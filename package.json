@@ -12,14 +12,14 @@
 		"setdev": "run-p husky:install git:config",
 		"onboarding": "node ./scripts/onboarding.cjs",
 		"prepare": "is-ci || run-s setdev onboarding",
-		"lint": "eslint -c ./.eslintrc.cjs \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
-		"lint:fix": "eslint -c ./.eslintrc.cjs --fix **/*",
+		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
 		"type-check": "tsc --project ./tsconfig.json",
 		"inflint": "inflint -c ./inflint.config.ts",
 		"depcheck": "depcheck --config ./.depcheckrc.json"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.0.0",
+		"@types/node": "17.0.35",
 		"@typescript-eslint/eslint-plugin": "5.0.0",
 		"@typescript-eslint/parser": "5.23.0",
 		"chalk": "4.1.2",
@@ -39,5 +39,8 @@
 		"pnpm": "7.1.0",
 		"prettier": "2.6.2",
 		"typescript": "4.6.4"
+	},
+	"peerDependencies": {
+		"@types/node": "17.0.35"
 	}
 }
