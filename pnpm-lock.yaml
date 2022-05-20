@@ -114,7 +114,7 @@ importers:
       eslint-plugin-react: 7.29.4
       eslint-plugin-react-hooks: 4.5.0
       eslint-plugin-unused-imports: 2.0.0
-      i18next: 21.8.2
+      i18next: 21.8.3
       react: 18.1.0
       react-dom: 18.1.0
       react-i18next: 11.16.9
@@ -124,10 +124,10 @@ importers:
     dependencies:
       '@types/react': 18.0.9
       '@types/react-dom': 18.0.4
-      i18next: 21.8.2
+      i18next: 21.8.3
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
-      react-i18next: 11.16.9_nlaekqjbpikw4agfyzvj2iejnm
+      react-i18next: 11.16.9_glwzsba65vemj3boks3r66vswm
       react-scripts: 5.0.1_yeamrmpj6g44rtoh5r7k234yiu
       typescript: 4.6.4
     devDependencies:
@@ -6948,8 +6948,8 @@ packages:
     hasBin: true
     dev: true
 
-  /i18next/21.8.2:
-    resolution: {integrity: sha512-H/oQvA/OXcqurXHemlyDwdIzr9GHYg5/xBuDeFXTXJGMOJFH0ke1wgbsDjFFk2noD4cJfzicVPpUtp39Z+OzgQ==}
+  /i18next/21.8.3:
+    resolution: {integrity: sha512-I6QEXu096oaNH8h+hs2eHu6hxtWPdb/rsoRFHmFep01uuwB0h86ckXaT14ladhstWenEScsxiAQ2TW9fmDG57Q==}
     dependencies:
       '@babel/runtime': 7.18.0
     dev: false
@@ -10133,7 +10133,7 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-i18next/11.16.9_nlaekqjbpikw4agfyzvj2iejnm:
+  /react-i18next/11.16.9_glwzsba65vemj3boks3r66vswm:
     resolution: {integrity: sha512-euXxWvcEAvsY7ZVkwx9ztCq4butqtsGHEkpkuo0RMj8Ru09IF9o2KxCyN+zyv51Nr0aBh/elaTIiR6fMb8YfVg==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -10149,7 +10149,7 @@ packages:
       '@babel/runtime': 7.18.0
       html-escaper: 2.0.2
       html-parse-stringify: 3.0.1
-      i18next: 21.8.2
+      i18next: 21.8.3
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     dev: false
