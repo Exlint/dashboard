@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@nestjs/cli": "8.0.0",
-		"@nestjs/schematics": "8.0.0",
+		"@nestjs/schematics": "8.0.11",
 		"@typescript-eslint/eslint-plugin": "5.0.0",
 		"@typescript-eslint/parser": "5.23.0",
 		"depcheck": "1.4.3",
