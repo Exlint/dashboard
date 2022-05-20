@@ -37,7 +37,7 @@
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-unused-imports": "2.0.0",
 		"ts-loader": "9.3.0",
-		"typescript": "4.3.5",
+		"typescript": "4.6.4",
 		"webpack": "5.72.1",
 		"webpack-shell-plugin-next": "2.2.2"
 	}
