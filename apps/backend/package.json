@@ -28,8 +28,8 @@
 	"devDependencies": {
 		"@nestjs/cli": "8.2.6",
 		"@nestjs/schematics": "8.0.11",
-		"@typescript-eslint/eslint-plugin": "5.0.0",
-		"@typescript-eslint/parser": "5.23.0",
+		"@typescript-eslint/eslint-plugin": "5.25.0",
+		"@typescript-eslint/parser": "5.25.0",
 		"depcheck": "1.4.3",
 		"eslint": "8.15.0",
 		"eslint-config-prettier": "8.5.0",
