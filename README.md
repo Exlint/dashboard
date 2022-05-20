@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/brand.png"/></p>
+<p align="center"><img src="assets/brand.png" height="200" width="200"/></p>
 
 <h1 align="center">Exlint</h1>
 
