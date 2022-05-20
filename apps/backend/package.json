@@ -11,8 +11,7 @@
 		"start:dev": "nest start --watch",
 		"start:debug": "nest start --debug --watch",
 		"start:prod": "node dist/main",
-		"lint": "eslint \"./**/*.ts\"",
-		"lint:fix": "eslint \"./**/*.ts\" --fix",
+		"lint": "eslint -c ./.eslintrc.cjs \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json"
 	},
@@ -20,6 +19,8 @@
 		"@nestjs/common": "8.4.5",
 		"@nestjs/core": "8.4.5",
 		"@nestjs/platform-express": "8.4.5",
+		"class-transformer": "0.5.1",
+		"class-validator": "0.13.2",
 		"reflect-metadata": "0.1.13",
 		"rimraf": "3.0.2",
 		"rxjs": "7.5.5"

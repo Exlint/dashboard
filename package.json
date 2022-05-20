@@ -12,8 +12,7 @@
 		"setdev": "run-p husky:install git:config",
 		"onboarding": "node ./scripts/onboarding.cjs",
 		"prepare": "is-ci || run-s setdev onboarding",
-		"lint": "eslint -c ./.eslintrc.cjs \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
-		"lint:fix": "eslint -c ./.eslintrc.cjs --fix **/*",
+		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
 		"type-check": "tsc --project ./tsconfig.json",
 		"inflint": "inflint -c ./inflint.config.ts",
 		"depcheck": "depcheck --config ./.depcheckrc.json"

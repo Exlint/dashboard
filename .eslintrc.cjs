@@ -33,7 +33,6 @@ module.exports = {
 		'no-self-compare': 'error',
 		'no-template-curly-in-string': 'error',
 		'no-unreachable-loop': 'error',
-		'no-use-before-define': 'error',
 		'no-multiple-empty-lines': 'error',
 		'no-trailing-spaces': 'error',
 		'require-await': 'error',
@@ -121,6 +120,7 @@ module.exports = {
 		'@typescript-eslint/ban-tslint-comment': ['error'],
 		'@typescript-eslint/no-require-imports': ['error'],
 		'@typescript-eslint/no-non-null-assertion': 'off',
+		'@typescript-eslint/no-use-before-define': ['error'],
 
 		'unused-imports/no-unused-imports': 'error',
 
