@@ -27,16 +27,19 @@ jobs:
               run: pnpm install
 
             - name: Check unused dependencies
-              run: pnpm depcheck && pnpm -r depcheck
+              run: pnpm depcheck && pnpm -r --parallel depcheck
 
             - name: Check Files and Directories Linter
               run: pnpm inflint
 
             - name: Check Typescript
-              run: pnpm type-check && pnpm -r type-check
+              run: pnpm type-check && pnpm -r --parallel type-check
 
             - name: Check ESLint
-              run: pnpm lint && pnpm -r lint
+              run: pnpm lint && pnpm -r --parallel lint
+
+            - name: Check Stylelint
+              run: pnpm --filter frontend stylelint
 
             - name: Check build command
-              run: pnpm -r build
+              run: pnpm -r --parallel build
