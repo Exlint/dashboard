@@ -34,6 +34,14 @@ Install dependencies
   pnpm -r install
 ```
 
+**In order to run the database with docker please append your `/etc/hosts` with:**
+
+```
+127.0.0.1 mongo_replica_1
+127.0.0.1 mongo_replica_2
+127.0.0.1 mongo_replica_3
+```
+
 Sync Prisma with the database configuration
 
 ```bash
