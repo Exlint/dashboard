@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+    mongo_launcher:
+        container_name: mongo_launcher
+        image: mongo:5.0.8
+        restart: on-failure
+        networks:
+            - mongo_network
+        volumes:
+            - ./docker/mongo-setup.sh:/scripts/mongo-setup.sh
+        entrypoint: ['sh', '/scripts/mongo-setup.sh']
+    mongo_replica_1:
+        container_name: mongo_replica_1
+        image: mongo:5.0.8
+        ports:
+            - 27017:27017
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27017',
+            ]
+        volumes:
+            - ./.volumes/mongo/replica1:/data/db
+            - ./.volumes/mongo/replica1/configdb:/data/configdb
+        networks:
+            - mongo_network
+    mongo_replica_2:
+        container_name: mongo_replica_2
+        image: mongo:5.0.8
+        ports:
+            - 27018:27018
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27018',
+            ]
+        volumes:
+            - ./.volumes/mongo/replica2:/data/db
+            - ./.volumes/mongo/replica2/configdb:/data/configdb
+        networks:
+            - mongo_network
+    mongo_replica_3:
+        container_name: mongo_replica_3
+        image: mongo:5.0.8
+        ports:
+            - 27019:27019
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27019',
+            ]
+        volumes:
+            - ./.volumes/mongo/replica3:/data/db
+            - ./.volumes/mongo/replica3/configdb:/data/configdb
+        networks:
+            - mongo_network
+
+networks:
+    mongo_network:
+        driver: bridge

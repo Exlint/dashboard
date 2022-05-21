@@ -5,6 +5,10 @@
 		"baseUrl": "./",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"typeRoots": ["./node_modules/@types"]
+		"paths": {
+			"@/modules/*": ["src/modules/*"],
+			"@/config/*": ["src/config/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "./@types"]
 	}
 }
