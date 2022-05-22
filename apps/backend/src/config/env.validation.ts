@@ -1,5 +1,5 @@
 import { plainToClass } from 'class-transformer';
-import { IsEnum, IsString, validateSync } from 'class-validator';
+import { IsEnum, IsPositive, IsInt, IsString, validateSync } from 'class-validator';
 
 enum Environment {
 	Development = 'development',
@@ -10,8 +10,15 @@ class EnvironmentVariables {
 	@IsEnum(Environment)
 	public NODE_ENV!: Environment;
 
+	@IsInt()
+	@IsPositive()
+	public PORT!: number;
+
 	@IsString()
-	public JWT_KEY!: string;
+	public ACCESS_TOKEN_JWT_KEY!: string;
+
+	@IsString()
+	public REFRESH_TOKEN_JWT_KEY!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {

@@ -1,4 +1,4 @@
-export interface IJwtTokenVerification {
-	readonly userId: string;
-	readonly [key: string]: unknown;
+export interface IJwtTokenPayload {
+	readonly sub: string;
+	readonly email: string;
 }

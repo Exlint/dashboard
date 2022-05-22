@@ -1,6 +1,6 @@
-export const JWT_ACCESS_TOKEN_DURATION = '30s';
+export const JWT_ACCESS_TOKEN_DURATION = '5m';
 
-export const JWT_REFRESH_TOKEN_DURATION = '14d';
+export const JWT_REFRESH_TOKEN_DURATION = '2w';
 
 export enum JwtTokenType {
 	Access,
