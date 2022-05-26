@@ -4,9 +4,9 @@ import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcryptjs';
 
 import { IEnvironment } from '@/config/env.interface';
+import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
 
-import type { IJwtTokenPayload } from './interfaces/jwt-token';
-import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION, JWT_REFRESH_TOKEN_DURATION } from './models/jwt-token';
+import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION } from './models/jwt-token';
 
 @Injectable()
 export class AuthService {
@@ -34,7 +34,9 @@ export class AuthService {
 		};
 
 		const tokenDuration =
-			tokenType === JwtTokenType.Access ? JWT_ACCESS_TOKEN_DURATION : JWT_REFRESH_TOKEN_DURATION;
+			tokenType === JwtTokenType.Access
+				? JWT_ACCESS_TOKEN_DURATION
+				: JWT_REFRESH_TOKEN_DURATION_MINUTES;
 
 		const jwtSecret = this.configService.get(
 			tokenType === JwtTokenType.Access ? 'accessTokenJwtKey' : 'refreshTokenJwtKey',
@@ -56,18 +58,5 @@ export class AuthService {
 		]);
 
 		return tokens;
-	}
-
-	public async getPayloadFromJwtToken(token: string, tokenType: JwtTokenType) {
-		const jwtSecret = this.configService.get(
-			tokenType === JwtTokenType.Access ? 'accessTokenJwtKey' : 'refreshTokenJwtKey',
-			{ infer: true },
-		);
-
-		const payload = await this.jwtService.verifyAsync<IJwtTokenPayload>(token, {
-			secret: jwtSecret,
-		});
-
-		return payload;
 	}
 }

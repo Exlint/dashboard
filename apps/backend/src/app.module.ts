@@ -5,6 +5,7 @@ import { appRoutes } from './app.routes';
 import { AccessTokenGuard } from './guards/access-token.guard';
 import { DatabaseModule } from './modules/database/database.module';
 import { UserModule } from './modules/user/user.module';
+import { AccessTokenStrategy } from './strategies/access-token.strategy';
 
 @Module({
 	imports: [DatabaseModule, RouterModule.register(appRoutes), UserModule],
@@ -13,6 +14,7 @@ import { UserModule } from './modules/user/user.module';
 			provide: APP_GUARD,
 			useClass: AccessTokenGuard,
 		},
+		AccessTokenStrategy,
 	],
 })
 export class AppModule {}

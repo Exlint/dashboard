@@ -3,13 +3,13 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { DBUserService } from '@/modules/database/user.service';
 
 import { AuthService } from '../../auth.service';
-import { RegisterContract } from '../contracts/register.contract';
+import { CreateUserContract } from '../contracts/create-user.contract';
 
-@QueryHandler(RegisterContract)
-export class RegisterHandler implements IQueryHandler<RegisterContract> {
+@QueryHandler(CreateUserContract)
+export class RegisterHandler implements IQueryHandler<CreateUserContract> {
 	constructor(private readonly dbUserService: DBUserService, private readonly authService: AuthService) {}
 
-	async execute(contract: RegisterContract) {
+	async execute(contract: CreateUserContract) {
 		const passwordHash = await this.authService.hashPassword(contract.registerDto.password);
 
 		const createdUser = await this.dbUserService.createUser({

@@ -1,0 +1,3 @@
+export const JWT_REFRESH_TOKEN_DURATION_MINUTES = 20160;
+
+export const MAX_JWT_REFRESH_TOKENS = 5;

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
 	public intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
-		const logger = new Logger(`[${context.getClass.name}/${context.getHandler.name}]`);
+		const logger = new Logger(`${context.getClass().name}/${context.getHandler().name}`);
 
 		logger.log('Started');
 

@@ -8,7 +8,9 @@
 		"paths": {
 			"@/modules/*": ["src/modules/*"],
 			"@/config/*": ["src/config/*"],
-			"@/decorators/*": ["src/decorators/*"]
+			"@/decorators/*": ["src/decorators/*"],
+			"@/models/*": ["src/models/*"],
+			"@/interfaces/*": ["src/interfaces/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"]
 	}
