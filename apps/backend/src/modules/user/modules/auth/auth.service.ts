@@ -1,16 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 
 import { IEnvironment } from '@/config/env.interface';
+import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
 
-import type { IJwtTokenVerification } from './interfaces/jwt-token';
-import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION, JWT_REFRESH_TOKEN_DURATION } from './models/jwt-token';
+import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION } from './models/jwt-token';
 
 @Injectable()
 export class AuthService {
-	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
+	constructor(
+		private readonly configService: ConfigService<IEnvironment, true>,
+		private readonly jwtService: JwtService,
+	) {}
 
 	public async hashPassword(password: string) {
 		const hashedPassword = await bcrypt.hash(password, 8);
@@ -24,23 +27,36 @@ export class AuthService {
 		return comparison;
 	}
 
-	public generateJwtToken(userId: string, tokenType: JwtTokenType) {
-		const tokenDuration =
-			tokenType === JwtTokenType.Access ? JWT_ACCESS_TOKEN_DURATION : JWT_REFRESH_TOKEN_DURATION;
+	public async generateJwtToken(userId: string, email: string, tokenType: JwtTokenType) {
+		const jwtPayload = {
+			sub: userId,
+			email,
+		};
 
-		const token = jwt.sign({ userId }, this.configService.get('jwtKey', { infer: true }), {
+		const tokenDuration =
+			tokenType === JwtTokenType.Access
+				? JWT_ACCESS_TOKEN_DURATION
+				: JWT_REFRESH_TOKEN_DURATION_MINUTES;
+
+		const jwtSecret = this.configService.get(
+			tokenType === JwtTokenType.Access ? 'accessTokenJwtKey' : 'refreshTokenJwtKey',
+			{ infer: true },
+		);
+
+		const token = await this.jwtService.signAsync(jwtPayload, {
+			secret: jwtSecret,
 			expiresIn: tokenDuration,
 		});
 
 		return token;
 	}
 
-	public getUserIdFromJwtToken(token: string) {
-		const verification = jwt.verify(
-			token,
-			this.configService.get('jwtKey', { infer: true }),
-		) as IJwtTokenVerification;
+	public async generateJwtTokens(userId: string, email: string) {
+		const tokens = await Promise.all([
+			this.generateJwtToken(userId, email, JwtTokenType.Access),
+			this.generateJwtToken(userId, email, JwtTokenType.Refresh),
+		]);
 
-		return verification.userId;
+		return tokens;
 	}
 }

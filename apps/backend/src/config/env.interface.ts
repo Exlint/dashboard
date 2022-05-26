@@ -1,3 +1,5 @@
 export interface IEnvironment {
-	readonly jwtKey?: string;
+	readonly port: string;
+	readonly accessTokenJwtKey: string;
+	readonly refreshTokenJwtKey: string;
 }
