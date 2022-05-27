@@ -1,15 +1,13 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { NestExpressApplication } from '@nestjs/platform-express';
+import { ConfigService } from '@nestjs/config';
 import { PrismaClient } from '@prisma/client';
 
-import EnvConfiguration from './config/configuration';
-import { validate } from './config/env.validation';
 import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
 import { LoggingInterceptor } from './interceptors/logger.interceptor';
 import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from './models/jwt-token';
+import { IEnvironment } from './config/env.interface';
 
 async function bootstrap() {
 	const prisma = new PrismaClient();
@@ -28,22 +26,7 @@ async function bootstrap() {
 		],
 	});
 
-	const appContext = await NestFactory.createApplicationContext(
-		ConfigModule.forRoot({
-			load: [EnvConfiguration],
-			isGlobal: true,
-			cache: true,
-			validate,
-			validationOptions: {
-				allowUnknown: false,
-				abortEarly: true,
-			},
-		}),
-	);
-
-	const configService = appContext.get(ConfigService);
-
-	const app = await NestFactory.create<NestExpressApplication>(AppModule);
+	const app = await NestFactory.create(AppModule);
 
 	// Apply validation pipe for controllers' request data
 	app.useGlobalPipes(
@@ -59,11 +42,10 @@ async function bootstrap() {
 
 	prismaService.enableShutdownHooks(app);
 
-	const port = configService.get<string>('port', { infer: true })!;
+	const config = app.get<ConfigService<IEnvironment, true>>(ConfigService);
+	const port = config.get('port', { infer: true });
 
 	await app.listen(port);
-
-	appContext.close();
 }
 
 bootstrap();
