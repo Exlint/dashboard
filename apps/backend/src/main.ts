@@ -38,7 +38,7 @@ async function bootstrap() {
 	app.useGlobalInterceptors(new LoggingInterceptor());
 
 	// * https://github.com/prisma/prisma/issues/2917#issuecomment-708340112
-	const prismaService: PrismaService = app.get(PrismaService);
+	const prismaService = app.get(PrismaService);
 
 	prismaService.enableShutdownHooks(app);
 
