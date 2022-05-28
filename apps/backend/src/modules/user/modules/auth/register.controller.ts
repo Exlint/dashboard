@@ -43,7 +43,7 @@ export class RegisterController {
 		);
 
 		const createdUserId = await this.queryBus.execute<CreateUserContract, string>(
-			new CreateUserContract(registerDto),
+			new CreateUserContract({ ...registerDto, authType: 'local' }),
 		);
 
 		this.logger.log(`Successfully created a user with Id: "${createdUserId}"`);

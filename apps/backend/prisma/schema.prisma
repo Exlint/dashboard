@@ -12,7 +12,8 @@ model User {
 
   name         String
   email        String @unique
-  passwordHash String
+  passwordHash String?
+  authType String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

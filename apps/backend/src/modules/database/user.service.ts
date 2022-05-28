@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma, User } from '@prisma/client';
 
 import { MAX_JWT_REFRESH_TOKENS } from '@/models/jwt-token';
 
@@ -16,10 +16,10 @@ export class DBUserService {
 		});
 	}
 
-	public findByEmail(email: string) {
+	public findByEmail(email: string, select: Partial<Record<keyof User, boolean>>) {
 		return this.prisma.user.findUnique({
 			where: { email },
-			select: { passwordHash: true, id: true, name: true },
+			select,
 		});
 	}
 

@@ -16,6 +16,8 @@ import { RefreshTokenGuard } from './guards/refresh-token.guard';
 import { LoginController } from './login.controller';
 import { RegisterController } from './register.controller';
 import { RefreshTokenController } from './refresh-token.controller';
+import { GoogleAuthGuard } from './guards/google-auth.guard';
+import { GoogleStrategy } from './strategies/google.strategy';
 
 @Module({
 	imports: [
@@ -40,7 +42,9 @@ import { RefreshTokenController } from './refresh-token.controller';
 		AuthService,
 		LocalStrategy,
 		RefreshTokenStrategy,
+		GoogleStrategy,
 		RefreshTokenGuard,
+		GoogleAuthGuard,
 	],
 })
 export class AuthModule {}
