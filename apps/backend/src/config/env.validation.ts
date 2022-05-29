@@ -28,6 +28,15 @@ class EnvironmentVariables {
 
 	@IsString()
 	public GOOGLE_OAUTH_REDIRECT_URI!: string;
+
+	@IsString()
+	public GITHUB_OAUTH_CLIENT_ID!: string;
+
+	@IsString()
+	public GITHUB_OAUTH_CLIENT_SECRET!: string;
+
+	@IsString()
+	public GITHUB_OAUTH_REDIRECT_URI!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {

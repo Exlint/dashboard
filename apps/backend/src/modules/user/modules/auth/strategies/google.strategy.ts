@@ -4,8 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { IEnvironment } from '@/config/env.interface';
+import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
-import { IGoogleProfile, IGoogleUser } from '../interfaces/google';
+import { IGoogleProfile } from '../interfaces/google';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
@@ -18,7 +19,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		});
 	}
 
-	validate(_: string, __: string, profile: IGoogleProfile): IGoogleUser {
+	validate(_: string, __: string, profile: IGoogleProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: `${profile.name.givenName} ${profile.name.familyName}`,
