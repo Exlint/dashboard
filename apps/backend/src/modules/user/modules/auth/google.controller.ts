@@ -5,7 +5,6 @@ import {
 	HttpCode,
 	HttpStatus,
 	Logger,
-	Post,
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
@@ -19,9 +18,9 @@ import { IGoogleRedirectResponse } from './interfaces/responses';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { IGoogleUser } from './interfaces/google';
 import { GetGoogleUserContract } from './queries/contracts/get-google-user.contract';
-import { CreateUserContract } from './queries/contracts/create-user.contract';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
+import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
 
 @Controller('auth')
 export class GoogleController {
@@ -34,15 +33,15 @@ export class GoogleController {
 	) {}
 
 	@Public()
-	@Get()
 	@UseGuards(GoogleAuthGuard)
+	@Get('google-auth')
 	public googleAuth() {
 		return;
 	}
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
-	@Post('redirect')
+	@Get('google-redirect')
 	@HttpCode(HttpStatus.OK)
 	public async googleRedirect(@GoogleUser() user: IGoogleUser): Promise<IGoogleRedirectResponse> {
 		this.logger.log(
@@ -56,21 +55,21 @@ export class GoogleController {
 		if (!googleUser) {
 			this.logger.log(`Could not find a user with an email: "${user.email}". Will create new one`);
 
-			const createdUserId = await this.queryBus.execute<CreateUserContract, string>(
-				new CreateUserContract({ name: user.name, email: user.email, authType: 'local' }),
+			const createdGoogleUserId = await this.queryBus.execute<CreateGoogleUserContract, string>(
+				new CreateGoogleUserContract({ name: user.name, email: user.email }),
 			);
 
-			this.logger.log(`Successfully created a user with Id: "${createdUserId}"`);
+			this.logger.log(`Successfully created a user with Id: "${createdGoogleUserId}"`);
 
 			const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
-				createdUserId,
+				createdGoogleUserId,
 				user.email,
 			);
 
 			this.logger.log('Successfully generated both access and refresh tokens');
 
 			await this.commandBus.execute<AddRefreshTokenContract, void>(
-				new AddRefreshTokenContract(createdUserId, refreshToken),
+				new AddRefreshTokenContract(createdGoogleUserId, refreshToken),
 			);
 
 			this.logger.log("Successfully stored the user's refresh token");
@@ -82,7 +81,7 @@ export class GoogleController {
 			};
 		}
 
-		if (googleUser.authType !== 'google') {
+		if (googleUser.authType !== 'GOOGLE') {
 			this.logger.log(
 				`Tried to log in using Google authentication, but the user with email "${user.email}" exists with other autenticationg type`,
 			);

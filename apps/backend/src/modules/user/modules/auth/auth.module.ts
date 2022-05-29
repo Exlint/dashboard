@@ -18,6 +18,7 @@ import { RegisterController } from './register.controller';
 import { RefreshTokenController } from './refresh-token.controller';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { GoogleStrategy } from './strategies/google.strategy';
+import { GoogleController } from './google.controller';
 
 @Module({
 	imports: [
@@ -35,7 +36,7 @@ import { GoogleStrategy } from './strategies/google.strategy';
 		}),
 		JwtModule.register({}),
 	],
-	controllers: [LoginController, RegisterController, RefreshTokenController],
+	controllers: [LoginController, RegisterController, RefreshTokenController, GoogleController],
 	providers: [
 		...QueryHandlers,
 		...CommandHandlers,

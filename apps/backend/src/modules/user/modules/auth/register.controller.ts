@@ -6,9 +6,9 @@ import { Public } from '@/decorators/public.decorator';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './classes/register.dto';
 import { IRegisterResponse } from './interfaces/responses';
-import { CreateUserContract } from './queries/contracts/create-user.contract';
 import { EmailExistsContract } from './queries/contracts/email-exists.contract';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
+import { CreateLocalUserContract } from './queries/contracts/create-local-user.contract';
 
 @Controller('auth')
 export class RegisterController {
@@ -42,21 +42,21 @@ export class RegisterController {
 			`Will try to register a user with email: "${registerDto.email}" and name: "${registerDto.name}"`,
 		);
 
-		const createdUserId = await this.queryBus.execute<CreateUserContract, string>(
-			new CreateUserContract({ ...registerDto, authType: 'local' }),
+		const createdLocalUserId = await this.queryBus.execute<CreateLocalUserContract, string>(
+			new CreateLocalUserContract(registerDto),
 		);
 
-		this.logger.log(`Successfully created a user with Id: "${createdUserId}"`);
+		this.logger.log(`Successfully created a user with Id: "${createdLocalUserId}"`);
 
 		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
-			createdUserId,
+			createdLocalUserId,
 			registerDto.email,
 		);
 
 		this.logger.log('Successfully generated both access and refresh tokens');
 
 		await this.commandBus.execute<AddRefreshTokenContract, void>(
-			new AddRefreshTokenContract(createdUserId, refreshToken),
+			new AddRefreshTokenContract(createdLocalUserId, refreshToken),
 		);
 
 		this.logger.log("Successfully stored the user's refresh token");

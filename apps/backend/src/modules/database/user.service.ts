@@ -23,6 +23,13 @@ export class DBUserService {
 		});
 	}
 
+	public findGoogleUserByEmail(email: string) {
+		return this.prisma.user.findUnique({
+			where: { email },
+			select: { id: true, authType: true },
+		});
+	}
+
 	public async emailExists(email: string) {
 		const user = await this.prisma.user.findUnique({ where: { email } });
 

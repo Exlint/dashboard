@@ -9,10 +9,7 @@ export class GetGoogleUserHandler implements IQueryHandler<GetGoogleUserContract
 	constructor(private readonly dbUserService: DBUserService) {}
 
 	async execute(contract: GetGoogleUserContract) {
-		const userData = await this.dbUserService.findByEmail(contract.email, {
-			id: true,
-			authType: true,
-		});
+		const userData = await this.dbUserService.findGoogleUserByEmail(contract.email);
 
 		return userData;
 	}
