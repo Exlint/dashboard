@@ -9,7 +9,11 @@ export class LoginHandler implements IQueryHandler<LoginContract> {
 	constructor(private readonly dbUserService: DBUserService) {}
 
 	async execute(contract: LoginContract) {
-		const userData = await this.dbUserService.findByEmail(contract.email);
+		const userData = await this.dbUserService.findByEmail(contract.email, {
+			passwordHash: true,
+			id: true,
+			name: true,
+		});
 
 		return userData;
 	}

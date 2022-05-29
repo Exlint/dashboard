@@ -64,6 +64,7 @@ importers:
             '@nestjs/schematics': 8.0.11
             '@prisma/client': 3.14.0
             '@types/bcryptjs': 2.4.2
+            '@types/passport-google-oauth20': 2.0.11
             '@types/passport-jwt': 3.0.6
             '@types/passport-local': 1.0.34
             '@typescript-eslint/eslint-plugin': 5.25.0
@@ -79,6 +80,7 @@ importers:
             eslint-plugin-node: 11.1.0
             eslint-plugin-unused-imports: 2.0.0
             passport: 0.6.0
+            passport-google-oauth20: 2.0.0
             passport-jwt: 4.0.0
             passport-local: 1.0.0
             prisma: 3.14.0
@@ -102,6 +104,7 @@ importers:
             class-transformer: 0.5.1
             class-validator: 0.13.2
             passport: 0.6.0
+            passport-google-oauth20: 2.0.0
             passport-jwt: 4.0.0
             passport-local: 1.0.0
             reflect-metadata: 0.1.13
@@ -111,6 +114,7 @@ importers:
             '@nestjs/cli': 8.2.6
             '@nestjs/schematics': 8.0.11_typescript@4.6.4
             '@types/bcryptjs': 2.4.2
+            '@types/passport-google-oauth20': 2.0.11
             '@types/passport-jwt': 3.0.6
             '@types/passport-local': 1.0.34
             '@typescript-eslint/eslint-plugin': 5.25.0_jorowkvdqu6pwramweg5le7ncu
@@ -3202,7 +3206,6 @@ packages:
                 integrity: sha512-LwZvI3FY6f43xFjQNRuE10JM5R8vJzFTSmbV9X0Wuhv9kscLkjRlZt0BEoiHmO+2HA3B3xxbMfB5du7ZoSFXGg==,
             }
         requiresBuild: true
-        dev: true
 
     /@rollup/plugin-babel/5.3.1_ykg7cmcqpmn5fbkb5gxs7i3du4:
         resolution:
@@ -3758,11 +3761,31 @@ packages:
             }
         dev: true
 
+    /@types/oauth/0.9.1:
+        resolution:
+            {
+                integrity: sha512-a1iY62/a3yhZ7qH7cNUsxoI3U/0Fe9+RnuFrpTKr+0WVOzbKlSLojShCKe20aOD1Sppv+i8Zlq0pLDuTJnwS4A==,
+            }
+        dependencies:
+            '@types/node': 17.0.35
+        dev: true
+
     /@types/parse-json/4.0.0:
         resolution:
             {
                 integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==,
             }
+
+    /@types/passport-google-oauth20/2.0.11:
+        resolution:
+            {
+                integrity: sha512-9XMT1GfwhZL7UQEiCepLef55RNPHkbrCtsU7rsWPTEOsmu5qVIW8nSemtB4p+P24CuOhA+IKkv8LsPThYghGww==,
+            }
+        dependencies:
+            '@types/express': 4.17.13
+            '@types/passport': 1.0.7
+            '@types/passport-oauth2': 1.4.11
+        dev: true
 
     /@types/passport-jwt/3.0.6:
         resolution:
@@ -3784,6 +3807,17 @@ packages:
             '@types/express': 4.17.13
             '@types/passport': 1.0.7
             '@types/passport-strategy': 0.2.35
+        dev: true
+
+    /@types/passport-oauth2/1.4.11:
+        resolution:
+            {
+                integrity: sha512-KUNwmGhe/3xPbjkzkPwwcPmyFwfyiSgtV1qOrPBLaU4i4q9GSCdAOyCbkFG0gUxAyEmYwqo9OAF/rjPjJ6ImdA==,
+            }
+        dependencies:
+            '@types/express': 4.17.13
+            '@types/oauth': 0.9.1
+            '@types/passport': 1.0.7
         dev: true
 
     /@types/passport-strategy/0.2.35:
@@ -5198,6 +5232,14 @@ packages:
                 integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==,
             }
         dev: true
+
+    /base64url/3.0.1:
+        resolution:
+            {
+                integrity: sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==,
+            }
+        engines: { node: '>=6.0.0' }
+        dev: false
 
     /batch/0.6.1:
         resolution: { integrity: sha1-3DQxT05nkxgJP8dgJyUl+UvyXBY= }
@@ -9065,7 +9107,6 @@ packages:
             {
                 integrity: sha512-zIE9hX70qew5qTUjSS7wi1iwj/l7+m54KWU247nhM3v806UdGj1yDndXj+IOYxxtW9zyLI+xqFNZjTuDaLUqFw==,
             }
-        dev: true
 
     /import-fresh/3.3.0:
         resolution:
@@ -11516,6 +11557,10 @@ packages:
             }
         dev: false
 
+    /oauth/0.9.15:
+        resolution: { integrity: sha1-vR/vr2hslrdUda7VGWQS/2DPucE= }
+        dev: false
+
     /object-assign/4.1.1:
         resolution: { integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM= }
         engines: { node: '>=0.10.0' }
@@ -11891,6 +11936,16 @@ packages:
             tslib: 2.4.0
         dev: false
 
+    /passport-google-oauth20/2.0.0:
+        resolution:
+            {
+                integrity: sha512-KSk6IJ15RoxuGq7D1UKK/8qKhNfzbLeLrG3gkLZ7p4A6DBCcv7xpyQwuXtWdpyR0+E0mwkpjY1VfPOhxQrKzdQ==,
+            }
+        engines: { node: '>= 0.4.0' }
+        dependencies:
+            passport-oauth2: 1.6.1
+        dev: false
+
     /passport-jwt/4.0.0:
         resolution:
             {
@@ -11906,6 +11961,20 @@ packages:
         engines: { node: '>= 0.4.0' }
         dependencies:
             passport-strategy: 1.0.0
+        dev: false
+
+    /passport-oauth2/1.6.1:
+        resolution:
+            {
+                integrity: sha512-ZbV43Hq9d/SBSYQ22GOiglFsjsD1YY/qdiptA+8ej+9C1dL1TVB+mBE5kDH/D4AJo50+2i8f4bx0vg4/yDDZCQ==,
+            }
+        engines: { node: '>= 0.4.0' }
+        dependencies:
+            base64url: 3.0.1
+            oauth: 0.9.15
+            passport-strategy: 1.0.0
+            uid2: 0.0.4
+            utils-merge: 1.0.1
         dev: false
 
     /passport-strategy/1.0.0:
@@ -13172,7 +13241,6 @@ packages:
         requiresBuild: true
         dependencies:
             '@prisma/engines': 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
-        dev: true
 
     /process-nextick-args/2.0.1:
         resolution:
@@ -14080,7 +14148,6 @@ packages:
             chokidar: 3.5.3
             immutable: 4.0.0
             source-map-js: 1.0.2
-        dev: true
 
     /sax/1.2.4:
         resolution:
@@ -15671,6 +15738,13 @@ packages:
             }
         engines: { node: '>=4.2.0' }
         hasBin: true
+
+    /uid2/0.0.4:
+        resolution:
+            {
+                integrity: sha512-IevTus0SbGwQzYh3+fRsAMTVVPOoIVufzacXcHPmdlle1jUpq7BRL+mw3dgeLanvGZdwwbWhRV6XrcFNdBmjWA==,
+            }
+        dev: false
 
     /unbox-primitive/1.0.2:
         resolution:

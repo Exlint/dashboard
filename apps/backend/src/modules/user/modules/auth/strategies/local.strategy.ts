@@ -23,7 +23,10 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
 			throw new UnauthorizedException();
 		}
 
-		const passwordsComparison = await this.authService.comparePassword(password, loggedUser.passwordHash);
+		const passwordsComparison = await this.authService.comparePassword(
+			password,
+			loggedUser.passwordHash!,
+		);
 
 		if (!passwordsComparison) {
 			throw new UnauthorizedException();

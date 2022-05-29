@@ -17,3 +17,7 @@ export interface IAutoLoginResponse {
 	accessToken: string;
 	name: string;
 }
+
+export interface IGoogleRedirectResponse extends ITokens {
+	name: string;
+}
