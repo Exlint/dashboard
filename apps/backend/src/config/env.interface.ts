@@ -5,4 +5,7 @@ export interface IEnvironment {
 	readonly googleOAuthClientId: string;
 	readonly googleOAuthClientSecret: string;
 	readonly googleOAuthRedirectUri: string;
+	readonly githubOAuthClientId: string;
+	readonly githubOAuthClientSecret: string;
+	readonly githubOAuthRedirectUri: string;
 }

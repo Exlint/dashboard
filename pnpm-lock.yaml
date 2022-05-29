@@ -64,6 +64,7 @@ importers:
             '@nestjs/schematics': 8.0.11
             '@prisma/client': 3.14.0
             '@types/bcryptjs': 2.4.2
+            '@types/passport-github2': 1.2.5
             '@types/passport-google-oauth20': 2.0.11
             '@types/passport-jwt': 3.0.6
             '@types/passport-local': 1.0.34
@@ -80,6 +81,7 @@ importers:
             eslint-plugin-node: 11.1.0
             eslint-plugin-unused-imports: 2.0.0
             passport: 0.6.0
+            passport-github2: 0.1.12
             passport-google-oauth20: 2.0.0
             passport-jwt: 4.0.0
             passport-local: 1.0.0
@@ -104,6 +106,7 @@ importers:
             class-transformer: 0.5.1
             class-validator: 0.13.2
             passport: 0.6.0
+            passport-github2: 0.1.12
             passport-google-oauth20: 2.0.0
             passport-jwt: 4.0.0
             passport-local: 1.0.0
@@ -114,6 +117,7 @@ importers:
             '@nestjs/cli': 8.2.6
             '@nestjs/schematics': 8.0.11_typescript@4.6.4
             '@types/bcryptjs': 2.4.2
+            '@types/passport-github2': 1.2.5
             '@types/passport-google-oauth20': 2.0.11
             '@types/passport-jwt': 3.0.6
             '@types/passport-local': 1.0.34
@@ -3775,6 +3779,17 @@ packages:
             {
                 integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==,
             }
+
+    /@types/passport-github2/1.2.5:
+        resolution:
+            {
+                integrity: sha512-+WLyrd8JPsCxroK34EjegR0j3FMxp6wqB9cw/sRCFkWT9qic1dymAn021gr336EpyjzdhjUd2KKrqyxvdFSvOA==,
+            }
+        dependencies:
+            '@types/express': 4.17.13
+            '@types/passport': 1.0.7
+            '@types/passport-oauth2': 1.4.11
+        dev: true
 
     /@types/passport-google-oauth20/2.0.11:
         resolution:
@@ -11934,6 +11949,16 @@ packages:
         dependencies:
             no-case: 3.0.4
             tslib: 2.4.0
+        dev: false
+
+    /passport-github2/0.1.12:
+        resolution:
+            {
+                integrity: sha512-3nPUCc7ttF/3HSP/k9sAXjz3SkGv5Nki84I05kSQPo01Jqq1NzJACgMblCK0fGcv9pKCG/KXU3AJRDGLqHLoIw==,
+            }
+        engines: { node: '>= 0.8.0' }
+        dependencies:
+            passport-oauth2: 1.6.1
         dev: false
 
     /passport-google-oauth20/2.0.0:

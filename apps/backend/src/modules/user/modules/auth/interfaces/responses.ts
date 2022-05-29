@@ -21,3 +21,7 @@ export interface IAutoLoginResponse {
 export interface IGoogleRedirectResponse extends ITokens {
 	name: string;
 }
+
+export interface IGithubRedirectResponse extends ITokens {
+	name: string;
+}

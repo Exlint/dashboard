@@ -15,16 +15,16 @@ import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
 import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
 import { AuthService } from './auth.service';
-import { IGoogleRedirectResponse } from './interfaces/responses';
-import { GoogleAuthGuard } from './guards/google-auth.guard';
-import { GetGoogleUserContract } from './queries/contracts/get-google-user.contract';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
-import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
+import { GithubAuthGuard } from './guards/github-auth.guard';
+import { IGithubRedirectResponse } from './interfaces/responses';
+import { GetGithubUserContract } from './queries/contracts/get-github-user.contract';
+import { CreateGithubUserContract } from './queries/contracts/create-github-user.contract';
 
 @Controller('auth')
-export class GoogleController {
-	private readonly logger = new Logger(GoogleController.name);
+export class GithubController {
+	private readonly logger = new Logger(GithubController.name);
 
 	constructor(
 		private readonly queryBus: QueryBus,
@@ -33,45 +33,45 @@ export class GoogleController {
 	) {}
 
 	@Public()
-	@UseGuards(GoogleAuthGuard)
-	@Get('google-auth')
-	public googleAuth() {
+	@UseGuards(GithubAuthGuard)
+	@Get('github-auth')
+	public githubAuth() {
 		return;
 	}
 
 	@Public()
-	@UseGuards(GoogleAuthGuard)
-	@Get('google-redirect')
+	@UseGuards(GithubAuthGuard)
+	@Get('github-redirect')
 	@HttpCode(HttpStatus.OK)
-	public async googleRedirect(
+	public async githubRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
-	): Promise<IGoogleRedirectResponse> {
+	): Promise<IGithubRedirectResponse> {
 		this.logger.log(
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
 
-		const googleUser = await this.queryBus.execute<GetGoogleUserContract, Pick<User, 'id' | 'authType'>>(
-			new GetGoogleUserContract(user.email),
+		const githubUser = await this.queryBus.execute<GetGithubUserContract, Pick<User, 'id' | 'authType'>>(
+			new GetGithubUserContract(user.email),
 		);
 
-		if (!googleUser) {
+		if (!githubUser) {
 			this.logger.log(`Could not find a user with an email: "${user.email}". Will create new one`);
 
-			const createdGoogleUserId = await this.queryBus.execute<CreateGoogleUserContract, string>(
-				new CreateGoogleUserContract({ name: user.name, email: user.email }),
+			const createdGithubUserId = await this.queryBus.execute<CreateGithubUserContract, string>(
+				new CreateGithubUserContract({ name: user.name, email: user.email }),
 			);
 
-			this.logger.log(`Successfully created a user with Id: "${createdGoogleUserId}"`);
+			this.logger.log(`Successfully created a user with Id: "${createdGithubUserId}"`);
 
 			const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
-				createdGoogleUserId,
+				createdGithubUserId,
 				user.email,
 			);
 
 			this.logger.log('Successfully generated both access and refresh tokens');
 
 			await this.commandBus.execute<AddRefreshTokenContract, void>(
-				new AddRefreshTokenContract(createdGoogleUserId, refreshToken),
+				new AddRefreshTokenContract(createdGithubUserId, refreshToken),
 			);
 
 			this.logger.log("Successfully stored the user's refresh token");
@@ -83,16 +83,16 @@ export class GoogleController {
 			};
 		}
 
-		if (googleUser.authType !== 'GOOGLE') {
+		if (githubUser.authType !== 'GITHUB') {
 			this.logger.log(
-				`Tried to log in using Google authentication, but the user with email "${user.email}" exists with other authenticating type`,
+				`Tried to log in using Github authentication, but the user with email "${user.email}" exists with other authenticating type`,
 			);
 
 			throw new BadRequestException();
 		}
 
 		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
-			googleUser.id,
+			githubUser.id,
 			user.email,
 		);
 
@@ -100,10 +100,10 @@ export class GoogleController {
 
 		await Promise.all([
 			this.commandBus.execute<AddRefreshTokenContract, void>(
-				new AddRefreshTokenContract(googleUser.id, refreshToken),
+				new AddRefreshTokenContract(githubUser.id, refreshToken),
 			),
 			this.commandBus.execute<RemoveOldRefreshTokensContract, void>(
-				new RemoveOldRefreshTokensContract(googleUser.id),
+				new RemoveOldRefreshTokensContract(githubUser.id),
 			),
 		]);
 

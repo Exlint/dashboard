@@ -19,6 +19,9 @@ import { RefreshTokenController } from './refresh-token.controller';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { GoogleStrategy } from './strategies/google.strategy';
 import { GoogleController } from './google.controller';
+import { GithubAuthGuard } from './guards/github-auth.guard';
+import { GithubStrategy } from './strategies/github.strategy';
+import { GithubController } from './github.controller';
 
 @Module({
 	imports: [
@@ -36,7 +39,13 @@ import { GoogleController } from './google.controller';
 		}),
 		JwtModule.register({}),
 	],
-	controllers: [LoginController, RegisterController, RefreshTokenController, GoogleController],
+	controllers: [
+		LoginController,
+		RegisterController,
+		RefreshTokenController,
+		GoogleController,
+		GithubController,
+	],
 	providers: [
 		...QueryHandlers,
 		...CommandHandlers,
@@ -44,8 +53,10 @@ import { GoogleController } from './google.controller';
 		LocalStrategy,
 		RefreshTokenStrategy,
 		GoogleStrategy,
+		GithubStrategy,
 		RefreshTokenGuard,
 		GoogleAuthGuard,
+		GithubAuthGuard,
 	],
 })
 export class AuthModule {}

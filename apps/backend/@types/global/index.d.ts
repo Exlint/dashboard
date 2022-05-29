@@ -8,6 +8,9 @@ declare global {
 			readonly GOOGLE_OAUTH_CLIENT_ID: string;
 			readonly GOOGLE_OAUTH_CLIENT_SECRET: string;
 			readonly GOOGLE_OAUTH_REDIRECT_URI: string;
+			readonly GITHUB_OAUTH_CLIENT_ID: string;
+			readonly GITHUB_OAUTH_CLIENT_SECRET: string;
+			readonly GITHUB_OAUTH_REDIRECT_URI: string;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 
-export const GoogleUser = createParamDecorator(
+export const ExternalAuthUser = createParamDecorator(
 	(data: 'email' | 'name' | undefined, context: ExecutionContext) => {
 		const request = context.switchToHttp().getRequest();
 
