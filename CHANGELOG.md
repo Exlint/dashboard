@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Exlint/dashboard/compare/v1.1.0...v1.2.0) (2022-05-30)
+
+
+### Features
+
+* 🔥 support deleting a user ([fac46bb](https://github.com/Exlint/dashboard/commit/fac46bb0b3472222db1813b09e2c5ae090ed9548))
+
 # [1.1.0](https://github.com/Exlint/dashboard/compare/v1.0.0...v1.1.0) (2022-05-29)
 
 
