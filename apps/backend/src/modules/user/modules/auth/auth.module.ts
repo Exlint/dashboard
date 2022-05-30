@@ -22,6 +22,7 @@ import { GoogleController } from './google.controller';
 import { GithubAuthGuard } from './guards/github-auth.guard';
 import { GithubStrategy } from './strategies/github.strategy';
 import { GithubController } from './github.controller';
+import { DeleteController } from './delete.controller';
 
 @Module({
 	imports: [
@@ -45,6 +46,7 @@ import { GithubController } from './github.controller';
 		RefreshTokenController,
 		GoogleController,
 		GithubController,
+		DeleteController,
 	],
 	providers: [
 		...QueryHandlers,

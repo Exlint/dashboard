@@ -53,4 +53,8 @@ export class DBUserService {
 			await this.prisma.refreshToken.delete({ where: { id: firstTokenId } });
 		}
 	}
+
+	public async deleteUser(userId: string) {
+		await this.prisma.user.delete({ where: { id: userId } });
+	}
 }
