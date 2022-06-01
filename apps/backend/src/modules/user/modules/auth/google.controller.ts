@@ -21,7 +21,7 @@ import { GetGoogleUserContract } from './queries/contracts/get-google-user.contr
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
 import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
-import { UpdateGoogleRefreshTokenContract } from './commands/contracts/update-google-refresh-token.contract';
+import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
 
 @Controller('auth')
 export class GoogleController {
@@ -70,7 +70,7 @@ export class GoogleController {
 				new CreateGoogleUserContract({
 					name: user.name,
 					email: user.email,
-					refreshToken: user.externalToken,
+					refreshToken: user.externalToken!,
 				}),
 			);
 
@@ -104,11 +104,11 @@ export class GoogleController {
 			throw new BadRequestException();
 		}
 
-		let storeRefreshTokenPromise = Promise.resolve();
+		let storeRefreshTokenPromise;
 
 		if (user.externalToken) {
-			storeRefreshTokenPromise = this.commandBus.execute<UpdateGoogleRefreshTokenContract, void>(
-				new UpdateGoogleRefreshTokenContract(googleUser.id, user.externalToken),
+			storeRefreshTokenPromise = this.commandBus.execute<UpdateExternalTokenContract, void>(
+				new UpdateExternalTokenContract(googleUser.id, user.externalToken),
 			);
 		}
 

@@ -25,7 +25,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		};
 	}
 
-	validate(_: string, refreshToken: string, profile: IGoogleProfile): IExternalAuthUser {
+	validate(_: string, refreshToken: string | undefined, profile: IGoogleProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: `${profile.name.givenName} ${profile.name.familyName}`,

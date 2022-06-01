@@ -25,7 +25,7 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		};
 	}
 
-	validate(accessToken: string, _: string, profile: IGithubProfile): IExternalAuthUser {
+	validate(accessToken: string | undefined, _: string, profile: IGithubProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: profile.displayName ?? profile.username,

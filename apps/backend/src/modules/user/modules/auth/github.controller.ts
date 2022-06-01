@@ -21,6 +21,7 @@ import { GithubAuthGuard } from './guards/github-auth.guard';
 import { IGithubRedirectResponse } from './interfaces/responses';
 import { GetGithubUserContract } from './queries/contracts/get-github-user.contract';
 import { CreateGithubUserContract } from './queries/contracts/create-github-user.contract';
+import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
 
 @Controller('auth')
 export class GithubController {
@@ -61,7 +62,7 @@ export class GithubController {
 				new CreateGithubUserContract({
 					name: user.name,
 					email: user.email,
-					accessToken: user.externalToken,
+					accessToken: user.externalToken!,
 				}),
 			);
 
@@ -95,6 +96,14 @@ export class GithubController {
 			throw new BadRequestException();
 		}
 
+		let storeAccessTokenPromise;
+
+		if (user.externalToken) {
+			storeAccessTokenPromise = this.commandBus.execute<UpdateExternalTokenContract, void>(
+				new UpdateExternalTokenContract(githubUser.id, user.externalToken),
+			);
+		}
+
 		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
 			githubUser.id,
 			user.email,
@@ -103,6 +112,7 @@ export class GithubController {
 		this.logger.log('Successfully generated both access and refresh tokens');
 
 		await Promise.all([
+			storeAccessTokenPromise,
 			this.commandBus.execute<AddRefreshTokenContract, void>(
 				new AddRefreshTokenContract(githubUser.id, refreshToken),
 			),
