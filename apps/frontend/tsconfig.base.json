@@ -6,6 +6,12 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "./",
 		"jsx": "react-jsx",
-		"typeRoots": ["./node_modules/@types"]
+		"paths": {
+			"@/interfaces/*": ["src/interfaces/*"],
+			"@/ui/*": ["src/components/ui/*"],
+			"@/containers/*": ["src/components/containers/*"],
+			"@/data/*": ["src/data/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "./@types"]
 	}
 }

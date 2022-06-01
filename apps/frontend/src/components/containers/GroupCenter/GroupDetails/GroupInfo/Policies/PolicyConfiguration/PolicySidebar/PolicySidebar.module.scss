@@ -1,0 +1,138 @@
+.sidebar {
+	display: flex;
+	padding-left: 14px;
+
+	.innerSidebar {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		.backToGroupContainer {
+			display: flex;
+			align-items: center;
+			margin: 34px 24px 34px 0;
+
+			.buttonContainer {
+				&__icon {
+					margin-right: 10px;
+					fill: transparent;
+				}
+			}
+
+			&__text {
+				font-size: 1.4rem;
+				font-weight: 560;
+				color: #4b4a65;
+				white-space: nowrap;
+			}
+
+			&__groupLabel {
+				font-size: 1.4rem;
+				font-weight: 560;
+				color: #7a4df3;
+				white-space: nowrap;
+			}
+		}
+
+		&__divider {
+			width: 90%;
+			border: 2px solid #e7e7e7;
+		}
+
+		.policyDetailsContainer {
+			display: flex;
+			flex-direction: column;
+			width: fit-content;
+			margin-top: 11px;
+			margin-right: 32px;
+
+			.policyLabelContainer {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&__label {
+					font-size: 2.4rem;
+					font-weight: 560;
+					color: #202428;
+				}
+
+				&__icon {
+					width: 31px;
+					height: 7px;
+				}
+			}
+
+			.createdTimeContainer {
+				display: flex;
+				margin: 15px 0;
+
+				&__title {
+					margin-right: 5px;
+				}
+
+				&__text {
+					font-size: 1.8rem;
+					font-weight: 460;
+					color: #4b4a65;
+				}
+			}
+
+			.libraryName {
+				display: flex;
+				flex-direction: column;
+
+				&__title {
+					margin-bottom: 5px;
+					font-size: 1.8rem;
+					font-weight: 460;
+					color: #4b4a65;
+				}
+
+				.innerLibraryName {
+					display: flex;
+					align-items: center;
+
+					&__logo {
+						width: 24px;
+						height: 22px;
+					}
+
+					&__props {
+						margin: 0 8px 0 10px;
+						font-size: 2.2rem;
+						font-weight: 560;
+						color: #4b4a65;
+						white-space: nowrap;
+					}
+
+					&__changeButton {
+						font-size: 1.8rem;
+						font-weight: 560;
+						color: #2049b0;
+					}
+				}
+			}
+
+			.libraryCategory {
+				display: flex;
+				flex-direction: column;
+				margin-top: 15px;
+
+				&__title {
+					font-size: 1.8rem;
+					font-weight: 460;
+					color: #4b4a65;
+				}
+
+				&__props {
+					margin-top: 5px;
+					font-size: 2.2rem;
+					font-weight: 560;
+					color: #4b4a65;
+				}
+			}
+		}
+	}
+}

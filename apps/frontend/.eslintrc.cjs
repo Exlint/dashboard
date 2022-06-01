@@ -87,6 +87,14 @@ module.exports = {
 
 		'react-hooks/rules-of-hooks': ['error'],
 	},
+	overrides: [
+		{
+			files: ['./src/assets/icons.ts'],
+			rules: {
+				'max-lines': 'off',
+			},
+		},
+	],
 	settings: {
 		react: {
 			version: 'detect',

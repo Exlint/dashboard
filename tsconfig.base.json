@@ -27,6 +27,14 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"paths": {
+			"@/containers/*": ["src/components/containers/*"],
+			"@/layout/*": ["src/components/layout/*"],
+			"@/ui/*": ["apps/frontend/src/components/ui/*"],
+			"@/utils/*": ["src/utils/*"],
+			"@/images/*": ["src/assets/images/*"],
+			"@/data/*": ["src/data/*"]
+		},
 		"typeRoots": ["./node_modules/@types"]
 	}
 }

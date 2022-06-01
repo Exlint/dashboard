@@ -1,0 +1,98 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.header {
+	display: flex;
+	justify-content: center;
+	padding: 0 map.get($sizes, minimal-padding);
+	background-color: #0e0d14;
+
+	.innerHeader {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 16px 0;
+
+		.rightSideContainer {
+			display: flex;
+			align-items: center;
+
+			.linkContainer {
+				position: relative;
+				top: 3px;
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+
+				&__text {
+					margin-right: 7px;
+					font-size: 1.6rem;
+					font-weight: 660;
+					color: #e7e7e7;
+				}
+
+				&__icon {
+					width: 17px;
+					height: 16px;
+				}
+			}
+		}
+
+		.leftsideContainer {
+			display: flex;
+
+			&__brandLogo {
+				width: 48px;
+				height: 50px;
+				margin-right: 56px;
+			}
+
+			.navigationContainer {
+				display: flex;
+				align-items: center;
+
+				.linkContainer {
+					position: relative;
+					top: 8px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding-bottom: 10px;
+					text-decoration: none;
+
+					&__icon {
+						margin-right: 6px;
+					}
+
+					&__icon--groupCenter {
+						width: 24px;
+						height: 26px;
+					}
+
+					&__icon--tokenManagement {
+						width: 30px;
+						height: 19px;
+					}
+
+					&__icon--userSettings {
+						width: 22px;
+						height: 22px;
+						background-color: #e7e7e7;
+						border-radius: 50%;
+					}
+
+					&__text {
+						font-size: 1.6rem;
+						font-weight: 460;
+						color: #e7e7e7;
+					}
+				}
+
+				.linkContainer:not(:last-child) {
+					margin-right: 27px;
+				}
+			}
+		}
+	}
+}

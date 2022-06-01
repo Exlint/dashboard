@@ -1,3 +1,8 @@
+@font-face {
+	font-family: SFCompact;
+	src: url('../fonts/SfCompact/SF-Compact.ttf') format('opentype');
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -12,10 +17,14 @@ body {
 	height: 100%;
 	margin: 0;
 	overflow-x: hidden;
-	font-family: Inter, sans-serif;
+	font-family: SFCompact, sans-serif;
 	direction: ltr;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	height: 100%;
 }
 
 #root {

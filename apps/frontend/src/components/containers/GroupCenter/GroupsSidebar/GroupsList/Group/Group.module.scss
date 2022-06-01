@@ -1,0 +1,80 @@
+.group {
+	display: flex;
+	padding: 38px 0;
+
+	.innerGroup {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: min-content;
+		padding: 0 24px;
+
+		.leftSideContainer {
+			display: flex;
+			flex-direction: column;
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 560;
+				color: #202428;
+			}
+
+			.uniqueIdContainer {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					margin: 12px 4px 12px 0;
+					font-size: 1.6rem;
+					font-weight: 460;
+					color: #4b4a65;
+				}
+
+				&__icon {
+					width: 21px;
+					height: 22px;
+				}
+			}
+
+			.policiesContainer {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					margin-right: 4px;
+					font-size: 1.6rem;
+					font-weight: 460;
+					color: #4b4a65;
+				}
+
+				&__policy {
+					width: 27px;
+					height: 27px;
+					background-color: #d9d9d9;
+					border-radius: 5px;
+				}
+
+				&__policy:not(:last-child) {
+					margin-right: 4px;
+				}
+			}
+		}
+
+		.getInfoButtonContainer {
+			display: flex;
+
+			.getInfoButton {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				&__icon {
+					width: 11px;
+					height: 19px;
+					fill: transparent;
+					stroke: #e7e7e7;
+				}
+			}
+		}
+	}
+}

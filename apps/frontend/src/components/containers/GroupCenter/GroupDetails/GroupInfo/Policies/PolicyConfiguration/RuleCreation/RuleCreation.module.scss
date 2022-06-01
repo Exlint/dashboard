@@ -1,0 +1,105 @@
+.ruleCration {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding: 74px 185px;
+	background-color: #e7e7e7;
+
+	.innerRuleCreation {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		padding: 18px 20px;
+		margin-top: 15px;
+		background-color: #fefefe;
+		border: 2px solid #e7e7e7;
+		border-radius: 10px;
+
+		.titleContainer {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				font-size: 2.4rem;
+				font-weight: 560;
+				color: #202428;
+				white-space: nowrap;
+			}
+		}
+
+		.creationOptionsContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			&__title {
+				position: relative;
+				bottom: 40px;
+				font-size: 1.9rem;
+				font-weight: 650;
+				color: #4b4a65;
+			}
+
+			.innerOptions {
+				display: flex;
+				align-items: center;
+
+				.option {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					padding: 12px 31px 73px;
+					background-color: #f8f8f8;
+					border: 1.5px solid #e7e7e7;
+					border-radius: 7px;
+
+					&__description {
+						width: 140px;
+						font-size: 1.6rem;
+						font-weight: 460;
+						color: #4b4a65;
+						text-align: center;
+					}
+
+					&__manuallyIcon {
+						width: 160px;
+						height: 90px;
+						margin-top: 22px;
+					}
+
+					&__recommendedIcon {
+						width: 132px;
+						height: 93px;
+						margin-top: 18px;
+					}
+
+					&__fileFormatIcon {
+						width: 70px;
+						height: 76px;
+						margin-top: 35px;
+					}
+				}
+
+				.option:not(:last-child) {
+					margin-right: 74px;
+				}
+			}
+		}
+
+		.doThisLaterButtonContainer {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+
+			&__button {
+				font-size: 1.9rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+		}
+	}
+}
