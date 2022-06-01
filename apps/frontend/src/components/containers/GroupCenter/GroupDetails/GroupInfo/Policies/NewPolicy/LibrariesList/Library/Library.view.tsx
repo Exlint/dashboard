@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { ILibrary } from '@/interfaces/library';
 import VSvg from '@/ui/VSvg';
@@ -22,7 +23,6 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	} else {
 		isLibrarySelected = false;
 	}
-
 	// const { t } = useTranslation();
 
 	return (
