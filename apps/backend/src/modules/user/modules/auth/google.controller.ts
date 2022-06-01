@@ -21,6 +21,7 @@ import { GetGoogleUserContract } from './queries/contracts/get-google-user.contr
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
 import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
+import { UpdateGoogleRefreshTokenContract } from './commands/contracts/update-google-refresh-token.contract';
 
 @Controller('auth')
 export class GoogleController {
@@ -57,8 +58,20 @@ export class GoogleController {
 		if (!googleUser) {
 			this.logger.log(`Could not find a user with an email: "${user.email}". Will create new one`);
 
+			if (!user.externalToken) {
+				this.logger.error(
+					`Could not get a refresh token for Google user with an email: "${user.email}"`,
+				);
+
+				throw new BadRequestException();
+			}
+
 			const createdGoogleUserId = await this.queryBus.execute<CreateGoogleUserContract, string>(
-				new CreateGoogleUserContract({ name: user.name, email: user.email }),
+				new CreateGoogleUserContract({
+					name: user.name,
+					email: user.email,
+					refreshToken: user.externalToken,
+				}),
 			);
 
 			this.logger.log(`Successfully created a user with Id: "${createdGoogleUserId}"`);
@@ -91,6 +104,14 @@ export class GoogleController {
 			throw new BadRequestException();
 		}
 
+		let storeRefreshTokenPromise = Promise.resolve();
+
+		if (user.externalToken) {
+			storeRefreshTokenPromise = this.commandBus.execute<UpdateGoogleRefreshTokenContract, void>(
+				new UpdateGoogleRefreshTokenContract(googleUser.id, user.externalToken),
+			);
+		}
+
 		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
 			googleUser.id,
 			user.email,
@@ -99,6 +120,7 @@ export class GoogleController {
 		this.logger.log('Successfully generated both access and refresh tokens');
 
 		await Promise.all([
+			storeRefreshTokenPromise,
 			this.commandBus.execute<AddRefreshTokenContract, void>(
 				new AddRefreshTokenContract(googleUser.id, refreshToken),
 			),

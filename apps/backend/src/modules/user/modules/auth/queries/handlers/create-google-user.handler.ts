@@ -12,6 +12,7 @@ export class CreateGoogleUserHandler implements IQueryHandler<CreateGoogleUserCo
 		const createdUser = await this.dbUserService.createUser({
 			email: contract.data.email,
 			name: contract.data.name,
+			externalToken: contract.data.refreshToken,
 			authType: 'GOOGLE',
 		});
 

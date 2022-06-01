@@ -12,7 +12,7 @@ export class DeleteController {
 
 	@Delete('delete')
 	@HttpCode(HttpStatus.OK)
-	public async register(@CurrentUserId() userId: string): Promise<void> {
+	public async delete(@CurrentUserId() userId: string): Promise<void> {
 		this.logger.log(`Will try to delete a user with an Id: "${userId}"`);
 
 		await this.commandBus.execute<DeleteUserContract, void>(new DeleteUserContract(userId));

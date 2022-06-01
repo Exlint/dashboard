@@ -4,8 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { IEnvironment } from '@/config/env.interface';
+import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
-import { IGithubProfile, IGithubUser } from '../interfaces/github';
+import { IGithubProfile } from '../interfaces/github';
 
 @Injectable()
 export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
@@ -18,10 +19,17 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		});
 	}
 
-	validate(_: string, __: string, profile: IGithubProfile): IGithubUser {
+	override authorizationParams(): { [key: string]: string } {
+		return {
+			access_type: 'offline',
+		};
+	}
+
+	validate(accessToken: string, _: string, profile: IGithubProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: profile.displayName ?? profile.username,
+			externalToken: accessToken,
 		};
 	}
 }

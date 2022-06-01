@@ -58,7 +58,11 @@ export class GithubController {
 			this.logger.log(`Could not find a user with an email: "${user.email}". Will create new one`);
 
 			const createdGithubUserId = await this.queryBus.execute<CreateGithubUserContract, string>(
-				new CreateGithubUserContract({ name: user.name, email: user.email }),
+				new CreateGithubUserContract({
+					name: user.name,
+					email: user.email,
+					accessToken: user.externalToken,
+				}),
 			);
 
 			this.logger.log(`Successfully created a user with Id: "${createdGithubUserId}"`);

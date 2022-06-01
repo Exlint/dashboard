@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcryptjs';
+import { google } from 'googleapis';
+import { OAuthApp } from '@octokit/oauth-app';
 
 import { IEnvironment } from '@/config/env.interface';
 import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
@@ -10,6 +12,16 @@ import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION } from './models/jwt-token';
 
 @Injectable()
 export class AuthService {
+	private googleClient = new google.auth.OAuth2({
+		clientId: this.configService.get('googleOAuthClientId', { infer: true }),
+		clientSecret: this.configService.get('googleOAuthClientSecret', { infer: true }),
+	});
+
+	private githubClient = new OAuthApp({
+		clientId: this.configService.get('githubOAuthClientId', { infer: true }),
+		clientSecret: this.configService.get('githubOAuthClientSecret', { infer: true }),
+	});
+
 	constructor(
 		private readonly configService: ConfigService<IEnvironment, true>,
 		private readonly jwtService: JwtService,
@@ -58,5 +70,13 @@ export class AuthService {
 		]);
 
 		return tokens;
+	}
+
+	public async revokeGoogleToken(refreshToken: string) {
+		await this.googleClient.revokeToken(refreshToken);
+	}
+
+	public async revokeGithubToken(accessToken: string) {
+		await this.githubClient.deleteAuthorization({ token: accessToken });
 	}
 }

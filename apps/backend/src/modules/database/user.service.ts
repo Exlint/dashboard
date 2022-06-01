@@ -57,4 +57,17 @@ export class DBUserService {
 	public async deleteUser(userId: string) {
 		await this.prisma.user.delete({ where: { id: userId } });
 	}
+
+	public async updateExternalToken(userId: string, externalToken: string) {
+		await this.prisma.user.update({ where: { id: userId }, data: { externalToken } });
+	}
+
+	public async getAuthTypeData(userId: string) {
+		const user = await this.prisma.user.findUnique({
+			where: { id: userId },
+			select: { authType: true, externalToken: true },
+		});
+
+		return user;
+	}
 }

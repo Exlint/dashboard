@@ -19,10 +19,17 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		});
 	}
 
-	validate(_: string, __: string, profile: IGoogleProfile): IExternalAuthUser {
+	override authorizationParams(): { [key: string]: string } {
+		return {
+			access_type: 'offline',
+		};
+	}
+
+	validate(_: string, refreshToken: string, profile: IGoogleProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: `${profile.name.givenName} ${profile.name.familyName}`,
+			externalToken: refreshToken,
 		};
 	}
 }
