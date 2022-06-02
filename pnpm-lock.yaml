@@ -55,13 +55,13 @@ importers:
   apps/backend:
     specifiers:
       '@nestjs/cli': 8.2.6
-      '@nestjs/common': 8.4.5
+      '@nestjs/common': 8.4.6
       '@nestjs/config': 2.0.1
-      '@nestjs/core': 8.4.5
+      '@nestjs/core': 8.4.6
       '@nestjs/cqrs': 8.0.4
       '@nestjs/jwt': 8.0.1
       '@nestjs/passport': 8.2.1
-      '@nestjs/platform-express': 8.4.5
+      '@nestjs/platform-express': 8.4.6
       '@nestjs/schematics': 8.0.11
       '@octokit/oauth-app': 3.6.2
       '@prisma/client': 3.14.0
@@ -97,13 +97,13 @@ importers:
       webpack: 5.72.1
       webpack-shell-plugin-next: 2.2.2
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
-      '@nestjs/config': 2.0.1_oss7laidvsuq5nzygg3pjgpud4
-      '@nestjs/core': 8.4.5_suymtzhiym5sovixgkii2bos7m
-      '@nestjs/cqrs': 8.0.4_texnrsp5xgvn4t37qwxymg6msa
-      '@nestjs/jwt': 8.0.1_@nestjs+common@8.4.5
-      '@nestjs/passport': 8.2.1_haddxf3tug2r64xzdzfdewacnm
-      '@nestjs/platform-express': 8.4.5_ydewkhgqdrhc2o62hf5fyq4ami
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/config': 2.0.1_qna2ix3wuyhvmc56wewcijj25m
+      '@nestjs/core': 8.4.6_suave6mfkne66p6dqupcjv2744
+      '@nestjs/cqrs': 8.0.4_ylfx5swiot7inr3kdyigrsa54e
+      '@nestjs/jwt': 8.0.1_@nestjs+common@8.4.6
+      '@nestjs/passport': 8.2.1_rgfpjs3s462m3ujji7kreilcr4
+      '@nestjs/platform-express': 8.4.6_etfae4mmenqzp3rs3pua7csngy
       '@octokit/oauth-app': 3.6.2
       '@prisma/client': 3.14.0_prisma@3.14.0
       bcryptjs: 2.4.3
@@ -2321,8 +2321,8 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/8.4.5_kgmvgmqc4iohdboj3f7yqhrie4:
-    resolution: {integrity: sha512-DL30hLtcmosOWGRFrU1YYB59k+7FGX82sbq2QiXLsEXuSig8ZzFm8LR+tD8CX+aKabU9t1GGc18HLjFud/3sww==}
+  /@nestjs/common/8.4.6_kgmvgmqc4iohdboj3f7yqhrie4:
+    resolution: {integrity: sha512-INp1ERDrLiQ4GwRc3zotTwBLZm2sIwcJwnBE2yXqsth17KijmoVmY8UB5Tares0IlwjsqlRFWkCX8uWE5rzbSA==}
     peerDependencies:
       cache-manager: '*'
       class-transformer: '*'
@@ -2349,14 +2349,14 @@ packages:
       - debug
     dev: false
 
-  /@nestjs/config/2.0.1_oss7laidvsuq5nzygg3pjgpud4:
+  /@nestjs/config/2.0.1_qna2ix3wuyhvmc56wewcijj25m:
     resolution: {integrity: sha512-N1sV9YrkLCgqI3plVWt9tccUfMJ3jsjGMl1KN/WDnDkr9jQ4XHt9vnHhdBeclegRyZN2/0TBAqCIEAoD4TaVag==}
     peerDependencies:
       '@nestjs/common': ^7.0.0 || ^8.0.0
       reflect-metadata: ^0.1.13
       rxjs: ^6.0.0 || ^7.2.0
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
       dotenv: 16.0.1
       dotenv-expand: 8.0.3
       lodash: 4.17.21
@@ -2365,8 +2365,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /@nestjs/core/8.4.5_suymtzhiym5sovixgkii2bos7m:
-    resolution: {integrity: sha512-mT4MV2pEILu+Xy/deIvhb4JkIWaUU+yxssQqMScj8pWvAQ4+6sN52Sxl5NwLb6FTyZ8t5m8Qgr4yZPTmS+Y1Ig==}
+  /@nestjs/core/8.4.6_suave6mfkne66p6dqupcjv2744:
+    resolution: {integrity: sha512-5zHpxTYV7HT3lfF7l/x0EWBfmuyuDOnGRcALf88tzDGs/7Q/VC6l65d6eFwDwI37NLtScqnmEkT9of8E3fT3mA==}
     requiresBuild: true
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -2383,8 +2383,8 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
-      '@nestjs/platform-express': 8.4.5_ydewkhgqdrhc2o62hf5fyq4ami
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/platform-express': 8.4.6_etfae4mmenqzp3rs3pua7csngy
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
@@ -2398,7 +2398,7 @@ packages:
       - encoding
     dev: false
 
-  /@nestjs/cqrs/8.0.4_texnrsp5xgvn4t37qwxymg6msa:
+  /@nestjs/cqrs/8.0.4_ylfx5swiot7inr3kdyigrsa54e:
     resolution: {integrity: sha512-m9xAWwHC7pDcD9vCI/X7ugDvWwDDbgwES3mHAb+31gU/qr+Jifs7pMMP3Shb90gDHOS9DYihTsSvKgHseqoVRw==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -2406,41 +2406,41 @@ packages:
       reflect-metadata: 0.1.13
       rxjs: ^7.2.0
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
-      '@nestjs/core': 8.4.5_suymtzhiym5sovixgkii2bos7m
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/core': 8.4.6_suave6mfkne66p6dqupcjv2744
       reflect-metadata: 0.1.13
       rxjs: 7.5.5
       uuid: 8.3.2
     dev: false
 
-  /@nestjs/jwt/8.0.1_@nestjs+common@8.4.5:
+  /@nestjs/jwt/8.0.1_@nestjs+common@8.4.6:
     resolution: {integrity: sha512-9WGfgngX8aclC/MC+CH35Ooo4iPVKc+7xLXaBV6o4ty8g2uZdPomry7cSdK/e6Lv623O/84WapThnPoAtW/jvA==}
     peerDependencies:
       '@nestjs/common': ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
       '@types/jsonwebtoken': 8.5.8
       jsonwebtoken: 8.5.1
     dev: false
 
-  /@nestjs/passport/8.2.1_haddxf3tug2r64xzdzfdewacnm:
+  /@nestjs/passport/8.2.1_rgfpjs3s462m3ujji7kreilcr4:
     resolution: {integrity: sha512-HXEKMLX1x865+lsJB4srwKHBciDNAhWY1Ha+xbxYRbk7J5leGDoHJAmeqe+Wb3NDn5nkboggLV87t0q2mbYc8w==}
     peerDependencies:
       '@nestjs/common': ^6.0.0 || ^7.0.0 || ^8.0.0
       passport: ^0.4.0 || ^0.5.0
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
       passport: 0.6.0
     dev: false
 
-  /@nestjs/platform-express/8.4.5_ydewkhgqdrhc2o62hf5fyq4ami:
-    resolution: {integrity: sha512-36yGMrcb2MBhwOq9l0/fip3gWAae5OadsAQxfHJbxgm8D5bDisTdIvvO7KRWYuKFGerGg9kBm53mZ7Rs3fmfPQ==}
+  /@nestjs/platform-express/8.4.6_etfae4mmenqzp3rs3pua7csngy:
+    resolution: {integrity: sha512-OserZ+RwjMyECFAL0/12Bztf63EnFhlFUEJ4/a502RQ0eZogt4M3ROauaW4bpt2Q3YH4hy0eT+4eqkVOMzjtPQ==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
     dependencies:
-      '@nestjs/common': 8.4.5_kgmvgmqc4iohdboj3f7yqhrie4
-      '@nestjs/core': 8.4.5_suymtzhiym5sovixgkii2bos7m
+      '@nestjs/common': 8.4.6_kgmvgmqc4iohdboj3f7yqhrie4
+      '@nestjs/core': 8.4.6_suave6mfkne66p6dqupcjv2744
       body-parser: 1.20.0
       cors: 2.8.5
       express: 4.18.1
@@ -4801,7 +4801,7 @@ packages:
       safe-buffer: 5.1.2
 
   /cookie-signature/1.0.6:
-    resolution: {integrity: sha1-4wOogrNCzD7oylE6eZmXNNqzriw=}
+    resolution: {integrity: sha512-QADzlaHc8icV8I7vbaJXJwod9HWYp8uCqf1xa4OfNu1T7JVxQIrUgOWtHdNDtPiywmFbiS12VjotIXLrKM3orQ==}
     dev: false
 
   /cookie/0.5.0:
@@ -5405,7 +5405,7 @@ packages:
     dev: false
 
   /dicer/0.2.5:
-    resolution: {integrity: sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=}
+    resolution: {integrity: sha512-FDvbtnq7dzlPz0wyYlOExifDEZcu8h+rErEXgfxqmLfRfC/kJidEFh4+effJRO3P0xmfqyPbSMG0LveNRfTKVg==}
     engines: {node: '>=0.8.0'}
     dependencies:
       readable-stream: 1.1.14
@@ -5573,7 +5573,7 @@ packages:
     dev: false
 
   /ee-first/1.1.1:
-    resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
+    resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
   /ejs/3.1.8:
@@ -5609,7 +5609,7 @@ packages:
     dev: false
 
   /encodeurl/1.0.2:
-    resolution: {integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=}
+    resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
     dev: false
 
@@ -5694,7 +5694,7 @@ packages:
     engines: {node: '>=6'}
 
   /escape-html/1.0.3:
-    resolution: {integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=}
+    resolution: {integrity: sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==}
     dev: false
 
   /escape-string-regexp/1.0.5:
@@ -6124,7 +6124,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   /etag/1.8.1:
-    resolution: {integrity: sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=}
+    resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -6546,7 +6546,7 @@ packages:
     dev: false
 
   /fresh/0.5.2:
-    resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=}
+    resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -7603,7 +7603,7 @@ packages:
     dev: false
 
   /isarray/0.0.1:
-    resolution: {integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=}
+    resolution: {integrity: sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==}
     dev: false
 
   /isarray/1.0.0:
@@ -8728,7 +8728,7 @@ packages:
     dev: false
 
   /media-typer/0.3.0:
-    resolution: {integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=}
+    resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -8779,7 +8779,7 @@ packages:
     dev: true
 
   /merge-descriptors/1.0.1:
-    resolution: {integrity: sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=}
+    resolution: {integrity: sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w==}
     dev: false
 
   /merge-stream/2.0.0:
@@ -8794,7 +8794,7 @@ packages:
     engines: {node: '>= 8'}
 
   /methods/1.1.2:
-    resolution: {integrity: sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=}
+    resolution: {integrity: sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==}
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -8902,6 +8902,7 @@ packages:
   /multer/1.4.4:
     resolution: {integrity: sha512-2wY2+xD4udX612aMqMcB8Ws2Voq6NIUPEtD1be6m411T4uDH/VtL9i//xvcyFlTVfRdaBsk7hV5tgrGQqhuBiw==}
     engines: {node: '>= 0.10.0'}
+    deprecated: Multer 1.x is affected by CVE-2022-24434. This is fixed in v1.4.4-lts.1 which drops support for versions of Node.js before 6. Please upgrade to at least Node.js 6 and version 1.4.4-lts.1 of Multer. If you need support for older versions of Node.js, we are open to accepting patches that would fix the CVE on the main 1.x release line, whilst maintaining compatibility with Node.js 0.10.
     dependencies:
       append-field: 1.0.0
       busboy: 0.2.14
@@ -9426,7 +9427,7 @@ packages:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
   /path-to-regexp/0.1.7:
-    resolution: {integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=}
+    resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
     dev: false
 
   /path-to-regexp/3.2.0:
