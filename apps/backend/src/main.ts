@@ -14,7 +14,7 @@ async function bootstrap() {
 
 	// * https://github.com/prisma/prisma/issues/5430#issuecomment-1098715558
 	await prisma.$runCommandRaw({
-		createIndexes: 'RefreshTokens',
+		createIndexes: 'RefreshToken',
 		indexes: [
 			{
 				key: {
