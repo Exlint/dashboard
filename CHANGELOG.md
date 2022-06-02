@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Exlint/dashboard/compare/v1.3.0...v1.3.1) (2022-06-02)
+
+
+### Bug Fixes
+
+* 🐞 flaw in index creation - wrong collection ([71cc7de](https://github.com/Exlint/dashboard/commit/71cc7ded159e836323b7d8070569a6abe5361495))
+
 # [1.3.0](https://github.com/Exlint/dashboard/compare/v1.2.0...v1.3.0) (2022-06-01)
 
 
