@@ -147,7 +147,7 @@ importers:
       '@babel/plugin-syntax-flow': 7.17.12
       '@babel/plugin-transform-react-jsx': 7.17.12
       '@types/react': 18.0.10
-      '@types/react-dom': 18.0.4
+      '@types/react-dom': 18.0.5
       '@typescript-eslint/eslint-plugin': 5.25.0
       '@typescript-eslint/parser': 5.25.0
       depcheck: 1.4.3
@@ -172,7 +172,7 @@ importers:
       typescript: 4.6.4
     dependencies:
       '@types/react': 18.0.10
-      '@types/react-dom': 18.0.4
+      '@types/react-dom': 18.0.5
       i18next: 21.8.3
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -3185,8 +3185,8 @@ packages:
   /@types/range-parser/1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
 
-  /@types/react-dom/18.0.4:
-    resolution: {integrity: sha512-FgTtbqPOCI3dzZPZoC2T/sx3L34qxy99ITWn4eoSA95qPyXDMH0ALoAqUp49ITniiJFsXUVBtalh/KffMpg21Q==}
+  /@types/react-dom/18.0.5:
+    resolution: {integrity: sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==}
     dependencies:
       '@types/react': 18.0.10
     dev: false
