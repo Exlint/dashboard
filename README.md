@@ -47,7 +47,7 @@ Sync Prisma with the database configuration
 ```bash
   cd ./apps/backend
 
-  pnpm prisma:gen
+  pnpm prisma-gen:dev
 ```
 
 Run the database in development mode
@@ -77,7 +77,7 @@ When you want to configure the database with more indices, collections and such,
 ```bash
   cd ./apps/backend
 
-  pnpm prisma:push
+  pnpm prisma-push:dev
 ```
 
 ## Stop the database server
@@ -86,6 +86,14 @@ When you want to stop the database server
 
 ```bash
   pnpm db:stop
+```
+
+## Restart the database server
+
+When you want to restart the database server
+
+```bash
+  pnpm db:restart
 ```
 
 ## Clean the database
