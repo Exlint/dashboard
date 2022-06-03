@@ -8,11 +8,9 @@ import {
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { User } from '@prisma/client';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
-import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
 import { AuthService } from './auth.service';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
@@ -22,8 +20,11 @@ import { IGithubRedirectResponse } from './interfaces/responses';
 import { GetGithubUserContract } from './queries/contracts/get-github-user.contract';
 import { CreateGithubUserContract } from './queries/contracts/create-github-user.contract';
 import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
+import Routes from './auth.routes';
+import { IExternalAuthUser } from './interfaces/external-auth-user';
+import { IExternalLoggedUser } from './interfaces/user';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class GithubController {
 	private readonly logger = new Logger(GithubController.name);
 
@@ -35,14 +36,14 @@ export class GithubController {
 
 	@Public()
 	@UseGuards(GithubAuthGuard)
-	@Get('github-auth')
+	@Get(Routes.GITHUB_AUTH)
 	public githubAuth() {
 		return;
 	}
 
 	@Public()
 	@UseGuards(GithubAuthGuard)
-	@Get('github-redirect')
+	@Get(Routes.GITHUB_REDIRECT)
 	@HttpCode(HttpStatus.OK)
 	public async githubRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
@@ -51,7 +52,7 @@ export class GithubController {
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
 
-		const githubUser = await this.queryBus.execute<GetGithubUserContract, Pick<User, 'id' | 'authType'>>(
+		const githubUser = await this.queryBus.execute<GetGithubUserContract, IExternalLoggedUser>(
 			new GetGithubUserContract(user.email),
 		);
 
@@ -85,6 +86,8 @@ export class GithubController {
 				accessToken,
 				refreshToken,
 				name: user.name,
+				id: createdGithubUserId,
+				clientSecrets: [],
 			};
 		}
 
@@ -127,6 +130,8 @@ export class GithubController {
 			accessToken,
 			refreshToken,
 			name: user.name,
+			id: githubUser.id,
+			clientSecrets: githubUser.clientSecrets,
 		};
 	}
 }
