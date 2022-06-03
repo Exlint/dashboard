@@ -2,10 +2,10 @@ import { Strategy } from 'passport-local';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
-import { User as DBUser } from '@prisma/client';
 
 import { LoginContract } from '../queries/contracts/login.contract';
 import { AuthService } from '../auth.service';
+import { ILocalStrategyUser } from '../interfaces/user';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
@@ -14,10 +14,9 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
 	}
 
 	async validate(email: string, password: string) {
-		const loggedUser = await this.queryBus.execute<
-			LoginContract,
-			Pick<DBUser, 'passwordHash' | 'id' | 'name'> | null
-		>(new LoginContract(email));
+		const loggedUser = await this.queryBus.execute<LoginContract, ILocalStrategyUser | null>(
+			new LoginContract(email),
+		);
 
 		if (!loggedUser) {
 			throw new UnauthorizedException();
@@ -32,9 +31,6 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
 			throw new UnauthorizedException();
 		}
 
-		return {
-			id: loggedUser.id,
-			name: loggedUser.name,
-		};
+		return { ...loggedUser, passwordHash: undefined };
 	}
 }

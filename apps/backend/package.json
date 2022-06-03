@@ -11,6 +11,7 @@
 		"start": "dotenv -e ./envs/.env.production -e ./prisma/.env.production nest start",
 		"start:dev": "dotenv -e ./envs/.env.development -e ./prisma/.env.development nest start --watch",
 		"start:prod": "dotenv -e ./envs/.env.production -e ./prisma/.env.production node dist/main",
+		"prisma-format": "prisma format",
 		"prisma-gen:dev": "prisma generate --schema ./prisma/schema.prisma",
 		"prisma-gen:prod": "prisma generate --schema ./prisma/schema.prisma",
 		"prisma-push:dev": "dotenv -e ./prisma/.env.development prisma db push --schema ./prisma/schema.prisma",

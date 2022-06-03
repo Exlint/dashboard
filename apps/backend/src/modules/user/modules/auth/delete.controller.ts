@@ -3,14 +3,15 @@ import { CommandBus } from '@nestjs/cqrs';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { DeleteUserContract } from './commands/contracts/delete-user.contract';
+import Routes from './auth.routes';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class DeleteController {
 	private readonly logger = new Logger(DeleteController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
-	@Delete('delete')
+	@Delete(Routes.DELETE)
 	@HttpCode(HttpStatus.OK)
 	public async delete(@CurrentUserId() userId: string): Promise<void> {
 		this.logger.log(`Will try to delete a user with an Id: "${userId}"`);

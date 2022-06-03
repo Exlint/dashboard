@@ -18,8 +18,9 @@ import { AuthService } from './auth.service';
 import { JwtTokenType } from './models/jwt-token';
 import { IRefreshTokenResponse } from './interfaces/responses';
 import { EmailExistsContract } from './queries/contracts/email-exists.contract';
+import Routes from './auth.routes';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class RefreshTokenController {
 	private readonly logger = new Logger(RefreshTokenController.name);
 
@@ -27,7 +28,7 @@ export class RefreshTokenController {
 
 	@Public()
 	@UseGuards(RefreshTokenGuard)
-	@Post('refresh-token')
+	@Post(Routes.REFRESH_TOKEN)
 	@HttpCode(HttpStatus.OK)
 	public async refreshToken(
 		@CurrentUserId() userId: string,

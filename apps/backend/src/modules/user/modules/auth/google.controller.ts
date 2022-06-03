@@ -8,11 +8,9 @@ import {
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { User } from '@prisma/client';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
-import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
 import { AuthService } from './auth.service';
 import { IGoogleRedirectResponse } from './interfaces/responses';
@@ -22,8 +20,11 @@ import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
 import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
 import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
+import Routes from './auth.routes';
+import { IExternalAuthUser } from './interfaces/external-auth-user';
+import { IExternalLoggedUser } from './interfaces/user';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class GoogleController {
 	private readonly logger = new Logger(GoogleController.name);
 
@@ -35,14 +36,14 @@ export class GoogleController {
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
-	@Get('google-auth')
+	@Get(Routes.GOOGLE_AUTH)
 	public googleAuth() {
 		return;
 	}
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
-	@Get('google-redirect')
+	@Get(Routes.GOOGLE_REDIRECT)
 	@HttpCode(HttpStatus.OK)
 	public async googleRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
@@ -51,7 +52,7 @@ export class GoogleController {
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
 
-		const googleUser = await this.queryBus.execute<GetGoogleUserContract, Pick<User, 'id' | 'authType'>>(
+		const googleUser = await this.queryBus.execute<GetGoogleUserContract, IExternalLoggedUser>(
 			new GetGoogleUserContract(user.email),
 		);
 
@@ -93,6 +94,8 @@ export class GoogleController {
 				accessToken,
 				refreshToken,
 				name: user.name,
+				id: createdGoogleUserId,
+				clientSecrets: [],
 			};
 		}
 
@@ -135,6 +138,8 @@ export class GoogleController {
 			accessToken,
 			refreshToken,
 			name: user.name,
+			id: googleUser.id,
+			clientSecrets: googleUser.clientSecrets,
 		};
 	}
 }

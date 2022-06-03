@@ -2,15 +2,14 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 import { DBUserService } from '@/modules/database/user.service';
 
-import { LoginContract } from '../contracts/login.contract';
+import { AutoLoginContract } from '../contracts/auto-login.contract';
 
-@QueryHandler(LoginContract)
-export class LoginHandler implements IQueryHandler<LoginContract> {
+@QueryHandler(AutoLoginContract)
+export class AutoLoginHandler implements IQueryHandler<AutoLoginContract> {
 	constructor(private readonly dbUserService: DBUserService) {}
 
-	async execute(contract: LoginContract) {
+	async execute(contract: AutoLoginContract) {
 		const userData = await this.dbUserService.findByEmail(contract.email, {
-			passwordHash: true,
 			id: true,
 			name: true,
 			clientSecrets: {

@@ -9,8 +9,9 @@ import { IRegisterResponse } from './interfaces/responses';
 import { EmailExistsContract } from './queries/contracts/email-exists.contract';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { CreateLocalUserContract } from './queries/contracts/create-local-user.contract';
+import Routes from './auth.routes';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class RegisterController {
 	private readonly logger = new Logger(RegisterController.name);
 
@@ -21,7 +22,7 @@ export class RegisterController {
 	) {}
 
 	@Public()
-	@Post('register')
+	@Post(Routes.REGISTER)
 	@HttpCode(HttpStatus.CREATED)
 	public async register(@Body() registerDto: RegisterDto): Promise<IRegisterResponse> {
 		this.logger.log(
@@ -64,6 +65,7 @@ export class RegisterController {
 		return {
 			accessToken,
 			refreshToken,
+			clientId: createdLocalUserId,
 		};
 	}
 }
