@@ -162,7 +162,7 @@ importers:
       postcss: 8.4.14
       react: 18.1.0
       react-dom: 18.1.0
-      react-i18next: 11.16.9
+      react-i18next: 11.17.0
       react-scripts: 5.0.1
       sass: 1.52.2
       stylelint: 14.8.5
@@ -176,7 +176,7 @@ importers:
       i18next: 21.8.8
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
-      react-i18next: 11.16.9_xoj65rcdat5ngipydygujavba4
+      react-i18next: 11.17.0_xoj65rcdat5ngipydygujavba4
       react-scripts: 5.0.1_i3ygu6kfcte653n2mmaeopwdoa
       typescript: 4.7.2
     devDependencies:
@@ -10575,8 +10575,8 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-i18next/11.16.9_xoj65rcdat5ngipydygujavba4:
-    resolution: {integrity: sha512-euXxWvcEAvsY7ZVkwx9ztCq4butqtsGHEkpkuo0RMj8Ru09IF9o2KxCyN+zyv51Nr0aBh/elaTIiR6fMb8YfVg==}
+  /react-i18next/11.17.0_xoj65rcdat5ngipydygujavba4:
+    resolution: {integrity: sha512-ewq2S4bVUTRqOMAdM/XvzCn9xUPIryzeBQRghmJ8lC6VI/8Kp7z1GwoLyt8j7GB2ywhN2SjPk7LU4sHzVeu7aw==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
