@@ -1,14 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
+import * as userActions from '../../../store/actions/user';
 import HeaderView from './Header.view';
 
-interface IProps {}
+interface IPropsFromDispatch {
+	unsetUser: () => userActions.UnsetUser;
+}
 
-const Header: React.FC<IProps> = () => {
-	return <HeaderView />;
+interface IProps extends IPropsFromDispatch {}
+
+const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const onExitButton = () => {
+		props.unsetUser();
+	};
+
+	return <HeaderView onExitButton={onExitButton} />;
 };
 
 Header.displayName = 'Header';
 Header.defaultProps = {};
 
-export default React.memo(Header);
+const mapDispatchToProps = (dispatch: Dispatch<userActions.UserTypes>): IPropsFromDispatch => {
+	return {
+		unsetUser: (): userActions.UnsetUser => dispatch(userActions.unsetUser()),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Header);
