@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Exlint/dashboard/compare/v1.3.1...v1.4.0) (2022-06-03)
+
+
+### Features
+
+* 🔥 support secrets ([4d5e6e4](https://github.com/Exlint/dashboard/commit/4d5e6e4d4e21440aab9f811eb052fd5e6d7bc4e1))
+
 ## [1.3.1](https://github.com/Exlint/dashboard/compare/v1.3.0...v1.3.1) (2022-06-02)
 
 
