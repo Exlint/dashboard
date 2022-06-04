@@ -2,6 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { PrismaClient } from '@prisma/client';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
@@ -43,6 +44,21 @@ async function bootstrap() {
 	prismaService.enableShutdownHooks(app);
 
 	const config = app.get<ConfigService<IEnvironment, true>>(ConfigService);
+	const nodeEnv = config.get('nodeEnv', { infer: true });
+
+	if (nodeEnv === 'development') {
+		const swaggerConfig = new DocumentBuilder()
+			.setTitle('Exlint Dashboard')
+			.setDescription('The Exlint Dashboard API Descritpion')
+			.setVersion('1.0')
+			.addTag('exlint')
+			.build();
+
+		const document = SwaggerModule.createDocument(app, swaggerConfig);
+
+		SwaggerModule.setup('api', app, document);
+	}
+
 	const port = config.get('port', { infer: true });
 
 	await app.listen(port);

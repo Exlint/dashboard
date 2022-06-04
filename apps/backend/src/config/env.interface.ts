@@ -1,4 +1,5 @@
 export interface IEnvironment {
+	readonly nodeEnv: 'development' | 'production';
 	readonly port: string;
 	readonly accessTokenJwtKey: string;
 	readonly refreshTokenJwtKey: string;

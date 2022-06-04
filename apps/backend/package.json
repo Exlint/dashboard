@@ -16,6 +16,7 @@
 		"prisma-gen:prod": "prisma generate --schema ./prisma/schema.prisma",
 		"prisma-push:dev": "dotenv -e ./prisma/.env.development prisma db push --schema ./prisma/schema.prisma",
 		"prisma-push:prod": "dotenv -e ./prisma/.env.production prisma db push --schema ./prisma/schema.prisma",
+		"compodoc": "compodoc && open-cli ./documentation/index.html",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json"
@@ -44,8 +45,10 @@
 		"rxjs": "7.5.5"
 	},
 	"devDependencies": {
+		"@compodoc/compodoc": "1.1.19",
 		"@nestjs/cli": "8.2.6",
 		"@nestjs/schematics": "8.0.11",
+		"@nestjs/swagger": "5.2.1",
 		"@types/bcryptjs": "2.4.2",
 		"@types/passport-github2": "1.2.5",
 		"@types/passport-google-oauth20": "2.0.11",
@@ -60,7 +63,9 @@
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-unused-imports": "2.0.0",
+		"open-cli": "7.0.1",
 		"prisma": "3.14.0",
+		"swagger-ui-express": "4.4.0",
 		"ts-loader": "9.3.0",
 		"typescript": "4.7.3",
 		"webpack": "5.73.0",

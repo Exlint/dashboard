@@ -103,3 +103,17 @@ When you want to clean the database
 ```bash
   pnpm db:clean
 ```
+
+## Backend documentation
+
+When you want look at the backend documentation
+
+```bash
+  cd ./apps/backend
+  pnpm compodoc
+```
+
+## Backend OpenAPI
+
+When you want look at the backend OpenAPI (Swagger), you need to run the application in development mode.
+Then, you can browse to `http://localhost:3000/api` (replace the port if you use other port)
