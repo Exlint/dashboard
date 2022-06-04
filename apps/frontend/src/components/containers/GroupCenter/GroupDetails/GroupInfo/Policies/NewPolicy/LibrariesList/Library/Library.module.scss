@@ -1,6 +1,6 @@
 .library {
-	position: relative;
 	display: flex;
+	justify-content: space-between;
 	height: fit-content;
 	padding: 14px;
 	border-radius: 10px;
@@ -70,9 +70,9 @@
 	}
 
 	.cancelSelectedLibraryButton {
-		position: absolute;
-		left: 230px;
+		z-index: 1;
 		display: flex;
+		height: fit-content;
 
 		&__cancelButton {
 			width: 12px;

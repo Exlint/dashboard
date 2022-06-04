@@ -1,22 +1,16 @@
 .groupsList {
 	display: flex;
+	flex-direction: column;
 	height: 100%;
-	overflow-y: scroll;
+	overflow-y: auto;
 
-	.innerGroupsList {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		height: 100%;
+	&__dividerLine {
+		width: 80%;
+		margin: 0 auto !important;
+		border: 2px solid #e7e7e7;
+	}
 
-		&__dividerLine {
-			width: 80%;
-			margin: 0 auto !important;
-			border: 2px solid #e7e7e7;
-		}
-
-		&__dividerLine:not(:last-child) {
-			margin-bottom: 38px;
-		}
+	&__dividerLine:not(:last-child) {
+		margin-bottom: 38px;
 	}
 }

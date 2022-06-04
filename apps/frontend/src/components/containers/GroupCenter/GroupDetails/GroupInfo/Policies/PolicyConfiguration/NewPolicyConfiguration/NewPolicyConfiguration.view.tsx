@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
 
+import VSvg from '@/ui/VSvg';
+import NavigateBackButton from '@/ui/NavigateBackButton';
 import classes from './NewPolicyConfiguration.module.scss';
 
 interface IProps {
@@ -14,6 +15,8 @@ const NewPolicyConfigurationView: React.FC<IProps> = (props: React.PropsWithChil
 
 	return (
 		<section className={classes['newPolicyConfiguration']}>
+			<NavigateBackButton />
+
 			<div className={classes['innerNewPolicyConfiguration']}>
 				<div className={classes['headerContainer']}>
 					<div className={classes['titleContainer']}>

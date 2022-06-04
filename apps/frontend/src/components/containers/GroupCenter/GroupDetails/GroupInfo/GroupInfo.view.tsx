@@ -6,7 +6,7 @@ import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
 import { IGroup } from '@/interfaces/group';
 import { ILibrary } from '@/interfaces/library';
-import { monthsName } from '../../../../../data/monthsName';
+import { monthsName } from '@/data/monthsName';
 
 import Policies from './Policies';
 import NewPolicy from './Policies/NewPolicy';

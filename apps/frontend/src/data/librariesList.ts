@@ -3,8 +3,7 @@ export const librariesList = [
 		logo: '../assets/images/eslintLogo.png',
 		title: 'ESLint',
 		madeBy: 'Nicholas C. Zakas',
-		description:
-			' Code linting is a type of static analysis that is frequently used to find problematic patterns or code that doesnt adhere to certain style guidelines.',
+		description: ' Code linting is a type of static analysis that is frequently',
 		type: 'type',
 		category: 'category',
 

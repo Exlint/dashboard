@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { types, categories } from '../../../../../../../../data/policiesFilter';
+import { types, categories } from '@/data/policiesFilter';
 
 // import { Trans, useTranslation } from 'react-i18next';
 

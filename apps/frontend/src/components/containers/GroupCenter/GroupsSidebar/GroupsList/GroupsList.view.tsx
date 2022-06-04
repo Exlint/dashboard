@@ -16,21 +16,19 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 
 	return (
 		<div className={classes['groupsList']}>
-			<div className={classes['innerGroupsList']}>
-				{props.groupsList.map((group, index) => (
-					<>
-						<Group
-							key={index}
-							title={group.title}
-							id={group.id}
-							policies={group.policies}
-							selectedGroup={props.selectedGroup}
-							onSelectedGroup={props.onSelectedGroup}
-						/>
-						<hr className={classes['innerGroupsList__dividerLine']} />
-					</>
-				))}
-			</div>
+			{props.groupsList.map((group, index) => (
+				<>
+					<Group
+						key={index}
+						title={group.title}
+						id={group.id}
+						policies={group.policies}
+						selectedGroup={props.selectedGroup}
+						onSelectedGroup={props.onSelectedGroup}
+					/>
+					<hr className={classes['innerGroupsList__dividerLine']} />
+				</>
+			))}
 		</div>
 	);
 };

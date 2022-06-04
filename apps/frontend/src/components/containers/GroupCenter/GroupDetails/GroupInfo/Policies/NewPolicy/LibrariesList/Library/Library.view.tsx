@@ -98,7 +98,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				className={classes['cancelSelectedLibraryButton']}
 				type="button"
 				style={{
-					display: isLibrarySelected ? 'flex' : 'none',
+					visibility: isLibrarySelected ? 'visible' : 'hidden',
 				}}
 				onClick={props.onCancelSelectedLibrary}
 			>

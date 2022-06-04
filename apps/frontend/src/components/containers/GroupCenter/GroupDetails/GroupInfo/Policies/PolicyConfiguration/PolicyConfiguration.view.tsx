@@ -2,8 +2,6 @@ import React from 'react';
 import { Route, useLocation } from 'react-router-dom';
 import { ILibrary } from '@/interfaces/library';
 
-// import { Trans, useTranslation } from 'react-i18next';
-
 import PolicySidebar from './PolicySidebar';
 import RuleCreation from './RuleCreation';
 
@@ -16,7 +14,6 @@ interface IProps {
 }
 
 const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const { t } = useTranslation();
 	const route = useLocation();
 
 	let currentPage;

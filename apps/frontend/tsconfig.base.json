@@ -10,7 +10,8 @@
 			"@/interfaces/*": ["src/interfaces/*"],
 			"@/ui/*": ["src/components/ui/*"],
 			"@/containers/*": ["src/components/containers/*"],
-			"@/data/*": ["src/data/*"]
+			"@/data/*": ["src/data/*"],
+			"@/utils/*": ["src/utils/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"]
 	}

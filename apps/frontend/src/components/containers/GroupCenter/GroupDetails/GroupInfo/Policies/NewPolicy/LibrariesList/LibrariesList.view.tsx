@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Trans, useTranslation } from 'react-i18next';
 import { ILibrary } from '@/interfaces/library';
-import { librariesList } from '../../../../../../../../data/librariesList';
+import { librariesList } from '@/data/librariesList';
 import Library from './Library';
 
 import classes from './LibrariesList.module.scss';

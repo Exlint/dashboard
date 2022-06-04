@@ -1,0 +1,122 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: fit-content;
+	padding: 4px 18px;
+	background-color: #e7e7e7;
+	border-top: 2px solid #bbb8ca;
+	border-right: 2px solid #bbb8ca;
+	border-left: 2px solid #bbb8ca;
+	border-radius: 10px 10px 0 0;
+
+	.leftSideContainer {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			font-size: 1.7rem;
+			font-weight: 560;
+			color: #4b4a65;
+		}
+	}
+
+	.rightSideContainer {
+		display: flex;
+		align-items: center;
+
+		.editFileFormatButton {
+			&__icon {
+				width: 24px;
+				height: 24px;
+				margin-right: 16px;
+				fill: #33383e;
+			}
+		}
+
+		.selectedFormatContainer {
+			right: 55px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			box-shadow: (0 11.4496px 15.6131px rgb(0 0 0 / 5%));
+
+			.selectedFormatVisible {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 100px;
+				height: 100%;
+				padding: 10px 14px;
+				white-space: nowrap;
+				background-color: #fefefe;
+				border: 1px solid #8b8b8b;
+
+				&__text {
+					margin-right: 30px;
+					font-size: 1.5rem;
+					font-weight: 360;
+					color: #4b4a65;
+				}
+
+				.moreFormatsButton {
+					&__arrowDown {
+						width: 11px;
+						height: 8px;
+						fill: transparent;
+						stroke: #202428;
+					}
+
+					&__arrowRight {
+						width: 8px;
+						height: 11px;
+						fill: transparent;
+						stroke: #202428;
+					}
+				}
+			}
+
+			.selectedFormatInvisible {
+				position: absolute;
+				top: 27%;
+				z-index: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-between;
+				width: 100px;
+				padding: 10px 14px;
+				white-space: nowrap;
+				background-color: #fefefe;
+				border: 1px solid #8b8b8b;
+				border-radius: 0 0 10px 10px;
+
+				&__divider {
+					width: 100%;
+					margin-bottom: 9px;
+					border: 1px solid #e7e7e7;
+				}
+
+				&__text {
+					font-size: 1.5rem;
+					font-weight: 360;
+					color: #4b4a65;
+				}
+
+				&__option {
+					font-size: 1.5rem;
+					font-weight: 360;
+					color: #4b4a65;
+				}
+
+				&__option:not(:last-child) {
+					margin-bottom: 5px;
+				}
+			}
+		}
+	}
+}

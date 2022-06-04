@@ -1,10 +1,11 @@
 .newPolicyConfiguration {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	width: 100%;
 	height: 100%;
 	padding: 74px 122px;
-	background-color: #e7e7e7;
+	background-color: #f2f2f2;
 
 	.innerNewPolicyConfiguration {
 		display: flex;
