@@ -154,7 +154,7 @@ importers:
       '@babel/core': 7.18.2
       '@babel/plugin-syntax-flow': 7.17.12
       '@babel/plugin-transform-react-jsx': 7.17.12
-      '@types/react': 18.0.11
+      '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       '@typescript-eslint/eslint-plugin': 5.27.0
       '@typescript-eslint/parser': 5.27.0
@@ -179,7 +179,7 @@ importers:
       stylelint-config-standard-scss: 4.0.0
       typescript: 4.7.3
     dependencies:
-      '@types/react': 18.0.11
+      '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
       i18next: 21.8.8
       react: 18.1.0
@@ -3301,11 +3301,11 @@ packages:
   /@types/react-dom/18.0.5:
     resolution: {integrity: sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==}
     dependencies:
-      '@types/react': 18.0.11
+      '@types/react': 18.0.12
     dev: false
 
-  /@types/react/18.0.11:
-    resolution: {integrity: sha512-JxSwm54IgMW4XTR+zFF5QpNx4JITmFbB4WHR2J0vg9RpjNeyqEMlODXsD2e64br6GX70TL0UYjZJETpyyC1WdA==}
+  /@types/react/18.0.12:
+    resolution: {integrity: sha512-duF1OTASSBQtcigUvhuiTB1Ya3OvSy+xORCiEf20H0P0lzx+/KeVsA99U5UjLXSbyo1DRJDlLKqTeM1ngosqtg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
