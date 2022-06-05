@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { IEnvironment } from '@/config/env.interface';
-import { IExternalAuthUser } from '@/interfaces/external-auth-user';
+import { IExternalAuthUser } from '@/modules/user/modules/auth/interfaces/external-auth-user';
 
 import { IGoogleProfile } from '../interfaces/google';
 
@@ -19,10 +19,17 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		});
 	}
 
-	validate(_: string, __: string, profile: IGoogleProfile): IExternalAuthUser {
+	override authorizationParams(): { [key: string]: string } {
+		return {
+			access_type: 'offline',
+		};
+	}
+
+	validate(_: string, refreshToken: string | undefined, profile: IGoogleProfile): IExternalAuthUser {
 		return {
 			email: profile.emails[0]!.value,
 			name: `${profile.name.givenName} ${profile.name.familyName}`,
+			externalToken: refreshToken,
 		};
 	}
 }

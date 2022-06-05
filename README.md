@@ -47,7 +47,7 @@ Sync Prisma with the database configuration
 ```bash
   cd ./apps/backend
 
-  pnpm prisma:gen
+  pnpm prisma-gen:dev
 ```
 
 Run the database in development mode
@@ -77,7 +77,7 @@ When you want to configure the database with more indices, collections and such,
 ```bash
   cd ./apps/backend
 
-  pnpm prisma:push
+  pnpm prisma-push:dev
 ```
 
 ## Stop the database server
@@ -88,6 +88,14 @@ When you want to stop the database server
   pnpm db:stop
 ```
 
+## Restart the database server
+
+When you want to restart the database server
+
+```bash
+  pnpm db:restart
+```
+
 ## Clean the database
 
 When you want to clean the database
@@ -95,3 +103,17 @@ When you want to clean the database
 ```bash
   pnpm db:clean
 ```
+
+## Backend documentation
+
+When you want look at the backend documentation
+
+```bash
+  cd ./apps/backend
+  pnpm compodoc
+```
+
+## Backend OpenAPI
+
+When you want look at the backend OpenAPI (Swagger), you need to run the application in development mode.
+Then, you can browse to `http://localhost:3000/api` (replace the port if you use other port)

@@ -3,7 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ILibrary } from '@/interfaces/library';
 import VSvg from '@/ui/VSvg';
+import SelectFromOptions from '@/ui/SelectFromOptions';
 
+import { sortByOptions } from '@/data/newPolicySortByOptions';
 import SideBarFilters from './SideBarFilters';
 import LibrariesList from './LibrariesList';
 import PolicyConfigurationButton from './PolicyConfigurationButton';
@@ -17,6 +19,8 @@ interface IProps {
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly isPolicyConfigurationClicked: boolean | null;
+	readonly selectedSortByOptionIndex: number | null;
+	readonly onSelectedSortBy: (index: number) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onSelectedLibrary: (library: ILibrary) => void;
@@ -82,41 +86,20 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 							</div>
 						</div>
 						<div className={classes['sortByContainer']}>
-							<div className={classes['sortByVisible']}>
-								<span className={classes['sortByVisible__text']}>Sort By</span>
-								<button
-									className={classes['sortByButton']}
-									type="button"
-									onClick={props.onSortBy}
-								>
-									{props.isSortByClicked ? (
-										<VSvg
-											className={classes['sortByButton__arrowRight']}
-											name="arrowRight"
-										/>
-									) : (
-										<VSvg
-											className={classes['sortByButton__arrowDown']}
-											name="arrowDown"
-										/>
-									)}
-								</button>
-							</div>
-							<div
-								className={classes['sortByInvisible']}
-								style={{ display: props.isSortByClicked ? 'flex' : 'none' }}
-							>
-								<hr className={classes['sortByInvisible__divider']} />
-								<span className={classes['sortByInvisible__option']}>Popularity</span>
-								<span className={classes['sortByInvisible__option']}>Names: A-Z</span>
-							</div>
+							<SelectFromOptions
+								componentWidth="150px"
+								defaultValue="Sort by"
+								border="2px solid #E7E7E7"
+								selectedOptionIndex={props.selectedSortByOptionIndex}
+								isShowMoreClicked={props.isSortByClicked}
+								optionsList={sortByOptions}
+								onSelectOptionsButton={props.onSortBy}
+								onSelectedOption={props.onSelectedSortBy}
+							/>
 						</div>
 					</div>
 				</div>
-				<div
-					className={classes['innerLibrary']}
-					style={{ marginTop: props.isSortByClicked ? '0' : '69.5px' }}
-				>
+				<div className={classes['innerLibrary']}>
 					<SideBarFilters />
 					<LibrariesList
 						selectedLibrary={props.selectedLibrary}

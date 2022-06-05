@@ -8,11 +8,9 @@ import {
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { User } from '@prisma/client';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
-import { IExternalAuthUser } from '@/interfaces/external-auth-user';
 
 import { AuthService } from './auth.service';
 import { IGoogleRedirectResponse } from './interfaces/responses';
@@ -21,8 +19,12 @@ import { GetGoogleUserContract } from './queries/contracts/get-google-user.contr
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
 import { CreateGoogleUserContract } from './queries/contracts/create-google-user.contract';
+import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
+import Routes from './auth.routes';
+import { IExternalAuthUser } from './interfaces/external-auth-user';
+import { IExternalLoggedUser } from './interfaces/user';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class GoogleController {
 	private readonly logger = new Logger(GoogleController.name);
 
@@ -34,14 +36,14 @@ export class GoogleController {
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
-	@Get('google-auth')
+	@Get(Routes.GOOGLE_AUTH)
 	public googleAuth() {
 		return;
 	}
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
-	@Get('google-redirect')
+	@Get(Routes.GOOGLE_REDIRECT)
 	@HttpCode(HttpStatus.OK)
 	public async googleRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
@@ -50,15 +52,27 @@ export class GoogleController {
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
 
-		const googleUser = await this.queryBus.execute<GetGoogleUserContract, Pick<User, 'id' | 'authType'>>(
+		const googleUser = await this.queryBus.execute<GetGoogleUserContract, IExternalLoggedUser>(
 			new GetGoogleUserContract(user.email),
 		);
 
 		if (!googleUser) {
 			this.logger.log(`Could not find a user with an email: "${user.email}". Will create new one`);
 
+			if (!user.externalToken) {
+				this.logger.error(
+					`Could not get a refresh token for Google user with an email: "${user.email}"`,
+				);
+
+				throw new BadRequestException();
+			}
+
 			const createdGoogleUserId = await this.queryBus.execute<CreateGoogleUserContract, string>(
-				new CreateGoogleUserContract({ name: user.name, email: user.email }),
+				new CreateGoogleUserContract({
+					name: user.name,
+					email: user.email,
+					refreshToken: user.externalToken!,
+				}),
 			);
 
 			this.logger.log(`Successfully created a user with Id: "${createdGoogleUserId}"`);
@@ -80,6 +94,8 @@ export class GoogleController {
 				accessToken,
 				refreshToken,
 				name: user.name,
+				id: createdGoogleUserId,
+				clientSecrets: [],
 			};
 		}
 
@@ -91,6 +107,14 @@ export class GoogleController {
 			throw new BadRequestException();
 		}
 
+		let storeRefreshTokenPromise;
+
+		if (user.externalToken) {
+			storeRefreshTokenPromise = this.commandBus.execute<UpdateExternalTokenContract, void>(
+				new UpdateExternalTokenContract(googleUser.id, user.externalToken),
+			);
+		}
+
 		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
 			googleUser.id,
 			user.email,
@@ -99,6 +123,7 @@ export class GoogleController {
 		this.logger.log('Successfully generated both access and refresh tokens');
 
 		await Promise.all([
+			storeRefreshTokenPromise,
 			this.commandBus.execute<AddRefreshTokenContract, void>(
 				new AddRefreshTokenContract(googleUser.id, refreshToken),
 			),
@@ -113,6 +138,8 @@ export class GoogleController {
 			accessToken,
 			refreshToken,
 			name: user.name,
+			id: googleUser.id,
+			clientSecrets: googleUser.clientSecrets,
 		};
 	}
 }

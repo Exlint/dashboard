@@ -3,3 +3,4 @@ dist
 tsconfig.tsbuildinfo
 .env
 .env.production
+documentation

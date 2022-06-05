@@ -9,7 +9,7 @@ export class GetGithubUserHandler implements IQueryHandler<GetGithubUserContract
 	constructor(private readonly dbUserService: DBUserService) {}
 
 	async execute(contract: GetGithubUserContract) {
-		const userData = await this.dbUserService.findGoogleUserByEmail(contract.email);
+		const userData = await this.dbUserService.findExternalUserByEmail(contract.email);
 
 		return userData;
 	}

@@ -1,3 +1,4 @@
+import { AutoLoginHandler } from './auto-login.handler';
 import { CreateGithubUserHandler } from './create-github-user.handler';
 import { CreateGoogleUserHandler } from './create-google-user.handler';
 import { CreateLocalUserHandler } from './create-local-user.handler';
@@ -11,6 +12,7 @@ export const QueryHandlers = [
 	CreateGoogleUserHandler,
 	CreateGithubUserHandler,
 	LoginHandler,
+	AutoLoginHandler,
 	EmailExistsHandler,
 	GetGoogleUserHandler,
 	GetGithubUserHandler,

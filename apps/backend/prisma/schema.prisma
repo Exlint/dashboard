@@ -17,14 +17,19 @@ model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   name         String
-  email        String   @unique
+  email        String  @unique
   passwordHash String?
-  authType     AuthType
+
+  authType      AuthType
+  externalToken String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  RefreshToken RefreshToken[]
+  refreshTokens RefreshToken[]
+  clientSecrets ClientSecret[]
+  groups        Group[]
+  policies      Policy[]
 }
 
 model RefreshToken {
@@ -36,5 +41,58 @@ model RefreshToken {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ClientSecret {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  secret String
+  userId String @db.ObjectId
+  label  String
+
+  expiration DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [userId, label], name: "unique_user_labels")
+  @@unique(fields: [userId, secret], name: "unique_user_secrets")
+}
+
+type InlinePolicy {
+  label String
+}
+
+model Group {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId         String       @db.ObjectId
+  label          String
+  inlinePolicies InlinePolicy
+  policyIDs      String[]     @db.ObjectId
+  policies       Policy[]     @relation(fields: [policyIDs], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+
+  @@unique(fields: [userId, label], name: "unique_user_labels")
+}
+
+model Policy {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId    String   @db.ObjectId
+  label     String
+  groupsIDs String[] @db.ObjectId
+  groups    Group[]  @relation(fields: [groupsIDs], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

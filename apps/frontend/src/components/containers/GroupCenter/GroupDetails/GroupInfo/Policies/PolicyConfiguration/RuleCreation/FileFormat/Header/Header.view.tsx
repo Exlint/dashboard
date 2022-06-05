@@ -3,6 +3,7 @@ import React from 'react';
 import VSvg from '@/ui/VSvg';
 import { fileFormats } from '@/data/fileFormts';
 
+import SelectFromOptions from '@/ui/SelectFromOptions';
 import classes from './Header.module.scss';
 
 interface IProps {
@@ -37,47 +38,15 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					/>
 				</button>
 
-				<div className={classes['selectedFormatContainer']}>
-					<div
-						className={classes['selectedFormatVisible']}
-						style={{
-							borderRadius: !props.isFileFormatClicked ? '10px' : '10px 10px 0 0',
-						}}
-					>
-						<span className={classes['selectedFormatVisible__text']}>
-							{fileFormats[props.selectedFileFormatIndex]}
-						</span>
-						<button
-							className={classes['moreFormatsButton']}
-							type="button"
-							onClick={props.onFileFormatButton}
-						>
-							{props.isFileFormatClicked ? (
-								<VSvg
-									className={classes['moreFormatsButton__arrowRight']}
-									name="arrowRight"
-								/>
-							) : (
-								<VSvg className={classes['moreFormatsButton__arrowDown']} name="arrowDown" />
-							)}
-						</button>
-					</div>
-					<div
-						className={classes['selectedFormatInvisible']}
-						style={{ display: props.isFileFormatClicked ? 'flex' : 'none' }}
-					>
-						{fileFormats.map((fileFormat, index) => (
-							<button
-								className={classes['selectedFormatInvisible__option']}
-								key="index"
-								type="button"
-								onClick={() => props.onSelectedFileFormat(index)}
-							>
-								{fileFormat}
-							</button>
-						))}
-					</div>
-				</div>
+				<SelectFromOptions
+					componentWidth="100px"
+					border="1px solid #8b8b8b"
+					selectedOptionIndex={props.selectedFileFormatIndex}
+					isShowMoreClicked={props.isFileFormatClicked}
+					optionsList={fileFormats}
+					onSelectOptionsButton={props.onFileFormatButton}
+					onSelectedOption={props.onSelectedFileFormat}
+				/>
 			</div>
 		</div>
 	);

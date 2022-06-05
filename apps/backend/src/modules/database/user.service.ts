@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma, User } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 import { MAX_JWT_REFRESH_TOKENS } from '@/models/jwt-token';
 
@@ -16,17 +16,21 @@ export class DBUserService {
 		});
 	}
 
-	public findByEmail(email: string, select: Partial<Record<keyof User, boolean>>) {
+	public findByEmail(email: string, select: Prisma.UserSelect) {
 		return this.prisma.user.findUnique({
 			where: { email },
 			select,
 		});
 	}
 
-	public findGoogleUserByEmail(email: string) {
+	public findExternalUserByEmail(email: string) {
 		return this.prisma.user.findUnique({
 			where: { email },
-			select: { id: true, authType: true },
+			select: {
+				id: true,
+				authType: true,
+				clientSecrets: { select: { createdAt: true, expiration: true, id: true, label: true } },
+			},
 		});
 	}
 
@@ -56,5 +60,18 @@ export class DBUserService {
 
 	public async deleteUser(userId: string) {
 		await this.prisma.user.delete({ where: { id: userId } });
+	}
+
+	public async updateExternalToken(userId: string, externalToken: string) {
+		await this.prisma.user.update({ where: { id: userId }, data: { externalToken } });
+	}
+
+	public async getAuthTypeData(userId: string) {
+		const user = await this.prisma.user.findUnique({
+			where: { id: userId },
+			select: { authType: true, externalToken: true },
+		});
+
+		return user;
 	}
 }

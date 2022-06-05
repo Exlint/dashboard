@@ -19,6 +19,13 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		boolean | null
 	>(false);
 
+	const [selectedSortByOptionIndexState, setSelectedSortByOptionIndexState] = useState<number | null>(null);
+
+	const onSelectedSortBy = (index: number) => {
+		setSelectedSortByOptionIndexState(() => index);
+		setIsSortByClicketState(() => false);
+	};
+
 	const onPolicyConfiguratoinClicked = () => {
 		setIsPolicyConfigurationClickedState(() => !isPolicyConfigurationClickedState);
 	};
@@ -33,6 +40,8 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			selectedLibrary={props.selectedLibrary}
 			policyLabelInput={props.policyLabelInput}
 			isPolicyConfigurationClicked={isPolicyConfigurationClickedState}
+			selectedSortByOptionIndex={selectedSortByOptionIndexState}
+			onSelectedSortBy={onSelectedSortBy}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}
 			onPolicyLabelInputChanged={props.onPolicyLabelInputChanged}
 			onSelectedLibrary={props.onSelectedLibrary}

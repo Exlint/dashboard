@@ -1,27 +1,24 @@
+import { ILoggedUser } from './user';
+
 interface ITokens {
 	accessToken: string;
 	refreshToken: string;
 }
 
-export interface IRegisterResponse extends ITokens {}
-
-export interface ILoginResponse extends ITokens {
-	name: string;
+export interface IRegisterResponse extends ITokens {
+	clientId: string;
 }
+
+export interface ILoginResponse extends ITokens, ILoggedUser {}
 
 export interface IRefreshTokenResponse {
 	accessToken: string;
 }
 
-export interface IAutoLoginResponse {
+export interface IAutoLoginResponse extends ILoggedUser {
 	accessToken: string;
-	name: string;
 }
 
-export interface IGoogleRedirectResponse extends ITokens {
-	name: string;
-}
+export interface IGoogleRedirectResponse extends ITokens, ILoggedUser {}
 
-export interface IGithubRedirectResponse extends ITokens {
-	name: string;
-}
+export interface IGithubRedirectResponse extends ITokens, ILoggedUser {}

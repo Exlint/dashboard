@@ -1,3 +1,24 @@
+# [1.4.0](https://github.com/Exlint/dashboard/compare/v1.3.1...v1.4.0) (2022-06-03)
+
+
+### Features
+
+* 🔥 support secrets ([4d5e6e4](https://github.com/Exlint/dashboard/commit/4d5e6e4d4e21440aab9f811eb052fd5e6d7bc4e1))
+
+## [1.3.1](https://github.com/Exlint/dashboard/compare/v1.3.0...v1.3.1) (2022-06-02)
+
+
+### Bug Fixes
+
+* 🐞 flaw in index creation - wrong collection ([71cc7de](https://github.com/Exlint/dashboard/commit/71cc7ded159e836323b7d8070569a6abe5361495))
+
+# [1.3.0](https://github.com/Exlint/dashboard/compare/v1.2.0...v1.3.0) (2022-06-01)
+
+
+### Features
+
+* 🔥 support user deletion ([e16cc90](https://github.com/Exlint/dashboard/commit/e16cc90122a3213c9d9e8e02de90c414d7ed94bb))
+
 # [1.2.0](https://github.com/Exlint/dashboard/compare/v1.1.0...v1.2.0) (2022-05-30)
 
 

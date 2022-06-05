@@ -9,8 +9,3 @@ export interface IGithubProfile extends IUnknown {
 	readonly displayName?: string;
 	readonly emails: IGithubEmail[];
 }
-
-export interface IGithubUser {
-	readonly name: string;
-	readonly email: string;
-}

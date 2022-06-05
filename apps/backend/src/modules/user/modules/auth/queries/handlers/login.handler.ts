@@ -13,6 +13,14 @@ export class LoginHandler implements IQueryHandler<LoginContract> {
 			passwordHash: true,
 			id: true,
 			name: true,
+			clientSecrets: {
+				select: {
+					id: true,
+					label: true,
+					expiration: true,
+					createdAt: true,
+				},
+			},
 		});
 
 		return userData;

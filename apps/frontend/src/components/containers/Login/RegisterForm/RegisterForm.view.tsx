@@ -1,8 +1,8 @@
 import React from 'react';
 // import { Trans, useTranslation } from 'react-i18next';
 
+import Input from '@/ui/Input';
 import brandLogo from '../../../../assets/images/brandLogo.png';
-import Input from '../Input';
 
 import classes from './RegisterForm.module.scss';
 

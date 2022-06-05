@@ -9,7 +9,6 @@ import {
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { User } from '@prisma/client';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUser } from '@/decorators/current-user.decorator';
@@ -24,8 +23,11 @@ import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-
 import { RefreshTokenGuard } from './guards/refresh-token.guard';
 import { LoginContract } from './queries/contracts/login.contract';
 import { JwtTokenType } from './models/jwt-token';
+import Routes from './auth.routes';
+import { ILoggedUser } from './interfaces/user';
+import { AutoLoginContract } from './queries/contracts/auto-login.contract';
 
-@Controller('auth')
+@Controller(Routes.CONTROLLER)
 export class LoginController {
 	private readonly logger = new Logger(LoginController.name);
 
@@ -37,11 +39,11 @@ export class LoginController {
 
 	@Public()
 	@UseGuards(LocalAuthGuard)
-	@Post('login')
+	@Post(Routes.LOGIN)
 	@HttpCode(HttpStatus.OK)
 	public async login(
 		@Body() loginDto: LoginDto,
-		@CurrentUser() user: Pick<User, 'id' | 'name'>,
+		@CurrentUser() user: ILoggedUser,
 	): Promise<ILoginResponse> {
 		this.logger.log(`Will try to login with data email: "${loginDto.email}"`);
 
@@ -63,21 +65,20 @@ export class LoginController {
 		return {
 			accessToken,
 			refreshToken,
-			name: user.name,
+			...user,
 		};
 	}
 
 	@Public()
 	@UseGuards(RefreshTokenGuard)
-	@Post('auto-login')
+	@Post(Routes.AUTO_LOGIN)
 	@HttpCode(HttpStatus.OK)
 	public async autoLogin(@CurrentUserEmail() userEmail: string): Promise<IAutoLoginResponse> {
 		this.logger.log(`Will try to auto login with data email: "${userEmail}"`);
 
-		const loggedUser = await this.queryBus.execute<
-			LoginContract,
-			Pick<User, 'passwordHash' | 'id' | 'name'> | null
-		>(new LoginContract(userEmail));
+		const loggedUser = await this.queryBus.execute<AutoLoginContract, ILoggedUser | null>(
+			new LoginContract(userEmail),
+		);
 
 		if (!loggedUser) {
 			this.logger.log(`Could not find a user with an email: "${userEmail}"`);
@@ -95,7 +96,7 @@ export class LoginController {
 
 		return {
 			accessToken,
-			name: loggedUser.name,
+			...loggedUser,
 		};
 	}
 }

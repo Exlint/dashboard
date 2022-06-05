@@ -13,6 +13,7 @@ export class CreateGithubUserHandler implements IQueryHandler<CreateGithubUserCo
 			email: contract.data.email,
 			name: contract.data.name,
 			authType: 'GITHUB',
+			externalToken: contract.data.accessToken,
 		});
 
 		return createdUser.id;

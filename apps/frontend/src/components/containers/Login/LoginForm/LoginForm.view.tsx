@@ -2,7 +2,7 @@ import React from 'react';
 import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
 
-import Input from '../Input';
+import Input from '@/ui/Input';
 import classes from './LoginForm.module.scss';
 
 interface IProps {

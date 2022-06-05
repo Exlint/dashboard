@@ -10,6 +10,8 @@ module.exports = {
 	},
 	plugins: ['node'],
 	rules: {
+		'max-lines': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
+
 		'node/no-sync': 'error',
 	},
 };

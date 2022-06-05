@@ -108,74 +108,13 @@
 						}
 					}
 				}
-
-				.sortByContainer {
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					width: 25%;
-					height: 100%;
-					background-color: #fefefe;
-					border: 2px solid #e7e7e7;
-					border-radius: 10px;
-					box-shadow: 0 11px 15px rgb(0 0 0 / 5%);
-
-					.sortByVisible {
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						height: 100%;
-						padding: 8px 21px;
-						white-space: nowrap;
-
-						&__text {
-							font-size: 1.7rem;
-							font-weight: 350;
-							color: #4b4a65;
-						}
-
-						.sortByButton {
-							&__arrowDown {
-								width: 11px;
-								height: 8px;
-								fill: transparent;
-								stroke: #8b8b8b;
-							}
-
-							&__arrowRight {
-								width: 8px;
-								height: 11px;
-								fill: transparent;
-								stroke: #8b8b8b;
-							}
-						}
-					}
-
-					.sortByInvisible {
-						flex-direction: column;
-
-						&__divider {
-							width: 100%;
-							margin-bottom: 9px;
-							border: 1px solid #e7e7e7;
-						}
-
-						&__option {
-							padding: 0 21px;
-							margin-bottom: 9px;
-							font-size: 1.7rem;
-							font-weight: 350;
-							color: #4b4a65;
-						}
-					}
-				}
 			}
 		}
 
 		.innerLibrary {
 			display: flex;
 			height: map.get($sizes, newpolicy-library-inner-height);
-			margin-left: 38px;
+			margin: 100px 0 0 38px;
 			overflow: hidden;
 		}
 	}
