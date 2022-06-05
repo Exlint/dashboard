@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Exlint/dashboard/compare/v1.4.0...v1.5.0) (2022-06-05)
+
+
+### Features
+
+* 🔥 support groups APIs ([ed9e818](https://github.com/Exlint/dashboard/commit/ed9e8188cd4fc6dda881736121b347b62ef69a37))
+
 # [1.4.0](https://github.com/Exlint/dashboard/compare/v1.3.1...v1.4.0) (2022-06-03)
 
 

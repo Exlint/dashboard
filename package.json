@@ -1,6 +1,6 @@
 {
 	"name": "exlint-dashboard",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"private": true,
 	"description": "Exlint dashboard",
 	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
