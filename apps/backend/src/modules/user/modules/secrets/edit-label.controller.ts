@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, HttpStatus, Logger, Patch, UseGuards } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 
 import { EditSecretDto } from './classes/edit-secret.dto';
@@ -15,11 +15,14 @@ export class EditSecretController {
 	@UseGuards(BelongingSecretGuard)
 	@Patch(Routes.EDIT_LABEL)
 	@HttpCode(HttpStatus.OK)
-	public async refreshSecret(@Body() editSecretDto: EditSecretDto): Promise<void> {
-		this.logger.log(`Will try to edit a client secret with Id: "${editSecretDto.secretId}"`);
+	public async refreshSecret(
+		@Param('secret_id') secretId: string,
+		@Body() editSecretDto: EditSecretDto,
+	): Promise<void> {
+		this.logger.log(`Will try to edit a client secret with Id: "${secretId}"`);
 
 		await this.commandBus.execute<EditSecretContract, string>(
-			new EditSecretContract(editSecretDto.secretId, editSecretDto.label),
+			new EditSecretContract(secretId, editSecretDto.label),
 		);
 
 		this.logger.log('Successfully edited a client secret');

@@ -47,7 +47,7 @@ Sync Prisma with the database configuration
 ```bash
   cd ./apps/backend
 
-  pnpm prisma-gen:dev
+  pnpm prisma-gen
 ```
 
 Run the database in development mode
