@@ -1,6 +1,5 @@
-import { Body, Controller, HttpCode, HttpStatus, Logger, Patch, UseGuards } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
-import { RefreshSecretDto } from './classes/refresh-secret.dto';
 
 import { BelongingSecretGuard } from './guards/belonging-secret.guard';
 import { IRefreshClientSecret } from './interfaces/responses';
@@ -16,11 +15,11 @@ export class RefreshSecretController {
 	@UseGuards(BelongingSecretGuard)
 	@Patch(Routes.REFRSH_SECRET)
 	@HttpCode(HttpStatus.OK)
-	public async refreshSecret(@Body() refreshSecretDto: RefreshSecretDto): Promise<IRefreshClientSecret> {
-		this.logger.log(`Will try to refresh a client secret with Id: "${refreshSecretDto.secretId}"`);
+	public async refreshSecret(@Param('secret_id') secretId: string): Promise<IRefreshClientSecret> {
+		this.logger.log(`Will try to refresh a client secret with Id: "${secretId}"`);
 
 		const secret = await this.queryBus.execute<RefreshSecretContract, string>(
-			new RefreshSecretContract(refreshSecretDto.secretId),
+			new RefreshSecretContract(secretId),
 		);
 
 		this.logger.log('Successfully refreshed a client secret');
