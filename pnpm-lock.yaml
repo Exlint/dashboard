@@ -166,7 +166,7 @@ importers:
       eslint-plugin-react: 7.30.0
       eslint-plugin-react-hooks: 4.5.0
       eslint-plugin-unused-imports: 2.0.0
-      i18next: 21.8.8
+      i18next: 21.8.9
       postcss: 8.4.14
       react: 18.1.0
       react-dom: 18.1.0
@@ -181,10 +181,10 @@ importers:
     dependencies:
       '@types/react': 18.0.12
       '@types/react-dom': 18.0.5
-      i18next: 21.8.8
+      i18next: 21.8.9
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
-      react-i18next: 11.17.0_xoj65rcdat5ngipydygujavba4
+      react-i18next: 11.17.0_yu4sb4vmu5dvmheeaa2fohstne
       react-scripts: 5.0.1_4ed4sbegcvvp6yz3treiyzfcpa
       typescript: 4.7.3
     devDependencies:
@@ -7737,6 +7737,13 @@ packages:
     resolution: {integrity: sha512-iN/5JuWStyivyBgmUgy5BRiFs0lZrgCRaeV9q4yVH/eR9NID7pZSMt3rpF8C16GplchoEjDP0JalKwZMJ1CJAA==}
     dependencies:
       '@babel/runtime': 7.18.3
+    dev: true
+
+  /i18next/21.8.9:
+    resolution: {integrity: sha512-PY9a/8ADVmnju1tETeglbbVQi+nM5pcJQWm9kvKMTE3GPgHHtpDsHy5HQ/hccz2/xtW7j3vuso23JdQSH0EttA==}
+    dependencies:
+      '@babel/runtime': 7.18.3
+    dev: false
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -11353,7 +11360,7 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-i18next/11.17.0_xoj65rcdat5ngipydygujavba4:
+  /react-i18next/11.17.0_yu4sb4vmu5dvmheeaa2fohstne:
     resolution: {integrity: sha512-ewq2S4bVUTRqOMAdM/XvzCn9xUPIryzeBQRghmJ8lC6VI/8Kp7z1GwoLyt8j7GB2ywhN2SjPk7LU4sHzVeu7aw==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -11369,7 +11376,7 @@ packages:
       '@babel/runtime': 7.18.3
       html-escaper: 2.0.2
       html-parse-stringify: 3.0.1
-      i18next: 21.8.8
+      i18next: 21.8.9
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     dev: false
