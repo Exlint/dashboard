@@ -96,6 +96,7 @@ export class GoogleController {
 				name: user.name,
 				id: createdGoogleUserId,
 				clientSecrets: [],
+				groupsData: [],
 			};
 		}
 
@@ -140,6 +141,7 @@ export class GoogleController {
 			name: user.name,
 			id: googleUser.id,
 			clientSecrets: googleUser.clientSecrets,
+			groupsData: googleUser.groupsData,
 		};
 	}
 }

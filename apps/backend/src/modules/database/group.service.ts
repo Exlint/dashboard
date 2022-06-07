@@ -28,4 +28,20 @@ export class DBGroupService {
 	public async deleteGroup(groupId: string) {
 		await this.prisma.group.delete({ where: { id: groupId } });
 	}
+
+	public async getUserGroups(userId: string) {
+		const userGroups = await this.prisma.group.findMany({
+			where: { userId },
+			select: {
+				id: true,
+				label: true,
+				createdAt: true,
+				inlinePolicies: {
+					select: { id: true, label: true, library: true, configuration: true, createdAt: true },
+				},
+			},
+		});
+
+		return userGroups;
+	}
 }

@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
-
-import { PolicyLibrary } from '@/models/policy-library';
+import { PolicyLibrary, Prisma } from '@prisma/client';
 
 import { PrismaService } from './prisma.service';
 

@@ -1,4 +1,4 @@
-import { PolicyLibrary } from '@/models/policy-library';
+import { PolicyLibrary } from '@prisma/client';
 
 export class CreateInlineContract {
 	constructor(

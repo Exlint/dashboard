@@ -1,13 +1,21 @@
 import { User, ClientSecret } from '@prisma/client';
 
+import { IGroupData } from './groups-data';
+
 interface ILoggedUserClientSecrets {
 	clientSecrets: Pick<ClientSecret, 'id' | 'label' | 'expiration' | 'createdAt'>[];
 }
 
-export interface ILoggedUser extends Pick<User, 'id' | 'name'>, ILoggedUserClientSecrets {}
+export interface ILoggedUser extends Pick<User, 'id' | 'name'>, ILoggedUserClientSecrets {
+	groupsData: IGroupData[];
+}
 
 export interface ILocalStrategyUser
 	extends Pick<User, 'id' | 'passwordHash' | 'name'>,
-		ILoggedUserClientSecrets {}
+		ILoggedUserClientSecrets {
+	groupsData: IGroupData[];
+}
 
-export interface IExternalLoggedUser extends Pick<User, 'id' | 'authType'>, ILoggedUserClientSecrets {}
+export interface IExternalLoggedUser extends Pick<User, 'id' | 'authType'>, ILoggedUserClientSecrets {
+	groupsData: IGroupData[];
+}

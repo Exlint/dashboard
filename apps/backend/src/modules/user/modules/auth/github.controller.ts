@@ -88,6 +88,7 @@ export class GithubController {
 				name: user.name,
 				id: createdGithubUserId,
 				clientSecrets: [],
+				groupsData: [],
 			};
 		}
 
@@ -132,6 +133,7 @@ export class GithubController {
 			name: user.name,
 			id: githubUser.id,
 			clientSecrets: githubUser.clientSecrets,
+			groupsData: githubUser.groupsData,
 		};
 	}
 }
