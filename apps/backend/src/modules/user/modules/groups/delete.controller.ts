@@ -2,9 +2,9 @@ import { Controller, Delete, HttpCode, HttpStatus, Logger, Param, UseGuards } fr
 import { CommandBus } from '@nestjs/cqrs';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './groups.routes';
-import { BelongingGroupGuard } from './guards/belonging-group.guard';
 import { DeleteContract } from './commands/contracts/delete.contract';
 
 @Controller(Routes.CONTROLLER)

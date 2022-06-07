@@ -2,11 +2,11 @@ import { Body, Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards
 import { CommandBus } from '@nestjs/cqrs';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './groups.routes';
 import { EditLabelDto } from './classes/edit-label.dto';
 import { EditLabelContract } from './commands/contracts/edit-label.contract';
-import { BelongingGroupGuard } from './guards/belonging-group.guard';
 
 @Controller(Routes.CONTROLLER)
 export class EditLabelController {

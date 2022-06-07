@@ -13,8 +13,8 @@ export class BelongingGroupGuard implements CanActivate {
 		const userId = user.sub;
 		const groupId = request.params.group_id as string;
 
-		const groupBelongUser = await this.dbGroupService.doesGroupBelongUser(userId, groupId);
+		const groupBelongsUser = await this.dbGroupService.doesGroupBelongUser(userId, groupId);
 
-		return groupBelongUser;
+		return groupBelongsUser;
 	}
 }

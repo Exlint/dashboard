@@ -17,18 +17,7 @@ enum PolicyLibrary {
   ESLINT
   PRETTIER
   INFLINT
-}
-
-enum LibraryCategory {
-  LINTER
-}
-
-type InlinePolicy {
-  label         String
-  library       PolicyLibrary
-  category      LibraryCategory
-  configuration Json?
-  rules         Json?
+  STYLELINT
 }
 
 model User {
@@ -79,16 +68,32 @@ model ClientSecret {
   @@unique(fields: [userId, secret], name: "unique_user_secrets")
 }
 
-model Group {
+model InlinePolicy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId         String         @db.ObjectId
-  label          String?
-  inlinePolicies InlinePolicy[]
-  policyIDs      String[]       @db.ObjectId
+  groupId       String        @db.ObjectId
+  label         String
+  library       PolicyLibrary
+  configuration Json?
+  rules         Json?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+}
+
+model Group {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId    String   @db.ObjectId
+  label     String?
+  policyIDs String[] @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  inlinePolicies InlinePolicy[]
 
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   policies Policy[] @relation(fields: [policyIDs], references: [id])
@@ -99,13 +104,12 @@ model Group {
 model Policy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId        String          @db.ObjectId
+  userId        String        @db.ObjectId
   label         String
   library       PolicyLibrary
-  category      LibraryCategory
   configuration Json?
   rules         Json?
-  groupsIDs     String[]        @db.ObjectId
+  groupsIDs     String[]      @db.ObjectId
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
