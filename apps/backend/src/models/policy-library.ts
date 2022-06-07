@@ -1,0 +1,6 @@
+export enum PolicyLibrary {
+	ESLINT = 'ESLINT',
+	STYLELINT = 'STYLELINT',
+	PRETTIER = 'PRETTIER',
+	INFLINT = 'INFLINT',
+}
