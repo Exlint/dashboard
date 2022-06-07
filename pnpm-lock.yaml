@@ -66,7 +66,7 @@ importers:
       '@nestjs/schematics': 8.0.11
       '@nestjs/swagger': 5.2.1
       '@octokit/oauth-app': 3.6.2
-      '@prisma/client': 3.14.0
+      '@prisma/client': 3.15.0
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -91,7 +91,7 @@ importers:
       passport-google-oauth20: 2.0.0
       passport-jwt: 4.0.0
       passport-local: 1.0.0
-      prisma: 3.14.0
+      prisma: 3.15.0
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
       rxjs: 7.5.5
@@ -109,7 +109,7 @@ importers:
       '@nestjs/passport': 8.2.1_rgfpjs3s462m3ujji7kreilcr4
       '@nestjs/platform-express': 8.4.6_etfae4mmenqzp3rs3pua7csngy
       '@octokit/oauth-app': 3.6.2
-      '@prisma/client': 3.14.0_prisma@3.14.0
+      '@prisma/client': 3.15.0_prisma@3.15.0
       bcryptjs: 2.4.3
       class-transformer: 0.5.1
       class-validator: 0.13.2
@@ -142,7 +142,7 @@ importers:
       eslint-plugin-node: 11.1.0_eslint@8.17.0
       eslint-plugin-unused-imports: 2.0.0_tjwv4ig2otjpl5zmysfn2moz3y
       open-cli: 7.0.1
-      prisma: 3.14.0
+      prisma: 3.15.0
       swagger-ui-express: 4.4.0
       ts-loader: 9.3.0_jy5w4alwxi2du2dgjfsq7k3iza
       typescript: 4.7.3
@@ -2798,8 +2798,8 @@ packages:
       webpack-dev-server: 4.9.1_webpack@5.72.1
     dev: false
 
-  /@prisma/client/3.14.0_prisma@3.14.0:
-    resolution: {integrity: sha512-atb41UpgTR1MCst0VIbiHTMw8lmXnwUvE1KyUCAkq08+wJyjRE78Due+nSf+7uwqQn+fBFYVmoojtinhlLOSaA==}
+  /@prisma/client/3.15.0_prisma@3.15.0:
+    resolution: {integrity: sha512-0bwpIXtE3qkkm8JV6kSHLPyEbEUQD+hFAO7NM5INr23vFBOoyKwKI1Q4V08A7jq3NdI7g2NlBuugCHE9//1ANw==}
     engines: {node: '>=12.6'}
     requiresBuild: true
     peerDependencies:
@@ -2808,16 +2808,16 @@ packages:
       prisma:
         optional: true
     dependencies:
-      '@prisma/engines-version': 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
-      prisma: 3.14.0
+      '@prisma/engines-version': 3.15.0-29.b9297dc3a59307060c1c39d7e4f5765066f38372
+      prisma: 3.15.0
     dev: false
 
-  /@prisma/engines-version/3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a:
-    resolution: {integrity: sha512-D+yHzq4a2r2Rrd0ZOW/mTZbgDIkUkD8ofKgusEI1xPiZz60Daks+UM7Me2ty5FzH3p/TgyhBpRrfIHx+ha20RQ==}
+  /@prisma/engines-version/3.15.0-29.b9297dc3a59307060c1c39d7e4f5765066f38372:
+    resolution: {integrity: sha512-VRj1Svti6h4UnUxEbIpio+40zppFztGKogVbkgblndbEQfmNdLh2M5bzDD6kaO+r8LBxHUBzUG/zEmlpxTvwoA==}
     dev: false
 
-  /@prisma/engines/3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a:
-    resolution: {integrity: sha512-LwZvI3FY6f43xFjQNRuE10JM5R8vJzFTSmbV9X0Wuhv9kscLkjRlZt0BEoiHmO+2HA3B3xxbMfB5du7ZoSFXGg==}
+  /@prisma/engines/3.15.0-29.b9297dc3a59307060c1c39d7e4f5765066f38372:
+    resolution: {integrity: sha512-S5T0NuVF2+NoKoxY5bN6O/7avv4ifcjqqk5+JFZ6C4g+P7JMM3nY0wGBPI+46A8yGIDsyyFmvFTYiIDsEUwUeQ==}
     requiresBuild: true
 
   /@rollup/plugin-babel/5.3.1_xrrjiapkmykkmovg76xtzegu3a:
@@ -11158,13 +11158,13 @@ packages:
       react-is: 18.1.0
     dev: false
 
-  /prisma/3.14.0:
-    resolution: {integrity: sha512-l9MOgNCn/paDE+i1K2fp9NZ+Du4trzPTJsGkaQHVBufTGqzoYHuNk8JfzXuIn0Gte6/ZjyKj652Jq/Lc1tp2yw==}
+  /prisma/3.15.0:
+    resolution: {integrity: sha512-HL1kGDuFi9PdhbVLYsQO9vAH9uRFAHk7ifUOQxSrzUDs7R4VfLtg45VvXz8VHwcgLY5h0OrDVe1TdEX7a4o9tg==}
     engines: {node: '>=12.6'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
+      '@prisma/engines': 3.15.0-29.b9297dc3a59307060c1c39d7e4f5765066f38372
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
