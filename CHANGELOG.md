@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Exlint/dashboard/compare/v1.5.0...v1.6.0) (2022-06-07)
+
+
+### Features
+
+* 🔥 support inline policies API ([6f070ce](https://github.com/Exlint/dashboard/commit/6f070ce7adb1c2db3080b1357d3ad90302870d2c))
+
 # [1.5.0](https://github.com/Exlint/dashboard/compare/v1.4.0...v1.5.0) (2022-06-05)
 
 
