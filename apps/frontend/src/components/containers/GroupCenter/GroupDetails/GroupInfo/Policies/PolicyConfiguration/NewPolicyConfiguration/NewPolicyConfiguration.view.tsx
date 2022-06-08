@@ -15,7 +15,7 @@ const NewPolicyConfigurationView: React.FC<IProps> = (props: React.PropsWithChil
 
 	return (
 		<section className={classes['newPolicyConfiguration']}>
-			<NavigateBackButton />
+			<NavigateBackButton position={{ bottom: '50px', right: ' 100px' }} />
 
 			<div className={classes['innerNewPolicyConfiguration']}>
 				<div className={classes['headerContainer']}>

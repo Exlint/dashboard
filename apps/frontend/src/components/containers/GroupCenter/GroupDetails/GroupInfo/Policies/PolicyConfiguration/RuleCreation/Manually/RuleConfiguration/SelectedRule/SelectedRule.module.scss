@@ -1,0 +1,63 @@
+.selectedRule {
+	display: flex;
+	align-items: center;
+	height: 150px;
+	padding: 16px;
+
+	// border-image: linear-gradient(to right, rgba(79, 51, 155, 0.5), rgba(79, 51, 155, 1)) 1;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+
+	.innerRule {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.leftSideContainer {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 40%;
+			margin-right: 14px;
+
+			&__ruleName {
+				font-size: 1.7rem;
+				font-weight: 560;
+				color: #4b4a65;
+			}
+
+			&__catagory {
+				margin-top: 2px;
+				font-size: 1.7rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+		}
+
+		.middleSideContainer {
+			display: flex;
+			width: 45%;
+
+			&__description {
+				margin-top: 2px;
+				font-size: 1.7rem;
+				font-weight: 460;
+				line-height: 20px;
+				color: #4b4a65;
+			}
+		}
+
+		.removeRuleButton {
+			display: flex;
+			align-items: center;
+
+			&__icon {
+				width: 25px;
+				height: 25px;
+				fill: transparent;
+				stroke: #7084a3;
+			}
+		}
+	}
+}

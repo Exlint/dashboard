@@ -26,7 +26,7 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						selectedGroup={props.selectedGroup}
 						onSelectedGroup={props.onSelectedGroup}
 					/>
-					<hr className={classes['innerGroupsList__dividerLine']} />
+					<hr className={classes['groupsList__dividerLine']} />
 				</>
 			))}
 		</div>

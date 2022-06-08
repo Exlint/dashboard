@@ -4,8 +4,6 @@ import VSvg from '@/ui/VSvg';
 
 import { IGroup } from '@/interfaces/group';
 
-// import { Trans, useTranslation } from 'react-i18next';
-
 import classes from './Group.module.scss';
 
 interface IProps extends IGroup {
@@ -15,8 +13,6 @@ interface IProps extends IGroup {
 }
 
 const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const { t } = useTranslation();
-
 	return (
 		<div
 			className={classes['group']}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, useLocation } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { ILibrary } from '@/interfaces/library';
 
 import PolicySidebar from './PolicySidebar';
@@ -18,26 +18,33 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 
 	let currentPage;
 
-	if (route.pathname.includes('/Configurations')) {
-		currentPage = 'configurations';
-	} else if (route.pathname.includes('/ruleOnboarding')) {
-		currentPage = 'ruleCreation';
+	if (route.pathname.includes('/manual')) {
+		currentPage = 'manual';
 	}
 
 	return (
-		<section className={classes['policyConfiguration']}>
+		<section
+			className={classes['policyConfiguration']}
+			style={{ height: currentPage !== 'manual' ? '100%' : 'fit-content' }}
+		>
 			<PolicySidebar
 				selectedLibrary={props.selectedLibrary}
 				policyLabelInput={props.policyLabelInput}
 			/>
-			<Route path="/groupCenter/group/Policy/Configurations-Onboarding">
-				{currentPage === 'configurations' && (
-					<NewPolicyConfiguration policyLabelInput={props.policyLabelInput} />
-				)}
-			</Route>
-			<Route path="/groupCenter/group/Policy/ruleOnboarding">
-				{currentPage === 'ruleCreation' && <RuleCreation policyLabelInput={props.policyLabelInput} />}
-			</Route>
+			<Suspense fallback={null}>
+				<Switch>
+					<Route path="/groupCenter/group/Policy/Configurations-Onboarding">
+						<NewPolicyConfiguration policyLabelInput={props.policyLabelInput} />
+					</Route>
+					<Route path="/groupCenter/group/Policy/ruleOnboarding">
+						<RuleCreation
+							policyLabelInput={props.policyLabelInput}
+							selectedLibrary={props.selectedLibrary}
+						/>
+					</Route>
+					<Redirect path="*" to="/groupCenter/group/Policy/ruleOnboarding" />
+				</Switch>
+			</Suspense>
 		</section>
 	);
 };

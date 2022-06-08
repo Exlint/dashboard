@@ -87,7 +87,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						</div>
 						<div className={classes['sortByContainer']}>
 							<SelectFromOptions
-								componentWidth="150px"
+								componentWidth="200px"
 								defaultValue="Sort by"
 								border="2px solid #E7E7E7"
 								selectedOptionIndex={props.selectedSortByOptionIndex}

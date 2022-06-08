@@ -5,6 +5,10 @@ import VSvg from '@/ui/VSvg';
 import classes from './NavigateBackButton.module.scss';
 
 interface IProps {
+	readonly position: {
+		readonly bottom: string;
+		readonly right: string;
+	};
 	readonly onGoBack: () => void;
 }
 
@@ -12,7 +16,10 @@ const NavigateBackButtonView: React.FC<IProps> = (props: React.PropsWithChildren
 	// const { t } = useTranslation();
 
 	return (
-		<div className={classes['navigateBackButton']}>
+		<div
+			className={classes['navigateBackButton']}
+			style={{ bottom: props.position.bottom, right: props.position.right }}
+		>
 			<VSvg className={classes['navigateBackButton__icon']} name="arrowLeft" />
 			<button className={classes['navigateBackButton__text']} type="button" onClick={props.onGoBack}>
 				Back

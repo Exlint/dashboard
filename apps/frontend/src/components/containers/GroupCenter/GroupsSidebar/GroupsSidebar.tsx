@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { IGroup } from '@/interfaces/group';
 
@@ -6,21 +6,17 @@ import GroupsSidebarView from './GroupsSidebar.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup | null;
+	readonly groupsList: IGroup[] | [];
 	readonly onSelectedGroup: (group: IGroup) => void;
+	readonly onCreateNewGroup: () => void;
 }
 
 const GroupsSidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [groupsList, setGroupsList] = useState<IGroup[]>([]);
-
-	const onCreateNewGroup = () => {
-		setGroupsList([...groupsList, { title: 'Group Label', id: Math.random(), policies: [1, 2, 3, 4] }]);
-	};
-
 	return (
 		<GroupsSidebarView
-			groupsList={groupsList}
+			groupsList={props.groupsList}
 			selectedGroup={props.selectedGroup}
-			onCreateNewGroup={onCreateNewGroup}
+			onCreateNewGroup={props.onCreateNewGroup}
 			onSelectedGroup={props.onSelectedGroup}
 		/>
 	);

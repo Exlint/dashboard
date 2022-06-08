@@ -10,6 +10,7 @@ interface IProps {
 	readonly selectedOptionIndex: number | null;
 	readonly isShowMoreClicked: boolean;
 	readonly optionsList: string[];
+	readonly isVisibleValueBlocked?: boolean;
 	readonly onSelectOptionsButton: () => void;
 	readonly onSelectedOption: (index: number) => void;
 }
@@ -26,9 +27,11 @@ const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<
 				}}
 			>
 				<span className={classes['selectedOptionsVisible__text']}>
-					{props.selectedOptionIndex === null
-						? props.defaultValue
-						: props.optionsList[props.selectedOptionIndex]}
+					{props.selectedOptionIndex !== null
+						? props.optionsList[props.selectedOptionIndex]!.length > 12
+							? props.optionsList[props.selectedOptionIndex]!.slice(0, 12) + '...'
+							: props.optionsList[props.selectedOptionIndex!]
+						: props.defaultValue}
 				</span>
 				<button
 					className={classes['moreOptionsButton']}

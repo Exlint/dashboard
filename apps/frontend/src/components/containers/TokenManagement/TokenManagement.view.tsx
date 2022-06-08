@@ -1,4 +1,5 @@
 import React from 'react';
+import { SteppedLineTo } from 'react-lineto';
 // import { Trans, useTranslation } from 'react-i18next';
 
 import classes from './TokenManagement.module.scss';
@@ -10,7 +11,25 @@ const TokenManagementView: React.FC<IProps> = () => {
 
 	return (
 		<div className={classes['tokenManagement']}>
-			<h1>THIS IS TOKEN MANAGMENT</h1>
+			<div className={classes['container']}>
+				<div className="first">
+					<h1>First Element</h1>
+				</div>
+				<div className="f">
+					<h1>First Element</h1>
+				</div>
+				<div className="d">
+					<h1>First Element</h1>
+				</div>
+				<div className="s">
+					<h1>First Element</h1>
+				</div>
+			</div>
+
+			<div className="second">
+				<h1> second element</h1>
+			</div>
+			<SteppedLineTo from="s" to="second" orientation="h" borderWidth={10} />
 		</div>
 	);
 };

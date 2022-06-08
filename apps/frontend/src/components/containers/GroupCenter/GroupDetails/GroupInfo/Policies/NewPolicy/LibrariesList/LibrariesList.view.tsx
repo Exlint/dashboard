@@ -14,18 +14,19 @@ interface IProps {
 
 const LibrariesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	// const { t } = useTranslation();
+	const libraries = Object.keys(librariesList) as (keyof typeof librariesList)[];
 
 	return (
 		<div className={classes['librariesList']}>
-			{librariesList.map((library, index) => (
+			{libraries.map((library, index) => (
 				<Library
 					key={index}
-					logo={library.logo}
-					title={library.title}
-					madeBy={library.madeBy}
-					description={library.description}
-					type={library.type}
-					category={library.category}
+					logo={librariesList[library].logo}
+					title={librariesList[library].title}
+					madeBy={librariesList[library].madeBy}
+					description={librariesList[library].description}
+					type={librariesList[library].type}
+					category={librariesList[library].category}
 					index={index}
 					selectedLibrary={props.selectedLibrary}
 					onSelectedLibrary={props.onSelectedLibrary}

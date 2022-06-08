@@ -1,3 +1,14 @@
 .tokenManagement {
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	padding: 100px;
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
 }

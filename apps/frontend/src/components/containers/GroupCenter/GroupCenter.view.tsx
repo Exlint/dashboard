@@ -15,10 +15,12 @@ interface IProps {
 	readonly selectedGroup: IGroup | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
+	readonly groupsList: IGroup[] | [];
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onSelectedLibrary: (library: ILibrary) => void;
 	readonly onCancelSelectedLibrary: () => void;
 	readonly onSelectedGroup: (group: IGroup) => void;
+	readonly onCreateNewGroup: () => void;
 }
 
 const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -29,14 +31,21 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 
 	if (route.pathname.includes('/Policy')) {
 		currentPage = 'configurations';
+	} else if (route.pathname.includes('/manuel')) {
+		currentPage = 'manual';
 	}
 
 	return (
-		<section className={classes['groupCenterContainer']}>
+		<section
+			className={classes['groupCenterContainer']}
+			style={{ overflow: currentPage !== 'manual' ? 'auto' : 'hidden' }}
+		>
 			{currentPage !== 'configurations' && (
 				<div className={classes['innerGroupDetalis']}>
 					<GroupsSidebar
 						selectedGroup={props.selectedGroup}
+						groupsList={props.groupsList}
+						onCreateNewGroup={props.onCreateNewGroup}
 						onSelectedGroup={props.onSelectedGroup}
 					/>
 					<GroupDetails

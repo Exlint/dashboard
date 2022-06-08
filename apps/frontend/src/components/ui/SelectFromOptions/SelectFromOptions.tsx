@@ -9,6 +9,7 @@ interface IProps {
 	readonly selectedOptionIndex: number | null;
 	readonly isShowMoreClicked: boolean;
 	readonly optionsList: string[];
+	readonly isVisibleValueBlocked?: boolean;
 	readonly onSelectOptionsButton: () => void;
 	readonly onSelectedOption: (index: number) => void;
 }
@@ -22,6 +23,7 @@ const SelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			selectedOptionIndex={props.selectedOptionIndex}
 			isShowMoreClicked={props.isShowMoreClicked}
 			optionsList={props.optionsList}
+			isVisibleValueBlocked={props?.isVisibleValueBlocked}
 			onSelectOptionsButton={props.onSelectOptionsButton}
 			onSelectedOption={props.onSelectedOption}
 		/>

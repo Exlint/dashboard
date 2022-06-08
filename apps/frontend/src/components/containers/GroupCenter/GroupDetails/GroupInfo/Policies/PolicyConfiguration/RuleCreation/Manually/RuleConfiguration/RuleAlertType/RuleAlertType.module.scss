@@ -1,0 +1,40 @@
+.ruleAlertContainer {
+	display: flex;
+	justify-content: center;
+	padding: 36px 28px;
+	border-bottom: 2px solid #e7e7e7;
+
+	.innerRuleAlert {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		.alertType {
+			display: flex;
+			align-items: center;
+
+			.checkboxBorder {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				height: 20px;
+				margin-right: 4px;
+				border: 1px solid #202428;
+				border-radius: 50%;
+
+				&__button {
+					width: 14px;
+					height: 14px;
+					border-radius: 50%;
+				}
+			}
+
+			&__text {
+				font-size: 1.8rem;
+				font-weight: 560;
+				color: #4b4a65;
+			}
+		}
+	}
+}

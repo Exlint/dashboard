@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 
 import { IGroup } from '@/interfaces/group';
 import { ILibrary } from '@/interfaces/library';
-// import { Trans, useTranslation } from 'react-i18next';
 
 import GroupInfo from './GroupInfo';
 
@@ -19,8 +18,6 @@ interface IProps {
 }
 
 const GroupDetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const { t } = useTranslation();
-
 	return (
 		<section className={classes['groupDetails']}>
 			<Route path="/groupCenter/group">
