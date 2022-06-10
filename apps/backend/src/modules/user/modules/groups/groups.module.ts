@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
@@ -9,7 +10,7 @@ import { EditLabelController } from './edit-label.controller';
 import { QueryHandlers } from './queries/handlers';
 
 @Module({
-	imports: [],
+	imports: [CqrsModule],
 	controllers: [CreateController, EditLabelController, DeleteController],
 	providers: [...QueryHandlers, ...CommandHandlers, BelongingGroupGuard],
 })

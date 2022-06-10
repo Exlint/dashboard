@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
@@ -12,7 +13,7 @@ import { AddRuleController } from './add-rule.controller';
 import { RemoveRuleController } from './remove-rule.controller';
 
 @Module({
-	imports: [],
+	imports: [CqrsModule],
 	controllers: [
 		CreateInlineController,
 		DeleteInlineController,
