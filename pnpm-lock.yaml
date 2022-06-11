@@ -22,7 +22,7 @@ importers:
       is-ci: 3.0.1
       lint-staged: 13.0.1
       npm-run-all: 4.1.5
-      pnpm: 7.2.0
+      pnpm: 7.2.1
       prettier: 2.6.2
       rimraf: 3.0.2
       stylelint: 14.9.1
@@ -46,7 +46,7 @@ importers:
       is-ci: 3.0.1
       lint-staged: 13.0.1
       npm-run-all: 4.1.5
-      pnpm: 7.2.0
+      pnpm: 7.2.1
       prettier: 2.6.2
       rimraf: 3.0.2
       stylelint: 14.9.1
@@ -10357,9 +10357,9 @@ packages:
     resolution: {integrity: sha512-k+YsbhpA9e+EFfKjTCH3VW6aoKlyNYI6NYdTfDL4CIvFnvsuO84ttonmZE7rc+v23SLTH8XX+5w/Ak9v0xGY4g==}
     dev: true
 
-  /pnpm/7.2.0:
-    resolution: {integrity: sha512-bYRTXwdJDNJBSzzmWTGWldUDY1j4/2GFZJoIm8X2XNxSf3VRVxTcqnwddm22wTDsKN6suHtfAlsYeSvQ/xNK8g==}
-    engines: {node: '>=14.19'}
+  /pnpm/7.2.1:
+    resolution: {integrity: sha512-Z2Wg7YHxeit2U+0aSj+doBPF9+ER0e3VLOGuJOQbk8rzIxK6zMtrQ0ICieCUGPWRM0Vbwj8yIcTKzO22Yhs/Cg==}
+    engines: {node: '>=14.6'}
     hasBin: true
     dev: true
 
