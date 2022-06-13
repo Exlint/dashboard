@@ -11,11 +11,11 @@ export interface State {
 
 export const reducer = (state: State = initialState, action: actions.UserTypes): State => {
 	switch (action.type) {
-	case actions.SET_USER:
-		return { ...state, email: action.payload.email };
-	case actions.UNSET_USER:
-		return { ...state, email: null };
-	default:
-		return state;
+		case actions.SET_USER:
+			return { ...state, email: action.payload.email };
+		case actions.UNSET_USER:
+			return { ...state, email: null };
+		default:
+			return state;
 	}
 };

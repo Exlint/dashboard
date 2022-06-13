@@ -1,7 +1,7 @@
 .selectedRule {
 	display: flex;
 	align-items: center;
-	height: 150px;
+	min-height: 180px !important;
 	padding: 16px;
 
 	// border-image: linear-gradient(to right, rgba(79, 51, 155, 0.5), rgba(79, 51, 155, 1)) 1;
@@ -49,7 +49,6 @@
 		}
 
 		.removeRuleButton {
-			display: flex;
 			align-items: center;
 
 			&__icon {

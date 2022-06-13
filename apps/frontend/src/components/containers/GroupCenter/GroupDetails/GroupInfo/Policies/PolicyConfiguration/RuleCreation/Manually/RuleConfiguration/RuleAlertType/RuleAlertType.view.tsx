@@ -4,7 +4,6 @@ import { ruleAlertTypes } from '@/data/ruleAlertTypes';
 import classes from './RuleAlertType.module.scss';
 
 interface IProps {
-	readonly selectedRuleIndex: number | null;
 	readonly selectedRuleAlertTypeIndex: number[];
 	readonly onSelectedRuleAlertType: (index: number) => void;
 }

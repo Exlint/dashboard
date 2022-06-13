@@ -1,19 +1,20 @@
 import React from 'react';
+import { IRule } from '@/interfaces/rule';
 
 import HeaderView from './Header.view';
 
 interface IProps {
-	readonly selectedRuleIndex: number | null;
-	readonly selectedRulesIndexes: number[];
-	readonly onAddRuleIndexToList: (index: number) => void;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
+	readonly onAddRuleToList: (rule: IRule) => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<HeaderView
-			selectedRuleIndex={props.selectedRuleIndex}
-			selectedRulesIndexes={props.selectedRulesIndexes}
-			onAddRuleIndexToList={props.onAddRuleIndexToList}
+			selectedRule={props.selectedRule}
+			selectedRules={props.selectedRules}
+			onAddRuleToList={props.onAddRuleToList}
 		/>
 	);
 };

@@ -23,7 +23,7 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		>
 			<div className={classes['innerGroup']}>
 				<div className={classes['leftSideContainer']}>
-					<h3 className={classes['leftSideContainer__title']}>{props.title}</h3>
+					<h3 className={classes['leftSideContainer__title']}>{props.label}</h3>
 					<div className={classes['uniqueIdContainer']}>
 						<span className={classes['uniqueIdContainer__text']}>Unique ID:</span>
 						<span className={classes['uniqueIdContainer__text']}>{props.id}</span>
@@ -35,7 +35,7 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							if (index < 4) {
 								return (
 									<span className={classes['policiesContainer__policy']} key={index}>
-										{policy}
+										{policy.id}
 									</span>
 								);
 							}
@@ -50,9 +50,10 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						type="button"
 						onClick={() =>
 							props.onSelectedGroup({
-								title: props.title,
+								label: props.label,
 								id: props.id,
 								policies: props.policies,
+								createdAt: props.createdAt,
 							})
 						}
 					>

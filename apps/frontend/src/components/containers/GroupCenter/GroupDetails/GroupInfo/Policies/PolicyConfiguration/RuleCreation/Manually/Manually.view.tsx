@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ILibrary } from '@/interfaces/library';
-import { librariesList } from '@/data/librariesList';
+import { IRule } from '@/interfaces/rule';
 
 import classes from './Manually.module.scss';
 import SelectRules from './SelectRules';
@@ -9,55 +9,53 @@ import RuleConfiguration from './RuleConfiguration';
 import SelectedRules from './SelectedRules';
 
 interface IProps {
+	readonly rulesObject: { [key: string]: string } | Record<string, Record<string, unknown>>;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
-	readonly selectedRuleIndex: number | null;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
 	readonly selectedRuleAlertTypeIndex: number[];
-	readonly selectedRulesIndexes: number[];
 	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly onSelectedRuleIndex: (index: number) => void;
+	readonly onSelectedRule: (rule: IRule) => void;
 	readonly onSelectedRuleAlertType: (index: number) => void;
-	readonly onRemoveRuleIndex: () => void;
-	readonly onAddRuleIndexToList: (index: number) => void;
-	readonly onRemoveRuleIndexFromList: (index: number) => void;
-	readonly onEditSelectedRule: (index: number) => void;
+	readonly onRemoveRule: () => void;
+	readonly onAddRuleToList: (rule: IRule) => void;
+	readonly onRemoveRuleFromList: (ruleName: string) => void;
+	readonly onEditSelectedRule: (rule: IRule) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
 
 const ManuallyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const rulesObject = librariesList['ESLint'].rulesList;
-
 	return (
 		<section className={classes['manually']}>
 			<SelectRules
 				policyLabelInput={props.policyLabelInput}
 				selectedLibrary={props.selectedLibrary}
-				selectedRuleIndex={props.selectedRuleIndex}
-				selectedRulesIndexes={props.selectedRulesIndexes}
-				onSelectedRuleIndex={props.onSelectedRuleIndex}
+				selectedRule={props.selectedRule}
+				selectedRules={props.selectedRules}
+				onSelectedRule={props.onSelectedRule}
 			/>
 
 			<div className={classes['container']}>
 				<div className={classes['rightSideContainer']}>
 					<RuleConfiguration
-						rulesObject={rulesObject}
 						policyLabelInput={props.policyLabelInput}
-						selectedRuleIndex={props.selectedRuleIndex}
+						selectedRule={props.selectedRule}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
-						selectedRulesIndexes={props.selectedRulesIndexes}
+						selectedRules={props.selectedRules}
 						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
-						onRemoveRuleIndex={props.onRemoveRuleIndex}
-						onAddRuleIndexToList={props.onAddRuleIndexToList}
+						onRemoveRule={props.onRemoveRule}
+						onAddRuleToList={props.onAddRuleToList}
 						onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 					/>
 
 					<SelectedRules
-						rulesObject={rulesObject}
-						selectedRulesIndexes={props.selectedRulesIndexes}
+						selectedRule={props.selectedRule}
+						selectedRules={props.selectedRules}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-						onRemoveRuleIndexFromList={props.onRemoveRuleIndexFromList}
+						onRemoveRuleFromList={props.onRemoveRuleFromList}
 						onEditSelectedRule={props.onEditSelectedRule}
 					/>
 				</div>

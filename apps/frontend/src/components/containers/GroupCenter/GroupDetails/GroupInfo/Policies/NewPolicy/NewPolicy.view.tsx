@@ -5,7 +5,9 @@ import { ILibrary } from '@/interfaces/library';
 import VSvg from '@/ui/VSvg';
 import SelectFromOptions from '@/ui/SelectFromOptions';
 
+import { IGroup } from '@/interfaces/group';
 import { sortByOptions } from '@/data/newPolicySortByOptions';
+
 import SideBarFilters from './SideBarFilters';
 import LibrariesList from './LibrariesList';
 import PolicyConfigurationButton from './PolicyConfigurationButton';
@@ -15,6 +17,7 @@ import PolicyConfigurationButton from './PolicyConfigurationButton';
 import classes from './NewPolicy.module.scss';
 
 interface IProps {
+	readonly selectedGroup: IGroup | null;
 	readonly isSortByClicked: boolean;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
@@ -36,22 +39,22 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			<div className={classes['innerNewPolicy']}>
 				<h3 className={classes['innerNewPolicy__title']}>New Policy</h3>
 				<div className={classes['policyConfigurationButtonContainer']}>
-					{props.selectedLibrary && props.policyLabelInput ? (
+					{props.selectedLibrary && props.policyLabelInput?.length !== 0 ? (
 						<Link
 							to="/groupCenter/group/Policy/Configurations-Onboarding"
 							className={classes['policyConfigurationButtonContainer__link']}
 						>
 							<PolicyConfigurationButton
-								selectedLibrary={props.selectedLibrary}
+								isButtonDisabled={false}
+								selectedGroup={props.selectedGroup}
 								policyLabelInput={props.policyLabelInput}
-								onPolicyConfiguratoinClicked={props.onPolicyConfiguratoinClicked}
 							/>
 						</Link>
 					) : (
 						<PolicyConfigurationButton
-							selectedLibrary={props.selectedLibrary}
+							isButtonDisabled
+							selectedGroup={props.selectedGroup}
 							policyLabelInput={props.policyLabelInput}
-							onPolicyConfiguratoinClicked={props.onPolicyConfiguratoinClicked}
 						/>
 					)}
 				</div>

@@ -1,16 +1,17 @@
 import React from 'react';
 import VSvg from '@/ui/VSvg';
 
+import { IRule } from '@/interfaces/rule';
 import classes from './Rule.module.scss';
 
 interface IProps {
-	readonly key: number;
+	readonly id: string;
+	readonly index: number;
 	readonly ruleName: string;
 	readonly ruleDescription: string;
 	readonly ruleCatagory: string;
-	readonly index: number;
-	readonly selectedRuleIndex: number | null;
-	readonly onSelectedRuleIndex: (index: number) => void;
+	readonly selectedRule: IRule | null;
+	readonly onSelectedRule: (rule: IRule) => void;
 }
 
 const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -19,10 +20,11 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div
 			className={classes['rule']}
+			key={props.index}
 			style={{
 				backgroundColor: isRuleIndexEven ? '#FEFEFE' : '#F9F9F9',
 				borderImage:
-					props.selectedRuleIndex === props.index
+					props.selectedRule?.name === props.ruleName
 						? 'linear-gradient(to right, rgba(79, 51, 155, 0.5), rgba(79, 51, 155, 1)) 1'
 						: 'none',
 			}}
@@ -33,7 +35,13 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			<button
 				className={classes['addRuleButton']}
 				type="button"
-				onClick={() => props.onSelectedRuleIndex(props.index)}
+				onClick={() =>
+					props.onSelectedRule({
+						name: props.ruleName,
+						description: props.ruleDescription,
+						catagory: props.ruleCatagory,
+					})
+				}
 			>
 				<VSvg name="addRuleButton" className={classes['addRuleButton__icon']} />
 			</button>

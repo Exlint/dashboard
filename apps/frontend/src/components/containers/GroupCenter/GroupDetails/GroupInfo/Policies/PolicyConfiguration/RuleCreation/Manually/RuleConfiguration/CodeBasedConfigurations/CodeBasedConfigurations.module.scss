@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 34px 36px 24px;
+	padding: 34px 35px 24px;
 	border-bottom: 2px solid #e7e7e7;
 
 	&__icon {
@@ -118,6 +118,8 @@
 
 @media (max-width: 1600px) {
 	.inputCodeConfigurations {
+		padding: 14px 35px 6px !important;
+
 		&__icon {
 			width: 50px !important;
 			height: 56px !important;

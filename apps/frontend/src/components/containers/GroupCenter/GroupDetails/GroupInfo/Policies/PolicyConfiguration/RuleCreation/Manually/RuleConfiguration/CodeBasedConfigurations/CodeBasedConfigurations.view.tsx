@@ -1,12 +1,14 @@
 import React from 'react';
 import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
+import { IRule } from '@/interfaces/rule';
+
 import BasedCodeConfigurations from '@/ui/CodeBasedConfigurationsInput';
 import classes from './CodeBasedConfigurations.module.scss';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly selectedRuleIndex: number | null;
+	readonly selectedRule: IRule | null;
 	readonly selectedFileFormatIndex: number;
 	readonly isFileFormatClicked: boolean;
 	readonly isEditFileFormat: boolean;
@@ -30,8 +32,8 @@ const CodeBasedConfigurationsView: React.FC<IProps> = (props: React.PropsWithChi
 				className={classes['editButton']}
 				type="button"
 				style={{
-					backgroundColor: props.selectedRuleIndex === null ? '#D2D2D2' : '#8197b8',
-					borderColor: props.selectedRuleIndex === null ? '#B7B7B7' : '#6b7d98',
+					backgroundColor: props.selectedRule === null ? '#D2D2D2' : '#8197b8',
+					borderColor: props.selectedRule === null ? '#B7B7B7' : '#6b7d98',
 				}}
 				onClick={props.onClickBasedCodeConfigurations}
 			>

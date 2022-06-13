@@ -1,5 +1,8 @@
+import { IPolicy } from './policy';
+
 export interface IGroup {
-	readonly title: string;
-	readonly id: number;
-	readonly policies: number[];
+	readonly label: string;
+	readonly id: string;
+	readonly createdAt: string;
+	readonly policies: IPolicy[];
 }

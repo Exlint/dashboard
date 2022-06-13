@@ -13,6 +13,7 @@ interface IProps extends ILibrary {
 const Library: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<LibraryView
+			id={props.id}
 			logo={props.logo}
 			title={props.title}
 			madeBy={props.madeBy}

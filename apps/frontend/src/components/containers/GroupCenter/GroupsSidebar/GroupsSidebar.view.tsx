@@ -9,7 +9,7 @@ import GroupsList from './GroupsList';
 import classes from './GroupsSidebar.module.scss';
 
 interface IProps {
-	readonly groupsList: IGroup[] | [];
+	readonly groups: IGroup[];
 	readonly selectedGroup: IGroup | null;
 	readonly onCreateNewGroup: () => void;
 	readonly onSelectedGroup: (group: IGroup) => void;
@@ -37,10 +37,10 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					</button>
 				</div>
 				<hr className={classes['dividerLine']} />
-				{props.groupsList.length === 0 && <NoGroups />}
-				{props.groupsList.length > 0 && (
+				{props.groups.length === 0 && <NoGroups />}
+				{props.groups.length > 0 && (
 					<GroupsList
-						groupsList={props.groupsList}
+						groups={props.groups}
 						selectedGroup={props.selectedGroup}
 						onSelectedGroup={props.onSelectedGroup}
 					/>

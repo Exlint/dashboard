@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
+import { IGroup } from '@/interfaces/group';
 import { ILibrary } from '@/interfaces/library';
 
 import NewPolicyView from './NewPolicy.view';
 
 interface IProps {
+	readonly selectedGroup: IGroup | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
@@ -36,6 +38,7 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	return (
 		<NewPolicyView
+			selectedGroup={props.selectedGroup}
 			isSortByClicked={isSortByClicketState}
 			selectedLibrary={props.selectedLibrary}
 			policyLabelInput={props.policyLabelInput}

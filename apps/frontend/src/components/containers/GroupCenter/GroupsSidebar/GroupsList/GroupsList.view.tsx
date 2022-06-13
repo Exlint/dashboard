@@ -20,9 +20,10 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 				<>
 					<Group
 						key={index}
-						title={group.title}
+						label={group.label}
 						id={group.id}
 						policies={group.policies}
+						createdAt={group.createdAt}
 						selectedGroup={props.selectedGroup}
 						onSelectedGroup={props.onSelectedGroup}
 					/>

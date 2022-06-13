@@ -1,21 +1,42 @@
 import React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import uniqid from 'uniqid';
 
-import { ILibrary } from '@/interfaces/library';
+import { currentDate } from '@/utils/currentDate';
+
+import { IGroup } from '@/interfaces/group';
+import { IPolicy } from '@/interfaces/policy';
+
+import * as groupsActions from '@/store/actions/groups';
 
 import PolicyConfigurationButtonView from './PolicyConfigurationButton.view';
 
-interface IProps {
-	readonly selectedLibrary: ILibrary | null;
-	readonly onPolicyConfiguratoinClicked: () => void;
+interface IPropsFromDispatch {
+	addPolicy: (groupId: string, policy: IPolicy) => groupsActions.AddPolicy;
+}
+
+interface IProps extends IPropsFromDispatch {
+	readonly isButtonDisabled: boolean;
+	readonly selectedGroup: IGroup | null;
 	readonly policyLabelInput: string | null;
 }
 
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const onCreateNewPolicy = () => {
+		props.addPolicy(props.selectedGroup?.id || '', {
+			id: uniqid(),
+			label: props.policyLabelInput || '',
+			createdAt: currentDate(),
+			libraryName: '',
+			rules: null,
+		});
+	};
+
 	return (
 		<PolicyConfigurationButtonView
-			selectedLibrary={props.selectedLibrary}
-			policyLabelInput={props.policyLabelInput}
-			onPolicyConfiguratoinClicked={props.onPolicyConfiguratoinClicked}
+			isButtonDisabled={props.isButtonDisabled}
+			onCreateNewPolicy={onCreateNewPolicy}
 		/>
 	);
 };
@@ -23,4 +44,11 @@ const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChild
 PolicyConfigurationButton.displayName = 'PolicyConfigurationButton';
 PolicyConfigurationButton.defaultProps = {};
 
-export default React.memo(PolicyConfigurationButton);
+const mapDispatchToProps = (dispatch: Dispatch<groupsActions.GroupsTypes>): IPropsFromDispatch => {
+	return {
+		addPolicy: (groupId: string, policy: IPolicy): groupsActions.AddPolicy =>
+			dispatch(groupsActions.addPolicy(groupId, policy)),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(React.memo(PolicyConfigurationButton));

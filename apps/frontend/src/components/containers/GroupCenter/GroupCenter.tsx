@@ -13,8 +13,6 @@ const GroupCenter: React.FC<IProps> = () => {
 
 	const [policyLabelInputState, setPolicyLabelInputState] = useState<string | null>(null);
 
-	const [groupsList, setGroupsList] = useState<IGroup[]>([]);
-
 	const onPolicyLabelInputChanged = (input: string) => setPolicyLabelInputState(() => input);
 
 	const onSelectedLibrary = (library: ILibrary) => {
@@ -30,21 +28,15 @@ const GroupCenter: React.FC<IProps> = () => {
 		setSelectLibraryState(() => null);
 	};
 
-	const onCreateNewGroup = () => {
-		setGroupsList([...groupsList, { title: 'Group Label', id: Math.random(), policies: [1, 2, 3, 4] }]);
-	};
-
 	return (
 		<GroupCenterView
 			selectedGroup={selectedGroupState}
 			selectedLibrary={selectedLibraryState}
 			policyLabelInput={policyLabelInputState}
-			groupsList={groupsList}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onSelectedLibrary={onSelectedLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onSelectedGroup={onSelectedGroup}
-			onCreateNewGroup={onCreateNewGroup}
 		/>
 	);
 };

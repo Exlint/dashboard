@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { IRule } from '@/interfaces/rule';
 import { ILibrary } from '@/interfaces/library';
 
 import SelectRulesView from './SelectRules.view';
@@ -7,9 +8,9 @@ import SelectRulesView from './SelectRules.view';
 interface IProps {
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
-	readonly selectedRuleIndex: number | null;
-	readonly selectedRulesIndexes: number[];
-	readonly onSelectedRuleIndex: (index: number) => void;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
+	readonly onSelectedRule: (rule: IRule) => void;
 }
 
 const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -31,9 +32,9 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			selectedLibrary={props.selectedLibrary}
 			selectedCatagoryIndex={selectedCatagoryIndexState}
 			isCatagoryClicked={isCatagoryClickedState}
-			selectedRuleIndex={props.selectedRuleIndex}
-			selectedRulesIndexes={props.selectedRulesIndexes}
-			onSelectedRuleIndex={props.onSelectedRuleIndex}
+			selectedRule={props.selectedRule}
+			selectedRules={props.selectedRules}
+			onSelectedRule={props.onSelectedRule}
 			onSelectCatagoryButton={onSelectCatagoryButton}
 			onSelectedCatagory={onSelectedCatagory}
 		/>

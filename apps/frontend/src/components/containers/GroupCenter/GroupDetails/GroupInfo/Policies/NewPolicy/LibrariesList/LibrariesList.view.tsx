@@ -1,7 +1,9 @@
 import React from 'react';
+import uniqid from 'uniqid';
 // import { Trans, useTranslation } from 'react-i18next';
 import { ILibrary } from '@/interfaces/library';
 import { librariesList } from '@/data/librariesList';
+
 import Library from './Library';
 
 import classes from './LibrariesList.module.scss';
@@ -20,6 +22,7 @@ const LibrariesListView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 		<div className={classes['librariesList']}>
 			{libraries.map((library, index) => (
 				<Library
+					id={uniqid()}
 					key={index}
 					logo={librariesList[library].logo}
 					title={librariesList[library].title}

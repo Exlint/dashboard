@@ -6,7 +6,6 @@ import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
 import { IGroup } from '@/interfaces/group';
 import { ILibrary } from '@/interfaces/library';
-import { monthsName } from '@/data/monthsName';
 
 import Policies from './Policies';
 import NewPolicy from './Policies/NewPolicy';
@@ -26,12 +25,6 @@ interface IProps {
 }
 
 const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const currentDate = {
-		day: new Date().getDate(),
-		month: monthsName[new Date().getMonth()],
-		year: new Date().getFullYear(),
-	};
-
 	const route = useLocation();
 
 	let currentPage;
@@ -49,20 +42,13 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			{currentPage === 'group' && (
 				<>
 					<div className={classes['innerGroupInfo']}>
-						<h3 className={classes['innerGroupInfo__name']}>{props.selectedGroup?.title}</h3>
+						<h3 className={classes['innerGroupInfo__name']}>{props.selectedGroup?.label}</h3>
 						<div className={classes['createdTime']}>
 							<span className={classes['createdTime__text']}>Created in:</span>
 							<div className={classes['createdTimeDate']}>
 								<span className={classes['createdTime__text']}>
-									&nbsp;
-									{currentDate.day}
+									{props.selectedGroup?.createdAt}
 								</span>
-								<span className={classes['createdTime__text']}>
-									&nbsp;
-									{currentDate.month}
-									&nbsp;
-								</span>
-								<span className={classes['createdTime__text']}>{currentDate.year}</span>
 							</div>
 						</div>
 						<div className={classes['uniqueIdContainer']}>
@@ -85,6 +71,7 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			<Route path="/groupCenter/group/newPolicy">
 				{currentPage !== 'policyConfiguration' && (
 					<NewPolicy
+						selectedGroup={props.selectedGroup}
 						selectedLibrary={props.selectedLibrary}
 						policyLabelInput={props.policyLabelInput}
 						onPolicyLabelInputChanged={props.onPolicyLabelInputChanged}

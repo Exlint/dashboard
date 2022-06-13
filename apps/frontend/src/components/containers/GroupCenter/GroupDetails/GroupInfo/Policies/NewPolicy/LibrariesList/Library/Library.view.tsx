@@ -38,6 +38,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				type="button"
 				onClick={() =>
 					props.onSelectedLibrary({
+						id: props.id,
 						logo: props.logo,
 						title: props.title,
 						madeBy: props.madeBy,

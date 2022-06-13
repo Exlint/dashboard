@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { IRule } from '@/interfaces/rule';
 
 import RuleConfigurationView from './RuleConfiguration.view';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly rulesObject: { [key: string]: string };
-	readonly selectedRuleIndex: number | null;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
 	readonly selectedRuleAlertTypeIndex: number[];
-	readonly selectedRulesIndexes: number[];
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectedRuleAlertType: (index: number) => void;
-	readonly onRemoveRuleIndex: () => void;
-	readonly onAddRuleIndexToList: (index: number) => void;
+	readonly onRemoveRule: () => void;
+	readonly onAddRuleToList: (rule: IRule) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
 
@@ -26,15 +26,14 @@ const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 	return (
 		<RuleConfigurationView
 			policyLabelInput={props.policyLabelInput}
-			rulesObject={props.rulesObject}
-			selectedRuleIndex={props.selectedRuleIndex}
+			selectedRule={props.selectedRule}
+			selectedRules={props.selectedRules}
 			selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 			isBasedCodeConfigurationsClicked={isBasedCodeConfigurationsClickedState}
-			selectedRulesIndexes={props.selectedRulesIndexes}
 			ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 			onSelectedRuleAlertType={props.onSelectedRuleAlertType}
-			onRemoveRuleIndex={props.onRemoveRuleIndex}
-			onAddRuleIndexToList={props.onAddRuleIndexToList}
+			onRemoveRule={props.onRemoveRule}
+			onAddRuleToList={props.onAddRuleToList}
 			onClickBasedCodeConfigurations={onClickBasedCodeConfigurations}
 			onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 		/>

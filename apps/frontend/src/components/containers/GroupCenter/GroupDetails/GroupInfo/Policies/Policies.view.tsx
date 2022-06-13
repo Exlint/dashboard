@@ -7,10 +7,10 @@ import VSvg from '@/ui/VSvg';
 import NoPolicies from './NoPolicies';
 
 import classes from './Policies.module.scss';
+import PoliciesList from './PoliciesList';
 
 interface IProps {
 	readonly selectedGroup: IGroup | null;
-	readonly onCreateNewPolicy: () => void;
 }
 
 const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -28,20 +28,18 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						<span className={classes['leftSideContainer__category']}>Category</span>
 						<span className={classes['leftSideContainer__category']}>Num. of Rules</span>
 					</div>
-					<Link to="/groupCenter/group/newPolicy">
-						<button
-							type="button"
-							className={classes['buttonContainer']}
-							onClick={props.onCreateNewPolicy}
-						>
-							<span className={classes['buttonContainer__text']}>New</span>
-							<VSvg name="plusIcon" className={classes['buttonContainer__icon']} />
-						</button>
+					<Link to="/groupCenter/group/newPolicy" className={classes['buttonContainer']}>
+						<span className={classes['buttonContainer__text']}>New</span>
+						<VSvg name="plusIcon" className={classes['buttonContainer__icon']} />
 					</Link>
 				</div>
 			</div>
 			<hr className={classes['dividerLine']} />
-			<NoPolicies />
+			{props.selectedGroup?.policies.length !== 0 ? (
+				<PoliciesList selectedGroup={props.selectedGroup} />
+			) : (
+				<NoPolicies />
+			)}
 		</section>
 	);
 };

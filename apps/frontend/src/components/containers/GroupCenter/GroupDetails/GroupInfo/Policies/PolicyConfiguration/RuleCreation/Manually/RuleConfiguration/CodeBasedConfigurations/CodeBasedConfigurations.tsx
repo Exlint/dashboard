@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { IRule } from '@/interfaces/rule';
 
 import CodeBasedConfigurationsView from './CodeBasedConfigurations.view';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly selectedRuleIndex: number | null;
+	readonly selectedRule: IRule | null;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onClickBasedCodeConfigurations: () => void;
@@ -32,7 +33,7 @@ const CodeBasedConfigurations: React.FC<IProps> = (props: React.PropsWithChildre
 	return (
 		<CodeBasedConfigurationsView
 			policyLabelInput={props.policyLabelInput}
-			selectedRuleIndex={props.selectedRuleIndex}
+			selectedRule={props.selectedRule}
 			selectedFileFormatIndex={selectedFileFormatIndexState}
 			isFileFormatClicked={isFileFormatClickedState}
 			isEditFileFormat={isEditFileFormatState}

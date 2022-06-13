@@ -1,6 +1,8 @@
 import React from 'react';
 
+import { IRule } from '@/interfaces/rule';
 import { ILibrary } from '@/interfaces/library';
+
 import classes from './SelectRules.module.scss';
 
 import Header from './Header';
@@ -11,9 +13,9 @@ interface IProps {
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedCatagoryIndex: number | null;
 	readonly isCatagoryClicked: boolean;
-	readonly selectedRuleIndex: number | null;
-	readonly selectedRulesIndexes: number[];
-	readonly onSelectedRuleIndex: (index: number) => void;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
+	readonly onSelectedRule: (rule: IRule) => void;
 	readonly onSelectCatagoryButton: () => void;
 	readonly onSelectedCatagory: (index: number) => void;
 }
@@ -31,10 +33,9 @@ const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			/>
 			<RulesList
 				selectedLibrary={props.selectedLibrary}
-				selectedRuleIndex={props.selectedRuleIndex}
-				selectedRulesIndexes={props.selectedRulesIndexes}
+				selectedRule={props.selectedRule}
 				selectedCatagoryIndex={props.selectedCatagoryIndex}
-				onSelectedRuleIndex={props.onSelectedRuleIndex}
+				onSelectedRule={props.onSelectedRule}
 			/>
 		</div>
 	);

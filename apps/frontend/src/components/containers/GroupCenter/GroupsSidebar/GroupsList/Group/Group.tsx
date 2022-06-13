@@ -13,10 +13,11 @@ interface IProps extends IGroup {
 const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<GroupView
-			title={props.title}
+			label={props.label}
 			id={props.id}
 			policies={props.policies}
 			key={props.key}
+			createdAt={props.createdAt}
 			selectedGroup={props.selectedGroup}
 			onSelectedGroup={props.onSelectedGroup}
 		/>

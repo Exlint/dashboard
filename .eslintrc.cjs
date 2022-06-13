@@ -19,7 +19,7 @@ module.exports = {
 	plugins: ['@typescript-eslint', 'unused-imports', 'import'],
 	rules: {
 		'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
-		'indent': ['error', 'tab'],
+		'indent': ['error', 'tab', { SwitchCase: 1 }],
 		'quotes': ['error', 'single', { avoidEscape: true }],
 		'semi': ['error', 'always'],
 		'no-empty': [

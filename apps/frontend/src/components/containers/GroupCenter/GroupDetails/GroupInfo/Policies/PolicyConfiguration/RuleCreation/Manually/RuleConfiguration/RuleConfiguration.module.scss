@@ -27,7 +27,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 34px 36px 24px;
+			padding: 34px 35px 24px;
 
 			&__icon {
 				width: 150px;
@@ -68,6 +68,8 @@
 
 @media (max-width: 1600px) {
 	.inputRuleConfigurations {
+		padding: 14px 35px 6px !important;
+
 		&__icon {
 			width: 140px !important;
 			height: 70px !important;

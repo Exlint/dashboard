@@ -5,7 +5,7 @@ import { IGroup } from '@/interfaces/group';
 import GroupsListView from './GroupsList.view';
 
 interface IProps {
-	readonly groupsList: IGroup[] | [];
+	readonly groups: IGroup[];
 	readonly selectedGroup: IGroup | null;
 	readonly onSelectedGroup: (group: IGroup) => void;
 }
@@ -13,7 +13,7 @@ interface IProps {
 const GroupsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<GroupsListView
-			groupsList={props.groupsList}
+			groupsList={props.groups}
 			selectedGroup={props.selectedGroup}
 			onSelectedGroup={props.onSelectedGroup}
 		/>
@@ -23,4 +23,4 @@ const GroupsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 GroupsList.displayName = 'GroupsList';
 GroupsList.defaultProps = {};
 
-export default React.memo(GroupsList);
+export default GroupsList;

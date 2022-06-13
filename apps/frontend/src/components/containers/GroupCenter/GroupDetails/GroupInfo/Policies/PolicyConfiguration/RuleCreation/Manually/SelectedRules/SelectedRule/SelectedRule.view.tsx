@@ -1,17 +1,18 @@
 import React from 'react';
 import VSvg from '@/ui/VSvg';
 // import { Trans, useTranslation } from 'react-i18next';
+import { IRule } from '@/interfaces/rule';
 
 import classes from './SelectedRule.module.scss';
 
 interface IProps {
-	readonly ruleIndex: number;
+	readonly selectedRule: IRule | null;
 	readonly ruleName: string;
 	readonly ruleCatagory: string;
 	readonly ruleAlertType: string | undefined;
 	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly onRemoveRuleIndexFromList: (index: number) => void;
-	readonly onEditSelectedRule: (index: number) => void;
+	readonly onRemoveRuleFromList: (ruleName: string) => void;
+	readonly onEditSelectedRule: (rule: IRule) => void;
 }
 
 const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -32,10 +33,10 @@ const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 					<span className={classes['middleSideContainer__text']}>+ Rule Config.</span>
 				</div>
 				<div className={classes['rightSideContainer']}>
-					<button type="button" onClick={() => props.onRemoveRuleIndexFromList(props.ruleIndex)}>
+					<button type="button" onClick={() => props.onRemoveRuleFromList(props.ruleName)}>
 						<VSvg name="removeRuleIcon" className={classes['rightSideContainer__removeRule']} />
 					</button>
-					<button type="button" onClick={() => props.onEditSelectedRule(props.ruleIndex)}>
+					<button type="button" onClick={() => props.onEditSelectedRule(props.selectedRule!)}>
 						<VSvg name="editRuleIcon" className={classes['rightSideContainer__editRule']} />
 					</button>
 				</div>

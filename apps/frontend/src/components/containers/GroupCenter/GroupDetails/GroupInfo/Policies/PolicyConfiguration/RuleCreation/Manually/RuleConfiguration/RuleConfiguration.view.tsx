@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Trans, useTranslation } from 'react-i18next';
 
+import { IRule } from '@/interfaces/rule';
 import VSvg from '@/ui/VSvg';
 
 import SelectedRule from './SelectedRule';
@@ -11,15 +12,14 @@ import CodeBasedConfigurations from './CodeBasedConfigurations';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly rulesObject: { [key: string]: string };
-	readonly selectedRuleIndex: number | null;
+	readonly selectedRule: IRule | null;
+	readonly selectedRules: IRule[];
 	readonly selectedRuleAlertTypeIndex: number[];
 	readonly isBasedCodeConfigurationsClicked: boolean;
-	readonly selectedRulesIndexes: number[];
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectedRuleAlertType: (index: number) => void;
-	readonly onRemoveRuleIndex: () => void;
-	readonly onAddRuleIndexToList: (index: number) => void;
+	readonly onRemoveRule: () => void;
+	readonly onAddRuleToList: (rule: IRule) => void;
 	readonly onClickBasedCodeConfigurations: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
@@ -31,27 +31,22 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 		<div className={classes['ruleConfiguration']}>
 			<span
 				className={classes['disabled']}
-				style={{ display: props.selectedRuleIndex === null ? 'flex' : 'none' }}
+				style={{ display: props.selectedRule === null ? 'flex' : 'none' }}
 			/>
 			<div className={classes['innerRuleConfiguration']}>
 				<Header
-					selectedRuleIndex={props.selectedRuleIndex}
-					selectedRulesIndexes={props.selectedRulesIndexes}
-					onAddRuleIndexToList={props.onAddRuleIndexToList}
+					selectedRule={props.selectedRule}
+					selectedRules={props.selectedRules}
+					onAddRuleToList={props.onAddRuleToList}
 				/>
-				<SelectedRule
-					selectedRuleIndex={props.selectedRuleIndex}
-					rulesObject={props.rulesObject}
-					onRemoveRuleIndex={props.onRemoveRuleIndex}
-				/>
+				<SelectedRule selectedRule={props.selectedRule} onRemoveRule={props.onRemoveRule} />
 				<RuleAlertType
 					selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
-					selectedRuleIndex={props.selectedRuleIndex}
 					onSelectedRuleAlertType={props.onSelectedRuleAlertType}
 				/>
 
 				<CodeBasedConfigurations
-					selectedRuleIndex={props.selectedRuleIndex}
+					selectedRule={props.selectedRule}
 					policyLabelInput={props.policyLabelInput}
 					isBasedCodeConfigurationsClicked={props.isBasedCodeConfigurationsClicked}
 					ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
@@ -71,8 +66,8 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 						className={classes['editButton']}
 						type="button"
 						style={{
-							backgroundColor: props.selectedRuleIndex === null ? '#D2D2D2' : '#8197b8',
-							borderColor: props.selectedRuleIndex === null ? '#B7B7B7' : '#6b7d98',
+							backgroundColor: props.selectedRule === null ? '#D2D2D2' : '#8197b8',
+							borderColor: props.selectedRule === null ? '#B7B7B7' : '#6b7d98',
 						}}
 					>
 						<span className={classes['editButton__text']}>Edit</span>

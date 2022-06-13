@@ -1,20 +1,20 @@
 import { createStore, Reducer, combineReducers } from 'redux';
 
-import * as policiesActions from './actions/policies';
-import * as fromPolicies from './reducers/policies';
+import * as groupActions from './actions/groups';
+import * as fromGroups from './reducers/groups';
 
 import * as userActions from './actions/user';
 import * as fromUser from './reducers/user';
 
-type reducerTypes = policiesActions.PoliciesTypes | userActions.UserTypes;
+type reducerTypes = groupActions.GroupsTypes | userActions.UserTypes;
 
 const rootReducer: Reducer<AppState, reducerTypes> = combineReducers({
-	policies: fromPolicies.reducer,
+	groups: fromGroups.reducer,
 	user: fromUser.reducer,
 });
 
 export interface AppState {
-	policies: fromPolicies.State;
+	groups: fromGroups.State;
 	user: fromUser.State;
 }
 

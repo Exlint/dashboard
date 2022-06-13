@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <PoliciesView selectedGroup={props.selectedGroup} onCreateNewPolicy={props.onCreateNewPolicy} />;
+	return <PoliciesView selectedGroup={props.selectedGroup} />;
 };
 
 Policies.displayName = 'Policies';

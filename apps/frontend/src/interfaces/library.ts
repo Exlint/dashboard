@@ -1,4 +1,5 @@
 export interface ILibrary {
+	readonly id: string;
 	readonly logo: string;
 	readonly title: string;
 	readonly madeBy: string;

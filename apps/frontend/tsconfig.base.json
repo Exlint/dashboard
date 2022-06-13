@@ -11,7 +11,8 @@
 			"@/ui/*": ["src/components/ui/*"],
 			"@/containers/*": ["src/components/containers/*"],
 			"@/data/*": ["src/data/*"],
-			"@/utils/*": ["src/utils/*"]
+			"@/utils/*": ["src/utils/*"],
+			"@/store/*": ["src/store/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"]
 	}

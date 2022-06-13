@@ -1,21 +1,15 @@
 import React from 'react';
+import { IRule } from '@/interfaces/rule';
 
 import SelectedRuleView from './SelectedRule.view';
 
 interface IProps {
-	readonly selectedRuleIndex: number | null;
-	readonly rulesObject: { [key: string]: string };
-	readonly onRemoveRuleIndex: () => void;
+	readonly selectedRule: IRule | null;
+	readonly onRemoveRule: () => void;
 }
 
 const SelectedRule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return (
-		<SelectedRuleView
-			selectedRuleIndex={props.selectedRuleIndex}
-			rulesObject={props.rulesObject}
-			onRemoveRuleIndex={props.onRemoveRuleIndex}
-		/>
-	);
+	return <SelectedRuleView selectedRule={props.selectedRule} onRemoveRule={props.onRemoveRule} />;
 };
 
 SelectedRule.displayName = 'SelectedRule';

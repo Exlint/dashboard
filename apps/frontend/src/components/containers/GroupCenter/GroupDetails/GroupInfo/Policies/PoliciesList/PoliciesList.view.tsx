@@ -14,7 +14,7 @@ const PoliciesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 	return (
 		<div className={classes['policiesList']}>
-			<h3>{props.selectedGroup?.title}</h3>
+			<h3>{props.selectedGroup?.label}</h3>
 		</div>
 	);
 };
