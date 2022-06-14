@@ -170,7 +170,7 @@ importers:
       postcss: 8.4.14
       react: 18.1.0
       react-dom: 18.1.0
-      react-i18next: 11.17.1
+      react-i18next: 11.17.2
       react-scripts: 5.0.1
       sass: 1.52.3
       stylelint: 14.9.1
@@ -184,7 +184,7 @@ importers:
       i18next: 21.8.9
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
-      react-i18next: 11.17.1_yu4sb4vmu5dvmheeaa2fohstne
+      react-i18next: 11.17.2_yu4sb4vmu5dvmheeaa2fohstne
       react-scripts: 5.0.1_jkcru432chrgvi6t2kq4j64g2q
       typescript: 4.7.3
     devDependencies:
@@ -12403,8 +12403,8 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-i18next/11.17.1_yu4sb4vmu5dvmheeaa2fohstne:
-    resolution: {integrity: sha512-4H4fK9vWsQtPP0iAdqzGfdPKLaSXpCjuh1xaGsejX/CO8tx8zCnrOnlQhMgrJf+OlUfzth5YaDPXYGp3RHxV1g==}
+  /react-i18next/11.17.2_yu4sb4vmu5dvmheeaa2fohstne:
+    resolution: {integrity: sha512-/HG4XSResWDY450cFmoUqLgCYDu8VYMFISGcMnZlxRSV05naj3+F7DoebwnPu6z/akA3Wd0Xe7KGTYdywL9z9g==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
@@ -14466,7 +14466,7 @@ packages:
     engines: {node: '>= 0.8'}
 
   /void-elements/3.1.0:
-    resolution: {integrity: sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=}
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
     engines: {node: '>=0.10.0'}
     dev: false
 
