@@ -84,7 +84,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
-      googleapis: 101.0.0
+      googleapis: 103.0.0
       open-cli: 7.0.1
       passport: 0.6.0
       passport-github2: 0.1.12
@@ -113,7 +113,7 @@ importers:
       bcryptjs: 2.4.3
       class-transformer: 0.5.1
       class-validator: 0.13.2
-      googleapis: 101.0.0
+      googleapis: 103.0.0
       passport: 0.6.0
       passport-github2: 0.1.12
       passport-google-oauth20: 2.0.0
@@ -8472,8 +8472,8 @@ packages:
       - supports-color
     dev: false
 
-  /googleapis/101.0.0:
-    resolution: {integrity: sha512-FxsepzOwg28H0ggJSs3kpFIrgZLw0pdCB6ZjNfMH4vNtUyey/6US5zHQx1LCER1Bnjnfw58EVzzWeMTK7BUJ9w==}
+  /googleapis/103.0.0:
+    resolution: {integrity: sha512-jS/6UJcy3Wci+8EF21EkAh5CA/sPDCiZ1PqCPQEFNtvM6/MPNS4OUH6Ty2aTx2OeoNe8dzIqRW0gF0+c43irlw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       google-auth-library: 8.0.2
@@ -14393,7 +14393,7 @@ packages:
       punycode: 2.1.1
 
   /url-template/2.0.8:
-    resolution: {integrity: sha1-/FZaPMy/93MMd19WQflVV5FDnyE=}
+    resolution: {integrity: sha512-XdVKMF4SJ0nP/O7XIPB0JwAEuT9lDIYnNsK8yGVe43y0AWoKeJNdv3ZNWh7ksJ6KqQFjOO6ox/VEitLnaVNufw==}
     dev: false
 
   /url/0.10.3:
@@ -14514,7 +14514,7 @@ packages:
     dev: true
 
   /webidl-conversions/3.0.1:
-    resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
+    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
   /webidl-conversions/4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
@@ -14741,7 +14741,7 @@ packages:
     dev: false
 
   /whatwg-url/5.0.0:
-    resolution: {integrity: sha1-lmRU6HZUYuN2RNNib2dCzotwll0=}
+    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
