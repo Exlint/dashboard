@@ -20,7 +20,7 @@ importers:
       husky: 8.0.1
       inflint: 1.2.2
       is-ci: 3.0.1
-      lint-staged: 13.0.1
+      lint-staged: 13.0.2
       npm-run-all: 4.1.5
       pnpm: 7.2.1
       prettier: 2.7.1
@@ -44,7 +44,7 @@ importers:
       husky: 8.0.1
       inflint: 1.2.2_lr5yv43hchipyudzleywqpgwuy
       is-ci: 3.0.1
-      lint-staged: 13.0.1
+      lint-staged: 13.0.2
       npm-run-all: 4.1.5
       pnpm: 7.2.1
       prettier: 2.7.1
@@ -10149,8 +10149,8 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /lint-staged/13.0.1:
-    resolution: {integrity: sha512-Ykaf4QTi0a02BF7cnq7JIPGOJxH4TkNMWhSlJdH9wOekd0X+gog47Jfh/0L31DqZe5AiydLGC7LkPqpaNm+Kvg==}
+  /lint-staged/13.0.2:
+    resolution: {integrity: sha512-qQLfLTh9z34eMzfEHENC+QBskZfxjomrf+snF3xJ4BzilORbD989NLqQ00ughsF/A+PT41e87+WsMFabf9++pQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -13510,7 +13510,7 @@ packages:
     dev: false
 
   /strip-ansi/4.0.0:
-    resolution: {integrity: sha1-qEeQIusaw2iocTibY1JixQXuNo8=}
+    resolution: {integrity: sha512-4XaJ2zQdCzROZDivEVIDPkcQn8LMFSa8kj8Gxb/Lnwzv9A8VctNZ+lfivC/sV3ivW8ElJTERXZoPBRrZKkNKow==}
     engines: {node: '>=4'}
     dependencies:
       ansi-regex: 3.0.1
