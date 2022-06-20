@@ -1,0 +1,18 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"target": "ES2017",
+		"baseUrl": "./",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"paths": {
+			"@/modules/*": ["src/modules/*"],
+			"@/config/*": ["src/config/*"],
+			"@/decorators/*": ["src/decorators/*"],
+			"@/models/*": ["src/models/*"],
+			"@/interfaces/*": ["src/interfaces/*"],
+			"@/guards/*": ["src/guards/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "./@types"]
+	}
+}

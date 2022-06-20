@@ -1,8 +1,8 @@
 {
-	"name": "@exlint-dashboard/backend",
+	"name": "@exlint-dashboard/cli-backend",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Backend package",
+	"description": "CLI Backend package",
 	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
 	"license": "UNLICENSED",
 	"scripts": {
@@ -27,7 +27,6 @@
 		"@nestjs/platform-express": "8.4.6",
 		"@octokit/oauth-app": "3.6.2",
 		"@prisma/client": "3.15.1",
-		"bcryptjs": "2.4.3",
 		"class-transformer": "0.5.1",
 		"class-validator": "0.13.2",
 		"googleapis": "101.0.0",
@@ -44,7 +43,6 @@
 		"@nestjs/cli": "8.2.6",
 		"@nestjs/schematics": "8.0.11",
 		"@nestjs/swagger": "5.2.1",
-		"@types/bcryptjs": "2.4.2",
 		"@types/passport-github2": "1.2.5",
 		"@types/passport-google-oauth20": "2.0.11",
 		"@types/passport-jwt": "3.0.6",

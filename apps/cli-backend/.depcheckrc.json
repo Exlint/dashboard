@@ -1,0 +1,17 @@
+{
+	"ignores": [
+		"rimraf",
+		"@nestjs/schematics",
+		"ts-loader",
+
+		"@nestjs/jwt",
+		"@octokit/oauth-app",
+		"googleapis",
+		"passport-github2",
+		"passport-google-oauth20",
+		"passport-local",
+		"@types/passport-github2",
+		"@types/passport-google-oauth20",
+		"@types/passport-local"
+	]
+}
