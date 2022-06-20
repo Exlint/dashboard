@@ -42,7 +42,7 @@ jobs:
               run: pnpm --filter frontend stylelint
 
             - name: Check Prisma Schema
-              run: pnpm --filter backend prisma-format
+              run: pnpm prisma-format
 
             - name: Check build command
               run: pnpm -r --parallel build

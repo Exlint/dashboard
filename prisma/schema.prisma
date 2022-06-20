@@ -18,6 +18,7 @@ enum PolicyLibrary {
   PRETTIER
   INFLINT
   STYLELINT
+  DEPCHECK
 }
 
 model User {
