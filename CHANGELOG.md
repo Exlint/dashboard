@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Exlint/dashboard/compare/v1.6.0...v1.7.0) (2022-06-20)
+
+
+### Features
+
+* 🔥 support cli backend without auth ([075cb4d](https://github.com/Exlint/dashboard/commit/075cb4decf7a23d687da76e324dd8a940040913d))
+
 # [1.6.0](https://github.com/Exlint/dashboard/compare/v1.5.0...v1.6.0) (2022-06-07)
 
 
