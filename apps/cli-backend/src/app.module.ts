@@ -5,10 +5,10 @@ import { APP_GUARD, RouterModule } from '@nestjs/core';
 import { appRoutes } from './app.routes';
 import EnvConfiguration from './config/configuration';
 import { validate } from './config/env.validation';
-import { TokenGuard } from './guards/token.guard';
+import { CliTokenGuard } from './guards/cli-token.guard';
 import { DatabaseModule } from './modules/database/database.module';
 import { UserModule } from './modules/user/user.module';
-import { TokenStrategy } from './strategies/token.strategy';
+import { CliTokenStrategy } from './strategies/cli-token.strategy';
 
 @Module({
 	imports: [
@@ -29,9 +29,9 @@ import { TokenStrategy } from './strategies/token.strategy';
 	providers: [
 		{
 			provide: APP_GUARD,
-			useClass: TokenGuard,
+			useClass: CliTokenGuard,
 		},
-		TokenStrategy,
+		CliTokenStrategy,
 	],
 })
 export class AppModule {}

@@ -1,6 +1,8 @@
+import url from 'url';
+
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-github2';
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { IEnvironment } from '@/config/env.interface';
@@ -16,6 +18,7 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 			clientSecret: configService.get('githubOAuthClientSecret', { infer: true }),
 			callbackURL: configService.get('githubOAuthRedirectUri', { infer: true }),
 			scope: ['user:email'],
+			passReqToCallback: true,
 		});
 	}
 
@@ -25,11 +28,22 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		};
 	}
 
-	validate(accessToken: string | undefined, _: string, profile: IGithubProfile): IExternalAuthUser {
+	validate(
+		request: Request,
+		_: string | undefined,
+		__: string,
+		profile: IGithubProfile,
+	): IExternalAuthUser {
+		const queryObject = url.parse(request.url, true).query;
+		const port = queryObject['port'];
+
+		if (!port || typeof port !== 'string') {
+			throw new BadRequestException();
+		}
+
 		return {
 			email: profile.emails[0]!.value,
-			name: profile.displayName ?? profile.username,
-			externalToken: accessToken,
+			port,
 		};
 	}
 }

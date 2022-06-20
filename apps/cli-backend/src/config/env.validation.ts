@@ -15,7 +15,13 @@ class EnvironmentVariables {
 	public PORT!: number;
 
 	@IsString()
-	public JWT_KEY!: string;
+	public FRONTEND_URL!: string;
+
+	@IsString()
+	public CLI_TOKEN_JWT_KEY!: string;
+
+	@IsString()
+	public REFRESH_TOKEN_JWT_KEY!: string;
 
 	@IsString()
 	public GOOGLE_OAUTH_CLIENT_ID!: string;

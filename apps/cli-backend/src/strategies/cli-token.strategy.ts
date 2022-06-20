@@ -7,11 +7,11 @@ import { IEnvironment } from '../config/env.interface';
 import { IJwtTokenPayload } from '../interfaces/jwt-token';
 
 @Injectable()
-export class TokenStrategy extends PassportStrategy(Strategy, 'token') {
+export class CliTokenStrategy extends PassportStrategy(Strategy, 'cli-token') {
 	constructor(configService: ConfigService<IEnvironment, true>) {
 		super({
 			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-			secretOrKey: configService.get('jwtKey', { infer: true }),
+			secretOrKey: configService.get('cliTokenJwtKey', { infer: true }),
 		});
 	}
 

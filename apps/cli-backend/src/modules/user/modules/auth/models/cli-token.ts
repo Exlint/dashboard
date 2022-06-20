@@ -1,0 +1,1 @@
+export const JWT_CLI_TOKEN_DURATION_DAYS = 30;

@@ -1,7 +1,9 @@
 export interface IEnvironment {
 	readonly nodeEnv: 'development' | 'production';
 	readonly port: string;
-	readonly jwtKey: string;
+	readonly frontendUrl: string;
+	readonly cliTokenJwtKey: string;
+	readonly refreshTokenJwtKey: string;
 	readonly googleOAuthClientId: string;
 	readonly googleOAuthClientSecret: string;
 	readonly googleOAuthRedirectUri: string;

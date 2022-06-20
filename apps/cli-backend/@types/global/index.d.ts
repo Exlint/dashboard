@@ -3,7 +3,9 @@ declare global {
 		interface ProcessEnv {
 			readonly NODE_ENV: 'development' | 'production';
 			readonly PORT: string;
-			readonly JWT_KEY: string;
+			readonly FRONTEND_URL: string;
+			readonly CLI_TOKEN_JWT_KEY: string;
+			readonly REFRESH_TOKEN_JWT_KEY: string;
 			readonly GOOGLE_OAUTH_CLIENT_ID: string;
 			readonly GOOGLE_OAUTH_CLIENT_SECRET: string;
 			readonly GOOGLE_OAUTH_REDIRECT_URI: string;
