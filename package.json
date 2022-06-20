@@ -12,6 +12,7 @@
 		"setdev": "run-p husky:install git:config",
 		"onboarding": "node ./scripts/onboarding.cjs",
 		"prepare": "is-ci || run-s setdev onboarding",
+		"postinstall": "pnpm -r --parallel prisma-gen",
 		"prisma-format": "prisma format",
 		"prisma-push:dev": "dotenv -e ./prisma/.env.development prisma db push --schema ./prisma/schema.prisma",
 		"prisma-push:prod": "dotenv -e ./prisma/.env.production prisma db push --schema ./prisma/schema.prisma",

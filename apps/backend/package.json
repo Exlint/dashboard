@@ -6,7 +6,6 @@
 	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
 	"license": "UNLICENSED",
 	"scripts": {
-		"postinstall": "pnpm prisma-gen",
 		"build": "nest build",
 		"start": "dotenv -e ./envs/.env.production -e ../../prisma/.env.production nest start",
 		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest start --watch",
