@@ -19,4 +19,14 @@ export class DBUserService {
 			select,
 		});
 	}
+
+	public findExternalUserByEmail(email: string) {
+		return this.prisma.user.findUnique({
+			where: { email },
+			select: {
+				id: true,
+				authType: true,
+			},
+		});
+	}
 }

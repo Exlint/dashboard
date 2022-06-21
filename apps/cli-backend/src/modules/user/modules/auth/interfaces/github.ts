@@ -5,7 +5,5 @@ interface IGithubEmail {
 }
 
 export interface IGithubProfile extends IUnknown {
-	readonly username: string;
-	readonly displayName?: string;
 	readonly emails: IGithubEmail[];
 }

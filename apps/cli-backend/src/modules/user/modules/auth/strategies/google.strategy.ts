@@ -17,7 +17,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 			clientID: configService.get('googleOAuthClientId', { infer: true }),
 			clientSecret: configService.get('googleOAuthClientSecret', { infer: true }),
 			callbackURL: configService.get('googleOAuthRedirectUri', { infer: true }),
-			scope: ['email', 'profile'],
+			scope: ['email'],
 			passReqToCallback: true,
 		});
 	}
