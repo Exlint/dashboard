@@ -40,6 +40,9 @@ class EnvironmentVariables {
 
 	@IsString()
 	public GITHUB_OAUTH_REDIRECT_URI!: string;
+
+	@IsString()
+	public MIXPANEL_TOKEN!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {

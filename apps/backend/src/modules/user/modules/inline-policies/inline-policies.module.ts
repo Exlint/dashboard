@@ -11,6 +11,7 @@ import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.gua
 import { UpdateConfigurationController } from './update-configuration.controller';
 import { AddRuleController } from './add-rule.controller';
 import { RemoveRuleController } from './remove-rule.controller';
+import { EventHandlers } from './events/handlers';
 
 @Module({
 	imports: [CqrsModule],
@@ -21,6 +22,12 @@ import { RemoveRuleController } from './remove-rule.controller';
 		AddRuleController,
 		RemoveRuleController,
 	],
-	providers: [BelongingGroupGuard, BelongingInlinePolicyGuard, ...CommandHandlers, ...QueryHandlers],
+	providers: [
+		BelongingGroupGuard,
+		BelongingInlinePolicyGuard,
+		...CommandHandlers,
+		...QueryHandlers,
+		...EventHandlers,
+	],
 })
 export class InlinePoliciesModule {}

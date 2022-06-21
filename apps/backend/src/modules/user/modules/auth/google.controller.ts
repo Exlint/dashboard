@@ -7,7 +7,8 @@ import {
 	Logger,
 	UseGuards,
 } from '@nestjs/common';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
+import { RealIP } from 'nestjs-real-ip';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
@@ -23,6 +24,7 @@ import { UpdateExternalTokenContract } from './commands/contracts/update-externa
 import Routes from './auth.routes';
 import { IExternalAuthUser } from './interfaces/external-auth-user';
 import { IExternalLoggedUser } from './interfaces/user';
+import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
 
 @Controller(Routes.CONTROLLER)
 export class GoogleController {
@@ -31,6 +33,7 @@ export class GoogleController {
 	constructor(
 		private readonly queryBus: QueryBus,
 		private readonly commandBus: CommandBus,
+		private readonly eventBus: EventBus,
 		private readonly authService: AuthService,
 	) {}
 
@@ -47,6 +50,7 @@ export class GoogleController {
 	@HttpCode(HttpStatus.OK)
 	public async googleRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
+		@RealIP() ip: string,
 	): Promise<IGoogleRedirectResponse> {
 		this.logger.log(
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
@@ -69,6 +73,7 @@ export class GoogleController {
 
 			const createdGoogleUserId = await this.queryBus.execute<CreateGoogleUserContract, string>(
 				new CreateGoogleUserContract({
+					ip,
 					name: user.name,
 					email: user.email,
 					refreshToken: user.externalToken!,
@@ -134,6 +139,8 @@ export class GoogleController {
 		]);
 
 		this.logger.log('Successfully stored new refresh token and remove old ones');
+
+		this.eventBus.publish(new LoginMixpanelContract(googleUser.id, ip));
 
 		return {
 			accessToken,

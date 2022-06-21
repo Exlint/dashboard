@@ -1,5 +1,6 @@
 import { Controller, Logger, Post } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
+import { RealIP } from 'nestjs-real-ip';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -14,11 +15,11 @@ export class CreateController {
 	constructor(private readonly queryBus: QueryBus) {}
 
 	@Post(Routes.CREATE)
-	public async create(@CurrentUserId() userId: string): Promise<ICreateGroup> {
+	public async create(@CurrentUserId() userId: string, @RealIP() ip: string): Promise<ICreateGroup> {
 		this.logger.log(`Will try to create a group for a user with an Id: ${userId}`);
 
 		const createdGroupId = await this.queryBus.execute<CreateGroupContract, string>(
-			new CreateGroupContract(userId),
+			new CreateGroupContract(userId, ip),
 		);
 
 		this.logger.log(
