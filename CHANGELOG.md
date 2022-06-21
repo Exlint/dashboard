@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Exlint/dashboard/compare/v1.8.0...v1.9.0) (2022-06-21)
+
+
+### Features
+
+* 🔥 integration with mixpanel ([7c5c0c4](https://github.com/Exlint/dashboard/commit/7c5c0c47e359759b7f69eb98868955465bf571e8))
+
 # [1.8.0](https://github.com/Exlint/dashboard/compare/v1.7.0...v1.8.0) (2022-06-21)
 
 
