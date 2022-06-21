@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Exlint/dashboard/compare/v1.7.0...v1.8.0) (2022-06-21)
+
+
+### Features
+
+* 🔥 support cli auth with external auth ([ae748bc](https://github.com/Exlint/dashboard/commit/ae748bc8709f8d26134035c04b3acdce88bb1039))
+
 # [1.7.0](https://github.com/Exlint/dashboard/compare/v1.6.0...v1.7.0) (2022-06-20)
 
 
