@@ -27,6 +27,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.0.2",
+		"@exlint.io/inflint": "1.2.7",
 		"@prisma/client": "3.15.2",
 		"@types/node": "17.0.35",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
@@ -42,7 +43,6 @@
 		"eslint-plugin-unused-imports": "2.0.0",
 		"figlet": "1.5.2",
 		"husky": "8.0.1",
-		"inflint": "1.2.2",
 		"is-ci": "3.0.1",
 		"lint-staged": "13.0.2",
 		"npm-run-all": "4.1.5",
