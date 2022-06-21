@@ -19,6 +19,7 @@ import { GithubAuthGuard } from './guards/github-auth.guard';
 import { GithubStrategy } from './strategies/github.strategy';
 import { GithubController } from './github.controller';
 import { DeleteController } from './delete.controller';
+import { EventHandlers } from './events/handlers';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
@@ -33,6 +34,7 @@ import { DeleteController } from './delete.controller';
 	providers: [
 		...QueryHandlers,
 		...CommandHandlers,
+		...EventHandlers,
 		AuthService,
 		LocalStrategy,
 		RefreshTokenStrategy,

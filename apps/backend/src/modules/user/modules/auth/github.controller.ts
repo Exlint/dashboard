@@ -7,7 +7,8 @@ import {
 	Logger,
 	UseGuards,
 } from '@nestjs/common';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
+import { RealIP } from 'nestjs-real-ip';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
@@ -23,6 +24,7 @@ import { UpdateExternalTokenContract } from './commands/contracts/update-externa
 import Routes from './auth.routes';
 import { IExternalAuthUser } from './interfaces/external-auth-user';
 import { IExternalLoggedUser } from './interfaces/user';
+import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
 
 @Controller(Routes.CONTROLLER)
 export class GithubController {
@@ -31,6 +33,7 @@ export class GithubController {
 	constructor(
 		private readonly queryBus: QueryBus,
 		private readonly commandBus: CommandBus,
+		private readonly eventBus: EventBus,
 		private readonly authService: AuthService,
 	) {}
 
@@ -47,6 +50,7 @@ export class GithubController {
 	@HttpCode(HttpStatus.OK)
 	public async githubRedirect(
 		@ExternalAuthUser() user: IExternalAuthUser,
+		@RealIP() ip: string,
 	): Promise<IGithubRedirectResponse> {
 		this.logger.log(
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
@@ -61,6 +65,7 @@ export class GithubController {
 
 			const createdGithubUserId = await this.queryBus.execute<CreateGithubUserContract, string>(
 				new CreateGithubUserContract({
+					ip,
 					name: user.name,
 					email: user.email,
 					accessToken: user.externalToken!,
@@ -126,6 +131,8 @@ export class GithubController {
 		]);
 
 		this.logger.log('Successfully stored new refresh token and remove old ones');
+
+		this.eventBus.publish(new LoginMixpanelContract(githubUser.id, ip));
 
 		return {
 			accessToken,
