@@ -2,12 +2,13 @@
 	"name": "@exlint-dashboard/frontend",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Backend package",
+	"description": "Frontend package",
 	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
 	"license": "UNLICENSED",
 	"scripts": {
-		"start:dev": "react-scripts start",
-		"build": "react-scripts build",
+		"start:dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.{ts,tsx,cjs}\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
@@ -20,7 +21,6 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-i18next": "11.17.2",
-		"react-scripts": "5.0.1",
 		"typescript": "4.7.4"
 	},
 	"devDependencies": {
@@ -42,7 +42,8 @@
 		"stylelint": "14.9.1",
 		"stylelint-config-prettier-scss": "0.0.1",
 		"stylelint-config-recess-order": "3.0.0",
-		"stylelint-config-standard-scss": "4.0.0"
+		"stylelint-config-standard-scss": "4.0.0",
+		"vite": "2.9.12"
 	},
 	"peerDependencies": {
 		"@babel/core": "7.18.5",
