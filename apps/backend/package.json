@@ -24,7 +24,7 @@
 		"@nestjs/jwt": "8.0.1",
 		"@nestjs/passport": "8.2.2",
 		"@nestjs/platform-express": "8.4.7",
-		"@octokit/oauth-app": "3.6.2",
+		"@octokit/oauth-app": "3.6.3",
 		"@prisma/client": "3.15.2",
 		"bcryptjs": "2.4.3",
 		"class-transformer": "0.5.1",
