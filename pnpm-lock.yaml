@@ -71,7 +71,7 @@ importers:
       '@nestjs/platform-express': 8.4.7
       '@nestjs/schematics': 8.0.11
       '@nestjs/swagger': 5.2.1
-      '@octokit/oauth-app': 3.6.2
+      '@octokit/oauth-app': 3.6.3
       '@prisma/client': 3.15.2
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
@@ -116,7 +116,7 @@ importers:
       '@nestjs/jwt': 8.0.1_@nestjs+common@8.4.7
       '@nestjs/passport': 8.2.2_ajebcnomotz225cztrmzhvaeiq
       '@nestjs/platform-express': 8.4.7_7tsmhnugyerf5okgqzer2mfqme
-      '@octokit/oauth-app': 3.6.2
+      '@octokit/oauth-app': 3.6.3
       '@prisma/client': 3.15.2_prisma@3.15.2
       bcryptjs: 2.4.3
       class-transformer: 0.5.1
@@ -2868,8 +2868,8 @@ packages:
       - encoding
     dev: false
 
-  /@octokit/oauth-app/3.6.2:
-    resolution: {integrity: sha512-rZTXwttW2I9TRsAkNYX0KrWypIKdkrAKcrt5qF4BNn/QcfZG+aVQWSBQtpXOjw3TBW99Td7W+2KRQjX2lL8aBw==}
+  /@octokit/oauth-app/3.6.3:
+    resolution: {integrity: sha512-OEJvIW/RueTjO3Q9Fz0MCUQpvdGEUNPZrA60b8TNO+/rwPHAA68pB5sFZqKG9eg+nBZtfLXm9HujL8fXJPHm+g==}
     dependencies:
       '@octokit/auth-oauth-app': 4.3.1
       '@octokit/auth-oauth-user': 1.3.0
@@ -11587,7 +11587,7 @@ packages:
     dev: true
 
   /querystring/0.2.0:
-    resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
+    resolution: {integrity: sha512-X/xY82scca2tau62i9mDyU9K+I+djTMUsvwf7xnUX5GLvVzgJybOJf4Y6o9Zx3oJK/LSXg5tTZBjwzqVPaPO2g==}
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
@@ -13756,7 +13756,7 @@ packages:
     dev: false
 
   /url/0.10.3:
-    resolution: {integrity: sha1-Ah5NnHcF8hu/N9A861h2dAJ3TGQ=}
+    resolution: {integrity: sha512-hzSUW2q06EqL1gKM/a+obYHLIO6ct2hwPuviqTTOcfFVc61UbfJ2Q32+uGL/HCPxKqrdGB5QUwIe7UqlDgwsOQ==}
     dependencies:
       punycode: 1.3.2
       querystring: 0.2.0
@@ -14392,7 +14392,7 @@ packages:
   /xml2js/0.4.19:
     resolution: {integrity: sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==}
     dependencies:
-      sax: 1.2.1
+      sax: 1.2.4
       xmlbuilder: 9.0.7
     dev: false
     optional: true
