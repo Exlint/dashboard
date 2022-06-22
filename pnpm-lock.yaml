@@ -6641,7 +6641,7 @@ packages:
             eslint-import-resolver-webpack:
                 optional: true
         dependencies:
-            '@typescript-eslint/parser': 5.29.0_ud6rd4xtew5bv4yhvkvu24pzm4
+            '@typescript-eslint/parser': 5.29.0_b5e7v2qnwxfo6hmiq56u52mz3e
             debug: 3.2.7
             eslint-import-resolver-node: 0.3.6
             find-up: 2.1.0
