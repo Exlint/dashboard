@@ -70,7 +70,7 @@ importers:
             '@nestjs/platform-express': 8.4.7
             '@nestjs/schematics': 8.0.11
             '@nestjs/swagger': 5.2.1
-            '@octokit/oauth-app': 3.6.2
+            '@octokit/oauth-app': 3.6.3
             '@prisma/client': 3.15.2
             '@types/bcryptjs': 2.4.2
             '@types/passport-github2': 1.2.5
@@ -115,7 +115,7 @@ importers:
             '@nestjs/jwt': 8.0.1_@nestjs+common@8.4.7
             '@nestjs/passport': 8.2.2_ajebcnomotz225cztrmzhvaeiq
             '@nestjs/platform-express': 8.4.7_7tsmhnugyerf5okgqzer2mfqme
-            '@octokit/oauth-app': 3.6.2
+            '@octokit/oauth-app': 3.6.3
             '@prisma/client': 3.15.2_prisma@3.15.2
             bcryptjs: 2.4.3
             class-transformer: 0.5.1
@@ -2954,10 +2954,10 @@ packages:
             - encoding
         dev: false
 
-    /@octokit/oauth-app/3.6.2:
+    /@octokit/oauth-app/3.6.3:
         resolution:
             {
-                integrity: sha512-rZTXwttW2I9TRsAkNYX0KrWypIKdkrAKcrt5qF4BNn/QcfZG+aVQWSBQtpXOjw3TBW99Td7W+2KRQjX2lL8aBw==,
+                integrity: sha512-OEJvIW/RueTjO3Q9Fz0MCUQpvdGEUNPZrA60b8TNO+/rwPHAA68pB5sFZqKG9eg+nBZtfLXm9HujL8fXJPHm+g==,
             }
         dependencies:
             '@octokit/auth-oauth-app': 4.3.1
@@ -4770,7 +4770,7 @@ packages:
             }
         dependencies:
             base64-js: 1.5.1
-            ieee754: 1.1.13
+            ieee754: 1.2.1
             isarray: 1.0.0
         dev: false
         optional: true
@@ -8523,7 +8523,6 @@ packages:
             {
                 integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==,
             }
-        dev: true
 
     /ignore/5.2.0:
         resolution:
@@ -11864,7 +11863,6 @@ packages:
             {
                 integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==,
             }
-        dev: true
 
     /scheduler/0.23.0:
         resolution:
@@ -13909,7 +13907,7 @@ packages:
                 integrity: sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==,
             }
         dependencies:
-            sax: 1.2.1
+            sax: 1.2.4
             xmlbuilder: 9.0.7
         dev: false
         optional: true
