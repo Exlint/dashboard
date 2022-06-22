@@ -4,8 +4,8 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { IEnvironment } from '@/config/env.interface';
-import { IExternalAuthUser } from '@/modules/user/modules/auth/interfaces/external-auth-user';
 
+import { IExternalAuthUser } from '../interfaces/external-auth-user';
 import { IGithubProfile } from '../interfaces/github';
 
 @Injectable()

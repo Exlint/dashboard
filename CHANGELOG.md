@@ -1,3 +1,38 @@
+# [1.9.0](https://github.com/Exlint/dashboard/compare/v1.8.0...v1.9.0) (2022-06-21)
+
+
+### Features
+
+* 🔥 integration with mixpanel ([7c5c0c4](https://github.com/Exlint/dashboard/commit/7c5c0c47e359759b7f69eb98868955465bf571e8))
+
+# [1.8.0](https://github.com/Exlint/dashboard/compare/v1.7.0...v1.8.0) (2022-06-21)
+
+
+### Features
+
+* 🔥 support cli auth with external auth ([ae748bc](https://github.com/Exlint/dashboard/commit/ae748bc8709f8d26134035c04b3acdce88bb1039))
+
+# [1.7.0](https://github.com/Exlint/dashboard/compare/v1.6.0...v1.7.0) (2022-06-20)
+
+
+### Features
+
+* 🔥 support cli backend without auth ([075cb4d](https://github.com/Exlint/dashboard/commit/075cb4decf7a23d687da76e324dd8a940040913d))
+
+# [1.6.0](https://github.com/Exlint/dashboard/compare/v1.5.0...v1.6.0) (2022-06-07)
+
+
+### Features
+
+* 🔥 support inline policies API ([6f070ce](https://github.com/Exlint/dashboard/commit/6f070ce7adb1c2db3080b1357d3ad90302870d2c))
+
+# [1.5.0](https://github.com/Exlint/dashboard/compare/v1.4.0...v1.5.0) (2022-06-05)
+
+
+### Features
+
+* 🔥 support groups APIs ([ed9e818](https://github.com/Exlint/dashboard/commit/ed9e8188cd4fc6dda881736121b347b62ef69a37))
+
 # [1.4.0](https://github.com/Exlint/dashboard/compare/v1.3.1...v1.4.0) (2022-06-03)
 
 

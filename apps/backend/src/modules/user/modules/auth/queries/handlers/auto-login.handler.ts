@@ -20,6 +20,22 @@ export class AutoLoginHandler implements IQueryHandler<AutoLoginContract> {
 					createdAt: true,
 				},
 			},
+			groups: {
+				select: {
+					id: true,
+					label: true,
+					createdAt: true,
+					inlinePolicies: {
+						select: {
+							id: true,
+							label: true,
+							library: true,
+							configuration: true,
+							rules: true,
+						},
+					},
+				},
+			},
 		});
 
 		return userData;

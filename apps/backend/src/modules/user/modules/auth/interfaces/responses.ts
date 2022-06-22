@@ -1,3 +1,4 @@
+import { IGroupData } from './groups-data';
 import { ILoggedUser } from './user';
 
 interface ITokens {
@@ -7,6 +8,7 @@ interface ITokens {
 
 export interface IRegisterResponse extends ITokens {
 	clientId: string;
+	groupsData: IGroupData[];
 }
 
 export interface ILoginResponse extends ITokens, ILoggedUser {}
