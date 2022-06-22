@@ -104,7 +104,7 @@ importers:
       rimraf: 3.0.2
       rxjs: 7.5.5
       swagger-ui-express: 4.4.0
-      ts-loader: 9.3.0
+      ts-loader: 9.3.1
       typescript: 4.7.4
       webpack: 5.73.0
       webpack-shell-plugin-next: 2.2.2
@@ -154,7 +154,7 @@ importers:
       prisma: 3.15.2
       rimraf: 3.0.2
       swagger-ui-express: 4.4.0
-      ts-loader: 9.3.0_3o2jfq6vfqxns3sz6wn2nnc3ei
+      ts-loader: 9.3.1_3o2jfq6vfqxns3sz6wn2nnc3ei
       typescript: 4.7.4
       webpack: 5.73.0
       webpack-shell-plugin-next: 2.2.2_webpack@5.73.0
@@ -203,7 +203,7 @@ importers:
       rimraf: 3.0.2
       rxjs: 7.5.5
       swagger-ui-express: 4.4.0
-      ts-loader: 9.3.0
+      ts-loader: 9.3.1
       typescript: 4.7.3
       webpack: 5.73.0
       webpack-shell-plugin-next: 2.2.2
@@ -251,7 +251,7 @@ importers:
       prisma: 3.15.2
       rimraf: 3.0.2
       swagger-ui-express: 4.4.0
-      ts-loader: 9.3.0_jy5w4alwxi2du2dgjfsq7k3iza
+      ts-loader: 9.3.1_jy5w4alwxi2du2dgjfsq7k3iza
       typescript: 4.7.3
       webpack: 5.73.0
       webpack-shell-plugin-next: 2.2.2_webpack@5.73.0
@@ -13424,8 +13424,8 @@ packages:
     resolution: {integrity: sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==}
     dev: false
 
-  /ts-loader/9.3.0_3o2jfq6vfqxns3sz6wn2nnc3ei:
-    resolution: {integrity: sha512-2kLLAdAD+FCKijvGKi9sS0OzoqxLCF3CxHpok7rVgCZ5UldRzH0TkbwG9XECKjBzHsAewntC5oDaI/FwKzEUog==}
+  /ts-loader/9.3.1_3o2jfq6vfqxns3sz6wn2nnc3ei:
+    resolution: {integrity: sha512-OkyShkcZTsTwyS3Kt7a4rsT/t2qvEVQuKCTg4LJmpj9fhFR7ukGdZwV6Qq3tRUkqcXtfGpPR7+hFKHCG/0d3Lw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
@@ -13439,8 +13439,8 @@ packages:
       webpack: 5.73.0
     dev: true
 
-  /ts-loader/9.3.0_jy5w4alwxi2du2dgjfsq7k3iza:
-    resolution: {integrity: sha512-2kLLAdAD+FCKijvGKi9sS0OzoqxLCF3CxHpok7rVgCZ5UldRzH0TkbwG9XECKjBzHsAewntC5oDaI/FwKzEUog==}
+  /ts-loader/9.3.1_jy5w4alwxi2du2dgjfsq7k3iza:
+    resolution: {integrity: sha512-OkyShkcZTsTwyS3Kt7a4rsT/t2qvEVQuKCTg4LJmpj9fhFR7ukGdZwV6Qq3tRUkqcXtfGpPR7+hFKHCG/0d3Lw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
