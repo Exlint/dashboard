@@ -66,6 +66,7 @@ export class RegisterController {
 			accessToken,
 			refreshToken,
 			clientId: createdLocalUserId,
+			groupsData: [],
 		};
 	}
 }

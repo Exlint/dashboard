@@ -13,6 +13,14 @@ enum AuthType {
   GITHUB
 }
 
+enum PolicyLibrary {
+  ESLINT
+  PRETTIER
+  INFLINT
+  STYLELINT
+  DEPCHECK
+}
+
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
@@ -61,24 +69,35 @@ model ClientSecret {
   @@unique(fields: [userId, secret], name: "unique_user_secrets")
 }
 
-type InlinePolicy {
-  label String
+model InlinePolicy {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  groupId       String        @db.ObjectId
+  label         String
+  library       PolicyLibrary
+  configuration Json?
+  rules         Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
 }
 
 model Group {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId         String       @db.ObjectId
-  label          String
-  inlinePolicies InlinePolicy
-  policyIDs      String[]     @db.ObjectId
-  policies       Policy[]     @relation(fields: [policyIDs], references: [id])
+  userId    String   @db.ObjectId
+  label     String?
+  policyIDs String[] @db.ObjectId
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  inlinePolicies InlinePolicy[]
 
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  policies Policy[] @relation(fields: [policyIDs], references: [id])
 
   @@unique(fields: [userId, label], name: "unique_user_labels")
 }
@@ -86,13 +105,16 @@ model Group {
 model Policy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId    String   @db.ObjectId
-  label     String
-  groupsIDs String[] @db.ObjectId
-  groups    Group[]  @relation(fields: [groupsIDs], references: [id])
+  userId        String        @db.ObjectId
+  label         String
+  library       PolicyLibrary
+  configuration Json?
+  rules         Json?
+  groupsIDs     String[]      @db.ObjectId
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  groups Group[] @relation(fields: [groupsIDs], references: [id])
 }

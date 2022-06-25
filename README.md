@@ -46,8 +46,10 @@ Sync Prisma with the database configuration
 
 ```bash
   cd ./apps/backend
+  pnpm prisma-gen
 
-  pnpm prisma-gen:dev
+  cd ../cli-backend
+  pnpm prisma-gen
 ```
 
 Run the database in development mode
@@ -56,7 +58,7 @@ Run the database in development mode
   pnpm db:start
 ```
 
-Start both the backend and frontend
+Start both the backend, cli-backend and frontend
 
 ```bash
   pnpm -r start:dev
@@ -75,8 +77,6 @@ If `git cmt` exits with an error, make sure you run `pnpm -r install` before.
 When you want to configure the database with more indices, collections and such, you need to sync Prisma with MongoDB
 
 ```bash
-  cd ./apps/backend
-
   pnpm prisma-push:dev
 ```
 
@@ -113,7 +113,25 @@ When you want look at the backend documentation
   pnpm compodoc
 ```
 
+## Cli backend documentation
+
+When you want look at the cli-backend documentation
+
+```bash
+  cd ./apps/cli-backend
+  pnpm compodoc
+```
+
 ## Backend OpenAPI
 
 When you want look at the backend OpenAPI (Swagger), you need to run the application in development mode.
 Then, you can browse to `http://localhost:3000/api` (replace the port if you use other port)
+
+## Cli backend OpenAPI
+
+When you want look at the cli backend OpenAPI (Swagger), you need to run the application in development mode.
+Then, you can browse to `http://localhost:5000/api` (replace the port if you use other port)
+
+## Improvements
+
+-   Need to have a common application (shared folder for `backend` and `cli-backend`)
