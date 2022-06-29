@@ -6,6 +6,7 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "./",
 		"jsx": "react-jsx",
-		"typeRoots": ["./node_modules/@types"]
+		"typeRoots": ["./node_modules/@types"],
+		"types": ["vite/types"]
 	}
 }
