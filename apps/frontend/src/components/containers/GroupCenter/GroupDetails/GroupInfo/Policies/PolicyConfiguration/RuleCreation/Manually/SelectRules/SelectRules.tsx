@@ -6,6 +6,7 @@ import { ILibrary } from '@/interfaces/library';
 import SelectRulesView from './SelectRules.view';
 
 interface IProps {
+	readonly rulesObject: { [key: string]: string } | Record<string, Record<string, unknown>>;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedRule: IRule | null;
@@ -28,6 +29,7 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 
 	return (
 		<SelectRulesView
+			rulesObject={props.rulesObject}
 			policyLabelInput={props.policyLabelInput}
 			selectedLibrary={props.selectedLibrary}
 			selectedCatagoryIndex={selectedCatagoryIndexState}

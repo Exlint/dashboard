@@ -15,6 +15,7 @@ const Manually: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number[]>([-1]);
 	const [selectedRulesState, setSelectedRulesState] = useState<IRule[]>([]);
+	const [isRuleOnUpdate, setIsRuleOnUpdate] = useState<boolean>(false);
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
@@ -24,7 +25,7 @@ const Manually: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const rulesObject = librariesList[selectedLibraryName as keyof typeof librariesList].rulesList;
 
 	const onSelectedRule = (rule: IRule) => {
-		if (!selectedRuleState) {
+		if (!isRuleOnUpdate) {
 			setSelectedRuleAlertTypeIndexState(() => [0]);
 			setSelectedRuleState(rule);
 		}
@@ -37,12 +38,14 @@ const Manually: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onRemoveRule = () => {
 		setSelectedRuleState(null);
 		setSelectedRuleAlertTypeIndexState(() => [-1]);
+		setIsRuleOnUpdate(false);
 	};
 
 	const onAddRuleToList = (rule: IRule) => {
 		setSelectedRulesState(() => [...selectedRulesState, rule]);
 		setSelectedRuleState(null);
 		setSelectedRuleAlertTypeIndexState(() => [-1]);
+		setIsRuleOnUpdate(false);
 	};
 
 	const onRemoveRuleFromList = (ruleName: string) => {
@@ -50,10 +53,10 @@ const Manually: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	};
 
 	const onEditSelectedRule = (rule: IRule) => {
-		if (!selectedRuleState) {
-			setSelectedRuleState(() => rule);
-			setSelectedRuleAlertTypeIndexState(() => [0]);
-		}
+		setIsRuleOnUpdate(true);
+
+		setSelectedRuleState(() => rule);
+		setSelectedRuleAlertTypeIndexState(() => [0]);
 	};
 
 	const onCodeBasedConfigurationsInputChanged = (input: string) =>

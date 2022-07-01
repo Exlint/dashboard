@@ -39,7 +39,9 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			<div className={classes['innerNewPolicy']}>
 				<h3 className={classes['innerNewPolicy__title']}>New Policy</h3>
 				<div className={classes['policyConfigurationButtonContainer']}>
-					{props.selectedLibrary && props.policyLabelInput?.length !== 0 ? (
+					{props.selectedLibrary &&
+					props.policyLabelInput !== null &&
+					props.policyLabelInput?.length !== 0 ? (
 						<Link
 							to="/groupCenter/group/Policy/Configurations-Onboarding"
 							className={classes['policyConfigurationButtonContainer__link']}

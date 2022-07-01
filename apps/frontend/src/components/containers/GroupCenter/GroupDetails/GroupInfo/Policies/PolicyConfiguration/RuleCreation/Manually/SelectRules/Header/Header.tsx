@@ -5,6 +5,7 @@ import { ILibrary } from '@/interfaces/library';
 import HeaderView from './Header.view';
 
 interface IProps {
+	readonly rulesObject: { [key: string]: string } | Record<string, Record<string, unknown>>;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedCatagoryIndex: number | null;
@@ -16,6 +17,7 @@ interface IProps {
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<HeaderView
+			rulesObject={props.rulesObject}
 			policyLabelInput={props.policyLabelInput}
 			selectedLibrary={props.selectedLibrary}
 			selectedCatagoryIndex={props.selectedCatagoryIndex}

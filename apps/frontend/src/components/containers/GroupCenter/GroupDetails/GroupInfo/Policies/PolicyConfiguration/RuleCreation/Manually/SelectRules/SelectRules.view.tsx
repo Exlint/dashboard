@@ -9,6 +9,7 @@ import Header from './Header';
 import RulesList from './RulesList';
 
 interface IProps {
+	readonly rulesObject: { [key: string]: string } | Record<string, Record<string, unknown>>;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedCatagoryIndex: number | null;
@@ -24,6 +25,7 @@ const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	return (
 		<div className={classes['leftSideContainer']}>
 			<Header
+				rulesObject={props.rulesObject}
 				policyLabelInput={props.policyLabelInput}
 				selectedLibrary={props.selectedLibrary}
 				selectedCatagoryIndex={props.selectedCatagoryIndex}

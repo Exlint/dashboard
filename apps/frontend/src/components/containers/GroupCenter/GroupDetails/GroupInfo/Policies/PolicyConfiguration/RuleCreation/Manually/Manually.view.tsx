@@ -29,6 +29,7 @@ const ManuallyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	return (
 		<section className={classes['manually']}>
 			<SelectRules
+				rulesObject={props.rulesObject}
 				policyLabelInput={props.policyLabelInput}
 				selectedLibrary={props.selectedLibrary}
 				selectedRule={props.selectedRule}

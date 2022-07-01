@@ -4,13 +4,13 @@ import React from 'react';
 import VSvg from '@/ui/VSvg';
 import SelectFromOptions from '@/ui/SelectFromOptions';
 import { ILibrary } from '@/interfaces/library';
-import { rulesCatagories } from '@/data/rulesCatagories';
 
 import tempLogo from '../../../../../../../../../../../assets/images/brandLogo.png';
 
 import classes from './Header.module.scss';
 
 interface IProps {
+	readonly rulesObject: { [key: string]: string } | Record<string, Record<string, unknown>>;
 	readonly policyLabelInput: string | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedCatagoryIndex: number | null;
@@ -20,6 +20,7 @@ interface IProps {
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const rulesCatagories = Object.keys(props.rulesObject);
 	// const { t } = useTranslation();
 
 	return (
