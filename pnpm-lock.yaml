@@ -90,7 +90,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
-      googleapis: 104.0.0
+      googleapis: 105.0.0
       mixpanel: 0.16.0
       nestjs-real-ip: 2.1.1
       open-cli: 7.0.1
@@ -121,7 +121,7 @@ importers:
       bcryptjs: 2.4.3
       class-transformer: 0.5.1
       class-validator: 0.13.2
-      googleapis: 104.0.0
+      googleapis: 105.0.0
       mixpanel: 0.16.0
       nestjs-real-ip: 2.1.1_@nestjs+common@8.4.7
       passport: 0.6.0
@@ -8740,8 +8740,8 @@ packages:
       - supports-color
     dev: false
 
-  /googleapis/104.0.0:
-    resolution: {integrity: sha512-5UItkob9BgC2S1Ekm16ZMiCxaD0bU0n3EauiNAMB7KejmlACDIfNnHiC0GUYUL9/fU2jrJx1ngY89oQP9ZAPeA==}
+  /googleapis/105.0.0:
+    resolution: {integrity: sha512-wH/jU/6QpqwsjTKj4vfKZz97ne7xT7BBbKwzQEwnbsG8iH9Seyw19P+AuLJcxNNrmgblwLqfr3LORg4Okat1BQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       google-auth-library: 8.0.2
@@ -12588,6 +12588,7 @@ packages:
   /qs/6.10.5:
     resolution: {integrity: sha512-O5RlPh0VFtR78y79rgcgKK4wbAI0C5zGVLztOIdpWX6ep368q5Hv6XRxDvXuZ9q3C6v+e3n8UfZZJw7IIG27eQ==}
     engines: {node: '>=0.6'}
+    deprecated: when using stringify with arrayFormat comma, `[]` is appended on single-item arrays. Upgrade to v6.11.0 or downgrade to v6.10.4 to fix.
     dependencies:
       side-channel: 1.0.4
     dev: false
