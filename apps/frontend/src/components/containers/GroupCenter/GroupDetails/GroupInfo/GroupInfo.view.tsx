@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { Route, useLocation } from 'react-router-dom';
 
@@ -18,6 +19,12 @@ interface IProps {
 	readonly isNewPolicyClicked: boolean;
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
+	readonly isLableOnEdit: boolean;
+	readonly groupLable: string | null;
+	readonly onUpdateLableChanges: () => void;
+	readonly onCancelLableChanges: () => void;
+	readonly onChangeGroupLable: (_: string) => void;
+	readonly onLableOnEdit: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onSelectedLibrary: (library: ILibrary) => void;
 	readonly onCancelSelectedLibrary: () => void;
@@ -42,7 +49,43 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			{currentPage === 'group' && (
 				<>
 					<div className={classes['innerGroupInfo']}>
-						<h3 className={classes['innerGroupInfo__name']}>{props.selectedGroup?.label}</h3>
+						<div className={classes['groupLableContainer']}>
+							<input
+								className={classes['groupLableContainer__lable']}
+								value={props.groupLable ?? props.selectedGroup?.label}
+								disabled={props.isLableOnEdit}
+								onChange={() => props.onChangeGroupLable}
+							/>
+							{props.isLableOnEdit ? (
+								<button
+									type="button"
+									className={classes['editLableButton']}
+									onClick={props.onLableOnEdit}
+								>
+									<VSvg className={classes['editLableButton__icon']} name="editLable" />
+								</button>
+							) : (
+								<div className={classes['updateLableButtonsContainer']}>
+									<button
+										className={classes['updateChangesButton']}
+										type="button"
+										onClick={props.onUpdateLableChanges}
+									>
+										<VSvg className={classes['updateChangesButton__icon']} name="vIcon" />
+									</button>
+									<button
+										className={classes['cancelChangesButton']}
+										type="button"
+										onClick={props.onCancelLableChanges}
+									>
+										<VSvg
+											className={classes['cancelChangesButton__icon']}
+											name="cancelIcon"
+										/>
+									</button>
+								</div>
+							)}
+						</div>
 						<div className={classes['createdTime']}>
 							<span className={classes['createdTime__text']}>Created in:</span>
 							<div className={classes['createdTimeDate']}>

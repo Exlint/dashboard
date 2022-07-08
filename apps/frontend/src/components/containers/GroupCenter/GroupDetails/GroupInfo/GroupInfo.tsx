@@ -16,6 +16,24 @@ interface IProps {
 
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [isNewPolicyClickedState, setIsNewPolicyClickedState] = useState<boolean>(false);
+	const [isLableOnEditState, setIsLableOnEditState] = useState<boolean>(false);
+	const [groupLableState, setGroupLableState] = useState<string | null>(null);
+
+	const onChangeGroupLable = (newGroupLable: string) => setGroupLableState(() => newGroupLable);
+
+	// const onPasswordInputChange = (input: string) => setPasswordInputState(() => input);
+
+	const onLableOnEdit = () => {
+		setIsLableOnEditState(!isLableOnEditState);
+	};
+
+	const onUpdateLableChanges = () => {
+		setIsLableOnEditState(false);
+	};
+
+	const onCancelLableChanges = () => {
+		setIsLableOnEditState(false);
+	};
 
 	const onCreateNewPolicy = () => {
 		setIsNewPolicyClickedState(() => !isNewPolicyClickedState);
@@ -27,6 +45,12 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isNewPolicyClicked={isNewPolicyClickedState}
 			selectedLibrary={props.selectedLibrary}
 			policyLabelInput={props.policyLabelInput}
+			isLableOnEdit={isLableOnEditState}
+			groupLable={groupLableState}
+			onUpdateLableChanges={onUpdateLableChanges}
+			onCancelLableChanges={onCancelLableChanges}
+			onChangeGroupLable={onChangeGroupLable}
+			onLableOnEdit={onLableOnEdit}
 			onPolicyLabelInputChanged={props.onPolicyLabelInputChanged}
 			onSelectedLibrary={props.onSelectedLibrary}
 			onCancelSelectedLibrary={props.onCancelSelectedLibrary}

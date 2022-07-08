@@ -19,10 +19,50 @@
 		border: 2px solid #e7e7e7;
 		border-radius: 5px;
 
-		&__name {
-			font-size: 2.4rem;
-			font-weight: 560;
-			color: #202428;
+		.groupLableContainer {
+			display: flex;
+			align-items: center;
+			width: 160px;
+
+			&__lable {
+				width: 100%;
+				font-size: 2.4rem;
+				font-weight: 560;
+				color: #202428;
+				border-bottom: 1px solid transparent;
+
+				&:disabled {
+					font-weight: 750;
+					border-bottom: 2px solid rgb(95 95 95);
+				}
+			}
+
+			.editLableButton {
+				display: flex;
+				width: fit-content;
+				margin-left: 10px;
+
+				&__icon {
+					width: 15px;
+					height: 15px;
+					fill: transparent;
+					stroke: #4b4a65;
+				}
+			}
+
+			.updateLableButtonsContainer {
+				display: flex;
+
+				// .updateChangesButton {
+				// 	&__icon {
+				// 	}
+				// }
+
+				// .cancelChangesButton {
+				// 	&__icon {
+				// 	}
+				// }
+			}
 		}
 
 		.createdTime {

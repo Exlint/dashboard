@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import uniqid from 'uniqid';
 
 import { IGroup } from '@/interfaces/group';
-
+import { IGroupId } from '@/interfaces/groupId';
 import { currentDate } from '@/utils/currentDate';
 
 import * as fromApp from '@/store/app';
@@ -26,6 +27,20 @@ interface IProps extends IPropsFromState, IPropsFromDispatch {
 
 const GroupsSidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewGroup = () => {
+		axios
+			.post<IGroupId>(`${process.env.REACT_APP_BACKEND_URL}/create`, {})
+			.then((response: AxiosResponse<IGroupId>) => {
+				props.addGroup({
+					label: 'New Group',
+					createdAt: currentDate(),
+					id: response.data.id,
+					policies: [],
+				});
+			})
+			.catch((err: AxiosError) => {
+				alert(err.response?.data);
+			});
+
 		props.addGroup({ label: 'New Group', createdAt: currentDate(), id: uniqid(), policies: [] });
 	};
 
