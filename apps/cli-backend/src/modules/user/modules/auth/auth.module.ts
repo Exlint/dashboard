@@ -13,6 +13,7 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { GithubAuthGuard } from './guards/github-auth.guard';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { EventHandlers } from './events/handlers';
+import { AuthService } from './auth.service';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
@@ -27,6 +28,7 @@ import { EventHandlers } from './events/handlers';
 		LocalAuthGuard,
 		GithubAuthGuard,
 		GoogleAuthGuard,
+		AuthService,
 	],
 })
 export class AuthModule {}

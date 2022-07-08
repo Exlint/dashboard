@@ -90,4 +90,10 @@ export class DBUserService {
 
 		return user;
 	}
+
+	public async isRefreshTokenValid(userId: string, token: string) {
+		const tokenDocument = await this.prisma.refreshToken.findFirst({ where: { userId, token } });
+
+		return tokenDocument !== null;
+	}
 }

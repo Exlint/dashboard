@@ -6,6 +6,7 @@ import { EmailExistsHandler } from './email-exists.handler';
 import { GetGithubUserHandler } from './get-github-user.handler';
 import { GetGoogleUserHandler } from './get-google-user.handler';
 import { LoginHandler } from './login.handler';
+import { ValidRefreshTokenHandler } from './valid-refresh-token.handler';
 
 export const QueryHandlers = [
 	CreateLocalUserHandler,
@@ -16,4 +17,5 @@ export const QueryHandlers = [
 	EmailExistsHandler,
 	GetGoogleUserHandler,
 	GetGithubUserHandler,
+	ValidRefreshTokenHandler,
 ];
