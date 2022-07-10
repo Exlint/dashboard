@@ -65,7 +65,7 @@ importers:
       '@nestjs/common': 9.0.1
       '@nestjs/config': 2.2.0
       '@nestjs/core': 9.0.1
-      '@nestjs/cqrs': 8.0.5
+      '@nestjs/cqrs': 9.0.0
       '@nestjs/jwt': 8.0.1
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.1
@@ -112,7 +112,7 @@ importers:
       '@nestjs/common': 9.0.1_kgmvgmqc4iohdboj3f7yqhrie4
       '@nestjs/config': 2.2.0_jtahmmydqncr472agnsz6xyzmi
       '@nestjs/core': 9.0.1_a7eah4kgzhdok64pm3jmdf7do4
-      '@nestjs/cqrs': 8.0.5_c6jfnotcfxz5ne4c2mdj24h6y4
+      '@nestjs/cqrs': 9.0.0_c6jfnotcfxz5ne4c2mdj24h6y4
       '@nestjs/jwt': 8.0.1_@nestjs+common@9.0.1
       '@nestjs/passport': 9.0.0_oiyyv4gjloak37yd3yig7yoro4
       '@nestjs/platform-express': 9.0.1_75qmzffkw5ecbb3mxgbk2g6nku
@@ -166,7 +166,7 @@ importers:
       '@nestjs/common': 9.0.1
       '@nestjs/config': 2.2.0
       '@nestjs/core': 9.0.1
-      '@nestjs/cqrs': 8.0.5
+      '@nestjs/cqrs': 9.0.0
       '@nestjs/jwt': 8.0.1
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.1
@@ -211,7 +211,7 @@ importers:
       '@nestjs/common': 9.0.1_kgmvgmqc4iohdboj3f7yqhrie4
       '@nestjs/config': 2.2.0_jtahmmydqncr472agnsz6xyzmi
       '@nestjs/core': 9.0.1_a7eah4kgzhdok64pm3jmdf7do4
-      '@nestjs/cqrs': 8.0.5_c6jfnotcfxz5ne4c2mdj24h6y4
+      '@nestjs/cqrs': 9.0.0_c6jfnotcfxz5ne4c2mdj24h6y4
       '@nestjs/jwt': 8.0.1_@nestjs+common@9.0.1
       '@nestjs/passport': 9.0.0_oiyyv4gjloak37yd3yig7yoro4
       '@nestjs/platform-express': 9.0.1_75qmzffkw5ecbb3mxgbk2g6nku
@@ -3709,11 +3709,11 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/cqrs/8.0.5_c6jfnotcfxz5ne4c2mdj24h6y4:
-    resolution: {integrity: sha512-uOG7xY0e5WGEuCHKCqSsuy79i5fq6pj+zPQG/6LwpSdwHWaraIUR1N4ExAVof19AGQvDQMpCqMiTrb4O+HjlIg==}
+  /@nestjs/cqrs/9.0.0_c6jfnotcfxz5ne4c2mdj24h6y4:
+    resolution: {integrity: sha512-4W+NaYOFKeKLOk1ksWT5lIqUOM3uq+rZd46EFVpYsrtGdJB+Q+qGlr8ONPYeOkG0vmdKDiCHmjk1mv0BeJ/m7Q==}
     peerDependencies:
-      '@nestjs/common': ^8.0.0
-      '@nestjs/core': ^8.0.0
+      '@nestjs/common': ^9.0.0
+      '@nestjs/core': ^9.0.0
       reflect-metadata: 0.1.13
       rxjs: ^7.2.0
     dependencies:
