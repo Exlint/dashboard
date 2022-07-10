@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@compodoc/compodoc": "1.1.19",
 		"@nestjs/cli": "9.0.0",
-		"@nestjs/schematics": "8.0.11",
+		"@nestjs/schematics": "9.0.1",
 		"@nestjs/swagger": "5.2.1",
 		"@types/bcryptjs": "2.4.2",
 		"@types/passport-github2": "1.2.5",
