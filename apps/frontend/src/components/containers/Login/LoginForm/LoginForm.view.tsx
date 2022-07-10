@@ -1,6 +1,5 @@
 import React from 'react';
 import VSvg from '@/ui/VSvg';
-// import { Trans, useTranslation } from 'react-i18next';
 
 import Input from '@/ui/Input';
 import classes from './LoginForm.module.scss';
@@ -18,20 +17,20 @@ interface IProps {
 }
 
 const LoginFormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const { t } = useTranslation();
+	const githubAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/github-auth`;
 
 	return (
 		<>
 			<h3 className={classes['loginFormTitle']}>Welcome.</h3>
 			<div className={classes['integrationsButtons']}>
-				<button className={classes['githubIntegrationButton']} type="button">
+				<a className={classes['githubIntegrationButton']} href={githubAuthUrl} target="_blank">
 					<VSvg name="githubIcon" className={classes['githubIntegrationButton__icon']} />
 					<span className={classes['githubIntegrationButton__text']}>Continue with GitHub</span>
-				</button>
-				<button className={classes['googleIntegrationButton']} type="button">
+				</a>
+				<a className={classes['googleIntegrationButton']}>
 					<VSvg name="googleIcon" className={classes['googleIntegrationButton__icon']} />
 					<span className={classes['googleIntegrationButton__text']}>Continue with Google</span>
-				</button>
+				</a>
 			</div>
 
 			<form className={classes['signinForm']} noValidate onSubmit={props.onFormSubmit}>
