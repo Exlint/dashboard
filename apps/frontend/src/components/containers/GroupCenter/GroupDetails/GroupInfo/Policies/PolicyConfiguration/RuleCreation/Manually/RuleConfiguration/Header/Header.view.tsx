@@ -8,7 +8,8 @@ import classes from './Header.module.scss';
 interface IProps {
 	readonly selectedRule: IRule | null;
 	readonly selectedRules: IRule[];
-	readonly onAddRuleToList: (rule: IRule) => void;
+	readonly onAddRuleToList: () => void;
+	readonly onUpdateRule: () => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -18,17 +19,24 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<div className={classes['header']}>
 			<span className={classes['header__title']}>Rule Configuration</span>
 			<div className={classes['addRuleButton']}>
-				<button
-					className={classes['buttonContainer']}
-					type="button"
-					onClick={() => props.onAddRuleToList(props.selectedRule!)}
-				>
-					{props.selectedRules.includes(props.selectedRule!) ? (
+				{props.selectedRules.includes(props.selectedRule!) ? (
+					<button
+						className={classes['buttonContainer']}
+						type="button"
+						onClick={() => props.onAddRuleToList()}
+					>
 						<VSvg className={classes['buttonContainer__updateIcon']} name="updateRuleIcon" />
-					) : (
+					</button>
+				) : (
+					<button
+						className={classes['buttonContainer']}
+						type="button"
+						onClick={() => props.onUpdateRule}
+					>
 						<VSvg className={classes['buttonContainer__addIcon']} name="addRuleButtonPurple" />
-					)}
-				</button>
+					</button>
+				)}
+
 				<span className={classes['addRuleButton__text']}>
 					{props.selectedRules.includes(props.selectedRule!) ? 'Update Rule' : 'Add Rule'}
 				</span>

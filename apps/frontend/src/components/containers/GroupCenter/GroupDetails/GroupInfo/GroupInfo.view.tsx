@@ -56,6 +56,7 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								disabled={props.isLableOnEdit}
 								onChange={() => props.onChangeGroupLable}
 							/>
+							<span>{props.groupLable}</span>
 							{props.isLableOnEdit ? (
 								<button
 									type="button"

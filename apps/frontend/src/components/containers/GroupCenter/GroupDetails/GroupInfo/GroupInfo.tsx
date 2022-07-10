@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import axios, { AxiosError } from 'axios';
 
 import { IGroup } from '@/interfaces/group';
 import { ILibrary } from '@/interfaces/library';
+import { IParams } from '@/interfaces/params';
+import * as fromApp from '@/store/app';
+import * as groupsActions from '@/store/actions/groups';
+import { IEditGroupLable } from '@/interfaces/editGroupLable';
 
 import GroupInfoView from './GroupInfo.view';
 
-interface IProps {
+interface IPropsFromState {
+	readonly groups: IGroup[];
+}
+
+interface IPropsFromDispatch {
+	editGroupLable: (groupId: string, newLable: string) => groupsActions.EditGroupLabel;
+}
+
+interface IProps extends IPropsFromState, IPropsFromDispatch {
 	readonly selectedGroup: IGroup | null;
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
@@ -19,9 +35,28 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	const [isLableOnEditState, setIsLableOnEditState] = useState<boolean>(false);
 	const [groupLableState, setGroupLableState] = useState<string | null>(null);
 
-	const onChangeGroupLable = (newGroupLable: string) => setGroupLableState(() => newGroupLable);
+	const { groupId } = useParams<IParams>();
 
-	// const onPasswordInputChange = (input: string) => setPasswordInputState(() => input);
+	const onChangeGroupLable = (newGroupLable: string) => {
+		if (newGroupLable.length) {
+			axios
+				.post<IEditGroupLable>(`${process.env.REACT_APP_BACKEND_URL}/edit-label`, {
+					label: newGroupLable,
+				})
+				.then(() => {
+					props.editGroupLable(groupId!, newGroupLable);
+				})
+				.catch((err: AxiosError) => {
+					alert(err.response?.data);
+				});
+		}
+	};
+
+	const selectedGroup = props.groups.filter((group) => group.id === groupId)[0];
+
+	useEffect(() => {
+		setGroupLableState(() => selectedGroup!.label);
+	}, [selectedGroup]);
 
 	const onLableOnEdit = () => {
 		setIsLableOnEditState(!isLableOnEditState);
@@ -62,4 +97,17 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 GroupInfo.displayName = 'GroupInfo';
 GroupInfo.defaultProps = {};
 
-export default React.memo(GroupInfo);
+const mapStateToProps = (state: fromApp.AppState) => {
+	return {
+		groups: state.groups.groups,
+	};
+};
+
+const mapDispatchToProps = (dispatch: Dispatch<groupsActions.GroupsTypes>): IPropsFromDispatch => {
+	return {
+		editGroupLable: (groupId: string, newLable: string): groupsActions.EditGroupLabel =>
+			dispatch(groupsActions.editGroupLabel(groupId, newLable)),
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(GroupInfo));

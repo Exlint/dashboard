@@ -14,12 +14,11 @@ interface IProps {
 	readonly policyLabelInput: string | null;
 	readonly selectedRule: IRule | null;
 	readonly selectedRules: IRule[];
-	readonly selectedRuleAlertTypeIndex: number[];
+	readonly selectedRuleAlertTypeIndex: number;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
-	readonly onAddRuleToList: (rule: IRule) => void;
 	readonly onClickBasedCodeConfigurations: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
@@ -37,7 +36,8 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 				<Header
 					selectedRule={props.selectedRule}
 					selectedRules={props.selectedRules}
-					onAddRuleToList={props.onAddRuleToList}
+					ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
+					selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 				/>
 				<SelectedRule selectedRule={props.selectedRule} onRemoveRule={props.onRemoveRule} />
 				<RuleAlertType

@@ -8,8 +8,7 @@ interface IProps {
 	readonly ruleName: string;
 	readonly ruleCatagory: string;
 	readonly ruleAlertType: string | undefined;
-	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly onRemoveRuleFromList: (ruleName: string) => void;
+	readonly onRemoveRule: () => void;
 	readonly onEditSelectedRule: (rule: IRule) => void;
 }
 
@@ -20,8 +19,7 @@ const SelectedRule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			ruleName={props.ruleName}
 			ruleCatagory={props.ruleCatagory}
 			ruleAlertType={props.ruleAlertType}
-			ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-			onRemoveRuleFromList={props.onRemoveRuleFromList}
+			onRemoveRule={props.onRemoveRule}
 			onEditSelectedRule={props.onEditSelectedRule}
 		/>
 	);

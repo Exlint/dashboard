@@ -3,7 +3,7 @@ import React from 'react';
 import RuleAlertTypeView from './RuleAlertType.view';
 
 interface IProps {
-	readonly selectedRuleAlertTypeIndex: number[];
+	readonly selectedRuleAlertTypeIndex: number;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 }
 

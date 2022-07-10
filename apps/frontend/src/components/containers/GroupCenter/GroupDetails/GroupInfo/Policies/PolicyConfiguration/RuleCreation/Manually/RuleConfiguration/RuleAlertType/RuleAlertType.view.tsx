@@ -4,7 +4,7 @@ import { ruleAlertTypes } from '@/data/ruleAlertTypes';
 import classes from './RuleAlertType.module.scss';
 
 interface IProps {
-	readonly selectedRuleAlertTypeIndex: number[];
+	readonly selectedRuleAlertTypeIndex: number;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 }
 
@@ -19,9 +19,8 @@ const RuleAlertTypeView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 								className={classes['checkboxBorder__button']}
 								type="button"
 								style={{
-									backgroundColor: props.selectedRuleAlertTypeIndex.includes(index)
-										? '#2355a0'
-										: '#fefefe',
+									backgroundColor:
+										props.selectedRuleAlertTypeIndex === index ? '#2355a0' : '#fefefe',
 								}}
 								onClick={() => props.onSelectedRuleAlertType(index)}
 							/>

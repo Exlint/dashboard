@@ -14,15 +14,12 @@ interface IProps {
 	readonly selectedLibrary: ILibrary | null;
 	readonly selectedRule: IRule | null;
 	readonly selectedRules: IRule[];
-	readonly selectedRuleAlertTypeIndex: number[];
-	readonly ruleCodeBasedConfigurationsInput: string;
+	readonly selectedRuleAlertTypeIndex: number;
 	readonly onSelectedRule: (rule: IRule) => void;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
 	readonly onAddRuleToList: (rule: IRule) => void;
-	readonly onRemoveRuleFromList: (ruleName: string) => void;
 	readonly onEditSelectedRule: (rule: IRule) => void;
-	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
 
 const ManuallyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -44,19 +41,12 @@ const ManuallyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						selectedRule={props.selectedRule}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 						selectedRules={props.selectedRules}
-						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
 						onRemoveRule={props.onRemoveRule}
-						onAddRuleToList={props.onAddRuleToList}
-						onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 					/>
 
 					<SelectedRules
 						selectedRule={props.selectedRule}
-						selectedRules={props.selectedRules}
-						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
-						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-						onRemoveRuleFromList={props.onRemoveRuleFromList}
 						onEditSelectedRule={props.onEditSelectedRule}
 					/>
 				</div>

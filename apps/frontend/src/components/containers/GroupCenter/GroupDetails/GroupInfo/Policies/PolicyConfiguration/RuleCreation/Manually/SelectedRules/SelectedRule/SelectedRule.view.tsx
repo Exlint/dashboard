@@ -10,8 +10,7 @@ interface IProps {
 	readonly ruleName: string;
 	readonly ruleCatagory: string;
 	readonly ruleAlertType: string | undefined;
-	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly onRemoveRuleFromList: (ruleName: string) => void;
+	readonly onRemoveRule: () => void;
 	readonly onEditSelectedRule: (rule: IRule) => void;
 }
 
@@ -27,13 +26,12 @@ const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				</div>
 				<div className={classes['middleSideContainer']}>
 					<span className={classes['middleSideContainer__text']}>{props.ruleAlertType}</span>
-					{props.ruleCodeBasedConfigurationsInput.length > 0 && (
-						<span className={classes['middleSideContainer__text']}>+ Code Config.</span>
-					)}
+					//todo: validate if there is code cinfig
+					{1 > 0 && <span className={classes['middleSideContainer__text']}>+ Code Config.</span>}
 					<span className={classes['middleSideContainer__text']}>+ Rule Config.</span>
 				</div>
 				<div className={classes['rightSideContainer']}>
-					<button type="button" onClick={() => props.onRemoveRuleFromList(props.ruleName)}>
+					<button type="button" onClick={() => props.onRemoveRule()}>
 						<VSvg name="removeRuleIcon" className={classes['rightSideContainer__removeRule']} />
 					</button>
 					<button type="button" onClick={() => props.onEditSelectedRule(props.selectedRule!)}>
