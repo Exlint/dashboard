@@ -66,7 +66,7 @@ importers:
       '@nestjs/config': 2.2.0
       '@nestjs/core': 9.0.1
       '@nestjs/cqrs': 9.0.0
-      '@nestjs/jwt': 8.0.1
+      '@nestjs/jwt': 9.0.0
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.1
       '@nestjs/schematics': 8.0.11
@@ -113,7 +113,7 @@ importers:
       '@nestjs/config': 2.2.0_jtahmmydqncr472agnsz6xyzmi
       '@nestjs/core': 9.0.1_a7eah4kgzhdok64pm3jmdf7do4
       '@nestjs/cqrs': 9.0.0_c6jfnotcfxz5ne4c2mdj24h6y4
-      '@nestjs/jwt': 8.0.1_@nestjs+common@9.0.1
+      '@nestjs/jwt': 9.0.0_@nestjs+common@9.0.1
       '@nestjs/passport': 9.0.0_oiyyv4gjloak37yd3yig7yoro4
       '@nestjs/platform-express': 9.0.1_75qmzffkw5ecbb3mxgbk2g6nku
       '@octokit/oauth-app': 3.7.1
@@ -167,7 +167,7 @@ importers:
       '@nestjs/config': 2.2.0
       '@nestjs/core': 9.0.1
       '@nestjs/cqrs': 9.0.0
-      '@nestjs/jwt': 8.0.1
+      '@nestjs/jwt': 9.0.0
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.1
       '@nestjs/schematics': 8.0.11
@@ -212,7 +212,7 @@ importers:
       '@nestjs/config': 2.2.0_jtahmmydqncr472agnsz6xyzmi
       '@nestjs/core': 9.0.1_a7eah4kgzhdok64pm3jmdf7do4
       '@nestjs/cqrs': 9.0.0_c6jfnotcfxz5ne4c2mdj24h6y4
-      '@nestjs/jwt': 8.0.1_@nestjs+common@9.0.1
+      '@nestjs/jwt': 9.0.0_@nestjs+common@9.0.1
       '@nestjs/passport': 9.0.0_oiyyv4gjloak37yd3yig7yoro4
       '@nestjs/platform-express': 9.0.1_75qmzffkw5ecbb3mxgbk2g6nku
       '@prisma/client': 4.0.0_prisma@4.0.0
@@ -3724,10 +3724,10 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /@nestjs/jwt/8.0.1_@nestjs+common@9.0.1:
-    resolution: {integrity: sha512-9WGfgngX8aclC/MC+CH35Ooo4iPVKc+7xLXaBV6o4ty8g2uZdPomry7cSdK/e6Lv623O/84WapThnPoAtW/jvA==}
+  /@nestjs/jwt/9.0.0_@nestjs+common@9.0.1:
+    resolution: {integrity: sha512-ZsXGY/wMYKzEhymw2+dxiwrHTRKIKrGszx6r2EjQqNLypdXMQu0QrujwZJ8k3+XQV4snmuJwwNakQoA2ILfq8w==}
     peerDependencies:
-      '@nestjs/common': ^6.0.0 || ^7.0.0 || ^8.0.0
+      '@nestjs/common': ^8.0.0 || ^9.0.0
     dependencies:
       '@nestjs/common': 9.0.1_kgmvgmqc4iohdboj3f7yqhrie4
       '@types/jsonwebtoken': 8.5.8
