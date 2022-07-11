@@ -10,4 +10,5 @@ export interface IEnvironment {
 	readonly githubOAuthClientSecret: string;
 	readonly githubOAuthRedirectUri: string;
 	readonly mixpanelToken: string;
+	readonly frontendUrl: string;
 }

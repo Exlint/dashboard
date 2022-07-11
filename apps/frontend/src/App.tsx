@@ -8,6 +8,7 @@ import Login from './pages/login';
 import Header from './components/layout/Header';
 import GroupCenter from './pages/groupCenter';
 import TokenManagement from './pages/tokenManagement';
+import ExternalAuthRedirect from './pages/ExternalAuthRedirect';
 
 interface PropsFromState {
 	isAuthenticated: boolean;
@@ -23,6 +24,9 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					<>
 						<Route path="/login">
 							<Login />
+						</Route>
+						<Route path="/external-auth-redirect">
+							<ExternalAuthRedirect />
 						</Route>
 						<Redirect path="*" to="/login" />
 					</>

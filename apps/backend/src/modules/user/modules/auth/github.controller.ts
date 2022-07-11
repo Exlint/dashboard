@@ -1,23 +1,16 @@
-import {
-	BadRequestException,
-	Controller,
-	Get,
-	HttpCode,
-	HttpStatus,
-	Logger,
-	UseGuards,
-} from '@nestjs/common';
+import { BadRequestException, Controller, Get, Logger, Redirect, UseGuards } from '@nestjs/common';
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
+import { ConfigService } from '@nestjs/config';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
+import { IEnvironment } from '@/config/env.interface';
 
 import { AuthService } from './auth.service';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
 import { RemoveOldRefreshTokensContract } from './commands/contracts/remove-old-refresh-tokens.contract';
 import { GithubAuthGuard } from './guards/github-auth.guard';
-import { IGithubRedirectResponse } from './interfaces/responses';
 import { GetGithubUserContract } from './queries/contracts/get-github-user.contract';
 import { CreateGithubUserContract } from './queries/contracts/create-github-user.contract';
 import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
@@ -25,6 +18,7 @@ import Routes from './auth.routes';
 import { IExternalAuthUser } from './interfaces/external-auth-user';
 import { IExternalLoggedUser } from './interfaces/user';
 import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
+import { JwtTokenType } from './models/jwt-token';
 
 @Controller(Routes.CONTROLLER)
 export class GithubController {
@@ -35,6 +29,7 @@ export class GithubController {
 		private readonly commandBus: CommandBus,
 		private readonly eventBus: EventBus,
 		private readonly authService: AuthService,
+		private readonly configService: ConfigService<IEnvironment, true>,
 	) {}
 
 	@Public()
@@ -47,11 +42,8 @@ export class GithubController {
 	@Public()
 	@UseGuards(GithubAuthGuard)
 	@Get(Routes.GITHUB_REDIRECT)
-	@HttpCode(HttpStatus.OK)
-	public async githubRedirect(
-		@ExternalAuthUser() user: IExternalAuthUser,
-		@RealIP() ip: string,
-	): Promise<IGithubRedirectResponse> {
+	@Redirect(undefined, 301)
+	public async githubRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
 		this.logger.log(
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
@@ -74,12 +66,13 @@ export class GithubController {
 
 			this.logger.log(`Successfully created a user with Id: "${createdGithubUserId}"`);
 
-			const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
+			const refreshToken = await this.authService.generateJwtToken(
 				createdGithubUserId,
 				user.email,
+				JwtTokenType.Refresh,
 			);
 
-			this.logger.log('Successfully generated both access and refresh tokens');
+			this.logger.log('Successfully generated both refresh token');
 
 			await this.commandBus.execute<AddRefreshTokenContract, void>(
 				new AddRefreshTokenContract(createdGithubUserId, refreshToken),
@@ -88,12 +81,9 @@ export class GithubController {
 			this.logger.log("Successfully stored the user's refresh token");
 
 			return {
-				accessToken,
-				refreshToken,
-				name: user.name,
-				id: createdGithubUserId,
-				clientSecrets: [],
-				groupsData: [],
+				url: `${this.configService.get(
+					'frontendUrl',
+				)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
 			};
 		}
 
@@ -113,12 +103,13 @@ export class GithubController {
 			);
 		}
 
-		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
+		const refreshToken = await this.authService.generateJwtToken(
 			githubUser.id,
 			user.email,
+			JwtTokenType.Refresh,
 		);
 
-		this.logger.log('Successfully generated both access and refresh tokens');
+		this.logger.log('Successfully generated refresh token');
 
 		await Promise.all([
 			storeAccessTokenPromise,
@@ -135,12 +126,9 @@ export class GithubController {
 		this.eventBus.publish(new LoginMixpanelContract(githubUser.id, ip));
 
 		return {
-			accessToken,
-			refreshToken,
-			name: user.name,
-			id: githubUser.id,
-			clientSecrets: githubUser.clientSecrets,
-			groupsData: githubUser.groupsData,
+			url: `${this.configService.get(
+				'frontendUrl',
+			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
 		};
 	}
 }

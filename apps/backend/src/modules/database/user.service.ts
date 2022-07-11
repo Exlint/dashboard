@@ -29,23 +29,6 @@ export class DBUserService {
 			select: {
 				id: true,
 				authType: true,
-				clientSecrets: { select: { createdAt: true, expiration: true, id: true, label: true } },
-				groups: {
-					select: {
-						id: true,
-						label: true,
-						createdAt: true,
-						inlinePolicies: {
-							select: {
-								id: true,
-								label: true,
-								library: true,
-								configuration: true,
-								rules: true,
-							},
-						},
-					},
-				},
 			},
 		});
 	}

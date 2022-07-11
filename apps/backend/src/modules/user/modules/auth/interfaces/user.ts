@@ -16,6 +16,4 @@ export interface ILocalStrategyUser
 	groupsData: IGroupData[];
 }
 
-export interface IExternalLoggedUser extends Pick<User, 'id' | 'authType'>, ILoggedUserClientSecrets {
-	groupsData: IGroupData[];
-}
+export interface IExternalLoggedUser extends Pick<User, 'id' | 'authType'> {}

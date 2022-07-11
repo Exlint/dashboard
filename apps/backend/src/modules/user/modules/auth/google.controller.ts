@@ -5,16 +5,18 @@ import {
 	HttpCode,
 	HttpStatus,
 	Logger,
+	Redirect,
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
+import { ConfigService } from '@nestjs/config';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
+import { IEnvironment } from '@/config/env.interface';
 
 import { AuthService } from './auth.service';
-import { IGoogleRedirectResponse } from './interfaces/responses';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { GetGoogleUserContract } from './queries/contracts/get-google-user.contract';
 import { AddRefreshTokenContract } from './commands/contracts/add-refresh-token.contract';
@@ -25,6 +27,7 @@ import Routes from './auth.routes';
 import { IExternalAuthUser } from './interfaces/external-auth-user';
 import { IExternalLoggedUser } from './interfaces/user';
 import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
+import { JwtTokenType } from './models/jwt-token';
 
 @Controller(Routes.CONTROLLER)
 export class GoogleController {
@@ -35,6 +38,7 @@ export class GoogleController {
 		private readonly commandBus: CommandBus,
 		private readonly eventBus: EventBus,
 		private readonly authService: AuthService,
+		private readonly configService: ConfigService<IEnvironment, true>,
 	) {}
 
 	@Public()
@@ -48,10 +52,8 @@ export class GoogleController {
 	@UseGuards(GoogleAuthGuard)
 	@Get(Routes.GOOGLE_REDIRECT)
 	@HttpCode(HttpStatus.OK)
-	public async googleRedirect(
-		@ExternalAuthUser() user: IExternalAuthUser,
-		@RealIP() ip: string,
-	): Promise<IGoogleRedirectResponse> {
+	@Redirect(undefined, 301)
+	public async googleRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
 		this.logger.log(
 			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
 		);
@@ -82,12 +84,13 @@ export class GoogleController {
 
 			this.logger.log(`Successfully created a user with Id: "${createdGoogleUserId}"`);
 
-			const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
+			const refreshToken = await this.authService.generateJwtToken(
 				createdGoogleUserId,
 				user.email,
+				JwtTokenType.Refresh,
 			);
 
-			this.logger.log('Successfully generated both access and refresh tokens');
+			this.logger.log('Successfully generated refresh token');
 
 			await this.commandBus.execute<AddRefreshTokenContract, void>(
 				new AddRefreshTokenContract(createdGoogleUserId, refreshToken),
@@ -96,12 +99,9 @@ export class GoogleController {
 			this.logger.log("Successfully stored the user's refresh token");
 
 			return {
-				accessToken,
-				refreshToken,
-				name: user.name,
-				id: createdGoogleUserId,
-				clientSecrets: [],
-				groupsData: [],
+				url: `${this.configService.get(
+					'frontendUrl',
+				)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
 			};
 		}
 
@@ -121,12 +121,13 @@ export class GoogleController {
 			);
 		}
 
-		const [accessToken, refreshToken] = await this.authService.generateJwtTokens(
+		const refreshToken = await this.authService.generateJwtToken(
 			googleUser.id,
 			user.email,
+			JwtTokenType.Refresh,
 		);
 
-		this.logger.log('Successfully generated both access and refresh tokens');
+		this.logger.log('Successfully generated refresh token');
 
 		await Promise.all([
 			storeRefreshTokenPromise,
@@ -143,12 +144,9 @@ export class GoogleController {
 		this.eventBus.publish(new LoginMixpanelContract(googleUser.id, ip));
 
 		return {
-			accessToken,
-			refreshToken,
-			name: user.name,
-			id: googleUser.id,
-			clientSecrets: googleUser.clientSecrets,
-			groupsData: googleUser.groupsData,
+			url: `${this.configService.get(
+				'frontendUrl',
+			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
 		};
 	}
 }

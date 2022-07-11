@@ -12,6 +12,7 @@ const EnvConfiguration = (): IEnvironment => ({
 	githubOAuthClientSecret: process.env.GITHUB_OAUTH_CLIENT_SECRET,
 	githubOAuthRedirectUri: process.env.GITHUB_OAUTH_REDIRECT_URI,
 	mixpanelToken: process.env.MIXPANEL_TOKEN,
+	frontendUrl: process.env.FRONTEND_URL,
 });
 
 export default EnvConfiguration;
