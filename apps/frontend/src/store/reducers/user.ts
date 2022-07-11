@@ -1,20 +1,16 @@
 import type { IUser } from '../../interfaces/user';
 import * as actions from '../actions/user';
 
-const initialState: State = {
-	email: null,
-};
+const initialState: State = null;
 
-export interface State {
-	email: IUser | null;
-}
+export type State = IUser | null;
 
 export const reducer = (state: State = initialState, action: actions.UserTypes): State => {
 	switch (action.type) {
 		case actions.SET_USER:
-			return { ...state, email: action.payload.email };
+			return action.payload;
 		case actions.UNSET_USER:
-			return { ...state, email: null };
+			return null;
 		default:
 			return state;
 	}

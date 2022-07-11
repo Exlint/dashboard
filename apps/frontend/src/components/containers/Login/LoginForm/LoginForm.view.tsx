@@ -23,7 +23,7 @@ const LoginFormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		<>
 			<h3 className={classes['loginFormTitle']}>Welcome.</h3>
 			<div className={classes['integrationsButtons']}>
-				<a className={classes['githubIntegrationButton']} href={githubAuthUrl} target="_blank">
+				<a className={classes['githubIntegrationButton']} href={githubAuthUrl}>
 					<VSvg name="githubIcon" className={classes['githubIntegrationButton__icon']} />
 					<span className={classes['githubIntegrationButton__text']}>Continue with GitHub</span>
 				</a>

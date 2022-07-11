@@ -1,6 +1,5 @@
 import React from 'react';
 import VSvg from '@/ui/VSvg';
-// import { Trans, useTranslation } from 'react-i18next';
 
 import classes from './Login.module.scss';
 import LoginForm from './LoginForm';
@@ -12,8 +11,6 @@ interface IProps {
 }
 
 const LoginView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const { t } = useTranslation();
-
 	return (
 		<section className={classes['login']}>
 			<div className={classes['innerLogin']}>

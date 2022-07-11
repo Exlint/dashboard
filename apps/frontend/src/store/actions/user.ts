@@ -6,17 +6,17 @@ export const UNSET_USER = '[User] Unset User';
 
 export interface SetUser {
 	type: typeof SET_USER;
-	payload: { email: IUser };
+	payload: IUser;
 }
 
 export interface UnsetUser {
 	type: typeof UNSET_USER;
 }
 
-export const setUser = (email: IUser): SetUser => {
+export const setUser = (user: IUser): SetUser => {
 	return {
 		type: SET_USER,
-		payload: { email },
+		payload: user,
 	};
 };
 
