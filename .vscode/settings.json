@@ -1,6 +1,7 @@
 {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"stylelint.validate": ["css", "scss"],
 	"search.exclude": {
 		"**/node_modules": true
 	},
