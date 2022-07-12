@@ -33,5 +33,6 @@
 		"queries": "shader",
 		"secrets": "keys",
 		"user": "client"
-	}
+	},
+	"material-icon-theme.activeIconPack": "nest"
 }
