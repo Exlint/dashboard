@@ -1,7 +1,11 @@
 {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	},
 	"stylelint.validate": ["css", "scss"],
+	"typescript.tsdk": "node_modules/typescript/lib",
 	"search.exclude": {
 		"**/node_modules": true
 	},

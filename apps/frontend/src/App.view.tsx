@@ -20,7 +20,6 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 					<>
 						<Route path="/login" component={Login} />
 						<Route path="/external-auth-redirect" component={ExternalAuthRedirect} />
-						<Redirect exact path="/" to="/login" />
 					</>
 				)}
 				{props.isAuthenticated && (
