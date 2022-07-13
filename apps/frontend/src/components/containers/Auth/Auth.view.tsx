@@ -1,18 +1,16 @@
 import React from 'react';
+
 import VSvg from '@/ui/VSvg';
 
-import classes from './Login.module.scss';
 import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
 
-interface IProps {
-	readonly isRegisterButtonClicked: boolean;
-	readonly onRegisterButtonClicked: () => void;
-}
+import classes from './Auth.module.scss';
 
-const LoginView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+interface IProps {}
+
+const AuthView: React.FC<IProps> = () => {
 	return (
-		<section className={classes['login']}>
+		<main className={classes['main']}>
 			<div className={classes['innerLogin']}>
 				<div className={classes['leftSideContainer']}>
 					<VSvg className={classes['leftSideContainer__brandLogo']} name="brandLogoWhite" />
@@ -25,20 +23,15 @@ const LoginView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 				</div>
 				<div className={classes['rightSideContainer']}>
 					<div className={classes['innerForm']}>
-						{!props.isRegisterButtonClicked && (
-							<LoginForm onRegisterButtonClicked={props.onRegisterButtonClicked} />
-						)}
-						{props.isRegisterButtonClicked && (
-							<RegisterForm onRegisterButtonClicked={props.onRegisterButtonClicked} />
-						)}
+						<LoginForm />
 					</div>
 				</div>
 			</div>
-		</section>
+		</main>
 	);
 };
 
-LoginView.displayName = 'LoginView';
-LoginView.defaultProps = {};
+AuthView.displayName = 'LoginView';
+AuthView.defaultProps = {};
 
-export default React.memo(LoginView);
+export default React.memo(AuthView);

@@ -7,7 +7,7 @@ interface Props {
 	isAuthenticated: boolean;
 }
 
-const Login = React.lazy(() => import('./pages/Login'));
+const Auth = React.lazy(() => import('./pages/Auth'));
 const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
@@ -18,7 +18,7 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 			<Switch>
 				{!props.isAuthenticated && (
 					<>
-						<Route path="/login" component={Login} />
+						<Route path="/auth" component={Auth} />
 						<Route path="/external-auth-redirect" component={ExternalAuthRedirect} />
 					</>
 				)}
