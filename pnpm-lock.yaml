@@ -103,7 +103,7 @@ importers:
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
       rxjs: 7.5.6
-      swagger-ui-express: 4.4.0
+      swagger-ui-express: 4.5.0
       ts-loader: 9.3.1
       typescript: 4.7.4
       webpack: 5.73.0
@@ -135,7 +135,7 @@ importers:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.0.0
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 5.2.1_bt574mwtze5r7qjv6vl7pjikoq
+      '@nestjs/swagger': 5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -153,7 +153,7 @@ importers:
       open-cli: 7.0.1
       prisma: 4.0.0
       rimraf: 3.0.2
-      swagger-ui-express: 4.4.0
+      swagger-ui-express: 4.5.0
       ts-loader: 9.3.1_3o2jfq6vfqxns3sz6wn2nnc3ei
       typescript: 4.7.4
       webpack: 5.73.0
@@ -202,7 +202,7 @@ importers:
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
       rxjs: 7.5.6
-      swagger-ui-express: 4.4.0
+      swagger-ui-express: 4.5.0
       ts-loader: 9.3.1
       typescript: 4.7.4
       webpack: 5.73.0
@@ -232,7 +232,7 @@ importers:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.0.0
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 5.2.1_bt574mwtze5r7qjv6vl7pjikoq
+      '@nestjs/swagger': 5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -250,7 +250,7 @@ importers:
       open-cli: 7.0.1
       prisma: 4.0.0
       rimraf: 3.0.2
-      swagger-ui-express: 4.4.0
+      swagger-ui-express: 4.5.0
       ts-loader: 9.3.1_3o2jfq6vfqxns3sz6wn2nnc3ei
       typescript: 4.7.4
       webpack: 5.73.0
@@ -3808,7 +3808,7 @@ packages:
       - chokidar
     dev: true
 
-  /@nestjs/swagger/5.2.1_bt574mwtze5r7qjv6vl7pjikoq:
+  /@nestjs/swagger/5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu:
     resolution: {integrity: sha512-7dNa08WCnTsW/oAk3Ujde+z64JMfNm19DhpXasFR8oJp/9pggYAbYU927HpA+GJsSFJX6adjIRZsCKUqaGWznw==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -3828,7 +3828,7 @@ packages:
       lodash: 4.17.21
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      swagger-ui-express: 4.4.0
+      swagger-ui-express: 4.5.0
     transitivePeerDependencies:
       - class-transformer
       - class-validator
@@ -14138,8 +14138,8 @@ packages:
     resolution: {integrity: sha512-B0Iy2ueXtbByE6OOyHTi3lFQkpPi/L7kFOKFeKTr44za7dJIELa9kzaca6GkndCgpK1QTjArnoXG+aUy0XQp1w==}
     dev: true
 
-  /swagger-ui-express/4.4.0:
-    resolution: {integrity: sha512-1CzRkHG386VQMVZK406jcpgnW2a9A5A/NiAjKhsFTQqUBWRF+uGbXTU/mA7WSV3mTzyOQDvjBdWP/c2qd5lqKw==}
+  /swagger-ui-express/4.5.0:
+    resolution: {integrity: sha512-DHk3zFvsxrkcnurGvQlAcLuTDacAVN1JHKDgcba/gr2NFRE4HGwP1YeHIXMiGznkWR4AeS7X5vEblNn4QljuNA==}
     engines: {node: '>= v0.10.32'}
     peerDependencies:
       express: '>=4.0.0'
