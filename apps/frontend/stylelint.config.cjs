@@ -13,6 +13,7 @@ module.exports = {
 		'selector-id-pattern': null,
 		'color-named': ['never'],
 		'declaration-block-no-duplicate-properties': [true],
+		'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hwb'],
 
 		'scss/at-import-partial-extension': null,
 	},

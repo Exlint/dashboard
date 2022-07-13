@@ -4,70 +4,134 @@
 
 .main {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
 	font-family: poppins, sans-serif;
 
-	.innerLogin {
+	.leftSideContainer {
+		position: relative;
 		display: flex;
-		width: 100%;
-		height: 100vh;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+		padding: 0 80px;
+		background-image: url('../../../assets/images/starsLoginBackground.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 
-		.leftSideContainer {
-			position: relative;
+		&__brandLogo {
+			position: absolute;
+			top: 34px;
+			left: 34px;
+			width: 168px;
+			object-fit: contain;
+		}
+
+		&__header {
+			margin-bottom: 9px;
+			font-size: 5.5rem;
+			font-weight: 700;
+			line-height: 65.25px;
+			text-align: center;
+			background: linear-gradient(270deg, #9072a7 46.97%, #f2f2f2 93.64%);
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		&__subHeader {
+			font-size: 3.6rem;
+			font-weight: 400;
+			color: #bbb8ca;
+			text-align: center;
+		}
+	}
+
+	.rightSideContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+
+		&__header {
+			font-size: 4rem;
+			font-weight: 700;
+			color: map.get($colors, purple-text);
+		}
+
+		&__subHeader {
+			margin-bottom: 45px;
+			font-size: 3.5rem;
+			font-weight: 400;
+			color: map.get($colors, purple-text);
+		}
+
+		.rightSideExternalAuthContainer {
 			display: flex;
-			flex-direction: column;
 			align-items: center;
-			justify-content: center;
-			width: 50%;
-			height: 100%;
-			background-image: url('../../../assets/images/starsLoginBackground.png');
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
+			width: 360px;
+			height: 67px;
+			padding: 12px 50px 12px 21px;
+			text-decoration: none;
+			border-radius: 7.5px;
+
+			&:not(:last-child) {
+				margin-bottom: 19px;
+			}
+
+			&--github {
+				background-color: #242337;
+				border: 1.5px solid transparent;
+			}
+
+			&--google {
+				background-color: #fefefe;
+				border: 1.5px solid #e7e7e7;
+			}
 
 			&__brandLogo {
-				position: absolute;
-				right: 75%;
-				bottom: 93%;
-				width: 168px;
-				height: 36px;
+				height: 43px;
+				margin-right: 34px;
+				object-fit: contain;
 			}
 
-			&__title {
-				font-size: 5.5rem;
-				font-weight: 700;
-				text-align: center;
-				background: linear-gradient(270deg, #9072a7 46.97%, #f2f2f2 93.64%);
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
+			&__text {
+				font-size: 1.9rem;
+				font-weight: 500;
 
-			&__subTitle {
-				width: 400;
-				margin: 55px 58px 0;
-				font-size: 3.6rem;
-				color: #bbb8ca;
-				text-align: center;
+				&--github {
+					color: #f2f2f2;
+				}
+
+				&--google {
+					color: #202428;
+				}
 			}
 		}
 
-		.rightSideContainer {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 50%;
+		&__divider {
+			width: 203px;
+			height: 1px;
+			margin: 44px 0;
+			background-color: #4b4a65;
+		}
 
-			.innerForm {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				height: min-content;
-				padding: 30px 30px 47px;
-				background-color: #f2f2f2;
-				border-radius: 30px;
-			}
+		&__permissionsDisclaimer {
+			margin-bottom: 10px;
+			font-size: 1.6rem;
+			font-weight: 300;
+			color: #4b4a65;
+		}
+
+		&__policyText {
+			font-size: 1.6rem;
+			font-weight: 300;
+			color: #4b4a65;
+			text-align: center;
+		}
+
+		&__textLink {
+			color: #4b4a65;
 		}
 	}
 }

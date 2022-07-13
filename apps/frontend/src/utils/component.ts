@@ -1,3 +1,5 @@
+import { IClasses } from '../interfaces/component';
+
 /**
  * The function returns the mapped class names list
  * @param classes The object of classes mapping
@@ -6,11 +8,11 @@
  * @param args The list of classes to get mapped
  * @returns The result string of the concatenation class names
  */
-export const concatClasses = (
-	classes: { readonly [key: string]: string },
-	firstClass: string | null,
-	secondClass: string | null,
-	...args: ReadonlyArray<string | null>
+export const concatClasses = <T extends IClasses>(
+	classes: T,
+	firstClass: keyof T | null,
+	secondClass: keyof T | null,
+	...args: ReadonlyArray<keyof T | null>
 ) => {
 	if (Object.keys(classes).length === 0) {
 		return '';
