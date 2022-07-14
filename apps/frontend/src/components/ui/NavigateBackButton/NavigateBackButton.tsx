@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import NavigateBackButtonView from './NavigateBackButton.view';
 
@@ -11,13 +11,9 @@ interface IProps {
 }
 
 const NavigateBackButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const history = useHistory();
+	const navigate = useNavigate();
 
-	const onGoBack = () => {
-		history.goBack();
-	};
-
-	return <NavigateBackButtonView position={props.position} onGoBack={onGoBack} />;
+	return <NavigateBackButtonView position={props.position} onGoBack={() => navigate(-1)} />;
 };
 
 NavigateBackButton.displayName = 'NavigateBackButton';

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route, Redirect, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 
 import Header from './components/layout/Header';
 
@@ -15,23 +15,24 @@ const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedire
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
-			<Switch>
+			<Routes>
 				{!props.isAuthenticated && (
 					<>
-						<Route path="/auth" component={Auth} />
-						<Route path="/external-auth-redirect" component={ExternalAuthRedirect} />
+						<Route path="/auth" element={<Auth />} />
+						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
+						<Route path="*" element={<Navigate replace to="/auth" />} />
 					</>
 				)}
 				{props.isAuthenticated && (
 					<>
 						<Header />
 
-						<Redirect exact path="/" to="/login" />
-						<Route path="/group-center" component={GroupCenter} />
-						<Route path="/token-management" component={TokenManagement} />
+						<Route path="/group-center" element={<GroupCenter />} />
+						<Route path="/token-management" element={<TokenManagement />} />
+						<Route path="*" element={<Navigate replace to="/group-center" />} />
 					</>
 				)}
-			</Switch>
+			</Routes>
 		</Suspense>
 	</BrowserRouter>
 );
