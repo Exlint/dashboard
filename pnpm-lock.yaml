@@ -70,7 +70,7 @@ importers:
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.3
       '@nestjs/schematics': 9.0.1
-      '@nestjs/swagger': 5.2.1
+      '@nestjs/swagger': 6.0.4
       '@octokit/oauth-app': 4.0.6
       '@prisma/client': 4.0.0
       '@types/bcryptjs': 2.4.2
@@ -135,7 +135,7 @@ importers:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.0.0
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu
+      '@nestjs/swagger': 6.0.4_rjdq3tqyk4swmc66pkksjkbtyq
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -171,7 +171,7 @@ importers:
       '@nestjs/passport': 9.0.0
       '@nestjs/platform-express': 9.0.3
       '@nestjs/schematics': 9.0.1
-      '@nestjs/swagger': 5.2.1
+      '@nestjs/swagger': 6.0.4
       '@prisma/client': 4.0.0
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
@@ -232,7 +232,7 @@ importers:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.0.0
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu
+      '@nestjs/swagger': 6.0.4_rjdq3tqyk4swmc66pkksjkbtyq
       '@types/bcryptjs': 2.4.2
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -3733,10 +3733,10 @@ packages:
       jsonwebtoken: 8.5.1
     dev: false
 
-  /@nestjs/mapped-types/1.0.1_km3m7x5xoa3inljpxzdfij6pha:
-    resolution: {integrity: sha512-NFvofzSinp00j5rzUd4tf+xi9od6383iY0JP7o0Bnu1fuItAUkWBgc4EKuIQ3D+c2QI3i9pG1kDWAeY27EMGtg==}
+  /@nestjs/mapped-types/1.1.0_km3m7x5xoa3inljpxzdfij6pha:
+    resolution: {integrity: sha512-+2kSly4P1QI+9eGt+/uGyPdEG1hVz7nbpqPHWZVYgoqz8eOHljpXPag+UCVRw9zo2XCu4sgNUIGe8Uk0+OvUQg==}
     peerDependencies:
-      '@nestjs/common': ^7.0.8 || ^8.0.0
+      '@nestjs/common': ^7.0.8 || ^8.0.0 || ^9.0.0
       class-transformer: ^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0
       class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0
       reflect-metadata: ^0.1.12
@@ -3808,27 +3808,25 @@ packages:
       - chokidar
     dev: true
 
-  /@nestjs/swagger/5.2.1_ocf3xe3ylrxeeoyzml7p3qqswu:
-    resolution: {integrity: sha512-7dNa08WCnTsW/oAk3Ujde+z64JMfNm19DhpXasFR8oJp/9pggYAbYU927HpA+GJsSFJX6adjIRZsCKUqaGWznw==}
+  /@nestjs/swagger/6.0.4_rjdq3tqyk4swmc66pkksjkbtyq:
+    resolution: {integrity: sha512-YKf9RvCYHAgqkMvUG3xRr0zAcnuN8JsWPfvi7h0hzEXLRhNxByj2FT8Rzj+0fPAe6VZioWXBDpLzshO2PjE48Q==}
     peerDependencies:
-      '@nestjs/common': ^8.0.0
-      '@nestjs/core': ^8.0.0
-      fastify-swagger: '*'
+      '@fastify/static': ^6.0.0
+      '@nestjs/common': ^9.0.0
+      '@nestjs/core': ^9.0.0
       reflect-metadata: ^0.1.12
-      swagger-ui-express: '*'
     peerDependenciesMeta:
-      fastify-swagger:
-        optional: true
-      swagger-ui-express:
+      '@fastify/static':
         optional: true
     dependencies:
       '@nestjs/common': 9.0.3_allg6cauirbqzgqcmexy2wdnoq
       '@nestjs/core': 9.0.3_u3zgdsyda4a2nzaf3eh72zektq
-      '@nestjs/mapped-types': 1.0.1_km3m7x5xoa3inljpxzdfij6pha
+      '@nestjs/mapped-types': 1.1.0_km3m7x5xoa3inljpxzdfij6pha
+      js-yaml: 4.1.0
       lodash: 4.17.21
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      swagger-ui-express: 4.5.0
+      swagger-ui-dist: 4.12.0
     transitivePeerDependencies:
       - class-transformer
       - class-validator
