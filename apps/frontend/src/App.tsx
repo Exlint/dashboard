@@ -22,30 +22,21 @@ interface PropsFromDispatch {
 interface IProps extends PropsFromState, PropsFromDispatch {}
 
 const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	backendApiAxios.interceptors.request.use(
-		(request) => {
-			const accessToken = sessionStorage.getItem('token');
-
-			if (!accessToken) {
-				throw new axios.Cancel('Missing access token');
-			}
-
-			request.headers!['Authorization'] = `Bearer ${accessToken}`;
-
-			return request;
-		},
-		(error) => Promise.reject(error),
-	);
-
 	useEffect(() => {
 		const authorizationInterceptor = backendApiAxios.interceptors.request.use((request) => {
-			const accessToken = sessionStorage.getItem('token');
+			let token: string | null;
 
-			if (!accessToken) {
-				throw new axios.Cancel('Missing access token');
+			if (request.url === '/user/auth/auto-login') {
+				token = localStorage.getItem('token');
+			} else {
+				token = sessionStorage.getItem('token');
 			}
 
-			request.headers!['Authorization'] = `Bearer ${accessToken}`;
+			if (!token) {
+				throw new axios.Cancel('Missing token');
+			}
+
+			request.headers!['Authorization'] = `Bearer ${token}`;
 
 			return request;
 		});
@@ -65,6 +56,9 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					id: response.data.id,
 					name: response.data.name,
 				});
+			})
+			.catch(() => {
+				return;
 			});
 	}, []);
 

@@ -2,7 +2,6 @@ import { createStore, Reducer, combineReducers } from 'redux';
 
 import * as groupActions from './actions/groups';
 import * as fromGroups from './reducers/groups';
-
 import * as userActions from './actions/user';
 import * as fromUser from './reducers/user';
 
