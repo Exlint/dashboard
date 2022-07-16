@@ -1,8 +1,6 @@
 import React, { Suspense } from 'react';
 import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 
-import Header from './components/layout/Header';
-
 interface Props {
 	isAuthenticated: boolean;
 }
@@ -20,7 +18,6 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 					<Route path="*" element={<Navigate replace to="/auth" />} />
 				</Routes>
 			)}
-			{props.isAuthenticated && <Header />}
 		</Suspense>
 	</BrowserRouter>
 );

@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 
 import icons from '../../../assets/icons';
 
-import classes from './VSvg.module.scss';
+import classes from './EDSvg.module.scss';
 
 interface Props {
 	readonly name: keyof typeof icons;
@@ -11,7 +11,7 @@ interface Props {
 	readonly onClick?: () => void;
 }
 
-const VSvgView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => {
+const EDSvgView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => {
 	const svgClasses = classes['container'] + (props.className ? ` ${props.className}` : '');
 
 	return (
@@ -28,7 +28,7 @@ const VSvgView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => {
 	);
 };
 
-VSvgView.displayName = 'VSvgView';
-VSvgView.defaultProps = {};
+EDSvgView.displayName = 'EDSvgView';
+EDSvgView.defaultProps = {};
 
-export default VSvgView;
+export default EDSvgView;

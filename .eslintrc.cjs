@@ -181,5 +181,12 @@ module.exports = {
 				'no-console': 'off',
 			},
 		},
+		{
+			files: ['./inflint.config.ts'],
+			rules: {
+				'quotes': 'off',
+				'no-useless-escape': 'off',
+			},
+		},
 	],
 };
