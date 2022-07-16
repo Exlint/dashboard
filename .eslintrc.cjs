@@ -16,7 +16,7 @@ module.exports = {
 		sourceType: 'module',
 		extraFileExtensions: ['.cjs'],
 	},
-	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation', 'no-secrets'],
+	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
 	rules: {
 		'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
 		'indent': ['error', 'tab', { SwitchCase: 1 }],
@@ -157,8 +157,6 @@ module.exports = {
 		],
 
 		'deprecation/deprecation': 'error',
-
-		'no-secrets/no-secrets': 'error',
 	},
 	overrides: [
 		{
