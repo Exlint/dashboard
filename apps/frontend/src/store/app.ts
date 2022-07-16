@@ -1,26 +1,19 @@
-import { createStore, Reducer, combineReducers } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { configureStore } from '@reduxjs/toolkit';
 
-import * as groupActions from './actions/groups';
-import * as fromGroups from './reducers/groups';
-import * as userActions from './actions/user';
-import * as fromUser from './reducers/user';
-import { watchUser } from './sagas/user';
+import authReducer from './reducers/auth';
 
-type reducerTypes = groupActions.GroupsTypes | userActions.UserTypes;
+import authListenMiddleware from './middlewares/auth';
 
-const sagaMiddleware = createSagaMiddleware();
-
-const rootReducer: Reducer<AppState, reducerTypes> = combineReducers({
-	groups: fromGroups.reducer,
-	user: fromUser.reducer,
+const store = configureStore({
+	reducer: {
+		auth: authReducer,
+	},
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authListenMiddleware.middleware),
+	devTools: process.env.REACT_APP_NODE_ENV === 'development',
 });
 
-sagaMiddleware.run(watchUser);
+export type AppState = ReturnType<typeof store.getState>;
 
-export interface AppState {
-	groups: fromGroups.State;
-	user: fromUser.State;
-}
+export type AppDispatch = typeof store.dispatch;
 
-export const store = createStore(rootReducer);
+export default store;

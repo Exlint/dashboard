@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import axios, { AxiosResponse } from 'axios';
-import { Dispatch } from 'redux';
+import axios, { type AxiosResponse } from 'axios';
+import { type PayloadAction } from '@reduxjs/toolkit';
 
-import * as fromApp from './store/app';
 import { backendApiAxios } from './utils/http';
 import type { IAutoLoginResponseData } from './interfaces/responses';
-import * as userActions from './store/actions/user';
+import type { ILoginPayload } from './store/interfaces/auth';
+import type { AppDispatch, AppState } from './store/app';
+import { authActions } from './store/reducers/auth';
 
 import AppView from './App.view';
-import { IUser } from './interfaces/user';
 
 interface PropsFromState {
 	readonly isAuthenticated: boolean;
 }
 
 interface PropsFromDispatch {
-	readonly setUser: (user: IUser) => userActions.SetUser;
+	readonly login: (loginPayload: ILoginPayload) => PayloadAction<ILoginPayload>;
 }
 
 interface IProps extends PropsFromState, PropsFromDispatch {}
@@ -44,7 +44,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		return () => {
 			backendApiAxios.interceptors.request.eject(authorizationInterceptor);
 		};
-	}, [props.isAuthenticated]);
+	}, [props.isAuthenticated, backendApiAxios]);
 
 	useEffect(() => {
 		backendApiAxios
@@ -52,7 +52,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			.then((response: AxiosResponse<IAutoLoginResponseData>) => {
 				sessionStorage.setItem('token', response.data.accessToken);
 
-				props.setUser({
+				props.login({
 					id: response.data.id,
 					name: response.data.name,
 				});
@@ -60,7 +60,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			.catch(() => {
 				return;
 			});
-	}, []);
+	}, [backendApiAxios]);
 
 	return <AppView isAuthenticated={props.isAuthenticated} />;
 };
@@ -68,15 +68,16 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 App.displayName = 'App';
 App.defaultProps = {};
 
-const mapStateToProps = (state: fromApp.AppState) => {
+const mapStateToProps = (state: AppState) => {
 	return {
-		isAuthenticated: !!state.user,
+		isAuthenticated: state.auth.id !== null,
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<userActions.UserTypes>): PropsFromDispatch => {
+const mapDispatchToProps = (dispatch: AppDispatch): PropsFromDispatch => {
 	return {
-		setUser: (user: IUser): userActions.SetUser => dispatch(userActions.setUser(user)),
+		login: (loginPayload: ILoginPayload): PayloadAction<ILoginPayload> =>
+			dispatch(authActions.login(loginPayload)),
 	};
 };
 

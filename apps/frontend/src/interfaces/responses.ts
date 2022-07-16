@@ -3,3 +3,7 @@ export interface IAutoLoginResponseData {
 	readonly id: string;
 	readonly name: string;
 }
+
+export interface IRefreshTokenResponseData {
+	readonly accessToken: string;
+}

@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { type PayloadAction } from '@reduxjs/toolkit';
 
-import * as userActions from '../../../store/actions/user';
+import type { AppDispatch } from '@/store/app';
+import { authActions } from '@/store/reducers/auth';
+
 import HeaderView from './Header.view';
 
 interface IPropsFromDispatch {
-	unsetUser: () => userActions.UnsetUser;
+	logout: () => PayloadAction;
 }
 
 interface IProps extends IPropsFromDispatch {}
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const onExitButton = () => {
-		props.unsetUser();
-	};
+	const onExitButton = () => props.logout();
 
 	return <HeaderView onExitButton={onExitButton} />;
 };
@@ -22,10 +22,10 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 Header.displayName = 'Header';
 Header.defaultProps = {};
 
-const mapDispatchToProps = (dispatch: Dispatch<userActions.UserTypes>): IPropsFromDispatch => {
+const mapDispatchToProps = (dispatch: AppDispatch): IPropsFromDispatch => {
 	return {
-		unsetUser: (): userActions.UnsetUser => dispatch(userActions.unsetUser()),
+		logout: (): PayloadAction => dispatch(authActions.logout()),
 	};
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(React.memo(Header));
