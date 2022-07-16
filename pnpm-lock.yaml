@@ -284,7 +284,7 @@ importers:
       eslint-plugin-react: 7.30.1
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
-      hygen: 6.2.0
+      hygen: 6.2.7
       i18next: 21.8.14
       postcss: 8.4.14
       prettier: 2.6.2
@@ -333,7 +333,7 @@ importers:
       eslint-plugin-react: 7.30.1_eslint@8.19.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.19.0
       eslint-plugin-unused-imports: 2.0.0_ogrypv245mtlubr47zvglz6xom
-      hygen: 6.2.0_ikfaztf6dt4x6fbtystd5gzdua
+      hygen: 6.2.7_ikfaztf6dt4x6fbtystd5gzdua
       postcss: 8.4.14
       prettier: 2.6.2
       react-scripts: 5.0.1_vu2atnx4dbjezbluzf4fvm7i7a
@@ -8590,8 +8590,8 @@ packages:
     hasBin: true
     dev: true
 
-  /hygen/6.2.0_ikfaztf6dt4x6fbtystd5gzdua:
-    resolution: {integrity: sha512-5kma/nx7K+gJu8Q8kirkamUDb2TLvDJEiG/hfAL2Jt93SGrWEd0vWVEwaJW7qQylbIoT7gBVefrXZS2sYS8aag==}
+  /hygen/6.2.7_ikfaztf6dt4x6fbtystd5gzdua:
+    resolution: {integrity: sha512-JKVS3cnOgKb+iY2/qP+6tq07P4U/gCmE2gmkSLDCoCGJONt2YCXimNT/2mzi2NuSzvisjjkVxwBY7kNvUufrAQ==}
     hasBin: true
     dependencies:
       '@types/node': 17.0.35
@@ -8607,6 +8607,7 @@ packages:
       fs-extra: 10.1.0
       ignore-walk: 4.0.1
       inflection: 1.13.2
+      ora: 5.4.1
       yargs-parser: 21.0.1
     transitivePeerDependencies:
       - eslint
