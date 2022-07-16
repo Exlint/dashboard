@@ -1,12 +1,13 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { CracoConfig } from '@craco/craco';
 
-module.exports = {
+const config: CracoConfig = {
 	eslint: { enable: false },
 	plugins: [
 		{
 			plugin: {
 				overrideWebpackConfig: ({ webpackConfig }) => {
-					webpackConfig.resolve.plugins.push(
+					webpackConfig.resolve!.plugins!.push(
 						new TsconfigPathsPlugin({
 							configFile: './tsconfig.base.json',
 							extensions: ['.ts'],
@@ -19,3 +20,5 @@ module.exports = {
 		},
 	],
 };
+
+export default config;
