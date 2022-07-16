@@ -1,3 +1,21 @@
+# [1.10.0](https://github.com/Exlint/dashboard/compare/v1.9.0...v1.10.0) (2022-07-16)
+
+
+### Bug Fixes
+
+* 🐞 disable eslit rule to check if pr will succses ([ff0d681](https://github.com/Exlint/dashboard/commit/ff0d681be6b1f3ade772fc07b7e0ea2e3709570d))
+
+
+### Features
+
+* 🔥 added a signup form and handle redux state when loggin out ([b50cd06](https://github.com/Exlint/dashboard/commit/b50cd065dcfadc2f37512f105a837ca52041081b))
+* 🔥 added couple of sectins ([bf8aff5](https://github.com/Exlint/dashboard/commit/bf8aff51291bf6a15824f82a577662d1c14c3142))
+* 🔥 added file format section ([3bb2214](https://github.com/Exlint/dashboard/commit/3bb221467f6dfe1624295a36044dc0826cb38b82))
+* 🔥 added redux ([7ba5fc5](https://github.com/Exlint/dashboard/commit/7ba5fc5344e0ab361c5a28d95002ce23562d6cee))
+* 🔥 auth page ([8c00974](https://github.com/Exlint/dashboard/commit/8c00974cbc334a51319b06788ff45ca3bf66a5e5))
+* 🔥 finished rules select section ([39687a8](https://github.com/Exlint/dashboard/commit/39687a888b77174522bdfae271803c35a9f0a3dc))
+* 🔥 redirection page ([7e3638c](https://github.com/Exlint/dashboard/commit/7e3638cc54404525ba8e3e753e23f2d08ae259dc))
+
 # [1.9.0](https://github.com/Exlint/dashboard/compare/v1.8.0...v1.9.0) (2022-06-21)
 
 
