@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import authReducer from './reducers/auth';
-
 import authListenMiddleware from './middlewares/auth';
 
 const store = configureStore({

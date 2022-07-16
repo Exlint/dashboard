@@ -8,31 +8,19 @@ interface Props {
 }
 
 const Auth = React.lazy(() => import('./pages/Auth'));
-const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
-const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
 
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
-			<Routes>
-				{!props.isAuthenticated && (
-					<>
-						<Route path="/auth" element={<Auth />} />
-						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
-						<Route path="*" element={<Navigate replace to="/auth" />} />
-					</>
-				)}
-				{props.isAuthenticated && (
-					<>
-						<Header />
-
-						<Route path="/group-center" element={<GroupCenter />} />
-						<Route path="/token-management" element={<TokenManagement />} />
-						<Route path="*" element={<Navigate replace to="/group-center" />} />
-					</>
-				)}
-			</Routes>
+			{!props.isAuthenticated && (
+				<Routes>
+					<Route path="/auth" element={<Auth />} />
+					<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
+					<Route path="*" element={<Navigate replace to="/auth" />} />
+				</Routes>
+			)}
+			{props.isAuthenticated && <Header />}
 		</Suspense>
 	</BrowserRouter>
 );

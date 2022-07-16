@@ -6,7 +6,7 @@ import { type PayloadAction } from '@reduxjs/toolkit';
 import { backendApiAxios } from './utils/http';
 import type { IAutoLoginResponseData } from './interfaces/responses';
 import type { ILoginPayload } from './store/interfaces/auth';
-import type { AppDispatch, AppState } from './store/app';
+import type { AppState } from './store/app';
 import { authActions } from './store/reducers/auth';
 
 import AppView from './App.view';
@@ -26,7 +26,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		const authorizationInterceptor = backendApiAxios.interceptors.request.use((request) => {
 			let token: string | null;
 
-			if (request.url === '/user/auth/auto-login') {
+			if (request.url === '/user/auth/auto-login' || request.url === '/user/auth/refresh-token') {
 				token = localStorage.getItem('token');
 			} else {
 				token = sessionStorage.getItem('token');
@@ -74,11 +74,4 @@ const mapStateToProps = (state: AppState) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: AppDispatch): PropsFromDispatch => {
-	return {
-		login: (loginPayload: ILoginPayload): PayloadAction<ILoginPayload> =>
-			dispatch(authActions.login(loginPayload)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(App));
+export default connect(mapStateToProps, { login: authActions.login })(React.memo(App));

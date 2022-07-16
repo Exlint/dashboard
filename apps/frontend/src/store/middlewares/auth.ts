@@ -24,14 +24,14 @@ listenerMiddleware.startListening({
 		let isLoggedIn = true;
 
 		while (isLoggedIn) {
+			await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
+
 			try {
 				const response = await backendApiAxios.post<IRefreshTokenResponseData>(
 					'/user/auth/refresh-token',
 				);
 
 				sessionStorage.setItem('token', response.data.accessToken);
-
-				await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
 			} catch {
 				listnerApi.dispatch(authActions.logout());
 
