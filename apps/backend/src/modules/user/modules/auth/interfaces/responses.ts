@@ -20,7 +20,3 @@ export interface IRefreshTokenResponse {
 export interface IAutoLoginResponse extends ILoggedUser {
 	accessToken: string;
 }
-
-export interface IGoogleRedirectResponse extends ITokens, ILoggedUser {}
-
-export interface IGithubRedirectResponse extends ITokens, ILoggedUser {}

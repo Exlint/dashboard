@@ -6,6 +6,16 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "./",
 		"jsx": "react-jsx",
-		"typeRoots": ["./node_modules/@types"]
+		"paths": {
+			"@/interfaces/*": ["src/interfaces/*"],
+			"@/ui/*": ["src/components/ui/*"],
+			"@/containers/*": ["src/components/containers/*"],
+			"@/data/*": ["src/data/*"],
+			"@/utils/*": ["src/utils/*"],
+			"@/store/*": ["src/store/*"],
+			"@/images/*": ["src/assets/images/*"]
+		},
+		"typeRoots": ["./node_modules/@types", "./@types"],
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
 	}
 }

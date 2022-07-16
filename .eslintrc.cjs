@@ -16,10 +16,10 @@ module.exports = {
 		sourceType: 'module',
 		extraFileExtensions: ['.cjs'],
 	},
-	plugins: ['@typescript-eslint', 'unused-imports', 'import'],
+	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
 	rules: {
 		'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
-		'indent': ['error', 'tab'],
+		'indent': ['error', 'tab', { SwitchCase: 1 }],
 		'quotes': ['error', 'single', { avoidEscape: true }],
 		'semi': ['error', 'always'],
 		'no-empty': [
@@ -155,6 +155,8 @@ module.exports = {
 				groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
 			},
 		],
+
+		'deprecation/deprecation': 'error',
 	},
 	overrides: [
 		{
@@ -175,6 +177,13 @@ module.exports = {
 			files: ['./scripts/onboarding.cjs'],
 			rules: {
 				'no-console': 'off',
+			},
+		},
+		{
+			files: ['./inflint.config.ts'],
+			rules: {
+				'quotes': 'off',
+				'no-useless-escape': 'off',
 			},
 		},
 	],

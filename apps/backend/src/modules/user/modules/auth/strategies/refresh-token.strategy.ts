@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { QueryBus } from '@nestjs/cqrs';
 import { ExtractJwt, Strategy } from 'passport-jwt';
+import type { Request } from 'express';
 
 import { IEnvironment } from '@/config/env.interface';
 import { IJwtTokenPayload } from '@/interfaces/jwt-token';
@@ -20,7 +21,13 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-to
 	}
 
 	async validate(request: Request, payload: IJwtTokenPayload) {
-		const refreshToken = request.headers.get('Authorization')!.replace('Bearer ', '');
+		const refreshTokenHeader = request.headers.authorization;
+
+		if (!refreshTokenHeader) {
+			throw new UnauthorizedException();
+		}
+
+		const refreshToken = refreshTokenHeader.replace('Bearer ', '');
 
 		const isValidRefreshToken = await this.queryBus.execute<ValidRefreshTokenContract, boolean>(
 			new ValidRefreshTokenContract(payload.sub, refreshToken),

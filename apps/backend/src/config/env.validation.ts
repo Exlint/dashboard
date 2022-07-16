@@ -40,6 +40,9 @@ class EnvironmentVariables {
 
 	@IsString()
 	public MIXPANEL_TOKEN!: string;
+
+	@IsString()
+	public FRONTEND_URL!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {

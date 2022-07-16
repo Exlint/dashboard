@@ -1,0 +1,137 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.main {
+	display: flex;
+	font-family: poppins, sans-serif;
+
+	.leftSideContainer {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+		padding: 0 80px;
+		background-image: url('../../../assets/images/auth-background.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&__brandLogo {
+			position: absolute;
+			top: 34px;
+			left: 34px;
+			width: 168px;
+			object-fit: contain;
+		}
+
+		&__header {
+			margin-bottom: 9px;
+			font-size: 5.5rem;
+			font-weight: 700;
+			line-height: 65.25px;
+			text-align: center;
+			background: linear-gradient(270deg, #9072a7 46.97%, #f2f2f2 93.64%);
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		&__subHeader {
+			font-size: 3.6rem;
+			font-weight: 400;
+			color: #bbb8ca;
+			text-align: center;
+		}
+	}
+
+	.rightSideContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 50%;
+
+		&__header {
+			font-size: 4rem;
+			font-weight: 700;
+			color: map.get($colors, purple-text);
+		}
+
+		&__subHeader {
+			margin-bottom: 45px;
+			font-size: 3.5rem;
+			font-weight: 400;
+			color: map.get($colors, purple-text);
+		}
+
+		.rightSideExternalAuthContainer {
+			display: flex;
+			align-items: center;
+			width: 360px;
+			height: 67px;
+			padding: 12px 50px 12px 21px;
+			text-decoration: none;
+			border-radius: 7.5px;
+
+			&:not(:last-child) {
+				margin-bottom: 19px;
+			}
+
+			&--github {
+				background-color: #242337;
+				border: 1.5px solid transparent;
+			}
+
+			&--google {
+				background-color: #fefefe;
+				border: 1.5px solid #e7e7e7;
+			}
+
+			&__brandLogo {
+				height: 43px;
+				margin-right: 34px;
+				object-fit: contain;
+			}
+
+			&__text {
+				font-size: 1.9rem;
+				font-weight: 500;
+
+				&--github {
+					color: #f2f2f2;
+				}
+
+				&--google {
+					color: #202428;
+				}
+			}
+		}
+
+		&__divider {
+			width: 203px;
+			height: 1px;
+			margin: 44px 0;
+			background-color: #4b4a65;
+		}
+
+		&__permissionsDisclaimer {
+			margin-bottom: 10px;
+			font-size: 1.6rem;
+			font-weight: 300;
+			color: #4b4a65;
+		}
+
+		&__policyText {
+			font-size: 1.6rem;
+			font-weight: 300;
+			color: #4b4a65;
+			text-align: center;
+		}
+
+		&__textLink {
+			color: #4b4a65;
+		}
+	}
+}

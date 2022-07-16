@@ -1,0 +1,3 @@
+const SECOND = 1000;
+
+export const ACCESS_TOKEN_REFRESH_TIMEOUT = 290 * SECOND;

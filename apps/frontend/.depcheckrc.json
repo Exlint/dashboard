@@ -4,6 +4,7 @@
 		"stylelint-config-prettier-scss",
 		"stylelint-config-recess-order",
 		"stylelint-config-standard-scss",
-		"react-scripts"
+		"react-scripts",
+		"typescript-plugin-css-modules"
 	]
 }
