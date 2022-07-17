@@ -4,7 +4,7 @@ import { QueryBus } from '@nestjs/cqrs';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './secrets.routes';
-import { ICreateClientSecret } from './interfaces/responses';
+import type { ICreateClientSecret } from './interfaces/responses';
 import { CreateSecretContract } from './queries/contracts/create-secret.cotract';
 import { CreateSecretDto } from './classes/create-secret.dto';
 

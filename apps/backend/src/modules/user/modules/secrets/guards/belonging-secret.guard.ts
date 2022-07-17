@@ -1,6 +1,6 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import { Injectable, type CanActivate, type ExecutionContext } from '@nestjs/common';
 
-import { IJwtTokenPayload } from '@/interfaces/jwt-token';
+import type { IJwtTokenPayload } from '@/interfaces/jwt-token';
 import { DBClientSecretService } from '@/modules/database/client-secret.service';
 
 @Injectable()

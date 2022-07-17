@@ -1,6 +1,6 @@
-import React, { CSSProperties } from 'react';
+import React, { type CSSProperties } from 'react';
 
-import icons from '../../../assets/icons';
+import type icons from '../../../assets/icons';
 
 import EDSvgView from './EDSvg.view';
 

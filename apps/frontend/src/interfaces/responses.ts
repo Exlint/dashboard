@@ -1,4 +1,4 @@
-export interface IAutoLoginResponseData {
+export interface IAutoAuthResponseData {
 	readonly accessToken: string;
 	readonly id: string;
 	readonly name: string;

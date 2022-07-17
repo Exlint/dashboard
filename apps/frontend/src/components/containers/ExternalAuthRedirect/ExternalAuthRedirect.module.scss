@@ -3,53 +3,21 @@
 @import '../../../styles/variables.scss';
 
 .header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 175px;
-	margin-bottom: 50px;
-	background: linear-gradient(270deg, #4f339b 46.97%, #000 93.64%);
-
-	&__img {
-		height: 55px;
-		object-fit: contain;
-	}
+	margin-bottom: 30px;
+	font-size: 3.5rem;
+	color: map.get($colors, black-text);
 }
 
-.main {
+.subTextContainer {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
 
-	.redirectHeader {
-		margin-bottom: 30px;
-		font-size: 3.5rem;
-		color: map.get($colors, black-text);
+	&__text {
+		font-size: 2.2rem;
+		color: map.get($colors, grey-text);
 	}
 
-	.redirectSubTextContainer {
-		display: flex;
-
-		.redirectSubText {
-			font-size: 2.2rem;
-			color: map.get($colors, grey-text);
-		}
-
-		.redirectSubTextLinkPostfix {
-			font-size: 2.2rem;
-			color: map.get($colors, purple-text);
-		}
-	}
-}
-
-.footer {
-	padding: 20px 10px;
-	font-size: 2.1rem;
-	color: map.get($colors, grey-text);
-	background-color: #f7f7f7;
-
-	&__contact {
+	&__postfix {
+		font-size: 2.2rem;
 		color: map.get($colors, purple-text);
-		text-decoration: none;
 	}
 }

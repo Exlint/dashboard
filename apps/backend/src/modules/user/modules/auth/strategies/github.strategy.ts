@@ -3,10 +3,10 @@ import { Strategy } from 'passport-github2';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
-import { IExternalAuthUser } from '../interfaces/external-auth-user';
-import { IGithubProfile } from '../interfaces/github';
+import type { IExternalAuthUser } from '../interfaces/external-auth-user';
+import type { IGithubProfile } from '../interfaces/github';
 
 @Injectable()
 export class GithubStrategy extends PassportStrategy(Strategy, 'github') {

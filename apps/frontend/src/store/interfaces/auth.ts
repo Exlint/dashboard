@@ -3,7 +3,7 @@ export interface IAuthState {
 	name: string | null;
 }
 
-export interface ILoginPayload {
+export interface IAuthPayload {
 	id: string;
 	name: string;
 }

@@ -1,4 +1,4 @@
-import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 
 import { DBUserService } from '@/modules/database/user.service';
 

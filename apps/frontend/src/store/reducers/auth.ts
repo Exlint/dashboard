@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { IAuthState, ILoginPayload } from '../interfaces/auth';
+import type { IAuthState, IAuthPayload } from '../interfaces/auth';
 
 const initialState: IAuthState = {
 	id: null,
@@ -11,7 +11,7 @@ const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		login(state, action: PayloadAction<ILoginPayload>) {
+		auth(state, action: PayloadAction<IAuthPayload>) {
 			state.id = action.payload.id;
 			state.name = action.payload.name;
 		},

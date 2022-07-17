@@ -3,10 +3,10 @@ import { Strategy } from 'passport-google-oauth20';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
-import { IExternalAuthUser } from '../interfaces/external-auth-user';
-import { IGoogleProfile } from '../interfaces/google';
+import type { IExternalAuthUser } from '../interfaces/external-auth-user';
+import type { IGoogleProfile } from '../interfaces/google';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {

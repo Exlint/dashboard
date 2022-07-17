@@ -4,13 +4,10 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 
 import { AuthService } from './auth.service';
-import { LocalStrategy } from './strategies/local.strategy';
 import { QueryHandlers } from './queries/handlers';
 import { CommandHandlers } from './commands/handlers';
 import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
 import { RefreshTokenGuard } from './guards/refresh-token.guard';
-import { LoginController } from './login.controller';
-import { RegisterController } from './register.controller';
 import { RefreshTokenController } from './refresh-token.controller';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
 import { GoogleStrategy } from './strategies/google.strategy';
@@ -23,20 +20,12 @@ import { EventHandlers } from './events/handlers';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
-	controllers: [
-		LoginController,
-		RegisterController,
-		RefreshTokenController,
-		GoogleController,
-		GithubController,
-		DeleteController,
-	],
+	controllers: [RefreshTokenController, GoogleController, GithubController, DeleteController],
 	providers: [
 		...QueryHandlers,
 		...CommandHandlers,
 		...EventHandlers,
 		AuthService,
-		LocalStrategy,
 		RefreshTokenStrategy,
 		GoogleStrategy,
 		GithubStrategy,

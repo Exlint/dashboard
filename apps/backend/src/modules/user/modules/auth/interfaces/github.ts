@@ -1,4 +1,4 @@
-import { IUnknown } from './unknown';
+import type { IUnknown } from './unknown';
 
 interface IGithubEmail {
 	readonly value: string;

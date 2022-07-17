@@ -1,5 +1,5 @@
-import { IGroupData } from './groups-data';
-import { ILoggedUser } from './user';
+import type { IGroupData } from './groups-data';
+import type { ILoggedUser } from './user';
 
 interface ITokens {
 	accessToken: string;
