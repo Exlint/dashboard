@@ -40,6 +40,7 @@
 		"@types/react": "18.0.15",
 		"@types/react-dom": "18.0.6",
 		"@types/react-router-dom": "5.3.3",
+		"@types/uniqid": "5.3.2",
 		"@typescript-eslint/eslint-plugin": "5.30.6",
 		"@typescript-eslint/parser": "5.30.6",
 		"depcheck": "1.4.3",
@@ -60,7 +61,8 @@
 		"stylelint-config-recess-order": "3.0.0",
 		"stylelint-config-standard-scss": "5.0.0",
 		"tsconfig-paths-webpack-plugin": "3.5.2",
-		"typescript-plugin-css-modules": "3.4.0"
+		"typescript-plugin-css-modules": "3.4.0",
+		"uniqid": "5.4.0"
 	},
 	"peerDependencies": {
 		"@babel/core": "7.18.6",

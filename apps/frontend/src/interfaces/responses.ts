@@ -1,3 +1,5 @@
+import { IGroup } from './group';
+
 export interface IAutoLoginResponseData {
 	readonly accessToken: string;
 	readonly id: string;
@@ -6,4 +8,12 @@ export interface IAutoLoginResponseData {
 
 export interface IRefreshTokenResponseData {
 	readonly accessToken: string;
+}
+
+export interface IGetGroupsResponseData {
+	readonly groupsList: IGroup[];
+}
+
+export interface ICreateGroupResponseData {
+	readonly id: string;
 }

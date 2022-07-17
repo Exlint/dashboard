@@ -1,0 +1,82 @@
+.library {
+	display: flex;
+	justify-content: space-between;
+	height: fit-content;
+	padding: 14px;
+	border-radius: 10px;
+
+	.innerLibrary {
+		display: flex;
+
+		&__logo {
+			width: 53px;
+			height: 53px;
+			padding: 8px 6px;
+			margin-right: 13px;
+			background-color: #f9f9f9;
+			border-radius: 50%;
+			box-shadow: -1px 2px 9px 2px #00000014;
+		}
+
+		.textContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			&__title {
+				font-size: 1.8rem;
+				font-weight: 660;
+				color: #4b4a65;
+			}
+
+			.madeByContainer {
+				display: flex;
+				align-items: center;
+				margin: 3px 0;
+
+				&__text {
+					font-size: 1.5rem;
+					font-weight: 350;
+				}
+			}
+
+			&__description {
+				margin-bottom: 3px;
+				font-size: 1.5rem;
+				font-weight: 350;
+				text-align: left;
+			}
+
+			.typeAndCategory {
+				display: flex;
+				align-items: center;
+
+				&__type {
+					padding: 2px 16px;
+					margin-right: 5px;
+					color: #bbb8ca;
+					border: 1px solid #bbb8ca;
+					border-radius: 10px;
+				}
+
+				&__category {
+					padding: 2px 16px;
+					color: #bbb8ca;
+					border: 1px solid #bbb8ca;
+					border-radius: 10px;
+				}
+			}
+		}
+	}
+
+	.cancelSelectedLibraryButton {
+		z-index: 1;
+		display: flex;
+		height: fit-content;
+
+		&__cancelButton {
+			width: 12px;
+			height: 12px;
+		}
+	}
+}

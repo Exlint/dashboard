@@ -1,0 +1,123 @@
+@use 'sass:map';
+
+@import './../../../../../styles/variables.scss';
+
+.groupInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+	.innerGroupInfo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 22px 13px;
+		background-color: #fefefe;
+		border: 2px solid #e7e7e7;
+		border-radius: 5px;
+
+		.groupLableContainer {
+			display: flex;
+			align-items: center;
+			width: 160px;
+
+			&__lable {
+				width: 100%;
+				font-size: 2.4rem;
+				font-weight: 560;
+				color: #202428;
+				border-bottom: 1px solid transparent;
+
+				&:disabled {
+					font-weight: 750;
+					border-bottom: 2px solid #5f5f5f;
+				}
+			}
+
+			.editLableButton {
+				display: flex;
+				width: fit-content;
+				margin-left: 10px;
+
+				&__icon {
+					width: 15px;
+					height: 15px;
+					fill: transparent;
+					stroke: #4b4a65;
+				}
+			}
+
+			.updateLableButtonsContainer {
+				display: flex;
+
+				// .updateChangesButton {
+				// 	&__icon {
+				// 	}
+				// }
+
+				// .cancelChangesButton {
+				// 	&__icon {
+				// 	}
+				// }
+			}
+		}
+
+		.createdTime {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+
+			.createdTimeDate {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		.uniqueIdContainer {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				margin-right: 20px;
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+
+			.uniqueId {
+				display: flex;
+				align-items: center;
+				padding: 8px 7px;
+				border: 1px solid #bbb8ca;
+				border-radius: 5px;
+
+				&__id {
+					margin-right: 12px;
+					font-size: 1.7rem;
+					font-weight: 460;
+					color: #8b8b8b;
+				}
+
+				&__icon {
+					width: 21px;
+					height: 22px;
+				}
+			}
+		}
+
+		.moreInfoButton {
+			&__icon {
+				width: 31px;
+				height: 7px;
+			}
+		}
+	}
+}
