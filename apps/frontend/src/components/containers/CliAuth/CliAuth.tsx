@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { cliBackendApi } from '@/utils/http';
@@ -13,13 +13,15 @@ const CliAuth: React.FC<IProps> = () => {
 
 	const port = searchParams.get('port');
 
-	if (!port) {
-		navigate('/auth');
-	}
+	useEffect(() => {
+		if (!port) {
+			navigate('/auth');
+		}
+	}, [port]);
 
 	const onAuthClick = async () => {
 		try {
-			await cliBackendApi.get('/user/auth/auth');
+			await cliBackendApi.get(`/user/auth/auth?port=${port}`);
 		} catch {
 			navigate(`/auth?port=${port}`);
 		}

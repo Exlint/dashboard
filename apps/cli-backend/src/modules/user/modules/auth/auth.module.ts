@@ -9,10 +9,11 @@ import { VerifyTokenController } from './verify-token.controller';
 import { EventHandlers } from './events/handlers';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
+import { QueryHandlers } from './queries/handlers';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
 	controllers: [VerifyTokenController, AuthController],
-	providers: [...EventHandlers, RefreshTokenGuard, RefreshTokenStrategy, AuthService],
+	providers: [...EventHandlers, ...QueryHandlers, RefreshTokenGuard, RefreshTokenStrategy, AuthService],
 })
 export class AuthModule {}

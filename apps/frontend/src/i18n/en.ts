@@ -36,6 +36,16 @@ const en = {
 		header: 'Authenticated!',
 		text: 'You can now close the window and start coding in best practices.',
 	},
+	notFound: {
+		header: {
+			documentationLink: 'Documentation',
+		},
+		message: "As far as we know,<br />This page doesn't exist!",
+		actions: {
+			linkText: 'Return Home',
+			textPrefix: "If you believe this shouldn't have happened, please contact us at",
+		},
+	},
 };
 
 export default en;

@@ -12,11 +12,12 @@ import { authActions } from './store/reducers/auth';
 import AppView from './App.view';
 
 interface PropsFromState {
-	readonly isAuthenticated: boolean;
+	readonly isAuthenticated: boolean | null;
 }
 
 interface PropsFromDispatch {
 	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
+	readonly setUnauthenticated: () => PayloadAction;
 }
 
 interface IProps extends PropsFromState, PropsFromDispatch {}
@@ -71,7 +72,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				});
 			})
 			.catch(() => {
-				return;
+				props.setUnauthenticated();
 			});
 	}, [backendApi]);
 
@@ -83,8 +84,11 @@ App.defaultProps = {};
 
 const mapStateToProps = (state: AppState) => {
 	return {
-		isAuthenticated: state.auth.id !== null,
+		isAuthenticated: state.auth.isAuthenticated,
 	};
 };
 
-export default connect(mapStateToProps, { auth: authActions.auth })(React.memo(App));
+export default connect(mapStateToProps, {
+	auth: authActions.auth,
+	setUnauthenticated: authActions.setUnauthenticated,
+})(React.memo(App));

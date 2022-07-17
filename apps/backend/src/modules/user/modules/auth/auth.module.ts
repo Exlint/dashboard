@@ -17,10 +17,17 @@ import { GithubStrategy } from './strategies/github.strategy';
 import { GithubController } from './github.controller';
 import { DeleteController } from './delete.controller';
 import { EventHandlers } from './events/handlers';
+import { AutoAuthController } from './auto-auth.controller';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
-	controllers: [RefreshTokenController, GoogleController, GithubController, DeleteController],
+	controllers: [
+		RefreshTokenController,
+		GoogleController,
+		GithubController,
+		DeleteController,
+		AutoAuthController,
+	],
 	providers: [
 		...QueryHandlers,
 		...CommandHandlers,

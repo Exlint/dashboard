@@ -1,4 +1,4 @@
-import { Controller, Get, Logger, Query, Redirect, UseGuards } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Logger, Query, Redirect, UseGuards } from '@nestjs/common';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
@@ -14,15 +14,19 @@ export class AuthController {
 
 	constructor(private readonly authService: AuthService) {}
 
-	@UseGuards(RefreshTokenGuard)
 	@Public()
+	@UseGuards(RefreshTokenGuard)
 	@Get(Routes.AUTH)
 	@Redirect(undefined, 301)
 	public async auth(
-		@Query('port') port: string,
 		@CurrentUserId() userId: string,
 		@CurrentUserEmail() userEmail: string,
+		@Query('port') port?: string,
 	) {
+		if (!port) {
+			throw new BadRequestException();
+		}
+
 		this.logger.log(`Will try to generate a CLI token for user with Id: "${userId}"`);
 
 		const cliToken = await this.authService.generateJwtCliToken(userId, userEmail);

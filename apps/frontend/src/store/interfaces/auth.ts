@@ -1,4 +1,5 @@
 export interface IAuthState {
+	isAuthenticated: boolean | null;
 	id: string | null;
 	name: string | null;
 }

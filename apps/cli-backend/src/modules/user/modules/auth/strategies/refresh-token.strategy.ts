@@ -12,7 +12,10 @@ import { ValidRefreshTokenContract } from '../queries/contracts/valid-refresh-to
 
 @Injectable()
 export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-token') {
-	constructor(configService: ConfigService<IEnvironment, true>, private readonly queryBus: QueryBus) {
+	constructor(
+		protected configService: ConfigService<IEnvironment, true>,
+		private readonly queryBus: QueryBus,
+	) {
 		super({
 			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 			secretOrKey: configService.get('refreshTokenJwtKey', { infer: true }),

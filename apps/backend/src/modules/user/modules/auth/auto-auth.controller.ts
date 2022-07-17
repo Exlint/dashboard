@@ -28,7 +28,7 @@ export class AutoAuthController {
 
 	@Public()
 	@UseGuards(RefreshTokenGuard)
-	@Post(Routes.AUTO_LOGIN)
+	@Post(Routes.AUTO_AUTH)
 	@HttpCode(HttpStatus.OK)
 	public async autoAuth(@CurrentUserEmail() userEmail: string): Promise<IAutoLoginResponse> {
 		this.logger.log(`Will try to auto auth with data email: "${userEmail}"`);

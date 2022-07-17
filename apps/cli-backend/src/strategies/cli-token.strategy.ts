@@ -10,7 +10,7 @@ import type { IJwtTokenPayload } from '../interfaces/jwt-token';
 @Injectable()
 export class CliTokenStrategy extends PassportStrategy(Strategy, 'cli-token') {
 	constructor(
-		public configService: ConfigService<IEnvironment, true>,
+		protected configService: ConfigService<IEnvironment, true>,
 		private dbUserService: DBUserService,
 	) {
 		super({

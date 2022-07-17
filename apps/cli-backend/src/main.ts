@@ -27,6 +27,9 @@ async function bootstrap() {
 
 	const config = app.get<ConfigService<IEnvironment, true>>(ConfigService);
 	const nodeEnv = config.get('nodeEnv', { infer: true });
+	const frontendUrl = config.get('frontendUrl', { infer: true });
+
+	app.enableCors({ origin: frontendUrl });
 
 	if (nodeEnv === 'development') {
 		const swaggerConfig = new DocumentBuilder()
