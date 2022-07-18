@@ -1,0 +1,113 @@
+.mainWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	width: 570px;
+	height: 461px;
+	border-radius: 5px;
+	transform: translate(-50%, -50%);
+
+	.deleteUserWrapper {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		&__header {
+			display: flex;
+			align-items: center;
+			height: 37px;
+			background: #202428;
+			border-radius: 5px 5px 0 0;
+
+			&--button {
+				display: flex;
+				align-items: center;
+				margin-left: 16px;
+				font-size: 1.5rem;
+				font-weight: 400;
+				color: #fefefe;
+			}
+
+			&--icon {
+				width: 13px;
+				height: 13px;
+				margin-right: 5px;
+			}
+		}
+
+		&__body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			background-color: #fefefe;
+			border-style: solid;
+			border-width: 0 4px 4px;
+			border-radius: 0 0 5px 5px;
+
+			&--icon {
+				width: 80px;
+				height: 80px;
+				margin-top: 25px;
+			}
+
+			&--upperText {
+				margin-top: 15px;
+				font-size: 2.5rem;
+				font-weight: 457;
+			}
+
+			&--middleText {
+				width: 70%;
+				margin-top: 17px;
+				font-size: 2.5rem;
+				font-weight: 600;
+				text-align: center;
+			}
+
+			&--lowerText {
+				margin-top: 25px;
+				font-size: 2.5rem;
+				font-weight: 600;
+			}
+
+			&--redText {
+				color: #781d1d;
+			}
+
+			&--input {
+				width: 50%;
+				padding: 15px;
+				margin-top: 15px;
+				font-size: 1.6rem;
+				font-weight: 600;
+				color: #4b4a65;
+				border: 2px solid #e7e7e7;
+				border-radius: 10px;
+
+				&::placeholder {
+					font-size: 1.6rem;
+					font-weight: 600;
+					color: #4b4a65;
+				}
+			}
+
+			&--button {
+				padding: 12px 20px;
+				margin-top: 12px;
+				font-size: 1.7rem;
+				color: #fefefe;
+				background: #202428;
+				border: 2px solid #0e0d14;
+				border-radius: 10px;
+			}
+
+			&--buttonDisabled {
+				color: #8b8b8b;
+				background: #bbb8ca;
+				border: 2px solid #bbb8ca;
+			}
+		}
+	}
+}

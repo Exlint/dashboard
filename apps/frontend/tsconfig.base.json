@@ -10,6 +10,8 @@
 			"@/interfaces/*": ["src/interfaces/*"],
 			"@/ui/*": ["src/components/ui/*"],
 			"@/containers/*": ["src/components/containers/*"],
+			"@/layout/*": ["src/components/layout/*"],
+			"@/pages/*": ["src/pages/*"],
 			"@/data/*": ["src/data/*"],
 			"@/utils/*": ["src/utils/*"],
 			"@/store/*": ["src/store/*"],
