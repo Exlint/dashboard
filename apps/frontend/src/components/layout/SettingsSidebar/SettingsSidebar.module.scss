@@ -19,7 +19,7 @@
 			&__title {
 				padding: 21px 0;
 				font-size: 2.4rem;
-				font-weight: 560;
+				font-weight: 600;
 				color: #4b4a65;
 			}
 
@@ -39,22 +39,27 @@
 
 			.usernameContainer {
 				display: flex;
+				align-items: center;
 
 				&__profile {
-					width: 25px;
-					height: 25px;
+					width: 20px;
+					height: 29px;
 					margin-right: 7px;
+					fill: #8b8b8b;
 				}
 
 				&__details {
 					font-size: 2rem;
-					font-weight: 556;
+					font-weight: 600;
 					color: #8b8b8b;
 				}
-			}
 
-			&__created {
-				margin-top: 11px;
+				&__userName {
+					margin-top: 7px;
+					font-size: 2.1rem;
+					font-weight: 457;
+					color: #8b8b8b;
+				}
 			}
 		}
 	}

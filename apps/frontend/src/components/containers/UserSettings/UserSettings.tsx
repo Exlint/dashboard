@@ -5,17 +5,15 @@ import UserSettingsView from './UserSettings.view';
 interface IProps {}
 
 const UserSettings: React.FC<IProps> = () => {
-	const [modalState, setModalState] = useState<boolean>(false);
+	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 
 	const modalChangeHandler = () => {
-		if (modalState) {
-			return setModalState(() => false);
-		}
-
-		return setModalState(() => true);
+		setIsModelOnViewState((prevState) => !prevState);
 	};
 
-	return <UserSettingsView modalState={modalState} modalChangeHandler={modalChangeHandler} />;
+	return (
+		<UserSettingsView isModelOnViewState={isModelOnViewState} modalChangeHandler={modalChangeHandler} />
+	);
 };
 
 UserSettings.displayName = 'UserSettings';

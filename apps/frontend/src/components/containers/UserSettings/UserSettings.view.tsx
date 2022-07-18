@@ -8,7 +8,7 @@ import classes from './UserSettings.module.scss';
 
 interface IProps {
 	readonly modalChangeHandler: () => void;
-	readonly modalState: boolean;
+	readonly isModelOnViewState: boolean;
 }
 
 const UserSettingsView: React.FC<IProps> = (props) => {
@@ -35,7 +35,7 @@ const UserSettingsView: React.FC<IProps> = (props) => {
 								>
 									Delete User
 								</button>
-								{props.modalState && (
+								{props.isModelOnViewState && (
 									<UserSettingsModal modalChangeHandler={props.modalChangeHandler} />
 								)}
 							</div>

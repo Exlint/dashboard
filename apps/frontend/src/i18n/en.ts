@@ -20,6 +20,9 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	userSettings: {
+		header: '',
+	},
 };
 
 export default en;

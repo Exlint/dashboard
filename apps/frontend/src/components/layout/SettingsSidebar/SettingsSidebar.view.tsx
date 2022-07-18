@@ -1,7 +1,6 @@
 import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
-import { concatClasses } from '@/utils/component';
 
 import classes from './SettingsSidebar.module.scss';
 
@@ -9,7 +8,7 @@ interface IProps {}
 
 const SettingsSidebarView: React.FC<IProps> = () => {
 	return (
-		<section className={classes['sidebar']}>
+		<div className={classes['sidebar']}>
 			<div className={classes['innerSidebar']}>
 				<div className={classes['headerContainer']}>
 					<h2 className={classes['headerContainer__title']}>Settings</h2>
@@ -21,20 +20,12 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 							name="userDefultProfilePicture"
 							className={classes['usernameContainer__profile']}
 						/>
-						<span className={classes['usernameContainer__details']}>Username: Amir</span>
+						<span className={classes['usernameContainer__details']}>Username</span>
 					</div>
-					<div
-						className={concatClasses(
-							classes,
-							'usernameContainer__details',
-							'userDetalis__created',
-						)}
-					>
-						Created: 22 May 2022
-					</div>
+					<div className={classes['usernameContainer__userName']}>user-name</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

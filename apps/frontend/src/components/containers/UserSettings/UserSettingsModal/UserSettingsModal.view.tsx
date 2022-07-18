@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import EDSvg from '@/ui/EDSvg';
-import Backdrop from '@/ui/Backdrop';
+import EDBackdrop from '@/ui/EDBackdrop';
 import { concatClasses } from '@/utils/component';
 
 import classes from './UserSettingsModal.module.scss';
@@ -26,7 +26,7 @@ const UserSettingsModalView: React.FC<IProps> = (props) => {
 
 	return (
 		<>
-			<Backdrop modalChangeHandler={props.modalChangeHandler} />
+			<EDBackdrop modalChangeHandler={props.modalChangeHandler} />
 			{ReactDOM.createPortal(
 				<section className={classes['mainWrapper']}>
 					<div className={classes['deleteUserWrapper']}>

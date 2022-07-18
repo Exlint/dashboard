@@ -4,11 +4,11 @@ import UserSettings from '@/containers/UserSettings';
 
 interface IProps {}
 
-const AuthPage: React.FC<IProps> = () => {
+const UserSettingsPage: React.FC<IProps> = () => {
 	return <UserSettings />;
 };
 
-AuthPage.displayName = 'AuthPage';
-AuthPage.defaultProps = {};
+UserSettingsPage.displayName = 'UserSettingsPage';
+UserSettingsPage.defaultProps = {};
 
-export default AuthPage;
+export default UserSettingsPage;
