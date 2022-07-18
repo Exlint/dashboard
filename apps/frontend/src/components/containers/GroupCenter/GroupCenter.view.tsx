@@ -17,23 +17,38 @@ interface IProps {
 }
 
 const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const selectedGroup = props.selectedGroupIndex
-		? props.groupsList[props.selectedGroupIndex] ?? null
-		: null;
+	// const selectedGroup = props.selectedGroupIndex
+	// 	? props.groupsList[props.selectedGroupIndex] ?? null
+	// 	: null;
 
-	const selectedGroupId = selectedGroup?.id;
+	const selectedGroupTemp: IGroup = {
+		id: 'test123',
+		label: 'sssnew group',
+		createdAt: '11 jun',
+		policies: [],
+	};
+
+	const groupListTemp = [selectedGroupTemp];
+
+	// const selectedGroupId = selectedGroup?.id;
+	const selectedGroupId = selectedGroupTemp?.id;
 
 	return (
 		<main className={classes['main']}>
 			<GroupsSidebar
-				groupsList={props.groupsList}
+				// groupsList={props.groupsList}
 				selectedGroupIndex={props.selectedGroupIndex}
+				groupsList={groupListTemp}
 				onCreateNewGroup={props.onCreateNewGroup}
 				onSelectGroup={props.onSelectGroup}
 			/>
+			<GroupDetails selectedGroup={selectedGroupTemp} />
 			{selectedGroupId && (
 				<Routes>
-					<Route path="/group-center/" element={<GroupDetails selectedGroup={selectedGroup} />} />
+					<Route
+						path="/group-center/"
+						element={<GroupDetails selectedGroup={selectedGroupTemp} />}
+					/>
 					<Route
 						path="/group-center/new-policy/"
 						element={<NewPolicy selectedGroupId={selectedGroupId} />}

@@ -13,18 +13,19 @@ interface IProps {
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [groupLabelState, setGroupLabelState] = useState<string>('');
 	const [isLabelOnEditState, setIsLabelOnEditState] = useState<boolean>(false);
-	const [isHoveringState, setIsHoveringState] = useState<boolean>(false);
+	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
+	const [isMoreInfoClickedState, setIsMoreInfoClickedState] = useState<boolean>(false);
+
+	const groupId = props.selectedGroup.id;
 
 	const onLabelOnEdit = (isEdit: boolean) => {
 		setIsLabelOnEditState(() => isEdit);
 	};
 
-	const onHovering = (isHovering: boolean) => {
-		setIsHoveringState(() => isHovering);
-	};
-
 	const onChangeGroupLabel = (newGroupLabel: string) => {
-		setGroupLabelState(() => newGroupLabel);
+		if (newGroupLabel.length > 0 && newGroupLabel.length <= 20) {
+			setGroupLabelState(() => newGroupLabel);
+		}
 	};
 
 	const onUpdateGroupLabel = () => {
@@ -47,21 +48,35 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setIsLabelOnEditState(() => false);
 	};
 
+	const onCopyGroupId = async () => {
+		setCopyGroupIdState(() => true);
+
+		await navigator.clipboard.writeText(groupId);
+
+		setTimeout(() => setCopyGroupIdState(() => false), 2000);
+	};
+
+	const onMoreInfoClick = () => {
+		setIsMoreInfoClickedState(() => !isMoreInfoClickedState);
+	};
+
 	useEffect(() => {
 		setGroupLabelState(() => props.selectedGroup.label);
-	}, [props.selectedGroup, onUpdateGroupLabel]);
+	}, [props.selectedGroup]);
 
 	return (
 		<GroupInfoView
 			selectedGroup={props.selectedGroup}
 			groupLabel={groupLabelState}
 			isLabelOnEdit={isLabelOnEditState}
-			isHovering={isHoveringState}
+			copyGroupId={copyGroupIdState}
+			isMoreInfoClicked={isMoreInfoClickedState}
 			onLabelOnEdit={onLabelOnEdit}
-			onHovering={onHovering}
 			onChangeGroupLabel={onChangeGroupLabel}
 			onUpdateGroupLabel={onUpdateGroupLabel}
 			onCancelLabelChanges={onCancelLabelChanges}
+			onCopyGroupId={onCopyGroupId}
+			onMoreInfoClick={onMoreInfoClick}
 		/>
 	);
 };

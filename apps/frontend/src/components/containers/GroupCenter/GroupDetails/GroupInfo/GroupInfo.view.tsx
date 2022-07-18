@@ -3,6 +3,7 @@ import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
 
+import { concatClasses } from '@/utils/component';
 import { IGroup } from '@/interfaces/group';
 
 import classes from './GroupInfo.module.scss';
@@ -11,12 +12,14 @@ interface IProps {
 	readonly selectedGroup: IGroup;
 	readonly groupLabel: string;
 	readonly isLabelOnEdit: boolean;
-	readonly isHovering: boolean;
+	readonly copyGroupId: boolean;
+	readonly isMoreInfoClicked: boolean;
 	readonly onLabelOnEdit: (isEdit: boolean) => void;
-	readonly onHovering: (isHovering: boolean) => void;
 	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
 	readonly onUpdateGroupLabel: () => void;
 	readonly onCancelLabelChanges: () => void;
+	readonly onCopyGroupId: () => void;
+	readonly onMoreInfoClick: () => void;
 }
 
 const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -24,23 +27,35 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		<div className={classes['groupInfo']}>
 			<div className={classes['innerGroupInfo']}>
 				{!props.isLabelOnEdit ? (
-					<div
-						className={classes['groupLableContainer']}
-						onMouseEnter={() => props.onHovering(true)}
-						onMouseLeave={() => props.onHovering(false)}
-					>
-						<span onDoubleClick={() => props.onLabelOnEdit(true)}>{props.groupLabel}</span>
+					<div className={classes['groupLabelContainer']}>
+						<span
+							className={classes['groupLabelContainer__label']}
+							onDoubleClick={() => props.onLabelOnEdit(true)}
+						>
+							{props.groupLabel}
+						</span>
+						<button
+							type="button"
+							className={classes['editLabelButton']}
+							onClick={() => props.onLabelOnEdit(true)}
+						>
+							<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
+						</button>
 					</div>
 				) : (
-					<div>
-						<form onSubmit={props.onUpdateGroupLabel}>
-							<input
-								className={classes['groupLableContainer__lable']}
-								value={props.groupLabel}
-								onChange={(e) => props.onChangeGroupLabel(e.target.value)}
-							/>
-						</form>
-						<div className={classes['updateLableButtonsContainer']}>
+					<div className={classes['groupLabelContainerOnEdit']}>
+						<input
+							className={concatClasses(
+								classes,
+								'groupLabelContainer__labelOnEdit',
+								'groupLabelContainer__label',
+							)}
+							style={{ width: `${props.groupLabel.length}ch` }}
+							value={props.groupLabel}
+							autoFocus
+							onChange={(e) => props.onChangeGroupLabel(e.target.value)}
+						/>
+						<div className={classes['updateLabelButtonsContainer']}>
 							<button
 								className={classes['updateChangesButton']}
 								type="button"
@@ -69,12 +84,35 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<span className={classes['uniqueIdContainer__text']}>Unique ID:</span>
 					<div className={classes['uniqueId']}>
 						<span className={classes['uniqueId__id']}>{props.selectedGroup.id}</span>
-						<EDSvg className={classes['uniqueId__icon']} name="uniqueId" />
+						<button
+							className={classes['uniqIdCopyButton']}
+							type="button"
+							onClick={props.onCopyGroupId}
+						>
+							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
+						</button>
+						{props.copyGroupId && (
+							<span className={classes['uniqueId__copiedText']}>Copied!</span>
+						)}
 					</div>
 				</div>
-				<button className={classes['moreInfoButton']} type="button">
-					<EDSvg className={classes['moreInfoButton__icon']} name="moreInfoIcon" />
-				</button>
+				<div className={classes['moreInfoContainer']}>
+					<button
+						className={classes['moreInfoButton']}
+						type="button"
+						onClick={props.onMoreInfoClick}
+					>
+						<EDSvg className={classes['moreInfoButton__icon']} name="moreInfoIcon" />
+					</button>
+					{props.isMoreInfoClicked && (
+						<div className={classes['innerMoreInfo']}>
+							<button className={classes['deleteGroup']} type="button">
+								<span className={classes['deleteGroup__text']}>Delete Group</span>
+								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroupIcon" />
+							</button>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);
