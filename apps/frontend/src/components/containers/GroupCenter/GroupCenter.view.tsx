@@ -33,7 +33,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			/>
 			{selectedGroupId && (
 				<Routes>
-					<Route path="" element={<GroupDetails selectedGroup={selectedGroup} />} />
+					<Route path="/group-center/" element={<GroupDetails selectedGroup={selectedGroup} />} />
 					<Route
 						path="/group-center/new-policy/"
 						element={<NewPolicy selectedGroupId={selectedGroupId} />}

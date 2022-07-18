@@ -15,7 +15,7 @@ const GroupCenter: React.FC<IProps> = () => {
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
 
 	useEffect(() => {
-		backendApiAxios.get<IGetGroupsResponseData>('/group-list', {}).then((response) => {
+		backendApiAxios.get<IGetGroupsResponseData>('/group-list/', {}).then((response) => {
 			setGroupsListState(response.data.groupsList);
 
 			if (response.data.groupsList.length > 0) {
@@ -26,7 +26,7 @@ const GroupCenter: React.FC<IProps> = () => {
 
 	const onCreateNewGroup = () => {
 		backendApiAxios
-			.post<ICreateGroupResponseData>('/create-group')
+			.post<ICreateGroupResponseData>('/create-group/')
 			.then((response) => {
 				setGroupsListState((prev) => {
 					return [

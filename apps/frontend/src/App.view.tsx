@@ -13,14 +13,14 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
 			<Routes>
-				{!props.isAuthenticated && (
+				{props.isAuthenticated && (
 					<>
 						<Route path="/auth" element={<Auth />} />
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 						<Route path="*" element={<Navigate replace to="/auth" />} />
 					</>
 				)}
-				{props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
+				{!props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
 			</Routes>
 		</Suspense>
 	</BrowserRouter>

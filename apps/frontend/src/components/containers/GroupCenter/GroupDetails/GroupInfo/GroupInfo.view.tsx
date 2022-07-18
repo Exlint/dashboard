@@ -11,9 +11,11 @@ interface IProps {
 	readonly selectedGroup: IGroup;
 	readonly groupLabel: string;
 	readonly isLabelOnEdit: boolean;
+	readonly isHovering: boolean;
+	readonly onLabelOnEdit: (isEdit: boolean) => void;
+	readonly onHovering: (isHovering: boolean) => void;
 	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
 	readonly onUpdateGroupLabel: () => void;
-	readonly onLabelOnEdit: () => void;
 	readonly onCancelLabelChanges: () => void;
 }
 
@@ -21,41 +23,42 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	return (
 		<div className={classes['groupInfo']}>
 			<div className={classes['innerGroupInfo']}>
-				{/* <div className={classes['groupLableContainer']}>
-					<input
-						className={classes['groupLableContainer__lable']}
-						value={props.groupLable ?? props.selectedGroup?.label}
-						disabled={props.isLableOnEdit}
-						onChange={() => props.onChangeGroupLable}
-					/>
-					<span>{props.groupLable}</span>
-					{props.isLableOnEdit ? (
-						<button
-							type="button"
-							className={classes['editLableButton']}
-							onClick={props.onLableOnEdit}
-						>
-							<VSvg className={classes['editLableButton__icon']} name="editLable" />
-						</button>
-					) : (
+				{!props.isLabelOnEdit ? (
+					<div
+						className={classes['groupLableContainer']}
+						onMouseEnter={() => props.onHovering(true)}
+						onMouseLeave={() => props.onHovering(false)}
+					>
+						<span onDoubleClick={() => props.onLabelOnEdit(true)}>{props.groupLabel}</span>
+					</div>
+				) : (
+					<div>
+						<form onSubmit={props.onUpdateGroupLabel}>
+							<input
+								className={classes['groupLableContainer__lable']}
+								value={props.groupLabel}
+								onChange={(e) => props.onChangeGroupLabel(e.target.value)}
+							/>
+						</form>
 						<div className={classes['updateLableButtonsContainer']}>
 							<button
 								className={classes['updateChangesButton']}
 								type="button"
-								onClick={props.onUpdateLableChanges}
+								onClick={props.onUpdateGroupLabel}
 							>
-								<VSvg className={classes['updateChangesButton__icon']} name="vIcon" />
+								<EDSvg className={classes['updateChangesButton__icon']} name="vIcon" />
 							</button>
 							<button
 								className={classes['cancelChangesButton']}
 								type="button"
-								onClick={props.onCancelLableChanges}
+								onClick={props.onCancelLabelChanges}
 							>
-								<VSvg className={classes['cancelChangesButton__icon']} name="cancelIcon" />
+								<EDSvg className={classes['cancelChangesButton__icon']} name="cancelIcon" />
 							</button>
 						</div>
-					)}
-				</div> */}
+					</div>
+				)}
+
 				<div className={classes['createdTime']}>
 					<span className={classes['createdTime__text']}>Created in:</span>
 					<div className={classes['createdTimeDate']}>
