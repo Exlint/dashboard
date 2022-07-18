@@ -5,9 +5,9 @@ interface Props {
 	isAuthenticated: boolean;
 }
 
-const Auth = React.lazy(() => import('./pages/Auth'));
-const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
-const UserSettings = React.lazy(() => import('./pages/UserSettings'));
+const Auth = React.lazy(() => import('@/pages/Auth'));
+const ExternalAuthRedirect = React.lazy(() => import('@/pages/ExternalAuthRedirect'));
+const UserSettings = React.lazy(() => import('@/pages/UserSettings'));
 
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>

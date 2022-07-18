@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import axios, { type AxiosResponse } from 'axios';
 import { type PayloadAction } from '@reduxjs/toolkit';
 
-import { backendApiAxios } from './utils/http';
-import type { IAutoLoginResponseData } from './interfaces/responses';
+import { backendApiAxios } from '@/utils/http';
+import type { IAutoLoginResponseData } from '@/interfaces/responses';
 import type { ILoginPayload } from './store/interfaces/auth';
 import type { AppState } from './store/app';
 import { authActions } from './store/reducers/auth';

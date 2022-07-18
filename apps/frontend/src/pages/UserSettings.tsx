@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UserSettings from '../components/containers/UserSettings';
+import UserSettings from '@/containers/UserSettings';
 
 interface IProps {}
 
