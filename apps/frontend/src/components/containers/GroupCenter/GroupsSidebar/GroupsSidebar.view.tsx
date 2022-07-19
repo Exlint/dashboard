@@ -27,6 +27,7 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						type="search"
 						className={classes['searchContainer__input']}
 						placeholder="Search Groups"
+						size={8}
 					/>
 					<button
 						type="button"

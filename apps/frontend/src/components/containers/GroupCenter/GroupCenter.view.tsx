@@ -21,11 +21,20 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	// 	? props.groupsList[props.selectedGroupIndex] ?? null
 	// 	: null;
 
+	// readonly id: string;
+	// readonly label: string;
+	// readonly libraryName: string;
+	// readonly createdAt: string;
+	// readonly rules: Record<string, IRule> | null;
+
 	const selectedGroupTemp: IGroup = {
 		id: 'test123',
 		label: 'sssnew group',
 		createdAt: '11 jun',
-		policies: [],
+		policies: [
+			{ id: 'first', label: 'policyLabel', libraryName: 'ESLint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+		],
 	};
 
 	const groupListTemp = [selectedGroupTemp];

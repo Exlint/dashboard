@@ -68,20 +68,16 @@
 			}
 		}
 
-		.getInfoButtonContainer {
+		.getInfoButton {
 			display: flex;
+			align-items: center;
+			justify-content: center;
 
-			.getInfoButton {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				&__icon {
-					width: 11px;
-					height: 19px;
-					fill: transparent;
-					stroke: #bbb8ca;
-				}
+			&__icon {
+				width: 11px;
+				height: 19px;
+				fill: transparent;
+				stroke: #bbb8ca;
 			}
 		}
 	}

@@ -48,6 +48,7 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						))}
 					</div>
 				</div>
+
 				<button className={classes['getInfoButton']} type="button" onClick={props.onSelectGroup}>
 					<EDSvg className={classes['getInfoButton__icon']} name="arrowRight" />
 				</button>
