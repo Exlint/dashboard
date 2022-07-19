@@ -35,17 +35,17 @@
 				align-items: flex-start;
 				margin-top: 27px;
 
-				&__details {
+				.details {
 					display: flex;
 					align-items: center;
 
-					&--icon {
+					&__icon {
 						width: 28px;
 						height: 28px;
 						fill: #4b4a65;
 					}
 
-					&--username {
+					&__username {
 						margin-left: 18px;
 						font-size: 2rem;
 						font-weight: 350;
@@ -58,7 +58,7 @@
 					flex-direction: column;
 					margin: 0 25px 0 144px;
 
-					&__action {
+					.action {
 						display: flex;
 						align-items: center;
 						width: 501px;
@@ -71,7 +71,7 @@
 							margin-bottom: 34px;
 						}
 
-						&--text {
+						&__text {
 							font-size: 1.6rem;
 							color: #7a4df3;
 							text-decoration-line: underline;

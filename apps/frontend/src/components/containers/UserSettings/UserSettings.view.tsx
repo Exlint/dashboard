@@ -19,17 +19,17 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				<div className={classes['userSettings']}>
 					<h1 className={classes['userSettings__title']}>User Settings</h1>
 					<div className={classes['mainSection']}>
-						<div className={classes['mainSection__details']}>
+						<div className={classes['details']}>
 							<EDSvg
-								className={classes['mainSection__details--icon']}
+								className={classes['details__icon']}
 								name="userSettingsDefaultProfilePicture"
 							/>
-							<span className={classes['mainSection__details--username']}>User</span>
+							<span className={classes['details__username']}>User</span>
 						</div>
 						<div className={classes['actionsWrapper']}>
-							<div className={classes['actionsWrapper__action']}>
+							<div className={classes['action']}>
 								<button
-									className={classes['actionsWrapper__action--text']}
+									className={classes['action__text']}
 									type="button"
 									onClick={props.onBackdropClick}
 								>
@@ -39,8 +39,8 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 									<UserSettingsModal onBackdropClick={props.onBackdropClick} />
 								)}
 							</div>
-							<div className={classes['actionsWrapper__action']}>
-								<button className={classes['actionsWrapper__action--text']} type="button">
+							<div className={classes['action']}>
+								<button className={classes['action__text']} type="button">
 									Log Out
 								</button>
 							</div>
