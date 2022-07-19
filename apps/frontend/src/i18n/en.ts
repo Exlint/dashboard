@@ -21,7 +21,22 @@ const en = {
 		},
 	},
 	userSettings: {
-		header: '',
+		title: 'User Settings',
+		username: 'User',
+		deleteUserAction: 'Delete User',
+		logoutAction: 'Log Out',
+	},
+	userSettingsModal: {
+		bar: 'Cancel',
+		upperText: 'You are about to delete your user:',
+		middleText: 'All saved data, groups, policies and configurations will be lost',
+		lowerText: 'To confirm, type',
+		subLowerText: 'DELETE-USER',
+		confirmButton: 'Confirm',
+	},
+	settingsSidebar: {
+		title: 'Settings',
+		subText: 'Username',
 	},
 };
 

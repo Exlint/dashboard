@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import EDBackdrop from '@/ui/EDBackdrop';
@@ -14,8 +15,9 @@ interface IProps {
 }
 
 const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
+	const { t } = useTranslation();
 
+	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
 	const confirmButtonClasses = props.confirmButtonState
 		? classes['body__button']
 		: concatClasses(classes, 'body__button', 'body__button--disabled');
@@ -33,21 +35,21 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								onClick={props.onBackdropClick}
 							>
 								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
-								Cancel
+								{t('userSettingsModal.bar')}
 							</button>
 						</div>
 						<div className={classes['body']}>
 							<EDSvg className={classes['body__icon']} name="userSettingsExlintSymbol" />
 							<span className={classes['body__upperText']}>
-								You are about to delete your user:
+								{t('userSettingsModal.upperText')}
 							</span>
 							<span className={classes['body__middleText']}>
-								All saved data, groups, policies and configurations will be lost
+								{t('userSettingsModal.middleText')}
 							</span>
 							<span className={classes['body__lowerText']}>
-								To confirm, type
+								{t('userSettingsModal.lowerText')}
 								<span className={concatClasses(classes, 'body__lowerText', 'body--redText')}>
-									&nbsp;DELETE-USER
+									&nbsp;{t('userSettingsModal.subLowerText')}
 								</span>
 							</span>
 							<input
@@ -63,7 +65,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								type="button"
 								disabled={!props.confirmButtonState}
 							>
-								Confirm
+								{t('userSettingsModal.confirmButton')}
 							</button>
 						</div>
 					</div>

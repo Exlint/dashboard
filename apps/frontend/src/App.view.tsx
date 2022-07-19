@@ -14,14 +14,14 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 		<Suspense fallback={null}>
 			<div id="backdrop-root" />
 			<div id="overlay-root" />
-			{props.isAuthenticated && (
+			{!props.isAuthenticated && (
 				<Routes>
 					<Route path="/auth" element={<Auth />} />
 					<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					<Route path="*" element={<Navigate replace to="/auth" />} />
 				</Routes>
 			)}
-			{!props.isAuthenticated && (
+			{props.isAuthenticated && (
 				<Routes>
 					<Route path="/user-settings" element={<UserSettings />} />
 				</Routes>

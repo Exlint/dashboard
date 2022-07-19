@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import SettingsSidebar from '@/layout/SettingsSidebar';
@@ -12,19 +13,21 @@ interface IProps {
 }
 
 const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<section className={classes['mainWrapper']}>
 			<SettingsSidebar />
 			<div className={classes['innerWrapper']}>
 				<div className={classes['userSettings']}>
-					<h1 className={classes['userSettings__title']}>User Settings</h1>
+					<h1 className={classes['userSettings__title']}>{t('userSettings.title')}</h1>
 					<div className={classes['mainSection']}>
 						<div className={classes['details']}>
 							<EDSvg
 								className={classes['details__icon']}
 								name="userSettingsDefaultProfilePicture"
 							/>
-							<span className={classes['details__username']}>User</span>
+							<span className={classes['details__username']}>{t('userSettings.username')}</span>
 						</div>
 						<div className={classes['actionsWrapper']}>
 							<div className={classes['action']}>
@@ -33,7 +36,7 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 									type="button"
 									onClick={props.onBackdropClick}
 								>
-									Delete User
+									{t('userSettings.deleteUserAction')}
 								</button>
 								{props.isModelOnViewState && (
 									<UserSettingsModal onBackdropClick={props.onBackdropClick} />
@@ -41,7 +44,7 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 							</div>
 							<div className={classes['action']}>
 								<button className={classes['action__text']} type="button">
-									Log Out
+									{t('userSettings.logoutAction')}
 								</button>
 							</div>
 						</div>
