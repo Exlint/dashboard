@@ -16,11 +16,9 @@ interface IProps {
 const UserSettingsModalView: React.FC<IProps> = (props) => {
 	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
 
-	const disabledConfirmClass = `${concatClasses(classes, 'body__button', 'body__button--disabled')}`;
-
 	const confirmButtonClasses = props.confirmButtonState
-		? `${classes['body__button']}`
-		: disabledConfirmClass;
+		? classes['body__button']
+		: concatClasses(classes, 'body__button', 'body__button--disabled');
 
 	return (
 		<>
