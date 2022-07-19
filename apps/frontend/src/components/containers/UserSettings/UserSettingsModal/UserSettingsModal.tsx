@@ -6,7 +6,7 @@ interface IProps {
 	readonly onBackdropClick: () => void;
 }
 
-const UserSettingsModal: React.FC<IProps> = (props) => {
+const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [deleteUserInputState, setDeleteUserInputState] = useState<string>('');
 	const [confirmButtonState, setConfirmButtonState] = useState<boolean>(false);
 

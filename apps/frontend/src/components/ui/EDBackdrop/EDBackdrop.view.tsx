@@ -7,7 +7,7 @@ interface IProps {
 	readonly onBackdropClick: () => void;
 }
 
-const EDBackdropView: React.FC<IProps> = (props) => {
+const EDBackdropView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const backdropRoot = document.getElementById('backdrop-root') as HTMLElement;
 
 	return ReactDOM.createPortal(

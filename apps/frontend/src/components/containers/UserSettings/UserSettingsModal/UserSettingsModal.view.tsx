@@ -13,7 +13,7 @@ interface IProps {
 	readonly onDeleteUserChangeHandler: (_: string) => void;
 }
 
-const UserSettingsModalView: React.FC<IProps> = (props) => {
+const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
 
 	const confirmButtonClasses = props.confirmButtonState

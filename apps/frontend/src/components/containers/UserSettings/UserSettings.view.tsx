@@ -11,7 +11,7 @@ interface IProps {
 	readonly isModelOnViewState: boolean;
 }
 
-const UserSettingsView: React.FC<IProps> = (props) => {
+const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<section className={classes['mainWrapper']}>
 			<SettingsSidebar />
