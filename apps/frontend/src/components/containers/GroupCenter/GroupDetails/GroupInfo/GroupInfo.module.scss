@@ -1,0 +1,199 @@
+@use 'sass:map';
+
+@import './../../../../../styles/variables.scss';
+
+.groupInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+
+	.innerGroupInfo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 22px 13px;
+		background-color: #fefefe;
+		border: 2px solid #e7e7e7;
+		border-radius: 5px;
+
+		.groupLabelContainer {
+			display: flex;
+			align-items: center;
+
+			&__label {
+				font-size: 2.4rem;
+				font-weight: 460;
+				color: #4b4a65;
+				white-space: nowrap;
+				user-select: none;
+				border-bottom: 1px solid transparent;
+			}
+
+			&__labelOnEdit {
+				font-weight: 600;
+				border-bottom: 1px solid #4b4a65;
+			}
+
+			.editLabelButton {
+				display: flex;
+				width: fit-content;
+				margin: 0 29px 0 10px;
+
+				&__icon {
+					width: 20px;
+					height: 20px;
+					fill: transparent;
+					stroke: #4b4a65;
+				}
+			}
+		}
+
+		.groupLabelContainerOnEdit {
+			display: flex;
+
+			.grouplabelinput {
+				font-size: 2.4rem;
+				font-weight: 460;
+				color: #4b4a65;
+				white-space: nowrap;
+			}
+		}
+
+		.updateLabelButtonsContainer {
+			display: flex;
+			align-items: center;
+
+			.updateChangesButton {
+				margin-right: 5px;
+
+				&__icon {
+					fill: transparent;
+					stroke: #4b4a65;
+				}
+			}
+
+			.cancelChangesButton {
+				&__icon {
+					width: 16px;
+					height: 16px;
+					fill: #4b4a65;
+					stroke: #4b4a65;
+				}
+			}
+		}
+
+		.createdTime {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+
+			.createdTimeDate {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		.uniqueIdContainer {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				margin-right: 20px;
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+
+			.uniqueId {
+				position: relative;
+				display: flex;
+				align-items: center;
+				padding: 8px 7px;
+				border: 1px solid #bbb8ca;
+				border-radius: 5px;
+
+				&__id {
+					margin-right: 12px;
+					font-size: 1.7rem;
+					font-weight: 460;
+					color: #8b8b8b;
+				}
+
+				.uniqIdCopyButton {
+					&__icon {
+						width: 21px;
+						height: 22px;
+					}
+				}
+
+				&__copiedText {
+					position: absolute;
+					left: 120px;
+					font-size: 1.7rem;
+					font-weight: 460;
+					color: #2355a0;
+				}
+			}
+		}
+
+		.moreInfoContainer {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.moreInfoButton {
+				&__icon {
+					width: 31px;
+					height: 7px;
+				}
+			}
+
+			.innerMoreInfo {
+				position: absolute;
+				top: 40px;
+				display: flex;
+				padding: 17px 12px;
+				background-color: #fefefe;
+				border: 2px solid #e7e7e7;
+
+				.deleteGroup {
+					display: flex;
+
+					&__text {
+						margin-right: 12px;
+						font-size: 1.8rem;
+						font-weight: 460;
+						color: #781d1d;
+						white-space: nowrap;
+					}
+
+					&__text::before {
+						position: absolute;
+						bottom: 100%;
+						left: 38%;
+						color: #fefefe;
+						content: '';
+						border-top-color: #fefefe;
+						border-right: 20px solid transparent;
+						border-bottom: 20px solid #fefefe;
+						border-left: 20px solid transparent;
+					}
+
+					&__icon {
+						width: 25px;
+						height: 23px;
+						fill: #781d1d;
+					}
+				}
+			}
+		}
+	}
+}

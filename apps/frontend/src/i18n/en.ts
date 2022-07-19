@@ -20,6 +20,46 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	groupCenter: {
+		groupDetails: {
+			policies: {
+				header: 'Policies',
+				orderNumber: '#',
+				label: 'Label',
+				library: 'Library',
+				category: 'Category',
+				numberOfRules: 'Num. of Rules',
+				newPolicyButton: 'New',
+				noPolicies: {
+					header: 'Create your first Policy',
+					description: 'Choose a Library',
+					rulesStep: 'Build your own rules <br /> or choose a recommended policy',
+				},
+			},
+		},
+		groupSideBar: {
+			newGroupButton: 'New',
+			noGroup: {
+				header: 'Create your first Group',
+			},
+			group: {
+				uniqId: 'Unique ID:',
+				policies: 'Policies',
+			},
+		},
+		newPolicy: {
+			header: 'New Policy',
+			label: 'Label:',
+			library: 'Library:',
+			sideBarFilter: {
+				typesTitle: 'Types',
+				categoriesTitle: 'Categories',
+			},
+			policyConfiguration: {
+				button: 'Continue to Policy Configuration',
+			},
+		},
+	},
 };
 
 export default en;

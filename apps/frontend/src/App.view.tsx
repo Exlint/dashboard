@@ -6,18 +6,22 @@ interface Props {
 }
 
 const Auth = React.lazy(() => import('./pages/Auth'));
+const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
 
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
-			{!props.isAuthenticated && (
-				<Routes>
-					<Route path="/auth" element={<Auth />} />
-					<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
-					<Route path="*" element={<Navigate replace to="/auth" />} />
-				</Routes>
-			)}
+			<Routes>
+				{props.isAuthenticated && (
+					<>
+						<Route path="/auth" element={<Auth />} />
+						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
+						<Route path="*" element={<Navigate replace to="/auth" />} />
+					</>
+				)}
+				{!props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
+			</Routes>
 		</Suspense>
 	</BrowserRouter>
 );
