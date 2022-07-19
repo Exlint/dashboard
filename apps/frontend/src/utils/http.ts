@@ -7,3 +7,5 @@ export const backendApi = axios.create({
 export const cliBackendApi = axios.create({
 	baseURL: process.env.REACT_APP_CLI_BACKEND_URL,
 });
+
+export const temporaryCliServerApi = axios.create();

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-import { cliBackendApi } from '@/utils/http';
+import { cliBackendApi, temporaryCliServerApi } from '@/utils/http';
+import type { ICliAuthResponseData } from '@/interfaces/responses';
 
 import CliAuthView from './CliAuth.view';
 
@@ -20,10 +21,24 @@ const CliAuth: React.FC<IProps> = () => {
 	}, [port]);
 
 	const onAuthClick = async () => {
+		let cliToken: string;
+
 		try {
-			await cliBackendApi.get(`/user/auth/auth?port=${port}`);
+			const response = await cliBackendApi.get<ICliAuthResponseData>(`/user/auth/auth?port=${port}`);
+
+			cliToken = response.data.cliToken;
 		} catch {
 			navigate(`/auth?port=${port}`);
+
+			return;
+		}
+
+		try {
+			await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}`);
+
+			navigate('/cli-authenticated');
+		} catch {
+			navigate('/');
 		}
 	};
 

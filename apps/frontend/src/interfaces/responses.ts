@@ -7,3 +7,7 @@ export interface IAutoAuthResponseData {
 export interface IRefreshTokenResponseData {
 	readonly accessToken: string;
 }
+
+export interface ICliAuthResponseData {
+	readonly cliToken: string;
+}
