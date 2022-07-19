@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CliAuthenticated from '../components/containers/CliAuthenticated';
+import CliAuthenticated from '@/containers/CliAuthenticated';
 
 interface IProps {}
 

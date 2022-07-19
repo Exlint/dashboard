@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NotFound from '../components/containers/NotFound';
+import NotFound from '@/containers/NotFound';
 
 interface IProps {}
 

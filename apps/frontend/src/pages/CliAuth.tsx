@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CliAuth from '../components/containers/CliAuth';
+import CliAuth from '@/containers/CliAuth';
 
 interface IProps {}
 
