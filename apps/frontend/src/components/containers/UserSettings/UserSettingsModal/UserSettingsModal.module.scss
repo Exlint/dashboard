@@ -13,13 +13,13 @@
 		flex-direction: column;
 		height: 100%;
 
-		&__header {
+		.header {
 			display: flex;
 			height: 37px;
 			background: #202428;
 			border-radius: 5px 5px 0 0;
 
-			&--button {
+			&__button {
 				display: flex;
 				align-items: center;
 				margin-left: 16px;
@@ -28,7 +28,7 @@
 				color: #fefefe;
 			}
 
-			&--icon {
+			&__icon {
 				width: 13px;
 				height: 13px;
 				margin: 1px 5px 0 0;
@@ -36,7 +36,7 @@
 			}
 		}
 
-		&__body {
+		.body {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -47,20 +47,20 @@
 			border-width: 0 4px 4px;
 			border-radius: 0 0 5px 5px;
 
-			&--icon {
+			&__icon {
 				width: 80px;
 				height: 80px;
 				margin-top: 25px;
 				fill: #231f20;
 			}
 
-			&--upperText {
+			&__upperText {
 				margin-top: 15px;
 				font-size: 2.5rem;
 				font-weight: 457;
 			}
 
-			&--middleText {
+			&__middleText {
 				width: 70%;
 				margin-top: 17px;
 				font-size: 2.5rem;
@@ -68,7 +68,7 @@
 				text-align: center;
 			}
 
-			&--lowerText {
+			&__lowerText {
 				margin-top: 25px;
 				font-size: 2.5rem;
 				font-weight: 600;
@@ -78,7 +78,7 @@
 				color: #781d1d;
 			}
 
-			&--input {
+			&__input {
 				width: 50%;
 				padding: 15px;
 				margin-top: 15px;
@@ -95,7 +95,7 @@
 				}
 			}
 
-			&--button {
+			&__button {
 				padding: 12px 20px;
 				margin-top: 12px;
 				font-size: 1.7rem;
@@ -103,12 +103,12 @@
 				background: #202428;
 				border: 2px solid #0e0d14;
 				border-radius: 10px;
-			}
 
-			&--buttonDisabled {
-				color: #8b8b8b;
-				background: #e7e7e7;
-				border: 2px solid #bbb8ca;
+				&--disabled {
+					color: #8b8b8b;
+					background: #e7e7e7;
+					border: 2px solid #bbb8ca;
+				}
 			}
 		}
 	}

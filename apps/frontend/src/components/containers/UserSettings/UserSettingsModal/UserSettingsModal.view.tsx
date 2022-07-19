@@ -16,14 +16,10 @@ interface IProps {
 const UserSettingsModalView: React.FC<IProps> = (props) => {
 	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
 
-	const disabledConfirmClass = `${concatClasses(
-		classes,
-		'deleteUserWrapper__body--button',
-		'deleteUserWrapper__body--buttonDisabled',
-	)}`;
+	const disabledConfirmClass = `${concatClasses(classes, 'body__button', 'body__button--disabled')}`;
 
 	const confirmButtonClasses = props.confirmButtonState
-		? `${classes['deleteUserWrapper__body--button']}`
+		? `${classes['body__button']}`
 		: disabledConfirmClass;
 
 	return (
@@ -32,44 +28,32 @@ const UserSettingsModalView: React.FC<IProps> = (props) => {
 			{ReactDOM.createPortal(
 				<section className={classes['mainWrapper']}>
 					<div className={classes['deleteUserWrapper']}>
-						<div className={classes['deleteUserWrapper__header']}>
+						<div className={classes['header']}>
 							<button
 								type="button"
-								className={classes['deleteUserWrapper__header--button']}
+								className={classes['header__button']}
 								onClick={props.onBackdropClick}
 							>
-								<EDSvg
-									className={classes['deleteUserWrapper__header--icon']}
-									name="userSettingsCloseModal"
-								/>
+								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
 								Cancel
 							</button>
 						</div>
-						<div className={classes['deleteUserWrapper__body']}>
-							<EDSvg
-								className={classes['deleteUserWrapper__body--icon']}
-								name="userSettingsExlintSymbol"
-							/>
-							<span className={classes['deleteUserWrapper__body--upperText']}>
+						<div className={classes['body']}>
+							<EDSvg className={classes['body__icon']} name="userSettingsExlintSymbol" />
+							<span className={classes['body__upperText']}>
 								You are about to delete your user:
 							</span>
-							<span className={classes['deleteUserWrapper__body--middleText']}>
+							<span className={classes['body__middleText']}>
 								All saved data, groups, policies and configurations will be lost
 							</span>
-							<span className={classes['deleteUserWrapper__body--lowerText']}>
+							<span className={classes['body__lowerText']}>
 								To confirm, type
-								<span
-									className={concatClasses(
-										classes,
-										'deleteUserWrapper__body--lowerText',
-										'deleteUserWrapper__body--redText',
-									)}
-								>
+								<span className={concatClasses(classes, 'body__lowerText', 'body--redText')}>
 									&nbsp;DELETE-USER
 								</span>
 							</span>
 							<input
-								className={classes['deleteUserWrapper__body--input']}
+								className={classes['body__input']}
 								type="text"
 								placeholder="Type here"
 								onChange={({ currentTarget: { value } }) =>
