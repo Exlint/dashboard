@@ -7,7 +7,7 @@ import UserSettingsModal from './UserSettingsModal';
 import classes from './UserSettings.module.scss';
 
 interface IProps {
-	readonly modalChangeHandler: () => void;
+	readonly onBackdropClick: () => void;
 	readonly isModelOnViewState: boolean;
 }
 
@@ -31,12 +31,12 @@ const UserSettingsView: React.FC<IProps> = (props) => {
 								<button
 									className={classes['actionsWrapper__action--text']}
 									type="button"
-									onClick={props.modalChangeHandler}
+									onClick={props.onBackdropClick}
 								>
 									Delete User
 								</button>
 								{props.isModelOnViewState && (
-									<UserSettingsModal modalChangeHandler={props.modalChangeHandler} />
+									<UserSettingsModal onBackdropClick={props.onBackdropClick} />
 								)}
 							</div>
 							<div className={classes['actionsWrapper__action']}>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import UserSettingsModalView from './UserSettingsModal.view';
 
 interface IProps {
-	readonly modalChangeHandler: () => void;
+	readonly onBackdropClick: () => void;
 }
 
 const UserSettingsModal: React.FC<IProps> = (props) => {
@@ -23,7 +23,7 @@ const UserSettingsModal: React.FC<IProps> = (props) => {
 	return (
 		<UserSettingsModalView
 			confirmButtonState={confirmButtonState}
-			modalChangeHandler={props.modalChangeHandler}
+			onBackdropClick={props.onBackdropClick}
 			onDeleteUserChangeHandler={onDeleteUserChangeHandler}
 		/>
 	);

@@ -7,13 +7,11 @@ interface IProps {}
 const UserSettings: React.FC<IProps> = () => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 
-	const modalChangeHandler = () => {
+	const onBackdropClick = () => {
 		setIsModelOnViewState((prevState) => !prevState);
 	};
 
-	return (
-		<UserSettingsView isModelOnViewState={isModelOnViewState} modalChangeHandler={modalChangeHandler} />
-	);
+	return <UserSettingsView isModelOnViewState={isModelOnViewState} onBackdropClick={onBackdropClick} />;
 };
 
 UserSettings.displayName = 'UserSettings';

@@ -17,7 +17,7 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 				<div className={classes['userDetalis']}>
 					<div className={classes['usernameContainer']}>
 						<EDSvg
-							name="userDefultProfilePicture"
+							name="userSettingsSidebarDefultProfilePicture"
 							className={classes['usernameContainer__profile']}
 						/>
 						<span className={classes['usernameContainer__details']}>Username</span>

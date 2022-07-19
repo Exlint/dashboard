@@ -12,6 +12,8 @@ const UserSettings = React.lazy(() => import('./pages/UserSettings'));
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
+			<div id="backdrop-root" />
+			<div id="overlay-root" />
 			{props.isAuthenticated && (
 				<Routes>
 					<Route path="/auth" element={<Auth />} />

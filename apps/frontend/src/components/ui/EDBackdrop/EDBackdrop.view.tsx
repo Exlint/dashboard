@@ -4,13 +4,15 @@ import ReactDOM from 'react-dom';
 import classes from './EDBackdrop.module.scss';
 
 interface IProps {
-	readonly modalChangeHandler: () => void;
+	readonly onBackdropClick: () => void;
 }
 
 const EDBackdropView: React.FC<IProps> = (props) => {
+	const backdropRoot = document.getElementById('backdrop-root') as HTMLElement;
+
 	return ReactDOM.createPortal(
-		<div className={classes['backdrop']} onClick={props.modalChangeHandler} />,
-		document.getElementById('backdrop-root') as HTMLElement,
+		<div className={classes['backdrop']} onClick={props.onBackdropClick} />,
+		backdropRoot,
 	);
 };
 

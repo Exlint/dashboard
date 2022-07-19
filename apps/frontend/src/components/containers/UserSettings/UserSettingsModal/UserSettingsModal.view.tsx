@@ -9,11 +9,13 @@ import classes from './UserSettingsModal.module.scss';
 
 interface IProps {
 	readonly confirmButtonState: boolean;
-	readonly modalChangeHandler: () => void;
+	readonly onBackdropClick: () => void;
 	readonly onDeleteUserChangeHandler: (_: string) => void;
 }
 
 const UserSettingsModalView: React.FC<IProps> = (props) => {
+	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
+
 	const disabledConfirmClass = `${concatClasses(
 		classes,
 		'deleteUserWrapper__body--button',
@@ -26,7 +28,7 @@ const UserSettingsModalView: React.FC<IProps> = (props) => {
 
 	return (
 		<>
-			<EDBackdrop modalChangeHandler={props.modalChangeHandler} />
+			<EDBackdrop onBackdropClick={props.onBackdropClick} />
 			{ReactDOM.createPortal(
 				<section className={classes['mainWrapper']}>
 					<div className={classes['deleteUserWrapper']}>
@@ -34,7 +36,7 @@ const UserSettingsModalView: React.FC<IProps> = (props) => {
 							<button
 								type="button"
 								className={classes['deleteUserWrapper__header--button']}
-								onClick={props.modalChangeHandler}
+								onClick={props.onBackdropClick}
 							>
 								<EDSvg
 									className={classes['deleteUserWrapper__header--icon']}
@@ -84,7 +86,7 @@ const UserSettingsModalView: React.FC<IProps> = (props) => {
 						</div>
 					</div>
 				</section>,
-				document.getElementById('overlay-root') as HTMLElement,
+				modalRoot,
 			)}
 		</>
 	);
