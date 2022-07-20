@@ -20,27 +20,10 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	return (
 		<section className={classes['policies']}>
 			<div className={classes['innerPolicies']}>
-				<h3 className={classes['innerPolicies__title']}>
-					{t('groupCenter.groupDetails.policies.header')}
-				</h3>
-				<div className={classes['policiesListHeader']}>
-					<div className={classes['leftSideContainer']}>
-						<span className={classes['leftSideContainer__orderNumber']}>
-							{t('groupCenter.groupDetails.policies.orderNumber')}
-						</span>
-						<span className={classes['leftSideContainer__category']}>
-							{t('groupCenter.groupDetails.policies.label')}
-						</span>
-						<span className={classes['leftSideContainer__category']}>
-							{t('groupCenter.groupDetails.policies.library')}
-						</span>
-						<span className={classes['leftSideContainer__category']}>
-							{t('groupCenter.groupDetails.policies.category')}
-						</span>
-						<span className={classes['leftSideContainer__category']}>
-							{t('groupCenter.groupDetails.policies.numberOfRules')}
-						</span>
-					</div>
+				<div className={classes['headerContainer']}>
+					<h3 className={classes['headerContainer__title']}>
+						{t('groupCenter.groupDetails.policies.header')}
+					</h3>
 					<Link to="/group-center/new-policy/" className={classes['buttonContainer']}>
 						<span className={classes['buttonContainer__text']}>
 							{t('groupCenter.groupDetails.policies.newPolicyButton')}
@@ -49,7 +32,6 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					</Link>
 				</div>
 			</div>
-			<hr className={classes['dividerLine']} />
 			{props.groupPolicies.length > 0 ? (
 				<PoliciesList groupPolicy={props.groupPolicies} />
 			) : (

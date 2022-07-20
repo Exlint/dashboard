@@ -49,7 +49,7 @@
 				align-items: center;
 
 				&__text {
-					margin-right: 4px;
+					margin-inline-end: 4px;
 					font-size: 1.6rem;
 					font-weight: 460;
 					color: #4b4a65;
@@ -63,7 +63,7 @@
 				}
 
 				&__policy:not(:last-child) {
-					margin-right: 4px;
+					margin-inline-end: 4px;
 				}
 			}
 		}

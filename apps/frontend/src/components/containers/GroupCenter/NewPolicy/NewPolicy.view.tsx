@@ -27,7 +27,7 @@ interface IProps {
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
 	readonly onSelectedSortBy: (index: number) => void;
-	readonly onSortBy: () => void;
+	readonly toggleSortBy: () => void;
 }
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -87,7 +87,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								selectedOptionIndex={props.selectedSortByOptionIndex}
 								isShowMoreClicked={props.isSortByClicked}
 								optionsList={sortByOptions}
-								onSelectOptionsButton={props.onSortBy}
+								onSelectOptionsButton={props.toggleSortBy}
 								onSelectedOption={props.onSelectedSortBy}
 							/>
 						</div>

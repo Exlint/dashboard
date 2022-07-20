@@ -19,45 +19,24 @@
 		width: 100%;
 		padding: 14px 22px;
 
-		&__title {
-			font-size: 2.2rem;
-			font-weight: 560;
-			color: #202428;
-		}
-
-		.policiesListHeader {
+		.headerContainer {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			width: 100%;
-			margin-top: 12px;
 
-			.leftSideContainer {
-				display: flex;
-				align-items: center;
-
-				&__orderNumber {
-					margin-right: 23px;
-					font-size: 1.7rem;
-					font-weight: 460;
-					color: #8b8b8b;
-				}
-
-				&__category {
-					font-size: 1.7rem;
-					font-weight: 460;
-					color: #8b8b8b;
-				}
-
-				&__category:not(:last-child) {
-					margin-right: 83px;
-				}
+			&__title {
+				font-size: 2.2rem;
+				font-weight: 560;
+				color: #202428;
 			}
 
 			.buttonContainer {
+				position: relative;
+				top: 35px;
 				display: flex;
 				align-items: center;
 				padding: 8px 9px;
+				text-decoration: none;
 				background-color: #2355a0;
 				border: 1px solid #2355a0;
 				border-radius: 10px;
@@ -76,11 +55,5 @@
 				}
 			}
 		}
-	}
-
-	.dividerLine {
-		width: 100%;
-		margin-top: 10px;
-		border: 2px solid #e7e7e7;
 	}
 }

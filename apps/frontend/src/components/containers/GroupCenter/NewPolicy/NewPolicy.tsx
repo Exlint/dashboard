@@ -40,8 +40,8 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setIsPolicyConfigurationClickedState(() => !isPolicyConfigurationClickedState);
 	};
 
-	const onSortBy = () => {
-		setIsSortByClicketState(() => !isSortByClicketState);
+	const toggleSortBy = () => {
+		setIsSortByClicketState((prev) => !prev);
 	};
 
 	if (selectedLibraryState && policyLabelInputState !== null && policyLabelInputState.length !== 0) {
@@ -57,12 +57,12 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isSortByClicked={isSortByClicketState}
 			selectedSortByOptionIndex={selectedSortByOptionIndexState}
 			isCreatePolicyDisable={isCreatePolicyDisableState}
+			toggleSortBy={toggleSortBy}
 			onSelectedLibrary={onSelectedLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}
 			onSelectedSortBy={onSelectedSortBy}
-			onSortBy={onSortBy}
 		/>
 	);
 };

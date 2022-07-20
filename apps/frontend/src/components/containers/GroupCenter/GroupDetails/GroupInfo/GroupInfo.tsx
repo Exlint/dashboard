@@ -57,7 +57,16 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onMoreInfoClick = () => {
-		setIsMoreInfoClickedState(() => !isMoreInfoClickedState);
+		setIsMoreInfoClickedState((prev) => !prev);
+	};
+
+	const onDeleteGroup = () => {
+		backendApiAxios
+			.post('/delete-group', { groupId: props.selectedGroup.id })
+			.then()
+			.catch((err: AxiosError) => {
+				alert(err.response?.data);
+			});
 	};
 
 	useEffect(() => {
@@ -77,6 +86,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			onCancelLabelChanges={onCancelLabelChanges}
 			onCopyGroupId={onCopyGroupId}
 			onMoreInfoClick={onMoreInfoClick}
+			onDeleteGroup={onDeleteGroup}
 		/>
 	);
 };

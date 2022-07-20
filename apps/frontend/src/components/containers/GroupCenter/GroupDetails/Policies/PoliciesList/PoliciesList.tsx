@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
 import { IPolicy } from '@/interfaces/policy';
@@ -11,6 +12,12 @@ interface IProps {
 }
 
 const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const navigate = useNavigate();
+
+	const onPolicyRules = () => {
+		navigate('/group-center/policy');
+	};
+
 	const policiesTableColumns = [
 		{
 			title: '#',
@@ -55,7 +62,11 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			width: 150,
 
 			// eslint-disable-next-line react/display-name, react/no-multi-comp
-			render: () => <EDSvg name="arrowRight" style={{ fill: 'transparent', stroke: '#202428' }} />,
+			render: () => (
+				<button type="button" onClick={onPolicyRules}>
+					<EDSvg name="arrowRight" style={{ fill: 'transparent', stroke: '#202428' }} />
+				</button>
+			),
 		},
 	];
 

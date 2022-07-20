@@ -20,7 +20,6 @@ const PoliciesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				className={classes['tableContainer']}
 				columns={props.policiesTableColumns}
 				data={props.policiesTableData}
-				style={{ border: '2px solid blue' }}
 			/>
 		</div>
 	);

@@ -26,7 +26,7 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				margin-right: 10px;
+				margin-inline-end: 10px;
 
 				.iconsContainer {
 					display: flex;
@@ -36,7 +36,7 @@
 						width: 49px;
 						height: 50px;
 						padding: 6px;
-						margin-right: 10px;
+						margin-inline-end: 10px;
 						background-color: #f2f2f2;
 						border-radius: 50%;
 					}

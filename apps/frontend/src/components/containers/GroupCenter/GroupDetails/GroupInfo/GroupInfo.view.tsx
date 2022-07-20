@@ -20,6 +20,7 @@ interface IProps {
 	readonly onCancelLabelChanges: () => void;
 	readonly onCopyGroupId: () => void;
 	readonly onMoreInfoClick: () => void;
+	readonly onDeleteGroup: () => void;
 }
 
 const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -106,7 +107,11 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					</button>
 					{props.isMoreInfoClicked && (
 						<div className={classes['innerMoreInfo']}>
-							<button className={classes['deleteGroup']} type="button">
+							<button
+								className={classes['deleteGroup']}
+								type="button"
+								onClick={props.onDeleteGroup}
+							>
 								<span className={classes['deleteGroup__text']}>Delete Group</span>
 								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroupIcon" />
 							</button>
