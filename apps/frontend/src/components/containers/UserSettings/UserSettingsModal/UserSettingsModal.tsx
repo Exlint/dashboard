@@ -7,19 +7,19 @@ interface IProps {
 }
 
 const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [confirmButtonState, setConfirmButtonState] = useState<boolean>(false);
+	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(false);
 
 	const onDeleteUserChangeHandler = (input: string) => {
 		if (input === 'DELETE-USER') {
-			setConfirmButtonState(() => true);
+			setIsConfirmButtonDisabledState(() => true);
 		} else {
-			setConfirmButtonState(() => false);
+			setIsConfirmButtonDisabledState(() => false);
 		}
 	};
 
 	return (
 		<UserSettingsModalView
-			confirmButtonState={confirmButtonState}
+			isConfirmButtonDisabled={isConfirmButtonDisabledState}
 			onBackdropClick={props.onBackdropClick}
 			onDeleteUserChangeHandler={onDeleteUserChangeHandler}
 		/>

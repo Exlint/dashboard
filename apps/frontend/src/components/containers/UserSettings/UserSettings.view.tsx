@@ -3,22 +3,23 @@ import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import SettingsSidebar from '@/layout/SettingsSidebar';
+
 import UserSettingsModal from './UserSettingsModal';
 
 import classes from './UserSettings.module.scss';
 
 interface IProps {
+	readonly isModelOnView: boolean;
 	readonly onBackdropClick: () => void;
-	readonly isModelOnViewState: boolean;
 }
 
 const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
-		<section className={classes['mainWrapper']}>
+		<main className={classes['container']}>
 			<SettingsSidebar />
-			<div className={classes['innerWrapper']}>
+			<section className={classes['innerWrapper']}>
 				<div className={classes['userSettings']}>
 					<h1 className={classes['userSettings__title']}>{t('userSettings.title')}</h1>
 					<div className={classes['mainSection']}>
@@ -32,26 +33,27 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 						<div className={classes['actionsWrapper']}>
 							<div className={classes['action']}>
 								<button
-									className={classes['action__text']}
+									className={classes['action__button']}
 									type="button"
+									role="button"
 									onClick={props.onBackdropClick}
 								>
 									{t('userSettings.deleteUserAction')}
 								</button>
-								{props.isModelOnViewState && (
+								{props.isModelOnView && (
 									<UserSettingsModal onBackdropClick={props.onBackdropClick} />
 								)}
 							</div>
 							<div className={classes['action']}>
-								<button className={classes['action__text']} type="button">
+								<button className={classes['action__button']} type="button" role="button">
 									{t('userSettings.logoutAction')}
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
 	);
 };
 

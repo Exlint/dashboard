@@ -11,7 +11,7 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={classes['container']}>
+		<section className={classes['container']}>
 			<div className={classes['sidebar']}>
 				<div className={classes['headerContainer']}>
 					<h2 className={classes['headerContainer__title']}>{t('settingsSidebar.title')}</h2>
@@ -30,7 +30,7 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 					<div className={classes['usernameContainer__userName']}>user-name</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

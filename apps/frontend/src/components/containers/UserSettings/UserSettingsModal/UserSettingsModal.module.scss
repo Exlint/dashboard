@@ -1,8 +1,7 @@
-.mainWrapper {
+.container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	z-index: 10;
 	width: 570px;
 	height: 461px;
 	border-radius: 5px;
@@ -104,7 +103,7 @@
 				border: 2px solid #0e0d14;
 				border-radius: 10px;
 
-				&--disabled {
+				&:disabled {
 					color: #8b8b8b;
 					background: #e7e7e7;
 					border: 2px solid #bbb8ca;

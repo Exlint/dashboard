@@ -9,28 +9,25 @@ import { concatClasses } from '@/utils/component';
 import classes from './UserSettingsModal.module.scss';
 
 interface IProps {
-	readonly confirmButtonState: boolean;
+	readonly isConfirmButtonDisabled: boolean;
 	readonly onBackdropClick: () => void;
 	readonly onDeleteUserChangeHandler: (_: string) => void;
 }
 
 const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
-
 	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
-	const confirmButtonClasses = props.confirmButtonState
-		? classes['body__button']
-		: concatClasses(classes, 'body__button', 'body__button--disabled');
 
 	return (
 		<>
 			<EDBackdrop onBackdropClick={props.onBackdropClick} />
 			{ReactDOM.createPortal(
-				<section className={classes['mainWrapper']}>
+				<section className={classes['container']}>
 					<div className={classes['deleteUserWrapper']}>
 						<div className={classes['header']}>
 							<button
 								type="button"
+								role="button"
 								className={classes['header__button']}
 								onClick={props.onBackdropClick}
 							>
@@ -48,8 +45,9 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 							</span>
 							<span className={classes['body__lowerText']}>
 								{t('userSettingsModal.lowerText')}
+								&nbsp;
 								<span className={concatClasses(classes, 'body__lowerText', 'body--redText')}>
-									&nbsp;{t('userSettingsModal.subLowerText')}
+									{t('userSettingsModal.subLowerText')}
 								</span>
 							</span>
 							<input
@@ -61,9 +59,10 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								}
 							/>
 							<button
-								className={confirmButtonClasses}
+								className={classes['body__button']}
 								type="button"
-								disabled={!props.confirmButtonState}
+								role="button"
+								disabled={!props.isConfirmButtonDisabled}
 							>
 								{t('userSettingsModal.confirmButton')}
 							</button>

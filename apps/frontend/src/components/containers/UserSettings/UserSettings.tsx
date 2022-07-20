@@ -11,7 +11,7 @@ const UserSettings: React.FC<IProps> = () => {
 		setIsModelOnViewState((prevState) => !prevState);
 	};
 
-	return <UserSettingsView isModelOnViewState={isModelOnViewState} onBackdropClick={onBackdropClick} />;
+	return <UserSettingsView isModelOnView={isModelOnViewState} onBackdropClick={onBackdropClick} />;
 };
 
 UserSettings.displayName = 'UserSettings';
