@@ -12,7 +12,7 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 
 	return (
 		<div className={classes['container']}>
-			<div className={classes['innerSidebar']}>
+			<div className={classes['sidebar']}>
 				<div className={classes['headerContainer']}>
 					<h2 className={classes['headerContainer__title']}>{t('settingsSidebar.title')}</h2>
 					<hr className={classes['headerContainer__divider']} />
