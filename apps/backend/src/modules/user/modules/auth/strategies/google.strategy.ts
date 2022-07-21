@@ -15,7 +15,9 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		super({
 			clientID: configService.get('googleOAuthClientId', { infer: true }),
 			clientSecret: configService.get('googleOAuthClientSecret', { infer: true }),
+			callbackURL: configService.get('googleOAuthRedirectUri', { infer: true }),
 			scope: ['email', 'profile'],
+			passReqToCallback: true,
 		});
 	}
 
@@ -31,7 +33,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		refreshToken: string | undefined,
 		profile: IGoogleProfile,
 	): IExternalAuthUser {
-		const port = req.query['port'] as string | undefined;
+		const port = req.query['state'] as string | undefined;
 
 		return {
 			port,

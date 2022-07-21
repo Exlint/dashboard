@@ -15,6 +15,7 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		super({
 			clientID: configService.get('githubOAuthClientId', { infer: true }),
 			clientSecret: configService.get('githubOAuthClientSecret', { infer: true }),
+			callbackURL: configService.get('githubOAuthRedirectUri', { infer: true }),
 			scope: ['user:email'],
 			passReqToCallback: true,
 		});
@@ -32,7 +33,7 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		_: string,
 		profile: IGithubProfile,
 	): IExternalAuthUser {
-		const port = req.query['port'] as string | undefined;
+		const port = req.query['state'] as string | undefined;
 
 		return {
 			port,

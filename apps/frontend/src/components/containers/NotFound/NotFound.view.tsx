@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import EDSvg from '@/ui/EDSvg';
 
 import notFoundBrandLogo from '@/images/not-found-brand-logo.png';
-import notFound from '@/images/not-found.png';
+import notFound from '@/images/not-found.gif';
 
 import classes from './NotFound.module.scss';
 
