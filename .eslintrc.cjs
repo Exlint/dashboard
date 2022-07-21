@@ -122,6 +122,7 @@ module.exports = {
 		'@typescript-eslint/no-require-imports': ['error'],
 		'@typescript-eslint/no-non-null-assertion': 'off',
 		'@typescript-eslint/no-use-before-define': ['error'],
+		'@typescript-eslint/consistent-type-imports': ['error'],
 
 		'unused-imports/no-unused-imports': 'error',
 

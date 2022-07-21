@@ -24,24 +24,6 @@ class EnvironmentVariables {
 	public REFRESH_TOKEN_JWT_KEY!: string;
 
 	@IsString()
-	public GOOGLE_OAUTH_CLIENT_ID!: string;
-
-	@IsString()
-	public GOOGLE_OAUTH_CLIENT_SECRET!: string;
-
-	@IsString()
-	public GOOGLE_OAUTH_REDIRECT_URI!: string;
-
-	@IsString()
-	public GITHUB_OAUTH_CLIENT_ID!: string;
-
-	@IsString()
-	public GITHUB_OAUTH_CLIENT_SECRET!: string;
-
-	@IsString()
-	public GITHUB_OAUTH_REDIRECT_URI!: string;
-
-	@IsString()
 	public MIXPANEL_TOKEN!: string;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Auth from '../components/containers/Auth';
+import Auth from '@/containers/Auth';
 
 interface IProps {}
 

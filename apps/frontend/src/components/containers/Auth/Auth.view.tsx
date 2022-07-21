@@ -9,13 +9,20 @@ import googleBrandLogo from '@/images/google-brand-logo.png';
 
 import classes from './Auth.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly port: string | null;
+}
 
-const AuthView: React.FC<IProps> = () => {
+const AuthView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-	const githubAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/github-auth`;
-	const googleAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/google-auth`;
+	let githubAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/github-auth`;
+	let googleAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/google-auth`;
+
+	if (props.port) {
+		githubAuthUrl += `?port=${props.port}`;
+		googleAuthUrl += `?port=${props.port}`;
+	}
 
 	return (
 		<main className={classes['main']}>

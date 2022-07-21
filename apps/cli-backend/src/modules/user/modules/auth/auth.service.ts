@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import bcrypt from 'bcryptjs';
 
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
 import { JWT_CLI_TOKEN_DURATION_DAYS } from './models/cli-token';
 
@@ -26,11 +25,5 @@ export class AuthService {
 		});
 
 		return token;
-	}
-
-	public async comparePassword(password: string, hashPassword: string) {
-		const comparison = await bcrypt.compare(password, hashPassword);
-
-		return comparison;
 	}
 }
