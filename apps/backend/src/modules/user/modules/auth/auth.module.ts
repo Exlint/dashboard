@@ -18,6 +18,7 @@ import { GithubController } from './github.controller';
 import { DeleteController } from './delete.controller';
 import { EventHandlers } from './events/handlers';
 import { AutoAuthController } from './auto-auth.controller';
+import { ExternalAuthFilter } from './filters/external-auth.filter';
 
 @Module({
 	imports: [CqrsModule, PassportModule, JwtModule.register({})],
@@ -39,6 +40,7 @@ import { AutoAuthController } from './auto-auth.controller';
 		RefreshTokenGuard,
 		GoogleAuthGuard,
 		GithubAuthGuard,
+		ExternalAuthFilter,
 	],
 })
 export class AuthModule {}

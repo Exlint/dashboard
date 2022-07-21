@@ -1,4 +1,12 @@
-import { BadRequestException, Controller, Get, Logger, Redirect, UseGuards } from '@nestjs/common';
+import {
+	BadRequestException,
+	Controller,
+	Get,
+	Logger,
+	Redirect,
+	UseFilters,
+	UseGuards,
+} from '@nestjs/common';
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
 import { ConfigService } from '@nestjs/config';
@@ -19,6 +27,7 @@ import { IExternalAuthUser } from './interfaces/external-auth-user';
 import type { IExternalLoggedUser } from './interfaces/user';
 import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
 import { JwtTokenType } from './models/jwt-token';
+import { ExternalAuthFilter } from './filters/external-auth.filter';
 
 @Controller(Routes.CONTROLLER)
 export class GithubController {
@@ -41,6 +50,7 @@ export class GithubController {
 
 	@Public()
 	@UseGuards(GithubAuthGuard)
+	@UseFilters(ExternalAuthFilter)
 	@Get(Routes.GITHUB_REDIRECT)
 	@Redirect(undefined, 301)
 	public async githubRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
@@ -88,10 +98,16 @@ export class GithubController {
 
 			this.logger.log("Successfully stored the user's refresh token");
 
+			let redirectUrl = `${this.configService.get(
+				'frontendUrl',
+			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+			if (user.port) {
+				redirectUrl += `&port=${user.port}`;
+			}
+
 			return {
-				url: `${this.configService.get(
-					'frontendUrl',
-				)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+				url: redirectUrl,
 			};
 		}
 
@@ -133,10 +149,16 @@ export class GithubController {
 
 		this.eventBus.publish(new LoginMixpanelContract(githubUser.id, ip));
 
+		let redirectUrl = `${this.configService.get(
+			'frontendUrl',
+		)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+		if (user.port) {
+			redirectUrl += `&port=${user.port}`;
+		}
+
 		return {
-			url: `${this.configService.get(
-				'frontendUrl',
-			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+			url: redirectUrl,
 		};
 	}
 }

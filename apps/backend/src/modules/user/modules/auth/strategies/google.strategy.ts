@@ -2,6 +2,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-google-oauth20';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import type { Request } from 'express';
 
 import type { IEnvironment } from '@/config/env.interface';
 
@@ -14,7 +15,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		super({
 			clientID: configService.get('googleOAuthClientId', { infer: true }),
 			clientSecret: configService.get('googleOAuthClientSecret', { infer: true }),
-			callbackURL: configService.get('googleOAuthRedirectUri', { infer: true }),
 			scope: ['email', 'profile'],
 		});
 	}
@@ -25,8 +25,16 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		};
 	}
 
-	validate(_: string, refreshToken: string | undefined, profile: IGoogleProfile): IExternalAuthUser {
+	validate(
+		req: Request,
+		_: string,
+		refreshToken: string | undefined,
+		profile: IGoogleProfile,
+	): IExternalAuthUser {
+		const port = req.query['port'] as string | undefined;
+
 		return {
+			port,
 			email: profile.emails[0]!.value,
 			name: `${profile.name.givenName} ${profile.name.familyName}`,
 			externalToken: refreshToken,

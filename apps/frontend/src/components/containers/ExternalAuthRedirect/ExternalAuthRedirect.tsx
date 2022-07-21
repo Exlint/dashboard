@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { AxiosResponse } from 'axios';
 
-import { backendApi } from '@/utils/http';
-import type { IAutoAuthResponseData } from '@/interfaces/responses';
+import { backendApi, cliBackendApi, temporaryCliServerApi } from '@/utils/http';
+import type { IAutoAuthResponseData, ICliAuthResponseData } from '@/interfaces/responses';
 import { authActions } from '@/store/reducers/auth';
 import type { IAuthPayload } from '@/store/interfaces/auth';
 
@@ -23,28 +22,77 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 	useEffect(() => {
 		const refreshToken = searchParams.get('refreshToken');
+		const port = searchParams.get('port');
 
 		if (refreshToken) {
 			localStorage.setItem('token', refreshToken);
 
-			backendApi
-				.post('/user/auth/auto-auth')
-				.then((response: AxiosResponse<IAutoAuthResponseData>) => {
-					sessionStorage.setItem('token', response.data.accessToken);
+			const fetchResults = async () => {
+				let autoAuthResponseData: IAutoAuthResponseData;
 
-					props.auth({
-						id: response.data.id,
-						name: response.data.name,
-					});
-				})
-				.catch(() => {
+				try {
+					const autoAuthResponse = await backendApi.post<IAutoAuthResponseData>(
+						'/user/auth/auto-auth',
+					);
+
+					autoAuthResponseData = autoAuthResponse.data;
+
+					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
+				} catch {
 					localStorage.clear();
 
+					let navigateUrl = '/auth';
+
+					if (port) {
+						navigateUrl += `?port=${port}`;
+					}
+
+					navigate(navigateUrl);
+
 					return;
-				})
-				.finally(() => {
-					navigate('/');
+				}
+
+				if (port) {
+					let cliToken: string;
+
+					try {
+						const response = await cliBackendApi.get<ICliAuthResponseData>(
+							`/user/auth/auth?port=${port}`,
+						);
+
+						cliToken = response.data.cliToken;
+					} catch {
+						navigate(`/cli-auth?port=${port}`);
+
+						return;
+					}
+
+					try {
+						await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}`);
+
+						navigate('/cli-authenticated');
+					} catch {
+						navigate(`/cli-auth?port=${port}`);
+
+						return;
+					}
+				}
+
+				props.auth({
+					id: autoAuthResponseData.id,
+					name: autoAuthResponseData.name,
 				});
+			};
+
+			fetchResults();
+		} else {
+			let navigateUrl = '/auth';
+
+			if (port) {
+				navigateUrl += `?port=${port}`;
+			}
+
+			navigate(navigateUrl);
 		}
 	}, [searchParams]);
 

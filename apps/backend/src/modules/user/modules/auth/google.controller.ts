@@ -6,6 +6,7 @@ import {
 	HttpStatus,
 	Logger,
 	Redirect,
+	UseFilters,
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
@@ -28,6 +29,7 @@ import { IExternalAuthUser } from './interfaces/external-auth-user';
 import type { IExternalLoggedUser } from './interfaces/user';
 import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
 import { JwtTokenType } from './models/jwt-token';
+import { ExternalAuthFilter } from './filters/external-auth.filter';
 
 @Controller(Routes.CONTROLLER)
 export class GoogleController {
@@ -50,6 +52,7 @@ export class GoogleController {
 
 	@Public()
 	@UseGuards(GoogleAuthGuard)
+	@UseFilters(ExternalAuthFilter)
 	@Get(Routes.GOOGLE_REDIRECT)
 	@HttpCode(HttpStatus.OK)
 	@Redirect(undefined, 301)
@@ -98,10 +101,16 @@ export class GoogleController {
 
 			this.logger.log("Successfully stored the user's refresh token");
 
+			let redirectUrl = `${this.configService.get(
+				'frontendUrl',
+			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+			if (user.port) {
+				redirectUrl += `&port=${user.port}`;
+			}
+
 			return {
-				url: `${this.configService.get(
-					'frontendUrl',
-				)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+				url: redirectUrl,
 			};
 		}
 
@@ -143,10 +152,16 @@ export class GoogleController {
 
 		this.eventBus.publish(new LoginMixpanelContract(googleUser.id, ip));
 
+		let redirectUrl = `${this.configService.get(
+			'frontendUrl',
+		)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+		if (user.port) {
+			redirectUrl += `&port=${user.port}`;
+		}
+
 		return {
-			url: `${this.configService.get(
-				'frontendUrl',
-			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+			url: redirectUrl,
 		};
 	}
 }
