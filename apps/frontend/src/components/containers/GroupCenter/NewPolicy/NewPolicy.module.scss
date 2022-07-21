@@ -6,6 +6,7 @@
 	display: flex;
 	width: 100%;
 	height: 100%;
+	padding: 39px 122px 20px;
 	overflow: hidden;
 
 	.innerNewPolicy {
@@ -113,7 +114,9 @@
 
 		.innerLibrary {
 			display: flex;
-			height: map.get($sizes, newpolicy-library-inner-height);
+
+			// height: map.get($sizes, newpolicy-library-inner-height);
+			height: 100%;
 			margin: 100px 0 0 38px;
 			overflow: hidden;
 		}

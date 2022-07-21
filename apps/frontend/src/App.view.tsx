@@ -20,7 +20,12 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 						<Route path="*" element={<Navigate replace to="/auth" />} />
 					</>
 				)}
-				{!props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
+				{!props.isAuthenticated && (
+					<>
+						<Route path="/group-center/*" element={<GroupCenter />} />
+						<Route path="/new-policy" element={<span>amir</span>} />
+					</>
+				)}
 			</Routes>
 		</Suspense>
 	</BrowserRouter>

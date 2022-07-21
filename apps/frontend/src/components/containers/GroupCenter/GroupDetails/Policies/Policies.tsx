@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { IPolicy } from '@/interfaces/policy';
 
@@ -9,7 +10,13 @@ interface IProps {
 }
 
 const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <PoliciesView groupPolicies={props.groupPolicies} />;
+	const navigate = useNavigate();
+
+	const onNavigateToNewPolicy = () => {
+		navigate('/group-center/new-policy');
+	};
+
+	return <PoliciesView groupPolicies={props.groupPolicies} onNavigateToNewPolicy={onNavigateToNewPolicy} />;
 };
 
 Policies.displayName = 'Policies';

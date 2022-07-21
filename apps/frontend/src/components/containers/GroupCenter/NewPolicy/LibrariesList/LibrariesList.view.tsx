@@ -1,5 +1,5 @@
 import React from 'react';
-import uniqid from 'uniqid';
+// Import uniqid from 'uniqid';
 
 import { ILibrary } from '@/interfaces/library';
 import { librariesList } from '@/data/libraries-list';
@@ -21,7 +21,7 @@ const LibrariesListView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 		<div className={classes['librariesList']}>
 			{libraries.map((library, index) => (
 				<Library
-					id={uniqid()}
+					id="amirs"
 					key={index}
 					logo={librariesList[library].logo}
 					title={librariesList[library].title}

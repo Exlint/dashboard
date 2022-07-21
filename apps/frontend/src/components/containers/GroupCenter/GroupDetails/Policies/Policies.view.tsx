@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
@@ -12,6 +11,7 @@ import classes from './Policies.module.scss';
 
 interface IProps {
 	readonly groupPolicies: IPolicy[];
+	readonly onNavigateToNewPolicy: () => void;
 }
 
 const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -24,12 +24,16 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					<h3 className={classes['headerContainer__title']}>
 						{t('groupCenter.groupDetails.policies.header')}
 					</h3>
-					<Link to="/group-center/new-policy/" className={classes['buttonContainer']}>
+					<button
+						type="button"
+						className={classes['buttonContainer']}
+						onClick={props.onNavigateToNewPolicy}
+					>
 						<span className={classes['buttonContainer__text']}>
 							{t('groupCenter.groupDetails.policies.newPolicyButton')}
 						</span>
 						<EDSvg name="plusIcon" className={classes['buttonContainer__icon']} />
-					</Link>
+					</button>
 				</div>
 			</div>
 			{props.groupPolicies.length > 0 ? (
