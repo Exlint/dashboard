@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { secretExpiry } from '@/data/Secret-expiry';
+import { secretExpiry } from '@/data/secret-expiry';
 import { concatClasses } from '@/utils/component';
 import SelectFromOptions from '@/ui/SelectFromOptions';
 
