@@ -4,10 +4,10 @@ import TokenManagement from '@/containers/TokenManagement';
 
 interface IProps {}
 
-const TokenManagerPage: React.FC<IProps> = () => {
+const TokenManagementPage: React.FC<IProps> = () => {
 	return <TokenManagement />;
 };
 
-TokenManagerPage.displayName = 'tokenManagement';
+TokenManagementPage.displayName = 'TokenManagement';
 
-export default TokenManagerPage;
+export default TokenManagementPage;

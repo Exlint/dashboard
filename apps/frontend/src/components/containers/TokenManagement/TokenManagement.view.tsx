@@ -2,6 +2,7 @@ import React from 'react';
 import Table from 'rc-table';
 
 import EDSvg from '@/ui/EDSvg';
+import { concatClasses } from '@/utils/component';
 import SettingsSidebar from '@/layout/SettingsSidebar';
 
 import TokenModal from './TokenModal';
@@ -23,48 +24,48 @@ interface IProps {
 	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState?: string;
-	readonly onCopyClientId: () => Promise<NodeJS.Timeout>;
+	readonly onChangeGroupLabel: (_: string) => void;
+	readonly onLabelEdit: (_: boolean) => void;
+	readonly onCopyClientId: () => Promise<void>;
 	readonly onBackdropClick: () => void;
 	readonly tokenLabelChangeHandler: (_: string) => void;
 }
 
 const TokenManagementView: React.FC<IProps> = (props) => {
+	const copyClinetIdClasses = props.copyClientIdState
+		? concatClasses(classes, 'idWrapper__icon', 'idWrapper__icon--disabled')
+		: classes['idWrapper__icon'];
+
 	return (
-		<div className={classes['mainWrapper']}>
+		<main className={classes['mainWrapper']}>
 			<SettingsSidebar />
 			<section className={classes['tokensDetalis']}>
 				<div className={classes['clientIdWrapper']}>
 					<span className={classes['clientIdWrapper__title']}>Client ID</span>
-					<div className={classes['clientIdWrapper__idWrapper']}>
-						<span className={classes['clientIdWrapper__idWrapper--id']}>
-							{props.clientIdState}
-						</span>
+					<div className={classes['idWrapper']}>
+						<span className={classes['idWrapper__id']}>{props.clientIdState}</span>
 						<EDSvg
 							name="tokenClientId"
-							className={classes['clientIdWrapper__idWrapper--icon']}
+							className={copyClinetIdClasses}
 							onClick={props.onCopyClientId}
 						/>
 					</div>
-					{props.copyClientIdState && (
-						<div className={classes['clientIdWrapper__idWrapper--copied']}>Copied!</div>
-					)}
+					{props.copyClientIdState && <div className={classes['idWrapper__copied']}>Copied!</div>}
 				</div>
 				<div className={classes['secretsWrapper']}>
 					<div className={classes['secretsHeader']}>
 						<span className={classes['secretsHeader__title']}>Secrets</span>
 						<div className={classes['buttonsWrapper']}>
-							<button type="button" className={classes['buttonsWrapper__revoke']}>
-								<span className={classes['buttonsWrapper__revoke--title']}>Revoke All</span>
-								<EDSvg name="trashCan" className={classes['buttonsWrapper__revoke--icon']} />
+							<button type="button" className={classes['revoke']}>
+								<span className={classes['revoke__title']}>Revoke All</span>
+								<EDSvg name="trashCan" className={classes['revoke__icon']} />
 							</button>
 							<button
 								type="button"
-								className={classes['buttonsWrapper__create']}
+								className={classes['create']}
 								onClick={props.onBackdropClick}
 							>
-								<span className={classes['buttonsWrapper__create--title']}>
-									Create Secret
-								</span>
+								<span className={classes['create__title']}>Create Secret</span>
 							</button>
 							{props.modalState && <TokenModal onBackdropClick={props.onBackdropClick} />}
 						</div>
@@ -75,10 +76,12 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 						data={props.data}
 						emptyText="No Secrets!"
 					/>
-					<div className={classes['secretsWrapper__footer']}>Total: 3</div>
+					<div className={classes['footer']}>
+						<span className={classes['footer__text']}>Total: 3</span>
+					</div>
 				</div>
 			</section>
-		</div>
+		</main>
 	);
 };
 

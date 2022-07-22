@@ -21,36 +21,26 @@ interface IProps {
 }
 
 const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const createSecretClasses = props.createSecretButtonState
-		? classes['container__button']
-		: concatClasses(classes, 'container__button', 'container__button--disabled');
-
-	const disabledSecretCrationTitlesClass = concatClasses(
-		classes,
-		'container__innerWrapper--title',
-		'container__innerWrapper--titleDisabled',
-	);
-
 	const secretCrationTitlesClasses = !props.dispalyModalRightSide
-		? classes['container__innerWrapper--title']
-		: disabledSecretCrationTitlesClass;
+		? classes['innerWrapper__title']
+		: concatClasses(classes, 'innerWrapper__title', 'innerWrapper__title--disabled');
 
 	const placeholderColor = !props.dispalyModalRightSide ? '#4b4a65' : '#BBB8CA';
 
 	return (
 		<section className={classes['container']}>
 			<div className={classes['container__title']}>Secret Creation</div>
-			<div className={classes['container__innerWrapper']}>
+			<div className={classes['innerWrapper']}>
 				<span className={secretCrationTitlesClasses}>Label</span>
 				<input
-					className={classes['container__innerWrapper--input']}
+					className={classes['innerWrapper__input']}
 					disabled={props.dispalyModalRightSide}
 					type="text"
 					value={props.labelState ?? ''}
 					onChange={({ currentTarget: { value } }) => props.onLabelChange(value)}
 				/>
 				<span className={secretCrationTitlesClasses}>Expires</span>
-				<div className={classes['container__innerWrapper--select']}>
+				<div className={classes['innerWrapper__select']}>
 					<SelectFromOptions
 						componentWidth="230px"
 						defaultValue="Expires"
@@ -66,7 +56,7 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				</div>
 			</div>
 			<button
-				className={createSecretClasses}
+				className={classes['container__button']}
 				type="button"
 				role="button"
 				disabled={!props.createSecretButtonState}

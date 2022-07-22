@@ -15,7 +15,7 @@
 		.header {
 			display: flex;
 			height: 37px;
-			background: #202428;
+			background-color: #202428;
 			border-radius: 5px 5px 0 0;
 
 			&__button {
@@ -99,13 +99,13 @@
 				margin-top: 12px;
 				font-size: 1.7rem;
 				color: #fefefe;
-				background: #202428;
+				background-color: #202428;
 				border: 2px solid #0e0d14;
 				border-radius: 10px;
 
 				&:disabled {
 					color: #8b8b8b;
-					background: #e7e7e7;
+					background-color: #e7e7e7;
 					border: 2px solid #bbb8ca;
 				}
 			}

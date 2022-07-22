@@ -19,7 +19,7 @@ const TokenModalView: React.FC<IProps> = (props) => {
 		<>
 			<EDBackdrop onBackdropClick={props.onBackdropClick} />
 			{ReactDOM.createPortal(
-				<div className={classes['mainWrapper']}>
+				<section className={classes['container']}>
 					<div className={classes['secretCreation']}>
 						<LeftSide
 							setDispalyModalRightSide={props.setDispalyModalRightSide}
@@ -28,7 +28,7 @@ const TokenModalView: React.FC<IProps> = (props) => {
 						<hr className={classes['secretCreation__divider']} />
 						{props.dispalyModalRightSide && <RightSide onBackdropClick={props.onBackdropClick} />}
 					</div>
-				</div>,
+				</section>,
 				document.getElementById('overlay-root') as HTMLElement,
 			)}
 		</>

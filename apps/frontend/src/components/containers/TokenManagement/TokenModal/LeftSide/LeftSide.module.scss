@@ -9,22 +9,22 @@
 		color: #202428;
 	}
 
-	&__innerWrapper {
+	.innerWrapper {
 		display: flex;
 		flex-direction: column;
 		margin-top: 35px;
 
-		&--title {
+		&__title {
 			margin-bottom: 13px;
 			font-size: 1.7rem;
 			color: #202428;
+
+			&--disabled {
+				color: #bbb8ca;
+			}
 		}
 
-		&--titleDisabled {
-			color: #bbb8ca;
-		}
-
-		&--input {
+		&__input {
 			width: 230px;
 			height: 40px;
 			padding: 8px 7px;
@@ -41,7 +41,7 @@
 			}
 		}
 
-		&--select {
+		&__select {
 			display: flex;
 		}
 	}
@@ -53,13 +53,13 @@
 		margin: 30px 15px 0 180px;
 		font-weight: 600;
 		color: #fefefe;
-		background: #2355a0;
+		background-color: #2355a0;
 		border: 1px solid #462a93;
 		border-radius: 4px;
 
-		&--disabled {
+		&:disabled {
 			color: #ebe5fa;
-			background: #8197b8;
+			background-color: #8197b8;
 			border: none;
 		}
 	}

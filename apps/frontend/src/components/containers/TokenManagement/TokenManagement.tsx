@@ -9,17 +9,27 @@ interface IProps {}
 
 const TokenManagement: React.FC<IProps> = () => {
 	const [tokenLabelState, setTokenLabelState] = useState<string>('DEFAULT_TOKEN');
-	const [editTokenLabelState, setEditTokenLabelState] = useState<boolean>(false);
+	const [isLabelOnEditState, setIsLabelOnEditState] = useState<boolean>(false);
 	const [modalState, setModalState] = useState<boolean>(false);
 	const [clientIdState] = useState<string>('suidbfgsoudpihnevoiwehfwoefhui');
 	const [copyClientIdState, setCopyClientIdState] = useState(false);
 
-	const onEditTokenLabel = () => {
-		if (editTokenLabelState) {
-			return setEditTokenLabelState(() => false);
-		}
+	const onLabelEdit = (isEdit: boolean) => {
+		setIsLabelOnEditState(() => isEdit);
+	};
 
-		return setEditTokenLabelState(() => true);
+	const onChangeGroupLabel = (label: string) => {
+		if (label.length > 0 && label.length <= 20) {
+			setTokenLabelState(() => label);
+		}
+	};
+
+	const onUpdateGroupLabel = () => {
+		setIsLabelOnEditState(() => false);
+	};
+
+	const onCancelLabelChanges = () => {
+		setIsLabelOnEditState(() => false);
 	};
 
 	const tokenLabelChangeHandler = (input: string) => setTokenLabelState(() => input);
@@ -37,7 +47,7 @@ const TokenManagement: React.FC<IProps> = () => {
 
 		await navigator.clipboard.writeText(clientIdState);
 
-		return setTimeout(() => setCopyClientIdState(() => false), 2000);
+		setTimeout(() => setCopyClientIdState(() => false), 2000);
 	};
 
 	const columns = [
@@ -83,27 +93,49 @@ const TokenManagement: React.FC<IProps> = () => {
 		{
 			number: 1,
 			label: [
-				editTokenLabelState ? (
-					<input
-						style={{ fontSize: '1.7rem', color: '#8b8b8b', width: '70%' }}
-						value={tokenLabelState}
-						onChange={({ currentTarget: { value } }) => tokenLabelChangeHandler(value)}
-					/>
+				!isLabelOnEditState ? (
+					<>
+						<span onDoubleClick={() => onLabelEdit(true)}>{tokenLabelState}</span>
+						<button type="button" role="button" onClick={() => onLabelEdit(true)}>
+							<EDSvg
+								style={{
+									width: '17px',
+									height: '17px',
+									marginLeft: '7px',
+									fill: 'none',
+									stroke: '#8B8B8B',
+									strokeWidth: '1.64427',
+								}}
+								name="editLabel"
+							/>
+						</button>
+					</>
 				) : (
-					tokenLabelState
+					<>
+						<input
+							style={{ width: `${tokenLabelState.length}ch` }}
+							value={tokenLabelState}
+							autoFocus
+							onChange={({ currentTarget: { value } }) => onChangeGroupLabel(value)}
+						/>
+						<div>
+							<button type="button" onClick={onUpdateGroupLabel}>
+								<EDSvg style={{ fill: 'transparent', stroke: '#4b4a65' }} name="vIcon" />
+							</button>
+							<button type="button" onClick={onCancelLabelChanges}>
+								<EDSvg
+									style={{
+										width: '16px',
+										height: '16px',
+										fill: '#4b4a65',
+										stroke: '#4b4a65',
+									}}
+									name="cancelIcon"
+								/>
+							</button>
+						</div>
+					</>
 				),
-				<EDSvg
-					name="editTokenName"
-					style={{
-						width: '17px',
-						height: '17px',
-						marginLeft: '7px',
-						fill: 'none',
-						stroke: '#8B8B8B',
-						strokeWidth: '1.64427',
-					}}
-					onClick={onEditTokenLabel}
-				/>,
 			],
 			createdAt: 'Saturday 14th May 2022',
 			expires: 'Saturday 15th May 2022 13:40',
@@ -146,6 +178,8 @@ const TokenManagement: React.FC<IProps> = () => {
 			tokenLabelChangeHandler={tokenLabelChangeHandler}
 			onBackdropClick={onBackdropClick}
 			onCopyClientId={onCopyClientId}
+			onChangeGroupLabel={onChangeGroupLabel}
+			onLabelEdit={onLabelEdit}
 		/>
 	);
 };

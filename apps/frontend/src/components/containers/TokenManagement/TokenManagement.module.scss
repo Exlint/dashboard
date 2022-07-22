@@ -19,7 +19,7 @@
 			width: 100%;
 			height: 58px;
 			padding: 20px;
-			background: #fefefe;
+			background-color: #fefefe;
 			border: 2px solid #e7e7e7;
 			border-radius: 5px;
 
@@ -30,26 +30,31 @@
 				color: #202428;
 			}
 
-			&__idWrapper {
+			.idWrapper {
 				display: flex;
 				align-items: center;
 				margin-left: 25px;
 				border: 1px solid #bbb8ca;
 				border-radius: 5px;
 
-				&--id {
+				&__id {
 					padding: 8px;
 					font-size: 1.5rem;
 					color: #8b8b8b;
 				}
 
-				&--icon {
+				&__icon {
 					margin-right: 8px;
 					cursor: pointer;
 					fill: #8b8b8b;
+
+					&--disabled {
+						pointer-events: none;
+						cursor: context-menu;
+					}
 				}
 
-				&--copied {
+				&__copied {
 					margin-left: 15px;
 					font-size: 1.8rem;
 					color: #2355a0;
@@ -60,8 +65,8 @@
 		.secretsWrapper {
 			width: 100%;
 			max-height: 90%;
-			margin-top: 17px;
-			background: #fefefe;
+			margin-top: 37px;
+			background-color: #fefefe;
 			border: 2px solid #e7e7e7;
 			border-radius: 5px;
 
@@ -81,34 +86,34 @@
 					display: flex;
 					align-items: center;
 
-					&__revoke {
+					.revoke {
 						display: flex;
+						justify-content: space-around;
 						width: 157px;
 						padding: 16px;
 						margin-right: 12px;
 						border: 1px solid #462a93;
 						border-radius: 5px;
 
-						&--title {
+						&__title {
 							font-size: 1.7rem;
 							font-weight: 600;
 							color: #33383e;
 						}
 
-						&--icon {
-							margin-left: 8px;
+						&__icon {
 							fill: #33383e;
 						}
 					}
 
-					&__create {
+					.create {
 						width: 157px;
 						padding: 16px;
-						background: #2355a0;
+						background-color: #2355a0;
 						border: 1px solid #462a93;
 						border-radius: 5px;
 
-						&--title {
+						&__title {
 							font-size: 1.7rem;
 							font-weight: 556;
 							color: #fefefe;
@@ -145,7 +150,7 @@
 				}
 
 				td {
-					padding: 7px 0;
+					padding: 10px 0;
 					font-size: 1.7rem;
 					color: #8b8b8b;
 
@@ -163,14 +168,19 @@
 				}
 
 				tr:nth-child(even) {
-					background: #e7e7e7;
+					background-color: #e7e7e7;
 				}
 			}
 
-			&__footer {
-				padding: 0 0 10px 20px;
-				font-size: 1.7rem;
-				color: #bbb8ca;
+			.footer {
+				padding: 5px 0 5px 20px;
+
+				&__text {
+					display: flex;
+					align-items: center;
+					font-size: 1.7rem;
+					color: #bbb8ca;
+				}
 			}
 		}
 	}

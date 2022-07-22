@@ -7,12 +7,12 @@ interface IProps {
 }
 
 const TokenModal: React.FC<IProps> = (props) => {
-	const [dispalyModalRightSide, setDispalyModalRightSide] = useState<boolean>(false);
+	const [dispalyModalRightSideState, setDispalyModalRightSideState] = useState<boolean>(false);
 
 	return (
 		<TokenModalView
-			dispalyModalRightSide={dispalyModalRightSide}
-			setDispalyModalRightSide={setDispalyModalRightSide}
+			dispalyModalRightSide={dispalyModalRightSideState}
+			setDispalyModalRightSide={setDispalyModalRightSideState}
 			onBackdropClick={props.onBackdropClick}
 		/>
 	);
