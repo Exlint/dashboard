@@ -36,7 +36,7 @@
 		.searchContainer {
 			display: flex;
 			flex-direction: column;
-			margin: 23px 125px 0 38px;
+			margin: 23px 65px 0 38px;
 
 			.policyLabel {
 				display: flex;
@@ -58,7 +58,7 @@
 					font-weight: 350;
 					color: #8b8b8b;
 					background-color: #fefefe;
-					border: 2px solid;
+					border: 2px solid #e7e7e7;
 					border-radius: 10px;
 					box-shadow: 0 11px 15px #0000000d;
 				}
@@ -73,7 +73,7 @@
 				.library {
 					display: flex;
 					align-items: center;
-					width: 70%;
+					width: 100%;
 					margin-inline-end: 21px;
 
 					&__text {

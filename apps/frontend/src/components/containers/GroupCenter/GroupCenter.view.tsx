@@ -17,6 +17,8 @@ interface IProps {
 }
 
 const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	// Const navigate = useNavigate();
+
 	// Const selectedGroup = props.selectedGroupIndex
 	// 	? props.groupsList[props.selectedGroupIndex] ?? null
 	// 	: null;
@@ -28,11 +30,46 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	// Readonly rules: Record<string, IRule> | null;
 
 	const selectedGroupTemp: IGroup = {
-		id: 'test123',
+		id: 'test1222',
 		label: 'sssnew group',
 		createdAt: '11 jun',
 		policies: [
-			{ id: 'first', label: 'policyLabel', libraryName: 'ESLint', createdAt: '11 jun', rules: null },
+			{
+				id: 'first9128739',
+				label: 'policyLabel',
+				libraryName: 'ESLint',
+				createdAt: '11 jun',
+				rules: null,
+			},
+			{
+				id: 'second1234321',
+				label: 'secondLabel',
+				libraryName: 'Stylint',
+				createdAt: '11 jun',
+				rules: null,
+			},
+			{
+				id: 'third92836',
+				label: 'secondLabel',
+				libraryName: 'Stylint',
+				createdAt: '11 jun',
+				rules: null,
+			},
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
+			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
 			{ id: 'second', label: 'secondLabel', libraryName: 'Stylint', createdAt: '11 jun', rules: null },
 		],
 	};
@@ -41,6 +78,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 
 	// Const selectedGroupId = selectedGroup?.id;
 	const selectedGroupId = selectedGroupTemp.id;
+	// Const selectedGroupId = false;
 
 	return (
 		<main className={classes['main']}>
@@ -53,7 +91,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			/>
 			{selectedGroupId && (
 				<Routes>
-					<Route path="/group-info" element={<GroupDetails selectedGroup={selectedGroupTemp} />} />
+					<Route path="/" element={<GroupDetails selectedGroup={selectedGroupTemp} />} />
 					<Route path="/new-policy" element={<NewPolicy selectedGroupId={selectedGroupId} />} />
 				</Routes>
 			)}

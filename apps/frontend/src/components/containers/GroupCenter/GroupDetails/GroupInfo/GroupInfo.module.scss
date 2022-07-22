@@ -13,7 +13,7 @@
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
-		padding: 22px 13px;
+		padding: 11px 20px;
 		background-color: #fefefe;
 		border: 2px solid #e7e7e7;
 		border-radius: 5px;
@@ -24,22 +24,22 @@
 
 			&__label {
 				font-size: 2.4rem;
-				font-weight: 460;
-				color: #4b4a65;
+				font-weight: 560;
+				color: #202428;
 				white-space: nowrap;
 				user-select: none;
 				border-bottom: 1px solid transparent;
 			}
 
 			&__labelOnEdit {
-				font-weight: 600;
+				padding: 0;
 				border-bottom: 1px solid #4b4a65;
 			}
 
 			.editLabelButton {
 				display: flex;
 				width: fit-content;
-				margin: 0 29px 0 10px;
+				margin: 0 28px 0 10px;
 
 				&__icon {
 					width: 20px;
@@ -89,6 +89,7 @@
 			align-items: center;
 
 			&__text {
+				margin-right: 2px;
 				font-size: 1.8rem;
 				font-weight: 460;
 				color: #4b4a65;
@@ -112,7 +113,6 @@
 			}
 
 			.uniqueId {
-				position: relative;
 				display: flex;
 				align-items: center;
 				padding: 8px 7px;
@@ -127,18 +127,21 @@
 				}
 
 				.uniqIdCopyButton {
+					position: relative;
+
 					&__icon {
 						width: 21px;
 						height: 22px;
 					}
-				}
 
-				&__copiedText {
-					position: absolute;
-					left: 120px;
-					font-size: 1.7rem;
-					font-weight: 460;
-					color: #2355a0;
+					&__copiedText {
+						position: absolute;
+						right: 1px;
+						bottom: 50px;
+						font-size: 1.7rem;
+						font-weight: 460;
+						color: #2355a0;
+					}
 				}
 			}
 		}

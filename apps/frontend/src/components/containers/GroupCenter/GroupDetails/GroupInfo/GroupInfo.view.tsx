@@ -91,10 +91,10 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 							onClick={props.onCopyGroupId}
 						>
 							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
+							{props.copyGroupId && (
+								<span className={classes['uniqIdCopyButton__copiedText']}>Copied!</span>
+							)}
 						</button>
-						{props.copyGroupId && (
-							<span className={classes['uniqueId__copiedText']}>Copied!</span>
-						)}
 					</div>
 				</div>
 				<div className={classes['moreInfoContainer']}>

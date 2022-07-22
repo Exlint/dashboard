@@ -1,5 +1,5 @@
 export interface ITableData {
-	number: number;
+	number: string;
 	label: string;
 	library: string;
 	category: string;

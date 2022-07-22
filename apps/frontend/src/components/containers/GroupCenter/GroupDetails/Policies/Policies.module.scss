@@ -8,6 +8,7 @@
 	width: 100%;
 	height: 100%;
 	margin-top: 30px;
+	overflow: hidden;
 	background: #fefefe;
 	border: 2px solid #e7e7e7;
 	border-radius: 5px;
@@ -32,7 +33,8 @@
 
 			.buttonContainer {
 				position: relative;
-				top: 35px;
+				top: 45px;
+				z-index: 1;
 				display: flex;
 				align-items: center;
 				padding: 8px 9px;

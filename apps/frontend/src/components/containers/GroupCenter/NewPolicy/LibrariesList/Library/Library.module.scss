@@ -74,9 +74,10 @@
 		display: flex;
 		height: fit-content;
 
-		&__cancelButton {
-			width: 12px;
-			height: 12px;
+		&__icon {
+			width: 15px;
+			height: 15px;
+			stroke: #fefefe;
 		}
 	}
 }

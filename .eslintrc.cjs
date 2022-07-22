@@ -18,7 +18,6 @@ module.exports = {
 	},
 	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
 	rules: {
-		'capitalized-comments': ['error'],
 		'max-lines': ['error', { max: 100, skipBlankLines: true, skipComments: true }],
 		'indent': ['error', 'tab', { SwitchCase: 1 }],
 		'quotes': ['error', 'single', { avoidEscape: true }],

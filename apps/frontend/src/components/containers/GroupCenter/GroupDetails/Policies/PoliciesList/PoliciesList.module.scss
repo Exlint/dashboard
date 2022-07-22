@@ -1,33 +1,42 @@
 .policiesList {
 	display: flex;
 	width: 100%;
+	height: 100%;
 
 	.tableContainer {
 		width: 100%;
+		height: 100%;
+		overflow-y: auto;
 
 		table {
 			width: 100%;
+			height: 100%;
 			border-collapse: collapse;
 		}
 
+		thead {
+			position: sticky;
+			top: 0;
+			padding: 2px 0;
+			padding-bottom: 60px;
+			border-collapse: separate;
+			border-top: none !important;
+			border-bottom: none !important;
+			box-shadow: inset 0 2px 0 #000, inset 0 -2px 0 #000;
+		}
+
 		th {
-			padding-bottom: 4px;
+			padding-bottom: 20px;
 			font-size: 1.7rem;
 			font-weight: 460;
 			color: #8b8b8b;
-			text-align: left;
-			border-bottom: 2px solid #e7e7e7;
+			text-align: center;
+			background-color: #fefefe;
+			box-shadow: inset 0 -2px 0 #e7e7e7;
 
 			&:first-child {
 				padding-left: 20px;
-			}
-
-			&:last-child {
-				text-align: center;
-			}
-
-			&:nth-last-child(2) {
-				text-align: center;
+				text-align: left;
 			}
 		}
 
@@ -35,30 +44,17 @@
 			padding: 23px 0;
 			font-size: 1.7rem;
 			color: #4b4a65;
+			text-align: center;
+			border-bottom: 2px solid #e7e7e7;
 
 			&:first-child {
 				padding-left: 20px;
-			}
-
-			&:last-child {
-				text-align: center;
+				text-align: left;
 			}
 
 			&:nth-last-child(1) {
-				text-align: center;
+				text-align: right;
 			}
-
-			&:nth-last-child(2) {
-				text-align: center;
-			}
-
-			// &:nth-last-child(3) {
-			// 	text-align: center;
-			// }
-		}
-
-		tr:nth-child(even) {
-			background: #e7e7e7;
 		}
 	}
 }

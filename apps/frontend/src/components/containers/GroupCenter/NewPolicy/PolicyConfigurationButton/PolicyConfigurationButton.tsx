@@ -1,8 +1,8 @@
 import React from 'react';
 import { AxiosError } from 'axios';
-// import uniqid from 'uniqid';
+// Import uniqid from 'uniqid';
 
-// import { currentDate } from '@/utils/currentDate';
+// Import { currentDate } from '@/utils/currentDate';
 import { backendApiAxios } from '@/utils/http';
 import { ILibrary } from '@/interfaces/library';
 
@@ -27,16 +27,6 @@ const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChild
 				alert(err.response?.data);
 			});
 	};
-
-	// const onCreateNewPolicy = () => {
-	// 	props.addPolicy(props.selectedGroup?.id || '', {
-	// 		id: uniqid(),
-	// 		label: props.policyLabelInput || '',
-	// 		createdAt: currentDate(),
-	// 		libraryName: '',
-	// 		rules: null,
-	// 	});
-	// };
 
 	return (
 		<PolicyConfigurationButtonView

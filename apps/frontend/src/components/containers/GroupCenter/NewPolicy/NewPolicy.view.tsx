@@ -10,18 +10,18 @@ import { sortByOptions } from '@/data/new-policy-sort-by-options';
 
 import SideBarFilters from './SideBarFilters';
 import LibrariesList from './LibrariesList';
-import PolicyConfigurationButton from './PolicyConfigurationButton';
 
 import classes from './NewPolicy.module.scss';
+import PolicyConfigurationButton from './PolicyConfigurationButton';
 
 interface IProps {
 	readonly selectedGroupId: string;
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
 	readonly isPolicyConfigurationClicked: boolean | null;
-	readonly isSortByClicked: boolean;
+	readonly isSortByOnView: boolean;
 	readonly selectedSortByOptionIndex: number | null;
-	readonly isCreatePolicyDisable: boolean;
+	readonly isCreatePolicyDisabled: boolean;
 	readonly onSelectedLibrary: (library: ILibrary) => void;
 	readonly onCancelSelectedLibrary: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
@@ -42,7 +42,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						selectedGroupId={props.selectedGroupId}
 						selectedLibrary={props.selectedLibrary}
 						policyLabelInput={props.policyLabelInput}
-						isButtonDisabled={props.isCreatePolicyDisable}
+						isButtonDisabled={props.isCreatePolicyDisabled}
 					/>
 				</div>
 				<div className={classes['searchContainer']}>
@@ -53,14 +53,6 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						<input
 							className={classes['policyLabel__input']}
 							placeholder="Enter policy label"
-							style={{
-								borderColor:
-									(props.isPolicyConfigurationClicked && props.policyLabelInput === null) ||
-									(props.isPolicyConfigurationClicked &&
-										props.policyLabelInput?.length === 0)
-										? '#781D1D'
-										: '#e7e7e7',
-							}}
 							onChange={({ currentTarget: { value } }) =>
 								props.onPolicyLabelInputChanged(value)
 							}
@@ -85,7 +77,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								defaultValue="Sort by"
 								border="2px solid #E7E7E7"
 								selectedOptionIndex={props.selectedSortByOptionIndex}
-								isShowMoreClicked={props.isSortByClicked}
+								isShowMoreClicked={props.isSortByOnView}
 								optionsList={sortByOptions}
 								onSelectOptionsButton={props.toggleSortBy}
 								onSelectedOption={props.onSelectedSortBy}

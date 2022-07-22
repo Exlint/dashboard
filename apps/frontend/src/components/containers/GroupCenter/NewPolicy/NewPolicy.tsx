@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ILibrary } from '@/interfaces/library';
 
@@ -9,9 +9,9 @@ interface IProps {
 }
 
 const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [selectedLibraryState, setSelectedLibraryState] = useState<ILibrary | null>(null);
 	const [policyLabelInputState, setPolicyLabelInputState] = useState<string | null>(null);
-	const [isSortByClicketState, setIsSortByClicketState] = useState<boolean>(false);
+	const [selectedLibraryState, setSelectedLibraryState] = useState<ILibrary | null>(null);
+	const [isSortByOnViewState, setIsSortByOnViewState] = useState<boolean>(false);
 
 	const [isPolicyConfigurationClickedState, setIsPolicyConfigurationClickedState] = useState<
 		boolean | null
@@ -19,7 +19,7 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const [selectedSortByOptionIndexState, setSelectedSortByOptionIndexState] = useState<number | null>(null);
 
-	const [isCreatePolicyDisableState, setIsCreatePolicyDisableState] = useState<boolean>(true);
+	const [isCreatePolicyDisabledState, setIsCreatePolicyDisabledState] = useState<boolean>(true);
 
 	const onSelectedLibrary = (library: ILibrary) => {
 		setSelectedLibraryState(() => library);
@@ -33,7 +33,7 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const onSelectedSortBy = (index: number) => {
 		setSelectedSortByOptionIndexState(() => index);
-		setIsSortByClicketState(() => false);
+		setIsSortByOnViewState(() => false);
 	};
 
 	const onPolicyConfiguratoinClicked = () => {
@@ -41,12 +41,16 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const toggleSortBy = () => {
-		setIsSortByClicketState((prev) => !prev);
+		setIsSortByOnViewState((prev) => !prev);
 	};
 
-	if (selectedLibraryState && policyLabelInputState !== null && policyLabelInputState.length !== 0) {
-		setIsCreatePolicyDisableState(() => true);
-	}
+	useEffect(() => {
+		if (selectedLibraryState && policyLabelInputState !== null && policyLabelInputState.length > 0) {
+			setIsCreatePolicyDisabledState(() => false);
+		} else {
+			setIsCreatePolicyDisabledState(() => true);
+		}
+	}, [selectedLibraryState, policyLabelInputState]);
 
 	return (
 		<NewPolicyView
@@ -54,9 +58,9 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			selectedLibrary={selectedLibraryState}
 			policyLabelInput={policyLabelInputState}
 			isPolicyConfigurationClicked={isPolicyConfigurationClickedState}
-			isSortByClicked={isSortByClicketState}
+			isSortByOnView={isSortByOnViewState}
 			selectedSortByOptionIndex={selectedSortByOptionIndexState}
-			isCreatePolicyDisable={isCreatePolicyDisableState}
+			isCreatePolicyDisabled={isCreatePolicyDisabledState}
 			toggleSortBy={toggleSortBy}
 			onSelectedLibrary={onSelectedLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
