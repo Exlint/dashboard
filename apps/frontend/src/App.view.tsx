@@ -8,22 +8,24 @@ interface Props {
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
 const UserSettings = React.lazy(() => import('./pages/UserSettings'));
+const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
 
 const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
 			<div id="backdrop-root" />
 			<div id="overlay-root" />
-			{!props.isAuthenticated && (
+			{props.isAuthenticated && (
 				<Routes>
 					<Route path="/auth" element={<Auth />} />
 					<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					<Route path="*" element={<Navigate replace to="/auth" />} />
 				</Routes>
 			)}
-			{props.isAuthenticated && (
+			{!props.isAuthenticated && (
 				<Routes>
 					<Route path="/user-settings" element={<UserSettings />} />
+					<Route path="/token-management" element={<TokenManagement />} />
 				</Routes>
 			)}
 		</Suspense>
