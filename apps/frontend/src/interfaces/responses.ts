@@ -11,3 +11,7 @@ export interface IRefreshTokenResponseData {
 export interface ICliAuthResponseData {
 	readonly cliToken: string;
 }
+
+export interface IDeleteUserResponseData {}
+
+export interface ILogoutResponseData {}

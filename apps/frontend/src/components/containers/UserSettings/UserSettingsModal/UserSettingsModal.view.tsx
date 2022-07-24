@@ -10,6 +10,7 @@ import classes from './UserSettingsModal.module.scss';
 
 interface IProps {
 	readonly isConfirmButtonDisabled: boolean;
+	readonly onDeleteUser: () => void;
 	readonly onBackdropClick: () => void;
 	readonly onDeleteUserChangeHandler: (_: string) => void;
 }
@@ -63,6 +64,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								type="button"
 								role="button"
 								disabled={!props.isConfirmButtonDisabled}
+								onClick={props.onDeleteUser}
 							>
 								{t('userSettingsModal.confirmButton')}
 							</button>

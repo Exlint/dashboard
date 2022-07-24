@@ -9,5 +9,6 @@ const TokenManagementPage: React.FC<IProps> = () => {
 };
 
 TokenManagementPage.displayName = 'TokenManagement';
+TokenManagementPage.defaultProps = {};
 
 export default TokenManagementPage;

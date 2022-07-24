@@ -10,6 +10,7 @@ import classes from './UserSettings.module.scss';
 
 interface IProps {
 	readonly isModelOnView: boolean;
+	readonly onLogout: () => void;
 	readonly onBackdropClick: () => void;
 }
 
@@ -45,7 +46,12 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 								)}
 							</div>
 							<div className={classes['action']}>
-								<button className={classes['action__button']} type="button" role="button">
+								<button
+									className={classes['action__button']}
+									type="button"
+									role="button"
+									onClick={props.onLogout}
+								>
 									{t('userSettings.logoutAction')}
 								</button>
 							</div>
