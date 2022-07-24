@@ -18,18 +18,24 @@
 		border: 2px solid #e7e7e7;
 		border-radius: 5px;
 
-		&__title {
-			font-size: 2.4rem;
-			font-weight: 560;
-			color: #202428;
-		}
-
-		.policyConfigurationButtonContainer {
+		.topPartContainer {
 			display: flex;
-			justify-content: flex-end;
+			align-items: center;
+			justify-content: space-between;
 
-			&__link {
-				text-decoration: none;
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 560 !important;
+				color: #202428;
+			}
+
+			.policyConfigurationButtonContainer {
+				display: flex;
+				justify-content: flex-end;
+
+				&__link {
+					text-decoration: none;
+				}
 			}
 		}
 

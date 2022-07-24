@@ -45,14 +45,18 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	return (
 		<section className={classes['newPolicy']}>
 			<div className={classes['innerNewPolicy']}>
-				<h3 className={classes['innerNewPolicy__title']}>{t('groupCenter.newPolicy.header')}</h3>
-				<div className={classes['policyConfigurationButtonContainer']}>
-					<PolicyConfigurationButton
-						selectedGroupId={props.selectedGroupId}
-						selectedLibrary={props.selectedLibrary}
-						policyLabelInput={props.policyLabelInput}
-						isButtonDisabled={props.isCreatePolicyDisabled}
-					/>
+				<div className={classes['topPartContainer']}>
+					<h3 className={classes['topPartContainer__title']}>
+						{t('groupCenter.newPolicy.header')}
+					</h3>
+					<div className={classes['policyConfigurationButtonContainer']}>
+						<PolicyConfigurationButton
+							selectedGroupId={props.selectedGroupId}
+							selectedLibrary={props.selectedLibrary}
+							policyLabelInput={props.policyLabelInput}
+							isButtonDisabled={props.isCreatePolicyDisabled}
+						/>
+					</div>
 				</div>
 				<div className={classes['searchContainer']}>
 					<div className={classes['policyLabel']}>

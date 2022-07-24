@@ -29,7 +29,17 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		>
 			<div className={classes['innerGroup']}>
 				<div className={classes['leftSideContainer']}>
-					<h3 className={classes['leftSideContainer__title']}>{props.groupLabel}</h3>
+					<h3
+						className={concatClasses(
+							classes,
+							'leftSideContainer__title',
+							props.isSelected
+								? 'leftSideContainer__title--isSelected'
+								: 'leftSideContainer__title--notSelected',
+						)}
+					>
+						{props.groupLabel}
+					</h3>
 					<div className={classes['uniqueIdContainer']}>
 						<span className={classes['uniqueIdContainer__text']}>
 							{t('groupCenter.groupSideBar.group.uniqId')}
