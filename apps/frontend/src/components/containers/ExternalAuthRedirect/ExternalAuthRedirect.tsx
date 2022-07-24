@@ -54,6 +54,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 				if (port) {
 					let cliToken: string;
+					let email: string;
 
 					try {
 						const response = await cliBackendApi.get<ICliAuthResponseData>(
@@ -61,6 +62,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 						);
 
 						cliToken = response.data.cliToken;
+						email = response.data.email;
 					} catch {
 						navigate(`/cli-auth?port=${port}`);
 
@@ -68,7 +70,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					}
 
 					try {
-						await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}`);
+						await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}/${email}`);
 
 						navigate('/cli-authenticated');
 					} catch {

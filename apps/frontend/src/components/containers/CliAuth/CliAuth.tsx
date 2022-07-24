@@ -22,11 +22,13 @@ const CliAuth: React.FC<IProps> = () => {
 
 	const onAuthClick = async () => {
 		let cliToken: string;
+		let email: string;
 
 		try {
 			const response = await cliBackendApi.get<ICliAuthResponseData>(`/user/auth/auth?port=${port}`);
 
 			cliToken = response.data.cliToken;
+			email = response.data.email;
 		} catch {
 			navigate(`/auth?port=${port}`);
 
@@ -34,7 +36,7 @@ const CliAuth: React.FC<IProps> = () => {
 		}
 
 		try {
-			await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}`);
+			await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}/${email}`);
 
 			navigate('/cli-authenticated');
 		} catch {
