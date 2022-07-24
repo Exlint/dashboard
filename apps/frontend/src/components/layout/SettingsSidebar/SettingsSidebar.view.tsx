@@ -5,9 +5,11 @@ import EDSvg from '@/ui/EDSvg';
 
 import classes from './SettingsSidebar.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly name: string;
+}
 
-const SettingsSidebarView: React.FC<IProps> = () => {
+const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
@@ -27,7 +29,7 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 							{t('settingsSidebar.subText')}
 						</span>
 					</div>
-					<div className={classes['usernameContainer__userName']}>user-name</div>
+					<span className={classes['usernameContainer__userName']}>{props.name}</span>
 				</div>
 			</div>
 		</section>

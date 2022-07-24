@@ -8,7 +8,7 @@ import { authActions } from '@/store/reducers/auth';
 import UserSettingsView from './UserSettings.view';
 
 interface IPropsFromDispatch {
-	readonly logout?: () => PayloadAction;
+	readonly setUnauthenticated: () => PayloadAction;
 }
 
 interface IProps extends IPropsFromDispatch {}
@@ -19,7 +19,7 @@ const UserSettings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 
 	const onLogout = () => {
-		props.logout!();
+		props.setUnauthenticated();
 
 		navigate('/auth');
 	};
@@ -41,5 +41,5 @@ UserSettings.displayName = 'UserSettings';
 UserSettings.defaultProps = {};
 
 export default connect(null, {
-	setUnauthenticated: authActions.logout,
+	setUnauthenticated: authActions.setUnauthenticated,
 })(React.memo(UserSettings));

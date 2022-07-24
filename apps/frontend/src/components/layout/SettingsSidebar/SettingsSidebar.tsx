@@ -1,14 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import type { AppState } from '@/store/app';
 
 import SettingsSidebarView from './SettingsSidebar.view';
 
-interface IProps {}
+interface IPropsFromState {
+	readonly name: string;
+}
 
-const SettingsSidebar: React.FC<IProps> = () => {
-	return <SettingsSidebarView />;
+interface IProps extends IPropsFromState {}
+
+const SettingsSidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	return <SettingsSidebarView name={props.name} />;
 };
 
 SettingsSidebar.displayName = 'SettingsSidebar';
 SettingsSidebar.defaultProps = {};
 
-export default React.memo(SettingsSidebar);
+const mapStateToProps = (state: AppState) => {
+	return {
+		name: state.auth.name!,
+	};
+};
+
+export default connect(mapStateToProps)(React.memo(SettingsSidebar));

@@ -9,7 +9,7 @@ import { ACCESS_TOKEN_REFRESH_TIMEOUT } from '../models/auth';
 const listenerMiddleware = createListenerMiddleware();
 
 listenerMiddleware.startListening({
-	actionCreator: authActions.logout,
+	actionCreator: authActions.setUnauthenticated,
 	effect: (_, listnerApi) => {
 		listnerApi.dispatch(clearAllListeners());
 
@@ -31,7 +31,7 @@ listenerMiddleware.startListening({
 
 				sessionStorage.setItem('token', response.data.accessToken);
 			} catch {
-				listnerApi.dispatch(authActions.logout());
+				listnerApi.dispatch(authActions.setUnauthenticated());
 
 				isLoggedIn = false;
 			}

@@ -25,8 +25,8 @@ const en = {
 	userSettings: {
 		title: 'User Settings',
 		username: 'User',
-		deleteUserAction: 'Delete User',
-		logoutAction: 'Log Out',
+		deleteUserAction: 'Delete user',
+		logoutAction: 'Log-out',
 	},
 	userSettingsModal: {
 		bar: 'Cancel',
