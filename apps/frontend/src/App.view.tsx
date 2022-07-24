@@ -25,10 +25,10 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					</>
 				)}
+				{props.isAuthenticated && <Route path="/user-settings" element={<UserSettings />} />}
 				<Route path="/cli-auth" element={<CliAuth />} />
 				<Route path="/cli-authenticated" element={<CliAuthenticated />} />
 				<Route path="/not-found" element={<NotFound />} />
-				<Route path="/user-settings" element={<UserSettings />} />
 				<Route
 					path="*"
 					element={props.isAuthenticated === null ? null : <Navigate replace to="/not-found" />}
