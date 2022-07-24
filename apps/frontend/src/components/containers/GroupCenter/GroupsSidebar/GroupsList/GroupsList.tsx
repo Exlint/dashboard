@@ -7,6 +7,7 @@ import GroupsListView from './GroupsList.view';
 interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number;
+	readonly searchGroupInput: string | null;
 	readonly onSelectGroup: (index: number) => void;
 }
 
@@ -15,6 +16,7 @@ const GroupsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<GroupsListView
 			groupsList={props.groupsList}
 			selectedGroupIndex={props.selectedGroupIndex}
+			searchGroupInput={props.searchGroupInput}
 			onSelectGroup={props.onSelectGroup}
 		/>
 	);

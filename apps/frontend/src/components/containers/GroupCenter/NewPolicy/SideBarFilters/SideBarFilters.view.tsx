@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { types, categories } from '@/data/policies-filter';
+import { concatClasses } from '@/utils/component';
 
 import classes from './SideBarFilters.module.scss';
 
@@ -12,7 +13,7 @@ interface IProps {
 	readonly onSelectCategory: (index: number) => void;
 }
 
-const SideBarFiltersView: React.FC<IProps> = () => {
+const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
@@ -22,8 +23,23 @@ const SideBarFiltersView: React.FC<IProps> = () => {
 					{t('groupCenter.newPolicy.sideBarFilter.typesTitle')}
 				</span>
 				{types.map((type, index) => (
-					<button className={classes['typeButton']} type="button" key={index}>
-						<span className={classes['typeButton__type']}>{type}</span>
+					<button
+						className={classes['typeButton']}
+						type="button"
+						key={index}
+						onClick={() => props.onSelectType(index)}
+					>
+						<span
+							className={concatClasses(
+								classes,
+								'container',
+								props.selectedTypeIndex === index
+									? 'typeButton--isSelected'
+									: 'typeButton--notSelected',
+							)}
+						>
+							{type}
+						</span>
 					</button>
 				))}
 			</div>
@@ -32,8 +48,23 @@ const SideBarFiltersView: React.FC<IProps> = () => {
 					{t('groupCenter.newPolicy.sideBarFilter.categoriesTitle')}
 				</span>
 				{categories.map((category, index) => (
-					<button className={classes['categoryButton']} type="button" key={index}>
-						<span className={classes['categoryButton__category']}>{category}</span>
+					<button
+						className={classes['categoryButton']}
+						type="button"
+						key={index}
+						onClick={() => props.onSelectCategory(index)}
+					>
+						<span
+							className={concatClasses(
+								classes,
+								'container',
+								props.selectedCategoryIndex === index
+									? 'categoryButton--isSelected'
+									: 'categoryButton--notSelected',
+							)}
+						>
+							{category}
+						</span>
 					</button>
 				))}
 			</div>

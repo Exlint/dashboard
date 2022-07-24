@@ -21,6 +21,8 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const [isCreatePolicyDisabledState, setIsCreatePolicyDisabledState] = useState<boolean>(true);
 
+	const [searchLibraryInputState, setSearchLibraryInputState] = useState<string | null>(null);
+
 	const [selectedTypeIndexState, setSelectedTypeIndexState] = useState<number>(0);
 
 	const [selectedCategoryIndexState, setSelectedCategoryIndexState] = useState<number>(0);
@@ -56,6 +58,10 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		}
 	}, [selectedLibraryState, policyLabelInputState]);
 
+	const onSearchLibraryInput = (input: string) => {
+		setSearchLibraryInputState(() => input);
+	};
+
 	const onSelectType = (index: number) => {
 		setSelectedTypeIndexState(() => index);
 	};
@@ -70,6 +76,7 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			selectedLibrary={selectedLibraryState}
 			policyLabelInput={policyLabelInputState}
 			isPolicyConfigurationClicked={isPolicyConfigurationClickedState}
+			searchLibraryInput={searchLibraryInputState}
 			isSortByOnView={isSortByOnViewState}
 			selectedSortByOptionIndex={selectedSortByOptionIndexState}
 			isCreatePolicyDisabled={isCreatePolicyDisabledState}
@@ -80,6 +87,7 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}
+			onSearchLibraryInput={onSearchLibraryInput}
 			onSelectedSortBy={onSelectedSortBy}
 			onSelectType={onSelectType}
 			onSelectCategory={onSelectCategory}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { IGroup } from '@/interfaces/group';
 
@@ -12,12 +12,20 @@ interface IProps {
 }
 
 const GroupsSidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const [searchGroupInputState, setSearchGroupInputState] = useState<string | null>(null);
+
+	const onSearchGroupInput = (input: string) => {
+		setSearchGroupInputState(() => input);
+	};
+
 	return (
 		<GroupsSidebarView
 			groupsList={props.groupsList}
 			selectedGroupIndex={props.selectedGroupIndex}
+			searchGroupInput={searchGroupInputState}
 			onCreateNewGroup={props.onCreateNewGroup}
 			onSelectGroup={props.onSelectGroup}
+			onSearchGroupInput={onSearchGroupInput}
 		/>
 	);
 };

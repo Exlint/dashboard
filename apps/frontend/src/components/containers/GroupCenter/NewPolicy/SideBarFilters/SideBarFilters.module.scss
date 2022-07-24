@@ -19,7 +19,13 @@
 			display: flex;
 			width: min-content;
 
-			&__type {
+			&--isSelected {
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #7a4df3;
+			}
+
+			&--notSelected {
 				font-size: 1.8rem;
 				font-weight: 460;
 				color: #5d5b7a;
@@ -47,7 +53,14 @@
 			display: flex;
 			width: min-content;
 
-			&__category {
+			&--isSelected {
+				font-size: 1.8rem;
+				font-weight: 460;
+				color: #7a4df3;
+				white-space: nowrap;
+			}
+
+			&--notSelected {
 				font-size: 1.8rem;
 				font-weight: 460;
 				color: #5d5b7a;

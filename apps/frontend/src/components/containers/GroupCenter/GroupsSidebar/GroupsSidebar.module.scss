@@ -8,6 +8,7 @@
 	width: 100%;
 	max-width: 350px;
 	background-color: #fff;
+	border-right: 3px solid #e7e7e7;
 
 	.innerSidebar {
 		display: flex;
@@ -22,6 +23,7 @@
 			border-radius: 10px;
 
 			&__input {
+				width: 100%;
 				padding: 8px 0 8px 10px;
 				margin-inline-end: 8px;
 				font-size: 1.7rem;

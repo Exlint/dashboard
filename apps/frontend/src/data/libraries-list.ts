@@ -2,11 +2,10 @@
 export const librariesList = {
 	ESLint: {
 		logo: '../assets/images/eslintLogo.png',
-		title: 'ESLint',
 		madeBy: 'Nicholas C. Zakas',
 		description: ' Code linting is a type of static analysis that is frequently',
-		type: 'type',
-		category: 'category',
+		type: 'linter',
+		category: 'Code',
 		rulesList: {
 			possibleProblems: {
 				'array-callback-return': 'enforce `return` statements in callbacks of array methods',
@@ -353,11 +352,10 @@ export const librariesList = {
 	},
 	Stylelint: {
 		logo: '../assets/images/eslintLogo.png',
-		title: 'Stylelint',
 		madeBy: 'Nicholas C. Zakas',
 		description: ' Code linting is a type of static analysis that is frequently',
-		type: 'type',
-		category: 'category',
+		type: 'Formatters',
+		category: 'Styles',
 		rulesList: {
 			yazif: {
 				'color-no-invalid-hex': 'Disallow invalid hex colors.',
@@ -650,13 +648,12 @@ export const librariesList = {
 			},
 		},
 	},
-	Yazif: {
+	aazif: {
 		logo: '../assets/images/eslintLogo.png',
-		title: 'ESLint',
 		madeBy: 'Nicholas C. Zakas',
 		description: ' Code linting is a type of static analysis that is frequently',
-		type: 'type',
-		category: 'category',
+		type: 'Formatters',
+		category: 'Dependencies',
 		rulesList: {
 			//from index 0 to index 83 catagory- Possible Problems
 			//from index 84 to index 150 catagory- suggestions

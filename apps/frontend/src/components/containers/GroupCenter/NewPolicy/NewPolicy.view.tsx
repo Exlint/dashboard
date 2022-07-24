@@ -7,6 +7,7 @@ import EDSvg from '@/ui/EDSvg';
 import SelectFromOptions from '@/ui/SelectFromOptions';
 
 import { sortByOptions } from '@/data/new-policy-sort-by-options';
+import { categories, types } from '@/data/policies-filter';
 
 import SideBarFilters from './SideBarFilters';
 import LibrariesList from './LibrariesList';
@@ -19,6 +20,7 @@ interface IProps {
 	readonly selectedLibrary: ILibrary | null;
 	readonly policyLabelInput: string | null;
 	readonly isPolicyConfigurationClicked: boolean | null;
+	readonly searchLibraryInput: string | null;
 	readonly isSortByOnView: boolean;
 	readonly selectedSortByOptionIndex: number | null;
 	readonly isCreatePolicyDisabled: boolean;
@@ -28,6 +30,7 @@ interface IProps {
 	readonly onCancelSelectedLibrary: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
+	readonly onSearchLibraryInput: (input: string) => void;
 	readonly onSelectedSortBy: (index: number) => void;
 	readonly toggleSortBy: () => void;
 	readonly onSelectType: (index: number) => void;
@@ -36,6 +39,8 @@ interface IProps {
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
+	const selectedTypeFromFilter = types[props.selectedTypeIndex];
+	const selectedCetegotyFromFilter = categories[props.selectedCategoryIndex];
 
 	return (
 		<section className={classes['newPolicy']}>
@@ -72,6 +77,9 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								<input
 									className={classes['libraryInputContainer__input']}
 									placeholder="Search library"
+									onChange={({ currentTarget: { value } }) =>
+										props.onSearchLibraryInput(value)
+									}
 								/>
 							</div>
 						</div>
@@ -98,6 +106,10 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					/>
 					<LibrariesList
 						selectedLibrary={props.selectedLibrary}
+						searchLibraryInput={props.searchLibraryInput}
+						selectedSortByOptionIndex={props.selectedSortByOptionIndex}
+						selectedTypeFromFilter={selectedTypeFromFilter!}
+						selectedCetegotyFromFilter={selectedCetegotyFromFilter!}
 						onSelectedLibrary={props.onSelectedLibrary}
 						onCancelSelectedLibrary={props.onCancelSelectedLibrary}
 					/>

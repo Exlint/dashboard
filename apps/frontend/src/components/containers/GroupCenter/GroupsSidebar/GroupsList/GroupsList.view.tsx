@@ -9,13 +9,24 @@ import classes from './GroupsList.module.scss';
 interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number;
+	readonly searchGroupInput: string | null;
 	readonly onSelectGroup: (index: number) => void;
 }
 
 const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	let filteredGroupList = props.groupsList;
+
+	if (props.searchGroupInput !== null) {
+		filteredGroupList = props.groupsList.filter(
+			(group) =>
+				group.label.includes(props.searchGroupInput!) ||
+				group.label.toLowerCase().includes(props.searchGroupInput!),
+		);
+	}
+
 	return (
 		<div className={classes['container']}>
-			{props.groupsList.map((group, index) => (
+			{filteredGroupList.map((group, index) => (
 				<>
 					<Group
 						key={group.id}

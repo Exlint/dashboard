@@ -88,6 +88,7 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						<button
 							className={classes['uniqIdCopyButton']}
 							type="button"
+							role="button"
 							onClick={props.onCopyGroupId}
 						>
 							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
