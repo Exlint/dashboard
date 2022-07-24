@@ -1,4 +1,4 @@
-import { EventBus, IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { EventBus, QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 
 import { DBGroupService } from '@/modules/database/group.service';
 

@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/Exlint/dashboard/compare/v1.10.0...v1.11.0) (2022-07-21)
+
+
+### Features
+
+* 🔥 support cli auth ([a9a7261](https://github.com/Exlint/dashboard/commit/a9a7261138b99da36571eab094f3aac727efa3de))
+* 🔥 support google oauth ([d3112a1](https://github.com/Exlint/dashboard/commit/d3112a1573c4b66586625ed581f4085a7f8dad5f))
+
 # [1.10.0](https://github.com/Exlint/dashboard/compare/v1.9.0...v1.10.0) (2022-07-16)
 
 

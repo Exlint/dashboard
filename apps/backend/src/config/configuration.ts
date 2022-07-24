@@ -1,4 +1,4 @@
-import { IEnvironment } from './env.interface';
+import type { IEnvironment } from './env.interface';
 
 const EnvConfiguration = (): IEnvironment => ({
 	nodeEnv: process.env.NODE_ENV,

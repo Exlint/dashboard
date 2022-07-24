@@ -1,7 +1,7 @@
 // * Hook logic is inspired by https://stackoverflow.com/questions/63118511/custom-http-hook-using-axios
 
 import { useState } from 'react';
-import axios, { AxiosResponse, AxiosError, AxiosRequestHeaders, Method } from 'axios';
+import axios, { type AxiosResponse, type AxiosError, type AxiosRequestHeaders, type Method } from 'axios';
 
 interface IHTTPResponeData {}
 

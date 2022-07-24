@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import brandTextLogo from '@/images/brand-text-logo.png';
+import ExternalAction from '@/layout/ExternalAction';
 
 import classes from './ExternalAuthRedirect.module.scss';
 
@@ -11,34 +11,20 @@ const ExternalAuthRedirectView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<>
-			<header className={classes['header']}>
-				<img className={classes['header__img']} src={brandTextLogo} alt="Exlint" />
-			</header>
+		<ExternalAction>
+			<h2 className={classes['header']}>
+				{t('redirect.header')}
+				...
+			</h2>
 
-			<main className={classes['main']}>
-				<h2 className={classes['redirectHeader']}>
-					{t('redirect.header')}
-					...
-				</h2>
-
-				<div className={classes['redirectSubTextContainer']}>
-					<span className={classes['redirectSubText']}>{t('redirect.subText')}</span>
-					&nbsp;
-					<a className={classes['redirectSubTextLinkPostfix']} href="/">
-						{t('redirect.subTextLinkPostfix')}
-					</a>
-				</div>
-			</main>
-
-			<footer className={classes['footer']}>
-				{t('redirect.footerText')}
+			<div className={classes['subTextContainer']}>
+				<span className={classes['subTextContainer__text']}>{t('redirect.subText')}</span>
 				&nbsp;
-				<a className={classes['footer__contact']} href="mailto:contact@exlint.io">
-					contact@exlint.io
+				<a className={classes['subTextContainer__postfix']} href="/">
+					{t('redirect.subTextLinkPostfix')}
 				</a>
-			</footer>
-		</>
+			</div>
+		</ExternalAction>
 	);
 };
 

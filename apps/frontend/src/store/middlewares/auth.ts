@@ -1,7 +1,7 @@
 import { clearAllListeners, createListenerMiddleware } from '@reduxjs/toolkit';
 
-import { backendApiAxios } from '@/utils/http';
-import { IRefreshTokenResponseData } from '@/interfaces/responses';
+import { backendApi } from '@/utils/http';
+import type { IRefreshTokenResponseData } from '@/interfaces/responses';
 
 import { authActions } from '../reducers/auth';
 import { ACCESS_TOKEN_REFRESH_TIMEOUT } from '../models/auth';
@@ -19,7 +19,7 @@ listenerMiddleware.startListening({
 });
 
 listenerMiddleware.startListening({
-	actionCreator: authActions.login,
+	actionCreator: authActions.auth,
 	effect: async (_, listnerApi) => {
 		let isLoggedIn = true;
 
@@ -27,9 +27,7 @@ listenerMiddleware.startListening({
 			await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
 
 			try {
-				const response = await backendApiAxios.post<IRefreshTokenResponseData>(
-					'/user/auth/refresh-token',
-				);
+				const response = await backendApi.post<IRefreshTokenResponseData>('/user/auth/refresh-token');
 
 				sessionStorage.setItem('token', response.data.accessToken);
 			} catch {
