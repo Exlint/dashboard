@@ -42,6 +42,7 @@ const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<
 				<button
 					className={classes['moreOptionsButton']}
 					type="button"
+					role="button"
 					disabled={props.isDisabled}
 					onClick={props.onSelectOptionsButton}
 				>
@@ -65,6 +66,7 @@ const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<
 						className={classes['selectedOptionsInvisible__option']}
 						key="index"
 						type="button"
+						role="button"
 						onClick={() => props.onSelectedOption(index)}
 					>
 						{option}
