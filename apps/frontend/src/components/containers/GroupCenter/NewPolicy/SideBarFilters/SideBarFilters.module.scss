@@ -1,7 +1,7 @@
 .sideBarFilters {
 	display: flex;
 	flex-direction: column;
-	width: 15%;
+	width: 20%;
 	overflow-y: auto;
 
 	.typesContainer {
@@ -51,6 +51,7 @@
 				font-size: 1.8rem;
 				font-weight: 460;
 				color: #5d5b7a;
+				white-space: nowrap;
 			}
 		}
 

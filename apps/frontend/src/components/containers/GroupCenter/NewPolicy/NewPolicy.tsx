@@ -21,6 +21,10 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const [isCreatePolicyDisabledState, setIsCreatePolicyDisabledState] = useState<boolean>(true);
 
+	const [selectedTypeIndexState, setSelectedTypeIndexState] = useState<number>(0);
+
+	const [selectedCategoryIndexState, setSelectedCategoryIndexState] = useState<number>(0);
+
 	const onSelectedLibrary = (library: ILibrary) => {
 		setSelectedLibraryState(() => library);
 	};
@@ -52,6 +56,14 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		}
 	}, [selectedLibraryState, policyLabelInputState]);
 
+	const onSelectType = (index: number) => {
+		setSelectedTypeIndexState(() => index);
+	};
+
+	const onSelectCategory = (index: number) => {
+		setSelectedCategoryIndexState(() => index);
+	};
+
 	return (
 		<NewPolicyView
 			selectedGroupId={props.selectedGroupId}
@@ -61,12 +73,16 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isSortByOnView={isSortByOnViewState}
 			selectedSortByOptionIndex={selectedSortByOptionIndexState}
 			isCreatePolicyDisabled={isCreatePolicyDisabledState}
+			selectedTypeIndex={selectedTypeIndexState}
+			selectedCategoryIndex={selectedCategoryIndexState}
 			toggleSortBy={toggleSortBy}
 			onSelectedLibrary={onSelectedLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}
 			onSelectedSortBy={onSelectedSortBy}
+			onSelectType={onSelectType}
+			onSelectCategory={onSelectCategory}
 		/>
 	);
 };

@@ -5,7 +5,12 @@ import { types, categories } from '@/data/policies-filter';
 
 import classes from './SideBarFilters.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly selectedTypeIndex: number;
+	readonly selectedCategoryIndex: number;
+	readonly onSelectType: (index: number) => void;
+	readonly onSelectCategory: (index: number) => void;
+}
 
 const SideBarFiltersView: React.FC<IProps> = () => {
 	const { t } = useTranslation();

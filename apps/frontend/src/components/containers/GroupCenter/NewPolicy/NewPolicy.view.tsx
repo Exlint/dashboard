@@ -22,12 +22,16 @@ interface IProps {
 	readonly isSortByOnView: boolean;
 	readonly selectedSortByOptionIndex: number | null;
 	readonly isCreatePolicyDisabled: boolean;
+	readonly selectedTypeIndex: number;
+	readonly selectedCategoryIndex: number;
 	readonly onSelectedLibrary: (library: ILibrary) => void;
 	readonly onCancelSelectedLibrary: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
 	readonly onSelectedSortBy: (index: number) => void;
 	readonly toggleSortBy: () => void;
+	readonly onSelectType: (index: number) => void;
+	readonly onSelectCategory: (index: number) => void;
 }
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -86,7 +90,12 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					</div>
 				</div>
 				<div className={classes['innerLibrary']}>
-					<SideBarFilters />
+					<SideBarFilters
+						selectedTypeIndex={props.selectedTypeIndex}
+						selectedCategoryIndex={props.selectedCategoryIndex}
+						onSelectType={props.onSelectType}
+						onSelectCategory={props.onSelectCategory}
+					/>
 					<LibrariesList
 						selectedLibrary={props.selectedLibrary}
 						onSelectedLibrary={props.onSelectedLibrary}
