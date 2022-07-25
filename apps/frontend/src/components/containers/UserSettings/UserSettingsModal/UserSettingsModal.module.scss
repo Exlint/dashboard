@@ -15,6 +15,7 @@
 		.header {
 			display: flex;
 			height: 37px;
+			padding: 7px 0;
 			background-color: #202428;
 			border-radius: 5px 5px 0 0;
 
@@ -96,7 +97,7 @@
 
 			&__button {
 				padding: 12px 20px;
-				margin-top: 12px;
+				margin: 12px 0 35px;
 				font-size: 1.7rem;
 				color: #fefefe;
 				background-color: #202428;

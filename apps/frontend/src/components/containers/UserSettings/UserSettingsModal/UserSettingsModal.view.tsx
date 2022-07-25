@@ -45,7 +45,13 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 							<span className={classes['body__actionText']}>
 								{t('userSettingsModal.actionText')}
 								&nbsp;
-								<span className={concatClasses(classes, 'body__actionText', 'body--redText')}>
+								<span
+									className={concatClasses(
+										classes,
+										'body__actionText',
+										'body__actionText--redText',
+									)}
+								>
 									{t('userSettingsModal.actionPhraseText')}
 								</span>
 							</span>

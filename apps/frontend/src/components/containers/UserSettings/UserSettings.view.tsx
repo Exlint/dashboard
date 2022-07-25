@@ -20,16 +20,18 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	return (
 		<div className={classes['container']}>
 			<SettingsSidebar />
-			<main className={classes['innerWrapper']}>
-				<section className={classes['userSettings']}>
-					<h3 className={classes['userSettings__title']}>{t('userSettings.title')}</h3>
-					<div className={classes['mainSection']}>
-						<div className={classes['details']}>
+			<main className={classes['main']}>
+				<section className={classes['userSettingsSection']}>
+					<h3 className={classes['userSettingsSection__title']}>{t('userSettings.title')}</h3>
+					<div className={classes['body']}>
+						<div className={classes['usernameWrapper']}>
 							<EDSvg
-								className={classes['details__icon']}
+								className={classes['usernameWrapper__icon']}
 								name="userSettingsDefaultProfilePicture"
 							/>
-							<span className={classes['details__username']}>{t('userSettings.username')}</span>
+							<span className={classes['usernameWrapper__username']}>
+								{t('userSettings.username')}
+							</span>
 						</div>
 						<div className={classes['actionsWrapper']}>
 							<div className={classes['action']}>
