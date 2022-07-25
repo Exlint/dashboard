@@ -13,26 +13,26 @@ const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	const { t } = useTranslation();
 
 	return (
-		<section className={classes['container']}>
+		<aside className={classes['container']}>
 			<div className={classes['sidebar']}>
 				<div className={classes['headerContainer']}>
 					<h2 className={classes['headerContainer__title']}>{t('settingsSidebar.title')}</h2>
-					<hr className={classes['headerContainer__divider']} />
 				</div>
+				<hr className={classes['divider']} />
 				<div className={classes['userDetalis']}>
 					<div className={classes['usernameContainer']}>
 						<EDSvg
 							name="userSettingsSidebarDefultProfilePicture"
-							className={classes['usernameContainer__profile']}
+							className={classes['usernameContainer__profileIcon']}
 						/>
-						<span className={classes['usernameContainer__details']}>
-							{t('settingsSidebar.subText')}
+						<span className={classes['usernameContainer__usernameText']}>
+							{t('settingsSidebar.username')}
 						</span>
 					</div>
-					<span className={classes['usernameContainer__userName']}>{props.name}</span>
+					<span className={classes['usernameContainer__username']}>{props.name}</span>
 				</div>
 			</div>
-		</section>
+		</aside>
 	);
 };
 

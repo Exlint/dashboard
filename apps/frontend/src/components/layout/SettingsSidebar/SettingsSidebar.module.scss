@@ -22,39 +22,39 @@
 				font-weight: 600;
 				color: #4b4a65;
 			}
+		}
 
-			&__divider {
-				width: 100%;
-				border: 0;
-				border-top: 2px solid #e7e7e7;
-			}
+		.divider {
+			width: 100%;
+			border: 0;
+			border-top: 2px solid #e7e7e7;
 		}
 
 		.userDetalis {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			padding-inline-start: 22px;
+			padding: 0 22px;
 			margin-top: 29px;
 
 			.usernameContainer {
 				display: flex;
 				align-items: center;
 
-				&__profile {
+				&__profileIcon {
 					width: 20px;
 					height: 29px;
 					margin-right: 7px;
 					fill: #8b8b8b;
 				}
 
-				&__details {
+				&__usernameText {
 					font-size: 2rem;
 					font-weight: 600;
 					color: #8b8b8b;
 				}
 
-				&__userName {
+				&__username {
 					margin-top: 7px;
 					font-size: 2.1rem;
 					font-weight: 457;

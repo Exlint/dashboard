@@ -11,7 +11,7 @@ const EDBackdropView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 	const backdropRoot = document.getElementById('backdrop-root') as HTMLElement;
 
 	return ReactDOM.createPortal(
-		<div className={classes['backdrop']} onClick={props.onBackdropClick} />,
+		<div className={classes['container']} onClick={props.onBackdropClick} />,
 		backdropRoot,
 	);
 };

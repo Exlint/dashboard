@@ -18,11 +18,11 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	const { t } = useTranslation();
 
 	return (
-		<main className={classes['container']}>
+		<div className={classes['container']}>
 			<SettingsSidebar />
-			<section className={classes['innerWrapper']}>
-				<div className={classes['userSettings']}>
-					<h1 className={classes['userSettings__title']}>{t('userSettings.title')}</h1>
+			<main className={classes['innerWrapper']}>
+				<section className={classes['userSettings']}>
+					<h3 className={classes['userSettings__title']}>{t('userSettings.title')}</h3>
 					<div className={classes['mainSection']}>
 						<div className={classes['details']}>
 							<EDSvg
@@ -57,9 +57,9 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
-		</main>
+				</section>
+			</main>
+		</div>
 	);
 };
 

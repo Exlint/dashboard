@@ -31,14 +31,14 @@ const en = {
 	userSettingsModal: {
 		bar: 'Cancel',
 		upperText: 'You are about to delete your user:',
-		middleText: 'All saved data, groups, policies and configurations will be lost',
-		lowerText: 'To confirm, type',
-		subLowerText: 'DELETE-USER',
+		details: 'All saved data, groups, policies and configurations will be lost',
+		actionText: 'To confirm, type',
+		actionPhraseText: 'DELETE-USER',
 		confirmButton: 'Confirm',
 	},
 	settingsSidebar: {
 		title: 'Settings',
-		subText: 'Username',
+		username: 'Username',
 	},
 	cliAuth: {
 		header: 'Authenticate for CLI',
