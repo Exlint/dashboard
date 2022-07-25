@@ -35,6 +35,9 @@ jobs:
             - name: Check Typescript
               run: pnpm type-check && pnpm -r --parallel type-check
 
+            - name: Check Prettier
+              run: pnpm prettier
+
             - name: Check ESLint
               run: pnpm lint && pnpm -r --parallel lint
 

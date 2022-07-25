@@ -23,7 +23,8 @@
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
 		"type-check": "tsc --project ./tsconfig.json",
 		"inflint": "inflint -c ./inflint.config.ts",
-		"depcheck": "depcheck --config ./.depcheckrc.json"
+		"depcheck": "depcheck --config ./.depcheckrc.json",
+		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.0.3",
