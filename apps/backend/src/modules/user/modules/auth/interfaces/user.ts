@@ -1,6 +1,6 @@
-import { User, ClientSecret } from '@prisma/client';
+import type { User, ClientSecret } from '@prisma/client';
 
-import { IGroupData } from './groups-data';
+import type { IGroupData } from './groups-data';
 
 interface ILoggedUserClientSecrets {
 	clientSecrets: Pick<ClientSecret, 'id' | 'label' | 'expiration' | 'createdAt'>[];

@@ -1,4 +1,4 @@
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 
 export interface IGroup {
 	readonly id: string;

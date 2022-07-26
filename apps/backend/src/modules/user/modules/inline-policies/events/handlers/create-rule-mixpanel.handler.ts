@@ -1,8 +1,8 @@
 import { ConfigService } from '@nestjs/config';
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
+import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
 import Mixpanel from 'mixpanel';
 
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
 import { CreateRuleMixpanelContract } from '../contracts/create-rule-mixpanel.contract';
 import { RULE_CREATE } from '../../models/mixpanel-events';

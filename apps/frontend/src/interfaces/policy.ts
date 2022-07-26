@@ -1,4 +1,4 @@
-import { IRule } from './rule';
+import type { IRule } from './rule';
 
 export interface IPolicy {
 	readonly id: string;

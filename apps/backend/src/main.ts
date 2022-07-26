@@ -8,7 +8,7 @@ import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
 import { LoggingInterceptor } from './interceptors/logger.interceptor';
 import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from './models/jwt-token';
-import { IEnvironment } from './config/env.interface';
+import type { IEnvironment } from './config/env.interface';
 
 async function bootstrap() {
 	const prisma = new PrismaClient();

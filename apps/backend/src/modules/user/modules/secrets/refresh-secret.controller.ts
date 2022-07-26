@@ -2,7 +2,7 @@ import { Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } fro
 import { QueryBus } from '@nestjs/cqrs';
 
 import { BelongingSecretGuard } from './guards/belonging-secret.guard';
-import { IRefreshClientSecret } from './interfaces/responses';
+import type { IRefreshClientSecret } from './interfaces/responses';
 import { RefreshSecretContract } from './queries/contracts/refresh-secret.contract';
 import Routes from './secrets.routes';
 

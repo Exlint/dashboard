@@ -1,4 +1,4 @@
-import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 
 import { DBClientSecretService } from '@/modules/database/client-secret.service';
 

@@ -5,7 +5,7 @@ import { RealIP } from 'nestjs-real-ip';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './groups.routes';
-import { ICreateGroup } from './interfaces/responses';
+import type { ICreateGroup } from './interfaces/responses';
 import { CreateGroupContract } from './queries/contracts/create-group.contact';
 
 @Controller(Routes.CONTROLLER)

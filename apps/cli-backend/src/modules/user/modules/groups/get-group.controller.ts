@@ -6,8 +6,8 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from './guards/belonging-group.guard';
 import Routes from './groups.routes';
 import { GetGroupContract } from './queries/contracts/get-group.contract';
-import { IGetGroup } from './interfaces/responses';
-import { ICliGroup } from './interfaces/cli-group';
+import type { IGetGroup } from './interfaces/responses';
+import type { ICliGroup } from './interfaces/cli-group';
 
 @Controller(Routes.CONTROLLER)
 export class GetGroupController {

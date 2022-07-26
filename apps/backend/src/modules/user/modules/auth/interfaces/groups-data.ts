@@ -1,4 +1,4 @@
-import { PolicyLibrary, Prisma } from '@prisma/client';
+import type { PolicyLibrary, Prisma } from '@prisma/client';
 
 export interface IGroupData {
 	id: string;

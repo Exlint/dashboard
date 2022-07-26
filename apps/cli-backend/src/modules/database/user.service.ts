@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
 
 import { PrismaService } from './prisma.service';
 
@@ -11,23 +10,6 @@ export class DBUserService {
 		const user = await this.prisma.user.findUnique({ where: { id: userId } });
 
 		return !!user;
-	}
-
-	public findByEmail(email: string, select: Prisma.UserSelect) {
-		return this.prisma.user.findUnique({
-			where: { email },
-			select,
-		});
-	}
-
-	public findExternalUserByEmail(email: string) {
-		return this.prisma.user.findUnique({
-			where: { email },
-			select: {
-				id: true,
-				authType: true,
-			},
-		});
 	}
 
 	public async isRefreshTokenValid(userId: string, token: string) {

@@ -8,7 +8,7 @@ import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 import Routes from './inline-policies.routes';
 import { CreateInlineDto } from './classes/create-inline.dto';
 import { CreateInlineContract } from './queries/contracts/create-inline.contract';
-import { ICreateInlinePolicy } from './interfaces/responses';
+import type { ICreateInlinePolicy } from './interfaces/responses';
 
 @Controller(Routes.CONTROLLER)
 export class CreateInlineController {
