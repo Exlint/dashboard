@@ -29,11 +29,12 @@ const en = {
 		logoutAction: 'Log-out',
 	},
 	userSettingsModal: {
-		bar: 'Cancel',
+		cancelButton: 'Cancel',
 		upperText: 'You are about to delete your user:',
 		details: 'All saved data, groups, policies and configurations will be lost',
 		actionText: 'To confirm, type',
 		actionPhraseText: 'DELETE-USER',
+		inputPlaceholder: 'Type here',
 		confirmButton: 'Confirm',
 	},
 	settingsSidebar: {
