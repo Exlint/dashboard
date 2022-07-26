@@ -14,7 +14,7 @@ interface IProps {
 	readonly isLabelOnEdit: boolean;
 	readonly copyGroupId: boolean;
 	readonly isMoreInfoClicked: boolean;
-	readonly onLabelOnEdit: (isEdit: boolean) => void;
+	readonly onEditLabelClick: (isEdit: boolean) => void;
 	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
 	readonly onUpdateGroupLabel: () => void;
 	readonly onCancelLabelChanges: () => void;
@@ -31,14 +31,14 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<div className={classes['groupLabelContainer']}>
 						<span
 							className={classes['groupLabelContainer__label']}
-							onDoubleClick={() => props.onLabelOnEdit(true)}
+							onDoubleClick={() => props.onEditLabelClick(true)}
 						>
 							{props.groupLabel}
 						</span>
 						<button
 							type="button"
 							className={classes['editLabelButton']}
-							onClick={() => props.onLabelOnEdit(true)}
+							onClick={() => props.onEditLabelClick(true)}
 						>
 							<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
 						</button>

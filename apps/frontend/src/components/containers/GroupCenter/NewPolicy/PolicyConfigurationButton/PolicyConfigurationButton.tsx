@@ -3,13 +3,12 @@ import type { AxiosError } from 'axios';
 // Import uniqid from 'uniqid';
 
 import { backendApi } from '@/utils/http';
-import type { ILibrary } from '@/interfaces/library';
 
 import PolicyConfigurationButtonView from './PolicyConfigurationButton.view';
 
 interface IProps {
 	readonly selectedGroupId: string;
-	readonly selectedLibrary: ILibrary | null;
+	readonly selectedLibraryName: string | undefined;
 	readonly policyLabelInput: string | null;
 	readonly isButtonDisabled: boolean;
 }
@@ -17,7 +16,10 @@ interface IProps {
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewPolicy = () => {
 		backendApi
-			.post('/create-policy', { groupId: props.selectedGroupId, library: props.selectedLibrary })
+			.post(`/user/inline-policies/create/${props.selectedGroupId}`, {
+				label: props.policyLabelInput,
+				library: props.selectedLibraryName,
+			})
 			.then(() => {
 				//TODO: should link to other url
 			})

@@ -18,7 +18,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const groupId = props.selectedGroup.id;
 
-	const onLabelOnEdit = (isEdit: boolean) => {
+	const onEditLabelClick = (isEdit: boolean) => {
 		setIsLabelOnEditState(() => isEdit);
 	};
 
@@ -36,7 +36,9 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		}
 
 		backendApi
-			.post('/edit-group-label', { groupId: props.selectedGroup.id, label: newGroupLabel })
+			.post(`/user/groups/edit-label/${props.selectedGroup.id}`, {
+				label: newGroupLabel,
+			})
 			.then()
 			.catch((err: AxiosError) => {
 				alert(err.response?.data);
@@ -62,7 +64,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const onDeleteGroup = () => {
 		backendApi
-			.post('/delete-group', { groupId: props.selectedGroup.id })
+			.post(`/user/groups/delete/${props.selectedGroup.id}`)
 			.then()
 			.catch((err: AxiosError) => {
 				alert(err.response?.data);
@@ -70,7 +72,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	useEffect(() => {
-		setGroupLabelState(() => props.selectedGroup.label);
+		setGroupLabelState(() => props.selectedGroup.label!);
 	}, [props.selectedGroup]);
 
 	return (
@@ -80,7 +82,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isLabelOnEdit={isLabelOnEditState}
 			copyGroupId={copyGroupIdState}
 			isMoreInfoClicked={isMoreInfoClickedState}
-			onLabelOnEdit={onLabelOnEdit}
+			onEditLabelClick={onEditLabelClick}
 			onChangeGroupLabel={onChangeGroupLabel}
 			onUpdateGroupLabel={onUpdateGroupLabel}
 			onCancelLabelChanges={onCancelLabelChanges}

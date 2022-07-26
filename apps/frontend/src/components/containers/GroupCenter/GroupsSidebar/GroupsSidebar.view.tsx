@@ -41,7 +41,7 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						<span className={classes['buttonContainer__text']}>
 							{t('groupCenter.groupSideBar.newGroupButton')}
 						</span>
-						<EDSvg name="plusIcon" className={classes['buttonContainer__icon']} />
+						<EDSvg name="plus" className={classes['buttonContainer__icon']} />
 					</button>
 				</div>
 				<hr className={classes['dividerLine']} />

@@ -39,6 +39,7 @@ interface IProps {
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
+	const selectedLibraryName = props.selectedLibrary?.title;
 	const selectedTypeFromFilter = types[props.selectedTypeIndex];
 	const selectedCetegotyFromFilter = categories[props.selectedCategoryIndex];
 
@@ -52,7 +53,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<div className={classes['policyConfigurationButtonContainer']}>
 						<PolicyConfigurationButton
 							selectedGroupId={props.selectedGroupId}
-							selectedLibrary={props.selectedLibrary}
+							selectedLibraryName={selectedLibraryName}
 							policyLabelInput={props.policyLabelInput}
 							isButtonDisabled={props.isCreatePolicyDisabled}
 						/>
@@ -77,7 +78,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								{t('groupCenter.newPolicy.library')}
 							</span>
 							<div className={classes['libraryInputContainer']}>
-								<EDSvg className={classes['libraryInputContainer__icon']} name="searchIcon" />
+								<EDSvg className={classes['libraryInputContainer__icon']} name="search" />
 								<input
 									className={classes['libraryInputContainer__input']}
 									placeholder="Search library"

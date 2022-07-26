@@ -16,8 +16,8 @@ const GroupCenter: React.FC<IProps> = () => {
 	const currentDate = moment();
 
 	useEffect(() => {
-		backendApi.get<IGetGroupsResponseData>('/group-list/', {}).then((response) => {
-			setGroupsListState(response.data.groupsList);
+		backendApi.get<IGetGroupsResponseData>('/user/groups/group-list').then((response) => {
+			setGroupsListState(() => response.data.groupsList);
 
 			if (response.data.groupsList.length > 0) {
 				setSelectGroupIndexState(() => 0);
@@ -27,7 +27,7 @@ const GroupCenter: React.FC<IProps> = () => {
 
 	const onCreateNewGroup = () => {
 		backendApi
-			.post<ICreateGroupResponseData>('/create-group/')
+			.post<ICreateGroupResponseData>('/user/groups/create')
 			.then((response) => {
 				setGroupsListState((prev) => {
 					return [

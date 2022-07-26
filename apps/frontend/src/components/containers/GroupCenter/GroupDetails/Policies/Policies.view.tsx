@@ -32,7 +32,7 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						<span className={classes['buttonContainer__text']}>
 							{t('groupCenter.groupDetails.policies.newPolicyButton')}
 						</span>
-						<EDSvg name="plusIcon" className={classes['buttonContainer__icon']} />
+						<EDSvg name="plus" className={classes['buttonContainer__icon']} />
 					</button>
 				</div>
 			</div>

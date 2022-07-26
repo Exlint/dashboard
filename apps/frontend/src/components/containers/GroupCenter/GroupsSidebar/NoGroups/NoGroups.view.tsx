@@ -16,7 +16,7 @@ const NoGroupsView: React.FC<IProps> = () => {
 				<h3 className={classes['innerCreateGroup__title']}>
 					{t('groupCenter.groupSideBar.noGroup.header')}
 				</h3>
-				<EDSvg name="createGroupIcon" className={classes['createGroupIcon']} />
+				<EDSvg name="createGroup" className={classes['createGroupIcon']} />
 			</div>
 		</div>
 	);
