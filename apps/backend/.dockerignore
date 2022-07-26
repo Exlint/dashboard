@@ -1,0 +1,10 @@
+tsconfig.tsbuildinfo
+.gitignore
+.eslintrc.cjs
+.eslintignore
+node_modules
+dist
+tsconfig.json
+tsconfig.doc.json
+tsconfig.eslint.json
+.depcheckrc.json

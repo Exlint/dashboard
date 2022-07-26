@@ -8,7 +8,7 @@ services:
         networks:
             - mongo_network
         volumes:
-            - ./docker/mongo-setup.sh:/scripts/mongo-setup.sh
+            - ./docker/scripts/mongo-setup.sh:/scripts/mongo-setup.sh
         entrypoint: ['sh', '/scripts/mongo-setup.sh']
     mongo_replica_1:
         container_name: mongo_replica_1
@@ -76,7 +76,59 @@ services:
             - ./.volumes/mongo/replica3/configdb:/data/configdb
         networks:
             - mongo_network
-
+    backend:
+        container_name: backend
+        build:
+            context: ./docker
+            dockerfile: Dockerfile.api-dev
+            args:
+                - API_NAME=backend
+        env_file:
+            - ./apps/backend/envs/.env.development
+            - ./docker/envs/.env.development
+        ports:
+            - ${PORT}:${PORT}
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - mongo_network
+    cli-backend:
+        container_name: cli-backend
+        build:
+            context: ./docker
+            dockerfile: Dockerfile.api-dev
+            args:
+                - API_NAME=cli-backend
+        env_file:
+            - ./apps/cli-backend/envs/.env.development
+            - ./docker/envs/.env.development
+        ports:
+            - ${PORT}:${PORT}
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - mongo_network
+    frontend:
+        container_name: frontend
+        build:
+            context: ./docker
+            dockerfile: Dockerfile.frontend-dev
+        env_file:
+            - ./apps/frontend/.env.development
+        ports:
+            - ${PORT}:${PORT}
+        restart: always
+        depends_on:
+            - backend
+            - cli-backend
+        networks:
+            - mongo_network
 networks:
     mongo_network:
         driver: bridge

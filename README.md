@@ -14,7 +14,7 @@ Install `pnpm` globally
   npm i -g pnpm
 ```
 
-## Run Locally
+## Run locally with Docker
 
 Clone the project
 
@@ -28,12 +28,6 @@ Go to the project directory
   cd dashboard
 ```
 
-Install dependencies
-
-```bash
-  pnpm -r install
-```
-
 **In order to run the database with docker please append your `/etc/hosts` with:**
 
 ```
@@ -42,26 +36,10 @@ Install dependencies
 127.0.0.1 mongo_replica_3
 ```
 
-Sync Prisma with the database configuration
+Run the project cluster:
 
 ```bash
-  cd ./apps/backend
-  pnpm prisma-gen
-
-  cd ../cli-backend
-  pnpm prisma-gen
-```
-
-Run the database in development mode
-
-```bash
-  pnpm db:start
-```
-
-Start both the backend, cli-backend and frontend
-
-```bash
-  pnpm -r start:dev
+  pnpm cluster:start
 ```
 
 ## Push code
@@ -80,20 +58,20 @@ When you want to configure the database with more indices, collections and such,
   pnpm prisma-push:dev
 ```
 
-## Stop the database server
+## Stop the cluster
 
-When you want to stop the database server
+When you want to stop the cluster
 
 ```bash
-  pnpm db:stop
+  pnpm cluster:stop
 ```
 
-## Restart the database server
+## Restart the cluster
 
-When you want to restart the database server
+When you want to restart the cluster
 
 ```bash
-  pnpm db:restart
+  pnpm cluster:restart
 ```
 
 ## Clean the database
@@ -124,12 +102,12 @@ When you want look at the cli-backend documentation
 
 ## Backend OpenAPI
 
-When you want look at the backend OpenAPI (Swagger), you need to run the application in development mode.
+When you want look at the backend OpenAPI (Swagger), you need to run the cluster.
 Then, you can browse to `http://localhost:3000/api` (replace the port if you use other port)
 
 ## Cli backend OpenAPI
 
-When you want look at the cli backend OpenAPI (Swagger), you need to run the application in development mode.
+When you want look at the cli backend OpenAPI (Swagger), you need to run the cluster.
 Then, you can browse to `http://localhost:5000/api` (replace the port if you use other port)
 
 ## Improvements
