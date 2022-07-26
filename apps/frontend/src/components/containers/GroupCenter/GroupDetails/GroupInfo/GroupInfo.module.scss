@@ -66,7 +66,7 @@
 			align-items: center;
 
 			.updateChangesButton {
-				margin-right: 5px;
+				margin-inline-end: 5px;
 
 				&__icon {
 					fill: transparent;
@@ -89,7 +89,7 @@
 			align-items: center;
 
 			&__text {
-				margin-right: 2px;
+				margin-inline-end: 2px;
 				font-size: 1.8rem;
 				font-weight: 460;
 				color: #4b4a65;

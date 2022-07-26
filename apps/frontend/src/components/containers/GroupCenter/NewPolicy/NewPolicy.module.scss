@@ -95,7 +95,7 @@
 						align-items: center;
 						width: 100%;
 						padding: 8px 0 8px 21px;
-						margin-left: 4px;
+						margin-inline-start: 4px;
 						background-color: #fefefe;
 						border: 2px solid #e7e7e7;
 						border-radius: 10px;
@@ -104,7 +104,7 @@
 						&__icon {
 							width: 15px;
 							height: 15px;
-							margin-right: 7px;
+							margin-inline-end: 7px;
 							fill: #8b8b8b;
 						}
 
