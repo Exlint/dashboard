@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
+import moment from 'moment';
 
 import { backendApiAxios } from '@/utils/http';
 import { IGroup } from '@/interfaces/group';
 import { ICreateGroupResponseData, IGetGroupsResponseData } from '@/interfaces/responses';
-import { currentDate } from '@/utils/current-date';
 
 import GroupCenterView from './GroupCenter.view';
 
@@ -13,6 +13,7 @@ interface IProps {}
 const GroupCenter: React.FC<IProps> = () => {
 	const [groupsListState, setGroupsListState] = useState<IGroup[]>([]);
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
+	const currentDate = moment();
 
 	useEffect(() => {
 		backendApiAxios.get<IGetGroupsResponseData>('/group-list/', {}).then((response) => {
@@ -33,7 +34,7 @@ const GroupCenter: React.FC<IProps> = () => {
 						...prev,
 						{
 							label: 'New Group',
-							createdAt: currentDate(),
+							createdAt: currentDate.format('MMMM Do YYYY'),
 							id: response.data.id,
 							policies: [],
 						},
