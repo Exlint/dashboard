@@ -17,3 +17,8 @@ export interface IGetGroupsResponseData {
 export interface ICreateGroupResponseData {
 	readonly id: string;
 }
+
+export interface ICliAuthResponseData {
+	readonly cliToken: string;
+	readonly email: string;
+}

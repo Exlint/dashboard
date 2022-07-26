@@ -43,6 +43,6 @@ export class AuthController {
 
 		this.logger.log(`Successfully generated a CLI token for user with Id: "${userId}"`);
 
-		return { cliToken };
+		return { cliToken, email: userEmail };
 	}
 }
