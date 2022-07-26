@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 import { concatClasses } from '@/utils/component';
 
 import classes from './Group.module.scss';

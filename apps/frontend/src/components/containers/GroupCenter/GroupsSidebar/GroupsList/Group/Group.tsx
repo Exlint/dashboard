@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 
 import GroupView from './Group.view';
 

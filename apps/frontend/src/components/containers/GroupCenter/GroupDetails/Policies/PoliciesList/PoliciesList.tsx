@@ -3,10 +3,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 
 import PoliciesListView from './PoliciesList.view';
-import { ITableData } from './interfaces/table-data';
+import type { ITableData } from './interfaces/table-data';
 
 interface IProps {
 	readonly groupPolicy: IPolicy[];

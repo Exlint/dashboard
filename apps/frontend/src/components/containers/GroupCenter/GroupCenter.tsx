@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
 import moment from 'moment';
 
-import { backendApiAxios } from '@/utils/http';
-import { IGroup } from '@/interfaces/group';
-import { ICreateGroupResponseData, IGetGroupsResponseData } from '@/interfaces/responses';
+import { backendApi } from '@/utils/http';
+import type { IGroup } from '@/interfaces/group';
+import type { ICreateGroupResponseData, IGetGroupsResponseData } from '@/interfaces/responses';
 
 import GroupCenterView from './GroupCenter.view';
 
@@ -16,17 +16,17 @@ const GroupCenter: React.FC<IProps> = () => {
 	const currentDate = moment();
 
 	useEffect(() => {
-		backendApiAxios.get<IGetGroupsResponseData>('/group-list/', {}).then((response) => {
+		backendApi.get<IGetGroupsResponseData>('/group-list/', {}).then((response) => {
 			setGroupsListState(response.data.groupsList);
 
 			if (response.data.groupsList.length > 0) {
 				setSelectGroupIndexState(() => 0);
 			}
 		});
-	}, [backendApiAxios]);
+	}, [backendApi]);
 
 	const onCreateNewGroup = () => {
-		backendApiAxios
+		backendApi
 			.post<ICreateGroupResponseData>('/create-group/')
 			.then((response) => {
 				setGroupsListState((prev) => {

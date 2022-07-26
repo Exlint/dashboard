@@ -1,9 +1,9 @@
 import React from 'react';
-import { AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
 // Import uniqid from 'uniqid';
 
-import { backendApiAxios } from '@/utils/http';
-import { ILibrary } from '@/interfaces/library';
+import { backendApi } from '@/utils/http';
+import type { ILibrary } from '@/interfaces/library';
 
 import PolicyConfigurationButtonView from './PolicyConfigurationButton.view';
 
@@ -16,7 +16,7 @@ interface IProps {
 
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewPolicy = () => {
-		backendApiAxios
+		backendApi
 			.post('/create-policy', { groupId: props.selectedGroupId, library: props.selectedLibrary })
 			.then(() => {
 				//TODO: should link to other url

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 
 import PoliciesView from './Policies.view';
 

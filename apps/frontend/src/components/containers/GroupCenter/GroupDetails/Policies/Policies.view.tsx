@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import { IPolicy } from '@/interfaces/policy';
+import type { IPolicy } from '@/interfaces/policy';
 import NoPolicies from './NoPolicies';
 
 import PoliciesList from './PoliciesList';

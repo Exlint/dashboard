@@ -1,7 +1,7 @@
 import React from 'react';
 // Import uniqid from 'uniqid';
 
-import { ILibrary } from '@/interfaces/library';
+import type { ILibrary } from '@/interfaces/library';
 import { librariesList } from '@/data/libraries-list';
 
 import Library from './Library';

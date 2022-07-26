@@ -2,7 +2,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ILibrary } from '@/interfaces/library';
+import type { ILibrary } from '@/interfaces/library';
 import EDSvg from '@/ui/EDSvg';
 import SelectFromOptions from '@/ui/SelectFromOptions';
 

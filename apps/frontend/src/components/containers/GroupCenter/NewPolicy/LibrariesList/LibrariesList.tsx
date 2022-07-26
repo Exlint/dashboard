@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ILibrary } from '@/interfaces/library';
+import type { ILibrary } from '@/interfaces/library';
 
 import LibrariesListView from './LibrariesList.view';
 

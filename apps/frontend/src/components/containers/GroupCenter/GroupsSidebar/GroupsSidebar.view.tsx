@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IGroup } from '@/interfaces/group';
+import type { IGroup } from '@/interfaces/group';
 import EDSvg from '@/ui/EDSvg';
 
 import NoGroups from './NoGroups';

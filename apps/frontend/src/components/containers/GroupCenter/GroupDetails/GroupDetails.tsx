@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IGroup } from '@/interfaces/group';
+import type { IGroup } from '@/interfaces/group';
 
 import GroupDetailsView from './GroupDetails.view';
 

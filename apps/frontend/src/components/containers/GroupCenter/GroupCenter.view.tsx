@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { IGroup } from '@/interfaces/group';
+import type { IGroup } from '@/interfaces/group';
 
 import NewPolicy from './NewPolicy';
 import GroupsSidebar from './GroupsSidebar';

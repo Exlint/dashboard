@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import React from 'react';
 
-import { ILibrary } from '@/interfaces/library';
+import type { ILibrary } from '@/interfaces/library';
 import EDVsvg from '@/ui/EDSvg';
 import tempLibraryLogo from '@/images/brand-logo.png';
 

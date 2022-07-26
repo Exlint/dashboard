@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { IGroup } from '@/interfaces/group';
+import type { IGroup } from '@/interfaces/group';
 
 import GroupsSidebarView from './GroupsSidebar.view';
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
 
-import { IGroup } from '@/interfaces/group';
-import { backendApiAxios } from '@/utils/http';
+import type { IGroup } from '@/interfaces/group';
+import { backendApi } from '@/utils/http';
 
 import GroupInfoView from './GroupInfo.view';
 
@@ -35,7 +35,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			newGroupLabel = props.selectedGroup.label;
 		}
 
-		backendApiAxios
+		backendApi
 			.post('/edit-group-label', { groupId: props.selectedGroup.id, label: newGroupLabel })
 			.then()
 			.catch((err: AxiosError) => {
@@ -61,7 +61,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onDeleteGroup = () => {
-		backendApiAxios
+		backendApi
 			.post('/delete-group', { groupId: props.selectedGroup.id })
 			.then()
 			.catch((err: AxiosError) => {
