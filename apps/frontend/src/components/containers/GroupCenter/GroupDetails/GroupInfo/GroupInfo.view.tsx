@@ -4,7 +4,7 @@ import React from 'react';
 import EDSvg from '@/ui/EDSvg';
 
 import { concatClasses } from '@/utils/component';
-import { IGroup } from '@/interfaces/group';
+import type { IGroup } from '@/interfaces/group';
 
 import classes from './GroupInfo.module.scss';
 
