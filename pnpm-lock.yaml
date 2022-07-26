@@ -264,6 +264,7 @@ importers:
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.7
       i18next: 21.8.14
+      moment: 2.29.4
       postcss: 8.4.14
       postcss-flexbugs-fixes: 5.0.2
       prettier: 2.6.2
@@ -288,6 +289,7 @@ importers:
       '@types/react-dom': 18.0.6
       axios: 0.27.2
       i18next: 21.8.14
+      moment: 2.29.4
       rc-table: 7.25.2_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -10532,6 +10534,10 @@ packages:
     hasBin: true
     dev: true
 
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
+
   /morgan/1.10.0:
     resolution: {integrity: sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ==}
     engines: {node: '>= 0.8.0'}
@@ -12420,7 +12426,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.18.6
+      '@babel/runtime': 7.18.9
       classnames: 2.3.1
       rc-util: 5.22.5_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -12435,7 +12441,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.18.6
+      '@babel/runtime': 7.18.9
       classnames: 2.3.1
       rc-resize-observer: 1.2.0_biqbaboplfbrettd7655fr4n2y
       rc-util: 5.22.5_biqbaboplfbrettd7655fr4n2y
@@ -12450,7 +12456,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.18.6
+      '@babel/runtime': 7.18.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-is: 16.13.1
