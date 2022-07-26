@@ -18,7 +18,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 			<div id="backdrop-root" />
 			<div id="overlay-root" />
 			<Routes>
-				{props.isAuthenticated === false && (
+				{!props.isAuthenticated && (
 					<>
 						<Route path="/" element={<Auth />} />
 						<Route path="/auth" element={<Auth />} />
