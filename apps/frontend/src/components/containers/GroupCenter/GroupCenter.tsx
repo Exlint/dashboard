@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { AxiosError } from 'axios';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 
 import { backendApi } from '@/utils/http';
@@ -11,6 +12,7 @@ import GroupCenterView from './GroupCenter.view';
 interface IProps {}
 
 const GroupCenter: React.FC<IProps> = () => {
+	const { t } = useTranslation();
 	const [groupsListState, setGroupsListState] = useState<IGroup[]>([]);
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
 	const currentDate = moment();
@@ -33,7 +35,7 @@ const GroupCenter: React.FC<IProps> = () => {
 					return [
 						...prev,
 						{
-							label: 'New Group',
+							label: t('groupCenter.newGroupLabel'),
 							createdAt: currentDate.format('MMMM Do YYYY'),
 							id: response.data.id,
 							policies: [],

@@ -104,7 +104,7 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						type="button"
 						onClick={props.onMoreInfoClick}
 					>
-						<EDSvg className={classes['moreInfoButton__icon']} name="moreInfoIcon" />
+						<EDSvg className={classes['moreInfoButton__icon']} name="moreOptions" />
 					</button>
 					{props.isMoreInfoClicked && (
 						<div className={classes['innerMoreInfo']}>
@@ -114,7 +114,7 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								onClick={props.onDeleteGroup}
 							>
 								<span className={classes['deleteGroup__text']}>Delete Group</span>
-								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroupIcon" />
+								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroup" />
 							</button>
 						</div>
 					)}

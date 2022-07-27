@@ -24,6 +24,7 @@ const en = {
 		},
 	},
 	groupCenter: {
+		newGroupLabel: 'New Group',
 		groupDetails: {
 			policies: {
 				header: 'Policies',
