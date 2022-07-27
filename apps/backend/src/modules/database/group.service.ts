@@ -37,7 +37,7 @@ export class DBGroupService {
 				label: true,
 				createdAt: true,
 				inlinePolicies: {
-					select: { id: true, label: true, library: true, configuration: true, createdAt: true },
+					select: { id: true, label: true, library: true, configuration: true },
 				},
 			},
 		});

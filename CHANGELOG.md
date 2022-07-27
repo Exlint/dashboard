@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
+
+
+### Features
+
+* 🔥 added controller for getting all user groups ([c3e382a](https://github.com/Exlint/dashboard/commit/c3e382aa50a297a42e62efe30e8de6da5bd8057e))
+
 # [1.11.0](https://github.com/Exlint/dashboard/compare/v1.10.0...v1.11.0) (2022-07-21)
 
 
