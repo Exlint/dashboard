@@ -18,7 +18,7 @@ import { RefreshTokenGuard } from './guards/refresh-token.guard';
 import { JwtTokenType } from './models/jwt-token';
 import Routes from './auth.routes';
 import { AutoAuthContract } from './queries/contracts/auto-auth.contract';
-import type { ILoggedUser } from './interfaces/user';
+import type { IAutoAuthLoggedUser } from './interfaces/user';
 
 @Controller(Routes.CONTROLLER)
 export class AutoAuthController {
@@ -33,7 +33,7 @@ export class AutoAuthController {
 	public async autoAuth(@CurrentUserEmail() userEmail: string): Promise<IAutoLoginResponse> {
 		this.logger.log(`Will try to auto auth with data email: "${userEmail}"`);
 
-		const loggedUser = await this.queryBus.execute<AutoAuthContract, ILoggedUser | null>(
+		const loggedUser = await this.queryBus.execute<AutoAuthContract, IAutoAuthLoggedUser | null>(
 			new AutoAuthContract(userEmail),
 		);
 
