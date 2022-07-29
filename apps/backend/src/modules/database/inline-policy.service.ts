@@ -80,4 +80,11 @@ export class DBInlinePolicyService {
 			data: { rules: rulesWithoutRule },
 		});
 	}
+
+	public getConfiguration(inlinePolicyId: string) {
+		return this.prisma.inlinePolicy.findFirst({
+			where: { id: inlinePolicyId },
+			select: { configuration: true },
+		});
+	}
 }
