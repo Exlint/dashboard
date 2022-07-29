@@ -16,14 +16,6 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 	<BrowserRouter>
 		<Suspense fallback={null}>
 			<Routes>
-				{props.isAuthenticated && (
-					<>
-						<Route path="/auth" element={<Auth />} />
-						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
-						<Route path="*" element={<Navigate replace to="/auth" />} />
-					</>
-				)}
-				{!props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
 				{props.isAuthenticated === false && (
 					<>
 						<Route path="/" element={<Auth />} />
@@ -31,6 +23,7 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					</>
 				)}
+				{props.isAuthenticated && <Route path="/group-center/*" element={<GroupCenter />} />}
 				<Route path="/cli-auth" element={<CliAuth />} />
 				<Route path="/cli-authenticated" element={<CliAuthenticated />} />
 				<Route path="/not-found" element={<NotFound />} />

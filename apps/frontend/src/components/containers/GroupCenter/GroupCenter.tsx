@@ -18,7 +18,7 @@ const GroupCenter: React.FC<IProps> = () => {
 	const currentDate = moment();
 
 	useEffect(() => {
-		backendApi.get<IGetGroupsResponseData>('/user/groups/group-list').then((response) => {
+		backendApi.get<IGetGroupsResponseData>('/user/groups/all').then((response) => {
 			setGroupsListState(() => response.data.groupsList);
 
 			if (response.data.groupsList.length > 0) {
