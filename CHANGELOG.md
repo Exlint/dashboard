@@ -1,3 +1,11 @@
+## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* 🐞 remove deprecated propety and apply JWT to refresh secret ([0b882a8](https://github.com/Exlint/dashboard/commit/0b882a85b3885ef27df8e8169de7c8ccaed81e11))
+* 🐞 secrets are generated with JWT ([3299742](https://github.com/Exlint/dashboard/commit/32997421a5cd112a03c4aff103d792319888c185))
+
 # [1.14.0](https://github.com/Exlint/dashboard/compare/v1.13.0...v1.14.0) (2022-07-29)
 
 
