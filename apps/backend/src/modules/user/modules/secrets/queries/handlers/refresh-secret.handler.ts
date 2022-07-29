@@ -13,7 +13,13 @@ export class RefreshSecretHandler implements IQueryHandler<RefreshSecretContract
 	) {}
 
 	async execute(contract: RefreshSecretContract) {
-		const secret = this.secretsService.generateSecret();
+		const expiration = await this.dbClientSecretService.getSecretExpiration(contract.secretId);
+
+		const secret = await this.secretsService.generateSecret(
+			contract.userId,
+			contract.userEmail,
+			expiration ? expiration.getTime() : null,
+		);
 
 		await this.dbClientSecretService.refreshSecret(contract.secretId, secret);
 
