@@ -1,3 +1,17 @@
+# [1.14.0](https://github.com/Exlint/dashboard/compare/v1.13.0...v1.14.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support policy config api ([3a2079a](https://github.com/Exlint/dashboard/commit/3a2079a6d2195f1c5badfefda68c83edf0c0700c))
+
+# [1.13.0](https://github.com/Exlint/dashboard/compare/v1.12.0...v1.13.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support getting secrets api ([1feba40](https://github.com/Exlint/dashboard/commit/1feba400bd0714f5e96a332dfb171a5bda0cf485))
+
 # [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
 
 
