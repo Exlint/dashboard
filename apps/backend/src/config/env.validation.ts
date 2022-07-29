@@ -43,6 +43,9 @@ class EnvironmentVariables {
 
 	@IsString()
 	public FRONTEND_URL!: string;
+
+	@IsString()
+	public CLI_TOKEN_JWT_KEY!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {
