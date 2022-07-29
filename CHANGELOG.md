@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Exlint/dashboard/compare/v1.12.0...v1.13.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support getting secrets api ([1feba40](https://github.com/Exlint/dashboard/commit/1feba400bd0714f5e96a332dfb171a5bda0cf485))
+
 # [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
 
 
