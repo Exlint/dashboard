@@ -10,15 +10,15 @@ export interface IRefreshTokenResponseData {
 	readonly accessToken: string;
 }
 
+export interface ICliAuthResponseData {
+	readonly cliToken: string;
+	readonly email: string;
+}
+
 export interface IGetGroupsResponseData {
-	readonly groupsList: IGroup[];
+	readonly groups: IGroup[];
 }
 
 export interface ICreateGroupResponseData {
 	readonly groupId: string;
-}
-
-export interface ICliAuthResponseData {
-	readonly cliToken: string;
-	readonly email: string;
 }

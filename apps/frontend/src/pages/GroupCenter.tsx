@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GroupCenter from '../components/containers/GroupCenter';
+import GroupCenter from '@/containers/GroupCenter';
 
 interface IProps {}
 

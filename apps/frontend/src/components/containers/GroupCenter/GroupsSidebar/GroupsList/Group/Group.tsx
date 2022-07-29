@@ -14,12 +14,18 @@ interface IProps {
 }
 
 const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	let slicedPolicies: IPolicy[] = [];
+
+	if (props.policies !== undefined) {
+		slicedPolicies = props.policies.slice(0, 4);
+	}
+
 	return (
 		<GroupView
 			groupId={props.groupId}
 			groupLabel={props.groupLabel}
 			createdAt={props.createdAt}
-			policies={props.policies}
+			policies={slicedPolicies}
 			isSelected={props.isSelected}
 			onSelectGroup={props.onSelectGroup}
 		/>

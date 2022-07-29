@@ -9,6 +9,5 @@ const ExternalAuthRedirectPage: React.FC<IProps> = () => {
 };
 
 ExternalAuthRedirectPage.displayName = 'ExternalAuthRedirect';
-ExternalAuthRedirectPage.defaultProps = {};
 
 export default ExternalAuthRedirectPage;

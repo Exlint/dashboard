@@ -9,6 +9,8 @@ import Policies from './Policies';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
+	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onRemoveGroup: (groupId: string) => void;
 }
 
 const GroupDetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -16,7 +18,11 @@ const GroupDetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 	return (
 		<section className={classes['groupDetails']}>
-			<GroupInfo selectedGroup={props.selectedGroup} />
+			<GroupInfo
+				selectedGroup={props.selectedGroup}
+				onUpdateGroupLabel={props.onUpdateGroupLabel}
+				onRemoveGroup={props.onRemoveGroup}
+			/>
 			<Policies groupPolicies={groupPolicies} />
 		</section>
 	);

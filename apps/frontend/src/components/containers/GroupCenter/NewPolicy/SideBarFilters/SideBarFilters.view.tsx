@@ -24,9 +24,10 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				</span>
 				{types.map((type, index) => (
 					<button
+						key={index}
 						className={classes['typeButton']}
 						type="button"
-						key={index}
+						role="button"
 						onClick={() => props.onSelectType(index)}
 					>
 						<span
@@ -49,9 +50,10 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				</span>
 				{categories.map((category, index) => (
 					<button
+						key={index}
 						className={classes['categoryButton']}
 						type="button"
-						key={index}
+						role="button"
 						onClick={() => props.onSelectCategory(index)}
 					>
 						<span

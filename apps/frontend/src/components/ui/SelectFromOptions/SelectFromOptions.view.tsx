@@ -55,9 +55,10 @@ const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<
 			>
 				{props.optionsList.map((option, index) => (
 					<button
+						key={index}
 						className={classes['selectedOptionsInvisible__option']}
-						key="index"
 						type="button"
+						role="button"
 						onClick={() => props.onSelectedOption(index)}
 					>
 						{option}

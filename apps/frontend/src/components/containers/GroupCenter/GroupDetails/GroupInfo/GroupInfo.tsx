@@ -8,6 +8,8 @@ import GroupInfoView from './GroupInfo.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
+	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onRemoveGroup: (groupId: string) => void;
 }
 
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -23,7 +25,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onChangeGroupLabel = (newGroupLabel: string) => {
-		if (newGroupLabel.length > 0 && newGroupLabel.length <= 20) {
+		if (newGroupLabel.length >= 0 && newGroupLabel.length <= 20) {
 			setGroupLabelState(() => newGroupLabel);
 		}
 	};
@@ -35,8 +37,11 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			newGroupLabel = props.selectedGroup.label;
 		}
 
+		props.onUpdateGroupLabel(props.selectedGroup.id, newGroupLabel);
+		setIsLabelOnEditState(() => false);
+
 		backendApi
-			.post(`/user/groups/edit-label/${props.selectedGroup.id}`, {
+			.patch(`/user/groups/edit-label/${props.selectedGroup.id}`, {
 				label: newGroupLabel,
 			})
 			.then()
@@ -63,12 +68,11 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onDeleteGroup = () => {
-		backendApi
-			.post(`/user/groups/delete/${props.selectedGroup.id}`)
-			.then()
-			.catch((err: AxiosError) => {
-				alert(err.response?.data);
-			});
+		props.onRemoveGroup(props.selectedGroup.id);
+		backendApi.delete(`/user/groups/delete/${props.selectedGroup.id}`).catch((err: AxiosError) => {
+			//TODO: if catch -> return the group
+			alert(err.response?.data);
+		});
 	};
 
 	useEffect(() => {
