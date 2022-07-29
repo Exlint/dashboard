@@ -9,5 +9,6 @@ const GroupCenterPage: React.FC<IProps> = () => {
 };
 
 GroupCenterPage.displayName = 'GroupCenterPage';
+GroupCenterPage.defaultProps = {};
 
 export default GroupCenterPage;

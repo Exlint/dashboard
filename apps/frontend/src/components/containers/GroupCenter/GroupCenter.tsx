@@ -13,7 +13,7 @@ interface IProps {}
 
 const GroupCenter: React.FC<IProps> = () => {
 	const { t } = useTranslation();
-	const [groupsListState, setGroupsListState] = useState<IGroup[]>([]);
+	const [groupsListState, setGroupsListState] = useState<IGroup[] | []>([]);
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
 	const currentDate = moment();
 
@@ -37,7 +37,7 @@ const GroupCenter: React.FC<IProps> = () => {
 						{
 							label: t('groupCenter.newGroupLabel'),
 							createdAt: currentDate.format('MMMM Do YYYY'),
-							id: response.data.id,
+							id: response.data.groupId,
 							policies: [],
 						},
 					];

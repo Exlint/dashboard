@@ -10,7 +10,7 @@ import GroupDetails from './GroupDetails';
 import classes from './GroupCenter.module.scss';
 
 interface IProps {
-	readonly groupsList: IGroup[];
+	readonly groupsList: IGroup[] | [];
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
 	readonly onSelectGroup: (index: number) => void;

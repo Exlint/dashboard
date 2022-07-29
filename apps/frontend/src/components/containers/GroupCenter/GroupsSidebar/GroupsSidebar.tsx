@@ -5,7 +5,7 @@ import type { IGroup } from '@/interfaces/group';
 import GroupsSidebarView from './GroupsSidebar.view';
 
 interface IProps {
-	readonly groupsList: IGroup[];
+	readonly groupsList: IGroup[] | [];
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
 	readonly onSelectGroup: (index: number) => void;
