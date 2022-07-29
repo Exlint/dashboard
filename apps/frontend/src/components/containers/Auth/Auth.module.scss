@@ -22,7 +22,7 @@
 		&__brandLogo {
 			position: absolute;
 			top: 34px;
-			left: 34px;
+			inset-inline-end: 34px;
 			width: 168px;
 			object-fit: contain;
 		}

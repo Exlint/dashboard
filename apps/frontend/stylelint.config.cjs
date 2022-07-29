@@ -14,7 +14,7 @@ module.exports = {
 		'color-named': ['never'],
 		'declaration-block-no-duplicate-properties': [true],
 		'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hwb'],
-		'property-disallowed-list': ['margin-right', 'margin-left', 'padding-right', 'padding-left'],
+		'property-disallowed-list': ['/.*(right|left).*/'],
 
 		'scss/at-import-partial-extension': null,
 	},
