@@ -278,7 +278,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.0.0
       stylelint-config-standard-scss: 5.0.0
-      tsconfig-paths-webpack-plugin: 3.5.2
+      tsconfig-paths-webpack-plugin: 4.0.0
       typescript: 4.7.4
       typescript-plugin-css-modules: 3.4.0
     dependencies:
@@ -322,7 +322,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.9.1
       stylelint-config-recess-order: 3.0.0_stylelint@14.9.1
       stylelint-config-standard-scss: 5.0.0_uyk3cwxn3favstz4untq233szu
-      tsconfig-paths-webpack-plugin: 3.5.2
+      tsconfig-paths-webpack-plugin: 4.0.0
       typescript-plugin-css-modules: 3.4.0_typescript@4.7.4
 
 packages:
@@ -14397,11 +14397,28 @@ packages:
       tsconfig-paths: 3.14.1
     dev: true
 
+  /tsconfig-paths-webpack-plugin/4.0.0:
+    resolution: {integrity: sha512-fw/7265mIWukrSHd0i+wSwx64kYUSAKPfxRDksjKIYTxSAp9W9/xcZVBF4Kl0eqQd5eBpAQ/oQrc5RyM/0c1GQ==}
+    engines: {node: '>=10.13.0'}
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.10.0
+      tsconfig-paths: 4.0.0
+    dev: true
+
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
     dependencies:
       '@types/json5': 0.0.29
       json5: 1.0.1
+      minimist: 1.2.6
+      strip-bom: 3.0.0
+    dev: true
+
+  /tsconfig-paths/4.0.0:
+    resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
+    dependencies:
+      json5: 2.2.1
       minimist: 1.2.6
       strip-bom: 3.0.0
     dev: true
