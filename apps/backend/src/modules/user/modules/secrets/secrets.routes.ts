@@ -5,6 +5,7 @@ const Routes = {
 	REVOKE_ALL: 'revoke-all',
 	REFRSH_SECRET: 'refresh-secret/:secret_id',
 	EDIT_LABEL: 'edit-label/:secret_id',
+	GET_ALL: 'get-all',
 };
 
 export default Routes;
