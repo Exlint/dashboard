@@ -43,4 +43,13 @@ export class DBClientSecretService {
 			},
 		});
 	}
+
+	public async getSecretExpiration(secretId: string) {
+		const secret = await this.prisma.clientSecret.findUniqueOrThrow({
+			where: { id: secretId },
+			select: { expiration: true },
+		});
+
+		return secret.expiration;
+	}
 }

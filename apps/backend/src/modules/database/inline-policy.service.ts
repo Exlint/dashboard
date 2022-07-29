@@ -36,10 +36,9 @@ export class DBInlinePolicyService {
 	}
 
 	public async addRule(inlinePolicyId: string, rule: Record<string, unknown>) {
-		const inlinePolicyDB = await this.prisma.inlinePolicy.findFirst({
+		const inlinePolicyDB = await this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: inlinePolicyId },
 			select: { rules: true },
-			rejectOnNotFound: true,
 		});
 
 		let newInlinePolicyRules: Prisma.JsonObject;
@@ -60,10 +59,9 @@ export class DBInlinePolicyService {
 	}
 
 	public async removeRule(inlinePolicyId: string, ruleName: string) {
-		const inlinePolicyDB = await this.prisma.inlinePolicy.findFirst({
+		const inlinePolicyDB = await this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: inlinePolicyId },
 			select: { rules: true },
-			rejectOnNotFound: true,
 		});
 
 		if (!inlinePolicyDB.rules) {
