@@ -34,7 +34,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								onClick={props.onToggleModal}
 							>
 								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
-								{t('userSettingsModal.bar')}
+								{t('userSettingsModal.cancelButton')}
 							</button>
 						</div>
 						<div className={classes['body']}>
@@ -59,7 +59,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 							<input
 								className={classes['body__input']}
 								type="text"
-								placeholder="Type here"
+								placeholder={t('userSettingsModal.inputPlaceholder')}
 								onChange={({ currentTarget: { value } }) =>
 									props.onDeleteUserInputChangeHandler(value)
 								}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { useTranslation } from 'react-i18next';
 
 import { authActions } from '@/store/reducers/auth';
 import { backendApi } from '@/utils/http';
@@ -17,6 +18,7 @@ interface IProps extends IPropsFromDispatch {
 }
 
 const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 
 	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(true);
@@ -30,7 +32,7 @@ const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 	};
 
 	const onDeleteUserInputChangeHandler = (input: string) => {
-		setIsConfirmButtonDisabledState(() => input !== 'DELETE-USER');
+		setIsConfirmButtonDisabledState(() => input !== t('userSettingsModal.actionPhraseText'));
 	};
 
 	return (
