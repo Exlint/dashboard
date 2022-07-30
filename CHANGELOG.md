@@ -1,3 +1,39 @@
+# [1.15.0](https://github.com/Exlint/dashboard/compare/v1.14.1...v1.15.0) (2022-07-30)
+
+
+### Features
+
+* 🔥 more informative swagger ([b09928c](https://github.com/Exlint/dashboard/commit/b09928c88c811f693bcf946e69b377341a94bfad))
+
+## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* 🐞 remove deprecated propety and apply JWT to refresh secret ([0b882a8](https://github.com/Exlint/dashboard/commit/0b882a85b3885ef27df8e8169de7c8ccaed81e11))
+* 🐞 secrets are generated with JWT ([3299742](https://github.com/Exlint/dashboard/commit/32997421a5cd112a03c4aff103d792319888c185))
+
+# [1.14.0](https://github.com/Exlint/dashboard/compare/v1.13.0...v1.14.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support policy config api ([3a2079a](https://github.com/Exlint/dashboard/commit/3a2079a6d2195f1c5badfefda68c83edf0c0700c))
+
+# [1.13.0](https://github.com/Exlint/dashboard/compare/v1.12.0...v1.13.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support getting secrets api ([1feba40](https://github.com/Exlint/dashboard/commit/1feba400bd0714f5e96a332dfb171a5bda0cf485))
+
+# [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
+
+
+### Features
+
+* 🔥 added controller for getting all user groups ([c3e382a](https://github.com/Exlint/dashboard/commit/c3e382aa50a297a42e62efe30e8de6da5bd8057e))
+
 # [1.11.0](https://github.com/Exlint/dashboard/compare/v1.10.0...v1.11.0) (2022-07-21)
 
 

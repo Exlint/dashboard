@@ -13,6 +13,7 @@ declare global {
 			readonly GITHUB_OAUTH_REDIRECT_URI: string;
 			readonly MIXPANEL_TOKEN: string;
 			readonly FRONTEND_URL: string;
+			readonly CLI_TOKEN_JWT_KEY: string;
 		}
 	}
 }

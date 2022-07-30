@@ -10,6 +10,7 @@ import {
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
 import { ConfigService } from '@nestjs/config';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
@@ -29,6 +30,7 @@ import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contrac
 import { JwtTokenType } from './models/jwt-token';
 import { ExternalAuthFilter } from './filters/external-auth.filter';
 
+@ApiTags('Auth')
 @Controller(Routes.CONTROLLER)
 export class GithubController {
 	private readonly logger = new Logger(GithubController.name);
@@ -41,6 +43,7 @@ export class GithubController {
 		private readonly configService: ConfigService<IEnvironment, true>,
 	) {}
 
+	@ApiOperation({ description: 'A redirect URL to enter GitHub OAuth app' })
 	@Public()
 	@UseGuards(GithubAuthGuard)
 	@Get(Routes.GITHUB_AUTH)
@@ -48,6 +51,9 @@ export class GithubController {
 		return;
 	}
 
+	@ApiOperation({
+		description: 'A redirect URL used by GitHub to send back the server the user data',
+	})
 	@Public()
 	@UseGuards(GithubAuthGuard)
 	@UseFilters(ExternalAuthFilter)

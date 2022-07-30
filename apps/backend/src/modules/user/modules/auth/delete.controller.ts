@@ -1,16 +1,22 @@
 import { Controller, Delete, HttpCode, HttpStatus, Logger } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { DeleteUserContract } from './commands/contracts/delete-user.contract';
 import Routes from './auth.routes';
 
+@ApiTags('Auth')
 @Controller(Routes.CONTROLLER)
 export class DeleteController {
 	private readonly logger = new Logger(DeleteController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
+	@ApiOperation({
+		description: 'Deleting a user',
+	})
+	@ApiBearerAuth('access-token')
 	@Delete(Routes.DELETE)
 	@HttpCode(HttpStatus.OK)
 	public async delete(@CurrentUserId() userId: string): Promise<void> {

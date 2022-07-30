@@ -1,21 +1,25 @@
 import { Body, Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { EditSecretDto } from './classes/edit-secret.dto';
 import { EditSecretContract } from './commands/contracts/edit-secret.contract';
 import { BelongingSecretGuard } from './guards/belonging-secret.guard';
 import Routes from './secrets.routes';
 
+@ApiTags('Secrets')
 @Controller(Routes.CONTROLLER)
 export class EditSecretController {
 	private readonly logger = new Logger(EditSecretController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
+	@ApiOperation({ description: 'Edit a label of a secret by its identifer' })
+	@ApiBearerAuth('access-token')
 	@UseGuards(BelongingSecretGuard)
 	@Patch(Routes.EDIT_LABEL)
 	@HttpCode(HttpStatus.OK)
-	public async refreshSecret(
+	public async editLabel(
 		@Param('secret_id') secretId: string,
 		@Body() editSecretDto: EditSecretDto,
 	): Promise<void> {

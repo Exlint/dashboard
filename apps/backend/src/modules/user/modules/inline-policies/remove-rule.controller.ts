@@ -1,19 +1,23 @@
 import { Body, Controller, Logger, Param, Post, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import Routes from './inline-policies.routes';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { RemoveRuleDto } from './classes/remove-rule.dto';
 import { RemoveRuleContract } from './commands/contracts/remove-rule.contract';
 
+@ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
 export class RemoveRuleController {
 	private readonly logger = new Logger(RemoveRuleController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
+	@ApiOperation({ description: 'Remove a rule (by its name) of a policiy by its identifier' })
+	@ApiBearerAuth('access-token')
 	@UseGuards(BelongingInlinePolicyGuard)
-	@Post(Routes.EDIT_RULE)
+	@Post(Routes.REMOVE_RULE)
 	public async removeRule(
 		@Param('policy_id') policyId: string,
 		@Body() removeRuleDto: RemoveRuleDto,
