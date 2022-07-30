@@ -11,26 +11,27 @@ import classes from './UserSettingsModal.module.scss';
 interface IProps {
 	readonly isConfirmButtonDisabled: boolean;
 	readonly onDeleteUser: () => void;
-	readonly onBackdropClick: () => void;
-	readonly onDeleteUserChangeHandler: (_: string) => void;
+	readonly onToggleModal: () => void;
+	readonly onDeleteUserInputChangeHandler: (_: string) => void;
 }
 
 const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
+
 	const modalRoot = document.getElementById('overlay-root') as HTMLElement;
 
 	return (
 		<>
-			<EDBackdrop onBackdropClick={props.onBackdropClick} />
+			<EDBackdrop onBackdropClick={props.onToggleModal} />
 			{ReactDOM.createPortal(
-				<section className={classes['container']}>
+				<form className={classes['container']} onSubmit={props.onDeleteUser}>
 					<div className={classes['deleteUserWrapper']}>
 						<div className={classes['header']}>
 							<button
 								type="button"
 								role="button"
 								className={classes['header__button']}
-								onClick={props.onBackdropClick}
+								onClick={props.onToggleModal}
 							>
 								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
 								{t('userSettingsModal.bar')}
@@ -60,21 +61,20 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								type="text"
 								placeholder="Type here"
 								onChange={({ currentTarget: { value } }) =>
-									props.onDeleteUserChangeHandler(value)
+									props.onDeleteUserInputChangeHandler(value)
 								}
 							/>
 							<button
 								className={classes['body__button']}
-								type="button"
+								type="submit"
 								role="button"
-								disabled={!props.isConfirmButtonDisabled}
-								onClick={props.onDeleteUser}
+								disabled={props.isConfirmButtonDisabled}
 							>
 								{t('userSettingsModal.confirmButton')}
 							</button>
 						</div>
 					</div>
-				</section>,
+				</form>,
 				modalRoot,
 			)}
 		</>

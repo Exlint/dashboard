@@ -24,15 +24,13 @@ const UserSettings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 		navigate('/auth');
 	};
 
-	const onBackdropClick = () => {
-		setIsModelOnViewState((prevState) => !prevState);
-	};
+	const onToggleModal = () => setIsModelOnViewState((prev) => !prev);
 
 	return (
 		<UserSettingsView
 			isModelOnView={isModelOnViewState}
 			onLogout={onLogout}
-			onBackdropClick={onBackdropClick}
+			onToggleModal={onToggleModal}
 		/>
 	);
 };

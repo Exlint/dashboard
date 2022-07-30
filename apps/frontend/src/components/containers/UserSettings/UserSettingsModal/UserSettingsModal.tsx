@@ -13,35 +13,32 @@ interface IPropsFromDispatch {
 }
 
 interface IProps extends IPropsFromDispatch {
-	readonly onBackdropClick: () => void;
+	readonly onToggleModal: () => void;
 }
 
 const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
 
-	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(false);
+	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(true);
 
 	const onDeleteUser = () => {
 		backendApi.delete('/user/auth/delete').then(() => {
-			localStorage.clear();
-			sessionStorage.clear();
-
 			props.setUnauthenticated();
 
 			navigate('/auth');
 		});
 	};
 
-	const onDeleteUserChangeHandler = (input: string) => {
-		setIsConfirmButtonDisabledState(() => input === 'DELETE-USER');
+	const onDeleteUserInputChangeHandler = (input: string) => {
+		setIsConfirmButtonDisabledState(() => input !== 'DELETE-USER');
 	};
 
 	return (
 		<UserSettingsModalView
 			isConfirmButtonDisabled={isConfirmButtonDisabledState}
 			onDeleteUser={onDeleteUser}
-			onBackdropClick={props.onBackdropClick}
-			onDeleteUserChangeHandler={onDeleteUserChangeHandler}
+			onToggleModal={props.onToggleModal}
+			onDeleteUserInputChangeHandler={onDeleteUserInputChangeHandler}
 		/>
 	);
 };

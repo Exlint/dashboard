@@ -3,7 +3,7 @@
 	min-width: 240px;
 	height: 100vh;
 	background-color: #fefefe;
-	border-right: 3px solid #e7e7e7;
+	border-inline-end: 3px solid #e7e7e7;
 
 	.sidebar {
 		display: flex;
@@ -26,7 +26,7 @@
 
 		.divider {
 			width: 100%;
-			border: 0;
+			border: none;
 			border-top: 2px solid #e7e7e7;
 		}
 

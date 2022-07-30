@@ -30,8 +30,9 @@
 
 			&__icon {
 				width: 13px;
-				height: 13px;
-				margin: 1px 5px 0 0;
+				height: auto;
+				margin-inline-end: 5px;
+				margin-top: 1px;
 				fill: #fefefe;
 			}
 		}
@@ -49,7 +50,7 @@
 
 			&__icon {
 				width: 80px;
-				height: 80px;
+				height: auto;
 				margin-top: 25px;
 				fill: #231f20;
 			}
