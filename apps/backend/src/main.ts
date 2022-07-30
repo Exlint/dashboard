@@ -54,7 +54,8 @@ async function bootstrap() {
 			.setTitle('Exlint Dashboard')
 			.setDescription('The Exlint Dashboard API Descritpion')
 			.setVersion('1.0')
-			.addTag('exlint')
+			.addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'Token' }, 'access-token')
+			.addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'Token' }, 'refresh-token')
 			.build();
 
 		const document = SwaggerModule.createDocument(app, swaggerConfig);

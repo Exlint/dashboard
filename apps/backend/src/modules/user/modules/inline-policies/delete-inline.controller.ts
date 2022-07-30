@@ -1,5 +1,6 @@
-import { Controller, HttpCode, HttpStatus, Logger, Param, Post, UseGuards } from '@nestjs/common';
+import { Controller, Delete, HttpCode, HttpStatus, Logger, Param, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -7,14 +8,17 @@ import Routes from './inline-policies.routes';
 import { DeleteInlineContract } from './commands/contracts/delete-inline.contract';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 
+@ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
 export class DeleteInlineController {
 	private readonly logger = new Logger(DeleteInlineController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
+	@ApiOperation({ description: 'Delete a policy by its identifier' })
+	@ApiBearerAuth('access-token')
 	@UseGuards(BelongingInlinePolicyGuard)
-	@Post(Routes.DELETE)
+	@Delete(Routes.DELETE)
 	@HttpCode(HttpStatus.OK)
 	public async deleteInline(
 		@CurrentUserId() userId: string,

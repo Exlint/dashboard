@@ -1,6 +1,7 @@
 import { Controller, Get, HttpCode, HttpStatus, Logger, Param, UseGuards } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import type { Prisma } from '@prisma/client';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -9,12 +10,15 @@ import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.gua
 import type { IGetConfigurationResponse } from './interfaces/responses';
 import { GetConfigurationContract } from './queries/contracts/get-configuration.contract';
 
+@ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
 export class GetConfigurationController {
 	private readonly logger = new Logger(GetConfigurationController.name);
 
 	constructor(private readonly queryBus: QueryBus) {}
 
+	@ApiOperation({ description: 'Get the configuration of a policy by its identifer' })
+	@ApiBearerAuth('access-token')
 	@UseGuards(BelongingInlinePolicyGuard)
 	@Get(Routes.GET_CONFIGURATION)
 	@HttpCode(HttpStatus.OK)

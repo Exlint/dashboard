@@ -1,5 +1,6 @@
 import { Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
@@ -9,12 +10,15 @@ import type { IRefreshClientSecret } from './interfaces/responses';
 import { RefreshSecretContract } from './queries/contracts/refresh-secret.contract';
 import Routes from './secrets.routes';
 
+@ApiTags('Secrets')
 @Controller(Routes.CONTROLLER)
 export class RefreshSecretController {
 	private readonly logger = new Logger(RefreshSecretController.name);
 
 	constructor(private readonly queryBus: QueryBus) {}
 
+	@ApiOperation({ description: 'Refresh a secret by its identifer' })
+	@ApiBearerAuth('access-token')
 	@UseGuards(BelongingSecretGuard)
 	@Patch(Routes.REFRSH_SECRET)
 	@HttpCode(HttpStatus.OK)
