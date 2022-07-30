@@ -75,12 +75,12 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					</div>
 				)}
 
-				<div className={classes['createdTime']}>
+				{/* <div className={classes['createdTime']}>
 					<span className={classes['createdTime__text']}>Created in:</span>
 					<div className={classes['createdTimeDate']}>
 						<span className={classes['createdTime__text']}>{props.selectedGroup.createdAt}</span>
 					</div>
-				</div>
+				</div> */}
 				<div className={classes['uniqueIdContainer']}>
 					<span className={classes['uniqueIdContainer__text']}>Unique ID:</span>
 					<div className={classes['uniqueId']}>

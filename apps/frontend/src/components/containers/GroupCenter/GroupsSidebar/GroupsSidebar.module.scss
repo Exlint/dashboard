@@ -8,7 +8,7 @@
 	width: 100%;
 	max-width: 350px;
 	background-color: #fff;
-	border-right: 3px solid #e7e7e7;
+	border-inline-end: 3px solid #e7e7e7;
 
 	.innerSidebar {
 		display: flex;
@@ -45,7 +45,7 @@
 				&__text {
 					margin-inline-end: 5px;
 					font-size: 1.6rem;
-					font-weight: 560;
+					font-weight: 500;
 					color: #f2f2f2;
 				}
 

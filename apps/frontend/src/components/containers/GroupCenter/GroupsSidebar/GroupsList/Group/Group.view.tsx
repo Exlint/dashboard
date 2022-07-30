@@ -13,7 +13,9 @@ interface IProps {
 	readonly createdAt: string;
 	readonly policies: IPolicy[];
 	readonly isSelected: boolean;
+	readonly copyGroupId: boolean;
 	readonly onSelectGroup: () => void;
+	readonly onCopyGroupId: () => void;
 }
 
 const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -44,8 +46,18 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<span className={classes['uniqueIdContainer__text']}>
 							{t('groupCenter.groupSideBar.group.uniqId')}
 						</span>
-						<span className={classes['uniqueIdContainer__text']}>{props.groupId}</span>
-						<EDSvg className={classes['uniqueIdContainer__icon']} name="uniqueId" />
+						<button
+							className={classes['uniqIdCopyButton']}
+							type="button"
+							role="button"
+							onClick={props.onCopyGroupId}
+						>
+							Copy
+							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
+							{props.copyGroupId && (
+								<span className={classes['uniqIdCopyButton__copiedText']}>Copied!</span>
+							)}
+						</button>
 					</div>
 					<div className={classes['policiesContainer']}>
 						<span className={classes['policiesContainer__text']}>
