@@ -1,3 +1,4 @@
+import { concatDiverseClasses } from '@/utils/component';
 import React, { type CSSProperties } from 'react';
 
 import icons from '../../../assets/icons';
@@ -12,7 +13,9 @@ interface IProps {
 }
 
 const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const svgClasses = classes['container'] + (props.className ? ` ${props.className}` : '');
+	const svgClasses = props.className
+		? concatDiverseClasses(classes['container'], props.className)
+		: classes['container'];
 
 	return (
 		<svg
