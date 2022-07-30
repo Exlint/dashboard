@@ -1,5 +1,6 @@
-import { concatDiverseClasses } from '@/utils/component';
 import React, { type CSSProperties } from 'react';
+
+import { concatDiverseClasses } from '@/utils/component';
 
 import icons from '../../../assets/icons';
 
