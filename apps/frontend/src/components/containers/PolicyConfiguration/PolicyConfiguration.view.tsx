@@ -10,13 +10,10 @@ import classes from './PolicyConfiguration.module.scss';
 
 interface IProps {
 	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly selectedFileFormatIndex: number;
-	readonly isFileFormatClicked: boolean;
 	readonly isEditFileFormat: boolean;
+	readonly onUpdatePolicyConfiguration: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 	readonly onEditFileFormatButton: () => void;
-	readonly onFileFormatButton: () => void;
-	readonly onSelectedFileFormat: (index: number) => void;
 }
 
 const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -28,9 +25,14 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 					<NavigateBackButton position={{ bottom: '0px', right: ' 0px' }} />
 
 					<Link to="/groupCenter/group/Policy/ruleOnboarding">
-						<button className={classes['ruleCreationButton']} type="button">
+						<button
+							className={classes['ruleCreationButton']}
+							type="button"
+							role="button"
+							onClick={props.onUpdatePolicyConfiguration}
+						>
 							<span className={classes['ruleCreationButton__text']}>
-								Continue to Rule Creation
+								Save & Continue to Rule Creation
 							</span>
 							<EDSvg className={classes['ruleCreationButton__icon']} name="v" />
 						</button>
@@ -38,14 +40,11 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 				</div>
 				<div className={classes['innerCodeBasedInput']}>
 					<CodeBasedConfigurationInput
+						configurationType="Policy"
 						labelInput="temp label"
 						inputCode={props.ruleCodeBasedConfigurationsInput}
-						selectedFileFormatIndex={props.selectedFileFormatIndex}
-						isFileFormatClicked={props.isFileFormatClicked}
 						isEditFileFormat={props.isEditFileFormat}
 						onChangeInput={props.onCodeBasedConfigurationsInputChanged}
-						onFileFormatButton={props.onFileFormatButton}
-						onSelectedFileFormat={props.onSelectedFileFormat}
 						onEditFileFormatButton={props.onEditFileFormatButton}
 					/>
 				</div>

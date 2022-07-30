@@ -24,7 +24,7 @@ const AppView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => (
 					</>
 				)}
 				{props.isAuthenticated && (
-					<Route path="/policy-configuration" element={<PolicyConfiguration />} />
+					<Route path="/policy-configuration/:policyId" element={<PolicyConfiguration />} />
 				)}
 				<Route path="/cli-auth" element={<CliAuth />} />
 				<Route path="/cli-authenticated" element={<CliAuthenticated />} />

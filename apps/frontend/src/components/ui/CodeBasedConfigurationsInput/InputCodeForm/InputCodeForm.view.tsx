@@ -1,12 +1,10 @@
 import React from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { fileFormats } from '@/data/file-formts';
 
 import classes from './InputCodeForm.module.scss';
 
 interface IProps {
 	readonly inputCode: string;
-	readonly selectedFileFormatIndex: number;
 	readonly isEditFileFormat: boolean;
 	readonly onChangeInput: (input: string) => void;
 }
@@ -17,7 +15,7 @@ const InputCodeFormView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			<CodeEditor
 				disabled={props.isEditFileFormat ? false : true}
 				value={props.inputCode ?? ''}
-				language={fileFormats[props.selectedFileFormatIndex]}
+				language="json"
 				placeholder="Input config here..."
 				style={{
 					fontSize: 15,

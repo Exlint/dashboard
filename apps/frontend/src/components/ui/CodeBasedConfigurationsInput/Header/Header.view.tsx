@@ -1,17 +1,12 @@
 import React from 'react';
 import EDSvg from '@/ui/EDSvg';
-import { fileFormats } from '@/data/file-formts';
 
-import SelectFromOptions from '@/ui/SelectFromOptions';
 import classes from './Header.module.scss';
 
 interface IProps {
+	readonly configurationType: string;
 	readonly labelInput: string | null;
-	readonly selectedFileFormatIndex: number;
-	readonly isFileFormatClicked: boolean;
 	readonly isEditFileFormat: boolean;
-	readonly onFileFormatButton: () => void;
-	readonly onSelectedFileFormat: (index: number) => void;
 	readonly onEditFileFormatButton: () => void;
 }
 
@@ -21,7 +16,9 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			<div className={classes['leftSideContainer']}>
 				<span className={classes['leftSideContainer__text']}>{props.labelInput}</span>
 				&nbsp;
-				<span className={classes['leftSideContainer__text']}>Rule Configuration</span>
+				<span className={classes['leftSideContainer__text']}>
+					{`${props.configurationType} Configuration`}
+				</span>
 			</div>
 			<div className={classes['rightSideContainer']}>
 				<button
@@ -35,7 +32,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					/>
 				</button>
 
-				<SelectFromOptions
+				{/* <SelectFromOptions
 					componentWidth="100px"
 					border="1px solid #8b8b8b"
 					selectedOptionIndex={props.selectedFileFormatIndex}
@@ -43,7 +40,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					optionsList={fileFormats}
 					onSelectOptionsButton={props.onFileFormatButton}
 					onSelectedOption={props.onSelectedFileFormat}
-				/>
+				/> */}
 			</div>
 		</div>
 	);

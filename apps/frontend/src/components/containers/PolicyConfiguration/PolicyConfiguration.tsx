@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
+import type { AxiosError } from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { backendApi } from '@/utils/http';
+import type { IUpdatePolicyConfiguration } from '@/interfaces/responses';
 
 import PolicyConfigurationView from './PolicyConfiguration.view';
 
 interface IProps {}
 
 const PolicyConfiguration: React.FC<IProps> = () => {
+	const navigate = useNavigate();
+	const { policyId } = useParams();
+
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
 
-	const [selectedFileFormatIndexState, setSelectedFileFormatIndexState] = useState<number>(0);
-	const [isFileFormatClickedState, setIsFileFormatClickedState] = useState<boolean>(false);
 	const [isEditFileFormatState, setIsEditFileFormatState] = useState<boolean>(false);
 
 	const onCodeBasedConfigurationsInputChanged = (input: string) => {
@@ -20,24 +26,31 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 		setIsEditFileFormatState(() => !isEditFileFormatState);
 	};
 
-	const onFileFormatButton = () => {
-		setIsFileFormatClickedState(() => !isFileFormatClickedState);
-	};
-
-	const onSelectedFileFormat = (index: number) => {
-		setSelectedFileFormatIndexState(() => index);
+	const onUpdatePolicyConfiguration = () => {
+		if (ruleCodeBasedConfigurationsInputState.length > 0) {
+			backendApi
+				.post<IUpdatePolicyConfiguration>(`/user/inline-policies/${policyId}`, {
+					configuration: ruleCodeBasedConfigurationsInputState,
+				})
+				.then(() => {
+					navigate('/');
+				})
+				.catch((err: AxiosError) => {
+					//TODO: Add action when catch error
+					alert(err.response?.data);
+				});
+		} else {
+			navigate('/');
+		}
 	};
 
 	return (
 		<PolicyConfigurationView
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
-			selectedFileFormatIndex={selectedFileFormatIndexState}
-			isFileFormatClicked={isFileFormatClickedState}
 			isEditFileFormat={isEditFileFormatState}
+			onUpdatePolicyConfiguration={onUpdatePolicyConfiguration}
 			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
 			onEditFileFormatButton={onEditFileFormatButton}
-			onFileFormatButton={onFileFormatButton}
-			onSelectedFileFormat={onSelectedFileFormat}
 		/>
 	);
 };
