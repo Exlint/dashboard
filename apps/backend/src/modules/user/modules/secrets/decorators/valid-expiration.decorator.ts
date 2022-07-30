@@ -1,23 +1,14 @@
-import { registerDecorator } from 'class-validator';
+import { ValidateIf, type ValidationOptions } from 'class-validator';
 
-export function IsValidExpiration() {
-	return function (object: object, propertyName: string) {
-		registerDecorator({
-			name: 'validExpiration',
-			target: object.constructor,
-			propertyName: propertyName,
-			validator: {
-				validate(value: unknown) {
-					if (typeof value !== 'string') {
-						return false;
-					}
+export function IsFutureDate(validationOptions?: ValidationOptions) {
+	return ValidateIf((_object, value) => {
+		if (typeof value !== 'string') {
+			return false;
+		}
 
-					const currentDate = new Date();
-					const inputDate = new Date(value);
+		const currentDate = new Date();
+		const inputDate = new Date(value);
 
-					return !isNaN(inputDate.getTime()) && inputDate >= currentDate;
-				},
-			},
-		});
-	};
+		return !isNaN(inputDate.getTime()) && inputDate >= currentDate;
+	}, validationOptions);
 }

@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-import { IsValidExpiration } from '../decorators/valid-expiration.decorator';
+import { IsFutureDate } from '../decorators/valid-expiration.decorator';
 
 export class CreateSecretDto {
 	@ApiProperty({ type: String, description: 'The label of the new secret' })
@@ -17,7 +17,7 @@ export class CreateSecretDto {
 		nullable: true,
 	})
 	@IsISO8601()
-	@IsValidExpiration()
+	@IsFutureDate()
 	@IsNullable()
 	readonly expiration!: string | null;
 }
