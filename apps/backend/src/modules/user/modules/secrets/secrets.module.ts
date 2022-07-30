@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
+import { JwtModule } from '@nestjs/jwt';
 
 import { CommandHandlers } from './commands/handlers';
 import { CreateController } from './create.controller';
@@ -12,7 +13,7 @@ import { RefreshSecretController } from './refresh-secret.controller';
 import { SecretsService } from './secrets.service';
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, JwtModule.register({})],
 	controllers: [
 		DeleteController,
 		RefreshSecretController,
