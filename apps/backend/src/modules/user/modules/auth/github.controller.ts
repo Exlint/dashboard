@@ -2,6 +2,7 @@ import {
 	BadRequestException,
 	Controller,
 	Get,
+	HttpStatus,
 	Logger,
 	Redirect,
 	UseFilters,
@@ -58,7 +59,7 @@ export class GithubController {
 	@UseGuards(GithubAuthGuard)
 	@UseFilters(ExternalAuthFilter)
 	@Get(Routes.GITHUB_REDIRECT)
-	@Redirect(undefined, 301)
+	@Redirect(undefined, HttpStatus.MOVED_PERMANENTLY)
 	public async githubRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
 		this.logger.log(
 			`User with an email "${user.email}" tries to auth. Will check if already exists in DB`,

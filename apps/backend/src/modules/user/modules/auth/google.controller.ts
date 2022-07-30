@@ -2,7 +2,6 @@ import {
 	BadRequestException,
 	Controller,
 	Get,
-	HttpCode,
 	HttpStatus,
 	Logger,
 	Redirect,
@@ -60,8 +59,7 @@ export class GoogleController {
 	@UseGuards(GoogleAuthGuard)
 	@UseFilters(ExternalAuthFilter)
 	@Get(Routes.GOOGLE_REDIRECT)
-	@HttpCode(HttpStatus.OK)
-	@Redirect(undefined, 301)
+	@Redirect(undefined, HttpStatus.MOVED_PERMANENTLY)
 	public async googleRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
 		this.logger.log(
 			`User with an email "${user.email}" tries to auth. Will check if already exists in DB`,

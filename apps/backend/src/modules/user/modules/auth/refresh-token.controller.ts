@@ -5,6 +5,7 @@ import {
 	ApiOkResponse,
 	ApiOperation,
 	ApiTags,
+	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 
 import { Public } from '@/decorators/public.decorator';
@@ -29,6 +30,9 @@ export class RefreshTokenController {
 	@ApiOkResponse({
 		description: 'If successfully refreshed a new access token',
 		type: RefreshTokenResponse,
+	})
+	@ApiUnauthorizedResponse({
+		description: 'If refresh token is either missing or invalid',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to refresh a new access token' })
 	@Public()
