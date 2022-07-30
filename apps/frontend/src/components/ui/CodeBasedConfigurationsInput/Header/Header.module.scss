@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: fit-content;
+	padding: 4px 18px;
+	background-color: #202428;
+	border-inline-start: 2px solid #bbb8ca;
+	border-inline-end: 2px solid #bbb8ca;
+	border-top: 2px solid #bbb8ca;
+	border-radius: 10px 10px 0 0;
+
+	.leftSideContainer {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			font-size: 1.7rem;
+			font-weight: 560;
+			color: #f2f2f2;
+		}
+	}
+
+	.rightSideContainer {
+		display: flex;
+		align-items: center;
+
+		.editFileFormatButton {
+			&__icon {
+				width: 24px;
+				height: 24px;
+				margin-inline-end: 16px;
+				fill: #e7e7e7;
+			}
+		}
+	}
+}

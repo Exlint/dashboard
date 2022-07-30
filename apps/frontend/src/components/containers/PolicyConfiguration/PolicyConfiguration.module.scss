@@ -1,0 +1,53 @@
+.policyConfiguration {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background-color: #f2f2f2;
+
+	.policyConfigurationContainer {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		.innerButtons {
+			position: relative;
+			top: 10px;
+			display: flex;
+			justify-content: space-between;
+			margin: 0 20px;
+
+			.ruleCreationButton {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 10px 19px;
+				background-color: #2355a0;
+				border: 1px solid #2d3a7d;
+				border-radius: 10px;
+
+				&__text {
+					margin-inline-end: 15px;
+					font-size: 1.5rem;
+					font-weight: 460;
+					color: #fefefe;
+					white-space: nowrap;
+				}
+
+				&__icon {
+					width: 15px;
+					height: 10px;
+					fill: transparent;
+					stroke: #fefefe;
+				}
+			}
+		}
+
+		.innerCodeBasedInput {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			padding: 36px 122px 69px 126px;
+		}
+	}
+}

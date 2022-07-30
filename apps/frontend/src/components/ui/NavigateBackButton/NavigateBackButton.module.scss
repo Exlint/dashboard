@@ -1,0 +1,19 @@
+.navigateBackButton {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+
+	&__icon {
+		width: 11px;
+		height: 19px;
+		margin-inline-end: 10px;
+		fill: transparent;
+	}
+
+	&__text {
+		font-size: 1.8rem;
+		font-weight: 460;
+		color: #4b4a65;
+	}
+}
