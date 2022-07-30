@@ -27,7 +27,7 @@ listenerMiddleware.startListening({
 			await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
 
 			try {
-				const response = await backendApi.post<IRefreshTokenResponseData>('/user/auth/refresh-token');
+				const response = await backendApi.get<IRefreshTokenResponseData>('/user/auth/refresh-token');
 
 				sessionStorage.setItem('token', response.data.accessToken);
 			} catch {

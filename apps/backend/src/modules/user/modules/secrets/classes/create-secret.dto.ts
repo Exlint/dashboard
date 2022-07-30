@@ -1,13 +1,16 @@
-import { IsNumber, IsString, MinLength } from 'class-validator';
+import { IsISO8601, IsString, MinLength } from 'class-validator';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
+
+import { IsValidExpiration } from '../decorators/valid-expiration.decorator';
 
 export class CreateSecretDto {
 	@IsString()
 	@MinLength(1)
 	readonly label!: string;
 
-	@IsNumber()
+	@IsISO8601()
+	@IsValidExpiration()
 	@IsNullable()
-	readonly expiration!: number | null;
+	readonly expiration!: string | null;
 }
