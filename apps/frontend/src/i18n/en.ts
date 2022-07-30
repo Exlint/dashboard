@@ -46,6 +46,9 @@ const en = {
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
 	},
+	policyConfiguration: {
+		saveAndUpdateButton: 'Save & Continue to Rule Creation',
+	},
 };
 
 export default en;

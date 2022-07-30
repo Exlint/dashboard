@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import CodeBasedConfigurationInput from '@/ui/CodeBasedConfigurationsInput';
@@ -17,6 +18,8 @@ interface IProps {
 }
 
 const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<section className={classes['policyConfiguration']}>
 			<PolicySidebar />
@@ -32,7 +35,7 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 							onClick={props.onUpdatePolicyConfiguration}
 						>
 							<span className={classes['ruleCreationButton__text']}>
-								Save & Continue to Rule Creation
+								{t('policyConfiguration.saveAndUpdateButton')}
 							</span>
 							<EDSvg className={classes['ruleCreationButton__icon']} name="v" />
 						</button>
