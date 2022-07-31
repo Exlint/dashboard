@@ -14,9 +14,7 @@ interface IProps {
 }
 
 const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const svgClasses = props.className
-		? concatDiverseClasses(classes['container'], props.className)
-		: classes['container'];
+	const svgClasses = concatDiverseClasses(classes['container'], props.className);
 
 	return (
 		<svg

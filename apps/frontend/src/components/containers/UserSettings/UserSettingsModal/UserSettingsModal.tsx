@@ -14,7 +14,7 @@ interface IPropsFromDispatch {
 }
 
 interface IProps extends IPropsFromDispatch {
-	readonly onToggleModal: () => void;
+	readonly onCloseModal: () => void;
 }
 
 const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -32,14 +32,14 @@ const UserSettingsModal: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 	};
 
 	const onDeleteUserInputChangeHandler = (input: string) => {
-		setIsConfirmButtonDisabledState(() => input !== t('userSettingsModal.actionPhraseText'));
+		setIsConfirmButtonDisabledState(() => input !== t('userSettings.userSettingsModal.actionPhraseText'));
 	};
 
 	return (
 		<UserSettingsModalView
 			isConfirmButtonDisabled={isConfirmButtonDisabledState}
 			onDeleteUser={onDeleteUser}
-			onToggleModal={props.onToggleModal}
+			onCloseModal={props.onCloseModal}
 			onDeleteUserInputChangeHandler={onDeleteUserInputChangeHandler}
 		/>
 	);

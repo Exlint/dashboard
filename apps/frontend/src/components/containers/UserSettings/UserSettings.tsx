@@ -24,13 +24,15 @@ const UserSettings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 		navigate('/auth');
 	};
 
-	const onToggleModal = () => setIsModelOnViewState((prev) => !prev);
+	const onOpenModal = () => setIsModelOnViewState(() => true);
+	const onCloseModal = () => setIsModelOnViewState(() => false);
 
 	return (
 		<UserSettingsView
 			isModelOnView={isModelOnViewState}
 			onLogout={onLogout}
-			onToggleModal={onToggleModal}
+			onOpenModal={onOpenModal}
+			onCloseModal={onCloseModal}
 		/>
 	);
 };

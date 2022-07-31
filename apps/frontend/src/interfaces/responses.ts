@@ -12,5 +12,3 @@ export interface ICliAuthResponseData {
 	readonly cliToken: string;
 	readonly email: string;
 }
-
-export interface ILogoutResponseData {}

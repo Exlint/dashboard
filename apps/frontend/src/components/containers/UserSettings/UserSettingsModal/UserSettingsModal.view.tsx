@@ -11,7 +11,7 @@ import classes from './UserSettingsModal.module.scss';
 interface IProps {
 	readonly isConfirmButtonDisabled: boolean;
 	readonly onDeleteUser: () => void;
-	readonly onToggleModal: () => void;
+	readonly onCloseModal: () => void;
 	readonly onDeleteUserInputChangeHandler: (_: string) => void;
 }
 
@@ -22,7 +22,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 
 	return (
 		<>
-			<EDBackdrop onBackdropClick={props.onToggleModal} />
+			<EDBackdrop onBackdropClick={props.onCloseModal} />
 			{ReactDOM.createPortal(
 				<form className={classes['container']} onSubmit={props.onDeleteUser}>
 					<div className={classes['deleteUserWrapper']}>
@@ -31,20 +31,22 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								type="button"
 								role="button"
 								className={classes['header__button']}
-								onClick={props.onToggleModal}
+								onClick={props.onCloseModal}
 							>
 								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
-								{t('userSettingsModal.cancelButton')}
+								{t('userSettings.userSettingsModal.cancelButton')}
 							</button>
 						</div>
 						<div className={classes['body']}>
 							<EDSvg className={classes['body__icon']} name="userSettingsExlintSymbol" />
-							<span className={classes['body__upperText']}>
-								{t('userSettingsModal.upperText')}
+							<span className={classes['body__header']}>
+								{t('userSettings.userSettingsModal.header')}
 							</span>
-							<span className={classes['body__details']}>{t('userSettingsModal.details')}</span>
+							<span className={classes['body__details']}>
+								{t('userSettings.userSettingsModal.details')}
+							</span>
 							<span className={classes['body__actionText']}>
-								{t('userSettingsModal.actionText')}
+								{t('userSettings.userSettingsModal.actionText')}
 								&nbsp;
 								<span
 									className={concatClasses(
@@ -53,13 +55,13 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 										'body__actionText--redText',
 									)}
 								>
-									{t('userSettingsModal.actionPhraseText')}
+									{t('userSettings.userSettingsModal.actionPhraseText')}
 								</span>
 							</span>
 							<input
 								className={classes['body__input']}
 								type="text"
-								placeholder={t('userSettingsModal.inputPlaceholder')}
+								placeholder={t('userSettings.userSettingsModal.inputPlaceholder')}
 								onChange={({ currentTarget: { value } }) =>
 									props.onDeleteUserInputChangeHandler(value)
 								}
@@ -70,7 +72,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								role="button"
 								disabled={props.isConfirmButtonDisabled}
 							>
-								{t('userSettingsModal.confirmButton')}
+								{t('userSettings.userSettingsModal.confirmButton')}
 							</button>
 						</div>
 					</div>

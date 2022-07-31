@@ -15,9 +15,7 @@ const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	return (
 		<aside className={classes['container']}>
 			<div className={classes['sidebar']}>
-				<div className={classes['headerContainer']}>
-					<h2 className={classes['headerContainer__title']}>{t('settingsSidebar.title')}</h2>
-				</div>
+				<h2 className={classes['title']}>{t('settingsSidebar.title')}</h2>
 				<hr className={classes['divider']} />
 				<div className={classes['userDetalis']}>
 					<div className={classes['usernameContainer']}>

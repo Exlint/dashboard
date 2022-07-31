@@ -11,7 +11,8 @@ import classes from './UserSettings.module.scss';
 interface IProps {
 	readonly isModelOnView: boolean;
 	readonly onLogout: () => void;
-	readonly onToggleModal: () => void;
+	readonly onOpenModal: () => void;
+	readonly onCloseModal: () => void;
 }
 
 const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -39,12 +40,12 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 									className={classes['action__button']}
 									type="button"
 									role="button"
-									onClick={props.onToggleModal}
+									onClick={props.onOpenModal}
 								>
 									{t('userSettings.deleteUserAction')}
 								</button>
 								{props.isModelOnView && (
-									<UserSettingsModal onToggleModal={props.onToggleModal} />
+									<UserSettingsModal onCloseModal={props.onCloseModal} />
 								)}
 							</div>
 							<div className={classes['action']}>
