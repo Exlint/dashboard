@@ -1,4 +1,4 @@
-import { Routes } from '@nestjs/core';
+import type { Routes } from '@nestjs/core';
 
 import { UserModule } from './modules/user/user.module';
 import { userRoutes } from './modules/user/user.routes';

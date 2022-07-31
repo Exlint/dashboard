@@ -1,5 +1,5 @@
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import { CracoConfig } from '@craco/craco';
+import type { CracoConfig } from '@craco/craco';
 
 const config: CracoConfig = {
 	eslint: { enable: false },

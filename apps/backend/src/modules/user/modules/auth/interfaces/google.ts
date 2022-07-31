@@ -1,4 +1,4 @@
-import { IUnknown } from './unknown';
+import type { IUnknown } from './unknown';
 
 interface IGoogleName extends IUnknown {
 	readonly givenName: string;

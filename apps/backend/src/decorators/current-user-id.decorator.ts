@@ -1,6 +1,6 @@
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { createParamDecorator, type ExecutionContext } from '@nestjs/common';
 
-import { IJwtTokenPayload } from '@/interfaces/jwt-token';
+import type { IJwtTokenPayload } from '@/interfaces/jwt-token';
 
 export const CurrentUserId = createParamDecorator((_: undefined, context: ExecutionContext) => {
 	const request = context.switchToHttp().getRequest();

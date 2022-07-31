@@ -1,4 +1,4 @@
-import { IEnvironment } from './env.interface';
+import type { IEnvironment } from './env.interface';
 
 const EnvConfiguration = (): IEnvironment => ({
 	nodeEnv: process.env.NODE_ENV,
@@ -13,6 +13,7 @@ const EnvConfiguration = (): IEnvironment => ({
 	githubOAuthRedirectUri: process.env.GITHUB_OAUTH_REDIRECT_URI,
 	mixpanelToken: process.env.MIXPANEL_TOKEN,
 	frontendUrl: process.env.FRONTEND_URL,
+	cliTokenJwtKey: process.env.CLI_TOKEN_JWT_KEY,
 });
 
 export default EnvConfiguration;

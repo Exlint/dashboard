@@ -1,8 +1,8 @@
 import { ConfigService } from '@nestjs/config';
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
+import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
 import Mixpanel from 'mixpanel';
 
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
 import { SignupMixpanelContract } from '../contracts/signup-mixpanel.contract';
 import { USER_SIGNUP } from '../../models/mixpanel-events';

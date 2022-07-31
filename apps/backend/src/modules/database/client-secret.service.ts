@@ -31,4 +31,25 @@ export class DBClientSecretService {
 	public async createSecret(userId: string, secret: string, label: string, expiration: Date | null) {
 		await this.prisma.clientSecret.create({ data: { secret, userId, label, expiration } });
 	}
+
+	public getSecrets(userId: string) {
+		return this.prisma.clientSecret.findMany({
+			where: { userId },
+			select: {
+				id: true,
+				label: true,
+				createdAt: true,
+				expiration: true,
+			},
+		});
+	}
+
+	public async getSecretExpiration(secretId: string) {
+		const secret = await this.prisma.clientSecret.findUniqueOrThrow({
+			where: { id: secretId },
+			select: { expiration: true },
+		});
+
+		return secret.expiration;
+	}
 }

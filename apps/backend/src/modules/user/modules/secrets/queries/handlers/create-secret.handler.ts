@@ -1,4 +1,4 @@
-import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
+import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 
 import { DBClientSecretService } from '@/modules/database/client-secret.service';
 
@@ -13,13 +13,19 @@ export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> 
 	) {}
 
 	async execute(contract: CreateSecretContract) {
-		const secret = this.secretsService.generateSecret();
+		const secret = await this.secretsService.generateSecret(
+			contract.userId,
+			contract.email,
+			contract.expiration,
+		);
+
+		const expirationDate = contract.expiration ? new Date(contract.expiration) : null;
 
 		await this.dbClientSecretService.createSecret(
 			contract.userId,
 			secret,
 			contract.label,
-			contract.expiration,
+			expirationDate,
 		);
 
 		return secret;

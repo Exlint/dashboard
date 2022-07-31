@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 
 import { MAX_JWT_REFRESH_TOKENS } from '@/models/jwt-token';
 
@@ -33,12 +33,6 @@ export class DBUserService {
 		});
 	}
 
-	public async emailExists(email: string) {
-		const user = await this.prisma.user.findUnique({ where: { email } });
-
-		return !!user;
-	}
-
 	public async addRefreshToken(userId: string, token: string) {
 		await this.prisma.refreshToken.create({ data: { userId, token } });
 	}
@@ -66,7 +60,7 @@ export class DBUserService {
 	}
 
 	public async getAuthTypeData(userId: string) {
-		const user = await this.prisma.user.findUnique({
+		const user = await this.prisma.user.findUniqueOrThrow({
 			where: { id: userId },
 			select: { authType: true, externalToken: true },
 		});

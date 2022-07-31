@@ -2,19 +2,20 @@ import {
 	BadRequestException,
 	Controller,
 	Get,
-	HttpCode,
 	HttpStatus,
 	Logger,
 	Redirect,
+	UseFilters,
 	UseGuards,
 } from '@nestjs/common';
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
 import { ConfigService } from '@nestjs/config';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { Public } from '@/decorators/public.decorator';
 import { ExternalAuthUser } from '@/decorators/external-auth-user.decorator';
-import { IEnvironment } from '@/config/env.interface';
+import type { IEnvironment } from '@/config/env.interface';
 
 import { AuthService } from './auth.service';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
@@ -25,10 +26,12 @@ import { CreateGoogleUserContract } from './queries/contracts/create-google-user
 import { UpdateExternalTokenContract } from './commands/contracts/update-external-token.contract';
 import Routes from './auth.routes';
 import { IExternalAuthUser } from './interfaces/external-auth-user';
-import { IExternalLoggedUser } from './interfaces/user';
+import type { IExternalLoggedUser } from './interfaces/user';
 import { LoginMixpanelContract } from './events/contracts/login-mixpanel.contract';
 import { JwtTokenType } from './models/jwt-token';
+import { ExternalAuthFilter } from './filters/external-auth.filter';
 
+@ApiTags('Auth')
 @Controller(Routes.CONTROLLER)
 export class GoogleController {
 	private readonly logger = new Logger(GoogleController.name);
@@ -41,6 +44,7 @@ export class GoogleController {
 		private readonly configService: ConfigService<IEnvironment, true>,
 	) {}
 
+	@ApiOperation({ description: 'A redirect URL to enter Google OAuth app' })
 	@Public()
 	@UseGuards(GoogleAuthGuard)
 	@Get(Routes.GOOGLE_AUTH)
@@ -48,14 +52,17 @@ export class GoogleController {
 		return;
 	}
 
+	@ApiOperation({
+		description: 'A redirect URL used by Google to send back the server the user data',
+	})
 	@Public()
 	@UseGuards(GoogleAuthGuard)
+	@UseFilters(ExternalAuthFilter)
 	@Get(Routes.GOOGLE_REDIRECT)
-	@HttpCode(HttpStatus.OK)
-	@Redirect(undefined, 301)
+	@Redirect(undefined, HttpStatus.MOVED_PERMANENTLY)
 	public async googleRedirect(@ExternalAuthUser() user: IExternalAuthUser, @RealIP() ip: string) {
 		this.logger.log(
-			`User with an email "${user.email}" tries to login. Will check if already exists in DB`,
+			`User with an email "${user.email}" tries to auth. Will check if already exists in DB`,
 		);
 
 		const googleUser = await this.queryBus.execute<GetGoogleUserContract, IExternalLoggedUser>(
@@ -78,7 +85,7 @@ export class GoogleController {
 					ip,
 					name: user.name,
 					email: user.email,
-					refreshToken: user.externalToken!,
+					refreshToken: user.externalToken,
 				}),
 			);
 
@@ -98,16 +105,22 @@ export class GoogleController {
 
 			this.logger.log("Successfully stored the user's refresh token");
 
+			let redirectUrl = `${this.configService.get(
+				'frontendUrl',
+			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+			if (user.port) {
+				redirectUrl += `&port=${user.port}`;
+			}
+
 			return {
-				url: `${this.configService.get(
-					'frontendUrl',
-				)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+				url: redirectUrl,
 			};
 		}
 
 		if (googleUser.authType !== 'GOOGLE') {
 			this.logger.log(
-				`Tried to log in using Google authentication, but the user with email "${user.email}" exists with other authenticating type`,
+				`Tried to auth using Google authentication, but the user with email "${user.email}" exists with other authenticating type`,
 			);
 
 			throw new BadRequestException();
@@ -143,10 +156,16 @@ export class GoogleController {
 
 		this.eventBus.publish(new LoginMixpanelContract(googleUser.id, ip));
 
+		let redirectUrl = `${this.configService.get(
+			'frontendUrl',
+		)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`;
+
+		if (user.port) {
+			redirectUrl += `&port=${user.port}`;
+		}
+
 		return {
-			url: `${this.configService.get(
-				'frontendUrl',
-			)}/external-auth-redirect?refreshToken=${encodeURIComponent(refreshToken)}`,
+			url: redirectUrl,
 		};
 	}
 }
