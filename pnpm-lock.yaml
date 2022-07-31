@@ -8147,7 +8147,7 @@ packages:
       extend: 3.0.2
       gaxios: 4.3.3
       google-auth-library: 8.1.1
-      qs: 6.11.0
+      qs: 6.10.3
       url-template: 2.0.8
       uuid: 8.3.2
     transitivePeerDependencies:
@@ -10562,7 +10562,7 @@ packages:
     dev: true
 
   /mute-stream/0.0.7:
-    resolution: {integrity: sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=}
+    resolution: {integrity: sha512-r65nCZhrbXXb6dXOACihYApHw2Q6pV0M3V0PSxd74N0+D8nzAdEAITq2oAjA1jVnKI+tGvEBUpqiMh0+rW6zDQ==}
     dev: true
 
   /mute-stream/0.0.8:
@@ -11222,7 +11222,7 @@ packages:
     dev: true
 
   /pause/0.0.1:
-    resolution: {integrity: sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=}
+    resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
     dev: false
 
   /pdfjs-dist/2.14.305:
@@ -12314,13 +12314,6 @@ packages:
     dependencies:
       side-channel: 1.0.4
 
-  /qs/6.11.0:
-    resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
-    engines: {node: '>=0.6'}
-    dependencies:
-      side-channel: 1.0.4
-    dev: false
-
   /query-ast/1.0.4:
     resolution: {integrity: sha512-KFJFSvODCBjIH5HbHvITj9EEZKYUU6VX0T5CuB1ayvjUoUaZkKMi6eeby5Tf8DMukyZHlJQOE1+f3vevKUe6eg==}
     dependencies:
@@ -12329,7 +12322,7 @@ packages:
     dev: true
 
   /querystring/0.2.0:
-    resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
+    resolution: {integrity: sha512-X/xY82scca2tau62i9mDyU9K+I+djTMUsvwf7xnUX5GLvVzgJybOJf4Y6o9Zx3oJK/LSXg5tTZBjwzqVPaPO2g==}
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
@@ -13096,7 +13089,6 @@ packages:
 
   /sax/1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
-    dev: true
 
   /saxes/5.0.1:
     resolution: {integrity: sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==}
@@ -13613,7 +13605,7 @@ packages:
     dev: true
 
   /string-template/1.0.0:
-    resolution: {integrity: sha1-np8iM9wA8hhxjsN5oopWc+zKi5Y=}
+    resolution: {integrity: sha512-SLqR3GBUXuoPP5MmYtD7ompvXiG87QjT6lzOszyXjTM86Uu7At7vNnt2xgyTLq5o9T4IxTYFyGxcULqpsmsfdg==}
     dev: true
 
   /string-width/2.1.1:
@@ -14686,7 +14678,7 @@ packages:
     dev: false
 
   /url/0.10.3:
-    resolution: {integrity: sha1-Ah5NnHcF8hu/N9A861h2dAJ3TGQ=}
+    resolution: {integrity: sha512-hzSUW2q06EqL1gKM/a+obYHLIO6ct2hwPuviqTTOcfFVc61UbfJ2Q32+uGL/HCPxKqrdGB5QUwIe7UqlDgwsOQ==}
     dependencies:
       punycode: 1.3.2
       querystring: 0.2.0
@@ -15370,7 +15362,7 @@ packages:
   /xml2js/0.4.19:
     resolution: {integrity: sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==}
     dependencies:
-      sax: 1.2.1
+      sax: 1.2.4
       xmlbuilder: 9.0.7
     dev: false
     optional: true

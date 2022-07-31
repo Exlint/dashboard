@@ -25,6 +25,13 @@ main {
 	height: 100%;
 }
 
+input,
+select,
+textarea,
+button {
+	font-family: inherit;
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
