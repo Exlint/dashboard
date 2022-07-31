@@ -49,6 +49,9 @@ const en = {
 	policyConfiguration: {
 		saveAndUpdateButton: 'Save & Continue to Rule Creation',
 	},
+	codeBasedConfiguration: {
+		configurations: 'Configurations',
+	},
 };
 
 export default en;

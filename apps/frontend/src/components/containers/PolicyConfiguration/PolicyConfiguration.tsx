@@ -23,7 +23,7 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	};
 
 	const onEditFileFormatButton = () => {
-		setIsEditFileFormatState(() => !isEditFileFormatState);
+		setIsEditFileFormatState((prev) => !prev);
 	};
 
 	const onUpdatePolicyConfiguration = () => {
@@ -36,7 +36,6 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 					navigate('/');
 				})
 				.catch((err: AxiosError) => {
-					//TODO: Add action when catch error
 					alert(err.response?.data);
 				});
 		} else {

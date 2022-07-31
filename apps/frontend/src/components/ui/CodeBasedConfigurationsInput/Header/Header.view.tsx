@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import EDSvg from '@/ui/EDSvg';
 
 import classes from './Header.module.scss';
@@ -11,13 +13,15 @@ interface IProps {
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['header']}>
 			<div className={classes['leftSideContainer']}>
 				<span className={classes['leftSideContainer__text']}>{props.labelInput}</span>
 				&nbsp;
 				<span className={classes['leftSideContainer__text']}>
-					{`${props.configurationType} Configuration`}
+					{`${props.configurationType} ${t('codeBasedConfiguration.configurations')}`}
 				</span>
 			</div>
 			<div className={classes['rightSideContainer']}>
@@ -31,16 +35,6 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						name={props.isEditFileFormat ? 'unlock' : 'lock'}
 					/>
 				</button>
-
-				{/* <SelectFromOptions
-					componentWidth="100px"
-					border="1px solid #8b8b8b"
-					selectedOptionIndex={props.selectedFileFormatIndex}
-					isShowMoreClicked={props.isFileFormatClicked}
-					optionsList={fileFormats}
-					onSelectOptionsButton={props.onFileFormatButton}
-					onSelectedOption={props.onSelectedFileFormat}
-				/> */}
 			</div>
 		</div>
 	);
