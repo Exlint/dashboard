@@ -42,7 +42,7 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 							<img
 								className={classes['body__blackExlintLogo']}
 								src={blackExlint}
-								alt={t('userSettings.userSettingsModal.blackExlintLogo')}
+								alt="Exlint"
 							/>
 							<span className={classes['body__header']}>
 								{t('userSettings.userSettingsModal.header')}
