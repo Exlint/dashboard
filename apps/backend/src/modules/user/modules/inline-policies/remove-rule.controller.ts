@@ -1,6 +1,13 @@
-import { Body, Controller, Logger, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, HttpCode, HttpStatus, Logger, Param, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import Routes from './inline-policies.routes';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
@@ -16,8 +23,14 @@ export class RemoveRuleController {
 
 	@ApiOperation({ description: 'Remove a rule (by its name) of a policiy by its identifier' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({ description: 'If successfully deleted the rule' })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is missing or invalid, or policy does not belong to user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to delete rule' })
 	@UseGuards(BelongingInlinePolicyGuard)
-	@Post(Routes.REMOVE_RULE)
+	@Delete(Routes.REMOVE_RULE)
+	@HttpCode(HttpStatus.OK)
 	public async removeRule(
 		@Param('policy_id') policyId: string,
 		@Body() removeRuleDto: RemoveRuleDto,

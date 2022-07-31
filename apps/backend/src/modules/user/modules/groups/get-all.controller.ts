@@ -1,6 +1,13 @@
 import { Controller, Get, HttpCode, HttpStatus, Logger } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -19,6 +26,10 @@ export class GetAllController {
 	@ApiBearerAuth('access-token')
 	@ApiOperation({ description: 'Get all groups of a user' })
 	@ApiOkResponse({ description: "If successfully got all user's groups", type: GetAllGroupsResponse })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is either missing or invalid',
+	})
+	@ApiInternalServerErrorResponse({ description: "If failed to fetch all user's groups" })
 	@Get(Routes.GET_ALL)
 	@HttpCode(HttpStatus.OK)
 	public async getAll(@CurrentUserId() userId: string): Promise<GetAllGroupsResponse> {

@@ -1,6 +1,13 @@
 import { Controller, Delete, HttpCode, HttpStatus, Logger, Param, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
@@ -17,6 +24,11 @@ export class DeleteController {
 
 	@ApiOperation({ description: 'Deleting a group with provided identifier' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({ description: 'If successfully deleted the group' })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is either missing or invalid, or group does not belong to user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to delete the group' })
 	@UseGuards(BelongingGroupGuard)
 	@Delete(Routes.DELETE)
 	@HttpCode(HttpStatus.OK)

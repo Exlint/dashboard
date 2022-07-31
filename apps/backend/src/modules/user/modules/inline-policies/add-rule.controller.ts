@@ -11,7 +11,15 @@ import {
 } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiCreatedResponse,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -30,6 +38,11 @@ export class AddRuleController {
 
 	@ApiOperation({ description: 'Add a new rule for an inline policy' })
 	@ApiBearerAuth('access-token')
+	@ApiCreatedResponse({ description: 'If successfully added the rule' })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is missing or invalid, or the policy does not belong to user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to add rule' })
 	@UseGuards(BelongingInlinePolicyGuard)
 	@Post(Routes.ADD_RULE)
 	@HttpCode(HttpStatus.CREATED)
@@ -50,6 +63,11 @@ export class AddRuleController {
 
 	@ApiOperation({ description: 'Edit a rule of an inline policy' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({ description: 'If successfully edited the rule' })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is missing or invalid, or the policy does not belong to user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to edit rule' })
 	@UseGuards(BelongingInlinePolicyGuard)
 	@Patch(Routes.EDIT_RULE)
 	@HttpCode(HttpStatus.OK)

@@ -1,6 +1,13 @@
 import { Body, Controller, HttpCode, HttpStatus, Logger, Param, Patch, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { EditSecretDto } from './classes/edit-secret.dto';
 import { EditSecretContract } from './commands/contracts/edit-secret.contract';
@@ -16,6 +23,13 @@ export class EditSecretController {
 
 	@ApiOperation({ description: 'Edit a label of a secret by its identifer' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({
+		description: 'If successfully edit label of secret',
+	})
+	@ApiUnauthorizedResponse({
+		description: 'If access token is invalid or secret does not belong user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to edit the label of the secret' })
 	@UseGuards(BelongingSecretGuard)
 	@Patch(Routes.EDIT_LABEL)
 	@HttpCode(HttpStatus.OK)

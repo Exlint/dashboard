@@ -1,11 +1,18 @@
 import { Controller, Get, HttpCode, HttpStatus, Logger } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './secrets.routes';
-import type { IGetAllSecretsResponse } from './interfaces/responses';
+import { GetAllSecretsResponse } from './classes/responses';
 import { GetAllSecretsContract } from './queries/contracts/get-all-secrets.contract';
 import type { IUserSecretsGetAll } from './interfaces/user-secrets';
 
@@ -18,9 +25,17 @@ export class GetAllController {
 
 	@ApiOperation({ description: 'Get all secrets of a user' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({
+		description: "If successfully fetched all user's secrets",
+		type: GetAllSecretsResponse,
+	})
+	@ApiUnauthorizedResponse({
+		description: 'If access token is invalid or missing',
+	})
+	@ApiInternalServerErrorResponse({ description: "If failed to fetch the user's secrets" })
 	@Get(Routes.GET_ALL)
 	@HttpCode(HttpStatus.OK)
-	public async getAll(@CurrentUserId() userId: string): Promise<IGetAllSecretsResponse> {
+	public async getAll(@CurrentUserId() userId: string): Promise<GetAllSecretsResponse> {
 		this.logger.log(`Will try to fetch all secrets belong to use with an Id: "${userId}"`);
 
 		const userSecrets = await this.queryBus.execute<GetAllSecretsContract, IUserSecretsGetAll[]>(

@@ -1,6 +1,13 @@
 import { Controller, Delete, HttpCode, HttpStatus, Logger, Param, UseGuards } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -17,6 +24,11 @@ export class DeleteInlineController {
 
 	@ApiOperation({ description: 'Delete a policy by its identifier' })
 	@ApiBearerAuth('access-token')
+	@ApiOkResponse({ description: 'If successfully deleted the policy' })
+	@ApiUnauthorizedResponse({
+		description: 'If access token is missing or invalid, or policy does not belong to user',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to delete policy' })
 	@UseGuards(BelongingInlinePolicyGuard)
 	@Delete(Routes.DELETE)
 	@HttpCode(HttpStatus.OK)
