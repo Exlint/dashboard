@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import EDBackdrop from '@/ui/EDBackdrop';
 import { concatClasses } from '@/utils/component';
+import blackExlint from '@/images/black-exlint-logo.png';
 
 import classes from './UserSettingsModal.module.scss';
 
@@ -33,12 +34,16 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 								className={classes['header__button']}
 								onClick={props.onCloseModal}
 							>
-								<EDSvg className={classes['header__icon']} name="userSettingsCloseModal" />
+								<EDSvg className={classes['header__icon']} name="close" />
 								{t('userSettings.userSettingsModal.cancelButton')}
 							</button>
 						</div>
 						<div className={classes['body']}>
-							<EDSvg className={classes['body__icon']} name="userSettingsExlintSymbol" />
+							<img
+								className={classes['body__blackExlintLogo']}
+								src={blackExlint}
+								alt={t('userSettings.userSettingsModal.blackExlintLogo')}
+							/>
 							<span className={classes['body__header']}>
 								{t('userSettings.userSettingsModal.header')}
 							</span>

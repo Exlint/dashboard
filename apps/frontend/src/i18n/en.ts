@@ -35,6 +35,7 @@ const en = {
 			actionPhraseText: 'DELETE-USER',
 			inputPlaceholder: 'Type here',
 			confirmButton: 'Confirm',
+			blackExlintLogo: 'Exlint black logo',
 		},
 	},
 	settingsSidebar: {

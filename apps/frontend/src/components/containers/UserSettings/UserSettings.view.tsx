@@ -26,10 +26,7 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 					<h3 className={classes['userSettingsSection__title']}>{t('userSettings.title')}</h3>
 					<div className={classes['body']}>
 						<div className={classes['usernameWrapper']}>
-							<EDSvg
-								className={classes['usernameWrapper__icon']}
-								name="userSettingsDefaultProfilePicture"
-							/>
+							<EDSvg className={classes['usernameWrapper__icon']} name="blackUser" />
 							<span className={classes['usernameWrapper__username']}>
 								{t('userSettings.username')}
 							</span>

@@ -19,10 +19,7 @@ const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 				<hr className={classes['divider']} />
 				<div className={classes['userDetalis']}>
 					<div className={classes['usernameContainer']}>
-						<EDSvg
-							name="userSettingsSidebarDefultProfilePicture"
-							className={classes['usernameContainer__profileIcon']}
-						/>
+						<EDSvg name="greyUser" className={classes['usernameContainer__profileIcon']} />
 						<span className={classes['usernameContainer__usernameText']}>
 							{t('settingsSidebar.username')}
 						</span>
