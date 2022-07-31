@@ -36,7 +36,7 @@ const PoliciesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					</button>
 				</div>
 			</div>
-			{props.groupPolicies.length > 0 ? (
+			{props.groupPolicies !== undefined && props.groupPolicies.length !== 0 ? (
 				<PoliciesList groupPolicy={props.groupPolicies} />
 			) : (
 				<NoPolicies />

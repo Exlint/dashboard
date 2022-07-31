@@ -64,7 +64,7 @@ const LibrariesListView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			{Object.values(filteredLibraries).map((library, index) => {
 				return (
 					<Library
-						id="testId"
+						id={library[0]}
 						key={index}
 						title={library[0]}
 						logo={library[1].logo}

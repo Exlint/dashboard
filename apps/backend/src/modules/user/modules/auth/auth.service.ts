@@ -7,7 +7,7 @@ import { OAuthApp } from '@octokit/oauth-app';
 import type { IEnvironment } from '@/config/env.interface';
 import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
 
-import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION } from './models/jwt-token';
+import { JwtTokenType, JWT_ACCESS_TOKEN_DURATION_MINUTES } from './models/jwt-token';
 
 @Injectable()
 export class AuthService {
@@ -32,9 +32,9 @@ export class AuthService {
 			email,
 		};
 
-		const tokenDuration =
+		const tokenDurationInMinutes =
 			tokenType === JwtTokenType.Access
-				? JWT_ACCESS_TOKEN_DURATION
+				? JWT_ACCESS_TOKEN_DURATION_MINUTES
 				: JWT_REFRESH_TOKEN_DURATION_MINUTES;
 
 		const jwtSecret = this.configService.get(
@@ -44,7 +44,7 @@ export class AuthService {
 
 		const token = await this.jwtService.signAsync(jwtPayload, {
 			secret: jwtSecret,
-			expiresIn: tokenDuration,
+			expiresIn: `${tokenDurationInMinutes}m`,
 		});
 
 		return token;

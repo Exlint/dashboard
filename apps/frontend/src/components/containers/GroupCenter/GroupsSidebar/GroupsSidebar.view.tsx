@@ -45,7 +45,7 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					</button>
 				</div>
 				<hr className={classes['dividerLine']} />
-				{props.groupsList.length > 0 ? (
+				{props.groupsList.length !== 0 ? (
 					<GroupsList
 						groupsList={props.groupsList}
 						selectedGroupIndex={props.selectedGroupIndex!}

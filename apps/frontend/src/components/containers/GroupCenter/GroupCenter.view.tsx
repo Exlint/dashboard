@@ -13,15 +13,24 @@ interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
+	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onRemoveGroup: (groupId: string) => void;
 	readonly onSelectGroup: (index: number) => void;
 }
 
 const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const selectedGroup = props.selectedGroupIndex
-		? props.groupsList[props.selectedGroupIndex] ?? null
-		: null;
+	const selectedGroup =
+		props.selectedGroupIndex !== null ? props.groupsList[props.selectedGroupIndex] ?? null : null;
 
 	const selectedGroupId = selectedGroup?.id;
+
+	const groupDetailsElement = (
+		<GroupDetails
+			selectedGroup={selectedGroup!}
+			onUpdateGroupLabel={props.onUpdateGroupLabel}
+			onRemoveGroup={props.onRemoveGroup}
+		/>
+	);
 
 	return (
 		<main className={classes['main']}>
@@ -33,7 +42,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			/>
 			{selectedGroupId && (
 				<Routes>
-					<Route path="/" element={<GroupDetails selectedGroup={selectedGroup} />} />
+					<Route path="/" element={groupDetailsElement} />
 					<Route path="/new-policy" element={<NewPolicy selectedGroupId={selectedGroupId} />} />
 				</Routes>
 			)}

@@ -1,4 +1,4 @@
-import { Controller, HttpCode, HttpStatus, Logger, Post, UseGuards } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus, Logger, UseGuards } from '@nestjs/common';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
@@ -18,7 +18,7 @@ export class RefreshTokenController {
 
 	@Public()
 	@UseGuards(RefreshTokenGuard)
-	@Post(Routes.REFRESH_TOKEN)
+	@Get(Routes.REFRESH_TOKEN)
 	@HttpCode(HttpStatus.OK)
 	public async refreshToken(
 		@CurrentUserId() userId: string,

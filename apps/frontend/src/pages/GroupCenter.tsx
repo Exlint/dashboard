@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GroupCenter from '../components/containers/GroupCenter';
+import GroupCenter from '@/containers/GroupCenter';
 
 interface IProps {}
 
@@ -9,5 +9,6 @@ const GroupCenterPage: React.FC<IProps> = () => {
 };
 
 GroupCenterPage.displayName = 'GroupCenterPage';
+GroupCenterPage.defaultProps = {};
 
 export default GroupCenterPage;

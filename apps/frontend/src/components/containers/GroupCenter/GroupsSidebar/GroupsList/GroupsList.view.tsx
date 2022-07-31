@@ -1,4 +1,5 @@
 import React from 'react';
+import { Element } from 'react-scroll';
 
 import type { IGroup } from '@/interfaces/group';
 
@@ -25,7 +26,7 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 	}
 
 	return (
-		<div className={classes['container']}>
+		<div id="group-list-container" className={classes['container']}>
 			{filteredGroupList.map((group, index) => (
 				<>
 					<Group
@@ -33,13 +34,14 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						groupId={group.id}
 						groupLabel={group.label}
 						createdAt={group.createdAt}
-						policies={group.policies.slice(0, 4)}
+						policies={group.policies}
 						isSelected={index === props.selectedGroupIndex}
 						onSelectGroup={() => props.onSelectGroup(index)}
 					/>
 					<hr className={classes['container__divider']} />
 				</>
 			))}
+			<Element name="group-list-end" />
 		</div>
 	);
 };

@@ -6,10 +6,18 @@ import GroupDetailsView from './GroupDetails.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
+	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onRemoveGroup: (groupId: string) => void;
 }
 
 const GroupDetails: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <GroupDetailsView selectedGroup={props.selectedGroup} />;
+	return (
+		<GroupDetailsView
+			selectedGroup={props.selectedGroup}
+			onUpdateGroupLabel={props.onUpdateGroupLabel}
+			onRemoveGroup={props.onRemoveGroup}
+		/>
+	);
 };
 
 GroupDetails.displayName = 'GroupDetails';
