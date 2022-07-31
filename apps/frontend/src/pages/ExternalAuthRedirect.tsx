@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ExternalAuthRedirect from '../components/containers/ExternalAuthRedirect';
+import ExternalAuthRedirect from '@/containers/ExternalAuthRedirect';
 
 interface IProps {}
 
@@ -9,5 +9,6 @@ const ExternalAuthRedirectPage: React.FC<IProps> = () => {
 };
 
 ExternalAuthRedirectPage.displayName = 'ExternalAuthRedirect';
+ExternalAuthRedirectPage.defaultProps = {};
 
 export default ExternalAuthRedirectPage;

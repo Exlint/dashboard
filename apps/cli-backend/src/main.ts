@@ -6,7 +6,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
 import { LoggingInterceptor } from './interceptors/logger.interceptor';
-import { IEnvironment } from './config/env.interface';
+import type { IEnvironment } from './config/env.interface';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
@@ -27,6 +27,9 @@ async function bootstrap() {
 
 	const config = app.get<ConfigService<IEnvironment, true>>(ConfigService);
 	const nodeEnv = config.get('nodeEnv', { infer: true });
+	const frontendUrl = config.get('frontendUrl', { infer: true });
+
+	app.enableCors({ origin: frontendUrl });
 
 	if (nodeEnv === 'development') {
 		const swaggerConfig = new DocumentBuilder()

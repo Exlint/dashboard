@@ -1,9 +1,7 @@
 const Routes = {
 	CONTROLLER: 'auth',
-	DELETE: 'delete',
-	LOGIN: 'login',
-	AUTO_LOGIN: 'auto-login',
-	REGISTER: 'register',
+	DELETE: '',
+	AUTO_AUTH: '',
 	REFRESH_TOKEN: 'refresh-token',
 	GITHUB_AUTH: 'github-auth',
 	GITHUB_REDIRECT: 'github-redirect',

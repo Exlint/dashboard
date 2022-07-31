@@ -9,10 +9,11 @@ import { DeleteController } from './delete.controller';
 import { EditLabelController } from './edit-label.controller';
 import { QueryHandlers } from './queries/handlers';
 import { EventHandlers } from './events/handlers';
+import { GetAllController } from './get-all.controller';
 
 @Module({
 	imports: [CqrsModule],
-	controllers: [CreateController, EditLabelController, DeleteController],
+	controllers: [CreateController, EditLabelController, DeleteController, GetAllController],
 	providers: [...QueryHandlers, ...CommandHandlers, ...EventHandlers, BelongingGroupGuard],
 })
 export class GroupsModule {}

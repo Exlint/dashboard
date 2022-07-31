@@ -1,3 +1,54 @@
+# [1.16.0](https://github.com/Exlint/dashboard/compare/v1.15.0...v1.16.0) (2022-07-31)
+
+
+### Features
+
+* 🔥 full swagger support ([99618e9](https://github.com/Exlint/dashboard/commit/99618e9ca7dae80d8edc6474cd24abef305e555f))
+
+# [1.15.0](https://github.com/Exlint/dashboard/compare/v1.14.1...v1.15.0) (2022-07-30)
+
+
+### Features
+
+* 🔥 more informative swagger ([b09928c](https://github.com/Exlint/dashboard/commit/b09928c88c811f693bcf946e69b377341a94bfad))
+
+## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* 🐞 remove deprecated propety and apply JWT to refresh secret ([0b882a8](https://github.com/Exlint/dashboard/commit/0b882a85b3885ef27df8e8169de7c8ccaed81e11))
+* 🐞 secrets are generated with JWT ([3299742](https://github.com/Exlint/dashboard/commit/32997421a5cd112a03c4aff103d792319888c185))
+
+# [1.14.0](https://github.com/Exlint/dashboard/compare/v1.13.0...v1.14.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support policy config api ([3a2079a](https://github.com/Exlint/dashboard/commit/3a2079a6d2195f1c5badfefda68c83edf0c0700c))
+
+# [1.13.0](https://github.com/Exlint/dashboard/compare/v1.12.0...v1.13.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support getting secrets api ([1feba40](https://github.com/Exlint/dashboard/commit/1feba400bd0714f5e96a332dfb171a5bda0cf485))
+
+# [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
+
+
+### Features
+
+* 🔥 added controller for getting all user groups ([c3e382a](https://github.com/Exlint/dashboard/commit/c3e382aa50a297a42e62efe30e8de6da5bd8057e))
+
+# [1.11.0](https://github.com/Exlint/dashboard/compare/v1.10.0...v1.11.0) (2022-07-21)
+
+
+### Features
+
+* 🔥 support cli auth ([a9a7261](https://github.com/Exlint/dashboard/commit/a9a7261138b99da36571eab094f3aac727efa3de))
+* 🔥 support google oauth ([d3112a1](https://github.com/Exlint/dashboard/commit/d3112a1573c4b66586625ed581f4085a7f8dad5f))
+
 # [1.10.0](https://github.com/Exlint/dashboard/compare/v1.9.0...v1.10.0) (2022-07-16)
 
 

@@ -1,21 +1,36 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, Logger, Post } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
+import {
+	ApiBearerAuth,
+	ApiCreatedResponse,
+	ApiInternalServerErrorResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './groups.routes';
-import { ICreateGroup } from './interfaces/responses';
+import { CreateGroupResponse } from './classes/responses';
 import { CreateGroupContract } from './queries/contracts/create-group.contact';
 
+@ApiTags('Groups')
 @Controller(Routes.CONTROLLER)
 export class CreateController {
 	private readonly logger = new Logger(CreateController.name);
 
 	constructor(private readonly queryBus: QueryBus) {}
 
+	@ApiBearerAuth('access-token')
+	@ApiOperation({ description: 'Creating a group with default label' })
+	@ApiCreatedResponse({ description: 'If successfully created a group', type: CreateGroupResponse })
+	@ApiUnauthorizedResponse({ description: 'If access token is either missing or invalid' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to create the group' })
 	@Post(Routes.CREATE)
-	public async create(@CurrentUserId() userId: string, @RealIP() ip: string): Promise<ICreateGroup> {
+	@HttpCode(HttpStatus.CREATED)
+	public async create(@CurrentUserId() userId: string, @RealIP() ip: string): Promise<CreateGroupResponse> {
 		this.logger.log(`Will try to create a group for a user with an Id: ${userId}`);
 
 		const createdGroupId = await this.queryBus.execute<CreateGroupContract, string>(

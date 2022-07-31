@@ -1,13 +1,12 @@
+import { Controller, Get, HttpCode, HttpStatus, Logger, UseGuards } from '@nestjs/common';
 import {
-	Controller,
-	HttpCode,
-	HttpStatus,
-	Logger,
-	Post,
-	UnauthorizedException,
-	UseGuards,
-} from '@nestjs/common';
-import { QueryBus } from '@nestjs/cqrs';
+	ApiBearerAuth,
+	ApiInternalServerErrorResponse,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags,
+	ApiUnauthorizedResponse,
+} from '@nestjs/swagger';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
@@ -16,37 +15,35 @@ import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
 import { RefreshTokenGuard } from './guards/refresh-token.guard';
 import { AuthService } from './auth.service';
 import { JwtTokenType } from './models/jwt-token';
-import { IRefreshTokenResponse } from './interfaces/responses';
-import { EmailExistsContract } from './queries/contracts/email-exists.contract';
+import { RefreshTokenResponse } from './classes/responses';
 import Routes from './auth.routes';
 
+@ApiTags('Auth')
 @Controller(Routes.CONTROLLER)
 export class RefreshTokenController {
 	private readonly logger = new Logger(RefreshTokenController.name);
 
-	constructor(private readonly queryBus: QueryBus, private readonly authService: AuthService) {}
+	constructor(private readonly authService: AuthService) {}
 
+	@ApiBearerAuth('refresh-token')
+	@ApiOperation({ description: 'Get a new access token by providing a refresh token' })
+	@ApiOkResponse({
+		description: 'If successfully refreshed a new access token',
+		type: RefreshTokenResponse,
+	})
+	@ApiUnauthorizedResponse({
+		description: 'If refresh token is either missing or invalid',
+	})
+	@ApiInternalServerErrorResponse({ description: 'If failed to refresh a new access token' })
 	@Public()
 	@UseGuards(RefreshTokenGuard)
-	@Post(Routes.REFRESH_TOKEN)
+	@Get(Routes.REFRESH_TOKEN)
 	@HttpCode(HttpStatus.OK)
 	public async refreshToken(
 		@CurrentUserId() userId: string,
 		@CurrentUserEmail() userEmail: string,
-	): Promise<IRefreshTokenResponse> {
-		this.logger.log(`Will check if user exists with an email: "${userEmail}"`);
-
-		const emailExists = await this.queryBus.execute<EmailExistsContract, boolean>(
-			new EmailExistsContract(userEmail),
-		);
-
-		if (!emailExists) {
-			this.logger.log(`A user with an email: "${userEmail}" does not exist`);
-
-			throw new UnauthorizedException();
-		}
-
-		this.logger.log(`Found a user with an email: "${userEmail}"`);
+	): Promise<RefreshTokenResponse> {
+		this.logger.log(`Will try to generate access token for a user with an Id: "${userId}"`);
 
 		const accessToken = await this.authService.generateJwtToken(userId, userEmail, JwtTokenType.Access);
 

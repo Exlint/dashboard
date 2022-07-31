@@ -1,3 +1,3 @@
-import { ICliGroup } from './cli-group';
+import type { ICliGroup } from './cli-group';
 
 export type IGetGroup = ICliGroup;

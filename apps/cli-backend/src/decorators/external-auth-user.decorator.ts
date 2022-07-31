@@ -1,4 +1,4 @@
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { createParamDecorator, type ExecutionContext } from '@nestjs/common';
 
 export const ExternalAuthUser = createParamDecorator(
 	(data: 'email' | 'port' | undefined, context: ExecutionContext) => {

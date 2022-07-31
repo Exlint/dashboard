@@ -1,32 +1,36 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios, { type AxiosResponse } from 'axios';
-import { type PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { backendApiAxios } from './utils/http';
-import type { IAutoLoginResponseData } from './interfaces/responses';
-import type { ILoginPayload } from './store/interfaces/auth';
+import { backendApi, cliBackendApi } from './utils/http';
+import type { IAutoAuthResponseData } from './interfaces/responses';
+import type { IAuthPayload } from './store/interfaces/auth';
 import type { AppState } from './store/app';
 import { authActions } from './store/reducers/auth';
 
 import AppView from './App.view';
 
 interface PropsFromState {
-	readonly isAuthenticated: boolean;
+	readonly isAuthenticated: boolean | null;
 }
 
 interface PropsFromDispatch {
-	readonly login: (loginPayload: ILoginPayload) => PayloadAction<ILoginPayload>;
+	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
+	readonly setUnauthenticated: () => PayloadAction;
 }
 
 interface IProps extends PropsFromState, PropsFromDispatch {}
 
 const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	useEffect(() => {
-		const authorizationInterceptor = backendApiAxios.interceptors.request.use((request) => {
+		const backendAuthorizationInterceptor = backendApi.interceptors.request.use((request) => {
 			let token: string | null;
 
-			if (request.url === '/user/auth/auto-login' || request.url === '/user/auth/refresh-token') {
+			if (
+				(request.url === '/user/auth' && request.method === 'get') ||
+				(request.url === '/user/auth/refresh-token' && request.method === 'get')
+			) {
 				token = localStorage.getItem('token');
 			} else {
 				token = sessionStorage.getItem('token');
@@ -41,26 +45,39 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			return request;
 		});
 
+		const cliBackendAuthorizationInterceptor = cliBackendApi.interceptors.request.use((request) => {
+			const token = localStorage.getItem('token');
+
+			if (!token) {
+				throw new axios.Cancel('Missing token');
+			}
+
+			request.headers!['Authorization'] = `Bearer ${token}`;
+
+			return request;
+		});
+
 		return () => {
-			backendApiAxios.interceptors.request.eject(authorizationInterceptor);
+			backendApi.interceptors.request.eject(backendAuthorizationInterceptor);
+			cliBackendApi.interceptors.request.eject(cliBackendAuthorizationInterceptor);
 		};
-	}, [props.isAuthenticated, backendApiAxios]);
+	}, [props.isAuthenticated, backendApi, cliBackendApi]);
 
 	useEffect(() => {
-		backendApiAxios
-			.post('/user/auth/auto-login')
-			.then((response: AxiosResponse<IAutoLoginResponseData>) => {
+		backendApi
+			.get('/user/auth')
+			.then((response: AxiosResponse<IAutoAuthResponseData>) => {
 				sessionStorage.setItem('token', response.data.accessToken);
 
-				props.login({
+				props.auth({
 					id: response.data.id,
 					name: response.data.name,
 				});
 			})
 			.catch(() => {
-				return;
+				props.setUnauthenticated();
 			});
-	}, [backendApiAxios]);
+	}, [backendApi]);
 
 	return <AppView isAuthenticated={props.isAuthenticated} />;
 };
@@ -70,8 +87,11 @@ App.defaultProps = {};
 
 const mapStateToProps = (state: AppState) => {
 	return {
-		isAuthenticated: state.auth.id !== null,
+		isAuthenticated: state.auth.isAuthenticated,
 	};
 };
 
-export default connect(mapStateToProps, { login: authActions.login })(React.memo(App));
+export default connect(mapStateToProps, {
+	auth: authActions.auth,
+	setUnauthenticated: authActions.setUnauthenticated,
+})(React.memo(App));
