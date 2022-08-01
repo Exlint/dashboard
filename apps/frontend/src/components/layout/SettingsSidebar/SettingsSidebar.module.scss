@@ -1,86 +1,83 @@
 .container {
 	display: flex;
+	flex-direction: column;
+	width: 100%;
 	min-width: 240px;
 	height: 100%;
 	background-color: #fefefe;
 	border-inline-end: 3px solid #e7e7e7;
 
-	.sidebar {
+	.headerWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-block: 32px 23px;
+
+		&__icon {
+			fill: #fff;
+			stroke: #202428;
+			stroke-linecap: round;
+			stroke-width: 3;
+		}
+
+		&__title {
+			margin-inline-start: 5px;
+			font-size: 1.7rem;
+			font-weight: 400;
+			color: #4b4a65;
+
+			&--purple {
+				font-weight: 500;
+				color: #7a4df3;
+			}
+		}
+	}
+
+	.title {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		width: 100%;
+		padding: 21px 0;
+		font-size: 2.4rem;
+		font-weight: 600;
+		color: #4b4a65;
+	}
 
-		.headerWrapper {
+	.divider {
+		margin-inline: 14px 20px;
+		border: none;
+		border-top: 2px solid #e7e7e7;
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 22px;
+		margin-top: 29px;
+
+		.policyLabelWrapper {
 			display: flex;
 			align-items: center;
-			justify-content: center;
-			margin-block: 32px 23px;
+			justify-content: space-between;
+
+			&__text {
+				font-size: 2.4rem;
+				font-weight: 500;
+			}
 
 			&__icon {
-				fill: #fff;
-				stroke: #202428;
-				stroke-linecap: round;
-				stroke-width: 3;
+				width: 31px;
+				height: auto;
+				fill: #8b8b8b;
 			}
 
-			&__title {
-				font-size: 1.7rem;
-				font-weight: 400;
-				color: #4b4a65;
-
-				&--purple {
-					color: #7a4df3;
-				}
-			}
-		}
-
-		.title {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			width: 100%;
-			padding: 21px 0;
-			font-size: 2.4rem;
-			font-weight: 600;
-			color: #4b4a65;
-		}
-
-		.divider {
-			width: 100%;
-			border: none;
-			border-top: 2px solid #e7e7e7;
-		}
-
-		.userDetalis {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 0 22px;
-			margin-top: 29px;
-
-			.usernameContainer {
-				display: flex;
-				align-items: center;
-
-				&__profileIcon {
-					width: 20px;
-					height: 29px;
-					margin-inline-end: 7px;
-					fill: #8b8b8b;
-				}
-
-				&__usernameText {
-					font-size: 2rem;
-					font-weight: 600;
-					color: #8b8b8b;
-				}
-
-				&__username {
-					margin-top: 7px;
-					font-size: 2.1rem;
-					font-weight: 457;
-					color: #8b8b8b;
-				}
+			&__username {
+				margin-top: 7px;
+				font-size: 2.1rem;
+				font-weight: 457;
+				color: #8b8b8b;
 			}
 		}
 	}

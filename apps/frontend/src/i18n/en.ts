@@ -46,6 +46,9 @@ const en = {
 			title: 'Back to',
 			purpleTitle: 'Group Label',
 		},
+		body: {
+			title: 'Policy Label',
+		},
 	},
 	cliAuth: {
 		header: 'Authenticate for CLI',

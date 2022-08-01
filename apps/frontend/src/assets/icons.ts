@@ -27,6 +27,14 @@ const icons = {
 		<path d="M12 1.5L1.87632 10.2432C1.41448 10.642 1.41448 11.358 1.87632 11.7568L12 20.5"/>
 		`,
 	],
+	threeDots: [
+		'32 7',
+		`
+		<circle cx="4" cy="3.5" r="3.5" />
+		<circle cx="16" cy="3.5" r="3.5" />
+		<circle cx="28" cy="3.5" r="3.5" />
+		`,
+	],
 };
 
 export default icons;

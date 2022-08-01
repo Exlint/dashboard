@@ -9,32 +9,35 @@ interface IProps {
 	readonly name: string;
 }
 
-const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const SettingsSidebarView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
 		<aside className={classes['container']}>
-			<div className={classes['sidebar']}>
-				<section className={classes['headerWrapper']}>
-					<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
-					<div className={classes['headerWrapper__title']}>
-						{t('policySidebar.header.title')}
-						<span className={classes['headerWrapper__title--purple']}>
-							{t('policySidebar.header.purpleTitle')}
-						</span>
-					</div>
-				</section>
-				<hr className={classes['divider']} />
-				<div className={classes['userDetalis']}>
-					<div className={classes['usernameContainer']}>
-						<EDSvg name="greyUser" className={classes['usernameContainer__profileIcon']} />
-						<span className={classes['usernameContainer__usernameText']}>
-							{t('settingsSidebar.username')}
-						</span>
-					</div>
-					<span className={classes['usernameContainer__username']}>{props.name}</span>
+			<section className={classes['headerWrapper']}>
+				<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
+				<div className={classes['headerWrapper__title']}>
+					{t('policySidebar.header.title')}
+					&nbsp;
+					<span className={classes['headerWrapper__title--purple']}>
+						&lsquo;
+						{t('policySidebar.header.purpleTitle')}
+						&rsquo;
+					</span>
 				</div>
-			</div>
+			</section>
+			<hr className={classes['divider']} />
+
+			<section className={classes['body']}>
+				<div className={classes['policyLabelWrapper']}>
+					<span className={classes['policyLabelWrapper__text']}>
+						{t('policySidebar.body.title')}
+					</span>
+					<EDSvg className={classes['policyLabelWrapper__icon']} name="threeDots" />
+				</div>
+				<span className={classes['createdAt']}>Created in: 24 May 2022</span>
+				<div className={classes['policyDetailsWrpper']}>s </div>
+			</section>
 		</aside>
 	);
 };
