@@ -48,6 +48,13 @@ const en = {
 		},
 		body: {
 			title: 'Policy Label',
+			createdAt: 'Created in:',
+			details: {
+				library: 'Library',
+				type: 'Type',
+				category: 'Category',
+				rules: 'Rules',
+			},
 		},
 	},
 	cliAuth: {
