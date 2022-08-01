@@ -15,7 +15,15 @@ const SettingsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	return (
 		<aside className={classes['container']}>
 			<div className={classes['sidebar']}>
-				<h2 className={classes['title']}>{t('settingsSidebar.title')}</h2>
+				<section className={classes['headerWrapper']}>
+					<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
+					<div className={classes['headerWrapper__title']}>
+						{t('policySidebar.header.title')}
+						<span className={classes['headerWrapper__title--purple']}>
+							{t('policySidebar.header.purpleTitle')}
+						</span>
+					</div>
+				</section>
 				<hr className={classes['divider']} />
 				<div className={classes['userDetalis']}>
 					<div className={classes['usernameContainer']}>

@@ -41,6 +41,12 @@ const en = {
 		title: 'Settings',
 		username: 'Username',
 	},
+	policySidebar: {
+		header: {
+			title: 'Back to',
+			purpleTitle: 'Group Label',
+		},
+	},
 	cliAuth: {
 		header: 'Authenticate for CLI',
 		commandText: {
