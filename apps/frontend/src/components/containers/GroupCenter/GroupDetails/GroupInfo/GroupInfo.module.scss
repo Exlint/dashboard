@@ -84,23 +84,6 @@
 			}
 		}
 
-		.createdTime {
-			display: flex;
-			align-items: center;
-
-			&__text {
-				margin-inline-end: 2px;
-				font-size: 1.8rem;
-				font-weight: 400;
-				color: #4b4a65;
-			}
-
-			.createdTimeDate {
-				display: flex;
-				align-items: center;
-			}
-		}
-
 		.uniqueIdContainer {
 			display: flex;
 			align-items: center;
@@ -138,7 +121,7 @@
 					&__copiedText {
 						position: absolute;
 						inset-inline-end: 1px;
-						bottom: 50px;
+						inset-inline-start: 50px;
 						font-size: 1.7rem;
 						font-weight: 400;
 						color: #2355a0;

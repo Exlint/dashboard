@@ -1,6 +1,28 @@
 .noPolicies {
 	display: flex;
+	flex-direction: column;
 	justify-content: flex-start;
+
+	.tableHeaderContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 85%;
+		padding-inline-start: 15px;
+		margin-block-start: 5px;
+
+		&__cell {
+			font-size: 1.7rem;
+			font-weight: 400;
+			color: #8b8b8b;
+		}
+	}
+
+	&__dividerLine {
+		width: 100%;
+		margin-block-start: 9px;
+		border: 1px solid #e7e7e7;
+	}
 
 	.innerNoPolicies {
 		display: flex;

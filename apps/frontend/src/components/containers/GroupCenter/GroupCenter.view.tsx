@@ -14,6 +14,7 @@ interface IProps {
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
 	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onAddGroup: (group: IGroup) => void;
 	readonly onRemoveGroup: (groupId: string) => void;
 	readonly onSelectGroup: (index: number) => void;
 }
@@ -28,6 +29,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 		<GroupDetails
 			selectedGroup={selectedGroup!}
 			onUpdateGroupLabel={props.onUpdateGroupLabel}
+			onAddGroup={props.onAddGroup}
 			onRemoveGroup={props.onRemoveGroup}
 		/>
 	);

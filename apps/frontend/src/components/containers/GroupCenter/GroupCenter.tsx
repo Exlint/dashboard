@@ -76,6 +76,8 @@ const GroupCenter: React.FC<IProps> = () => {
 		);
 	};
 
+	const onAddGroup = (group: IGroup) => setGroupsListState((prev) => [...prev, group]);
+
 	const onRemoveGroup = (groupId: string) => {
 		if (groupsListState.length === 1) {
 			setSelectGroupIndexState(() => null);
@@ -86,9 +88,7 @@ const GroupCenter: React.FC<IProps> = () => {
 		setGroupsListState((prev) => prev.filter((group) => group.id !== groupId));
 	};
 
-	const onSelectGroup = (index: number) => {
-		setSelectGroupIndexState(() => index);
-	};
+	const onSelectGroup = (index: number) => setSelectGroupIndexState(() => index);
 
 	return (
 		<GroupCenterView
@@ -96,6 +96,7 @@ const GroupCenter: React.FC<IProps> = () => {
 			selectedGroupIndex={selectedGroupIndexState}
 			onCreateNewGroup={onCreateNewGroup}
 			onUpdateGroupLabel={onUpdateGroupLabel}
+			onAddGroup={onAddGroup}
 			onRemoveGroup={onRemoveGroup}
 			onSelectGroup={onSelectGroup}
 		/>

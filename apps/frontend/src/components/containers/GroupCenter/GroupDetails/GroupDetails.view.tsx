@@ -10,6 +10,7 @@ import Policies from './Policies';
 interface IProps {
 	readonly selectedGroup: IGroup;
 	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onAddGroup: (group: IGroup) => void;
 	readonly onRemoveGroup: (groupId: string) => void;
 }
 
@@ -21,6 +22,7 @@ const GroupDetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 			<GroupInfo
 				selectedGroup={props.selectedGroup}
 				onUpdateGroupLabel={props.onUpdateGroupLabel}
+				onAddGroup={props.onAddGroup}
 				onRemoveGroup={props.onRemoveGroup}
 			/>
 			<Policies groupPolicies={groupPolicies} />

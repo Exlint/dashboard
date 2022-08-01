@@ -82,7 +82,7 @@ const icons = {
 		<path d="M167 61.1838L171.809 66.2386C172.204 66.6528 172.864 66.6528 173.258 66.2386L183 56" stroke="#242337" stroke-width="4" stroke-linecap="round"/>
 		`,
 	],
-	moreOptions: [
+	threeDots: [
 		'31 8',
 		`
 			<circle cx="3.5" cy="4" r="3.5" fill="#8B8B8B"/>

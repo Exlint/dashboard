@@ -20,6 +20,7 @@ interface IProps {
 	readonly onCancelLabelChanges: () => void;
 	readonly onCopyGroupId: () => void;
 	readonly onMoreInfoClick: () => void;
+	readonly onCloseMoreInfo: () => void;
 	readonly onDeleteGroup: () => void;
 }
 
@@ -75,12 +76,6 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					</div>
 				)}
 
-				{/* <div className={classes['createdTime']}>
-					<span className={classes['createdTime__text']}>Created in:</span>
-					<div className={classes['createdTimeDate']}>
-						<span className={classes['createdTime__text']}>{props.selectedGroup.createdAt}</span>
-					</div>
-				</div> */}
 				<div className={classes['uniqueIdContainer']}>
 					<span className={classes['uniqueIdContainer__text']}>Unique ID:</span>
 					<div className={classes['uniqueId']}>
@@ -104,10 +99,14 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						type="button"
 						onClick={props.onMoreInfoClick}
 					>
-						<EDSvg className={classes['moreInfoButton__icon']} name="moreOptions" />
+						<EDSvg className={classes['moreInfoButton__icon']} name="threeDots" />
 					</button>
 					{props.isMoreInfoClicked && (
-						<div className={classes['innerMoreInfo']}>
+						<div
+							className={classes['innerMoreInfo']}
+							tabIndex={-1}
+							onBlur={props.onCloseMoreInfo}
+						>
 							<button
 								className={classes['deleteGroup']}
 								type="button"

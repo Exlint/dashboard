@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { useEffect, useState } from 'react';
 import type { AxiosError } from 'axios';
 
@@ -9,6 +10,7 @@ import GroupInfoView from './GroupInfo.view';
 interface IProps {
 	readonly selectedGroup: IGroup;
 	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onAddGroup: (group: IGroup) => void;
 	readonly onRemoveGroup: (groupId: string) => void;
 }
 
@@ -20,9 +22,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const groupId = props.selectedGroup.id;
 
-	const onEditLabelClick = (isEdit: boolean) => {
-		setIsLabelOnEditState(() => isEdit);
-	};
+	const onEditLabelClick = (isEdit: boolean) => setIsLabelOnEditState(() => isEdit);
 
 	const onChangeGroupLabel = (newGroupLabel: string) => {
 		if (newGroupLabel.length >= 0 && newGroupLabel.length <= 20) {
@@ -63,14 +63,17 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setTimeout(() => setCopyGroupIdState(() => false), 2000);
 	};
 
-	const onMoreInfoClick = () => {
-		setIsMoreInfoClickedState((prev) => !prev);
+	const onMoreInfoClick = () => setIsMoreInfoClickedState(() => true);
+
+	const onCloseMoreInfo = () => {
+		setIsMoreInfoClickedState(() => false);
 	};
 
 	const onDeleteGroup = () => {
 		props.onRemoveGroup(props.selectedGroup.id);
+
 		backendApi.delete(`/user/groups/delete/${props.selectedGroup.id}`).catch((err: AxiosError) => {
-			//TODO: if catch -> return the group
+			props.onAddGroup(props.selectedGroup);
 			alert(err.response?.data);
 		});
 	};
@@ -92,6 +95,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			onCancelLabelChanges={onCancelLabelChanges}
 			onCopyGroupId={onCopyGroupId}
 			onMoreInfoClick={onMoreInfoClick}
+			onCloseMoreInfo={onCloseMoreInfo}
 			onDeleteGroup={onDeleteGroup}
 		/>
 	);

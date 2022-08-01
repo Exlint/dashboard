@@ -14,6 +14,16 @@ const NoPoliciesView: React.FC<IProps> = () => {
 
 	return (
 		<div className={classes['noPolicies']}>
+			<div className={classes['tableHeaderContainer']}>
+				<span className={classes['tableHeaderContainer__cell']}>#</span>
+				<span className={classes['tableHeaderContainer__cell']}>Label</span>
+				<span className={classes['tableHeaderContainer__cell']}>Library</span>
+				<span className={classes['tableHeaderContainer__cell']}>Category</span>
+				<span className={classes['tableHeaderContainer__cell']}>Num. of rules</span>
+				<span className={classes['tableHeaderContainer__cell']}>Configurations</span>
+			</div>
+			<hr className={classes['noPolicies__dividerLine']} />
+
 			<div className={classes['innerNoPolicies']}>
 				<h3 className={classes['innerNoPolicies__title']}>
 					{t('groupCenter.groupDetails.policies.noPolicies.header')}

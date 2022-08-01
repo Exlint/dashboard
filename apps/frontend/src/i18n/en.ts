@@ -49,6 +49,8 @@ const en = {
 			group: {
 				uniqId: 'Unique ID:',
 				policies: 'Policies',
+				copy: 'Copy',
+				copied: 'Copied!',
 			},
 		},
 		newPolicy: {

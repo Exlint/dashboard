@@ -52,10 +52,12 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							role="button"
 							onClick={props.onCopyGroupId}
 						>
-							Copy
+							{t('groupCenter.groupSideBar.group.copy')}
 							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
 							{props.copyGroupId && (
-								<span className={classes['uniqIdCopyButton__copiedText']}>Copied!</span>
+								<span className={classes['uniqIdCopyButton__copiedText']}>
+									{t('groupCenter.groupSideBar.group.copied')}
+								</span>
 							)}
 						</button>
 					</div>
