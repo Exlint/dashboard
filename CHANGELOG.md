@@ -1,3 +1,17 @@
+# [1.16.0](https://github.com/Exlint/dashboard/compare/v1.15.0...v1.16.0) (2022-07-31)
+
+
+### Features
+
+* 🔥 full swagger support ([99618e9](https://github.com/Exlint/dashboard/commit/99618e9ca7dae80d8edc6474cd24abef305e555f))
+
+# [1.15.0](https://github.com/Exlint/dashboard/compare/v1.14.1...v1.15.0) (2022-07-30)
+
+
+### Features
+
+* 🔥 more informative swagger ([b09928c](https://github.com/Exlint/dashboard/commit/b09928c88c811f693bcf946e69b377341a94bfad))
+
 ## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
 
 
