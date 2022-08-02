@@ -10,7 +10,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-block: 20px 20px;
+		padding-block: 20px 20px;
+		text-decoration: none;
 
 		&__icon {
 			fill: #fff;
@@ -57,6 +58,7 @@
 			&__icon {
 				width: 31px;
 				height: auto;
+				cursor: pointer;
 				fill: #8b8b8b;
 			}
 		}

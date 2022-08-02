@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
@@ -15,18 +16,14 @@ const SettingsSidebarView: React.FC<IProps> = () => {
 
 	return (
 		<aside className={classes['container']}>
-			<section className={classes['headerWrapper']}>
+			<Link to="/" className={classes['headerWrapper']}>
 				<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
 				<div className={classes['headerWrapper__title']}>
 					{t('policySidebar.header.title')}
 					&nbsp;
-					<span className={classes['headerWrapper__title--purple']}>
-						&lsquo;
-						{t('policySidebar.header.purpleTitle')}
-						&rsquo;
-					</span>
+					<span className={classes['headerWrapper__title--purple']}>&lsquo;Group Label&rsquo;</span>
 				</div>
-			</section>
+			</Link>
 			<hr className={classes['divider']} />
 
 			<section className={classes['body']}>

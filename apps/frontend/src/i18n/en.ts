@@ -44,7 +44,6 @@ const en = {
 	policySidebar: {
 		header: {
 			title: 'Back to',
-			purpleTitle: 'Group Label',
 		},
 		body: {
 			title: 'Policy Label',
