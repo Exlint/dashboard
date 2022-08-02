@@ -2,7 +2,7 @@ import { LibraryCategory } from '../models/library-category';
 import { LibraryType } from '../models/library-type';
 
 export const stylelintData = {
-	title: 'Stylelint',
+	name: 'Stylelint',
 	author: 'stylelint.io',
 	description:
 		'A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.',

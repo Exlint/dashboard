@@ -17,7 +17,7 @@ export const prettierData = {
 			configApi: 'tabWidth',
 		},
 		'Tabs': {
-			desciption: 'Indent lines with tabs instead of spaces.',
+			description: 'Indent lines with tabs instead of spaces.',
 			configApi: 'useTabs',
 		},
 		'Semicolons': {
