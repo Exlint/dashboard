@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import CodeBasedConfigurationInput from '@/ui/CodeBasedConfigurationsInput';
+import EDCodeBasedConfigurationInput from '@/ui/EDCodeBasedConfigurationsInput';
 import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
 
 import classes from './PolicyConfiguration.module.scss';
@@ -35,7 +35,7 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 						<EDSvg className={classes['ruleCreationButton__icon']} name="confirmV" />
 					</button>
 				</div>
-				<CodeBasedConfigurationInput
+				<EDCodeBasedConfigurationInput
 					configurationType="Policy"
 					labelInput="temp label"
 					inputCode={props.ruleCodeBasedConfigurationsInput}
