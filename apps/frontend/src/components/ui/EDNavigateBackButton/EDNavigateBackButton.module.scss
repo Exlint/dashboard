@@ -1,4 +1,4 @@
-.navigateBackButton {
+.container {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -9,6 +9,9 @@
 		height: 19px;
 		margin-inline-end: 10px;
 		fill: transparent;
+		stroke: #202428;
+		stroke-linecap: round;
+		stroke-width: 3;
 	}
 
 	&__text {

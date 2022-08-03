@@ -3,7 +3,7 @@ import type { AxiosError } from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
-import type { IUpdatePolicyConfiguration } from '@/interfaces/responses';
+import type { IUpdatePolicyConfigurationResponseData } from '@/interfaces/responses';
 
 import PolicyConfigurationView from './PolicyConfiguration.view';
 
@@ -29,7 +29,7 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	const onUpdatePolicyConfiguration = () => {
 		if (ruleCodeBasedConfigurationsInputState.length > 0) {
 			backendApi
-				.post<IUpdatePolicyConfiguration>(`/user/inline-policies/${policyId}`, {
+				.post<IUpdatePolicyConfigurationResponseData>(`/user/inline-policies/${policyId}`, {
 					configuration: ruleCodeBasedConfigurationsInputState,
 				})
 				.then(() => {

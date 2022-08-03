@@ -71,6 +71,9 @@ const en = {
 	codeBasedConfiguration: {
 		configurations: 'Configurations',
 	},
+	navigateBackButton: {
+		back: 'Back',
+	},
 };
 
 export default en;

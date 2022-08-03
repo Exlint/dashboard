@@ -26,7 +26,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					</>
 				)}
-
+				//TODO: add policyId param to policyconfiguration path
 				{props.isAuthenticated && (
 					<>
 						<Route path="/user-settings" element={<UserSettings />} />

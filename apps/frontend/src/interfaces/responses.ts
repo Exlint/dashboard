@@ -13,6 +13,6 @@ export interface ICliAuthResponseData {
 	readonly email: string;
 }
 
-export interface IUpdatePolicyConfiguration {
+export interface IUpdatePolicyConfigurationResponseData {
 	readonly configuration: string;
 }
