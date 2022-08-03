@@ -36,4 +36,4 @@ Issue Number: N/A
 
 <!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
 
-## Other information
+## (Frontend change only) Zeplin link:

@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/Exlint/dashboard/compare/v1.16.0...v1.17.0) (2022-08-02)
+
+
+### Features
+
+* 🔥 added rules data file ([404ab6b](https://github.com/Exlint/dashboard/commit/404ab6b170631b4fb0c46ae9752a7c6ca80eba6a))
+
 # [1.16.0](https://github.com/Exlint/dashboard/compare/v1.15.0...v1.16.0) (2022-07-31)
 
 
