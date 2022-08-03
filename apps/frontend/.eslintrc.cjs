@@ -13,7 +13,6 @@ module.exports = {
 		project: './tsconfig.eslint.json',
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
-		extraFileExtensions: ['.cjs'],
 	},
 	plugins: ['jsx-a11y', 'react', 'react-hooks'],
 	rules: {
@@ -89,7 +88,12 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['./src/assets/icons.ts'],
+			files: [
+				'./src/assets/icons.ts',
+				'./src/data/eslint-data.ts',
+				'./src/data/stylelint-data.ts',
+				'./src/data/prettier-data.ts',
+			],
 			rules: {
 				'max-lines': 'off',
 			},
