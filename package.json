@@ -20,7 +20,7 @@
 		"db:stop": "pnpm exec ./docker/stop-db.sh",
 		"db:restart": "pnpm exec ./docker/restart-db.sh",
 		"db:clean": "rimraf ./.volumes/mongo",
-		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js.cjs}\" --resolve-plugins-relative-to .",
+		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
 		"type-check": "tsc --project ./tsconfig.json",
 		"inflint": "inflint -c ./inflint.config.ts",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
