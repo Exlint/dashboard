@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import SettingsSidebar from '@/layout/SettingsSidebar';
+import SettingsSidebar from '@/layout/PolicySidebar';
 
 import UserSettingsModal from './UserSettingsModal';
 
@@ -20,7 +20,15 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 	return (
 		<div className={classes['container']}>
-			<SettingsSidebar />
+			<SettingsSidebar
+				category="cc"
+				createdAt="csc"
+				library="scsc"
+				rules="ccsc"
+				type="scsc"
+				groupLabel="gegef"
+				policyLabel="efef"
+			/>
 			<main className={classes['main']}>
 				<section className={classes['userSettingsSection']}>
 					<h3 className={classes['userSettingsSection__title']}>{t('userSettings.title')}</h3>

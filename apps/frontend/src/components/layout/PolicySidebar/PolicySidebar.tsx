@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import type { AppState } from '@/store/app';
 
-import PolicySidebarView from './PolicySidebar.view';
+import SettingsSidebarView from './PolicySidebar.view';
 
-interface IPropsFromState {
+interface IProps {
 	readonly name: string;
+	readonly createdAt: string;
+	readonly library: string;
+	readonly type: string;
+	readonly category: string;
+	readonly rules: string;
+	readonly policyLabel: string;
+	readonly groupLabel: string;
 }
 
-interface IProps extends IPropsFromState {}
-
 const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <PolicySidebarView name={props.name} />;
+	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
+
+	const onOpenModal = () => setIsModelOnViewState(() => true);
+	const onCloseModal = () => setIsModelOnViewState(() => false);
+
+	return (
+		<SettingsSidebarView
+			name={props.name}
+			createdAt={props.createdAt}
+			library={props.library}
+			type={props.type}
+			category={props.category}
+			rules={props.rules}
+			policyLabel={props.policyLabel}
+			groupLabel={props.groupLabel}
+			isModelOnView={isModelOnViewState}
+			onOpenModal={onOpenModal}
+			onCloseModal={onCloseModal}
+		/>
+	);
 };
 
 PolicySidebar.displayName = 'PolicySidebar';

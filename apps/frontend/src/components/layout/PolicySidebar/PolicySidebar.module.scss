@@ -1,64 +1,114 @@
 .container {
 	display: flex;
+	flex-direction: column;
 	min-width: 240px;
-	height: 100vh;
+	height: 100%;
 	background-color: #fefefe;
 	border-inline-end: 3px solid #e7e7e7;
 
-	.sidebar {
+	.headerWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-block: 20px 20px;
+
+		&__icon {
+			fill: #fff;
+			stroke: #202428;
+			stroke-linecap: round;
+			stroke-width: 3;
+		}
+
+		&__title {
+			margin-inline-start: 5px;
+			font-size: 1.7rem;
+			font-weight: 500;
+			color: #4b4a65;
+
+			&--purple {
+				font-weight: 500;
+				color: #7a4df3;
+			}
+		}
+	}
+
+	.divider {
+		border: none;
+		border-top: 2px solid #e7e7e7;
+	}
+
+	.body {
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		justify-content: center;
+		padding: 0 22px;
+		margin-block-start: 20px;
 
-		.headerContainer {
+		.policyLabelWrapper {
 			display: flex;
-			flex-direction: column;
 			align-items: center;
-			width: 100%;
+			justify-content: space-between;
 
-			&__title {
-				padding: 21px 0;
+			&__text {
 				font-size: 2.4rem;
-				font-weight: 600;
-				color: #4b4a65;
+				font-weight: 500;
+			}
+
+			&__icon {
+				width: 31px;
+				height: auto;
+				cursor: pointer;
+				fill: #8b8b8b;
 			}
 		}
 
-		.divider {
-			width: 100%;
-			border: none;
-			border-top: 2px solid #e7e7e7;
+		&__createdAt {
+			margin-block-start: 20px;
+			font-size: 1.6rem;
+			color: #4b4a65;
 		}
 
-		.userDetalis {
+		.policyDetailsWrpper {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			padding: 0 22px;
-			margin-top: 29px;
+			margin-block-start: 20px;
 
-			.usernameContainer {
+			.policyDetailsInnerWrpper {
 				display: flex;
-				align-items: center;
+				flex-direction: column;
 
-				&__profileIcon {
-					width: 20px;
-					height: 29px;
-					margin-inline-end: 7px;
-					fill: #8b8b8b;
+				.libraryContentWrapper {
+					display: flex;
+					align-items: center;
+
+					&__img {
+						width: 24px;
+						height: 22px;
+						object-fit: contain;
+					}
+
+					&__content {
+						margin-inline-start: 10px;
+						font-size: 22px;
+						font-weight: 500;
+						color: #4b4a65;
+					}
 				}
 
-				&__usernameText {
-					font-size: 2rem;
-					font-weight: 600;
-					color: #8b8b8b;
+				&:not(:first-child) {
+					margin-block-start: 20px;
 				}
 
-				&__username {
-					margin-top: 7px;
-					font-size: 2.1rem;
-					font-weight: 457;
-					color: #8b8b8b;
+				&__title {
+					font-size: 17px;
+					font-weight: 400;
+					color: #4b4a65;
+				}
+
+				&__content {
+					font-size: 22px;
+					font-weight: 500;
+					color: #4b4a65;
 				}
 			}
 		}

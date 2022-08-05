@@ -44,10 +44,8 @@ const en = {
 	policySidebar: {
 		header: {
 			title: 'Back to',
-			purpleTitle: 'Group Label',
 		},
 		body: {
-			title: 'Policy Label',
 			createdAt: 'Created in:',
 			details: {
 				library: 'Library',
@@ -55,6 +53,13 @@ const en = {
 				category: 'Category',
 				rules: 'Rules',
 			},
+		},
+		policySidebarModal: {
+			header: 'Are you sure you want to delete ',
+			subHeader: ' Policy?',
+			details: 'Once deleted, this can’t be undone. To confirm, type ',
+			inputPlaceholder: 'Type here',
+			confirmButton: 'Delete Policy',
 		},
 	},
 	cliAuth: {
