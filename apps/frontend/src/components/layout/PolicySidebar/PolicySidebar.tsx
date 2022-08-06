@@ -18,9 +18,16 @@ interface IProps {
 
 const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
+	const [tooltipState, setTooltipState] = useState<boolean>(false);
 
-	const onOpenModal = () => setIsModelOnViewState(() => true);
+	const onOpenModal = () => {
+		setTooltipState(() => false);
+		setIsModelOnViewState(() => true);
+	};
+
 	const onCloseModal = () => setIsModelOnViewState(() => false);
+
+	const onOpenTooltip = () => setTooltipState(() => true);
 
 	return (
 		<SettingsSidebarView
@@ -33,8 +40,10 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			policyLabel={props.policyLabel}
 			groupLabel={props.groupLabel}
 			isModelOnView={isModelOnViewState}
+			tooltip={tooltipState}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
+			onOpenTooltip={onOpenTooltip}
 		/>
 	);
 };

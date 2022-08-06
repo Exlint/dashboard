@@ -1,7 +1,9 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
+import { concatClasses } from '@/utils/component';
 import eslintLogo from '@/images/libraries/eslint.png';
 
 import PolicySidebarModal from './PolicySidebarModal';
@@ -18,8 +20,10 @@ interface IProps {
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 	readonly isModelOnView: boolean;
+	readonly tooltip: boolean;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
+	readonly onOpenTooltip: () => void;
 }
 
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -43,11 +47,60 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			<section className={classes['body']}>
 				<div className={classes['policyLabelWrapper']}>
 					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel}</span>
-					<EDSvg className={classes['policyLabelWrapper__icon']} name="threeDots" />
+					<EDSvg
+						className={classes['policyLabelWrapper__icon']}
+						name="threeDots"
+						onClick={props.onOpenTooltip}
+					/>
+					<div className={classes['tooltip']}>
+						{props.tooltip && (
+							<>
+								<button className={classes['innerWrapper']} type="button">
+									<span
+										className={concatClasses(
+											classes,
+											'innerWrapper__text',
+											'innerWrapper__text--editText',
+										)}
+									>
+										Rename Policy
+									</span>
+									<EDSvg
+										className={concatClasses(
+											classes,
+											'innerWrapper__icon',
+											'innerWrapper__icon--editIcon',
+										)}
+										name="editGroup"
+									/>
+								</button>
+								<button
+									className={classes['innerWrapper']}
+									type="button"
+									onClick={props.onOpenModal}
+								>
+									<span
+										className={concatClasses(
+											classes,
+											'innerWrapper__text',
+											'innerWrapper__text--deleteText',
+										)}
+									>
+										Delete Policy
+									</span>
+									<EDSvg
+										className={concatClasses(
+											classes,
+											'innerWrapper__icon',
+											'innerWrapper__icon--deleteIcon',
+										)}
+										name="deleteGroup"
+									/>
+								</button>
+							</>
+						)}
+					</div>
 				</div>
-				<button type="button" onClick={props.onOpenModal}>
-					Hey
-				</button>
 				{props.isModelOnView && (
 					<PolicySidebarModal policyLabel={props.policyLabel} onCloseModal={props.onCloseModal} />
 				)}

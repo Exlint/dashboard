@@ -6,6 +6,57 @@
 	background-color: #fefefe;
 	border-inline-end: 3px solid #e7e7e7;
 
+	.tooltip {
+		position: absolute;
+		top: 110px;
+		display: flex;
+		flex-direction: column;
+		inset-inline-start: 170px;
+
+		.innerWrapper {
+			display: flex;
+			justify-content: space-between;
+			padding: 17px 12px;
+			background-color: #fefefe;
+			border-color: #e7e7e7;
+			border-style: solid;
+
+			&:not(:first-child) {
+				border-block-start: none;
+			}
+
+			&__text {
+				margin-inline-end: 12px;
+				font-size: 1.8rem;
+				font-weight: 457;
+				white-space: nowrap;
+
+				&--deleteText {
+					color: #781d1d;
+				}
+
+				&--editText {
+					color: #33383e;
+				}
+			}
+
+			&__icon {
+				width: 25px;
+				height: 23px;
+
+				&--deleteIcon {
+					fill: #781d1d;
+				}
+
+				&--editIcon {
+					fill: none;
+					stroke: #4b4a65;
+					stroke-width: 1.5;
+				}
+			}
+		}
+	}
+
 	.headerWrapper {
 		display: flex;
 		align-items: center;
