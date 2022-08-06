@@ -19,7 +19,9 @@ const CliAuthView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<span className={classes['commandText']}>
 				{t('cliAuth.commandText.prefix')}
 				&nbsp;
-				<code className={classes['commandText__code']}>exlint auth</code>
+				<code className={classes['commandText__code']}>
+					<Trans>exlint auth</Trans>
+				</code>
 				{t('cliAuth.commandText.postfix')}
 			</span>
 

@@ -23,15 +23,12 @@
 		"@nestjs/cqrs": "9.0.1",
 		"@nestjs/jwt": "9.0.0",
 		"@nestjs/passport": "9.0.0",
-		"@nestjs/platform-express": "9.0.8",
 		"@prisma/client": "4.1.1",
 		"class-transformer": "0.5.1",
 		"class-validator": "0.13.2",
 		"mixpanel": "0.16.0",
 		"nestjs-real-ip": "2.2.0",
-		"passport": "0.6.0",
 		"passport-jwt": "4.0.0",
-		"reflect-metadata": "0.1.13",
 		"rxjs": "7.5.6"
 	},
 	"devDependencies": {

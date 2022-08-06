@@ -14,7 +14,7 @@ module.exports = {
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},
-	plugins: ['jsx-a11y', 'react', 'react-hooks'],
+	plugins: ['jsx-a11y', 'react', 'react-hooks', 'i18next'],
 	rules: {
 		'jsx-quotes': ['error', 'prefer-double'],
 		'curly': ['error', 'all'],
@@ -85,6 +85,8 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
+
+		'i18next/no-literal-string': 2,
 	},
 	overrides: [
 		{
