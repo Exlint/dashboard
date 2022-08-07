@@ -38,11 +38,9 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					{t('policySidebar.header.title')}
 					&nbsp;
 					<span className={classes['headerWrapper__title--purple']}>
-						<Trans>
-							&lsquo;
-							{props.groupLabel}
-							&rsquo;
-						</Trans>
+						<Trans>&lsquo;</Trans>
+						{props.groupLabel}
+						<Trans>&rsquo;</Trans>
 					</span>
 				</div>
 			</section>
