@@ -30,7 +30,6 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 						<div className={classes['header']}>
 							<button
 								type="button"
-								role="button"
 								className={classes['header__button']}
 								onClick={props.onCloseModal}
 							>
@@ -74,7 +73,6 @@ const UserSettingsModalView: React.FC<IProps> = (props: React.PropsWithChildren<
 							<button
 								className={classes['body__button']}
 								type="submit"
-								role="button"
 								disabled={props.isConfirmButtonDisabled}
 							>
 								{t('userSettings.userSettingsModal.confirmButton')}

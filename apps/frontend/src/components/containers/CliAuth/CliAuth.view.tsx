@@ -29,7 +29,7 @@ const CliAuthView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<Trans i18nKey="cliAuth.buttonInstruction" />
 			</span>
 
-			<button className={classes['authButton']} type="button" role="button" onClick={props.onAuthClick}>
+			<button className={classes['authButton']} type="button" onClick={props.onAuthClick}>
 				{t('cliAuth.buttonText')}
 			</button>
 		</ExternalAction>

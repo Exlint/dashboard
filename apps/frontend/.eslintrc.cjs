@@ -28,6 +28,7 @@ module.exports = {
 			},
 		],
 		'jsx-a11y/lang': 'error',
+		'jsx-a11y/no-redundant-roles': 'error',
 
 		'react/jsx-fragments': 'error',
 		'react/jsx-wrap-multilines': [
