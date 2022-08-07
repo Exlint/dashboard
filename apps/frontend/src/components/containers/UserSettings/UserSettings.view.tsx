@@ -44,7 +44,6 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 								<button
 									className={classes['action__button']}
 									type="button"
-									role="button"
 									onClick={props.onOpenModal}
 								>
 									{t('userSettings.deleteUserAction')}
@@ -57,7 +56,6 @@ const UserSettingsView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 								<button
 									className={classes['action__button']}
 									type="button"
-									role="button"
 									onClick={props.onLogout}
 								>
 									{t('userSettings.logoutAction')}

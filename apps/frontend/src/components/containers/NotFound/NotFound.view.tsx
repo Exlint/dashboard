@@ -47,7 +47,7 @@ const NotFoundView: React.FC<IProps> = () => {
 					{t('notFound.actions.textPrefix')}
 					&nbsp;
 					<a className={classes['contact__link']} href="mailto:contact@exlint.io">
-						contact@exlint.io
+						<Trans>contact@exlint.io</Trans>
 					</a>
 				</span>
 			</main>
