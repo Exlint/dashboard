@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import type { AppState } from '@/store/app';
+import { useClickOutside } from '@/hooks/click-outside';
 
 import SettingsSidebarView from './PolicySidebar.view';
 
@@ -18,16 +19,19 @@ interface IProps {
 
 const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
-	const [tooltipState, setTooltipState] = useState<boolean>(false);
+
+	const {
+		ref: tooltopRef,
+		isVisible: isTooltipVisible,
+		toggleVisibility: toggleTooltipVisibility,
+	} = useClickOutside<HTMLDivElement>(false);
 
 	const onOpenModal = () => {
-		setTooltipState(() => false);
+		toggleTooltipVisibility();
 		setIsModelOnViewState(() => true);
 	};
 
 	const onCloseModal = () => setIsModelOnViewState(() => false);
-
-	const onOpenTooltip = () => setTooltipState(() => true);
 
 	return (
 		<SettingsSidebarView
@@ -40,10 +44,11 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			policyLabel={props.policyLabel}
 			groupLabel={props.groupLabel}
 			isModelOnView={isModelOnViewState}
-			tooltip={tooltipState}
+			tooltopRef={tooltopRef}
+			isTooltipVisible={isTooltipVisible}
+			toggleTooltipVisibility={toggleTooltipVisibility}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
-			onOpenTooltip={onOpenTooltip}
 		/>
 	);
 };
