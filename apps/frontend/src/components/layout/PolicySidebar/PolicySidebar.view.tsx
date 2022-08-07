@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
@@ -38,9 +38,11 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					{t('policySidebar.header.title')}
 					&nbsp;
 					<span className={classes['headerWrapper__title--purple']}>
-						&lsquo;
-						{props.groupLabel}
-						&rsquo;
+						<Trans>
+							&lsquo;
+							{props.groupLabel}
+							&rsquo;
+						</Trans>
 					</span>
 				</div>
 			</section>
