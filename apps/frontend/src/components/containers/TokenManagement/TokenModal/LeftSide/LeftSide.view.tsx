@@ -23,6 +23,7 @@ interface IProps {
 	readonly onSelectedSortBy: (_: number) => void;
 	readonly onExpiresClicked: () => void;
 	readonly onSortBy: () => void;
+	readonly onSubmit: () => void;
 }
 
 const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -67,11 +68,9 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					)}
 				</div>
 			</div>
-
 			<button
 				className={classes['container__button']}
 				type="button"
-				role="button"
 				disabled={!props.createSecretButtonState}
 				onClick={props.onDisplayRightSide}
 			>

@@ -1,3 +1,5 @@
+import { backendApi } from '@/utils/http';
+import { AxiosResponse } from 'axios';
 import React, { useState, useEffect } from 'react';
 
 // Import { secretExpiry } from '@/data/secretExpiry';
@@ -17,11 +19,6 @@ const LeftSide: React.FC<IProps> = (props) => {
 	const [isExpiresClickedState, setExpiresClickedState] = useState<boolean | null>(false);
 	const [expiryDateState, setExpiryDateState] = useState<Date>(new Date());
 
-	const onDatePicker = (value: Date) => {
-		setExpiryDateState(() => value);
-		console.log(value);
-	};
-
 	useEffect(() => {
 		if (labelState && selectedSortByOptionIndexState) {
 			setCreateSecretButtonState(() => true);
@@ -36,6 +33,19 @@ const LeftSide: React.FC<IProps> = (props) => {
 	};
 
 	const onLabelChange = (value: string) => setLabelState(() => value);
+
+	const onDatePicker = (value: Date) => setExpiryDateState(() => value);
+
+	const onSubmit = () => {
+		backendApi
+			.post('user/secrets', {
+				label: labelState,
+				expiration: expiryDateState,
+			})
+			.then((response: AxiosResponse) => {
+				console.log(response);
+			});
+	};
 
 	const onSelectedSortBy = (index: number) => {
 		setSelectedSortByOptionIndexState(() => index);
@@ -56,6 +66,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 			dispalyModalRightSide={props.dispalyModalRightSide}
 			expiryDate={expiryDateState}
 			onDatePicker={onDatePicker}
+			onSubmit={onSubmit}
 			onDisplayRightSide={onDisplayRightSide}
 			onLabelChange={onLabelChange}
 			onSelectedSortBy={onSelectedSortBy}
