@@ -1,0 +1,22 @@
+.manually {
+	display: flex;
+	justify-content: center;
+
+	.container {
+		position: sticky;
+		width: 50%;
+
+		.rightSideContainer {
+			position: fixed;
+			display: flex;
+			width: 40%;
+			height: 730px;
+		}
+	}
+}
+
+@media (max-width: 1600px) {
+	.rightSideContainer {
+		height: 638px !important;
+	}
+}
