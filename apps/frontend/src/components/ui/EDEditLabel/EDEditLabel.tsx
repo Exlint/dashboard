@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { backendApi } from '@/utils/http';
-
 import EDEditLabelView from './EDEditLabel.view';
 
 interface IProps {
-	readonly elementId: string;
-	readonly elementLabel: string;
-	readonly apiPath: string;
+	readonly id: string;
+	readonly label: string;
+	readonly onUpdateLabel: () => void;
 	readonly onUpdateSideBarLabel: (elementId: string, newLabel: string) => void;
 }
 
@@ -24,34 +22,13 @@ const EDEditLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	};
 
 	const onCancelLabelChanges = () => {
-		setLabelState(() => props.elementLabel);
+		setLabelState(() => props.label);
 		setIsLabelOnEditState(() => false);
-	};
-
-	const onUpdateLabel = () => {
-		const oldLabel = labelState;
-		let newLabel = labelState;
-
-		if (labelState === '') {
-			newLabel = props.elementLabel;
-		}
-
-		props.onUpdateSideBarLabel(props.elementId, newLabel);
-		setIsLabelOnEditState(() => false);
-
-		backendApi
-			.patch(props.apiPath, {
-				label: newLabel,
-			})
-			.then()
-			.catch(() => {
-				props.onUpdateSideBarLabel(props.elementId, oldLabel);
-			});
 	};
 
 	useEffect(() => {
-		setLabelState(() => props.elementLabel!);
-	}, [props.elementId]);
+		setLabelState(() => props.label!);
+	}, [props.id]);
 
 	return (
 		<EDEditLabelView
@@ -59,7 +36,7 @@ const EDEditLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			isLabelOnEdit={isLabelOnEditState}
 			onEditLabelClick={onEditLabelClick}
 			onChangeLabel={onChangeLabel}
-			onUpdateLabel={onUpdateLabel}
+			onUpdateLabel={props.onUpdateLabel}
 			onCancelLabelChanges={onCancelLabelChanges}
 		/>
 	);
