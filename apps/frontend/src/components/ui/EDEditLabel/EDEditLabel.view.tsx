@@ -1,7 +1,7 @@
 import React from 'react';
-import EDSvg from '../EDSvg';
 
 import { concatClasses } from '@/utils/component';
+import EDSvg from '@/ui/EDSvg';
 
 import classes from './EDEditLabel.module.scss';
 
@@ -16,9 +16,9 @@ interface IProps {
 
 const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<>
+		<div className={classes['labelContainer']}>
 			{!props.isLabelOnEdit ? (
-				<div className={classes['labelContainer']}>
+				<>
 					<span
 						className={classes['labelContainer__label']}
 						onDoubleClick={() => props.onEditLabelClick(true)}
@@ -32,9 +32,9 @@ const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 					>
 						<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
 					</button>
-				</div>
+				</>
 			) : (
-				<div className={classes['labelContainer']}>
+				<>
 					<input
 						className={concatClasses(
 							classes,
@@ -62,9 +62,9 @@ const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 							<EDSvg className={classes['cancelChangesButton__icon']} name="cancel" />
 						</button>
 					</div>
-				</div>
+				</>
 			)}
-		</>
+		</div>
 	);
 };
 
