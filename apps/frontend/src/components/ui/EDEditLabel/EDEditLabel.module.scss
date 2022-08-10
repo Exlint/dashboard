@@ -1,0 +1,54 @@
+.labelContainer {
+	display: flex;
+	align-items: center;
+
+	&__label {
+		font-size: 2.4rem;
+		font-weight: 500;
+		color: #202428;
+		white-space: nowrap;
+		user-select: none;
+		border-bottom: 1px solid transparent;
+	}
+
+	&__labelOnEdit {
+		padding: 0;
+		border-bottom: 1px solid #4b4a65;
+	}
+
+	.editLabelButton {
+		display: flex;
+		width: fit-content;
+		margin: 0 28px 0 10px;
+
+		&__icon {
+			width: 20px;
+			height: 20px;
+			fill: transparent;
+			stroke: #4b4a65;
+		}
+	}
+}
+
+.updateLabelButtonsContainer {
+	display: flex;
+	align-items: center;
+
+	.updateChangesButton {
+		margin-inline-end: 5px;
+
+		&__icon {
+			fill: transparent;
+			stroke: #4b4a65;
+		}
+	}
+
+	.cancelChangesButton {
+		&__icon {
+			width: 16px;
+			height: 16px;
+			fill: #4b4a65;
+			stroke: #4b4a65;
+		}
+	}
+}

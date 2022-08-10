@@ -1,0 +1,74 @@
+import React from 'react';
+import EDSvg from '../EDSvg';
+
+import { concatClasses } from '@/utils/component';
+
+import classes from './EDEditLabel.module.scss';
+
+interface IProps {
+	readonly label: string;
+	readonly isLabelOnEdit: boolean;
+	readonly onEditLabelClick: (isEdit: boolean) => void;
+	readonly onChangeLabel: (newLabel: string) => void;
+	readonly onUpdateLabel: () => void;
+	readonly onCancelLabelChanges: () => void;
+}
+
+const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	return (
+		<>
+			{!props.isLabelOnEdit ? (
+				<div className={classes['labelContainer']}>
+					<span
+						className={classes['labelContainer__label']}
+						onDoubleClick={() => props.onEditLabelClick(true)}
+					>
+						{props.label}
+					</span>
+					<button
+						type="button"
+						className={classes['editLabelButton']}
+						onClick={() => props.onEditLabelClick(true)}
+					>
+						<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
+					</button>
+				</div>
+			) : (
+				<div className={classes['labelContainer']}>
+					<input
+						className={concatClasses(
+							classes,
+							'labelContainer__labelOnEdit',
+							'labelContainer__label',
+						)}
+						style={{ width: `${props.label.length}ch` }}
+						value={props.label}
+						autoFocus
+						onChange={(e) => props.onChangeLabel(e.target.value)}
+					/>
+					<div className={classes['updateLabelButtonsContainer']}>
+						<button
+							className={classes['updateChangesButton']}
+							type="button"
+							onClick={props.onUpdateLabel}
+						>
+							<EDSvg className={classes['updateChangesButton__icon']} name="vConfirm" />
+						</button>
+						<button
+							className={classes['cancelChangesButton']}
+							type="button"
+							onClick={props.onCancelLabelChanges}
+						>
+							<EDSvg className={classes['cancelChangesButton__icon']} name="cancel" />
+						</button>
+					</div>
+				</div>
+			)}
+		</>
+	);
+};
+
+EDEditLabelView.displayName = 'EDEditLabelView';
+EDEditLabelView.defaultProps = {};
+
+export default React.memo(EDEditLabelView);
