@@ -12,3 +12,10 @@ export interface ICliAuthResponseData {
 	readonly cliToken: string;
 	readonly email: string;
 }
+
+export interface ISecretsResponseData {
+	readonly createdAt: number;
+	readonly expiration: number;
+	readonly id: string;
+	readonly label: string;
+}

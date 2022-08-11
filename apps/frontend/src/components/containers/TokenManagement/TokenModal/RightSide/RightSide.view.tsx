@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { CSVLink } from 'react-csv';
 
 import EDSvg from '@/ui/EDSvg';
@@ -14,6 +15,8 @@ interface IProps {
 }
 
 const RightSideView: React.FC<IProps> = (props) => {
+	const { t } = useTranslation();
+
 	const copyTokenClasses = props.copyTokenState
 		? concatClasses(classes, 'idWrapper__icon', 'idWrapper__icon--disabled')
 		: classes['idWrapper__icon'];
@@ -21,14 +24,18 @@ const RightSideView: React.FC<IProps> = (props) => {
 	return (
 		<section className={classes['container']}>
 			<div className={classes['header']}>
-				<div className={classes['header__title']}>Secret Token</div>
+				<div className={classes['header__title']}>
+					{t('tokenManagement.tokenManagementModal.secretTokenTitle')}
+				</div>
 				<div className={classes['header__description']}>
-					Warning: This information will disappear as soon as you exit the window.
+					{t('tokenManagement.tokenManagementModal.secretTokenSubTitle')}
 				</div>
 			</div>
 			<div className={classes['innerWrapper']}>
 				<div className={classes['copyWrapper']}>
-					<div className={classes['copyWrapper__title']}>Copy</div>
+					<div className={classes['copyWrapper__title']}>
+						{t('tokenManagement.tokenManagementModal.copy')}
+					</div>
 					<div className={classes['idWrapper']}>
 						<span className={classes['idWrapper__id']}>{props.tokenState}</span>
 						<EDSvg
@@ -37,10 +44,16 @@ const RightSideView: React.FC<IProps> = (props) => {
 							onClick={props.onCopyToken}
 						/>
 					</div>
-					{props.copyTokenState && <div className={classes['copyWrapper__copied']}>Copied!</div>}
+					{props.copyTokenState && (
+						<div className={classes['copyWrapper__copied']}>
+							{t('tokenManagement.tokenManagementModal.copied')}
+						</div>
+					)}
 				</div>
 				<div className={classes['downloadCsv']}>
-					<div className={classes['downloadCsv__title']}>Download .csv</div>
+					<div className={classes['downloadCsv__title']}>
+						{t('tokenManagement.tokenManagementModal.downloadCsv')}
+					</div>
 					<CSVLink
 						className={classes['downloadCsv__iconWrapper']}
 						data={props.tokenState}
@@ -51,7 +64,7 @@ const RightSideView: React.FC<IProps> = (props) => {
 				</div>
 			</div>
 			<div className={classes['container__button']} onClick={props.onCloseModal}>
-				Done
+				{t('tokenManagement.tokenManagementModal.done')}
 			</div>
 		</section>
 	);

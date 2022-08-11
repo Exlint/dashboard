@@ -1,12 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import DatePicker from 'react-datepicker';
-
-import 'react-datepicker/dist/react-datepicker.css';
 
 import { secretExpiry } from '@/data/secret-expiry';
 import { concatClasses } from '@/utils/component';
 import SelectFromOptions from '@/ui/EDSelectFromOptions';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import classes from './LeftSide.module.scss';
 
 interface IProps {
@@ -27,6 +27,8 @@ interface IProps {
 }
 
 const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	const secretCrationTitlesClasses = !props.dispalyModalRightSide
 		? classes['innerWrapper__title']
 		: concatClasses(classes, 'innerWrapper__title', 'innerWrapper__title--disabled');
@@ -35,9 +37,13 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	return (
 		<section className={classes['container']}>
-			<div className={classes['container__title']}>Secret Creation</div>
+			<div className={classes['container__title']}>
+				{t('tokenManagement.tokenManagementModal.secretCreationTitle')}
+			</div>
 			<div className={classes['innerWrapper']}>
-				<span className={secretCrationTitlesClasses}>Label</span>
+				<span className={secretCrationTitlesClasses}>
+					{t('tokenManagement.tokenManagementModal.label')}
+				</span>
 				<input
 					className={classes['innerWrapper__input']}
 					disabled={props.dispalyModalRightSide}
@@ -45,7 +51,9 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					value={props.labelState ?? ''}
 					onChange={({ currentTarget: { value } }) => props.onLabelChange(value)}
 				/>
-				<span className={secretCrationTitlesClasses}>Expires</span>
+				<span className={secretCrationTitlesClasses}>
+					{t('tokenManagement.tokenManagementModal.expires')}
+				</span>
 				<div className={classes['innerWrapper__select']}>
 					<SelectFromOptions
 						componentWidth="230px"
@@ -72,9 +80,9 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				className={classes['container__button']}
 				type="button"
 				disabled={!props.createSecretButtonState}
-				onClick={props.onDisplayRightSide}
+				onClick={props.onSubmit}
 			>
-				Create Secret & Countinue
+				{t('tokenManagement.tokenManagementModal.createSecretButton')}
 			</button>
 		</section>
 	);

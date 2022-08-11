@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'rc-table';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
@@ -24,6 +25,7 @@ interface IProps {
 	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState?: string;
+	readonly onRevokeAll: () => void;
 	readonly onChangeGroupLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
 	readonly onOpenModal: () => void;
@@ -32,6 +34,8 @@ interface IProps {
 }
 
 const TokenManagementView: React.FC<IProps> = (props) => {
+	const { t } = useTranslation();
+
 	const copyClinetIdClasses = props.copyClientIdState
 		? concatClasses(classes, 'idWrapper__icon', 'idWrapper__icon--disabled')
 		: classes['idWrapper__icon'];
@@ -41,7 +45,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 			<SettingsSidebar />
 			<section className={classes['tokensDetalis']}>
 				<div className={classes['clientIdWrapper']}>
-					<span className={classes['clientIdWrapper__title']}>Client ID</span>
+					<span className={classes['clientIdWrapper__title']}>{t('tokenManagement.clientId')}</span>
 					<div className={classes['idWrapper']}>
 						<span className={classes['idWrapper__id']}>{props.clientIdState}</span>
 						<EDSvg
@@ -50,18 +54,26 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							onClick={props.onCopyClientId}
 						/>
 					</div>
-					{props.copyClientIdState && <div className={classes['idWrapper__copied']}>Copied!</div>}
+					{props.copyClientIdState && (
+						<div className={classes['idWrapper__copied']}>{t('tokenManagement.copied')}</div>
+					)}
 				</div>
 				<div className={classes['secretsWrapper']}>
 					<div className={classes['secretsHeader']}>
-						<span className={classes['secretsHeader__title']}>Secrets</span>
+						<span className={classes['secretsHeader__title']}>
+							{t('tokenManagement.table.title')}
+						</span>
 						<div className={classes['buttonsWrapper']}>
 							<button type="button" className={classes['revoke']}>
-								<span className={classes['revoke__title']}>Revoke All</span>
+								<span className={classes['revoke__title']}>
+									{t('tokenManagement.table.revokeAll')}
+								</span>
 								<EDSvg name="trashCan" className={classes['revoke__icon']} />
 							</button>
 							<button type="button" className={classes['create']} onClick={props.onOpenModal}>
-								<span className={classes['create__title']}>Create Secret</span>
+								<span className={classes['create__title']}>
+									{t('tokenManagement.table.createSecret')}
+								</span>
 							</button>
 							{props.isModelOnView && <TokenModal onCloseModal={props.onCloseModal} />}
 						</div>
@@ -73,7 +85,10 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 						emptyText="No Secrets!"
 					/>
 					<div className={classes['footer']}>
-						<span className={classes['footer__text']}>Total: 3</span>
+						<span className={classes['footer__text']}>
+							{t('tokenManagement.table.total')}
+							&nbsp;3
+						</span>
 					</div>
 				</div>
 			</section>

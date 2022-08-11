@@ -1,7 +1,11 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-key */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import type { AxiosResponse } from 'axios';
+
 import EDSvg from '@/ui/EDSvg';
+import { backendApi } from '@/utils/http';
+import type { ISecretsResponseData } from '@/interfaces/responses';
 
 import TokenManagementView from './TokenManagement.view';
 
@@ -12,6 +16,18 @@ const TokenManagement: React.FC<IProps> = () => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 	const [clientIdState] = useState<string>('suidbfgsoudpihnevoiwehfwoefhui');
 	const [copyClientIdState, setCopyClientIdState] = useState(false);
+
+	useEffect(() => {
+		backendApi
+			.get<ISecretsResponseData>('user/secrets')
+			.then((response: AxiosResponse<ISecretsResponseData>) => {
+				console.log(response);
+			});
+	});
+
+	const onRevokeAll = () => {
+		backendApi.delete('user/secrets/all');
+	};
 
 	const onChangeGroupLabel = (label: string) => {
 		if (label.length > 0 && label.length <= 20) {
@@ -130,6 +146,7 @@ const TokenManagement: React.FC<IProps> = () => {
 			clientIdState={clientIdState}
 			copyClientIdState={copyClientIdState}
 			tokenLabelState={tokenLabelState}
+			onRevokeAll={onRevokeAll}
 			tokenLabelChangeHandler={tokenLabelChangeHandler}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
