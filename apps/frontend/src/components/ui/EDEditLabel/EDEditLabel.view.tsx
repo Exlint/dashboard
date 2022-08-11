@@ -8,8 +8,8 @@ import classes from './EDEditLabel.module.scss';
 interface IProps {
 	readonly label: string;
 	readonly isLabelOnEdit: boolean;
-	readonly onEditLabelClick: (isEdit: boolean) => void;
-	readonly onChangeLabel: (newLabel: string) => void;
+	readonly onEditLabelClick: (_: boolean) => void;
+	readonly onChangeLabel: (_: string) => void;
 	readonly onUpdateLabel: () => void;
 	readonly onCancelLabelChanges: () => void;
 }

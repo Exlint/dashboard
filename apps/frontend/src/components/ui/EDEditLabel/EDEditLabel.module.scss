@@ -26,6 +26,7 @@
 			height: 20px;
 			fill: transparent;
 			stroke: #4b4a65;
+			stroke-width: 1px;
 		}
 	}
 }
@@ -40,6 +41,7 @@
 		&__icon {
 			fill: transparent;
 			stroke: #4b4a65;
+			stroke-width: 1.5px;
 		}
 	}
 
@@ -49,6 +51,7 @@
 			height: 16px;
 			fill: #4b4a65;
 			stroke: #4b4a65;
+			stroke-linecap: round;
 		}
 	}
 }
