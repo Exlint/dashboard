@@ -1,18 +1,20 @@
 import React, { type CSSProperties } from 'react';
 
+import { concatDiverseClasses } from '@/utils/component';
+
 import icons from '../../../assets/icons';
 
 import classes from './EDSvg.module.scss';
 
-interface Props {
+interface IProps {
 	readonly name: keyof typeof icons;
 	readonly className?: string;
 	readonly style?: CSSProperties;
 	readonly onClick?: () => void;
 }
 
-const EDSvgView: React.FC<Props> = (props: React.PropsWithChildren<Props>) => {
-	const svgClasses = classes['container'] + (props.className ? ` ${props.className}` : '');
+const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const svgClasses = concatDiverseClasses(classes['container'], props.className);
 
 	return (
 		<svg

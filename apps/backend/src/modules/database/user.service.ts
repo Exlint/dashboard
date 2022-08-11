@@ -60,7 +60,7 @@ export class DBUserService {
 	}
 
 	public async getAuthTypeData(userId: string) {
-		const user = await this.prisma.user.findUnique({
+		const user = await this.prisma.user.findUniqueOrThrow({
 			where: { id: userId },
 			select: { authType: true, externalToken: true },
 		});

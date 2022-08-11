@@ -23,6 +23,25 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	userSettings: {
+		title: 'User Settings',
+		username: 'User',
+		deleteUserAction: 'Delete user',
+		logoutAction: 'Log-out',
+		userSettingsModal: {
+			cancelButton: 'Cancel',
+			header: 'You are about to delete your user:',
+			details: 'All saved data, groups, policies and configurations will be lost',
+			actionText: 'To confirm, type',
+			actionPhraseText: 'DELETE-USER',
+			inputPlaceholder: 'Type here',
+			confirmButton: 'Confirm',
+		},
+	},
+	settingsSidebar: {
+		title: 'Settings',
+		username: 'Username',
+	},
 	groupCenter: {
 		newGroupLabel: 'New Group',
 		groupDetails: {

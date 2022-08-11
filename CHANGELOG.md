@@ -1,3 +1,31 @@
+## [1.17.1](https://github.com/Exlint/dashboard/compare/v1.17.0...v1.17.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐞 fix issues with lintstaged and eslint ([04981aa](https://github.com/Exlint/dashboard/commit/04981aad1e6661fc9ef2c16fe14334b03a5e1ed5))
+
+# [1.17.0](https://github.com/Exlint/dashboard/compare/v1.16.0...v1.17.0) (2022-08-02)
+
+
+### Features
+
+* 🔥 added rules data file ([404ab6b](https://github.com/Exlint/dashboard/commit/404ab6b170631b4fb0c46ae9752a7c6ca80eba6a))
+
+# [1.16.0](https://github.com/Exlint/dashboard/compare/v1.15.0...v1.16.0) (2022-07-31)
+
+
+### Features
+
+* 🔥 full swagger support ([99618e9](https://github.com/Exlint/dashboard/commit/99618e9ca7dae80d8edc6474cd24abef305e555f))
+
+# [1.15.0](https://github.com/Exlint/dashboard/compare/v1.14.1...v1.15.0) (2022-07-30)
+
+
+### Features
+
+* 🔥 more informative swagger ([b09928c](https://github.com/Exlint/dashboard/commit/b09928c88c811f693bcf946e69b377341a94bfad))
+
 ## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
 
 

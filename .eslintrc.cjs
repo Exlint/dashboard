@@ -14,7 +14,6 @@ module.exports = {
 		project: './tsconfig.eslint.json',
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
-		extraFileExtensions: ['.cjs'],
 	},
 	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
 	rules: {

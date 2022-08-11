@@ -1,11 +1,11 @@
 const Routes = {
 	CONTROLLER: 'secrets',
-	CREATE: 'create',
-	DELETE: 'delete/:secret_id',
-	REVOKE_ALL: 'revoke-all',
+	CREATE: '',
+	DELETE: ':secret_id',
+	REVOKE_ALL: 'all',
 	REFRSH_SECRET: 'refresh-secret/:secret_id',
 	EDIT_LABEL: 'edit-label/:secret_id',
-	GET_ALL: 'get-all',
+	GET_ALL: '',
 };
 
 export default Routes;
