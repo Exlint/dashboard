@@ -44,6 +44,7 @@ const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 						style={{ width: `${props.label.length}ch` }}
 						value={props.label}
 						autoFocus
+						maxLength={20}
 						onChange={(e) => props.onChangeLabel(e.target.value)}
 					/>
 					<div className={classes['updateLabelButtonsContainer']}>
