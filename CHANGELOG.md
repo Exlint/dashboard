@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/Exlint/dashboard/compare/v1.17.0...v1.17.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐞 fix issues with lintstaged and eslint ([04981aa](https://github.com/Exlint/dashboard/commit/04981aad1e6661fc9ef2c16fe14334b03a5e1ed5))
+
 # [1.17.0](https://github.com/Exlint/dashboard/compare/v1.16.0...v1.17.0) (2022-08-02)
 
 
