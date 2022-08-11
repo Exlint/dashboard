@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 import React, { useEffect, useState } from 'react';
-import type { AxiosError } from 'axios';
 
 import type { IGroup } from '@/interfaces/group';
 import { backendApi } from '@/utils/http';
@@ -31,22 +30,23 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onUpdateGroupLabel = () => {
-		let newGroupLabel = groupLabelState;
+		const oldLabel = groupLabelState;
+		let newLabel = groupLabelState;
 
 		if (groupLabelState === '') {
-			newGroupLabel = props.selectedGroup.label;
+			newLabel = props.selectedGroup.label;
 		}
 
-		props.onUpdateGroupLabel(props.selectedGroup.id, newGroupLabel);
+		props.onUpdateGroupLabel(props.selectedGroup.id, newLabel);
 		setIsLabelOnEditState(() => false);
 
 		backendApi
-			.patch(`/user/groups/edit-label/${props.selectedGroup.id}`, {
-				label: newGroupLabel,
+			.patch(`/user/groups/${props.selectedGroup.id}`, {
+				label: newLabel,
 			})
 			.then()
-			.catch((err: AxiosError) => {
-				alert(err.response?.data);
+			.catch(() => {
+				props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
 			});
 	};
 
@@ -72,9 +72,8 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	const onDeleteGroup = () => {
 		props.onRemoveGroup(props.selectedGroup.id);
 
-		backendApi.delete(`/user/groups/delete/${props.selectedGroup.id}`).catch((err: AxiosError) => {
+		backendApi.delete(`/user/groups/${props.selectedGroup.id}`).catch(() => {
 			props.onAddGroup(props.selectedGroup);
-			alert(err.response?.data);
 		});
 	};
 

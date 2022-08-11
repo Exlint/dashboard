@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import type { AxiosError } from 'axios';
 import { useTranslation } from 'react-i18next';
 import { scroller } from 'react-scroll';
 
@@ -33,32 +32,26 @@ const GroupCenter: React.FC<IProps> = () => {
 	}, [backendApi]);
 
 	const onCreateNewGroup = () => {
-		backendApi
-			.post<ICreateGroupResponseData>('/user/groups/create')
-			.then((response) => {
-				setGroupsListState((prev) => {
-					setSelectGroupIndexState(() => prev.length);
+		backendApi.post<ICreateGroupResponseData>('/user/groups').then((response) => {
+			setGroupsListState((prev) => {
+				setSelectGroupIndexState(() => prev.length);
 
-					return [
-						...prev,
-						{
-							label: t('groupCenter.newGroupLabel'),
-							createdAt: currentDate(),
-							id: response.data.groupId,
-							policies: [],
-						},
-					];
-				});
-				scroller.scrollTo('group-list-end', {
-					containerId: 'group-list-container',
-					smooth: true,
-					duration: 500,
-				});
-			})
-			.catch((err: AxiosError) => {
-				//TODO: Add action when catch error
-				alert(err.response?.data);
+				return [
+					...prev,
+					{
+						label: t('groupCenter.newGroupLabel'),
+						createdAt: currentDate(),
+						id: response.data.groupId,
+						policies: [],
+					},
+				];
 			});
+			scroller.scrollTo('group-list-end', {
+				containerId: 'group-list-container',
+				smooth: true,
+				duration: 500,
+			});
+		});
 	};
 
 	const onUpdateGroupLabel = (groupId: string, newLabel: string) => {

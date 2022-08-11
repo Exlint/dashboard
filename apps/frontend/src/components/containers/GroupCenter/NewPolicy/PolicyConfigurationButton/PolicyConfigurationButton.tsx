@@ -1,6 +1,4 @@
 import React from 'react';
-import type { AxiosError } from 'axios';
-// Import uniqid from 'uniqid';
 
 import { backendApi } from '@/utils/http';
 
@@ -23,9 +21,8 @@ const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChild
 			.then(() => {
 				//TODO: should link to other url
 			})
-			.catch((err: AxiosError) => {
+			.catch(() => {
 				//TODO: Add action when catch error
-				alert(err.response?.data);
 			});
 	};
 
