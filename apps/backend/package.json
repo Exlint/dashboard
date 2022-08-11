@@ -17,13 +17,13 @@
 		"depcheck": "depcheck --config ./.depcheckrc.json"
 	},
 	"dependencies": {
-		"@nestjs/common": "9.0.8",
+		"@nestjs/common": "9.0.9",
 		"@nestjs/config": "2.2.0",
-		"@nestjs/core": "9.0.8",
+		"@nestjs/core": "9.0.9",
 		"@nestjs/cqrs": "9.0.1",
 		"@nestjs/jwt": "9.0.0",
 		"@nestjs/passport": "9.0.0",
-		"@nestjs/platform-express": "9.0.8",
+		"@nestjs/platform-express": "9.0.9",
 		"@octokit/oauth-app": "4.0.6",
 		"@prisma/client": "4.2.1",
 		"class-transformer": "0.5.1",
