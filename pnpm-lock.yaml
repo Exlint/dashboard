@@ -92,7 +92,7 @@ importers:
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
       googleapis: 105.0.0
-      mixpanel: 0.16.0
+      mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0
       open-cli: 7.0.1
       passport: 0.6.0
@@ -120,7 +120,7 @@ importers:
       class-transformer: 0.5.1
       class-validator: 0.13.2
       googleapis: 105.0.0
-      mixpanel: 0.16.0
+      mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0_@nestjs+common@9.0.9
       passport: 0.6.0
       passport-github2: 0.1.12
@@ -182,7 +182,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
-      mixpanel: 0.16.0
+      mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0
       open-cli: 7.0.1
       passport-jwt: 4.0.0
@@ -203,7 +203,7 @@ importers:
       '@prisma/client': 4.2.1_prisma@4.2.1
       class-transformer: 0.5.1
       class-validator: 0.13.2
-      mixpanel: 0.16.0
+      mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0_@nestjs+common@9.0.9
       passport-jwt: 4.0.0
       rxjs: 7.5.6
@@ -11673,8 +11673,8 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
 
-  /mixpanel/0.16.0:
-    resolution: {integrity: sha512-+FeBnpO48tChYvw9LDB4YAaW7fTER56ZOQcx69EaC0NpoYC/M50vTrWWjhqtZt/x0V4h4BEml+5GWJjA1djbcA==}
+  /mixpanel/0.17.0:
+    resolution: {integrity: sha512-DY5WeOy/hmkPrNiiZugJpWR0iMuOwuj1a3u0bgwB2eUFRV6oIew/pIahhpawdbNjb+Bye4a8ID3gefeNPvL81g==}
     engines: {node: '>=10.0'}
     dependencies:
       https-proxy-agent: 5.0.0
