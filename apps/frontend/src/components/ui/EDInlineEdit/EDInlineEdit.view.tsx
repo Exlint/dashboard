@@ -11,6 +11,7 @@ interface IProps {
 	readonly onChangeInput: (_: string) => void;
 	readonly onUpdateInput: () => void;
 	readonly onCancelInputChanges: () => void;
+	readonly onKeyboardPress: (e: React.KeyboardEvent) => void;
 }
 
 const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -24,6 +25,7 @@ const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 						value={props.label}
 						autoFocus
 						maxLength={20}
+						onKeyPress={(e) => props.onKeyboardPress(e)}
 						onChange={(e) => props.onChangeInput(e.target.value)}
 					/>
 					<div className={classes['updateInputButtonsContainer']}>

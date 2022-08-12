@@ -12,6 +12,11 @@ interface IProps {
 }
 
 const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const onKeyboardPress = (e: React.KeyboardEvent) => {
+		if (e.key === 'Enter') {
+			props.onUpdateInput();
+		}
+	};
 	return (
 		<EDInlineEditView
 			label={props.label}
@@ -20,6 +25,7 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			onChangeInput={props.onChangeInput}
 			onUpdateInput={props.onUpdateInput}
 			onCancelInputChanges={props.onCancelInputChanges}
+			onKeyboardPress={onKeyboardPress}
 		/>
 	);
 };
