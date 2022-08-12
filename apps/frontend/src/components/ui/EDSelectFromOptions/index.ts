@@ -1,3 +1,3 @@
-import EDSelectFromOptions from './SelectFromOptions';
+import EDSelectFromOptions from './EDSelectFromOptions';
 
 export default EDSelectFromOptions;
