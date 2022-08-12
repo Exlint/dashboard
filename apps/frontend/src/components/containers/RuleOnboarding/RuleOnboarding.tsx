@@ -8,7 +8,8 @@ import RuleOnboardingView from './RuleOnboarding.view';
 interface IProps {}
 
 const RuleOnboarding: React.FC<IProps> = () => {
-	const [selectedLibraryState, setSelectedLibraryState] = useState<ILibraryData | null>(null);
+	const [selectedLibraryState] = useState<ILibraryData | null>(librariesData.eslint);
+
 	const [selectedRuleState, setSelectedRuleState] = useState<ILibraryRule | null>(null);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
 	const [isRuleOnUpdateState, setIsRuleOnUpdateState] = useState<boolean>(false);
@@ -36,7 +37,6 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	};
 
 	//TODO: useEffect on evry change policyId
-	setSelectedLibraryState(() => librariesData.eslint);
 
 	return (
 		<RuleOnboardingView
