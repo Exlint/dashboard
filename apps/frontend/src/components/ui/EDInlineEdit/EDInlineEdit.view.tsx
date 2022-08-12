@@ -3,37 +3,21 @@ import React from 'react';
 import { concatClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
 
-import classes from './EDEditLabel.module.scss';
+import classes from './EDInlineEdit.module.scss';
 
 interface IProps {
 	readonly label: string;
 	readonly isLabelOnEdit: boolean;
-	readonly onEditLabelClick: (_: boolean) => void;
+	readonly onEditLabelClick: () => void;
 	readonly onChangeLabel: (_: string) => void;
 	readonly onUpdateLabel: () => void;
 	readonly onCancelLabelChanges: () => void;
 }
 
-const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['labelContainer']}>
-			{!props.isLabelOnEdit ? (
-				<>
-					<span
-						className={classes['labelContainer__label']}
-						onDoubleClick={() => props.onEditLabelClick(true)}
-					>
-						{props.label}
-					</span>
-					<button
-						type="button"
-						className={classes['editLabelButton']}
-						onClick={() => props.onEditLabelClick(true)}
-					>
-						<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
-					</button>
-				</>
-			) : (
+			{props.isLabelOnEdit ? (
 				<>
 					<input
 						className={concatClasses(
@@ -55,21 +39,30 @@ const EDEditLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 						>
 							<EDSvg className={classes['updateChangesButton__icon']} name="vConfirm" />
 						</button>
-						<button
-							className={classes['cancelChangesButton']}
-							type="button"
-							onClick={props.onCancelLabelChanges}
-						>
-							<EDSvg className={classes['cancelChangesButton__icon']} name="cancel" />
+						<button type="button" onClick={props.onCancelLabelChanges}>
+							<EDSvg className={classes['cancelChangesButtonIcon']} name="cancel" />
 						</button>
 					</div>
+				</>
+			) : (
+				<>
+					<span className={classes['labelContainer__label']} onDoubleClick={props.onEditLabelClick}>
+						{props.label}
+					</span>
+					<button
+						type="button"
+						className={classes['editLabelButton']}
+						onClick={props.onEditLabelClick}
+					>
+						<EDSvg className={classes['editLabelButton__icon']} name="inlineEdit" />
+					</button>
 				</>
 			)}
 		</div>
 	);
 };
 
-EDEditLabelView.displayName = 'EDEditLabelView';
-EDEditLabelView.defaultProps = {};
+EDInlineEditView.displayName = 'EDInlineEditView';
+EDInlineEditView.defaultProps = {};
 
-export default React.memo(EDEditLabelView);
+export default React.memo(EDInlineEditView);

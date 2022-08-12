@@ -1,19 +1,19 @@
 import React from 'react';
 
-import EDEditLabelView from './EDEditLabel.view';
+import EDInlineEditView from './EDInlineEdit.view';
 
 interface IProps {
 	readonly label: string;
 	readonly isLabelOnEdit: boolean;
-	readonly onEditLabelClick: (_: boolean) => void;
+	readonly onEditLabelClick: () => void;
 	readonly onChangeLabel: (_: string) => void;
 	readonly onUpdateLabel: () => void;
 	readonly onCancelLabelChanges: () => void;
 }
 
-const EDEditLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<EDEditLabelView
+		<EDInlineEditView
 			label={props.label}
 			isLabelOnEdit={props.isLabelOnEdit}
 			onEditLabelClick={props.onEditLabelClick}
@@ -24,7 +24,7 @@ const EDEditLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	);
 };
 
-EDEditLabel.displayName = 'EDEditLabel';
-EDEditLabel.defaultProps = {};
+EDInlineEdit.displayName = 'EDInlineEdit';
+EDInlineEdit.defaultProps = {};
 
-export default React.memo(EDEditLabel);
+export default React.memo(EDInlineEdit);

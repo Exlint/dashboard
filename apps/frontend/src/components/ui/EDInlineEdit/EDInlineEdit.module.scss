@@ -23,7 +23,7 @@
 
 		&__icon {
 			width: 20px;
-			height: 20px;
+			height: auto;
 			fill: transparent;
 			stroke: #4b4a65;
 			stroke-width: 1px;
@@ -46,13 +46,11 @@
 		}
 	}
 
-	.cancelChangesButton {
-		&__icon {
-			width: 16px;
-			height: 16px;
-			fill: #4b4a65;
-			stroke: #4b4a65;
-			stroke-linecap: round;
-		}
+	.cancelChangesButtonIcon {
+		width: 16px;
+		height: auto;
+		fill: #4b4a65;
+		stroke: #4b4a65;
+		stroke-linecap: round;
 	}
 }
