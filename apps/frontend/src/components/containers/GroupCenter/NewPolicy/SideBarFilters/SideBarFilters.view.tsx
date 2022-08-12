@@ -27,7 +27,6 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 						key={index}
 						className={classes['typeButton']}
 						type="button"
-						role="button"
 						onClick={() => props.onSelectType(index)}
 					>
 						<span
@@ -53,7 +52,6 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 						key={index}
 						className={classes['categoryButton']}
 						type="button"
-						role="button"
 						onClick={() => props.onSelectCategory(index)}
 					>
 						<span

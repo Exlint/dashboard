@@ -35,7 +35,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	);
 
 	return (
-		<main className={classes['main']}>
+		<div className={classes['main']}>
 			<GroupsSidebar
 				groupsList={props.groupsList}
 				selectedGroupIndex={props.selectedGroupIndex}
@@ -48,7 +48,7 @@ const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 					<Route path="/new-policy" element={<NewPolicy selectedGroupId={selectedGroupId} />} />
 				</Routes>
 			)}
-		</main>
+		</div>
 	);
 };
 

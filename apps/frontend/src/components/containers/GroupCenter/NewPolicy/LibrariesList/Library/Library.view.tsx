@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import React from 'react';
 
 import type { ILibrary } from '@/interfaces/library';

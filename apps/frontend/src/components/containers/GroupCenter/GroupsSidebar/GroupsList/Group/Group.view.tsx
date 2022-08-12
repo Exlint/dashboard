@@ -49,7 +49,6 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<button
 							className={classes['uniqIdCopyButton']}
 							type="button"
-							role="button"
 							onClick={props.onCopyGroupId}
 						>
 							{t('groupCenter.groupSideBar.group.copy')}

@@ -34,7 +34,6 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					/>
 					<button
 						type="button"
-						role="button"
 						className={classes['buttonContainer']}
 						onClick={props.onCreateNewGroup}
 					>
