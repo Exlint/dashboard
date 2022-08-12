@@ -13441,7 +13441,7 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 4.2.0
+      '@prisma/engines': 4.2.1
     dev: true
 
   /process-nextick-args/2.0.1:
