@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 
@@ -25,6 +26,8 @@ interface IProps {
 }
 
 const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['groupInfo']}>
 			<div className={classes['innerGroupInfo']}>
@@ -77,7 +80,9 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				)}
 
 				<div className={classes['uniqueIdContainer']}>
-					<span className={classes['uniqueIdContainer__text']}>Unique ID:</span>
+					<span className={classes['uniqueIdContainer__text']}>
+						{t('groupCenter.groupDetails.groupInfo.uniqId')}
+					</span>
 					<div className={classes['uniqueId']}>
 						<span className={classes['uniqueId__id']}>{props.selectedGroup.id}</span>
 						<button
@@ -87,7 +92,9 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						>
 							<EDSvg className={classes['uniqIdCopyButton__icon']} name="uniqueId" />
 							{props.copyGroupId && (
-								<span className={classes['uniqIdCopyButton__copiedText']}>Copied!</span>
+								<span className={classes['uniqIdCopyButton__copiedText']}>
+									{t('groupCenter.groupDetails.groupInfo.copied')}
+								</span>
 							)}
 						</button>
 					</div>
@@ -111,7 +118,9 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								type="button"
 								onClick={props.onDeleteGroup}
 							>
-								<span className={classes['deleteGroup__text']}>Delete Group</span>
+								<span className={classes['deleteGroup__text']}>
+									{t('groupCenter.groupDetails.groupInfo.deleteGroup')}
+								</span>
 								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroup" />
 							</button>
 						</div>

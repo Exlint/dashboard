@@ -2,10 +2,10 @@ import React from 'react';
 import Table from 'rc-table';
 
 import type { IPolicy } from '@/interfaces/policy';
-
-import classes from './PoliciesList.module.scss';
 import type { ITableColumns } from './interfaces/table-columns';
 import type { ITableData } from './interfaces/table-data';
+
+import classes from './PoliciesList.module.scss';
 
 interface IProps {
 	readonly groupPolicy: IPolicy[];

@@ -15,12 +15,25 @@ const NoPoliciesView: React.FC<IProps> = () => {
 	return (
 		<div className={classes['noPolicies']}>
 			<div className={classes['tableHeaderContainer']}>
-				<span className={classes['tableHeaderContainer__cell']}>#</span>
-				<span className={classes['tableHeaderContainer__cell']}>Label</span>
-				<span className={classes['tableHeaderContainer__cell']}>Library</span>
-				<span className={classes['tableHeaderContainer__cell']}>Category</span>
-				<span className={classes['tableHeaderContainer__cell']}>Num. of rules</span>
-				<span className={classes['tableHeaderContainer__cell']}>Configurations</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{t('groupCenter.groupDetails.policies.noPolicies.order')}
+				</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{' '}
+					{t('groupCenter.groupDetails.policies.noPolicies.label')}
+				</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{t('groupCenter.groupDetails.policies.noPolicies.library')}
+				</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{t('groupCenter.groupDetails.policies.noPolicies.category')}
+				</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{t('groupCenter.groupDetails.policies.noPolicies.numOfRules')}
+				</span>
+				<span className={classes['tableHeaderContainer__cell']}>
+					{t('groupCenter.groupDetails.policies.noPolicies.configurations')}
+				</span>
 			</div>
 			<hr className={classes['noPolicies__dividerLine']} />
 

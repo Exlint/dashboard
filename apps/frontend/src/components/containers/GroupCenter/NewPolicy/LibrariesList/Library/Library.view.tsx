@@ -1,4 +1,6 @@
+/* eslint-disable max-lines */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { ILibrary } from '@/interfaces/library';
 import EDVsvg from '@/ui/EDSvg';
@@ -13,6 +15,8 @@ interface IProps extends ILibrary {
 }
 
 const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	let isLibrarySelected = false;
 
 	if (props.selectedLibrary?.index === props.index) {
@@ -58,7 +62,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 							className={classes['madeByContainer__text']}
 							style={{ color: isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
 						>
-							By
+							{t('groupCenter.newPolicy.librariesList.library.madeBy')}
 						</span>
 						&nbsp;
 						<span

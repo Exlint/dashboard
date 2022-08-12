@@ -45,6 +45,11 @@ const en = {
 	groupCenter: {
 		newGroupLabel: 'New Group',
 		groupDetails: {
+			groupInfo: {
+				uniqId: 'Unique ID:',
+				copied: 'Copied!',
+				deleteGroup: 'Delete Group',
+			},
 			policies: {
 				header: 'Policies',
 				orderNumber: '#',
@@ -57,6 +62,15 @@ const en = {
 					header: 'Create your first Policy',
 					description: 'Choose a Library',
 					rulesStep: 'Build your own rules <br /> or choose a recommended policy',
+					order: '#',
+					label: 'Label',
+					library: 'Library',
+					category: 'Category',
+					numOfRules: 'Num. of rules',
+					configurations: 'Configurations',
+				},
+				policiesList: {
+					editConfig: 'Edit Config',
 				},
 			},
 		},
@@ -82,6 +96,11 @@ const en = {
 			},
 			policyConfiguration: {
 				button: 'Continue to Policy Configuration',
+			},
+			librariesList: {
+				library: {
+					madeBy: 'by',
+				},
 			},
 		},
 		redirect: {

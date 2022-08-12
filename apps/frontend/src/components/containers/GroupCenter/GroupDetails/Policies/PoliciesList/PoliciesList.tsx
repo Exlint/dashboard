@@ -1,6 +1,7 @@
 /* eslint-disable max-lines */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import type { IPolicy } from '@/interfaces/policy';
@@ -8,11 +9,14 @@ import type { IPolicy } from '@/interfaces/policy';
 import PoliciesListView from './PoliciesList.view';
 import type { ITableData } from './interfaces/table-data';
 
+import classes from './PoliciesList.module.scss';
+
 interface IProps {
 	readonly groupPolicy: IPolicy[];
 }
 
 const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 
 	const onNavigateToPolicyRules = (policyId: string) => {
@@ -65,15 +69,11 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 				return (
 					<button
+						className={classes['editConfigurationsButton']}
 						type="button"
-						style={{
-							color: 'rgba(122, 77, 243, 1)',
-							fontSize: '1.7rem',
-							textDecoration: 'underline',
-						}}
 						onClick={() => onNavigateToPolicyConfig(policyId)}
 					>
-						Edit Config
+						{t('groupCenter.groupDetails.policies.policiesList.editConfig')}
 					</button>
 				);
 			},
@@ -90,10 +90,8 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 				return (
 					<button
+						className={classes['goToRulesButton']}
 						type="button"
-						style={{
-							verticalAlign: 'middle',
-						}}
 						onClick={() => onNavigateToPolicyRules(policyId)}
 					>
 						<EDSvg
