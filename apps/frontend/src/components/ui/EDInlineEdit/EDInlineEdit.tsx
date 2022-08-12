@@ -17,6 +17,7 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			props.onUpdateInput();
 		}
 	};
+
 	return (
 		<EDInlineEditView
 			label={props.label}
