@@ -1,8 +1,8 @@
-.labelContainer {
+.inlineEditContainer {
 	display: flex;
 	align-items: center;
 
-	&__label {
+	&__text {
 		font-size: 2.4rem;
 		font-weight: 500;
 		color: #202428;
@@ -11,12 +11,36 @@
 		border-bottom: 1px solid transparent;
 	}
 
-	&__labelOnEdit {
+	.updateInputButtonsContainer {
+		display: flex;
+		align-items: center;
+
+		.updateChangesButton {
+			margin-inline-end: 5px;
+
+			&__icon {
+				fill: transparent;
+				stroke: #4b4a65;
+				stroke-linecap: round;
+				stroke-width: 1.5px;
+			}
+		}
+
+		.cancelChangesButtonIcon {
+			width: 16px;
+			height: auto;
+			fill: #4b4a65;
+			stroke: #4b4a65;
+			stroke-linecap: round;
+		}
+	}
+
+	&__inputOnEdit {
 		padding: 0;
 		border-bottom: 1px solid #4b4a65;
 	}
 
-	.editLabelButton {
+	.inlineEditButton {
 		display: flex;
 		width: fit-content;
 		margin: 0 28px 0 10px;
@@ -28,29 +52,5 @@
 			stroke: #4b4a65;
 			stroke-width: 1px;
 		}
-	}
-}
-
-.updateLabelButtonsContainer {
-	display: flex;
-	align-items: center;
-
-	.updateChangesButton {
-		margin-inline-end: 5px;
-
-		&__icon {
-			fill: transparent;
-			stroke: #4b4a65;
-			stroke-linecap: round;
-			stroke-width: 1.5px;
-		}
-	}
-
-	.cancelChangesButtonIcon {
-		width: 16px;
-		height: auto;
-		fill: #4b4a65;
-		stroke: #4b4a65;
-		stroke-linecap: round;
 	}
 }
