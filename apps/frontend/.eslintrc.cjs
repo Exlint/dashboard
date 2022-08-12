@@ -91,12 +91,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: [
-				'./src/assets/icons.ts',
-				'./src/data/eslint-data.ts',
-				'./src/data/stylelint-data.ts',
-				'./src/data/prettier-data.ts',
-			],
+			files: ['./src/assets/icons.ts', './src/data/**/*.ts'],
 			rules: {
 				'max-lines': 'off',
 			},
