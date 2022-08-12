@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SelectFromOptionsView from './SelectFromOptions.view';
+import EdSelectFromOptionsView from './EDSelectFromOptions.view';
 
 interface IProps {
 	readonly defaultValue?: string;
@@ -14,9 +14,9 @@ interface IProps {
 	readonly onSelectedOption: (index: number) => void;
 }
 
-const SelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDSelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<SelectFromOptionsView
+		<EdSelectFromOptionsView
 			defaultValue={props.defaultValue}
 			componentWidth={props.componentWidth}
 			border={props.border}
@@ -30,7 +30,7 @@ const SelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 	);
 };
 
-SelectFromOptions.displayName = 'SelectFromOptions';
-SelectFromOptions.defaultProps = {};
+EDSelectFromOptions.displayName = 'EDSelectFromOptions';
+EDSelectFromOptions.defaultProps = {};
 
-export default React.memo(SelectFromOptions);
+export default React.memo(EDSelectFromOptions);

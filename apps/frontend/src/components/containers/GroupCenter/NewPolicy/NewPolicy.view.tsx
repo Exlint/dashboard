@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import type { ILibrary } from '@/interfaces/library';
 import EDSvg from '@/ui/EDSvg';
-import SelectFromOptions from '@/ui/SelectFromOptions';
+import EDSelectFromOptions from '@/ui/EDSelectFromOptions';
 
 import { sortByOptions } from '@/data/new-policy-sort-by-options';
 import { categories, types } from '@/data/policies-filter';
@@ -89,7 +89,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 							</div>
 						</div>
 						<div className={classes['sortByContainer']}>
-							<SelectFromOptions
+							<EDSelectFromOptions
 								componentWidth="200px"
 								defaultValue="Sort by"
 								border="2px solid #E7E7E7"

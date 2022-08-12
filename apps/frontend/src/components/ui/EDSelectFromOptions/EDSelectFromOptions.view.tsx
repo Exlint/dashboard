@@ -1,7 +1,8 @@
 import React from 'react';
+
 import EDSvg from '@/ui/EDSvg';
 
-import classes from './SelectFromOptions.module.scss';
+import classes from './EDSelectFromOptions.module.scss';
 
 interface IProps {
 	readonly defaultValue?: string;
@@ -15,7 +16,7 @@ interface IProps {
 	readonly onSelectedOption: (index: number) => void;
 }
 
-const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['selectedOptionsContainer']}>
 			<div
@@ -69,7 +70,7 @@ const SelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<
 	);
 };
 
-SelectFromOptionsView.displayName = 'SelectFromOptionsView';
-SelectFromOptionsView.defaultProps = {};
+EDSelectFromOptionsView.displayName = 'EDSelectFromOptionsView';
+EDSelectFromOptionsView.defaultProps = {};
 
-export default React.memo(SelectFromOptionsView);
+export default React.memo(EDSelectFromOptionsView);
