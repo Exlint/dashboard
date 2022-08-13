@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LibraryCategory } from 'src/models/library-category';
-import { LibraryType } from 'src/models/library-type';
+import { LibraryCategory } from '@/models/library-category';
+import { LibraryType } from '@/models/library-type';
 import type { ILibraryData } from '@/interfaces/libraries';
 import logosObject from '@/utils/libraries-logos';
 
