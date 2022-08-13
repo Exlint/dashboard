@@ -1,7 +1,7 @@
 export interface ITableData {
 	number: string;
 	label: string;
-	library: string;
+	libraryName: string;
 	category: string;
 	rulesNum: number;
 	configurations: string;

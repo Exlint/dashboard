@@ -2,15 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import type { IPolicy } from '@/interfaces/policy';
-import NoPolicies from './NoPolicies';
+import type { IPolicyData } from '@/interfaces/libraries';
 
+import NoPolicies from './NoPolicies';
 import PoliciesList from './PoliciesList';
 
 import classes from './Policies.module.scss';
 
 interface IProps {
-	readonly groupPolicies: IPolicy[];
+	readonly groupPolicies: IPolicyData[];
 	readonly onNavigateToNewPolicy: () => void;
 }
 

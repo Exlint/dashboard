@@ -1,16 +1,14 @@
 import React from 'react';
 
-import type { ILibrary } from '@/interfaces/library';
-
 import LibrariesListView from './LibrariesList.view';
 
 interface IProps {
-	readonly selectedLibrary: ILibrary | null;
+	readonly selectedLibrary: string | null;
 	readonly searchLibraryInput: string | null;
-	readonly selectedTypeFromFilter: string;
-	readonly selectedCetegotyFromFilter: string;
+	readonly selectedTypeIndex: number;
+	readonly selectedCategoryIndex: number;
 	readonly selectedSortByOptionIndex: number | null;
-	readonly onSelectedLibrary: (library: ILibrary) => void;
+	readonly onSelectLibrary: (libraryName: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
 }
 
@@ -19,10 +17,10 @@ const LibrariesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		<LibrariesListView
 			selectedLibrary={props.selectedLibrary}
 			searchLibraryInput={props.searchLibraryInput}
-			selectedTypeFromFilter={props.selectedTypeFromFilter}
-			selectedCetegotyFromFilter={props.selectedCetegotyFromFilter}
+			selectedTypeIndex={props.selectedTypeIndex}
+			selectedCategoryIndex={props.selectedCategoryIndex}
 			selectedSortByOptionIndex={props.selectedSortByOptionIndex}
-			onSelectedLibrary={props.onSelectedLibrary}
+			onSelectLibrary={props.onSelectLibrary}
 			onCancelSelectedLibrary={props.onCancelSelectedLibrary}
 		/>
 	);

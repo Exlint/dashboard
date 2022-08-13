@@ -1,13 +1,9 @@
-/* eslint-disable max-lines */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import type { ILibrary } from '@/interfaces/library';
 import EDSvg from '@/ui/EDSvg';
 import EDSelectFromOptions from '@/ui/EDSelectFromOptions';
-
 import { sortByOptions } from '@/data/new-policy-sort-by-options';
-import { categories, types } from '@/data/policies-filter';
 
 import SideBarFilters from './SideBarFilters';
 import LibrariesList from './LibrariesList';
@@ -17,7 +13,7 @@ import PolicyConfigurationButton from './PolicyConfigurationButton';
 
 interface IProps {
 	readonly selectedGroupId: string;
-	readonly selectedLibrary: ILibrary | null;
+	readonly selectedLibrary: string | null;
 	readonly policyLabelInput: string | null;
 	readonly isPolicyConfigurationClicked: boolean | null;
 	readonly searchLibraryInput: string | null;
@@ -26,22 +22,20 @@ interface IProps {
 	readonly isCreatePolicyDisabled: boolean;
 	readonly selectedTypeIndex: number;
 	readonly selectedCategoryIndex: number;
-	readonly onSelectedLibrary: (library: ILibrary) => void;
+	readonly onSelectLibrary: (libraryName: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
 	readonly onSearchLibraryInput: (input: string) => void;
 	readonly onSelectedSortBy: (index: number) => void;
-	readonly toggleSortBy: () => void;
+	readonly toggleSortByOpen: () => void;
+	readonly toggleSortByClose: () => void;
 	readonly onSelectType: (index: number) => void;
 	readonly onSelectCategory: (index: number) => void;
 }
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
-	const selectedLibraryName = props.selectedLibrary?.title;
-	const selectedTypeFromFilter = types[props.selectedTypeIndex];
-	const selectedCetegotyFromFilter = categories[props.selectedCategoryIndex];
 
 	return (
 		<section className={classes['newPolicy']}>
@@ -53,7 +47,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<div className={classes['policyConfigurationButtonContainer']}>
 						<PolicyConfigurationButton
 							selectedGroupId={props.selectedGroupId}
-							selectedLibraryName={selectedLibraryName}
+							selectedLibrary={props.selectedLibrary}
 							policyLabelInput={props.policyLabelInput}
 							isButtonDisabled={props.isCreatePolicyDisabled}
 						/>
@@ -96,7 +90,8 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								selectedOptionIndex={props.selectedSortByOptionIndex}
 								isShowMoreClicked={props.isSortByOnView}
 								optionsList={sortByOptions}
-								onSelectOptionsButton={props.toggleSortBy}
+								toggleSortByOpen={props.toggleSortByOpen}
+								toggleSortByClose={props.toggleSortByClose}
 								onSelectedOption={props.onSelectedSortBy}
 							/>
 						</div>
@@ -113,9 +108,9 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						selectedLibrary={props.selectedLibrary}
 						searchLibraryInput={props.searchLibraryInput}
 						selectedSortByOptionIndex={props.selectedSortByOptionIndex}
-						selectedTypeFromFilter={selectedTypeFromFilter!}
-						selectedCetegotyFromFilter={selectedCetegotyFromFilter!}
-						onSelectedLibrary={props.onSelectedLibrary}
+						selectedTypeIndex={props.selectedTypeIndex}
+						selectedCategoryIndex={props.selectedCategoryIndex}
+						onSelectLibrary={props.onSelectLibrary}
 						onCancelSelectedLibrary={props.onCancelSelectedLibrary}
 					/>
 				</div>

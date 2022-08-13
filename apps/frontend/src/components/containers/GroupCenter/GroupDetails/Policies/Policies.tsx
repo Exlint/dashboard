@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import type { IPolicy } from '@/interfaces/policy';
+import type { IPolicyData } from '@/interfaces/libraries';
 
 import PoliciesView from './Policies.view';
 
 interface IProps {
-	readonly groupPolicies: IPolicy[];
+	readonly groupPolicies: IPolicyData[];
 }
 
 const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

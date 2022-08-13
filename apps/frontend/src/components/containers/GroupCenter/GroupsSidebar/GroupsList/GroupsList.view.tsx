@@ -33,8 +33,7 @@ const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						key={group.id}
 						groupId={group.id}
 						groupLabel={group.label}
-						createdAt={group.createdAt}
-						policies={group.policies}
+						policies={group?.policies}
 						isSelected={index === props.selectedGroupIndex}
 						onSelectGroup={() => props.onSelectGroup(index)}
 					/>

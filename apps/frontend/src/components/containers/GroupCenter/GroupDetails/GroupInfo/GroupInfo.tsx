@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import React, { useEffect, useState } from 'react';
 
 import type { IGroup } from '@/interfaces/group';
@@ -71,6 +70,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const onDeleteGroup = () => {
 		props.onRemoveGroup(props.selectedGroup.id);
+		setIsMoreInfoClickedState(() => false);
 
 		backendApi.delete(`/user/groups/${props.selectedGroup.id}`).catch(() => {
 			props.onAddGroup(props.selectedGroup);

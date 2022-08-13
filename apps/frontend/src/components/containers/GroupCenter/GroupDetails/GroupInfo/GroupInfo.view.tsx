@@ -1,13 +1,12 @@
-/* eslint-disable max-lines */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-
 import { concatClasses } from '@/utils/component';
 import type { IGroup } from '@/interfaces/group';
 
 import classes from './GroupInfo.module.scss';
+import DeleteGroupBackdrop from './DeleteGroupBackdrop';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
@@ -99,6 +98,8 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						</button>
 					</div>
 				</div>
+
+				<div className={classes['transperentBackdrop']} />
 				<div className={classes['moreInfoContainer']}>
 					<button
 						className={classes['moreInfoButton']}
@@ -108,22 +109,10 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						<EDSvg className={classes['moreInfoButton__icon']} name="threeDots" />
 					</button>
 					{props.isMoreInfoClicked && (
-						<div
-							className={classes['innerMoreInfo']}
-							tabIndex={-1}
-							onBlur={props.onCloseMoreInfo}
-						>
-							<button
-								className={classes['deleteGroup']}
-								type="button"
-								onClick={props.onDeleteGroup}
-							>
-								<span className={classes['deleteGroup__text']}>
-									{t('groupCenter.groupDetails.groupInfo.deleteGroup')}
-								</span>
-								<EDSvg className={classes['deleteGroup__icon']} name="deleteGroup" />
-							</button>
-						</div>
+						<DeleteGroupBackdrop
+							onCloseMoreInfo={props.onCloseMoreInfo}
+							onDeleteGroup={props.onDeleteGroup}
+						/>
 					)}
 				</div>
 			</div>

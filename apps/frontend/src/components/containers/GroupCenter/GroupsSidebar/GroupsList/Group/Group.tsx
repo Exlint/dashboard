@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import type { IPolicy } from '@/interfaces/policy';
+import type { IPolicyData } from '@/interfaces/libraries';
 
 import GroupView from './Group.view';
 
 interface IProps {
 	readonly groupId: string;
 	readonly groupLabel: string;
-	readonly createdAt: string;
-	readonly policies: IPolicy[];
+	readonly policies: IPolicyData[];
 	readonly isSelected: boolean;
 	readonly onSelectGroup: () => void;
 }
@@ -16,7 +15,7 @@ interface IProps {
 const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
 
-	let slicedPolicies: IPolicy[] = [];
+	let slicedPolicies: IPolicyData[] = [];
 
 	if (props.policies !== undefined) {
 		slicedPolicies = props.policies.slice(0, 4);
@@ -34,7 +33,6 @@ const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		<GroupView
 			groupId={props.groupId}
 			groupLabel={props.groupLabel}
-			createdAt={props.createdAt}
 			policies={slicedPolicies}
 			isSelected={props.isSelected}
 			copyGroupId={copyGroupIdState}

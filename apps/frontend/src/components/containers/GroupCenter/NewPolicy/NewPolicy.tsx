@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import type { ILibrary } from '@/interfaces/library';
-
 import NewPolicyView from './NewPolicy.view';
 
 interface IProps {
@@ -10,7 +8,7 @@ interface IProps {
 
 const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [policyLabelInputState, setPolicyLabelInputState] = useState<string | null>(null);
-	const [selectedLibraryState, setSelectedLibraryState] = useState<ILibrary | null>(null);
+	const [selectedLibraryState, setSelectedLibraryState] = useState<string | null>(null);
 	const [isSortByOnViewState, setIsSortByOnViewState] = useState<boolean>(false);
 
 	const [isPolicyConfigurationClickedState, setIsPolicyConfigurationClickedState] = useState<
@@ -27,8 +25,8 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const [selectedCategoryIndexState, setSelectedCategoryIndexState] = useState<number>(0);
 
-	const onSelectedLibrary = (library: ILibrary) => {
-		setSelectedLibraryState(() => library);
+	const onSelectLibrary = (libraryName: string) => {
+		setSelectedLibraryState(() => libraryName);
 	};
 
 	const onCancelSelectedLibrary = () => {
@@ -46,8 +44,12 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setIsPolicyConfigurationClickedState(() => !isPolicyConfigurationClickedState);
 	};
 
-	const toggleSortBy = () => {
-		setIsSortByOnViewState((prev) => !prev);
+	const toggleSortByOpen = () => {
+		setIsSortByOnViewState(() => true);
+	};
+
+	const toggleSortByClose = () => {
+		setIsSortByOnViewState(() => false);
 	};
 
 	useEffect(() => {
@@ -82,8 +84,9 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isCreatePolicyDisabled={isCreatePolicyDisabledState}
 			selectedTypeIndex={selectedTypeIndexState}
 			selectedCategoryIndex={selectedCategoryIndexState}
-			toggleSortBy={toggleSortBy}
-			onSelectedLibrary={onSelectedLibrary}
+			toggleSortByOpen={toggleSortByOpen}
+			toggleSortByClose={toggleSortByClose}
+			onSelectLibrary={onSelectLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}

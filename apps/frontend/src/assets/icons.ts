@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 const icons = {
 	greyUser: [
 		'19 20',

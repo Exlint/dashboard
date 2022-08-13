@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 const en = {
 	redirect: {
 		header: 'You are being redirected',
@@ -81,7 +80,8 @@ const en = {
 			},
 			group: {
 				uniqId: 'Unique ID:',
-				policies: 'Policies',
+				policies: 'Policies:',
+				additional: '+ Additional..',
 				copy: 'Copy',
 				copied: 'Copied!',
 			},
@@ -93,6 +93,7 @@ const en = {
 			sideBarFilter: {
 				typesTitle: 'Types',
 				categoriesTitle: 'Categories',
+				allButton: 'All',
 			},
 			policyConfiguration: {
 				button: 'Continue to Policy Configuration',

@@ -2,16 +2,16 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import type { IPolicy } from '@/interfaces/policy';
+import type { ILibraryData, IPolicyData } from '@/interfaces/libraries';
 import { concatClasses } from '@/utils/component';
+import logosObject from '@/utils/libraries-logos';
 
 import classes from './Group.module.scss';
 
 interface IProps {
 	readonly groupId: string;
 	readonly groupLabel: string;
-	readonly createdAt: string;
-	readonly policies: IPolicy[];
+	readonly policies: IPolicyData[];
 	readonly isSelected: boolean;
 	readonly copyGroupId: boolean;
 	readonly onSelectGroup: () => void;
@@ -64,11 +64,25 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<span className={classes['policiesContainer__text']}>
 							{t('groupCenter.groupSideBar.group.policies')}
 						</span>
-						{props.policies.map((policy, index) => (
-							<span className={classes['policiesContainer__policy']} key={index}>
-								{policy.id}
+						{props.policies.map((policy, index) => {
+							const libraryNameInLowerCase =
+								policy.libraryName.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
+
+							return (
+								<div className={classes['innerLibraryLogo']} key={index}>
+									<img
+										className={classes['innerLibraryLogo__logo']}
+										src={logosObject[libraryNameInLowerCase]}
+										alt="library logo"
+									/>
+								</div>
+							);
+						})}
+						{props.policies && props.policies.length > 4 && (
+							<span className={classes['policiesContainer__text']}>
+								{t('groupCenter.groupSideBar.group.additional')}
 							</span>
-						))}
+						)}
 					</div>
 				</div>
 

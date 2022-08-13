@@ -1,10 +1,10 @@
-/* eslint-disable max-lines */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import type { IPolicy } from '@/interfaces/policy';
+import logosObject from '@/utils/libraries-logos';
+import type { ILibraryData, IPolicyData } from '@/interfaces/libraries';
 
 import PoliciesListView from './PoliciesList.view';
 import type { ITableData } from './interfaces/table-data';
@@ -12,7 +12,7 @@ import type { ITableData } from './interfaces/table-data';
 import classes from './PoliciesList.module.scss';
 
 interface IProps {
-	readonly groupPolicy: IPolicy[];
+	readonly groupPolicy: IPolicyData[];
 }
 
 const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -45,6 +45,24 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			dataIndex: 'library',
 			key: 'library',
 			width: 150,
+			render: (_: string, __: string, index: number) => {
+				const libraryName = props.groupPolicy[index]!.libraryName;
+
+				const libraryNameInLowerCase = libraryName.toLocaleLowerCase() as Lowercase<
+					ILibraryData['name']
+				>;
+
+				return (
+					<div className={classes['libraryNameContainer']}>
+						<img
+							className={classes['libraryNameContainer__logo']}
+							src={logosObject[libraryNameInLowerCase]}
+							alt="library logo"
+						/>
+						<span className={classes['libraryNameContainer__name']}>{libraryName}</span>
+					</div>
+				);
+			},
 		},
 		{
 			title: 'Category',
@@ -63,7 +81,6 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			dataIndex: 'configurations',
 			key: 'configurations',
 			width: 150,
-			// eslint-disable-next-line react/display-name, react/no-multi-comp
 			render: (_: string, __: string, index: number) => {
 				const policyId = props.groupPolicy[index]!.id.toString();
 
@@ -84,7 +101,6 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			key: 'operations',
 			width: 150,
 
-			// eslint-disable-next-line react/display-name, react/no-multi-comp
 			render: (_: string, __: string, index: number) => {
 				const policyId = props.groupPolicy[index]!.id.toString();
 
@@ -111,9 +127,9 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			key: index,
 			number: `${index + 1}.`,
 			label: policy.label,
-			library: policy.libraryName,
-			category: 'amir',
-			rulesNum: 2,
+			libraryName: policy.libraryName,
+			category: policy.category,
+			rulesNum: policy.rules ? Object.keys(policy.rules).length : 0,
 			configurations: policy.id,
 		});
 	});

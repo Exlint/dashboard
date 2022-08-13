@@ -10,7 +10,8 @@ interface IProps {
 	readonly isShowMoreClicked: boolean;
 	readonly optionsList: string[];
 	readonly isVisibleValueBlocked?: boolean;
-	readonly onSelectOptionsButton: () => void;
+	readonly toggleSortByOpen: () => void;
+	readonly toggleSortByClose: () => void;
 	readonly onSelectedOption: (index: number) => void;
 }
 
@@ -24,7 +25,8 @@ const EDSelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			isShowMoreClicked={props.isShowMoreClicked}
 			optionsList={props.optionsList}
 			isVisibleValueBlocked={props?.isVisibleValueBlocked}
-			onSelectOptionsButton={props.onSelectOptionsButton}
+			toggleSortByOpen={props.toggleSortByOpen}
+			toggleSortByClose={props.toggleSortByClose}
 			onSelectedOption={props.onSelectedOption}
 		/>
 	);

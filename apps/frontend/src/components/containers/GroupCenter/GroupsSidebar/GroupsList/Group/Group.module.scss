@@ -77,17 +77,26 @@
 				align-items: center;
 
 				&__text {
-					margin-inline-end: 4px;
+					margin-inline-end: 5px;
 					font-size: 1.6rem;
 					font-weight: 400;
 					color: #4b4a65;
 				}
 
-				&__policy {
+				.innerLibraryLogo {
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					width: 27px;
 					height: 27px;
-					background-color: #d9d9d9;
+					margin-inline-end: 3px;
+					background-color: #f2f2f2;
 					border-radius: 5px;
+
+					&__logo {
+						width: 18px;
+						height: 16px;
+					}
 				}
 
 				&__policy:not(:last-child) {

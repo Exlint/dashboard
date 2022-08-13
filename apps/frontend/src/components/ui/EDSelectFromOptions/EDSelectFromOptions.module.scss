@@ -1,11 +1,12 @@
 .selectedOptionsContainer {
 	position: relative;
-	inset-inline-end: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	border-radius: 10px;
 	box-shadow: (0 11.4496px 15.6131px #0000000d);
+	inset-inline-end: 0;
 
 	.selectedOptionsVisible {
 		display: flex;

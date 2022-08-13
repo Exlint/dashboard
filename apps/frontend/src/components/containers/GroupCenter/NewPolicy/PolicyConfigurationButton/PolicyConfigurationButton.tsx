@@ -6,7 +6,7 @@ import PolicyConfigurationButtonView from './PolicyConfigurationButton.view';
 
 interface IProps {
 	readonly selectedGroupId: string;
-	readonly selectedLibraryName: string | undefined;
+	readonly selectedLibrary: string | null;
 	readonly policyLabelInput: string | null;
 	readonly isButtonDisabled: boolean;
 }
@@ -14,9 +14,9 @@ interface IProps {
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewPolicy = () => {
 		backendApi
-			.post(`/user/inline-policies/create/${props.selectedGroupId}`, {
+			.post(`/user/inline-policies/${props.selectedGroupId}`, {
 				label: props.policyLabelInput,
-				library: props.selectedLibraryName,
+				library: props.selectedLibrary?.toLocaleUpperCase(),
 			})
 			.then(() => {
 				//TODO: should link to other url

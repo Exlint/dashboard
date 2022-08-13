@@ -12,7 +12,8 @@ interface IProps {
 	readonly isShowMoreClicked: boolean;
 	readonly optionsList: string[];
 	readonly isVisibleValueBlocked?: boolean;
-	readonly onSelectOptionsButton: () => void;
+	readonly toggleSortByOpen: () => void;
+	readonly toggleSortByClose: () => void;
 	readonly onSelectedOption: (index: number) => void;
 }
 
@@ -34,17 +35,23 @@ const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildre
 							: props.optionsList[props.selectedOptionIndex!]
 						: props.defaultValue}
 				</span>
-				<button
-					className={classes['moreOptionsButton']}
-					type="button"
-					onClick={props.onSelectOptionsButton}
-				>
-					{props.isShowMoreClicked ? (
-						<EDSvg className={classes['moreOptionsButton__arrowRight']} name="arrowRight" />
-					) : (
+				{props.isShowMoreClicked ? (
+					<button
+						className={classes['moreOptionsButton']}
+						type="button"
+						onClick={props.toggleSortByClose}
+					>
 						<EDSvg className={classes['moreOptionsButton__arrowDown']} name="arrowDown" />
-					)}
-				</button>
+					</button>
+				) : (
+					<button
+						className={classes['moreOptionsButton']}
+						type="button"
+						onClick={props.toggleSortByOpen}
+					>
+						<EDSvg className={classes['moreOptionsButton__arrowRight']} name="arrowRight" />
+					</button>
+				)}
 			</div>
 			<div
 				className={classes['selectedOptionsInvisible']}

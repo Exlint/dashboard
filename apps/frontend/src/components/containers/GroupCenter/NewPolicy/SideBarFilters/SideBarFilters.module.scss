@@ -1,15 +1,15 @@
 .sideBarFilters {
 	display: flex;
 	flex-direction: column;
-	width: 20%;
-	overflow-y: auto;
+	width: 15%;
+	overflow: hidden;
 
 	.typesContainer {
 		display: flex;
 		flex-direction: column;
 
 		&__title {
-			margin-bottom: 21px;
+			margin-bottom: 15px;
 			font-size: 2rem;
 			font-weight: 500;
 			color: #4b4a65;

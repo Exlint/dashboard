@@ -1,8 +1,7 @@
-import type { IPolicy } from '@/interfaces/policy';
+import type { IPolicyData } from '@/interfaces/libraries';
 
 export interface IGroup {
 	readonly id: string;
 	readonly label: string;
-	readonly createdAt: string;
-	readonly policies: IPolicy[];
+	readonly policies: IPolicyData[];
 }

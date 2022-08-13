@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import SideBarFiltersView from './SideBarFilters.view';
 
@@ -10,6 +10,11 @@ interface IProps {
 }
 
 const SideBarFilters: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	useEffect(() => {
+		props.onSelectType(-1);
+		props.onSelectCategory(-1);
+	}, []);
+
 	return (
 		<SideBarFiltersView
 			selectedTypeIndex={props.selectedTypeIndex}

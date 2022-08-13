@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { scroller } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
-import { currentDate } from '@/utils/current-date';
 import type { IGroup } from '@/interfaces/group';
 import type { ICreateGroupResponseData, IGetGroupsResponseData } from '@/interfaces/responses';
 
@@ -13,6 +13,8 @@ interface IProps {}
 
 const GroupCenter: React.FC<IProps> = () => {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
+
 	const [groupsListState, setGroupsListState] = useState<IGroup[]>([]);
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
 
@@ -35,12 +37,12 @@ const GroupCenter: React.FC<IProps> = () => {
 		backendApi.post<ICreateGroupResponseData>('/user/groups').then((response) => {
 			setGroupsListState((prev) => {
 				setSelectGroupIndexState(() => prev.length);
+				navigate('/group-center');
 
 				return [
 					...prev,
 					{
 						label: t('groupCenter.newGroupLabel'),
-						createdAt: currentDate(),
 						id: response.data.groupId,
 						policies: [],
 					},
@@ -81,7 +83,10 @@ const GroupCenter: React.FC<IProps> = () => {
 		setGroupsListState((prev) => prev.filter((group) => group.id !== groupId));
 	};
 
-	const onSelectGroup = (index: number) => setSelectGroupIndexState(() => index);
+	const onSelectGroup = (index: number) => {
+		setSelectGroupIndexState(() => index);
+		navigate('/group-center');
+	};
 
 	return (
 		<GroupCenterView

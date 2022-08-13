@@ -1,7 +1,6 @@
 .library {
 	display: flex;
 	justify-content: space-between;
-	max-width: 320px;
 	height: fit-content;
 	padding: 14px;
 	border-radius: 10px;
@@ -23,6 +22,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+			max-width: 210px;
 
 			&__title {
 				font-size: 1.8rem;
@@ -52,19 +52,37 @@
 				display: flex;
 				align-items: center;
 
-				&__type {
-					padding: 2px 16px;
-					margin-inline-end: 5px;
-					color: #bbb8ca;
-					border: 1px solid #bbb8ca;
-					border-radius: 10px;
+				.innerType {
+					display: flex;
+					flex-direction: column;
+
+					&__type {
+						padding: 2px 16px;
+						margin-inline-end: 5px;
+						color: #bbb8ca;
+						border: 1px solid #bbb8ca;
+						border-radius: 10px;
+					}
+
+					&__type:not(:last-child) {
+						margin-bottom: 5px;
+					}
 				}
 
-				&__category {
-					padding: 2px 16px;
-					color: #bbb8ca;
-					border: 1px solid #bbb8ca;
-					border-radius: 10px;
+				.innerCategory {
+					display: flex;
+					flex-direction: column;
+
+					&__category {
+						padding: 2px 16px;
+						color: #bbb8ca;
+						border: 1px solid #bbb8ca;
+						border-radius: 10px;
+					}
+
+					&__category:not(:last-child) {
+						margin-bottom: 5px;
+					}
 				}
 			}
 		}

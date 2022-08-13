@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { types, categories } from '@/data/policies-filter';
+import { LibraryCategory } from 'src/models/library-category';
+import { LibraryType } from 'src/models/library-type';
 import { concatClasses } from '@/utils/component';
 
 import classes from './SideBarFilters.module.scss';
@@ -22,7 +23,24 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				<span className={classes['typesContainer__title']}>
 					{t('groupCenter.newPolicy.sideBarFilter.typesTitle')}
 				</span>
-				{types.map((type, index) => (
+				<button
+					className={classes['typeButton']}
+					type="button"
+					onClick={() => props.onSelectType(-1)}
+				>
+					<span
+						className={concatClasses(
+							classes,
+							'container',
+							props.selectedTypeIndex === -1
+								? 'typeButton--isSelected'
+								: 'typeButton--notSelected',
+						)}
+					>
+						{t('groupCenter.newPolicy.sideBarFilter.allButton')}
+					</span>
+				</button>
+				{(Object.keys(LibraryType) as Array<keyof typeof LibraryType>).map((_, index) => (
 					<button
 						key={index}
 						className={classes['typeButton']}
@@ -38,7 +56,7 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 									: 'typeButton--notSelected',
 							)}
 						>
-							{type}
+							{LibraryType[index]}
 						</span>
 					</button>
 				))}
@@ -47,7 +65,25 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				<span className={classes['categoriesContainer__title']}>
 					{t('groupCenter.newPolicy.sideBarFilter.categoriesTitle')}
 				</span>
-				{categories.map((category, index) => (
+				<button
+					className={classes['categoryButton']}
+					type="button"
+					onClick={() => props.onSelectCategory(-1)}
+				>
+					<span
+						className={concatClasses(
+							classes,
+							'container',
+							props.selectedCategoryIndex === -1
+								? 'categoryButton--isSelected'
+								: 'categoryButton--notSelected',
+						)}
+					>
+						{t('groupCenter.newPolicy.sideBarFilter.allButton')}
+					</span>
+				</button>
+
+				{(Object.keys(LibraryCategory) as Array<keyof typeof LibraryCategory>).map((_, index) => (
 					<button
 						key={index}
 						className={classes['categoryButton']}
@@ -63,7 +99,7 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 									: 'categoryButton--notSelected',
 							)}
 						>
-							{category}
+							{LibraryCategory[index]}
 						</span>
 					</button>
 				))}

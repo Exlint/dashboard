@@ -1,7 +1,9 @@
+import type { ILibraryData } from '@/interfaces/libraries';
+
 import { LibraryCategory } from '../models/library-category';
 import { LibraryType } from '../models/library-type';
 
-export const prettierData = {
+export const prettierData: ILibraryData = {
 	name: 'Prettier',
 	author: 'prettier.io',
 	description: 'Prettier is an opinionated code formatter.',

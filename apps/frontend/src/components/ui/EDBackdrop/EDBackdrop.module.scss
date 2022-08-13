@@ -3,5 +3,12 @@
 	top: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: #000000bf;
+
+	&--isTransparent {
+		background-color: transparent;
+	}
+
+	&--notTransparent {
+		background-color: #000000bf;
+	}
 }

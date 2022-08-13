@@ -142,34 +142,6 @@
 					height: auto;
 				}
 			}
-
-			.innerMoreInfo {
-				position: absolute;
-				top: 40px;
-				inset-inline-end: 0;
-				display: flex;
-				padding: 17px 12px;
-				background-color: #fefefe;
-				border: 2px solid #e7e7e7;
-
-				.deleteGroup {
-					display: flex;
-
-					&__text {
-						margin-inline-end: 12px;
-						font-size: 1.8rem;
-						font-weight: 400;
-						color: #781d1d;
-						white-space: nowrap;
-					}
-
-					&__icon {
-						width: 25px;
-						height: 23px;
-						fill: #781d1d;
-					}
-				}
-			}
 		}
 	}
 }
