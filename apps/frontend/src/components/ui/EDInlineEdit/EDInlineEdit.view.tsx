@@ -6,28 +6,27 @@ import EDSvg from '@/ui/EDSvg';
 import classes from './EDInlineEdit.module.scss';
 
 interface IProps {
-	readonly key: string;
-	readonly initialValue: string;
+	readonly inlineTextState: string;
 	readonly isInputOnEdit: boolean;
-	readonly maxInputDigits: number;
+	readonly maxLength: number;
 	readonly onEditInlineClick: () => void;
 	readonly onChangeInput: (value: string) => void;
-	readonly onUpdateInput: () => void;
+	readonly onUpdateInputHandler: () => void;
 	readonly onCancelInputChanges: () => void;
 	readonly onKeyboardPress: (e: React.KeyboardEvent) => void;
 }
 
 const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={classes['container']} key={props.key}>
+		<div className={classes['container']}>
 			{props.isInputOnEdit ? (
 				<>
 					<input
 						className={concatClasses(classes, 'container__text', 'container__textOnEdit')}
-						style={{ width: `${props.initialValue.length}ch` }}
-						value={props.initialValue}
+						style={{ width: `${props.inlineTextState.length}ch` }}
+						value={props.inlineTextState}
 						autoFocus
-						maxLength={props.maxInputDigits}
+						maxLength={props.maxLength}
 						onKeyPress={(e) => props.onKeyboardPress(e)}
 						onChange={(e) => props.onChangeInput(e.target.value)}
 					/>
@@ -35,7 +34,7 @@ const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 						<button
 							className={classes['updateChangesButton']}
 							type="button"
-							onClick={props.onUpdateInput}
+							onClick={props.onUpdateInputHandler}
 						>
 							<EDSvg className={classes['updateChangesButton__icon']} name="vConfirm" />
 						</button>
@@ -47,7 +46,7 @@ const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 			) : (
 				<>
 					<span className={classes['container__text']} onDoubleClick={props.onEditInlineClick}>
-						{props.initialValue}
+						{props.inlineTextState}
 					</span>
 					<button
 						type="button"
