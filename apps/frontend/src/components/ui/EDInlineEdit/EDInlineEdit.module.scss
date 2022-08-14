@@ -1,4 +1,4 @@
-.inlineEditContainer {
+.container {
 	display: flex;
 	align-items: center;
 
@@ -9,6 +9,11 @@
 		white-space: nowrap;
 		user-select: none;
 		border-bottom: 1px solid transparent;
+	}
+
+	&__textOnEdit {
+		padding: 0;
+		border-bottom: 1px solid #4b4a65;
 	}
 
 	.updateInputButtonsContainer {
