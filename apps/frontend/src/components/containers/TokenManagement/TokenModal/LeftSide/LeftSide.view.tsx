@@ -16,7 +16,7 @@ interface IProps {
 	readonly createSecretButtonState: boolean;
 	readonly isSortByClickedState: boolean;
 	readonly dispalyModalRightSide: boolean;
-	readonly expiryDate: Date;
+	readonly expiryDate: Date | string;
 	readonly onDatePicker: (_: Date) => void;
 	readonly onDisplayRightSide: () => void;
 	readonly onLabelChange: (_: string) => void;
@@ -32,8 +32,6 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const secretCrationTitlesClasses = !props.dispalyModalRightSide
 		? classes['innerWrapper__title']
 		: concatClasses(classes, 'innerWrapper__title', 'innerWrapper__title--disabled');
-
-	const placeholderColor = !props.dispalyModalRightSide ? '#4b4a65' : '#BBB8CA';
 
 	return (
 		<section className={classes['container']}>
@@ -60,17 +58,17 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						defaultValue="Expires"
 						border="1px solid #BBB8CA"
 						selectedOptionIndex={props.selectedSortByOptionIndexState}
-						placeholderColor={placeholderColor}
+						placeholderColor={!props.dispalyModalRightSide ? '#4b4a65' : '#BBB8CA'}
 						isDisabled={props.dispalyModalRightSide}
 						isShowMoreClicked={props.isSortByClickedState}
 						optionsList={secretExpiry}
 						onSelectOptionsButton={props.onSortBy}
 						onSelectedOption={props.onSelectedSortBy}
 					/>
-					{props.selectedSortByOptionIndexState === 4 && (
+					{props.selectedSortByOptionIndexState === 4 && !props.dispalyModalRightSide && (
 						<DatePicker
 							className={classes['datePicker']}
-							selected={props.expiryDate}
+							selected={new Date(props.expiryDate)}
 							onChange={(date: Date) => props.onDatePicker(date)}
 						/>
 					)}

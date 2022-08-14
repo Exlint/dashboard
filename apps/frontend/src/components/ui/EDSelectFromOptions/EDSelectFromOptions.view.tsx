@@ -63,7 +63,7 @@ const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildre
 				{props.optionsList.map((option, index) => (
 					<button
 						className={classes['selectedOptionsInvisible__option']}
-						key="index"
+						key={index}
 						type="button"
 						onClick={() => props.onSelectedOption(index)}
 					>

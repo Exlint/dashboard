@@ -8,8 +8,8 @@ import { concatClasses } from '@/utils/component';
 import classes from './RightSide.module.scss';
 
 interface IProps {
-	readonly tokenState: string;
-	readonly copyTokenState: boolean;
+	readonly clientSecret: string;
+	readonly copyToken: boolean;
 	readonly onCopyToken: () => void;
 	readonly onCloseModal: () => void;
 }
@@ -17,7 +17,7 @@ interface IProps {
 const RightSideView: React.FC<IProps> = (props) => {
 	const { t } = useTranslation();
 
-	const copyTokenClasses = props.copyTokenState
+	const copyTokenClasses = props.copyToken
 		? concatClasses(classes, 'idWrapper__icon', 'idWrapper__icon--disabled')
 		: classes['idWrapper__icon'];
 
@@ -37,14 +37,16 @@ const RightSideView: React.FC<IProps> = (props) => {
 						{t('tokenManagement.tokenManagementModal.copy')}
 					</div>
 					<div className={classes['idWrapper']}>
-						<span className={classes['idWrapper__id']}>{props.tokenState}</span>
+						<span className={classes['idWrapper__id']}>
+							{props.clientSecret.substring(0, 30) + '...'}
+						</span>
 						<EDSvg
 							name="tokenClientId"
 							className={copyTokenClasses}
 							onClick={props.onCopyToken}
 						/>
 					</div>
-					{props.copyTokenState && (
+					{props.copyToken && (
 						<div className={classes['copyWrapper__copied']}>
 							{t('tokenManagement.tokenManagementModal.copied')}
 						</div>
@@ -56,7 +58,7 @@ const RightSideView: React.FC<IProps> = (props) => {
 					</div>
 					<CSVLink
 						className={classes['downloadCsv__iconWrapper']}
-						data={props.tokenState}
+						data={props.clientSecret}
 						filename="token.csv"
 					>
 						<EDSvg className={classes['downloadCsv__icon']} name="dwonloadCsv" />

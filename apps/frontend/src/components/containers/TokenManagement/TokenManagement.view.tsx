@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
 import SettingsSidebar from '@/layout/SettingsSidebar';
+import type { ISecrets } from '@/interfaces/secrets';
 
 import TokenModal from './TokenModal';
 
@@ -13,9 +14,9 @@ import classes from './TokenManagement.module.scss';
 interface IProps {
 	readonly data: {
 		number: number;
-		label: (string | JSX.Element)[];
-		createdAt: string;
-		expires: string;
+		label: JSX.Element[];
+		createdAt: number;
+		expires: number;
 		refreshSecret: JSX.Element;
 		delete: JSX.Element;
 		key: string;
@@ -25,6 +26,7 @@ interface IProps {
 	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState?: string;
+	readonly secrets: ISecrets[];
 	readonly onRevokeAll: () => void;
 	readonly onChangeGroupLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
@@ -81,7 +83,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 					<Table
 						className={classes['secretsWrapper__table']}
 						columns={props.columns}
-						data={props.data}
+						data={props.secrets}
 						emptyText="No Secrets!"
 					/>
 					<div className={classes['footer']}>

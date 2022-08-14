@@ -1,3 +1,5 @@
+import type { ISecrets } from './secrets';
+
 export interface IAutoAuthResponseData {
 	readonly accessToken: string;
 	readonly id: string;
@@ -13,9 +15,10 @@ export interface ICliAuthResponseData {
 	readonly email: string;
 }
 
-export interface ISecretsResponseData {
-	readonly createdAt: number;
-	readonly expiration: number;
-	readonly id: string;
-	readonly label: string;
+export interface IGetSecretsResponseData {
+	readonly secrets: ISecrets[];
+}
+
+export interface ICreateSecretResponseData {
+	readonly clientSecret: string;
 }

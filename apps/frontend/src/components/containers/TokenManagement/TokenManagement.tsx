@@ -5,7 +5,8 @@ import type { AxiosResponse } from 'axios';
 
 import EDSvg from '@/ui/EDSvg';
 import { backendApi } from '@/utils/http';
-import type { ISecretsResponseData } from '@/interfaces/responses';
+import type { ISecrets } from '@/interfaces/secrets';
+import type { IGetSecretsResponseData } from '@/interfaces/responses';
 
 import TokenManagementView from './TokenManagement.view';
 
@@ -16,24 +17,23 @@ const TokenManagement: React.FC<IProps> = () => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 	const [clientIdState] = useState<string>('suidbfgsoudpihnevoiwehfwoefhui');
 	const [copyClientIdState, setCopyClientIdState] = useState(false);
+	const [secretsState, setSecretsState] = useState<ISecrets[]>([]);
 
 	useEffect(() => {
 		backendApi
-			.get<ISecretsResponseData>('user/secrets')
-			.then((response: AxiosResponse<ISecretsResponseData>) => {
-				console.log(response);
+			.get<IGetSecretsResponseData>('user/secrets')
+			.then((response: AxiosResponse<IGetSecretsResponseData>) => {
+				setSecretsState(() => response.data.secrets);
 			});
 	});
 
 	const onRevokeAll = () => {
-		backendApi.delete('user/secrets/all');
+		backendApi.delete('user/secrets').then(() => {
+			console.log('success');
+		});
 	};
 
-	const onChangeGroupLabel = (label: string) => {
-		if (label.length > 0 && label.length <= 20) {
-			setTokenLabelState(() => label);
-		}
-	};
+	const onChangeGroupLabel = (label: string) => setTokenLabelState(() => label);
 
 	const tokenLabelChangeHandler = (input: string) => setTokenLabelState(() => input);
 
@@ -87,12 +87,12 @@ const TokenManagement: React.FC<IProps> = () => {
 		},
 	];
 
-	const data = [
-		{
+	const data = secretsState.map((row) => {
+		return {
 			number: 1,
 			label: [
 				<>
-					<span>{tokenLabelState}</span>
+					<span>{row.label}</span>
 					<button type="button">
 						<EDSvg
 							style={{
@@ -108,8 +108,8 @@ const TokenManagement: React.FC<IProps> = () => {
 					</button>
 				</>,
 			],
-			createdAt: 'Saturday 14th May 2022',
-			expires: 'Saturday 15th May 2022 13:40',
+			createdAt: row.createdAt,
+			expires: row.expiration,
 			refreshSecret: (
 				<EDSvg
 					style={{
@@ -135,8 +135,8 @@ const TokenManagement: React.FC<IProps> = () => {
 				/>
 			),
 			key: '1',
-		},
-	];
+		};
+	});
 
 	return (
 		<TokenManagementView
@@ -146,8 +146,9 @@ const TokenManagement: React.FC<IProps> = () => {
 			clientIdState={clientIdState}
 			copyClientIdState={copyClientIdState}
 			tokenLabelState={tokenLabelState}
-			onRevokeAll={onRevokeAll}
+			secrets={secretsState}
 			tokenLabelChangeHandler={tokenLabelChangeHandler}
+			onRevokeAll={onRevokeAll}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
 			onCopyClientId={onCopyClientId}

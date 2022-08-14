@@ -8,10 +8,13 @@ interface IProps {
 
 const TokenModal: React.FC<IProps> = (props) => {
 	const [dispalyModalRightSideState, setDispalyModalRightSideState] = useState<boolean>(false);
+	const [clientSecretState, setClientSecretState] = useState<string>('');
 
 	return (
 		<TokenModalView
+			clientSecret={clientSecretState}
 			dispalyModalRightSide={dispalyModalRightSideState}
+			setClientSecret={setClientSecretState}
 			setDispalyModalRightSide={setDispalyModalRightSideState}
 			onCloseModal={props.onCloseModal}
 		/>
