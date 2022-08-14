@@ -38,7 +38,6 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			.patch(props.apiPath, {
 				label: newLabel,
 			})
-			.then(() => {})
 			.catch(() => {
 				props.onUpdateVisualUI(props.id, oldLabel);
 			});
