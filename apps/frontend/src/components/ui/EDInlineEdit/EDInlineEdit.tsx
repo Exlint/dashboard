@@ -3,8 +3,9 @@ import React from 'react';
 import EDInlineEditView from './EDInlineEdit.view';
 
 interface IProps {
-	readonly label: string;
+	readonly initialValue: string;
 	readonly isInputOnEdit: boolean;
+	readonly maxInputDigits: number;
 	readonly onEditInlineClick: () => void;
 	readonly onChangeInput: (_: string) => void;
 	readonly onUpdateInput: () => void;
@@ -20,8 +21,9 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	return (
 		<EDInlineEditView
-			label={props.label}
+			initialValue={props.initialValue}
 			isInputOnEdit={props.isInputOnEdit}
+			maxInputDigits={props.maxInputDigits}
 			onEditInlineClick={props.onEditInlineClick}
 			onChangeInput={props.onChangeInput}
 			onUpdateInput={props.onUpdateInput}

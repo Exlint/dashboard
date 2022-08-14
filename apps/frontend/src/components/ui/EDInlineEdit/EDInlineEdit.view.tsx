@@ -5,8 +5,9 @@ import EDSvg from '@/ui/EDSvg';
 import classes from './EDInlineEdit.module.scss';
 
 interface IProps {
-	readonly label: string;
+	readonly initialValue: string;
 	readonly isInputOnEdit: boolean;
+	readonly maxInputDigits: number;
 	readonly onEditInlineClick: () => void;
 	readonly onChangeInput: (_: string) => void;
 	readonly onUpdateInput: () => void;
@@ -16,15 +17,15 @@ interface IProps {
 
 const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={classes['inlineEditContainer']}>
+		<div className={classes['container']}>
 			{props.isInputOnEdit ? (
 				<>
 					<input
-						className={classes['inlineEditContainer__text']}
-						style={{ width: `${props.label.length}ch` }}
-						value={props.label}
+						className={classes['container__text']}
+						style={{ width: `${props.initialValue.length}ch` }}
+						value={props.initialValue}
 						autoFocus
-						maxLength={20}
+						maxLength={props.maxInputDigits}
 						onKeyPress={(e) => props.onKeyboardPress(e)}
 						onChange={(e) => props.onChangeInput(e.target.value)}
 					/>
@@ -43,18 +44,15 @@ const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				</>
 			) : (
 				<>
-					<span
-						className={classes['inlineEditContainer__text']}
-						onDoubleClick={props.onEditInlineClick}
-					>
-						{props.label}
+					<span className={classes['container__text']} onDoubleClick={props.onEditInlineClick}>
+						{props.initialValue}
 					</span>
 					<button
 						type="button"
 						className={classes['inlineEditButton']}
 						onClick={props.onEditInlineClick}
 					>
-						<EDSvg className={classes['inlineEditButton__icon']} name="inlineEdit" />
+						<EDSvg className={classes['inlineEditButton__icon']} name="editPencil" />
 					</button>
 				</>
 			)}
