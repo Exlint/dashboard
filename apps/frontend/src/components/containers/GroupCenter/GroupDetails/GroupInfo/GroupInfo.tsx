@@ -28,26 +28,26 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		}
 	};
 
-	const onUpdateGroupLabel = () => {
-		const oldLabel = groupLabelState;
-		let newLabel = groupLabelState;
+	// const onUpdateGroupLabel = () => {
+	// 	const oldLabel = groupLabelState;
+	// 	let newLabel = groupLabelState;
 
-		if (groupLabelState === '') {
-			newLabel = props.selectedGroup.label;
-		}
+	// 	if (groupLabelState === '') {
+	// 		newLabel = props.selectedGroup.label;
+	// 	}
 
-		props.onUpdateGroupLabel(props.selectedGroup.id, newLabel);
-		setIsLabelOnEditState(() => false);
+	// 	props.onUpdateGroupLabel(props.selectedGroup.id, newLabel);
+	// 	setIsLabelOnEditState(() => false);
 
-		backendApi
-			.patch(`/user/groups/${props.selectedGroup.id}`, {
-				label: newLabel,
-			})
-			.then()
-			.catch(() => {
-				props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
-			});
-	};
+	// 	backendApi
+	// 		.patch(`/user/groups/${props.selectedGroup.id}`, {
+	// 			label: newLabel,
+	// 		})
+	// 		.then()
+	// 		.catch(() => {
+	// 			props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
+	// 		});
+	// };
 
 	const onCancelLabelChanges = () => {
 		setGroupLabelState(() => props.selectedGroup.label);
@@ -90,7 +90,7 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			isMoreInfoClicked={isMoreInfoClickedState}
 			onEditLabelClick={onEditLabelClick}
 			onChangeGroupLabel={onChangeGroupLabel}
-			onUpdateGroupLabel={onUpdateGroupLabel}
+			onUpdateGroupLabel={props.onUpdateGroupLabel}
 			onCancelLabelChanges={onCancelLabelChanges}
 			onCopyGroupId={onCopyGroupId}
 			onMoreInfoClick={onMoreInfoClick}

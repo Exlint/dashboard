@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import { concatClasses } from '@/utils/component';
+import EDInlineEdit from '@/ui/EDInlineEdit';
 import type { IGroup } from '@/interfaces/group';
 
 import classes from './GroupInfo.module.scss';
@@ -16,7 +16,7 @@ interface IProps {
 	readonly isMoreInfoClicked: boolean;
 	readonly onEditLabelClick: (isEdit: boolean) => void;
 	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
-	readonly onUpdateGroupLabel: () => void;
+	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
 	readonly onCancelLabelChanges: () => void;
 	readonly onCopyGroupId: () => void;
 	readonly onMoreInfoClick: () => void;
@@ -30,54 +30,14 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	return (
 		<div className={classes['groupInfo']}>
 			<div className={classes['innerGroupInfo']}>
-				{!props.isLabelOnEdit ? (
-					<div className={classes['groupLabelContainer']}>
-						<span
-							className={classes['groupLabelContainer__label']}
-							onDoubleClick={() => props.onEditLabelClick(true)}
-						>
-							{props.groupLabel}
-						</span>
-						<button
-							type="button"
-							className={classes['editLabelButton']}
-							onClick={() => props.onEditLabelClick(true)}
-						>
-							<EDSvg className={classes['editLabelButton__icon']} name="editLabel" />
-						</button>
-					</div>
-				) : (
-					<div className={classes['groupLabelContainerOnEdit']}>
-						<input
-							className={concatClasses(
-								classes,
-								'groupLabelContainer__labelOnEdit',
-								'groupLabelContainer__label',
-							)}
-							style={{ width: `${props.groupLabel.length}ch` }}
-							value={props.groupLabel}
-							autoFocus
-							onChange={(e) => props.onChangeGroupLabel(e.target.value)}
-						/>
-						<div className={classes['updateLabelButtonsContainer']}>
-							<button
-								className={classes['updateChangesButton']}
-								type="button"
-								onClick={props.onUpdateGroupLabel}
-							>
-								<EDSvg className={classes['updateChangesButton__icon']} name="vIcon" />
-							</button>
-							<button
-								className={classes['cancelChangesButton']}
-								type="button"
-								onClick={props.onCancelLabelChanges}
-							>
-								<EDSvg className={classes['cancelChangesButton__icon']} name="cancelIcon" />
-							</button>
-						</div>
-					</div>
-				)}
-
+				<EDInlineEdit
+					key="groupLabel"
+					id={props.selectedGroup.id}
+					apiPath={`/user/groups/${props.selectedGroup.id}`}
+					valueFromDB={props.selectedGroup.label}
+					maxInputDigits={20}
+					onUpdateVisualUI={props.onUpdateGroupLabel}
+				/>
 				<div className={classes['uniqueIdContainer']}>
 					<span className={classes['uniqueIdContainer__text']}>
 						{t('groupCenter.groupDetails.groupInfo.uniqId')}
