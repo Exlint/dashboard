@@ -1,79 +1,54 @@
 import React, { useEffect, useState } from 'react';
 
-import { backendApi } from '@/utils/http';
 import EDInlineEditView from './EDInlineEdit.view';
 
 interface IProps {
-	readonly key: string;
-	readonly id: string;
-	readonly apiPath: string;
 	readonly valueFromDB: string;
-	readonly maxInputDigits: number;
-	readonly onUpdateVisualUI: (id: string, newValue: string) => void;
+	readonly maxLength: number;
+	readonly onUpdateInput: (newInput: string) => void;
 }
 
 const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [initialValueState, setInitialValueState] = useState<string>('');
+	const [inlineTextState, setInlineTextState] = useState<string>('');
 	const [isInputOnEditState, setIsInputOnEditState] = useState<boolean>(false);
 
 	const onEditInlineClick = () => setIsInputOnEditState(() => true);
 
 	const onChangeInput = (value: string) => {
-		setInitialValueState(() => value);
+		setInlineTextState(() => value);
 	};
 
-	console.log(initialValueState, 'initialValueState');
-
-	console.log(props.valueFromDB, 'valueFromDB');
-
-	const onUpdateInput = () => {
-		const oldLabel = initialValueState;
-		let newLabel = initialValueState;
-
-		if (initialValueState === '') {
-			newLabel = props.valueFromDB;
-			setInitialValueState(() => props.valueFromDB);
+	const onUpdateInputHandler = () => {
+		if (inlineTextState) {
+			props.onUpdateInput(inlineTextState);
 		}
-
-		props.onUpdateVisualUI(props.id, newLabel);
+		setInlineTextState(() => props.valueFromDB);
 		setIsInputOnEditState(() => false);
-
-		backendApi
-			.patch(props.apiPath, {
-				label: newLabel,
-			})
-			.then(() => {
-				console.log('secuuced');
-			})
-			.catch(() => {
-				props.onUpdateVisualUI(props.id, oldLabel);
-			});
 	};
 
 	const onCancelInputChanges = () => {
-		setInitialValueState(() => props.valueFromDB);
+		setInlineTextState(() => props.valueFromDB);
 		setIsInputOnEditState(() => false);
 	};
 
 	const onKeyboardPress = (e: React.KeyboardEvent) => {
 		if (e.key === 'Enter') {
-			onUpdateInput();
+			onUpdateInputHandler();
 		}
 	};
 
 	useEffect(() => {
-		setInitialValueState(() => props.valueFromDB);
+		setInlineTextState(() => props.valueFromDB);
 	}, [props.valueFromDB]);
 
 	return (
 		<EDInlineEditView
-			key={props.key}
-			initialValue={initialValueState}
+			inlineTextState={inlineTextState}
 			isInputOnEdit={isInputOnEditState}
-			maxInputDigits={props.maxInputDigits}
+			maxLength={props.maxLength}
 			onEditInlineClick={onEditInlineClick}
 			onChangeInput={onChangeInput}
-			onUpdateInput={onUpdateInput}
+			onUpdateInputHandler={onUpdateInputHandler}
 			onCancelInputChanges={onCancelInputChanges}
 			onKeyboardPress={onKeyboardPress}
 		/>

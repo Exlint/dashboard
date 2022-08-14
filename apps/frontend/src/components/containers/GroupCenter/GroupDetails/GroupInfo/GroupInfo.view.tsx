@@ -10,14 +10,9 @@ import DeleteGroupBackdrop from './DeleteGroupBackdrop';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
-	readonly groupLabel: string;
-	readonly isLabelOnEdit: boolean;
 	readonly copyGroupId: boolean;
 	readonly isMoreInfoClicked: boolean;
-	readonly onEditLabelClick: (isEdit: boolean) => void;
-	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
-	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
-	readonly onCancelLabelChanges: () => void;
+	readonly onUpdateGroupLabel: (newInput: string) => void;
 	readonly onCopyGroupId: () => void;
 	readonly onMoreInfoClick: () => void;
 	readonly onCloseMoreInfo: () => void;
@@ -32,11 +27,9 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			<div className={classes['innerGroupInfo']}>
 				<EDInlineEdit
 					key="groupLabel"
-					id={props.selectedGroup.id}
-					apiPath={`/user/groups/${props.selectedGroup.id}`}
+					maxLength={20}
 					valueFromDB={props.selectedGroup.label}
-					maxInputDigits={20}
-					onUpdateVisualUI={props.onUpdateGroupLabel}
+					onUpdateInput={props.onUpdateGroupLabel}
 				/>
 				<div className={classes['uniqueIdContainer']}>
 					<span className={classes['uniqueIdContainer__text']}>
