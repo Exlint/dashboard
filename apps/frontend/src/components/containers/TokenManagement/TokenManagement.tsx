@@ -1,12 +1,11 @@
 /* eslint-disable max-lines */
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from 'react';
-import type { AxiosResponse } from 'axios';
 
 import EDSvg from '@/ui/EDSvg';
 import { backendApi } from '@/utils/http';
 import type { ISecrets } from '@/interfaces/secrets';
-import type { IGetSecretsResponseData } from '@/interfaces/responses';
+// import type { IGetSecretsResponseData } from '@/interfaces/responses';
 
 import TokenManagementView from './TokenManagement.view';
 
@@ -17,14 +16,12 @@ const TokenManagement: React.FC<IProps> = () => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 	const [clientIdState] = useState<string>('suidbfgsoudpihnevoiwehfwoefhui');
 	const [copyClientIdState, setCopyClientIdState] = useState(false);
-	const [secretsState, setSecretsState] = useState<ISecrets[]>([]);
+	const [secretsState] = useState<ISecrets[]>([]);
 
 	useEffect(() => {
-		backendApi
-			.get<IGetSecretsResponseData>('user/secrets')
-			.then((response: AxiosResponse<IGetSecretsResponseData>) => {
-				setSecretsState(() => response.data.secrets);
-			});
+		// backendApi.get<IGetSecretsResponseData>('user/secrets').then((response) => {
+		// 	setSecretsState(() => response.data.secrets);
+		// });
 	});
 
 	const onRevokeAll = () => {

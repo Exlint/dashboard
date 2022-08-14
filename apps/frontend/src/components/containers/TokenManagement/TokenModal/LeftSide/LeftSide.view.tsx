@@ -46,6 +46,7 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					className={classes['innerWrapper__input']}
 					disabled={props.dispalyModalRightSide}
 					type="text"
+					maxLength={20}
 					value={props.labelState ?? ''}
 					onChange={({ currentTarget: { value } }) => props.onLabelChange(value)}
 				/>

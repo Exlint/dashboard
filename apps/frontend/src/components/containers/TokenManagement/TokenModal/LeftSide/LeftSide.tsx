@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import type { AxiosResponse } from 'axios';
 
 import { backendApi } from '@/utils/http';
-import { addDaysToDate } from '@/utils/addDaysToDate';
+import { addDaysToDate } from '@/utils/date';
+import { expiryDays } from '@/data/secret-expiry';
 import type { ICreateSecretResponseData } from '@/interfaces/responses';
 
 import LeftSideView from './LeftSide.view';
@@ -19,15 +19,10 @@ const LeftSide: React.FC<IProps> = (props) => {
 	const [createSecretButtonState, setCreateSecretButtonState] = useState<boolean>(false);
 	const [isSortByClickedState, setIsSortByClickedState] = useState<boolean>(false);
 	const [isExpiresClickedState, setExpiresClickedState] = useState<boolean | null>(false);
-	const [expiryDateState, setExpiryDateState] = useState<Date | string>(new Date());
+	const [expiryDateState, setExpiryDateState] = useState<Date>(new Date());
 
 	useEffect(() => {
-		if (
-			labelState &&
-			labelState.length >= 2 &&
-			labelState.length <= 20 &&
-			selectedSortByOptionIndexState !== null
-		) {
+		if (labelState && labelState.length >= 2 && selectedSortByOptionIndexState !== null) {
 			setCreateSecretButtonState(() => true);
 		} else {
 			setCreateSecretButtonState(() => false);
@@ -41,39 +36,26 @@ const LeftSide: React.FC<IProps> = (props) => {
 
 	const onLabelChange = (value: string) => setLabelState(() => value);
 
-	const onDatePicker = (value: Date) => {
-		const formattedDate = value.toLocaleDateString('en-ca');
-
-		setExpiryDateState(() => formattedDate);
-	};
+	const onDatePicker = (value: Date) => setExpiryDateState(() => value);
 
 	const onSelectedSortBy = (index: number) => {
 		setSelectedSortByOptionIndexState(() => index);
 		setIsSortByClickedState(() => false);
-
-		if (index === 0) {
-			setExpiryDateState(() => addDaysToDate(7));
-		} else if (index === 1) {
-			setExpiryDateState(() => addDaysToDate(30));
-		} else if (index === 2) {
-			setExpiryDateState(() => addDaysToDate(60));
-		} else if (index === 3) {
-			setExpiryDateState(() => addDaysToDate(90));
-		} else if (index === 5) {
-			setExpiryDateState(() => '');
-		}
+		setExpiryDateState(() => addDaysToDate(expiryDays[index]!));
 	};
 
 	const onExpiresClicked = () => setExpiresClickedState((prev) => !prev);
 	const onSortBy = () => setIsSortByClickedState((prev) => !prev);
 
 	const onSubmit = () => {
+		const formattedDate = expiryDateState.toLocaleDateString('en-ca');
+
 		backendApi
-			.post('user/secrets', {
+			.post<ICreateSecretResponseData>('user/secrets', {
 				label: labelState,
-				expiration: expiryDateState,
+				expiration: formattedDate,
 			})
-			.then((response: AxiosResponse<ICreateSecretResponseData>) => {
+			.then((response) => {
 				props.setClientSecret(() => response.data.clientSecret);
 				props.setDispalyModalRightSide(() => true);
 				setCreateSecretButtonState(() => false);
