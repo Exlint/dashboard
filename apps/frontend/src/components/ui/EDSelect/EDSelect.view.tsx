@@ -2,7 +2,7 @@ import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
 
-import classes from './EDSelectFromOptions.module.scss';
+import classes from './EDSelect.module.scss';
 
 interface IProps {
 	readonly defaultValue?: string;
