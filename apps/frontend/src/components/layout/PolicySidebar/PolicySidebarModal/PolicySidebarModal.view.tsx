@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import EDBackdrop from '@/ui/EDBackdrop';
@@ -30,7 +30,6 @@ const PolicySidebarModalView: React.FC<IProps> = (props: React.PropsWithChildren
 						<div className={classes['header']}>
 							<button
 								type="button"
-								role="button"
 								className={classes['header__button']}
 								onClick={props.onCloseModal}
 							>
@@ -41,9 +40,9 @@ const PolicySidebarModalView: React.FC<IProps> = (props: React.PropsWithChildren
 						<div className={classes['body']}>
 							<span className={classes['body__header']}>
 								{t('policySidebar.policySidebarModal.header')}
-								&lsquo;
+								<Trans>&lsquo;</Trans>
 								{props.policyLabel}
-								&rsquo;
+								<Trans>&rsquo;</Trans>
 								{t('policySidebar.policySidebarModal.subHeader')}
 							</span>
 							<div className={classes['body__details']}>
@@ -69,7 +68,6 @@ const PolicySidebarModalView: React.FC<IProps> = (props: React.PropsWithChildren
 							<button
 								className={classes['body__button']}
 								type="submit"
-								role="button"
 								disabled={props.isConfirmButtonDisabled}
 							>
 								{t('policySidebar.policySidebarModal.confirmButton')}

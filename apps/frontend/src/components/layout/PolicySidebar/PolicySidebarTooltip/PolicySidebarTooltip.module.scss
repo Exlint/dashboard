@@ -1,0 +1,52 @@
+.tooltip {
+	position: absolute;
+	top: 106px;
+	display: flex;
+	flex-direction: column;
+	max-width: 168px;
+	filter: drop-shadow(0 10px 20px #00000040);
+	inset-inline-start: 45px;
+
+	.innerWrapper {
+		display: flex;
+		justify-content: space-between;
+		padding: 14px 12px;
+		background-color: #fefefe;
+		border-color: #e7e7e7;
+		border-style: solid;
+
+		&:not(:first-child) {
+			border-block-start: none;
+		}
+
+		&__text {
+			margin-inline-end: 12px;
+			font-size: 1.7rem;
+			font-weight: 457;
+			white-space: nowrap;
+
+			&--deleteText {
+				color: #781d1d;
+			}
+
+			&--editText {
+				color: #33383e;
+			}
+		}
+
+		&__icon {
+			width: 25px;
+			height: 23px;
+
+			&--deleteIcon {
+				fill: #781d1d;
+			}
+
+			&--editIcon {
+				fill: none;
+				stroke: #4b4a65;
+				stroke-width: 1.5;
+			}
+		}
+	}
+}

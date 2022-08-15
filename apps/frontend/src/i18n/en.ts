@@ -61,6 +61,10 @@ const en = {
 			inputPlaceholder: 'Type here',
 			confirmButton: 'Delete Policy',
 		},
+		policySidebarTooltip: {
+			renamePolicy: 'Rename Policy',
+			deletePolicy: 'Delete Policy',
+		},
 	},
 	cliAuth: {
 		header: 'Authenticate for CLI',
