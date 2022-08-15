@@ -2,11 +2,11 @@ import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
 
-import classes from './EDSelectFromOptions.module.scss';
+import classes from './EDSelect.module.scss';
 
 interface IProps {
 	readonly defaultValue?: string;
-	readonly componentWidth: string;
+	readonly width: string;
 	readonly border: string;
 	readonly selectedOptionIndex: number | null;
 	readonly isShowMoreClicked: boolean;
@@ -17,22 +17,20 @@ interface IProps {
 	readonly onSelectedOption: (index: number) => void;
 }
 
-const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={classes['selectedOptionsContainer']}>
+		<div className={classes['container']}>
 			<div
 				className={classes['selectedOptionsVisible']}
 				style={{
-					width: props.componentWidth,
+					width: props.width,
 					border: props.border,
 					borderRadius: !props.isShowMoreClicked ? '10px' : '10px 10px 0 0',
 				}}
 			>
 				<span className={classes['selectedOptionsVisible__text']}>
 					{props.selectedOptionIndex !== null
-						? props.optionsList[props.selectedOptionIndex]!.length > 12
-							? props.optionsList[props.selectedOptionIndex]!.slice(0, 12) + '...'
-							: props.optionsList[props.selectedOptionIndex!]
+						? props.optionsList[props.selectedOptionIndex]
 						: props.defaultValue}
 				</span>
 				{props.isShowMoreClicked ? (
@@ -57,7 +55,7 @@ const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildre
 				className={classes['selectedOptionsInvisible']}
 				style={{
 					display: props.isShowMoreClicked ? 'flex' : 'none',
-					width: props.componentWidth,
+					width: props.width,
 					border: props.border,
 				}}
 			>
@@ -76,7 +74,7 @@ const EDSelectFromOptionsView: React.FC<IProps> = (props: React.PropsWithChildre
 	);
 };
 
-EDSelectFromOptionsView.displayName = 'EDSelectFromOptionsView';
-EDSelectFromOptionsView.defaultProps = {};
+EDSelectView.displayName = 'EDSelectView';
+EDSelectView.defaultProps = {};
 
-export default React.memo(EDSelectFromOptionsView);
+export default React.memo(EDSelectView);

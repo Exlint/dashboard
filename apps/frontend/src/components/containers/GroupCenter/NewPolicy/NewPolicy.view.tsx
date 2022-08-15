@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import EDSelectFromOptions from '@/ui/EDSelectFromOptions';
+import EDSelect from '@/ui/EDSelect';
 import { sortByOptions } from '@/data/new-policy-sort-by-options';
 
 import SideBarFilters from './SideBarFilters';
@@ -83,8 +83,8 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 							</div>
 						</div>
 						<div className={classes['sortByContainer']}>
-							<EDSelectFromOptions
-								componentWidth="200px"
+							<EDSelect
+								width="200px"
 								defaultValue="Sort by"
 								border="2px solid #E7E7E7"
 								selectedOptionIndex={props.selectedSortByOptionIndex}

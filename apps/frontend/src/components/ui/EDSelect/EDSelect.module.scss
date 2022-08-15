@@ -1,4 +1,4 @@
-.selectedOptionsContainer {
+.container {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -18,9 +18,13 @@
 		background-color: #fefefe;
 
 		&__text {
+			width: inherit;
+			overflow: hidden;
 			font-size: 1.5rem;
 			font-weight: 360;
 			color: #4b4a65;
+			text-overflow: ellipsis;
+			white-space: no-wrap;
 		}
 
 		.moreOptionsButton {
@@ -59,17 +63,15 @@
 			border: 1px solid #e7e7e7;
 		}
 
-		&__text {
-			font-size: 1.5rem;
-			font-weight: 360;
-			color: #4b4a65;
-		}
-
 		&__option {
+			width: calc(100% - 20px);
+			overflow: hidden;
 			font-size: 1.5rem;
 			font-weight: 360;
 			color: #4b4a65;
 			text-align: left;
+			text-overflow: ellipsis;
+			white-space: no-wrap;
 		}
 
 		&__option:not(:last-child) {

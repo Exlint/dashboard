@@ -1,10 +1,10 @@
 import React from 'react';
 
-import EdSelectFromOptionsView from './EDSelectFromOptions.view';
+import EdSelectView from './EDSelect.view';
 
 interface IProps {
 	readonly defaultValue?: string;
-	readonly componentWidth: string;
+	readonly width: string;
 	readonly border: string;
 	readonly selectedOptionIndex: number | null;
 	readonly isShowMoreClicked: boolean;
@@ -15,11 +15,11 @@ interface IProps {
 	readonly onSelectedOption: (index: number) => void;
 }
 
-const EDSelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDSelect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<EdSelectFromOptionsView
+		<EdSelectView
 			defaultValue={props.defaultValue}
-			componentWidth={props.componentWidth}
+			width={props.width}
 			border={props.border}
 			selectedOptionIndex={props.selectedOptionIndex}
 			isShowMoreClicked={props.isShowMoreClicked}
@@ -32,7 +32,7 @@ const EDSelectFromOptions: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	);
 };
 
-EDSelectFromOptions.displayName = 'EDSelectFromOptions';
-EDSelectFromOptions.defaultProps = {};
+EDSelect.displayName = 'EDSelect';
+EDSelect.defaultProps = {};
 
-export default React.memo(EDSelectFromOptions);
+export default React.memo(EDSelect);
