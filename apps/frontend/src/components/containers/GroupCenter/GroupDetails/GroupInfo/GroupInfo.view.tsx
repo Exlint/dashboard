@@ -10,14 +10,9 @@ import DeleteGroupBackdrop from './DeleteGroupBackdrop';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
-	readonly groupLabel: string;
-	readonly isLabelOnEdit: boolean;
 	readonly copyGroupId: boolean;
 	readonly isMoreInfoClicked: boolean;
-	readonly onEditLabelClick: (isEdit: boolean) => void;
-	readonly onChangeGroupLabel: (newGroupLabel: string) => void;
-	readonly onUpdateGroupLabel: () => void;
-	readonly onCancelLabelChanges: () => void;
+	readonly onUpdateGroupLabel: (newInput: string) => void;
 	readonly onCopyGroupId: () => void;
 	readonly onMoreInfoClick: () => void;
 	readonly onCloseMoreInfo: () => void;

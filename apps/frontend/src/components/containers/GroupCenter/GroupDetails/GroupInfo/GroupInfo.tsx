@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import type { IGroup } from '@/interfaces/group';
 import { backendApi } from '@/utils/http';
@@ -13,45 +13,28 @@ interface IProps {
 }
 
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [groupLabelState, setGroupLabelState] = useState<string>('');
-	const [isLabelOnEditState, setIsLabelOnEditState] = useState<boolean>(false);
 	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
 	const [isMoreInfoClickedState, setIsMoreInfoClickedState] = useState<boolean>(false);
 
 	const groupId = props.selectedGroup.id;
 
-	const onEditLabelClick = (isEdit: boolean) => setIsLabelOnEditState(() => isEdit);
+	const onUpdateGroupLabel = (newInput: string) => {
+		const oldLabel = newInput;
+		let newLabel = newInput;
 
-	const onChangeGroupLabel = (newGroupLabel: string) => {
-		if (newGroupLabel.length >= 0 && newGroupLabel.length <= 20) {
-			setGroupLabelState(() => newGroupLabel);
-		}
-	};
-
-	const onUpdateGroupLabel = () => {
-		const oldLabel = groupLabelState;
-		let newLabel = groupLabelState;
-
-		if (groupLabelState === '') {
+		if (newInput === '') {
 			newLabel = props.selectedGroup.label;
 		}
 
 		props.onUpdateGroupLabel(props.selectedGroup.id, newLabel);
-		setIsLabelOnEditState(() => false);
 
 		backendApi
 			.patch(`/user/groups/${props.selectedGroup.id}`, {
 				label: newLabel,
 			})
-			.then()
 			.catch(() => {
 				props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
 			});
-	};
-
-	const onCancelLabelChanges = () => {
-		setGroupLabelState(() => props.selectedGroup.label);
-		setIsLabelOnEditState(() => false);
 	};
 
 	const onCopyGroupId = async () => {
@@ -77,21 +60,12 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		});
 	};
 
-	useEffect(() => {
-		setGroupLabelState(() => props.selectedGroup.label!);
-	}, [props.selectedGroup]);
-
 	return (
 		<GroupInfoView
 			selectedGroup={props.selectedGroup}
-			groupLabel={groupLabelState}
-			isLabelOnEdit={isLabelOnEditState}
 			copyGroupId={copyGroupIdState}
 			isMoreInfoClicked={isMoreInfoClickedState}
-			onEditLabelClick={onEditLabelClick}
-			onChangeGroupLabel={onChangeGroupLabel}
 			onUpdateGroupLabel={onUpdateGroupLabel}
-			onCancelLabelChanges={onCancelLabelChanges}
 			onCopyGroupId={onCopyGroupId}
 			onMoreInfoClick={onMoreInfoClick}
 			onCloseMoreInfo={onCloseMoreInfo}
