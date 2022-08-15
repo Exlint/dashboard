@@ -4,7 +4,7 @@ import EdSelectView from './EDSelect.view';
 
 interface IProps {
 	readonly defaultValue?: string;
-	readonly componentWidth: string;
+	readonly width: string;
 	readonly border: string;
 	readonly selectedOptionIndex: number | null;
 	readonly isShowMoreClicked: boolean;
@@ -19,7 +19,7 @@ const EDSelect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<EdSelectView
 			defaultValue={props.defaultValue}
-			componentWidth={props.componentWidth}
+			width={props.width}
 			border={props.border}
 			selectedOptionIndex={props.selectedOptionIndex}
 			isShowMoreClicked={props.isShowMoreClicked}
