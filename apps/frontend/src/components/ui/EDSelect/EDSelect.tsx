@@ -6,7 +6,7 @@ import EdSelectView from './EDSelect.view';
 
 interface IProps {
 	readonly defaultValue?: string;
-	readonly className: string;
+	readonly className?: string;
 	readonly selectedOptionIndex: number | null;
 	readonly optionsList: string[];
 	readonly onSelect: (index: number) => void;
