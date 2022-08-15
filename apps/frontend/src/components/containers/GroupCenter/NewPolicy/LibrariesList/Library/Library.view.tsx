@@ -110,7 +110,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				}}
 				onClick={props.onCancelSelectedLibrary}
 			>
-				<EDVsvg name="cancelIcon" className={classes['cancelSelectedLibraryButton__icon']} />
+				<EDVsvg name="cancel" className={classes['cancelSelectedLibraryButton__icon']} />
 			</button>
 		</div>
 	);
