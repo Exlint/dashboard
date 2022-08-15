@@ -5,7 +5,7 @@ import { useClickOutside } from '@/hooks/click-outside';
 import EdSelectView from './EDSelect.view';
 
 interface IProps {
-	readonly defaultValue?: string;
+	readonly placeholder?: string;
 	readonly className?: string;
 	readonly selectedOptionIndex: number | null;
 	readonly optionsList: string[];
@@ -26,7 +26,7 @@ const EDSelect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	return (
 		<EdSelectView
-			defaultValue={props.defaultValue}
+			placeholder={props.placeholder}
 			className={props.className}
 			selectedOptionIndex={props.selectedOptionIndex}
 			optionsList={props.optionsList}

@@ -6,7 +6,7 @@ import EDSvg from '@/ui/EDSvg';
 import classes from './EDSelect.module.scss';
 
 interface IProps {
-	readonly defaultValue?: string;
+	readonly placeholder?: string;
 	readonly className?: string;
 	readonly selectedOptionIndex: number | null;
 	readonly optionsList: string[];
@@ -17,28 +17,23 @@ interface IProps {
 }
 
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const visibleClass = concatDiverseClasses(classes['selectedOptionsVisible'], props.className);
-	const inVisibleClass = concatDiverseClasses(classes['selectedOptionsInvisible'], props.className);
+	const buttonContainer = concatDiverseClasses(classes['selectedOptionsVisible'], props.className);
+	const tooltipContainer = concatDiverseClasses(classes['selectedOptionsInvisible'], props.className);
 
 	return (
 		<div className={classes['container']}>
-			<div
-				className={visibleClass}
+			<button
+				type="button"
+				className={buttonContainer}
 				style={{
 					borderRadius: props.isTooltipVisible ? '10px 10px 0 0' : '10px',
 				}}
 			>
 				<span className={classes['selectedOptionsVisible__text']}>
-					{props.selectedOptionIndex !== null
-						? props.optionsList[props.selectedOptionIndex]
-						: props.defaultValue}
+					{props.placeholder ?? props.optionsList[0]}
 				</span>
 
-				<button
-					className={classes['moreOptionsButton']}
-					type="button"
-					onClick={props.toggleTooltipVisibility}
-				>
+				<div className={classes['moreOptionsButton']}>
 					<EDSvg
 						className={
 							props.isTooltipVisible
@@ -47,10 +42,10 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						}
 						name={props.isTooltipVisible ? 'arrowDown' : 'arrowRight'}
 					/>
-				</button>
-			</div>
+				</div>
+			</button>
 			{props.isTooltipVisible && (
-				<div ref={props.tooltopRef} className={inVisibleClass}>
+				<div ref={props.tooltopRef} className={tooltipContainer}>
 					{props.optionsList.map((option, index) => (
 						<button
 							key={index}

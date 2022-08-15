@@ -81,7 +81,7 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 						</div>
 						<EDSelect
 							className={classes['selectContainer']}
-							defaultValue="Sort by"
+							placeholder="Sort by"
 							selectedOptionIndex={props.selectedSortByOptionIndex}
 							optionsList={sortByOptions}
 							onSelect={props.onSelect}
