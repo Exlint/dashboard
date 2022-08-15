@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import EDSvg from '@/ui/EDSvg';
 import { backendApi } from '@/utils/http';
 import type { ISecrets } from '@/interfaces/secrets';
-// import type { IGetSecretsResponseData } from '@/interfaces/responses';
+import type { IGetSecretsResponseData } from '@/interfaces/responses';
 
 import TokenManagementView from './TokenManagement.view';
 
@@ -16,13 +16,21 @@ const TokenManagement: React.FC<IProps> = () => {
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 	const [clientIdState] = useState<string>('suidbfgsoudpihnevoiwehfwoefhui');
 	const [copyClientIdState, setCopyClientIdState] = useState(false);
-	const [secretsState] = useState<ISecrets[]>([]);
+	const [secretsState, setSecretsState] = useState<ISecrets[]>([]);
+
+	const formatDate = (unixDate: number) => {
+		const date = new Date(unixDate);
+
+		return new Intl.DateTimeFormat('en-gb', { dateStyle: 'full' }).format(date);
+	};
 
 	useEffect(() => {
-		// backendApi.get<IGetSecretsResponseData>('user/secrets').then((response) => {
-		// 	setSecretsState(() => response.data.secrets);
-		// });
-	});
+		backendApi.get<IGetSecretsResponseData>('user/secrets').then((response) => {
+			console.log(response.data.secrets);
+
+			setSecretsState(() => response.data.secrets);
+		});
+	}, []);
 
 	const onRevokeAll = () => {
 		backendApi.delete('user/secrets').then(() => {
@@ -84,9 +92,10 @@ const TokenManagement: React.FC<IProps> = () => {
 		},
 	];
 
-	const data = secretsState.map((row) => {
+	const data = secretsState.map((row, index) => {
 		return {
-			number: 1,
+			key: row.id,
+			number: index + 1,
 			label: [
 				<>
 					<span>{row.label}</span>
@@ -105,8 +114,8 @@ const TokenManagement: React.FC<IProps> = () => {
 					</button>
 				</>,
 			],
-			createdAt: row.createdAt,
-			expires: row.expiration,
+			createdAt: formatDate(row.createdAt),
+			expires: formatDate(row.expiration),
 			refreshSecret: (
 				<EDSvg
 					style={{
@@ -131,7 +140,6 @@ const TokenManagement: React.FC<IProps> = () => {
 					name="trashCanCircled"
 				/>
 			),
-			key: '1',
 		};
 	});
 

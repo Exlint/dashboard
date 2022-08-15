@@ -15,8 +15,8 @@ interface IProps {
 	readonly data: {
 		number: number;
 		label: JSX.Element[];
-		createdAt: number;
-		expires: number;
+		createdAt: string;
+		expires: string;
 		refreshSecret: JSX.Element;
 		delete: JSX.Element;
 		key: string;
@@ -83,7 +83,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 					<Table
 						className={classes['secretsWrapper__table']}
 						columns={props.columns}
-						data={props.secrets}
+						data={props.data}
 						emptyText="No Secrets!"
 					/>
 					<div className={classes['footer']}>
