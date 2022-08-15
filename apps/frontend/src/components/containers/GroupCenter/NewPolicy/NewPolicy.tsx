@@ -9,7 +9,6 @@ interface IProps {
 const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [policyLabelInputState, setPolicyLabelInputState] = useState<string | null>(null);
 	const [selectedLibraryState, setSelectedLibraryState] = useState<string | null>(null);
-	const [isSortByOnViewState, setIsSortByOnViewState] = useState<boolean>(false);
 
 	const [isPolicyConfigurationClickedState, setIsPolicyConfigurationClickedState] = useState<
 		boolean | null
@@ -35,21 +34,12 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const onPolicyLabelInputChanged = (input: string) => setPolicyLabelInputState(() => input);
 
-	const onSelectedSortBy = (index: number) => {
+	const onSelect = (index: number) => {
 		setSelectedSortByOptionIndexState(() => index);
-		setIsSortByOnViewState(() => false);
 	};
 
 	const onPolicyConfiguratoinClicked = () => {
 		setIsPolicyConfigurationClickedState(() => !isPolicyConfigurationClickedState);
-	};
-
-	const toggleSortByOpen = () => {
-		setIsSortByOnViewState(() => true);
-	};
-
-	const toggleSortByClose = () => {
-		setIsSortByOnViewState(() => false);
 	};
 
 	useEffect(() => {
@@ -79,19 +69,16 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			policyLabelInput={policyLabelInputState}
 			isPolicyConfigurationClicked={isPolicyConfigurationClickedState}
 			searchLibraryInput={searchLibraryInputState}
-			isSortByOnView={isSortByOnViewState}
 			selectedSortByOptionIndex={selectedSortByOptionIndexState}
 			isCreatePolicyDisabled={isCreatePolicyDisabledState}
 			selectedTypeIndex={selectedTypeIndexState}
 			selectedCategoryIndex={selectedCategoryIndexState}
-			toggleSortByOpen={toggleSortByOpen}
-			toggleSortByClose={toggleSortByClose}
 			onSelectLibrary={onSelectLibrary}
 			onCancelSelectedLibrary={onCancelSelectedLibrary}
 			onPolicyLabelInputChanged={onPolicyLabelInputChanged}
 			onPolicyConfiguratoinClicked={onPolicyConfiguratoinClicked}
 			onSearchLibraryInput={onSearchLibraryInput}
-			onSelectedSortBy={onSelectedSortBy}
+			onSelect={onSelect}
 			onSelectType={onSelectType}
 			onSelectCategory={onSelectCategory}
 		/>

@@ -1,31 +1,28 @@
 import React from 'react';
 
+import { concatClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
 
 import classes from './EDSelect.module.scss';
 
 interface IProps {
 	readonly defaultValue?: string;
-	readonly width: string;
-	readonly border: string;
+	readonly className?: string;
 	readonly selectedOptionIndex: number | null;
-	readonly isShowMoreClicked: boolean;
 	readonly optionsList: string[];
-	readonly isVisibleValueBlocked?: boolean;
-	readonly toggleSortByOpen: () => void;
-	readonly toggleSortByClose: () => void;
-	readonly onSelectedOption: (index: number) => void;
+	readonly tooltopRef: React.RefObject<HTMLDivElement>;
+	readonly isTooltipVisible: boolean;
+	readonly toggleTooltipVisibility: () => void;
+	readonly onSelect: (index: number) => void;
 }
 
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['container']}>
 			<div
-				className={classes['selectedOptionsVisible']}
+				className={concatClasses(classes, 'selectedOptionsVisible', props.className!)}
 				style={{
-					width: props.width,
-					border: props.border,
-					borderRadius: !props.isShowMoreClicked ? '10px' : '10px 10px 0 0',
+					borderRadius: !props.isTooltipVisible ? '10px' : '10px 10px 0 0',
 				}}
 			>
 				<span className={classes['selectedOptionsVisible__text']}>
@@ -33,43 +30,39 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						? props.optionsList[props.selectedOptionIndex]
 						: props.defaultValue}
 				</span>
-				{props.isShowMoreClicked ? (
-					<button
-						className={classes['moreOptionsButton']}
-						type="button"
-						onClick={props.toggleSortByClose}
-					>
-						<EDSvg className={classes['moreOptionsButton__arrowDown']} name="arrowDown" />
-					</button>
-				) : (
-					<button
-						className={classes['moreOptionsButton']}
-						type="button"
-						onClick={props.toggleSortByOpen}
-					>
-						<EDSvg className={classes['moreOptionsButton__arrowRight']} name="arrowRight" />
-					</button>
-				)}
+
+				<button
+					className={classes['moreOptionsButton']}
+					type="button"
+					onClick={props.toggleTooltipVisibility}
+				>
+					<EDSvg
+						className={
+							props.isTooltipVisible
+								? classes['moreOptionsButton__arrowDown']
+								: classes['moreOptionsButton__arrowRight']
+						}
+						name={props.isTooltipVisible ? 'arrowDown' : 'arrowRight'}
+					/>
+				</button>
 			</div>
-			<div
-				className={classes['selectedOptionsInvisible']}
-				style={{
-					display: props.isShowMoreClicked ? 'flex' : 'none',
-					width: props.width,
-					border: props.border,
-				}}
-			>
-				{props.optionsList.map((option, index) => (
-					<button
-						key={index}
-						className={classes['selectedOptionsInvisible__option']}
-						type="button"
-						onClick={() => props.onSelectedOption(index)}
-					>
-						{option}
-					</button>
-				))}
-			</div>
+			{props.isTooltipVisible && (
+				<div
+					ref={props.tooltopRef}
+					className={concatClasses(classes, 'selectedOptionsInvisible', props.className!)}
+				>
+					{props.optionsList.map((option, index) => (
+						<button
+							key={index}
+							className={classes['selectedOptionsInvisible__option']}
+							type="button"
+							onClick={() => props.onSelect(index)}
+						>
+							{option}
+						</button>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import type { IGroup } from '@/interfaces/group';
 import { backendApi } from '@/utils/http';
 
+import { useClickOutside } from '@/hooks/click-outside';
+
 import GroupInfoView from './GroupInfo.view';
 
 interface IProps {
@@ -14,7 +16,6 @@ interface IProps {
 
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
-	const [isMoreInfoClickedState, setIsMoreInfoClickedState] = useState<boolean>(false);
 
 	const groupId = props.selectedGroup.id;
 
@@ -45,30 +46,31 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setTimeout(() => setCopyGroupIdState(() => false), 2000);
 	};
 
-	const onMoreInfoClick = () => setIsMoreInfoClickedState(() => true);
-
-	const onCloseMoreInfo = () => {
-		setIsMoreInfoClickedState(() => false);
-	};
-
 	const onDeleteGroup = () => {
+		console.log('blabla');
 		props.onRemoveGroup(props.selectedGroup.id);
-		setIsMoreInfoClickedState(() => false);
+		toggleTooltipVisibility();
 
 		backendApi.delete(`/user/groups/${props.selectedGroup.id}`).catch(() => {
 			props.onAddGroup(props.selectedGroup);
 		});
 	};
 
+	const {
+		ref: tooltopRef,
+		isVisible: isTooltipVisible,
+		toggleVisibility: toggleTooltipVisibility,
+	} = useClickOutside<HTMLDivElement>(false);
+
 	return (
 		<GroupInfoView
 			selectedGroup={props.selectedGroup}
 			copyGroupId={copyGroupIdState}
-			isMoreInfoClicked={isMoreInfoClickedState}
+			tooltopRef={tooltopRef}
+			isTooltipVisible={isTooltipVisible}
+			toggleTooltipVisibility={toggleTooltipVisibility}
 			onUpdateGroupLabel={onUpdateGroupLabel}
 			onCopyGroupId={onCopyGroupId}
-			onMoreInfoClick={onMoreInfoClick}
-			onCloseMoreInfo={onCloseMoreInfo}
 			onDeleteGroup={onDeleteGroup}
 		/>
 	);

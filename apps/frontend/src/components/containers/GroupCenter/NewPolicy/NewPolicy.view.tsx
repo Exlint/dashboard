@@ -17,7 +17,6 @@ interface IProps {
 	readonly policyLabelInput: string | null;
 	readonly isPolicyConfigurationClicked: boolean | null;
 	readonly searchLibraryInput: string | null;
-	readonly isSortByOnView: boolean;
 	readonly selectedSortByOptionIndex: number | null;
 	readonly isCreatePolicyDisabled: boolean;
 	readonly selectedTypeIndex: number;
@@ -27,9 +26,7 @@ interface IProps {
 	readonly onPolicyLabelInputChanged: (input: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
 	readonly onSearchLibraryInput: (input: string) => void;
-	readonly onSelectedSortBy: (index: number) => void;
-	readonly toggleSortByOpen: () => void;
-	readonly toggleSortByClose: () => void;
+	readonly onSelect: (index: number) => void;
 	readonly onSelectType: (index: number) => void;
 	readonly onSelectCategory: (index: number) => void;
 }
@@ -82,19 +79,13 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 								/>
 							</div>
 						</div>
-						<div className={classes['sortByContainer']}>
-							<EDSelect
-								width="200px"
-								defaultValue="Sort by"
-								border="2px solid #E7E7E7"
-								selectedOptionIndex={props.selectedSortByOptionIndex}
-								isShowMoreClicked={props.isSortByOnView}
-								optionsList={sortByOptions}
-								toggleSortByOpen={props.toggleSortByOpen}
-								toggleSortByClose={props.toggleSortByClose}
-								onSelectedOption={props.onSelectedSortBy}
-							/>
-						</div>
+						<EDSelect
+							className={classes['selectContainer']}
+							defaultValue="Sort by"
+							selectedOptionIndex={props.selectedSortByOptionIndex}
+							optionsList={sortByOptions}
+							onSelect={props.onSelect}
+						/>
 					</div>
 				</div>
 				<div className={classes['innerLibrary']}>

@@ -11,11 +11,11 @@ import DeleteGroupBackdrop from './DeleteGroupBackdrop';
 interface IProps {
 	readonly selectedGroup: IGroup;
 	readonly copyGroupId: boolean;
-	readonly isMoreInfoClicked: boolean;
+	readonly tooltopRef: React.RefObject<HTMLDivElement>;
+	readonly isTooltipVisible: boolean;
+	readonly toggleTooltipVisibility: () => void;
 	readonly onUpdateGroupLabel: (newInput: string) => void;
 	readonly onCopyGroupId: () => void;
-	readonly onMoreInfoClick: () => void;
-	readonly onCloseMoreInfo: () => void;
 	readonly onDeleteGroup: () => void;
 }
 
@@ -57,14 +57,14 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<button
 						className={classes['moreInfoButton']}
 						type="button"
-						onClick={props.onMoreInfoClick}
+						onClick={props.toggleTooltipVisibility}
 					>
 						<EDSvg className={classes['moreInfoButton__icon']} name="threeDots" />
 					</button>
-					{props.isMoreInfoClicked && (
+					{props.isTooltipVisible && (
 						<DeleteGroupBackdrop
-							onCloseMoreInfo={props.onCloseMoreInfo}
 							onDeleteGroup={props.onDeleteGroup}
+							tooltopRef={props.tooltopRef}
 						/>
 					)}
 				</div>
