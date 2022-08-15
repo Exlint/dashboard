@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { concatClasses } from '@/utils/component';
+import { concatDiverseClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
 
 import classes from './EDSelect.module.scss';
@@ -17,12 +17,15 @@ interface IProps {
 }
 
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const visibleClass = concatDiverseClasses(classes['selectedOptionsVisible'], props.className);
+	const inVisibleClass = concatDiverseClasses(classes['selectedOptionsInvisible'], props.className);
+
 	return (
 		<div className={classes['container']}>
 			<div
-				className={concatClasses(classes, 'selectedOptionsVisible', props.className!)}
+				className={visibleClass}
 				style={{
-					borderRadius: !props.isTooltipVisible ? '10px' : '10px 10px 0 0',
+					borderRadius: props.isTooltipVisible ? '10px 10px 0 0' : '10px',
 				}}
 			>
 				<span className={classes['selectedOptionsVisible__text']}>
@@ -47,10 +50,7 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				</button>
 			</div>
 			{props.isTooltipVisible && (
-				<div
-					ref={props.tooltopRef}
-					className={concatClasses(classes, 'selectedOptionsInvisible', props.className!)}
-				>
+				<div ref={props.tooltopRef} className={inVisibleClass}>
 					{props.optionsList.map((option, index) => (
 						<button
 							key={index}
