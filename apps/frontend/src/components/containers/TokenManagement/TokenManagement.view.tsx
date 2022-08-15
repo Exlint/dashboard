@@ -1,33 +1,21 @@
 import React from 'react';
-import Table from 'rc-table';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
 import SettingsSidebar from '@/layout/SettingsSidebar';
-import type { ISecrets } from '@/interfaces/secrets';
 
 import TokenModal from './TokenModal';
 
 import classes from './TokenManagement.module.scss';
+import TokenTable from './TokenTable';
 
 interface IProps {
-	readonly data: {
-		number: number;
-		label: JSX.Element[];
-		createdAt: string;
-		expires: string;
-		refreshSecret: JSX.Element;
-		delete: JSX.Element;
-		key: string;
-	}[];
-	readonly columns: { title: string; dataIndex: string; key: string; width: number }[];
 	readonly isModelOnView: boolean;
 	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState?: string;
-	readonly secrets: ISecrets[];
-	readonly onRevokeAll: () => void;
+	readonly onRevokeAllSecrets: () => void;
 	readonly onChangeGroupLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
 	readonly onOpenModal: () => void;
@@ -66,7 +54,11 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							{t('tokenManagement.table.title')}
 						</span>
 						<div className={classes['buttonsWrapper']}>
-							<button type="button" className={classes['revoke']}>
+							<button
+								type="button"
+								className={classes['revoke']}
+								onClick={props.onRevokeAllSecrets}
+							>
 								<span className={classes['revoke__title']}>
 									{t('tokenManagement.table.revokeAll')}
 								</span>
@@ -80,12 +72,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							{props.isModelOnView && <TokenModal onCloseModal={props.onCloseModal} />}
 						</div>
 					</div>
-					<Table
-						className={classes['secretsWrapper__table']}
-						columns={props.columns}
-						data={props.data}
-						emptyText="No Secrets!"
-					/>
+					<TokenTable />
 					<div className={classes['footer']}>
 						<span className={classes['footer__text']}>
 							{t('tokenManagement.table.total')}
