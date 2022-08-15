@@ -27,10 +27,11 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			<div className={classes['innerGroupInfo']}>
 				<EDInlineEdit
 					key="groupLabel"
-					maxLength={20}
 					valueFromDB={props.selectedGroup.label}
+					maxLength={20}
 					onUpdateInput={props.onUpdateGroupLabel}
 				/>
+
 				<div className={classes['uniqueIdContainer']}>
 					<span className={classes['uniqueIdContainer__text']}>
 						{t('groupCenter.groupDetails.groupInfo.uniqId')}
