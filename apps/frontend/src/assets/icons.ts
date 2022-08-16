@@ -53,6 +53,12 @@ const icons = {
 		<rect x="87" y="63" width="99" height="15" rx="7.5" fill="#BBB8CA"/>
         `,
 	],
+	arrowRight: [
+		'13 22',
+		`
+			<path d="M1 20.5L11.1237 11.7568C11.5855 11.358 11.5855 10.642 11.1237 10.2432L0.999999 1.5"/>
+		`,
+	],
 };
 
 export default icons;

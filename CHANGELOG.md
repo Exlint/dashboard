@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Exlint/dashboard/compare/v1.17.1...v1.18.0) (2022-08-16)
+
+
+### Features
+
+* 🔥 add EDSelect ([605000c](https://github.com/Exlint/dashboard/commit/605000cd3915fe3cced0b1cba72a99c0a8b74686))
+
 ## [1.17.1](https://github.com/Exlint/dashboard/compare/v1.17.0...v1.17.1) (2022-08-11)
 
 
