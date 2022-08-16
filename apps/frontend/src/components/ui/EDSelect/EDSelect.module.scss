@@ -24,6 +24,7 @@
 			font-size: 1.5rem;
 			font-weight: 360;
 			color: #4b4a65;
+			white-space: nowrap;
 		}
 
 		&__arrow {
@@ -42,9 +43,11 @@
 	}
 
 	.optionsContainer {
+		position: absolute;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		width: 100%;
 		padding: 10px 14px;
 		background-color: #fefefe;
 		border: 2px solid #e7e7e7;
