@@ -65,6 +65,21 @@ const en = {
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
 	},
+	groupCenter: {
+		groupSideBar: {
+			newGroupButton: 'New',
+			noGroup: {
+				header: 'Create your first Group',
+			},
+			group: {
+				uniqId: 'Unique ID:',
+				policies: 'Policies:',
+				additional: '+ Additional..',
+				copy: 'Copy',
+				copied: 'Copied!',
+			},
+		},
+	},
 };
 
 export default en;

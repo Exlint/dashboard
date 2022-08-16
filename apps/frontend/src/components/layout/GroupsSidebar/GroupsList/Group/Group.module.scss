@@ -1,0 +1,124 @@
+.container {
+	display: flex;
+	padding: 38px 0;
+
+	&--isSelected {
+		background-color: #d9d9d91a;
+	}
+
+	&--notSelected {
+		background-color: #fff;
+	}
+
+	.innerGroup {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: min-content;
+		padding: 0 24px;
+
+		.leftSideContainer {
+			display: flex;
+			flex-direction: column;
+			-webkit-font-smoothing: antialiased;
+
+			&__title {
+				-webkit-font-smoothing: antialiased;
+				font-size: 2.4rem;
+				font-weight: 500;
+
+				&--isSelected {
+					color: #7a4df3;
+				}
+
+				&--notSelected {
+					color: #202428;
+				}
+			}
+
+			.uniqueIdContainer {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					margin: 12px 4px 12px 0;
+					font-size: 1.7rem;
+					font-weight: 400;
+					color: #4b4a65;
+				}
+
+				.uniqIdCopyButton {
+					position: relative;
+					display: flex;
+					align-items: center;
+					font-size: 1.7rem;
+					font-weight: 400;
+					color: #2355a0;
+
+					&__icon {
+						width: 21px;
+						height: 22px;
+						margin-inline-start: 5px;
+						fill: #4b4a65;
+					}
+
+					&__copiedText {
+						position: absolute;
+						inset-inline-end: 1px;
+						inset-inline-start: 80px;
+						font-size: 1.7rem;
+						font-weight: 400;
+						color: #2355a0;
+					}
+				}
+			}
+
+			.policiesContainer {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					margin-inline-end: 5px;
+					font-size: 1.6rem;
+					font-weight: 400;
+					color: #4b4a65;
+				}
+
+				.innerLibraryLogo {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 27px;
+					height: 27px;
+					margin-inline-end: 3px;
+					background-color: #f2f2f2;
+					border-radius: 5px;
+
+					&__logo {
+						width: 18px;
+						height: 16px;
+					}
+				}
+
+				&__policy:not(:last-child) {
+					margin-inline-end: 4px;
+				}
+			}
+		}
+
+		.getInfoButton {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&__icon {
+				width: 11px;
+				height: 19px;
+				fill: transparent;
+				stroke: #bbb8ca;
+				stroke-linecap: round;
+				stroke-width: 2;
+			}
+		}
+	}
+}

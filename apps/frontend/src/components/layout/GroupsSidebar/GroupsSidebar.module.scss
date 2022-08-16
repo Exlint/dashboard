@@ -1,0 +1,65 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.sidebar {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	max-width: 350px;
+	background-color: #fff;
+	border-inline-end: 3px solid #e7e7e7;
+
+	.innerSidebar {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		.searchContainer {
+			display: flex;
+			height: min-content;
+			margin: 27px 27px 0 28px;
+			border-radius: 10px;
+
+			&__input {
+				width: 100%;
+				padding: 8px 0 8px 10px;
+				margin-inline-end: 8px;
+				font-size: 1.7rem;
+				font-weight: 350;
+				color: #8b8b8b;
+				background-color: #f2f2f2;
+				border: 2px solid #e7e7e7;
+				border-radius: 10px;
+			}
+
+			.buttonContainer {
+				display: flex;
+				align-items: center;
+				padding: 8px 9px;
+				background-color: #25a023;
+				border: 1px solid #2f7d2d;
+				border-radius: 10px;
+
+				&__text {
+					margin-inline-end: 5px;
+					font-size: 1.6rem;
+					font-weight: 500;
+					color: #f2f2f2;
+				}
+
+				&__icon {
+					width: 15px;
+					height: 15px;
+					fill: #f2f2f2;
+				}
+			}
+		}
+
+		.dividerLine {
+			width: 100%;
+			margin-top: 27px;
+			border: 2px solid #e7e7e7;
+		}
+	}
+}
