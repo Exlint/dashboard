@@ -9,8 +9,8 @@ import LeftSideView from './LeftSide.view';
 
 interface IProps {
 	readonly setClientSecret: React.Dispatch<React.SetStateAction<string>>;
-	readonly dispalyModalRightSide: boolean;
-	readonly setDispalyModalRightSide: React.Dispatch<React.SetStateAction<boolean>>;
+	readonly dispalyRightSideModal: boolean;
+	readonly setDispalyRightSideModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const LeftSide: React.FC<IProps> = (props) => {
@@ -30,7 +30,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 	}, [labelState, selectedSortByOptionIndexState]);
 
 	const onDisplayRightSide = () => {
-		props.setDispalyModalRightSide(() => true);
+		props.setDispalyRightSideModal(() => true);
 		setCreateSecretButtonState(() => false);
 	};
 
@@ -57,7 +57,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 			})
 			.then((response) => {
 				props.setClientSecret(() => response.data.clientSecret);
-				props.setDispalyModalRightSide(() => true);
+				props.setDispalyRightSideModal(() => true);
 				setCreateSecretButtonState(() => false);
 			});
 	};
@@ -69,7 +69,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 			isSortByClickedState={isSortByClickedState}
 			labelState={labelState}
 			createSecretButtonState={createSecretButtonState}
-			dispalyModalRightSide={props.dispalyModalRightSide}
+			dispalyRightSideModal={props.dispalyRightSideModal}
 			expiryDate={expiryDateState}
 			onDatePicker={onDatePicker}
 			onSubmit={onSubmit}

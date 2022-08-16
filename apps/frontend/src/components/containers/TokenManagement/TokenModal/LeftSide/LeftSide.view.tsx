@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 
 import { secretExpiry } from '@/data/secret-expiry';
 import { concatClasses } from '@/utils/component';
-import SelectFromOptions from '@/ui/EDSelectFromOptions';
+import EDSelect from '@/ui/EDSelect';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import classes from './LeftSide.module.scss';
@@ -15,7 +15,7 @@ interface IProps {
 	readonly labelState?: string;
 	readonly createSecretButtonState: boolean;
 	readonly isSortByClickedState: boolean;
-	readonly dispalyModalRightSide: boolean;
+	readonly dispalyRightSideModal: boolean;
 	readonly expiryDate: Date | string;
 	readonly onDatePicker: (_: Date) => void;
 	readonly onDisplayRightSide: () => void;
@@ -29,9 +29,13 @@ interface IProps {
 const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-	const secretCrationTitlesClasses = !props.dispalyModalRightSide
-		? classes['innerWrapper__title']
-		: concatClasses(classes, 'innerWrapper__title', 'innerWrapper__title--disabled');
+	const secretCrationTitlesClasses = props.dispalyRightSideModal
+		? concatClasses(classes, 'innerWrapper__title', 'innerWrapper__title--disabled')
+		: classes['innerWrapper__title'];
+
+	const selectClasses = props.dispalyRightSideModal
+		? concatClasses(classes, 'select', 'select--disabled')
+		: classes['select'];
 
 	return (
 		<section className={classes['container']}>
@@ -44,7 +48,7 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				</span>
 				<input
 					className={classes['innerWrapper__input']}
-					disabled={props.dispalyModalRightSide}
+					disabled={props.dispalyRightSideModal}
 					type="text"
 					maxLength={20}
 					value={props.labelState ?? ''}
@@ -53,20 +57,15 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				<span className={secretCrationTitlesClasses}>
 					{t('tokenManagement.tokenManagementModal.expires')}
 				</span>
-				<div className={classes['innerWrapper__select']}>
-					<SelectFromOptions
-						componentWidth="230px"
-						defaultValue="Expires"
-						border="1px solid #BBB8CA"
+				<div className={classes['innerWrapper__selectWrapper']}>
+					<EDSelect
+						className={selectClasses}
+						placeholder="Expires"
+						options={secretExpiry}
 						selectedOptionIndex={props.selectedSortByOptionIndexState}
-						placeholderColor={!props.dispalyModalRightSide ? '#4b4a65' : '#BBB8CA'}
-						isDisabled={props.dispalyModalRightSide}
-						isShowMoreClicked={props.isSortByClickedState}
-						optionsList={secretExpiry}
-						onSelectOptionsButton={props.onSortBy}
-						onSelectedOption={props.onSelectedSortBy}
+						onOptionSelect={props.onSortBy}
 					/>
-					{props.selectedSortByOptionIndexState === 4 && !props.dispalyModalRightSide && (
+					{props.selectedSortByOptionIndexState === 4 && !props.dispalyRightSideModal && (
 						<DatePicker
 							className={classes['datePicker']}
 							selected={new Date(props.expiryDate)}

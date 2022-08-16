@@ -10,9 +10,9 @@ import classes from './TokenModal.module.scss';
 
 interface IProps {
 	readonly clientSecret: string;
-	readonly dispalyModalRightSide: boolean;
+	readonly dispalyRightSideModal: boolean;
 	readonly setClientSecret: React.Dispatch<React.SetStateAction<string>>;
-	readonly setDispalyModalRightSide: React.Dispatch<React.SetStateAction<boolean>>;
+	readonly setDispalyRightSideModal: React.Dispatch<React.SetStateAction<boolean>>;
 	readonly onCloseModal: () => void;
 }
 
@@ -25,11 +25,11 @@ const TokenModalView: React.FC<IProps> = (props) => {
 					<div className={classes['secretCreation']}>
 						<LeftSide
 							setClientSecret={props.setClientSecret}
-							setDispalyModalRightSide={props.setDispalyModalRightSide}
-							dispalyModalRightSide={props.dispalyModalRightSide}
+							setDispalyRightSideModal={props.setDispalyRightSideModal}
+							dispalyRightSideModal={props.dispalyRightSideModal}
 						/>
 						<hr className={classes['secretCreation__divider']} />
-						{props.dispalyModalRightSide && (
+						{props.dispalyRightSideModal && (
 							<RightSide clientSecret={props.clientSecret} onCloseModal={props.onCloseModal} />
 						)}
 					</div>
