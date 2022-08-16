@@ -258,7 +258,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.8
-      i18next: 21.9.0
+      i18next: 21.9.1
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2
       prettier: 2.6.2
@@ -281,10 +281,10 @@ importers:
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       axios: 0.27.2
-      i18next: 21.9.0
+      i18next: 21.9.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 11.18.4_e5iznsk4khvwamygeotad7ngzi
+      react-i18next: 11.18.4_4sidbwfhen5r7txudrvpua6nty
       react-redux: 8.0.2_76am3hp3mjvgy3cckgdecixdi4
       react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
       typescript: 4.7.4
@@ -9731,8 +9731,8 @@ packages:
       '@babel/runtime': 7.18.9
     dev: true
 
-  /i18next/21.9.0:
-    resolution: {integrity: sha512-B+6/yd7rCpJidyPuBaEApUECx7G8Ai6+tqYhrChsY4MmQqJhG7qJ4eT6Lm1OnRhieVelEtfxh4aAQktdNVZtDA==}
+  /i18next/21.9.1:
+    resolution: {integrity: sha512-ITbDrAjbRR73spZAiu6+ex5WNlHRr1mY+acDi2ioTHuUiviJqSz269Le1xHAf0QaQ6GgIHResUhQNcxGwa/PhA==}
     dependencies:
       '@babel/runtime': 7.18.9
     dev: false
@@ -13624,7 +13624,7 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: true
 
-  /react-i18next/11.18.4_e5iznsk4khvwamygeotad7ngzi:
+  /react-i18next/11.18.4_4sidbwfhen5r7txudrvpua6nty:
     resolution: {integrity: sha512-gK/AylAQC5DvCD5YLNCHW4PNzpCfrWIyVAXbSMl+/5QXzlDP8VdBoqE2s2niGHB+zIXwBV9hRXbDrVuupbgHcg==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -13639,7 +13639,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.9
       html-parse-stringify: 3.0.1
-      i18next: 21.9.0
+      i18next: 21.9.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
