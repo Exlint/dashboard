@@ -72,7 +72,7 @@ const en = {
 				header: 'Create your first Group',
 			},
 			group: {
-				uniqId: 'Unique ID:',
+				uniqueId: 'Unique ID:',
 				policies: 'Policies:',
 				additional: '+ Additional..',
 				copy: 'Copy',

@@ -11,7 +11,7 @@ interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number;
 	readonly searchGroupInput: string | null;
-	readonly onSelectGroup: (index: number) => void;
+	readonly onSelectGroup: (_: number) => void;
 }
 
 const GroupsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

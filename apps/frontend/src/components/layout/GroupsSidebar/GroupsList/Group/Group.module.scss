@@ -2,7 +2,7 @@
 	display: flex;
 	padding: 38px 0;
 
-	&--isSelected {
+	&--selected {
 		background-color: #d9d9d91a;
 	}
 
@@ -17,7 +17,7 @@
 		height: min-content;
 		padding: 0 24px;
 
-		.leftSideContainer {
+		.groupDetailsContainer {
 			display: flex;
 			flex-direction: column;
 			-webkit-font-smoothing: antialiased;
@@ -26,13 +26,10 @@
 				-webkit-font-smoothing: antialiased;
 				font-size: 2.4rem;
 				font-weight: 500;
+				color: #202428;
 
-				&--isSelected {
+				&--selected {
 					color: #7a4df3;
-				}
-
-				&--notSelected {
-					color: #202428;
 				}
 			}
 
@@ -96,7 +93,7 @@
 
 					&__logo {
 						width: 18px;
-						height: 16px;
+						height: auto;
 					}
 				}
 

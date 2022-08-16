@@ -14,8 +14,8 @@ interface IProps {
 	readonly selectedGroupIndex: number | null;
 	readonly searchGroupInput: string | null;
 	readonly onCreateNewGroup: () => void;
-	readonly onSelectGroup: (index: number) => void;
-	readonly onSearchGroupInput: (input: string) => void;
+	readonly onSelectGroup: (_: number) => void;
+	readonly onSearchGroupInput: (_: string) => void;
 }
 
 const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

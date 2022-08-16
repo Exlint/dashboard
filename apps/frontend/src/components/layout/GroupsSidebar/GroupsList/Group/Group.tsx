@@ -14,11 +14,10 @@ interface IProps {
 
 const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
-
-	let slicedPolicies: IPolicyData[] = [];
+	const [slicedPoliciesState, setSlicedPoliciesState] = useState<IPolicyData[]>([]);
 
 	if (props.policies !== undefined) {
-		slicedPolicies = props.policies.slice(0, 4);
+		setSlicedPoliciesState(() => props.policies.slice(0, 4));
 	}
 
 	const onCopyGroupId = async () => {
@@ -33,7 +32,7 @@ const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		<GroupView
 			groupId={props.groupId}
 			groupLabel={props.groupLabel}
-			policies={slicedPolicies}
+			policies={slicedPoliciesState}
 			isSelected={props.isSelected}
 			copyGroupId={copyGroupIdState}
 			onSelectGroup={props.onSelectGroup}

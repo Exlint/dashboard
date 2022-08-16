@@ -21,30 +21,28 @@ interface IProps {
 const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
+	const titleClasses = props.isSelected
+		? concatClasses(
+				classes,
+				'groupDetailsContainer__title',
+				props.isSelected && 'groupDetailsContainer__title--selected',
+		  )
+		: classes['groupDetailsContainer__title'];
+
 	return (
-		<div
+		<section
 			className={concatClasses(
 				classes,
 				'container',
-				props.isSelected ? 'container--isSelected' : 'container--notSelected',
+				props.isSelected ? 'container--selected' : 'container--notSelected',
 			)}
 		>
 			<div className={classes['innerGroup']}>
-				<div className={classes['leftSideContainer']}>
-					<h3
-						className={concatClasses(
-							classes,
-							'leftSideContainer__title',
-							props.isSelected
-								? 'leftSideContainer__title--isSelected'
-								: 'leftSideContainer__title--notSelected',
-						)}
-					>
-						{props.groupLabel}
-					</h3>
+				<div className={classes['groupDetailsContainer']}>
+					<h3 className={titleClasses}>{props.groupLabel}</h3>
 					<div className={classes['uniqueIdContainer']}>
 						<span className={classes['uniqueIdContainer__text']}>
-							{t('groupCenter.groupSideBar.group.uniqId')}
+							{t('groupCenter.groupSideBar.group.uniqueId')}
 						</span>
 						<button
 							className={classes['uniqIdCopyButton']}
@@ -64,12 +62,12 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<span className={classes['policiesContainer__text']}>
 							{t('groupCenter.groupSideBar.group.policies')}
 						</span>
-						{props.policies.map((policy, index) => {
+						{props.policies.map((policy) => {
 							const libraryNameInLowerCase =
 								policy.libraryName.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
 
 							return (
-								<div className={classes['innerLibraryLogo']} key={index}>
+								<div className={classes['innerLibraryLogo']} key={policy.id}>
 									<img
 										className={classes['innerLibraryLogo__logo']}
 										src={logosObject[libraryNameInLowerCase]}
@@ -85,12 +83,11 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						)}
 					</div>
 				</div>
-
 				<button className={classes['getInfoButton']} type="button" onClick={props.onSelectGroup}>
 					<EDSvg className={classes['getInfoButton__icon']} name="arrowRight" />
 				</button>
 			</div>
-		</div>
+		</section>
 	);
 };
 
