@@ -22,11 +22,7 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	const { t } = useTranslation();
 
 	const titleClasses = props.isSelected
-		? concatClasses(
-				classes,
-				'groupDetailsContainer__title',
-				props.isSelected && 'groupDetailsContainer__title--selected',
-		  )
+		? concatClasses(classes, 'groupDetailsContainer__title', 'groupDetailsContainer__title--selected')
 		: classes['groupDetailsContainer__title'];
 
 	return (
