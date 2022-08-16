@@ -31,9 +31,10 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 		props.isTooltipVisible ? 'buttonContainer__arrow--tooltipIsVisible' : null,
 	);
 
-	const selectText = props.selectedOptionIndex
-		? props.options[props.selectedOptionIndex]
-		: props.placeholder ?? props.options[0];
+	const selectText =
+		props.selectedOptionIndex !== null
+			? props.options[props.selectedOptionIndex]
+			: props.placeholder ?? props.options[0];
 
 	return (
 		<div className={containerClasses}>
