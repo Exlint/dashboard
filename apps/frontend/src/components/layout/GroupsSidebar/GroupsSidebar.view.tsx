@@ -43,7 +43,7 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						<EDSvg name="plus" className={classes['buttonContainer__icon']} />
 					</button>
 				</div>
-				<hr className={classes['dividerLine']} />
+				<hr className={classes['divider']} />
 				{props.groupsList.length !== 0 ? (
 					<GroupsList
 						groupsList={props.groupsList}

@@ -56,9 +56,9 @@
 			}
 		}
 
-		.dividerLine {
+		.divider {
 			width: 100%;
-			margin-top: 27px;
+			inset-block-start: 27px;
 			border: 2px solid #e7e7e7;
 		}
 	}
