@@ -25,7 +25,7 @@ importers:
       is-ci: 3.0.1
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
-      pnpm: 7.9.0
+      pnpm: 7.9.3
       prettier: 2.7.1
       prisma: 4.2.1
       rimraf: 3.0.2
@@ -53,7 +53,7 @@ importers:
       is-ci: 3.0.1
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
-      pnpm: 7.9.0
+      pnpm: 7.9.3
       prettier: 2.7.1
       prisma: 4.2.1
       rimraf: 3.0.2
@@ -312,7 +312,7 @@ importers:
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.16
       prettier: 2.6.2
-      react-scripts: 5.0.1_bepvyhfgbkaa6avbjg24r6kpmy
+      react-scripts: 5.0.1_6c7ngzsqwz22dfgdoxenzdnsd4
       sass: 1.54.4
       stylelint: 14.10.0
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.10.0
@@ -3037,7 +3037,7 @@ packages:
       cosmiconfig-typescript-loader: 1.0.9_zgusdg2syqzg2kik2gzyf5b6di
       cross-spawn: 7.0.3
       lodash: 4.17.21
-      react-scripts: 5.0.1_bepvyhfgbkaa6avbjg24r6kpmy
+      react-scripts: 5.0.1_6c7ngzsqwz22dfgdoxenzdnsd4
       semver: 7.3.7
       webpack-merge: 4.2.2
     transitivePeerDependencies:
@@ -12517,8 +12517,8 @@ packages:
     resolution: {integrity: sha512-k+YsbhpA9e+EFfKjTCH3VW6aoKlyNYI6NYdTfDL4CIvFnvsuO84ttonmZE7rc+v23SLTH8XX+5w/Ak9v0xGY4g==}
     dev: true
 
-  /pnpm/7.9.0:
-    resolution: {integrity: sha512-xkIVw73yJm/h5M4VvFIS5Q+gQCRDrp3r92g58PtcCK86aZCa7EQ6q6ivdfTAz0KsAVgloA6Anub28n6wju5v3w==}
+  /pnpm/7.9.3:
+    resolution: {integrity: sha512-0hpAD1vtILw0i9gTN4ffagnScWMW9/avfZIKllBUd++fAvCss+hVgPPDd0HS9XcOT675gid4H9esGkbLdaFy+w==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
@@ -13577,6 +13577,12 @@ packages:
   /react-dev-utils/12.0.1_xvfofffqhbzu57xid4ydrr2xpu:
     resolution: {integrity: sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ==}
     engines: {node: '>=14'}
+    peerDependencies:
+      typescript: '>=2.7'
+      webpack: '>=4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     dependencies:
       '@babel/code-frame': 7.18.6
       address: 1.2.0
@@ -13602,12 +13608,12 @@ packages:
       shell-quote: 1.7.3
       strip-ansi: 6.0.1
       text-table: 0.2.0
+      typescript: 4.7.4
+      webpack: 5.73.0
     transitivePeerDependencies:
       - eslint
       - supports-color
-      - typescript
       - vue-template-compiler
-      - webpack
     dev: true
 
   /react-dom/18.2.0_react@18.2.0:
@@ -13713,11 +13719,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-scripts/5.0.1_bepvyhfgbkaa6avbjg24r6kpmy:
+  /react-scripts/5.0.1_6c7ngzsqwz22dfgdoxenzdnsd4:
     resolution: {integrity: sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
+      eslint: '*'
       react: '>= 16'
       typescript: ^3.2.1 || ^4
     peerDependenciesMeta:
@@ -13766,7 +13773,7 @@ packages:
       semver: 7.3.7
       source-map-loader: 3.0.1_webpack@5.73.0
       style-loader: 3.3.1_webpack@5.73.0
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.16
       terser-webpack-plugin: 5.3.3_webpack@5.73.0
       typescript: 4.7.4
       webpack: 5.73.0
@@ -15258,10 +15265,12 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /tailwindcss/3.1.6:
+  /tailwindcss/3.1.6_postcss@8.4.16:
     resolution: {integrity: sha512-7skAOY56erZAFQssT1xkpk+kWt2NrO45kORlxFPXUt3CiGsVPhH1smuH5XoDH6sGPXLyBv+zgCKA2HWBsgCytg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
