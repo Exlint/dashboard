@@ -11,7 +11,7 @@ import classes from './Group.module.scss';
 interface IProps {
 	readonly groupId: string;
 	readonly groupLabel: string;
-	readonly policies: IPolicyData[];
+	readonly policies: IPolicyData[] | null;
 	readonly isSelected: boolean;
 	readonly copyGroupId: boolean;
 	readonly onSelectGroup: () => void;
@@ -58,20 +58,21 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<span className={classes['policiesContainer__text']}>
 							{t('groupCenter.groupSideBar.group.policies')}
 						</span>
-						{props.policies.map((policy) => {
-							const libraryNameInLowerCase =
-								policy.libraryName.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
+						{props.policies &&
+							props.policies.map((policy) => {
+								const libraryNameInLowerCase =
+									policy.libraryName.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
 
-							return (
-								<div className={classes['innerLibraryLogo']} key={policy.id}>
-									<img
-										className={classes['innerLibraryLogo__logo']}
-										src={logosObject[libraryNameInLowerCase]}
-										alt="library logo"
-									/>
-								</div>
-							);
-						})}
+								return (
+									<div className={classes['innerLibraryLogo']} key={policy.id}>
+										<img
+											className={classes['innerLibraryLogo__logo']}
+											src={logosObject[libraryNameInLowerCase]}
+											alt="library logo"
+										/>
+									</div>
+								);
+							})}
 						{props.policies && props.policies.length > 4 && (
 							<span className={classes['policiesContainer__text']}>
 								{t('groupCenter.groupSideBar.group.additional')}

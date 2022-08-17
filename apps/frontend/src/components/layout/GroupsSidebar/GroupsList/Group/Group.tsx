@@ -14,7 +14,7 @@ interface IProps {
 
 const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [copyGroupIdState, setCopyGroupIdState] = useState<boolean>(false);
-	const [slicedPoliciesState, setSlicedPoliciesState] = useState<IPolicyData[]>([]);
+	const [slicedPoliciesState, setSlicedPoliciesState] = useState<IPolicyData[] | null>(null);
 
 	if (props.policies !== undefined) {
 		setSlicedPoliciesState(() => props.policies.slice(0, 4));

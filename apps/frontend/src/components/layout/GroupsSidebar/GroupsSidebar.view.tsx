@@ -22,7 +22,7 @@ const GroupsSidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 	const { t } = useTranslation();
 
 	return (
-		<div className={classes['sidebar']}>
+		<div className={classes['container']}>
 			<div className={classes['innerSidebar']}>
 				<div className={classes['searchContainer']}>
 					<input
