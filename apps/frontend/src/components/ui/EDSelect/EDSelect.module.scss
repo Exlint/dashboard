@@ -1,81 +1,64 @@
 .container {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	border-radius: 10px;
-	box-shadow: (0 11.4496px 15.6131px #0000000d);
-	inset-inline-end: 0;
+	width: 200px;
 
-	.selectedOptionsVisible {
+	.buttonContainer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 100%;
+		width: 100%;
 		padding: 10px 14px;
-		white-space: nowrap;
 		background-color: #fefefe;
+		border: 2px solid #e7e7e7;
+
+		&--tooltipIsVisible {
+			border-start-start-radius: 10px;
+			border-start-end-radius: 10px;
+		}
+
+		&--tooltipIsInvisible {
+			border-radius: 10px;
+		}
 
 		&__text {
-			width: inherit;
-			overflow: hidden;
 			font-size: 1.5rem;
 			font-weight: 360;
 			color: #4b4a65;
-			text-overflow: ellipsis;
-			white-space: no-wrap;
+			white-space: nowrap;
 		}
 
-		.moreOptionsButton {
-			&__arrowDown {
-				width: 11px;
-				height: 8px;
-				fill: transparent;
-				stroke: #202428;
-			}
+		&__arrow {
+			width: auto;
+			height: 8px;
+			fill: transparent;
+			stroke: #202428;
+			stroke-linecap: round;
+			stroke-width: 2;
+			transition: transform 0.3s ease;
 
-			&__arrowRight {
-				width: 8px;
-				height: 11px;
-				fill: transparent;
-				stroke: #202428;
+			&--tooltipIsVisible {
+				transform: rotate(90deg);
 			}
 		}
 	}
 
-	.selectedOptionsInvisible {
+	.optionsContainer {
 		position: absolute;
-		top: 40px;
-		z-index: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		justify-content: space-between;
+		width: 100%;
 		padding: 10px 14px;
-		white-space: nowrap;
 		background-color: #fefefe;
-		border-radius: 0 0 10px 10px;
-
-		&__divider {
-			width: 100%;
-			margin-bottom: 9px;
-			border: 1px solid #e7e7e7;
-		}
+		border: 2px solid #e7e7e7;
+		border-top: none;
+		border-end-start-radius: 10px;
+		border-end-end-radius: 10px;
 
 		&__option {
-			width: calc(100% - 20px);
-			overflow: hidden;
 			font-size: 1.5rem;
 			font-weight: 360;
 			color: #4b4a65;
-			text-align: left;
-			text-overflow: ellipsis;
-			white-space: no-wrap;
-		}
-
-		&__option:not(:last-child) {
-			margin-bottom: 5px;
 		}
 	}
 }

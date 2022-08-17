@@ -44,11 +44,14 @@ const NoPoliciesView: React.FC<IProps> = () => {
 				<div className={classes['stepsContainer']}>
 					<div className={classes['libraryStep']}>
 						<div className={classes['iconsContainer']}>
-							<img
-								className={classes['iconsContainer__brandLogo']}
-								src={brandLogo}
-								alt="brand logo"
-							/>
+							<div className={classes['brandLogoContainer']}>
+								<img
+									className={classes['brandLogoContainer__logo']}
+									src={brandLogo}
+									alt="brand logo"
+								/>
+							</div>
+
 							<EDSvg
 								className={classes['iconsContainer__chooseLibrary']}
 								name="chooseLibrary"

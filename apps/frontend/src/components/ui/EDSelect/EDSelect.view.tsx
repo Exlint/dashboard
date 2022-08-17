@@ -1,57 +1,56 @@
 import React from 'react';
 
-import { concatDiverseClasses } from '@/utils/component';
+import { concatClasses, concatDiverseClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
 
 import classes from './EDSelect.module.scss';
 
 interface IProps {
-	readonly placeholder?: string;
 	readonly className?: string;
+	readonly placeholder?: string;
+	readonly options: string[];
 	readonly selectedOptionIndex: number | null;
-	readonly optionsList: string[];
 	readonly tooltopRef: React.RefObject<HTMLDivElement>;
 	readonly isTooltipVisible: boolean;
 	readonly toggleTooltipVisibility: () => void;
-	readonly onSelect: (index: number) => void;
+	readonly onOptionSelect: (index: number) => void;
 }
 
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const buttonContainer = concatDiverseClasses(classes['selectedOptionsVisible'], props.className);
-	const tooltipContainer = concatDiverseClasses(classes['selectedOptionsInvisible'], props.className);
+	const containerClasses = concatDiverseClasses(classes['container'], props.className);
+
+	const buttonContainerClasses = concatClasses(
+		classes,
+		'buttonContainer',
+		props.isTooltipVisible ? 'buttonContainer--tooltipIsVisible' : 'buttonContainer--tooltipIsInvisible',
+	);
+
+	const selectArrowIconClasses = concatClasses(
+		classes,
+		'buttonContainer__arrow',
+		props.isTooltipVisible ? 'buttonContainer__arrow--tooltipIsVisible' : null,
+	);
+
+	const selectText =
+		props.selectedOptionIndex !== null
+			? props.options[props.selectedOptionIndex]
+			: props.placeholder ?? props.options[0];
 
 	return (
-		<div className={classes['container']}>
-			<button
-				type="button"
-				className={buttonContainer}
-				style={{
-					borderRadius: props.isTooltipVisible ? '10px 10px 0 0' : '10px',
-				}}
-			>
-				<span className={classes['selectedOptionsVisible__text']}>
-					{props.placeholder ?? props.optionsList[0]}
-				</span>
+		<div className={containerClasses}>
+			<button className={buttonContainerClasses} type="button" onClick={props.toggleTooltipVisibility}>
+				<span className={classes['buttonContainer__text']}>{selectText}</span>
 
-				<div className={classes['moreOptionsButton']}>
-					<EDSvg
-						className={
-							props.isTooltipVisible
-								? classes['moreOptionsButton__arrowDown']
-								: classes['moreOptionsButton__arrowRight']
-						}
-						name={props.isTooltipVisible ? 'arrowDown' : 'arrowRight'}
-					/>
-				</div>
+				<EDSvg className={selectArrowIconClasses} name="arrowRight" />
 			</button>
 			{props.isTooltipVisible && (
-				<div ref={props.tooltopRef} className={tooltipContainer}>
-					{props.optionsList.map((option, index) => (
+				<div ref={props.tooltopRef} className={classes['optionsContainer']}>
+					{props.options.map((option, index) => (
 						<button
 							key={index}
-							className={classes['selectedOptionsInvisible__option']}
+							className={classes['optionsContainer__option']}
 							type="button"
-							onClick={() => props.onSelect(index)}
+							onClick={() => props.onOptionSelect(index)}
 						>
 							{option}
 						</button>

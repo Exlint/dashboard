@@ -80,11 +80,10 @@ const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 							</div>
 						</div>
 						<EDSelect
-							className={classes['selectContainer']}
 							placeholder="Sort by"
 							selectedOptionIndex={props.selectedSortByOptionIndex}
-							optionsList={sortByOptions}
-							onSelect={props.onSelect}
+							options={sortByOptions}
+							onOptionSelect={props.onSelect}
 						/>
 					</div>
 				</div>

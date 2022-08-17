@@ -41,11 +41,13 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				type="button"
 				onClick={() => props.onSelectLibrary(props.name)}
 			>
-				<img
-					className={classes['innerLibrary__logo']}
-					src={logosObject[libraryNameInLowerCase]}
-					alt="library logo"
-				/>
+				<div className={classes['logoContainer']}>
+					<img
+						className={classes['logoContainer__logo']}
+						src={logosObject[libraryNameInLowerCase]}
+						alt="library logo"
+					/>
+				</div>
 				<div className={classes['textContainer']}>
 					<span
 						className={classes['textContainer__title']}

@@ -5,11 +5,11 @@ import { useClickOutside } from '@/hooks/click-outside';
 import EdSelectView from './EDSelect.view';
 
 interface IProps {
-	readonly placeholder?: string;
 	readonly className?: string;
+	readonly placeholder?: string;
+	readonly options: string[];
 	readonly selectedOptionIndex: number | null;
-	readonly optionsList: string[];
-	readonly onSelect: (index: number) => void;
+	readonly onOptionSelect: (index: number) => void;
 }
 
 const EDSelect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -19,21 +19,21 @@ const EDSelect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		toggleVisibility: toggleTooltipVisibility,
 	} = useClickOutside<HTMLDivElement>(false);
 
-	const onSelect = (index: number) => {
-		props.onSelect(index);
+	const onOptionSelect = (index: number) => {
+		props.onOptionSelect(index);
 		toggleTooltipVisibility();
 	};
 
 	return (
 		<EdSelectView
-			placeholder={props.placeholder}
 			className={props.className}
+			placeholder={props.placeholder}
+			options={props.options}
 			selectedOptionIndex={props.selectedOptionIndex}
-			optionsList={props.optionsList}
 			tooltopRef={tooltopRef}
 			isTooltipVisible={isTooltipVisible}
 			toggleTooltipVisibility={toggleTooltipVisibility}
-			onSelect={onSelect}
+			onOptionSelect={onOptionSelect}
 		/>
 	);
 };
