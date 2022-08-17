@@ -23,21 +23,12 @@ const TokenTable: React.FC<IProps> = () => {
 		});
 	}, []);
 
-	const onRevokeSecret = (secretId: string) => {
-		backendApi.delete(`user/secrets/${secretId}`);
-	};
-
 	const onRefreshSecret = (secretId: string) => {
 		backendApi.delete(`user/secrets/refresh-secret/${secretId}`);
 	};
 
 	return (
-		<TokenTableView
-			secrets={secretsState}
-			formatDate={formatDate}
-			onRefreshSecret={onRefreshSecret}
-			onRevokeSecret={onRevokeSecret}
-		/>
+		<TokenTableView secrets={secretsState} formatDate={formatDate} onRefreshSecret={onRefreshSecret} />
 	);
 };
 

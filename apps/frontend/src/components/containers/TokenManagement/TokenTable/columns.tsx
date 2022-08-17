@@ -1,9 +1,25 @@
+import type { ISecrets } from '@/interfaces/secrets';
+import { backendApi } from '@/utils/http';
+
 interface IColumns {
 	readonly title: string;
 	readonly dataIndex: string;
 	readonly key: string;
 	readonly width: number;
+	readonly render?: () => JSX.Element;
 }
+
+const onRevokeSecret = (secretId: string) => {
+	backendApi.delete(`user/secrets/${secretId}`);
+};
+
+const conRevokeSecret = (key: React.Key, e: React.MouseEvent<HTMLElement>) => {
+	e.preventDefault();
+
+	this.setState(({ data }) => ({
+		data: data.filter((item) => item.key !== key),
+	}));
+};
 
 export const tableColumns: IColumns[] = [
 	{
@@ -41,5 +57,12 @@ export const tableColumns: IColumns[] = [
 		dataIndex: 'delete',
 		key: 'delete',
 		width: 100,
+		// eslint-disable-next-line react/display-name
+		render: (record: ISecrets) => (
+			// eslint-disable-next-line react/react-in-jsx-scope
+			<a href="#" onClick={(event) => onRevokeSecret(record.key, event)}>
+				Delete
+			</a>
+		),
 	},
 ];

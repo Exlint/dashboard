@@ -11,8 +11,8 @@ import classes from './LeftSide.module.scss';
 
 interface IProps {
 	readonly isExpiresClickedState: boolean | null;
-	readonly selectedSortByOptionIndexState: number | null;
-	readonly labelState?: string;
+	readonly expirySelectedIndexState: number | null;
+	readonly labelState?: string | null;
 	readonly createSecretButtonState: boolean;
 	readonly isSortByClickedState: boolean;
 	readonly dispalyRightSideModal: boolean;
@@ -62,10 +62,10 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						className={selectClasses}
 						placeholder="Expires"
 						options={secretExpiry}
-						selectedOptionIndex={props.selectedSortByOptionIndexState}
-						onOptionSelect={props.onSortBy}
+						selectedOptionIndex={props.expirySelectedIndexState}
+						onOptionSelect={props.onSelectedSortBy}
 					/>
-					{props.selectedSortByOptionIndexState === 4 && !props.dispalyRightSideModal && (
+					{props.expirySelectedIndexState === 4 && !props.dispalyRightSideModal && (
 						<DatePicker
 							className={classes['datePicker']}
 							selected={new Date(props.expiryDate)}

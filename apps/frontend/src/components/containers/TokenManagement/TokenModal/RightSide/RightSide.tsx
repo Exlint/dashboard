@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import RightSideView from './RightSide.view';
 
 interface IProps {
-	readonly clientSecret: string;
+	readonly clientSecret: string | null;
+	readonly secretLabel: string | null;
 	readonly onCloseModal: () => void;
 }
 
@@ -13,7 +14,7 @@ const RightSide: React.FC<IProps> = (props) => {
 	const onCopyToken = async () => {
 		setCopyTokenState(true);
 
-		await navigator.clipboard.writeText(props.clientSecret);
+		await navigator.clipboard.writeText(props.clientSecret!);
 
 		setTimeout(() => setCopyTokenState(false), 2000);
 	};
@@ -21,6 +22,7 @@ const RightSide: React.FC<IProps> = (props) => {
 	return (
 		<RightSideView
 			clientSecret={props.clientSecret}
+			secretLabel={props.secretLabel}
 			copyToken={copyTokenState}
 			onCloseModal={props.onCloseModal}
 			onCopyToken={onCopyToken}

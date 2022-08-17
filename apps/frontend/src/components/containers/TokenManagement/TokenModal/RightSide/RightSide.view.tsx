@@ -8,7 +8,8 @@ import { concatClasses } from '@/utils/component';
 import classes from './RightSide.module.scss';
 
 interface IProps {
-	readonly clientSecret: string;
+	readonly clientSecret: string | null;
+	readonly secretLabel: string | null;
 	readonly copyToken: boolean;
 	readonly onCopyToken: () => void;
 	readonly onCloseModal: () => void;
@@ -38,7 +39,7 @@ const RightSideView: React.FC<IProps> = (props) => {
 					</div>
 					<div className={classes['idWrapper']}>
 						<span className={classes['idWrapper__id']}>
-							{props.clientSecret.substring(0, 30) + '...'}
+							{props.clientSecret!.substring(0, 30) + '...'}
 						</span>
 						<EDSvg
 							name="tokenClientId"
@@ -58,8 +59,8 @@ const RightSideView: React.FC<IProps> = (props) => {
 					</div>
 					<CSVLink
 						className={classes['downloadCsv__iconWrapper']}
-						data={props.clientSecret}
-						filename="token.csv"
+						data={props.clientSecret!}
+						filename={`${props.secretLabel}.csv`}
 					>
 						<EDSvg className={classes['downloadCsv__icon']} name="dwonloadCsv" />
 					</CSVLink>

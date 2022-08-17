@@ -26,10 +26,10 @@
 
 		&__input {
 			width: 230px;
-			height: 40px;
+			height: 42px;
 			padding: 8px 7px;
 			background-color: #fefefe;
-			border: 1px solid #bbb8ca;
+			border: 2px solid #e7e7e7;
 			border-radius: 10px;
 
 			&:not(:last-child) {
@@ -46,11 +46,7 @@
 			align-items: center;
 
 			.select {
-				width: 230px;
-				border: 3px solid red;
-
-				&--disabled {
-				}
+				min-width: 230px;
 			}
 
 			.datePicker {
@@ -75,7 +71,7 @@
 		&:disabled {
 			color: #ebe5fa;
 			background-color: #8197b8;
-			border: none;
+			border: 1px solid #2355a0;
 		}
 	}
 }

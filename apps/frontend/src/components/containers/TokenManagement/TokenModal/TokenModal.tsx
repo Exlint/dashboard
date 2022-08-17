@@ -8,14 +8,20 @@ interface IProps {
 
 const TokenModal: React.FC<IProps> = (props) => {
 	const [dispalyRightSideModalState, setDispalyRightSideModalState] = useState<boolean>(false);
-	const [clientSecretState, setClientSecretState] = useState<string>('');
+	const [clientSecretState, setClientSecretState] = useState<string | null>(null);
+	const [secretLabelState, setSecretLabelState] = useState<string | null>(null);
+
+	const onSecretLabelChange = (value: string) => setSecretLabelState(() => value);
+	const onClientSecretChange = (value: string) => setClientSecretState(() => value);
 
 	return (
 		<TokenModalView
 			clientSecret={clientSecretState}
+			secretLabel={secretLabelState}
 			dispalyRightSideModal={dispalyRightSideModalState}
-			setClientSecret={setClientSecretState}
 			setDispalyRightSideModal={setDispalyRightSideModalState}
+			onSecretLabelChange={onSecretLabelChange}
+			onClientSecretChange={onClientSecretChange}
 			onCloseModal={props.onCloseModal}
 		/>
 	);

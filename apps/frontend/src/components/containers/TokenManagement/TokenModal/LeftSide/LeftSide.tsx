@@ -8,38 +8,42 @@ import type { ICreateSecretResponseData } from '@/interfaces/responses';
 import LeftSideView from './LeftSide.view';
 
 interface IProps {
-	readonly setClientSecret: React.Dispatch<React.SetStateAction<string>>;
 	readonly dispalyRightSideModal: boolean;
 	readonly setDispalyRightSideModal: React.Dispatch<React.SetStateAction<boolean>>;
+	readonly onSecretLabelChange: (_: string) => void;
+	readonly onClientSecretChange: (_: string) => void;
 }
 
 const LeftSide: React.FC<IProps> = (props) => {
-	const [labelState, setLabelState] = useState<string>('');
-	const [selectedSortByOptionIndexState, setSelectedSortByOptionIndexState] = useState<number | null>(null);
+	const [labelState, setLabelState] = useState<string | null>(null);
+	const [expirySelectedIndexState, setExpirySelectedIndexState] = useState<number | null>(null);
 	const [createSecretButtonState, setCreateSecretButtonState] = useState<boolean>(false);
 	const [isSortByClickedState, setIsSortByClickedState] = useState<boolean>(false);
 	const [isExpiresClickedState, setExpiresClickedState] = useState<boolean | null>(false);
 	const [expiryDateState, setExpiryDateState] = useState<Date>(new Date());
 
 	useEffect(() => {
-		if (labelState && labelState.length >= 2 && selectedSortByOptionIndexState !== null) {
+		if (labelState && labelState.length >= 2 && expirySelectedIndexState !== null) {
 			setCreateSecretButtonState(() => true);
 		} else {
 			setCreateSecretButtonState(() => false);
 		}
-	}, [labelState, selectedSortByOptionIndexState]);
+	}, [labelState, expirySelectedIndexState]);
 
 	const onDisplayRightSide = () => {
 		props.setDispalyRightSideModal(() => true);
 		setCreateSecretButtonState(() => false);
 	};
 
-	const onLabelChange = (value: string) => setLabelState(() => value);
+	const onLabelChange = (value: string) => {
+		setLabelState(() => value);
+		props.onSecretLabelChange(value);
+	};
 
 	const onDatePicker = (value: Date) => setExpiryDateState(() => value);
 
 	const onSelectedSortBy = (index: number) => {
-		setSelectedSortByOptionIndexState(() => index);
+		setExpirySelectedIndexState(() => index);
 		setIsSortByClickedState(() => false);
 		setExpiryDateState(() => addDaysToDate(expiryDays[index]!));
 	};
@@ -56,7 +60,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 				expiration: formattedDate,
 			})
 			.then((response) => {
-				props.setClientSecret(() => response.data.clientSecret);
+				props.onClientSecretChange(response.data.clientSecret);
 				props.setDispalyRightSideModal(() => true);
 				setCreateSecretButtonState(() => false);
 			});
@@ -65,7 +69,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 	return (
 		<LeftSideView
 			isExpiresClickedState={isExpiresClickedState}
-			selectedSortByOptionIndexState={selectedSortByOptionIndexState}
+			expirySelectedIndexState={expirySelectedIndexState}
 			isSortByClickedState={isSortByClickedState}
 			labelState={labelState}
 			createSecretButtonState={createSecretButtonState}
