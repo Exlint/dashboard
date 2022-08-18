@@ -1,34 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { backendApi } from '@/utils/http';
 import type { ISecrets } from '@/interfaces/secrets';
-import type { IGetSecretsResponseData } from '@/interfaces/responses';
 
 import TokenTableView from './TokenTable.view';
 
-interface IProps {}
+interface IProps {
+	readonly secrets: ISecrets[] | null;
+}
 
-const TokenTable: React.FC<IProps> = () => {
-	const [secretsState, setSecretsState] = useState<ISecrets[]>([]);
-
+const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const formatDate = (unixDate: number) => {
 		const date = new Date(unixDate);
 
 		return new Intl.DateTimeFormat('en-gb', { dateStyle: 'full' }).format(date);
 	};
 
-	useEffect(() => {
-		backendApi.get<IGetSecretsResponseData>('user/secrets').then((response) => {
-			setSecretsState(() => response.data.secrets);
-		});
-	}, []);
+	const onRevokeSecret = (secretId: string) => {
+		backendApi.delete(`user/secrets/${secretId}`);
+	};
 
 	const onRefreshSecret = (secretId: string) => {
 		backendApi.delete(`user/secrets/refresh-secret/${secretId}`);
 	};
 
 	return (
-		<TokenTableView secrets={secretsState} formatDate={formatDate} onRefreshSecret={onRefreshSecret} />
+		<TokenTableView
+			secrets={props.secrets}
+			formatDate={formatDate}
+			onRefreshSecret={onRefreshSecret}
+			onRevokeSecret={onRevokeSecret}
+		/>
 	);
 };
 

@@ -4,17 +4,19 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
 import SettingsSidebar from '@/layout/SettingsSidebar';
+import type { ISecrets } from '@/interfaces/secrets';
 
+import TokenTable from './TokenTable';
 import TokenModal from './TokenModal';
 
 import classes from './TokenManagement.module.scss';
-import TokenTable from './TokenTable';
 
 interface IProps {
+	readonly secrets: ISecrets[] | null;
 	readonly isModelOnView: boolean;
 	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
-	readonly tokenLabelState?: string;
+	readonly tokenLabelState: string | null;
 	readonly onRevokeAllSecrets: () => void;
 	readonly onChangeGroupLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
@@ -72,7 +74,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							{props.isModelOnView && <TokenModal onCloseModal={props.onCloseModal} />}
 						</div>
 					</div>
-					<TokenTable />
+					<TokenTable secrets={props.secrets} />
 					<div className={classes['footer']}>
 						<span className={classes['footer__text']}>
 							{t('tokenManagement.table.total')}
