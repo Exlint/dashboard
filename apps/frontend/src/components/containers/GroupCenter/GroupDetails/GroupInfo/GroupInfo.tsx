@@ -9,9 +9,9 @@ import GroupInfoView from './GroupInfo.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
-	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
-	readonly onAddGroup: (group: IGroup) => void;
-	readonly onRemoveGroup: (groupId: string) => void;
+	readonly onUpdateGroupLabel: (_: string, newLabel: string) => void;
+	readonly onAddGroup: (_: IGroup) => void;
+	readonly onRemoveGroup: (_: string) => void;
 }
 
 const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -38,6 +38,12 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			});
 	};
 
+	const {
+		ref: tooltopRef,
+		isVisible: isTooltipVisible,
+		toggleVisibility: toggleTooltipVisibility,
+	} = useClickOutside<HTMLDivElement>(false);
+
 	const onCopyGroupId = async () => {
 		setCopyGroupIdState(() => true);
 
@@ -47,7 +53,6 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	};
 
 	const onDeleteGroup = () => {
-		console.log('blabla');
 		props.onRemoveGroup(props.selectedGroup.id);
 		toggleTooltipVisibility();
 
@@ -55,12 +60,6 @@ const GroupInfo: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			props.onAddGroup(props.selectedGroup);
 		});
 	};
-
-	const {
-		ref: tooltopRef,
-		isVisible: isTooltipVisible,
-		toggleVisibility: toggleTooltipVisibility,
-	} = useClickOutside<HTMLDivElement>(false);
 
 	return (
 		<GroupInfoView

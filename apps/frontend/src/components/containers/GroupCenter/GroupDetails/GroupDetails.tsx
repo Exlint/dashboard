@@ -6,9 +6,9 @@ import GroupDetailsView from './GroupDetails.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
-	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
-	readonly onAddGroup: (group: IGroup) => void;
-	readonly onRemoveGroup: (groupId: string) => void;
+	readonly onUpdateGroupLabel: (_: string, newLabel: string) => void;
+	readonly onAddGroup: (_: IGroup) => void;
+	readonly onRemoveGroup: (_: string) => void;
 }
 
 const GroupDetails: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

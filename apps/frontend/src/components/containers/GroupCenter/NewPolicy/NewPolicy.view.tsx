@@ -21,14 +21,14 @@ interface IProps {
 	readonly isCreatePolicyDisabled: boolean;
 	readonly selectedTypeIndex: number;
 	readonly selectedCategoryIndex: number;
-	readonly onSelectLibrary: (libraryName: string) => void;
+	readonly onSelectLibrary: (_: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
-	readonly onPolicyLabelInputChanged: (input: string) => void;
+	readonly onPolicyLabelInputChanged: (_: string) => void;
 	readonly onPolicyConfiguratoinClicked: () => void;
-	readonly onSearchLibraryInput: (input: string) => void;
-	readonly onSelect: (index: number) => void;
-	readonly onSelectType: (index: number) => void;
-	readonly onSelectCategory: (index: number) => void;
+	readonly onSearchLibraryInput: (_: string) => void;
+	readonly onSelect: (_: number) => void;
+	readonly onSelectType: (_: number) => void;
+	readonly onSelectCategory: (_: number) => void;
 }
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

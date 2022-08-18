@@ -22,6 +22,7 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 		if (inlineTextState) {
 			props.onUpdateInput(inlineTextState);
 		}
+
 		setInlineTextState(() => props.valueFromDB);
 		setIsInputOnEditState(() => false);
 	};

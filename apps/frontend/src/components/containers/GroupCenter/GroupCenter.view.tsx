@@ -13,10 +13,10 @@ interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
-	readonly onUpdateGroupLabel: (groupId: string, newLabel: string) => void;
+	readonly onUpdateGroupLabel: (_: string, newLabel: string) => void;
 	readonly onAddGroup: (group: IGroup) => void;
-	readonly onRemoveGroup: (groupId: string) => void;
-	readonly onSelectGroup: (index: number) => void;
+	readonly onRemoveGroup: (_: string) => void;
+	readonly onSelectGroup: (_: number) => void;
 }
 
 const GroupCenterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

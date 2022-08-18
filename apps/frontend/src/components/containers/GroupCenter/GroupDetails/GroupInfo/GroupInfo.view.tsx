@@ -14,7 +14,7 @@ interface IProps {
 	readonly tooltopRef: React.RefObject<HTMLDivElement>;
 	readonly isTooltipVisible: boolean;
 	readonly toggleTooltipVisibility: () => void;
-	readonly onUpdateGroupLabel: (newInput: string) => void;
+	readonly onUpdateGroupLabel: (_: string) => void;
 	readonly onCopyGroupId: () => void;
 	readonly onDeleteGroup: () => void;
 }
@@ -64,8 +64,8 @@ const GroupInfoView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					</button>
 					{props.isTooltipVisible && (
 						<DeleteGroupBackdrop
-							onDeleteGroup={props.onDeleteGroup}
 							tooltopRef={props.tooltopRef}
+							onDeleteGroup={props.onDeleteGroup}
 						/>
 					)}
 				</div>

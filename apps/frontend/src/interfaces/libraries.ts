@@ -30,5 +30,6 @@ export interface IPolicyData {
 	readonly libraryName: string;
 	readonly label: string;
 	readonly category: string;
+	// eslint-disable-next-line @typescript-eslint/ban-types
 	readonly rules: Record<string, ILibraryRule> | {};
 }

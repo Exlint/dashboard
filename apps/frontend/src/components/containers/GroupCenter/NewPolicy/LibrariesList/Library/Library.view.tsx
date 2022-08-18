@@ -12,7 +12,7 @@ import classes from './Library.module.scss';
 
 interface IProps extends ILibraryData {
 	readonly selectedLibrary: string | null;
-	readonly onSelectLibrary: (libraryName: string) => void;
+	readonly onSelectLibrary: (_: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
 }
 
