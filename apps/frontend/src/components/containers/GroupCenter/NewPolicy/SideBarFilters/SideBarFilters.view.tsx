@@ -10,8 +10,8 @@ import classes from './SideBarFilters.module.scss';
 interface IProps {
 	readonly selectedTypeIndex: number;
 	readonly selectedCategoryIndex: number;
-	readonly onSelectType: (index: number) => void;
-	readonly onSelectCategory: (index: number) => void;
+	readonly onSelectType: (_: number) => void;
+	readonly onSelectCategory: (_: number) => void;
 }
 
 const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

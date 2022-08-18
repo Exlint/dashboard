@@ -13,8 +13,8 @@ interface IProps {
 	readonly groupsList: IGroup[];
 	readonly selectedGroupIndex: number | null;
 	readonly onCreateNewGroup: () => void;
-	readonly onUpdateGroupLabel: (_: string, newLabel: string) => void;
-	readonly onAddGroup: (group: IGroup) => void;
+	readonly onUpdateGroupLabel: (_: string, __: string) => void;
+	readonly onAddGroup: (_: IGroup) => void;
 	readonly onRemoveGroup: (_: string) => void;
 	readonly onSelectGroup: (_: number) => void;
 }

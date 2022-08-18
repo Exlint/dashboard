@@ -5,7 +5,7 @@ import EDInlineEditView from './EDInlineEdit.view';
 interface IProps {
 	readonly valueFromDB: string;
 	readonly maxLength: number;
-	readonly onUpdateInput: (newInput: string) => void;
+	readonly onUpdateInput: (_: string) => void;
 }
 
 const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

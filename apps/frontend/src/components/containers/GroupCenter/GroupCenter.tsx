@@ -31,7 +31,7 @@ const GroupCenter: React.FC<IProps> = () => {
 				setSelectGroupIndexState(() => 0);
 			}
 		});
-	}, [backendApi]);
+	}, []);
 
 	const onCreateNewGroup = () => {
 		backendApi.post<ICreateGroupResponseData>('/user/groups').then((response) => {

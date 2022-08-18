@@ -124,7 +124,7 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	props.groupPolicy.map((policy, index) => {
 		policiesTableData.push({
-			key: index,
+			key: policy.id,
 			number: `${index + 1}.`,
 			label: policy.label,
 			libraryName: policy.libraryName,

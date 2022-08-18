@@ -5,6 +5,6 @@ export interface ITableData {
 	category: string;
 	rulesNum: number;
 	configurations: string;
-	key: number;
+	key: string;
 	render?: () => void;
 }

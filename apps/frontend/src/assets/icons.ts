@@ -32,7 +32,7 @@ const icons = {
 	arrowRight: [
 		'13 22',
 		`
-		<path d="M1 20.5L11.1237 11.7568C11.5855 11.358 11.5855 10.642 11.1237 10.2432L0.999999 1.5"  stroke-width="2" stroke-linecap="round"/>
+		<path d="M1 20.5L11.1237 11.7568C11.5855 11.358 11.5855 10.642 11.1237 10.2432L0.999999 1.5" stroke-width="2" stroke-linecap="round"/>
 		`,
 	],
 	arrowDown: [

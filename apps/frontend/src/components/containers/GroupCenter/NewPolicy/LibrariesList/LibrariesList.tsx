@@ -8,7 +8,7 @@ interface IProps {
 	readonly selectedTypeIndex: number;
 	readonly selectedCategoryIndex: number;
 	readonly selectedSortByOptionIndex: number | null;
-	readonly onSelectLibrary: (libraryName: string) => void;
+	readonly onSelectLibrary: (_: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
 }
 

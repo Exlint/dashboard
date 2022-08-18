@@ -9,7 +9,7 @@ import GroupInfoView from './GroupInfo.view';
 
 interface IProps {
 	readonly selectedGroup: IGroup;
-	readonly onUpdateGroupLabel: (_: string, newLabel: string) => void;
+	readonly onUpdateGroupLabel: (_: string, __: string) => void;
 	readonly onAddGroup: (_: IGroup) => void;
 	readonly onRemoveGroup: (_: string) => void;
 }

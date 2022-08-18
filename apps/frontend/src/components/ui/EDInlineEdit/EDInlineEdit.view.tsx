@@ -10,10 +10,10 @@ interface IProps {
 	readonly isInputOnEdit: boolean;
 	readonly maxLength: number;
 	readonly onEditInlineClick: () => void;
-	readonly onChangeInput: (value: string) => void;
+	readonly onChangeInput: (_: string) => void;
 	readonly onUpdateInputHandler: () => void;
 	readonly onCancelInputChanges: () => void;
-	readonly onKeyboardPress: (e: React.KeyboardEvent) => void;
+	readonly onKeyboardPress: (_: React.KeyboardEvent) => void;
 }
 
 const EDInlineEditView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
