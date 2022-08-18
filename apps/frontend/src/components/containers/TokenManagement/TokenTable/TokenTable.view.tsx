@@ -4,7 +4,7 @@ import Table from 'rc-table';
 import EDSvg from '@/ui/EDSvg';
 import type { ISecrets } from '@/interfaces/secrets';
 
-import Columns, { tableColumns } from './columns';
+import { tableColumns } from './columns';
 
 import classes from './TokenTable.module.scss';
 
@@ -15,8 +15,6 @@ interface IProps {
 }
 
 const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	<Columns secrets={props.secrets} />;
-
 	const table = props.secrets.map((row, index) => {
 		return {
 			key: row.id,

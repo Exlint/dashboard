@@ -13,14 +13,6 @@ const onRevokeSecret = (secretId: string) => {
 	backendApi.delete(`user/secrets/${secretId}`);
 };
 
-const conRevokeSecret = (key: React.Key, e: React.MouseEvent<HTMLElement>) => {
-	e.preventDefault();
-
-	this.setState(({ data }) => ({
-		data: data.filter((item) => item.key !== key),
-	}));
-};
-
 export const tableColumns: IColumns[] = [
 	{
 		title: 'No.',
