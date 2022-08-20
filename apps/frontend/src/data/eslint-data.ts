@@ -1,7 +1,9 @@
+import type { ILibraryData } from '@/interfaces/libraries';
+
 import { LibraryCategory } from '../models/library-category';
 import { LibraryType } from '../models/library-type';
 
-export const eslintData = {
+export const eslintData: ILibraryData = {
 	name: 'ESLint',
 	author: 'Nicholas C. Zakas',
 	description: 'Find and fix problems in your JavaScript code.',

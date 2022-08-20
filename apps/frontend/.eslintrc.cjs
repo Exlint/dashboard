@@ -14,7 +14,7 @@ module.exports = {
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},
-	plugins: ['jsx-a11y', 'react', 'react-hooks'],
+	plugins: ['jsx-a11y', 'react', 'react-hooks', 'i18next'],
 	rules: {
 		'jsx-quotes': ['error', 'prefer-double'],
 		'curly': ['error', 'all'],
@@ -28,6 +28,7 @@ module.exports = {
 			},
 		],
 		'jsx-a11y/lang': 'error',
+		'jsx-a11y/no-redundant-roles': 'error',
 
 		'react/jsx-fragments': 'error',
 		'react/jsx-wrap-multilines': [
@@ -85,17 +86,25 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
+
+		'i18next/no-literal-string': 2,
 	},
 	overrides: [
 		{
-			files: [
-				'./src/assets/icons.ts',
-				'./src/data/eslint-data.ts',
-				'./src/data/stylelint-data.ts',
-				'./src/data/prettier-data.ts',
-			],
+			files: ['./src/assets/icons.ts', './src/data/**/*.ts'],
 			rules: {
 				'max-lines': 'off',
+			},
+		},
+		{
+			files: [
+				'./src/components/containers/GroupCenter/NewPolicy/NewPolicy.view.tsx',
+				'./src/components/containers/GroupCenter/NewPolicy/LibrariesList/Library/Library.view.tsx',
+				'./src/components/containers/GroupCenter/GroupDetails/Policies/PoliciesList/PoliciesList.tsx',
+				'./src/i18n/en.ts',
+			],
+			rules: {
+				'max-lines': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
 			},
 		},
 	],
