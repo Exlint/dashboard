@@ -13,17 +13,10 @@ interface IProps {
 
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewPolicy = () => {
-		backendApi
-			.post(`/user/inline-policies/${props.selectedGroupId}`, {
-				label: props.policyLabelInput,
-				library: props.selectedLibrary?.toLocaleUpperCase(),
-			})
-			.then(() => {
-				//TODO: should link to other url
-			})
-			.catch(() => {
-				//TODO: Add action when catch error
-			});
+		backendApi.post(`/user/inline-policies/${props.selectedGroupId}`, {
+			label: props.policyLabelInput,
+			library: props.selectedLibrary?.toLocaleUpperCase(),
+		});
 	};
 
 	return (

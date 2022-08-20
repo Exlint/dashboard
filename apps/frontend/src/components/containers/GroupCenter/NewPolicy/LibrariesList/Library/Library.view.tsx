@@ -12,6 +12,7 @@ import classes from './Library.module.scss';
 
 interface IProps extends ILibraryData {
 	readonly selectedLibrary: string | null;
+	readonly isLibrarySelected: boolean;
 	readonly onSelectLibrary: (_: string) => void;
 	readonly onCancelSelectedLibrary: () => void;
 }
@@ -19,21 +20,13 @@ interface IProps extends ILibraryData {
 const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-	let isLibrarySelected = false;
-
-	if (props.selectedLibrary === props.name) {
-		isLibrarySelected = true;
-	} else {
-		isLibrarySelected = false;
-	}
-
 	const libraryNameInLowerCase = props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
 
 	return (
 		<div
 			className={classes['library']}
 			style={{
-				backgroundColor: isLibrarySelected ? '#2355A0' : '#fff',
+				backgroundColor: props.isLibrarySelected ? '#2355A0' : '#fff',
 			}}
 		>
 			<button
@@ -51,28 +44,28 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<div className={classes['textContainer']}>
 					<span
 						className={classes['textContainer__title']}
-						style={{ color: isLibrarySelected ? '#E7E7E7' : '#7a4df3' }}
+						style={{ color: props.isLibrarySelected ? '#E7E7E7' : '#7a4df3' }}
 					>
 						{props.name}
 					</span>
 					<div className={classes['madeByContainer']}>
 						<span
 							className={classes['madeByContainer__text']}
-							style={{ color: isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
+							style={{ color: props.isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
 						>
 							{t('groupCenter.newPolicy.librariesList.library.madeBy')}
 						</span>
 						&nbsp;
 						<span
 							className={classes['madeByContainer__text']}
-							style={{ color: isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
+							style={{ color: props.isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
 						>
 							{props.author}
 						</span>
 					</div>
 					<span
 						className={classes['textContainer__description']}
-						style={{ color: isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
+						style={{ color: props.isLibrarySelected ? '#EBE5FA' : '#8b8b8b' }}
 					>
 						{props.description}
 					</span>
@@ -82,7 +75,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 								<span
 									key={index}
 									className={classes['innerType__type']}
-									style={{ color: isLibrarySelected ? '#EBE5FA' : '#bbb8ca' }}
+									style={{ color: props.isLibrarySelected ? '#EBE5FA' : '#bbb8ca' }}
 								>
 									{LibraryType[index]}
 								</span>
@@ -93,7 +86,7 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 								<span
 									key={index}
 									className={classes['innerCategory__category']}
-									style={{ color: isLibrarySelected ? '#EBE5FA' : '#bbb8ca' }}
+									style={{ color: props.isLibrarySelected ? '#EBE5FA' : '#bbb8ca' }}
 								>
 									{LibraryCategory[index]}
 								</span>
@@ -106,9 +99,9 @@ const LibraryView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<button
 				className={classes['cancelSelectedLibraryButton']}
 				type="button"
-				disabled={!isLibrarySelected}
+				disabled={!props.isLibrarySelected}
 				style={{
-					visibility: isLibrarySelected ? 'visible' : 'hidden',
+					visibility: props.isLibrarySelected ? 'visible' : 'hidden',
 				}}
 				onClick={props.onCancelSelectedLibrary}
 			>

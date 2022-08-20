@@ -6,6 +6,8 @@ import { LibraryType } from '@/models/library-type';
 import { concatClasses } from '@/utils/component';
 
 import classes from './SideBarFilters.module.scss';
+import TypesButtons from './TypesButtons';
+import CategoriesButtons from './CategoriesButtons';
 
 interface IProps {
 	readonly selectedTypeIndex: number;
@@ -41,24 +43,12 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 					</span>
 				</button>
 				{(Object.keys(LibraryType) as Array<keyof typeof LibraryType>).map((_, index) => (
-					<button
+					<TypesButtons
 						key={index}
-						className={classes['typeButton']}
-						type="button"
-						onClick={() => props.onSelectType(index)}
-					>
-						<span
-							className={concatClasses(
-								classes,
-								'container',
-								props.selectedTypeIndex === index
-									? 'typeButton--isSelected'
-									: 'typeButton--notSelected',
-							)}
-						>
-							{LibraryType[index]}
-						</span>
-					</button>
+						index={index}
+						selectedTypeIndex={props.selectedTypeIndex}
+						onSelectType={props.onSelectType}
+					/>
 				))}
 			</div>
 			<div className={classes['categoriesContainer']}>
@@ -84,24 +74,12 @@ const SideBarFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				</button>
 
 				{(Object.keys(LibraryCategory) as Array<keyof typeof LibraryCategory>).map((_, index) => (
-					<button
+					<CategoriesButtons
 						key={index}
-						className={classes['categoryButton']}
-						type="button"
-						onClick={() => props.onSelectCategory(index)}
-					>
-						<span
-							className={concatClasses(
-								classes,
-								'container',
-								props.selectedCategoryIndex === index
-									? 'categoryButton--isSelected'
-									: 'categoryButton--notSelected',
-							)}
-						>
-							{LibraryCategory[index]}
-						</span>
-					</button>
+						index={index}
+						selectedCategoryIndex={props.selectedCategoryIndex}
+						onSelectCategory={props.onSelectCategory}
+					/>
 				))}
 			</div>
 		</div>

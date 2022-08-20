@@ -11,6 +11,14 @@ interface IProps extends ILibraryData {
 }
 
 const Library: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	let isLibrarySelected = false;
+
+	if (props.selectedLibrary === props.name) {
+		isLibrarySelected = true;
+	} else {
+		isLibrarySelected = false;
+	}
+
 	return (
 		<LibraryView
 			name={props.name}
@@ -19,6 +27,7 @@ const Library: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			type={props.type}
 			category={props.category}
 			selectedLibrary={props.selectedLibrary}
+			isLibrarySelected={isLibrarySelected}
 			onSelectLibrary={props.onSelectLibrary}
 			onCancelSelectedLibrary={props.onCancelSelectedLibrary}
 		/>

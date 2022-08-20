@@ -12,9 +12,19 @@ interface IProps {
 }
 
 const GroupsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	let filteredGroupsList = props.groupsList;
+
+	if (props.searchGroupInput !== null) {
+		filteredGroupsList = props.groupsList.filter(
+			(group) =>
+				group.label.includes(props.searchGroupInput!) ||
+				group.label.toLowerCase().includes(props.searchGroupInput!),
+		);
+	}
+
 	return (
 		<GroupsListView
-			groupsList={props.groupsList}
+			filteredGroupsList={filteredGroupsList}
 			selectedGroupIndex={props.selectedGroupIndex}
 			searchGroupInput={props.searchGroupInput}
 			onSelectGroup={props.onSelectGroup}

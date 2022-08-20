@@ -12,6 +12,7 @@ interface IProps {
 	readonly groupId: string;
 	readonly groupLabel: string;
 	readonly policies: IPolicyData[];
+	readonly policiesLength: number;
 	readonly isSelected: boolean;
 	readonly copyGroupId: boolean;
 	readonly onSelectGroup: () => void;
@@ -78,7 +79,7 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 								</div>
 							);
 						})}
-						{props.policies && props.policies.length > 4 && (
+						{props.policiesLength > 4 && (
 							<span className={classes['policiesContainer__text']}>
 								{t('groupCenter.groupSideBar.group.additional')}
 							</span>

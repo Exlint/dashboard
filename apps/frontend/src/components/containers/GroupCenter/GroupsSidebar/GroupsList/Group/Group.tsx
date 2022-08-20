@@ -21,6 +21,8 @@ const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		slicedPolicies = props.policies.slice(0, 4);
 	}
 
+	const policiesLength = props.policies && props.policies.length;
+
 	const onCopyGroupId = async () => {
 		setCopyGroupIdState(() => true);
 
@@ -34,6 +36,7 @@ const Group: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			groupId={props.groupId}
 			groupLabel={props.groupLabel}
 			policies={slicedPolicies}
+			policiesLength={policiesLength}
 			isSelected={props.isSelected}
 			copyGroupId={copyGroupIdState}
 			onSelectGroup={props.onSelectGroup}
