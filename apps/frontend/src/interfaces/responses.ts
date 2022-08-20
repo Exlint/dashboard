@@ -1,3 +1,5 @@
+import type { IGroup } from './group';
+
 export interface IAutoAuthResponseData {
 	readonly accessToken: string;
 	readonly id: string;
@@ -11,4 +13,12 @@ export interface IRefreshTokenResponseData {
 export interface ICliAuthResponseData {
 	readonly cliToken: string;
 	readonly email: string;
+}
+
+export interface IGetGroupsResponseData {
+	readonly groups: IGroup[];
+}
+
+export interface ICreateGroupResponseData {
+	readonly groupId: string;
 }
