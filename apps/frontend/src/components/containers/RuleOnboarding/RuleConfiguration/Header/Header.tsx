@@ -2,23 +2,30 @@ import React from 'react';
 import type { AxiosError } from 'axios';
 
 import type { ILibraryRule } from '@/interfaces/libraries';
-// Import { ruleAlertTypes } from '@/data/rule-alert-types';
+import { ruleAlertTypes } from '@/data/rule-alert-types';
 import { backendApi } from '@/utils/http';
 
 import HeaderView from './Header.view';
 
 interface IProps {
+	readonly policyId: string | undefined;
 	readonly selectedRule: ILibraryRule | null;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// Const selectedRuleType = [ruleAlertTypes[props.selectedRuleAlertTypeIndex]];
+	const selectedRuleType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
+
+	const selectedRule: Record<string, string> = {};
+
+	selectedRule[props.selectedRule?.ruleName!] = selectedRuleType!;
+
+	const selectRuleReqBody = JSON.stringify(selectedRule);
 
 	const onAddRuleToList = () => {
 		backendApi
-			.post('/add-rule', {})
+			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody })
 			.then((response) => {
 				alert(response);
 			})
@@ -29,7 +36,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const onUpdateRule = () => {
 		backendApi
-			.post('/edit-rule', {})
+			.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {})
 			.then((response) => {
 				alert(response);
 			})

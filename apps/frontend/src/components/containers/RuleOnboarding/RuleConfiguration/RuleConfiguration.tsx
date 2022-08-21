@@ -5,6 +5,7 @@ import type { ILibraryRule } from '@/interfaces/libraries';
 import RuleConfigurationView from './RuleConfiguration.view';
 
 interface IProps {
+	readonly policyId: string | undefined;
 	readonly selectedRule: ILibraryRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly onSelectedRuleAlertType: (index: number) => void;
@@ -27,6 +28,7 @@ const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 
 	return (
 		<RuleConfigurationView
+			policyId={props.policyId}
 			selectedRule={props.selectedRule}
 			selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 			isBasedCodeConfigurationsClicked={isBasedCodeConfigurationsClickedState}

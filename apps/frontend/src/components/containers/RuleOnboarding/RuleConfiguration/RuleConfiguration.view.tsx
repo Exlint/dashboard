@@ -11,6 +11,7 @@ import RuleAlertType from './RuleAlertType';
 import CodeBasedConfigurations from './CodeBasedConfigurations';
 
 interface IProps {
+	readonly policyId: string | undefined;
 	readonly selectedRule: ILibraryRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isBasedCodeConfigurationsClicked: boolean;
@@ -30,6 +31,7 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 			/>
 			<div className={classes['innerRuleConfiguration']}>
 				<Header
+					policyId={props.policyId}
 					selectedRule={props.selectedRule}
 					ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 					selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}

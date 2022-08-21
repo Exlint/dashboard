@@ -29,7 +29,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 				{props.isAuthenticated && (
 					<>
 						<Route path="/user-settings" element={<UserSettings />} />
-						<Route path="/rule-onborading" element={<RuleOnboarding />} />
+						<Route path="/rule-onboarding/:policyId" element={<RuleOnboarding />} />
 					</>
 				)}
 				<Route path="/cli-auth" element={<CliAuth />} />

@@ -8,6 +8,7 @@ import RuleConfiguration from './RuleConfiguration';
 import SelectedRules from './SelectedRules';
 
 interface IProps {
+	readonly policyId: string | undefined;
 	readonly selectedLibrary: ILibraryData | null;
 	readonly selectedRule: ILibraryRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
@@ -20,6 +21,8 @@ interface IProps {
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const rulesObject = props.selectedLibrary?.rules;
+
+	console.log(rulesObject, 'RulesObject');
 
 	return (
 		<section className={classes['manually']}>
@@ -34,6 +37,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 			<div className={classes['container']}>
 				<div className={classes['rightSideContainer']}>
 					<RuleConfiguration
+						policyId={props.policyId}
 						selectedRule={props.selectedRule}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
