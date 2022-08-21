@@ -12,12 +12,14 @@ import TokenModal from './TokenModal';
 import classes from './TokenManagement.module.scss';
 
 interface IProps {
+	readonly id: string;
 	readonly secrets: ISecrets[] | null;
+	readonly setSecrets: React.Dispatch<React.SetStateAction<ISecrets[] | null>>;
 	readonly isModelOnView: boolean;
-	readonly clientIdState?: string;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState: string | null;
 	readonly onRevokeAllSecrets: () => void;
+	readonly onRenderTable: () => void;
 	readonly onChangeGroupLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
 	readonly onOpenModal: () => void;
@@ -39,7 +41,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 				<div className={classes['clientIdWrapper']}>
 					<span className={classes['clientIdWrapper__title']}>{t('tokenManagement.clientId')}</span>
 					<div className={classes['idWrapper']}>
-						<span className={classes['idWrapper__id']}>{props.clientIdState}</span>
+						<span className={classes['idWrapper__id']}>{props.id}</span>
 						<EDSvg
 							name="tokenClientId"
 							className={copyClinetIdClasses}
@@ -71,10 +73,15 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 									{t('tokenManagement.table.createSecret')}
 								</span>
 							</button>
-							{props.isModelOnView && <TokenModal onCloseModal={props.onCloseModal} />}
+							{props.isModelOnView && (
+								<TokenModal
+									onCloseModal={props.onCloseModal}
+									onRenderTable={props.onRenderTable}
+								/>
+							)}
 						</div>
 					</div>
-					<TokenTable secrets={props.secrets} />
+					<TokenTable secrets={props.secrets} onRenderTable={props.onRenderTable} />
 					<div className={classes['footer']}>
 						<span className={classes['footer__text']}>
 							{t('tokenManagement.table.total')}

@@ -1,4 +1,4 @@
-import type { ISecrets } from '@/interfaces/secrets';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
 
 export interface ISecretsTable {
 	readonly id: string;
@@ -14,5 +14,5 @@ export interface IColumns {
 	readonly dataIndex: string;
 	readonly key: string;
 	readonly width: number;
-	readonly render?: (record: ISecrets) => JSX.Element;
+	readonly render?: (value: unknown, record: DefaultRecordType, index: number) => JSX.Element;
 }

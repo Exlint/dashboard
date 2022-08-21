@@ -4,6 +4,7 @@ import TokenModalView from './TokenModal.view';
 
 interface IProps {
 	readonly onCloseModal: () => void;
+	readonly onRenderTable: () => void;
 }
 
 const TokenModal: React.FC<IProps> = (props) => {
@@ -23,6 +24,7 @@ const TokenModal: React.FC<IProps> = (props) => {
 			onSecretLabelChange={onSecretLabelChange}
 			onClientSecretChange={onClientSecretChange}
 			onCloseModal={props.onCloseModal}
+			onRenderTable={props.onRenderTable}
 		/>
 	);
 };

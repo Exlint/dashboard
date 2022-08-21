@@ -16,6 +16,7 @@ interface IProps {
 	readonly onSecretLabelChange: (_: string) => void;
 	readonly onClientSecretChange: (_: string) => void;
 	readonly onCloseModal: () => void;
+	readonly onRenderTable: () => void;
 }
 
 const TokenModalView: React.FC<IProps> = (props) => {
@@ -37,6 +38,7 @@ const TokenModalView: React.FC<IProps> = (props) => {
 								clientSecret={props.clientSecret}
 								secretLabel={props.secretLabel}
 								onCloseModal={props.onCloseModal}
+								onRenderTable={props.onRenderTable}
 							/>
 						)}
 					</div>

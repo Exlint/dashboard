@@ -1,9 +1,11 @@
 import React from 'react';
 import Table from 'rc-table';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
 
 import EDSvg from '@/ui/EDSvg';
-import type { ISecrets } from '@/interfaces/secrets';
+import EDInlineEdit from '@/ui/EDInlineEdit';
 
+import type { ISecrets } from '@/interfaces/secrets';
 import type { IColumns } from './interfaces/table';
 
 import classes from './TokenTable.module.scss';
@@ -13,6 +15,7 @@ interface IProps {
 	readonly formatDate: (_: number) => string;
 	readonly onRefreshSecret: (_: string) => void;
 	readonly onRevokeSecret: (_: string) => void;
+	readonly onUpdateLabel: (_: string) => void;
 }
 
 const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -46,17 +49,30 @@ const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 			dataIndex: 'refreshSecret',
 			key: 'refreshSecret',
 			width: 100,
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				const sercretId = props.secrets![index]!.id;
+
+				return (
+					<button type="button" onClick={() => props.onRefreshSecret(sercretId)}>
+						<EDSvg className={classes['refreshSecret']} name="refreshSecret" />
+					</button>
+				);
+			},
 		},
 		{
 			title: 'Delete',
 			dataIndex: 'delete',
 			key: 'delete',
 			width: 100,
-			render: (record: ISecrets) => (
-				<a href="#" onClick={() => props.onRevokeSecret(record.key)}>
-					<EDSvg className={classes['trashCanCircled']} name="trashCanCircled" />
-				</a>
-			),
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				const sercretId = props.secrets![index]!.id;
+
+				return (
+					<button type="button" onClick={() => props.onRevokeSecret(sercretId)}>
+						<EDSvg className={classes['trashCanCircled']} name="trashCanCircled" />
+					</button>
+				);
+			},
 		},
 	];
 
@@ -67,17 +83,15 @@ const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 				key: row.id,
 				number: index + 1,
 				label: (
-					<>
-						<span>{row.label}</span>
-						<button type="button">
-							<EDSvg className={classes['editLabel']} name="editLabel" />
-						</button>
-					</>
+					<EDInlineEdit
+						key="groupLabel"
+						valueFromDB={row.label}
+						maxLength={20}
+						onUpdateInput={props.onUpdateLabel}
+					/>
 				),
 				createdAt: props.formatDate(row.createdAt),
 				expires: props.formatDate(row.expiration),
-				refreshSecret: <EDSvg className={classes['refreshSecret']} name="refreshSecret" />,
-				delete: <EDSvg className={classes['trashCanCircled']} name="trashCanCircled" />,
 			};
 		});
 

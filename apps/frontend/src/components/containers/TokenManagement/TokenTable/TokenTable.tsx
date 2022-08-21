@@ -7,6 +7,7 @@ import TokenTableView from './TokenTable.view';
 
 interface IProps {
 	readonly secrets: ISecrets[] | null;
+	readonly onRenderTable: () => void;
 }
 
 const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -16,12 +17,26 @@ const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		return new Intl.DateTimeFormat('en-gb', { dateStyle: 'full' }).format(date);
 	};
 
-	const onRevokeSecret = (secretId: string) => {
-		backendApi.delete(`user/secrets/${secretId}`);
+	const onRevokeSecret = async (secretId: string) => {
+		await backendApi.delete(`user/secrets/${secretId}`);
+
+		props.onRenderTable();
 	};
 
 	const onRefreshSecret = (secretId: string) => {
 		backendApi.delete(`user/secrets/refresh-secret/${secretId}`);
+	};
+
+	const onUpdateLabel = (value: string) => {
+		console.log(value);
+
+		// backendApi
+		// 	.patch(`/user/secrets/edit-label/${props.selectedGroup.id}`, {
+		// 		label: newLabel,
+		// 	})
+		// 	.catch(() => {
+		// 		props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
+		// 	});
 	};
 
 	return (
@@ -30,6 +45,7 @@ const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			formatDate={formatDate}
 			onRefreshSecret={onRefreshSecret}
 			onRevokeSecret={onRevokeSecret}
+			onUpdateLabel={onUpdateLabel}
 		/>
 	);
 };

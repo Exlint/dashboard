@@ -6,6 +6,7 @@ interface IProps {
 	readonly clientSecret: string | null;
 	readonly secretLabel: string | null;
 	readonly onCloseModal: () => void;
+	readonly onRenderTable: () => void;
 }
 
 const RightSide: React.FC<IProps> = (props) => {
@@ -25,6 +26,7 @@ const RightSide: React.FC<IProps> = (props) => {
 			secretLabel={props.secretLabel}
 			copyToken={copyTokenState}
 			onCloseModal={props.onCloseModal}
+			onRenderTable={props.onRenderTable}
 			onCopyToken={onCopyToken}
 		/>
 	);

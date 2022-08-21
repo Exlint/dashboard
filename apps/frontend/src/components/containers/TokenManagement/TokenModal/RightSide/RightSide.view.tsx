@@ -13,6 +13,7 @@ interface IProps {
 	readonly copyToken: boolean;
 	readonly onCopyToken: () => void;
 	readonly onCloseModal: () => void;
+	readonly onRenderTable: () => void;
 }
 
 const RightSideView: React.FC<IProps> = (props) => {
@@ -66,7 +67,13 @@ const RightSideView: React.FC<IProps> = (props) => {
 					</CSVLink>
 				</div>
 			</div>
-			<div className={classes['container__button']} onClick={props.onCloseModal}>
+			<div
+				className={classes['container__button']}
+				onClick={() => {
+					props.onCloseModal();
+					props.onRenderTable();
+				}}
+			>
 				{t('tokenManagement.tokenManagementModal.done')}
 			</div>
 		</section>
