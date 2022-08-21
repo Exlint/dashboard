@@ -96,6 +96,17 @@ module.exports = {
 				'max-lines': 'off',
 			},
 		},
+		{
+			files: [
+				'./src/components/containers/GroupCenter/NewPolicy/NewPolicy.view.tsx',
+				'./src/components/containers/GroupCenter/NewPolicy/LibrariesList/Library/Library.view.tsx',
+				'./src/components/containers/GroupCenter/GroupDetails/Policies/PoliciesList/PoliciesList.tsx',
+				'./src/i18n/en.ts',
+			],
+			rules: {
+				'max-lines': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
+			},
+		},
 	],
 	settings: {
 		react: {

@@ -1,0 +1,30 @@
+.innerMoreInfo {
+	position: absolute;
+	top: 30px;
+	display: flex;
+	align-items: center;
+	padding: 17px 12px;
+	background-color: #fefefe;
+	border: 2px solid #e7e7e7;
+	border-radius: 5px;
+	inset-inline-end: -60px;
+
+	.innerButton {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			margin-inline-end: 12px;
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: #781d1d;
+			white-space: nowrap;
+		}
+
+		&__icon {
+			width: 25px;
+			height: 23px;
+			fill: #781d1d;
+		}
+	}
+}
