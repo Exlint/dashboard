@@ -12,7 +12,7 @@ importers:
       '@typescript-eslint/parser': 5.33.1
       chalk: 4.1.2
       commitizen: 4.2.5
-      cz-vinyl: 1.3.2
+      cz-vinyl: 1.4.0
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.22.0
@@ -40,7 +40,7 @@ importers:
       '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
       chalk: 4.1.2
       commitizen: 4.2.5
-      cz-vinyl: 1.3.2_zgusdg2syqzg2kik2gzyf5b6di
+      cz-vinyl: 1.4.0_zgusdg2syqzg2kik2gzyf5b6di
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.22.0
@@ -7347,12 +7347,16 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /cz-vinyl/1.3.2_zgusdg2syqzg2kik2gzyf5b6di:
-    resolution: {integrity: sha512-BHoKPQ44vkWoxzehYFAHu9A39LR8RMDsTDoLrsUYVdJpMSfImeqWe1T3he8XQlj1yPV3kCaMTk6In5+7vGZcdA==}
+  /cz-vinyl/1.4.0_zgusdg2syqzg2kik2gzyf5b6di:
+    resolution: {integrity: sha512-O+xy8C0uV7tpCzEnzipEuqtArkNf/dsAF2NE8AwVYp6gAJNyNC62NLdRZ6FNodsQo/LKGQ7G8OXNRXt5JnJoLw==}
+    peerDependencies:
+      '@types/node': 17.0.33
+      vite: 2.9.9
     dependencies:
+      '@types/node': 17.0.35
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.9_zgusdg2syqzg2kik2gzyf5b6di
-      fuse.js: 6.5.3
+      cosmiconfig-typescript-loader: 2.0.1_zgusdg2syqzg2kik2gzyf5b6di
+      fuse.js: 6.6.2
       inquirer: 8.2.4
       inquirer-autocomplete-prompt: 2.0.0_inquirer@8.2.4
       inquirer-maxlength-input-prompt: 1.0.2
@@ -7361,7 +7365,6 @@ packages:
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
-      - '@types/node'
       - typescript
     dev: true
 
@@ -9245,8 +9248,8 @@ packages:
   /functions-have-names/1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  /fuse.js/6.5.3:
-    resolution: {integrity: sha512-sA5etGE7yD/pOqivZRBvUBd/NaL2sjAu6QuSaFoe1H2BrJSkH/T/UXAJ8CdXdw7DvY3Hs8CXKYkDWX7RiP5KOg==}
+  /fuse.js/6.6.2:
+    resolution: {integrity: sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==}
     engines: {node: '>=10'}
     dev: true
 
@@ -15458,7 +15461,7 @@ packages:
     dev: true
 
   /symbol-observable/1.0.1:
-    resolution: {integrity: sha1-g0D8RwLDEi310iKI+IKD9RPT/dQ=}
+    resolution: {integrity: sha512-Kb3PrPYz4HanVF1LVGuAdW6LoVgIwjUYJGzFe7NDrBLCN4lsV/5J0MFurV+ygS4bRVwrCEt2c7MQ1R2a72oJDw==}
     engines: {node: '>=0.10.0'}
     dev: true
 
