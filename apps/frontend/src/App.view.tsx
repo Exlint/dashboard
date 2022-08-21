@@ -7,6 +7,7 @@ interface IProps {
 
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
+const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const UserSettings = React.lazy(() => import('./pages/UserSettings'));
 const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
@@ -28,6 +29,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 				)}
 				{props.isAuthenticated && (
 					<Route>
+						<Route path="/group-center/*" element={<GroupCenter />} />
 						<Route path="/user-settings" element={<UserSettings />} />
 						<Route path="/token-management" element={<TokenManagement />} />
 					</Route>

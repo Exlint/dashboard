@@ -1,0 +1,20 @@
+.typeButton {
+	display: flex;
+	width: min-content;
+
+	&--isSelected {
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: #7a4df3;
+	}
+
+	&--notSelected {
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: #5d5b7a;
+	}
+}
+
+.typeButton:not(:last-child) {
+	margin-bottom: 11px;
+}

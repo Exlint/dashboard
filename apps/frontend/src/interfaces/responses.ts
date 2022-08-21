@@ -1,3 +1,4 @@
+import type { IGroup } from './group';
 import type { ISecrets } from './secrets';
 
 export interface IAutoAuthResponseData {
@@ -13,6 +14,14 @@ export interface IRefreshTokenResponseData {
 export interface ICliAuthResponseData {
 	readonly cliToken: string;
 	readonly email: string;
+}
+
+export interface IGetGroupsResponseData {
+	readonly groups: IGroup[];
+}
+
+export interface ICreateGroupResponseData {
+	readonly groupId: string;
 }
 
 export interface IGetSecretsResponseData {
