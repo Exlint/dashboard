@@ -6,6 +6,14 @@
 * 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
 * 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
 
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-22)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
 # [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-21)
 
 
