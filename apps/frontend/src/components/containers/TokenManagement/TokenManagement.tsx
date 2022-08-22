@@ -9,7 +9,7 @@ import type { IGetSecretsResponseData } from '@/interfaces/responses';
 import TokenManagementView from './TokenManagement.view';
 
 interface IPropsFromState {
-	readonly id: string;
+	readonly id?: string;
 }
 
 interface IProps extends IPropsFromState {}
@@ -17,18 +17,19 @@ interface IProps extends IPropsFromState {}
 const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [secretsState, setSecretsState] = useState<ISecrets[] | null>(null);
 	const [tokenLabelState, setTokenLabelState] = useState<string | null>(null);
+	const [dispalyRightSideModalState, setDispalyRightSideModalState] = useState<boolean>(false);
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
-	const [copyClientIdState, setCopyClientIdState] = useState(false);
+	const [copyClientIdState, setCopyClientIdState] = useState<boolean>(false);
+
+	const onDisplayModalRightSide = () => setDispalyRightSideModalState(() => true);
 
 	const onRenderTable = () => {
-		backendApi.get<IGetSecretsResponseData>('user/secrets').then((response) => {
-			setSecretsState(() => response.data.secrets);
-		});
+		backendApi
+			.get<IGetSecretsResponseData>('user/secrets')
+			.then((response) => setSecretsState(() => response.data.secrets));
 	};
 
-	useEffect(() => {
-		onRenderTable();
-	}, []);
+	useEffect(() => onRenderTable(), []);
 
 	const onRevokeAllSecrets = () => {
 		backendApi.delete('/user/secrets').then(() => {
@@ -36,9 +37,9 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 		});
 	};
 
-	const onChangeGroupLabel = (label: string) => setTokenLabelState(() => label);
+	const onChangeTokenLabel = (value: string) => setTokenLabelState(() => value);
 
-	const tokenLabelChangeHandler = (input: string) => setTokenLabelState(() => input);
+	const tokenLabelChangeHandler = (value: string) => setTokenLabelState(() => value);
 
 	const onOpenModal = () => setIsModelOnViewState(() => true);
 	const onCloseModal = () => setIsModelOnViewState(() => false);
@@ -46,7 +47,7 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	const onCopyClientId = async () => {
 		setCopyClientIdState(() => true);
 
-		await navigator.clipboard.writeText(props.id);
+		await navigator.clipboard.writeText(props.id!);
 
 		setTimeout(() => setCopyClientIdState(() => false), 2000);
 	};
@@ -56,16 +57,18 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			id={props.id}
 			secrets={secretsState}
 			setSecrets={setSecretsState}
+			dispalyRightSideModal={dispalyRightSideModalState}
 			isModelOnView={isModelOnViewState}
 			copyClientIdState={copyClientIdState}
 			tokenLabelState={tokenLabelState}
 			tokenLabelChangeHandler={tokenLabelChangeHandler}
 			onRevokeAllSecrets={onRevokeAllSecrets}
 			onRenderTable={onRenderTable}
+			onDisplayModalRightSide={onDisplayModalRightSide}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
 			onCopyClientId={onCopyClientId}
-			onChangeGroupLabel={onChangeGroupLabel}
+			onChangeTokenLabel={onChangeTokenLabel}
 		/>
 	);
 };
@@ -75,7 +78,7 @@ TokenManagement.defaultProps = {};
 
 const mapStateToProps = (state: AppState) => {
 	return {
-		name: state.auth.id!,
+		id: state.auth.id!,
 	};
 };
 

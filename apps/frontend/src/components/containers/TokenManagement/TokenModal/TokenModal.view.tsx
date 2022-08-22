@@ -12,7 +12,7 @@ interface IProps {
 	readonly secretLabel: string | null;
 	readonly clientSecret: string | null;
 	readonly dispalyRightSideModal: boolean;
-	readonly setDispalyRightSideModal: React.Dispatch<React.SetStateAction<boolean>>;
+	readonly onDisplayModalRightSide: () => void;
 	readonly onSecretLabelChange: (_: string) => void;
 	readonly onClientSecretChange: (_: string) => void;
 	readonly onCloseModal: () => void;
@@ -27,8 +27,8 @@ const TokenModalView: React.FC<IProps> = (props) => {
 				<section className={classes['container']}>
 					<div className={classes['secretCreation']}>
 						<LeftSide
-							setDispalyRightSideModal={props.setDispalyRightSideModal}
 							dispalyRightSideModal={props.dispalyRightSideModal}
+							onDisplayModalRightSide={props.onDisplayModalRightSide}
 							onSecretLabelChange={props.onSecretLabelChange}
 							onClientSecretChange={props.onClientSecretChange}
 						/>

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import Table from 'rc-table';
 import type { DefaultRecordType } from 'rc-table/lib/interface';
@@ -15,7 +16,7 @@ interface IProps {
 	readonly formatDate: (_: number) => string;
 	readonly onRefreshSecret: (_: string) => void;
 	readonly onRevokeSecret: (_: string) => void;
-	readonly onUpdateLabel: (_: string) => void;
+	readonly onUpdateLabel: (secretLabel: string, secretId?: string) => void;
 }
 
 const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -84,9 +85,10 @@ const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 				number: index + 1,
 				label: (
 					<EDInlineEdit
-						key="groupLabel"
+						key="secretLabel"
 						valueFromDB={row.label}
 						maxLength={20}
+						id={row.id}
 						onUpdateInput={props.onUpdateLabel}
 					/>
 				),

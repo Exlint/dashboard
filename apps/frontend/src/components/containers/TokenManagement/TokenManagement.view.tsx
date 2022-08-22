@@ -12,15 +12,17 @@ import TokenModal from './TokenModal';
 import classes from './TokenManagement.module.scss';
 
 interface IProps {
-	readonly id: string;
+	readonly id?: string;
 	readonly secrets: ISecrets[] | null;
 	readonly setSecrets: React.Dispatch<React.SetStateAction<ISecrets[] | null>>;
 	readonly isModelOnView: boolean;
+	readonly dispalyRightSideModal: boolean;
+	readonly onDisplayModalRightSide: () => void;
 	readonly copyClientIdState: boolean;
 	readonly tokenLabelState: string | null;
 	readonly onRevokeAllSecrets: () => void;
 	readonly onRenderTable: () => void;
-	readonly onChangeGroupLabel: (_: string) => void;
+	readonly onChangeTokenLabel: (_: string) => void;
 	readonly onCopyClientId: () => Promise<void>;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
@@ -75,17 +77,24 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							</button>
 							{props.isModelOnView && (
 								<TokenModal
+									dispalyRightSideModal={props.dispalyRightSideModal}
+									onDisplayModalRightSide={props.onDisplayModalRightSide}
 									onCloseModal={props.onCloseModal}
 									onRenderTable={props.onRenderTable}
 								/>
 							)}
 						</div>
 					</div>
-					<TokenTable secrets={props.secrets} onRenderTable={props.onRenderTable} />
+					<TokenTable
+						secrets={props.secrets}
+						onRenderTable={props.onRenderTable}
+						onOpenModal={props.onOpenModal}
+					/>
 					<div className={classes['footer']}>
 						<span className={classes['footer__text']}>
 							{t('tokenManagement.table.total')}
-							&nbsp;3
+							&nbsp;
+							{props.secrets && props.secrets.length}
 						</span>
 					</div>
 				</div>

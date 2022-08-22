@@ -9,7 +9,7 @@ import LeftSideView from './LeftSide.view';
 
 interface IProps {
 	readonly dispalyRightSideModal: boolean;
-	readonly setDispalyRightSideModal: React.Dispatch<React.SetStateAction<boolean>>;
+	readonly onDisplayModalRightSide: () => void;
 	readonly onSecretLabelChange: (_: string) => void;
 	readonly onClientSecretChange: (_: string) => void;
 }
@@ -31,7 +31,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 	}, [labelState, expirySelectedIndexState]);
 
 	const onDisplayRightSide = () => {
-		props.setDispalyRightSideModal(() => true);
+		props.onDisplayModalRightSide();
 		setCreateSecretButtonState(() => false);
 	};
 
@@ -61,7 +61,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 			})
 			.then((response) => {
 				props.onClientSecretChange(response.data.clientSecret);
-				props.setDispalyRightSideModal(() => true);
+				props.onDisplayModalRightSide();
 				setCreateSecretButtonState(() => false);
 			});
 	};

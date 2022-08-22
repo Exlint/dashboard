@@ -8,6 +8,7 @@ import TokenTableView from './TokenTable.view';
 interface IProps {
 	readonly secrets: ISecrets[] | null;
 	readonly onRenderTable: () => void;
+	readonly onOpenModal: () => void;
 }
 
 const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -19,24 +20,20 @@ const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 
 	const onRevokeSecret = async (secretId: string) => {
 		await backendApi.delete(`user/secrets/${secretId}`);
-
 		props.onRenderTable();
 	};
 
-	const onRefreshSecret = (secretId: string) => {
-		backendApi.delete(`user/secrets/refresh-secret/${secretId}`);
+	const onRefreshSecret = async (secretId: string) => {
+		await backendApi.patch(`user/secrets/refresh-secret/${secretId}`);
+		props.onOpenModal();
 	};
 
-	const onUpdateLabel = (value: string) => {
-		console.log(value);
-
-		// backendApi
-		// 	.patch(`/user/secrets/edit-label/${props.selectedGroup.id}`, {
-		// 		label: newLabel,
-		// 	})
-		// 	.catch(() => {
-		// 		props.onUpdateGroupLabel(props.selectedGroup.id, oldLabel);
-		// 	});
+	const onUpdateLabel = (secretLabel: string, secretId?: string) => {
+		backendApi
+			.patch(`/user/secrets/edit-label/${secretId}`, {
+				label: secretLabel,
+			})
+			.then(() => props.onRenderTable());
 	};
 
 	return (

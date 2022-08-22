@@ -5,10 +5,11 @@ import TokenModalView from './TokenModal.view';
 interface IProps {
 	readonly onCloseModal: () => void;
 	readonly onRenderTable: () => void;
+	readonly dispalyRightSideModal: boolean;
+	readonly onDisplayModalRightSide: () => void;
 }
 
 const TokenModal: React.FC<IProps> = (props) => {
-	const [dispalyRightSideModalState, setDispalyRightSideModalState] = useState<boolean>(false);
 	const [clientSecretState, setClientSecretState] = useState<string | null>(null);
 	const [secretLabelState, setSecretLabelState] = useState<string | null>(null);
 
@@ -19,8 +20,8 @@ const TokenModal: React.FC<IProps> = (props) => {
 		<TokenModalView
 			clientSecret={clientSecretState}
 			secretLabel={secretLabelState}
-			dispalyRightSideModal={dispalyRightSideModalState}
-			setDispalyRightSideModal={setDispalyRightSideModalState}
+			dispalyRightSideModal={props.dispalyRightSideModal}
+			onDisplayModalRightSide={props.onDisplayModalRightSide}
 			onSecretLabelChange={onSecretLabelChange}
 			onClientSecretChange={onClientSecretChange}
 			onCloseModal={props.onCloseModal}
