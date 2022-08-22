@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import SelectRulesView from './SelectRules.view';
 
@@ -8,8 +9,8 @@ interface IProps {
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly libraryName: string;
 	readonly libraryLogo: string;
-	readonly selectedRule: ILibraryRule | null;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
+	readonly selectedRule: IRule | null;
+	readonly onSelectRule: (_: string) => void;
 }
 
 const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

@@ -1,24 +1,23 @@
 import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './Header.module.scss';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
+	readonly isRuleOnUpdate: boolean;
 	readonly onAddRuleToList: () => void;
 	readonly onUpdateRule: () => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const selectedRules: ILibraryRule[] = [];
-
 	return (
 		<div className={classes['header']}>
 			<span className={classes['header__title']}>Rule Configuration</span>
 			<div className={classes['addRuleButton']}>
-				{selectedRules.includes(props.selectedRule!) ? (
+				{props.isRuleOnUpdate ? (
 					<button
 						className={classes['buttonContainer']}
 						type="button"
@@ -33,7 +32,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				)}
 
 				<span className={classes['addRuleButton__text']}>
-					{selectedRules.includes(props.selectedRule!) ? 'Update Rule' : 'Add Rule'}
+					{props.isRuleOnUpdate ? 'Update Rule' : 'Add Rule'}
 				</span>
 			</div>
 		</div>

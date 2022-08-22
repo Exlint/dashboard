@@ -2,7 +2,7 @@ import type { LibraryCategory } from '../models/library-category';
 import type { LibraryType } from '../models/library-type';
 
 export interface ILibraryRule {
-	readonly ruleName?: string;
+	ruleName?: string;
 	readonly description: string;
 	readonly configApi?: string;
 	readonly hasAutoFix?: boolean;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
+import type { ILibraryData } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './RuleOnboarding.module.scss';
 import SelectRules from './SelectRules';
@@ -10,19 +11,18 @@ import SelectedRules from './SelectedRules';
 interface IProps {
 	readonly policyId: string | undefined;
 	readonly selectedLibrary: ILibraryData | null;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
-	readonly onEditRule: (rule: ILibraryRule) => void;
+	readonly selectedRulesList: IRule[] | null;
+	readonly onSelectRule: (_: string) => void;
+	readonly onEditRule: (_: string) => void;
 	readonly onRemoveRule: () => void;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const rulesObject = props.selectedLibrary?.rules;
-
-	console.log(rulesObject, 'RulesObject');
 
 	return (
 		<section className={classes['manually']}>
@@ -40,11 +40,15 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 						policyId={props.policyId}
 						selectedRule={props.selectedRule}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
+						isRuleOnUpdate={props.isRuleOnUpdate}
 						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
 						onRemoveRule={props.onRemoveRule}
 					/>
 
-					<SelectedRules selectedRule={props.selectedRule} onEditRule={props.onEditRule} />
+					<SelectedRules
+						selectedRulesList={props.selectedRulesList}
+						onEditRule={props.onEditRule}
+					/>
 				</div>
 			</div>
 		</section>

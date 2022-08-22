@@ -1,15 +1,14 @@
 import React from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './SelectedRules.module.scss';
 import SelectedRule from './SelectedRule/SelectedRule';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
-	readonly selectedRules: ILibraryRule[] | null;
+	readonly selectedRulesList: IRule[] | null;
 	readonly onRemoveRule: () => void;
-	readonly onEditRule: (rule: ILibraryRule) => void;
+	readonly onEditRule: (_: string) => void;
 }
 
 const SelectedRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -17,30 +16,30 @@ const SelectedRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 		<div
 			className={classes['ruleConfiguration']}
 			style={{
-				borderImage: props.selectedRules
+				borderImage: props.selectedRulesList
 					? 'linear-gradient(to right, rgba(79, 51, 155, 0.5), rgba(79, 51, 155, 1)) 1'
 					: 'none',
 			}}
 		>
 			<span
 				className={classes['disabled']}
-				style={{ display: props.selectedRules ? 'none' : 'flex' }}
+				style={{ display: props.selectedRulesList ? 'none' : 'flex' }}
 			/>
 			<div className={classes['innerRuleConfiguration']}>
 				<span className={classes['innerRuleConfiguration__title']}>Selected Rules</span>
 				<hr className={classes['headerDivider']} />
 				<div className={classes['selectedRules']}>
-					{props.selectedRules &&
-						Object.entries(props.selectedRules).map((rule, index) => {
+					{props.selectedRulesList &&
+						props.selectedRulesList.map((rule, index) => {
 							return (
 								<SelectedRule
 									key={index}
-									selectedRule={props.selectedRule}
-									ruleName={rule[1].ruleName!}
-									ruleCatagory={rule[1].category!}
-									ruleAlertType={rule[1].category}
+									ruleName={rule.ruleName!}
+									ruleCatagory={rule.category!}
+									ruleAlertType={rule.alertType}
+									hasConfig={rule.hasConfig!}
 									onRemoveRule={props.onRemoveRule}
-									onEditSelectedRule={props.onEditRule}
+									onEditRule={props.onEditRule}
 								/>
 							);
 						})}

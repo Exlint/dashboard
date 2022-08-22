@@ -1,14 +1,14 @@
 import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import EDCodeBasedConfigurationsInput from '@/ui/EDCodeBasedConfigurationsInput';
 import classes from './CodeBasedConfigurations.module.scss';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly isEditFileFormat: boolean;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;

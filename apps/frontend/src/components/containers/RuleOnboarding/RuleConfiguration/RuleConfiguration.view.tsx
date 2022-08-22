@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import EDSvg from '@/ui/EDSvg';
 
@@ -12,10 +12,11 @@ import CodeBasedConfigurations from './CodeBasedConfigurations';
 
 interface IProps {
 	readonly policyId: string | undefined;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;
+	readonly isRuleOnUpdate: boolean;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
 	readonly onClickBasedCodeConfigurations: () => void;
@@ -35,6 +36,7 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 					selectedRule={props.selectedRule}
 					ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 					selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
+					isRuleOnUpdate={props.isRuleOnUpdate}
 				/>
 				<SelectedRule selectedRule={props.selectedRule} onRemoveRule={props.onRemoveRule} />
 				<RuleAlertType

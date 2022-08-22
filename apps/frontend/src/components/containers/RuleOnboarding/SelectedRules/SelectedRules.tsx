@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { AxiosError } from 'axios';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
+
 import { backendApi } from '@/utils/http';
 
 import SelectedRulesView from './SelectedRules.view';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
-	readonly onEditRule: (rule: ILibraryRule) => void;
+	readonly selectedRulesList: IRule[] | null;
+	readonly onEditRule: (_: string) => void;
 }
 
 const SelectedRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [selectedrulesState, setSelectedRulesState] = useState<ILibraryRule[] | null>(null);
-
-	useEffect(() => {
-		backendApi
-			.post('/get-rules', {})
-			.then((response) => {
-				setSelectedRulesState(() => response.data);
-			})
-			.catch((err: AxiosError) => {
-				alert(err.response?.data);
-			});
-	}, []);
+	// useEffect(() => {
+	// 	backendApi
+	// 		.post('/get-rules', {})
+	// 		.then((response) => {
+	// 			setSelectedRulesState(() => response.data);
+	// 		})
+	// 		.catch((err: AxiosError) => {
+	// 			alert(err.response?.data);
+	// 		});
+	// }, []);
 
 	const onRemoveRule = () => {
 		backendApi
-			.post('/remove-rule', {
-				rule: props.selectedRule?.ruleName,
-			})
+			.post('/remove-rule', {})
 			.then()
 			.catch((err: AxiosError) => {
 				alert(err.response?.data);
@@ -38,8 +35,7 @@ const SelectedRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	return (
 		<SelectedRulesView
-			selectedRules={selectedrulesState}
-			selectedRule={props.selectedRule}
+			selectedRulesList={props.selectedRulesList}
 			onEditRule={props.onEditRule}
 			onRemoveRule={onRemoveRule}
 		/>

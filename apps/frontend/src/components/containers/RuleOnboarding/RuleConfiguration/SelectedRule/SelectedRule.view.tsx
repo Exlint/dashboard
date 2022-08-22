@@ -1,16 +1,17 @@
 import React from 'react';
 import EDSvg from '@/ui/EDSvg';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './SelectedRule.module.scss';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly onRemoveRule: () => void;
 }
 
 const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	console.log(props.selectedRule, 'selectedRule');
 	return (
 		<div
 			className={classes['selectedRule']}

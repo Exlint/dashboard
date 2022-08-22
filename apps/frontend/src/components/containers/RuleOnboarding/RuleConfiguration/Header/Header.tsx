@@ -1,7 +1,7 @@
 import React from 'react';
 import type { AxiosError } from 'axios';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 import { ruleAlertTypes } from '@/data/rule-alert-types';
 import { backendApi } from '@/utils/http';
 
@@ -9,9 +9,10 @@ import HeaderView from './Header.view';
 
 interface IProps {
 	readonly policyId: string | undefined;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
+	readonly isRuleOnUpdate: boolean;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -19,7 +20,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const selectedRule: Record<string, string> = {};
 
-	selectedRule[props.selectedRule?.ruleName!] = selectedRuleType!;
+	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName!]: selectedRuleType! });
 
 	const selectRuleReqBody = JSON.stringify(selectedRule);
 
@@ -48,6 +49,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<HeaderView
 			selectedRule={props.selectedRule}
+			isRuleOnUpdate={props.isRuleOnUpdate}
 			onAddRuleToList={onAddRuleToList}
 			onUpdateRule={onUpdateRule}
 		/>

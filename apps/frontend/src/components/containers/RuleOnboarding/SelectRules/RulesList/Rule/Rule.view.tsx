@@ -1,7 +1,7 @@
 import React from 'react';
 import EDSvg from '@/ui/EDSvg';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './Rule.module.scss';
 
@@ -11,8 +11,8 @@ interface IProps {
 	readonly ruleCatagory: string | undefined;
 	readonly ruleDescription: string;
 	readonly hasAutoFix: boolean | undefined;
-	readonly selectedRule: ILibraryRule | null;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
+	readonly selectedRule: IRule | null;
+	readonly onSelectRule: (_: string) => void;
 }
 
 const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -37,13 +37,7 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			<button
 				className={classes['addRuleButton']}
 				type="button"
-				onClick={() =>
-					props.onSelectRule({
-						ruleName: props.ruleName,
-						category: props.ruleCatagory,
-						description: props.ruleDescription,
-					})
-				}
+				onClick={() => props.onSelectRule(props.ruleName)}
 			>
 				<EDSvg name="addRuleButton" className={classes['addRuleButton__icon']} />
 			</button>

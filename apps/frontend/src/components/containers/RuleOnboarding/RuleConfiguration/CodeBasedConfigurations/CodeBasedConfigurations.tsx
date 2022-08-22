@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import CodeBasedConfigurationsView from './CodeBasedConfigurations.view';
 
 interface IProps {
 	readonly policyLabelInput: string | null;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onClickBasedCodeConfigurations: () => void;

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './SelectRules.module.scss';
 
@@ -11,12 +12,12 @@ interface IProps {
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly libraryName: string;
 	readonly libraryLogo: string;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly selectedCatagoryIndex: number | null;
 	readonly isCatagoryClicked: boolean;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
+	readonly onSelectRule: (_: string) => void;
 	readonly onSelectCatagoryButton: () => void;
-	readonly onSelectedCatagory: (index: number) => void;
+	readonly onSelectedCatagory: (_: number) => void;
 }
 
 const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

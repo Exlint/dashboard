@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import classes from './RulesList.module.scss';
 
@@ -8,9 +9,9 @@ import Rule from './Rule';
 
 interface IProps {
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly selectedCatagoryIndex: number | null;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
+	readonly onSelectRule: (_: string) => void;
 }
 
 const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

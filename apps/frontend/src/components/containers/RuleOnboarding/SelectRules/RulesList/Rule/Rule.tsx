@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import RuleView from './Rule.view';
 
@@ -10,8 +10,8 @@ interface IProps {
 	readonly ruleCatagory: string | undefined;
 	readonly ruleDescription: string;
 	readonly hasAutoFix: boolean | undefined;
-	readonly selectedRule: ILibraryRule | null;
-	readonly onSelectRule: (rule: ILibraryRule) => void;
+	readonly selectedRule: IRule | null;
+	readonly onSelectRule: (_: string) => void;
 }
 
 const Rule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

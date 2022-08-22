@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
+import type { IRule } from '@/interfaces/rule';
 
 import SelectedRuleView from './SelectedRule.view';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
+	readonly selectedRule: IRule | null;
 	readonly onRemoveRule: () => void;
 }
 

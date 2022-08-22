@@ -1,27 +1,25 @@
 import React from 'react';
 
-import type { ILibraryRule } from '@/interfaces/libraries';
-
 import SelectedRuleView from './SelectedRule.view';
 
 interface IProps {
-	readonly selectedRule: ILibraryRule | null;
 	readonly ruleName: string;
 	readonly ruleCatagory: string;
+	readonly hasConfig: boolean;
 	readonly ruleAlertType: string | undefined;
 	readonly onRemoveRule: () => void;
-	readonly onEditSelectedRule: (rule: ILibraryRule) => void;
+	readonly onEditRule: (_: string) => void;
 }
 
 const SelectedRule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<SelectedRuleView
-			selectedRule={props.selectedRule}
 			ruleName={props.ruleName}
 			ruleCatagory={props.ruleCatagory}
+			hasConfig={props.hasConfig}
 			ruleAlertType={props.ruleAlertType}
 			onRemoveRule={props.onRemoveRule}
-			onEditSelectedRule={props.onEditSelectedRule}
+			onEditRule={props.onEditRule}
 		/>
 	);
 };
