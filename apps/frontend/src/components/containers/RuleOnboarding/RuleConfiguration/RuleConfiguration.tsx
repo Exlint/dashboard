@@ -1,41 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import type { IRule } from '@/interfaces/rule';
 
 import RuleConfigurationView from './RuleConfiguration.view';
-import { ruleAlertTypes } from '@/data/rule-alert-types';
 
 interface IProps {
 	readonly policyId: string | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
+	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
+	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
 }
 
 const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const selectedRuleType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
-
-	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
-		useState<string>('');
-
 	const [isBasedCodeConfigurationsClickedState, setIsBasedCodeConfigurationsClickedState] =
 		useState<boolean>(false);
 
-	const onCodeBasedConfigurationsInputChanged = (input: string) => {
-		setRuleCodeBasedConfigurationsInputState(() => input);
-	};
+	const onOpenCodeConfigurationsModal = () => setIsBasedCodeConfigurationsClickedState(() => true);
 
-	const onClickBasedCodeConfigurations = () => {
-		setIsBasedCodeConfigurationsClickedState(() => !isBasedCodeConfigurationsClickedState);
-	};
-
-	useEffect(() => {
-		setRuleCodeBasedConfigurationsInputState(
-			() => `'${props.selectedRule?.ruleName}': ['${selectedRuleType}',]`,
-		);
-	}, [props.selectedRule, selectedRuleType]);
+	const onCloseCodeConfigurationsModal = () => setIsBasedCodeConfigurationsClickedState(() => false);
 
 	return (
 		<RuleConfigurationView
@@ -43,12 +29,13 @@ const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			selectedRule={props.selectedRule}
 			selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
 			isBasedCodeConfigurationsClicked={isBasedCodeConfigurationsClickedState}
-			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
+			ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 			isRuleOnUpdate={props.isRuleOnUpdate}
 			onSelectedRuleAlertType={props.onSelectedRuleAlertType}
 			onRemoveRule={props.onRemoveRule}
-			onClickBasedCodeConfigurations={onClickBasedCodeConfigurations}
-			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
+			onOpenCodeConfigurationsModal={onOpenCodeConfigurationsModal}
+			onCloseCodeConfigurationsModal={onCloseCodeConfigurationsModal}
+			onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 		/>
 	);
 };

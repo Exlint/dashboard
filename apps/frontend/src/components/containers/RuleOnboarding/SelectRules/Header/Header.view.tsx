@@ -1,7 +1,7 @@
 import React from 'react';
 
 import EDSvg from '@/ui/EDSvg';
-import EDSelectFromOptions from '@/ui/EDSelectFromOptions';
+import EDSelect from '@/ui/EDSelect';
 
 import tempLibraryuLogo from '@/images/google-brand-logo.png';
 
@@ -12,8 +12,8 @@ interface IProps {
 	readonly libraryName: string;
 	readonly libraryLogo: string;
 	readonly selectedCatagoryIndex: number | null;
-	readonly isCatagoryClicked: boolean;
-	readonly onSelectCatagoryButton: () => void;
+	readonly searchRuleInput: string | null;
+	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (index: number) => void;
 }
 
@@ -41,18 +41,18 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 							className={classes['searchRules__input']}
 							type="text"
 							placeholder="Search Rules"
+							onChange={({ currentTarget: { value } }) => props.onSearchRuleInput(value)}
 						/>
 					</div>
-					<EDSelectFromOptions
-						defaultValue="Catagory"
-						componentWidth="170px"
-						border="2px solid #E7E7E7"
-						selectedOptionIndex={props.selectedCatagoryIndex}
-						isShowMoreClicked={props.isCatagoryClicked}
-						optionsList={props.rulesCatagories}
-						onSelectOptionsButton={props.onSelectCatagoryButton}
-						onSelectedOption={props.onSelectedCatagory}
-					/>
+					<div className={classes['selectContainer']}>
+						<EDSelect
+							placeholder="Catagory"
+							options={props.rulesCatagories}
+							selectedOptionIndex={props.selectedCatagoryIndex}
+							onOptionSelect={props.onSelectedCatagory}
+						/>
+					</div>
+
 					<div className={classes['autoFixContainer']}>
 						<input className={classes['autoFixContainer__checkbox']} type="checkbox" />
 						<span className={classes['autoFixContainer__text']}>Autofix</span>

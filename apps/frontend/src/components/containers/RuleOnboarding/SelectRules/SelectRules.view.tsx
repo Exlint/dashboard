@@ -13,33 +13,24 @@ interface IProps {
 	readonly libraryName: string;
 	readonly libraryLogo: string;
 	readonly selectedRule: IRule | null;
+	readonly rulesCatagories: string[];
+	readonly searchRuleInput: string | null;
 	readonly selectedCatagoryIndex: number | null;
-	readonly isCatagoryClicked: boolean;
 	readonly onSelectRule: (_: string) => void;
-	readonly onSelectCatagoryButton: () => void;
+	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (_: number) => void;
 }
 
 const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const rulesCatagories: string[] = [];
-
-	// If (props.rulesObject !== undefined) {
-	// 	Props.rulesObject.map((rule) => {
-	// 		If (!rulesCatagories.includes(rule.category)) {
-	// 			RulesCatagories.push(rule.category);
-	// 		}
-	// 	});
-	// }
-
 	return (
 		<div className={classes['leftSideContainer']}>
 			<Header
-				rulesCatagories={rulesCatagories}
+				rulesCatagories={props.rulesCatagories}
 				libraryName={props.libraryName}
 				libraryLogo={props.libraryLogo}
+				searchRuleInput={props.searchRuleInput}
 				selectedCatagoryIndex={props.selectedCatagoryIndex}
-				isCatagoryClicked={props.isCatagoryClicked}
-				onSelectCatagoryButton={props.onSelectCatagoryButton}
+				onSearchRuleInput={props.onSearchRuleInput}
 				onSelectedCatagory={props.onSelectedCatagory}
 			/>
 			<RulesList

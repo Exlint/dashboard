@@ -19,7 +19,8 @@ interface IProps {
 	readonly isRuleOnUpdate: boolean;
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
-	readonly onClickBasedCodeConfigurations: () => void;
+	readonly onOpenCodeConfigurationsModal: () => void;
+	readonly onCloseCodeConfigurationsModal: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
 
@@ -49,7 +50,8 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 					policyLabelInput="tempPolicyLabel"
 					isBasedCodeConfigurationsClicked={props.isBasedCodeConfigurationsClicked}
 					ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-					onClickBasedCodeConfigurations={props.onClickBasedCodeConfigurations}
+					onOpenCodeConfigurationsModal={props.onOpenCodeConfigurationsModal}
+					onCloseCodeConfigurationsModal={props.onCloseCodeConfigurationsModal}
 					onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 				/>
 
@@ -61,6 +63,13 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 					<span className={classes['inputRuleConfigurations__text']}>
 						Input code-based configurations
 					</span>
+
+					<div
+						className={classes['disabledfeature']}
+						style={{ display: props.selectedRule === null ? 'none' : 'flex' }}
+					>
+						<span className={classes['disabledfeature__text']}>Comming Soon!</span>
+					</div>
 					<button
 						className={classes['editButton']}
 						type="button"

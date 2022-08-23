@@ -4,4 +4,5 @@ export interface IRule {
 	readonly category?: string;
 	readonly hasConfig?: boolean;
 	readonly description?: string;
+	readonly configurations?: string;
 }

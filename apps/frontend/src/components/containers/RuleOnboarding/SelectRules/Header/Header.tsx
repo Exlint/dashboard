@@ -7,8 +7,8 @@ interface IProps {
 	readonly libraryName: string;
 	readonly libraryLogo: string;
 	readonly selectedCatagoryIndex: number | null;
-	readonly isCatagoryClicked: boolean;
-	readonly onSelectCatagoryButton: () => void;
+	readonly searchRuleInput: string | null;
+	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (index: number) => void;
 }
 
@@ -18,9 +18,9 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			rulesCatagories={props.rulesCatagories}
 			libraryName={props.libraryName}
 			libraryLogo={props.libraryLogo}
+			searchRuleInput={props.searchRuleInput}
 			selectedCatagoryIndex={props.selectedCatagoryIndex}
-			isCatagoryClicked={props.isCatagoryClicked}
-			onSelectCatagoryButton={props.onSelectCatagoryButton}
+			onSearchRuleInput={props.onSearchRuleInput}
 			onSelectedCatagory={props.onSelectedCatagory}
 		/>
 	);

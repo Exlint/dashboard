@@ -20,7 +20,7 @@
 			}
 
 			&__text:not(:last-child) {
-				margin-right: 10px;
+				margin-inline-end: 10px;
 			}
 		}
 
@@ -32,7 +32,7 @@
 			&__logo {
 				width: 45px;
 				height: 41px;
-				margin-right: 18px;
+				margin-inline-end: 18px;
 			}
 
 			&__name {
@@ -53,7 +53,7 @@
 				align-items: center;
 				width: 100%;
 				padding: 7px 0 7px 23px;
-				margin-right: 12px;
+				margin-inline-end: 12px;
 				background-color: #fefefe;
 				border: 2px solid #e7e7e7;
 				border-radius: 10px;
@@ -61,7 +61,7 @@
 				&__icon {
 					width: 15px;
 					height: 15px;
-					margin-right: 7px;
+					margin-inline-end: 7px;
 					fill: #8b8b8b;
 				}
 
@@ -73,6 +73,10 @@
 					color: #8b8b8b;
 				}
 			}
+
+			.selectContainer {
+				width: 300px;
+			}
 		}
 
 		.autoFixContainer {
@@ -80,7 +84,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin-left: 12px;
+			margin-inline-start: 12px;
 
 			&__checkbox {
 				width: 19px;

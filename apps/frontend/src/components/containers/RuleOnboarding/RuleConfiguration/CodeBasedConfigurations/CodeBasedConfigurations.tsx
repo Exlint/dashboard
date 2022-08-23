@@ -9,7 +9,8 @@ interface IProps {
 	readonly selectedRule: IRule | null;
 	readonly isBasedCodeConfigurationsClicked: boolean;
 	readonly ruleCodeBasedConfigurationsInput: string;
-	readonly onClickBasedCodeConfigurations: () => void;
+	readonly onOpenCodeConfigurationsModal: () => void;
+	readonly onCloseCodeConfigurationsModal: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
 }
 
@@ -28,7 +29,8 @@ const CodeBasedConfigurations: React.FC<IProps> = (props: React.PropsWithChildre
 			isBasedCodeConfigurationsClicked={props.isBasedCodeConfigurationsClicked}
 			ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
 			onEditFileFormatButton={onEditFileFormatButton}
-			onClickBasedCodeConfigurations={props.onClickBasedCodeConfigurations}
+			onOpenCodeConfigurationsModal={props.onOpenCodeConfigurationsModal}
+			onCloseCodeConfigurationsModal={props.onCloseCodeConfigurationsModal}
 			onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
 		/>
 	);
