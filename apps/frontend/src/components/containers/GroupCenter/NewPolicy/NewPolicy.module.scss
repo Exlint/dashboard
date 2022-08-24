@@ -1,0 +1,124 @@
+.newPolicy {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 39px 122px 20px;
+	overflow: hidden;
+
+	.innerNewPolicy {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 22px 13px;
+		background-color: #fefefe;
+		border: 2px solid #e7e7e7;
+		border-radius: 5px;
+
+		.topPartContainer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 500 !important;
+				color: #202428;
+			}
+
+			.policyConfigurationButtonContainer {
+				display: flex;
+				justify-content: flex-end;
+
+				&__link {
+					text-decoration: none;
+				}
+			}
+		}
+
+		.searchContainer {
+			display: flex;
+			flex-direction: column;
+			margin: 23px 65px 0 38px;
+
+			.policyLabel {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&__text {
+					margin: 0 21px 0 14px;
+					font-size: 1.8rem;
+					font-weight: 400;
+					color: #4b4a65;
+					white-space: nowrap;
+				}
+
+				&__input {
+					width: 100%;
+					padding: 8px 0 8px 21px;
+					font-size: 1.7rem;
+					font-weight: 350;
+					color: #8b8b8b;
+					background-color: #fefefe;
+					border: 2px solid #e7e7e7;
+					border-radius: 10px;
+					box-shadow: 0 11px 15px #0000000d;
+				}
+			}
+
+			.libraryAndSortBy {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				margin-top: 13px;
+
+				.library {
+					display: flex;
+					align-items: center;
+					width: 100%;
+					margin-inline-end: 21px;
+
+					&__text {
+						margin-inline-end: 18px;
+						font-size: 1.8rem;
+						font-weight: 400;
+						color: #4b4a65;
+						white-space: nowrap;
+					}
+
+					.libraryInputContainer {
+						display: flex;
+						align-items: center;
+						width: 100%;
+						padding: 8px 0 8px 21px;
+						margin-inline-start: 4px;
+						background-color: #fefefe;
+						border: 2px solid #e7e7e7;
+						border-radius: 10px;
+						box-shadow: 0 11px 15px #0000000d;
+
+						&__icon {
+							width: 15px;
+							height: 15px;
+							margin-inline-end: 7px;
+							fill: #8b8b8b;
+						}
+
+						&__input {
+							font-size: 1.7rem;
+							font-weight: 350;
+							color: #8b8b8b;
+						}
+					}
+				}
+			}
+		}
+
+		.innerLibrary {
+			display: flex;
+			height: 100%;
+			margin: 100px 0 0 38px;
+			overflow: hidden;
+		}
+	}
+}

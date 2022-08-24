@@ -1,3 +1,65 @@
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-23)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-22)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-22)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-21)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-21)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-08-21)
+
+
+### Features
+
+* 🔥 added group label edit functionality ([cb57440](https://github.com/Exlint/dashboard/commit/cb57440fc97b27ae25bdcea59a666b274e2ccff1))
+* 🔥 added groupCenter page ([c8ea973](https://github.com/Exlint/dashboard/commit/c8ea97365c47515b6fd23394f797d0f388bd4b6d))
+
+# [1.18.0](https://github.com/Exlint/dashboard/compare/v1.17.1...v1.18.0) (2022-08-16)
+
+
+### Features
+
+* 🔥 add EDSelect ([605000c](https://github.com/Exlint/dashboard/commit/605000cd3915fe3cced0b1cba72a99c0a8b74686))
+
+## [1.17.1](https://github.com/Exlint/dashboard/compare/v1.17.0...v1.17.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐞 fix issues with lintstaged and eslint ([04981aa](https://github.com/Exlint/dashboard/commit/04981aad1e6661fc9ef2c16fe14334b03a5e1ed5))
+
 # [1.17.0](https://github.com/Exlint/dashboard/compare/v1.16.0...v1.17.0) (2022-08-02)
 
 
