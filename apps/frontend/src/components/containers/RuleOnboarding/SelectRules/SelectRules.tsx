@@ -53,13 +53,9 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		}
 	}
 
-	const onSearchRuleInput = (input: string) => {
-		setSearchRuleInputState(() => input);
-	};
+	const onSearchRuleInput = (input: string) => setSearchRuleInputState(() => input);
 
-	const onSelectedCatagory = (index: number) => {
-		setSelectedCatagoryIndexState(() => index);
-	};
+	const onSelectedCatagory = (index: number) => setSelectedCatagoryIndexState(() => index);
 
 	return (
 		<SelectRulesView
