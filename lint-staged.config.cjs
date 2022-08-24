@@ -1,14 +1,14 @@
 module.exports = {
 	'apps/backend/**/*.{ts,js,cjs}': [
-		'cd ./apps/backend && eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
+		'pnpm --filter backend exec eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
 		() => 'tsc --noEmit',
 	],
 	'apps/cli-backend/**/*.{ts,js,cjs}': [
-		'cd ./apps/cli-backend && eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
+		'pnpm --filter cli-backend exec eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
 		() => 'tsc --noEmit',
 	],
 	'apps/frontend/**/*.{ts,js,cjs}': [
-		'cd ./apps/frontend && eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
+		'pnpm --filter frontend exec eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
 		() => 'tsc --noEmit',
 	],
 	'!(apps)**/*.{ts,js,cjs}': ['eslint -c ./.eslintrc.cjs --fix', () => 'tsc --noEmit'],

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import brandTextLogo from '@/images/brand-text-logo.png';
 
@@ -22,7 +22,7 @@ const ExternalActionView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				{t('externalAction.footerText')}
 				&nbsp;
 				<a className={classes['footer__contact']} href="mailto:contact@exlint.io">
-					contact@exlint.io
+					<Trans>contact@exlint.io</Trans>
 				</a>
 			</footer>
 		</>
