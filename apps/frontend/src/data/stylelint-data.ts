@@ -1,9 +1,7 @@
-import type { ILibraryData } from '@/interfaces/libraries';
-
 import { LibraryCategory } from '../models/library-category';
 import { LibraryType } from '../models/library-type';
 
-export const stylelintData: ILibraryData = {
+export const stylelintData = {
 	name: 'Stylelint',
 	author: 'stylelint.io',
 	description:
