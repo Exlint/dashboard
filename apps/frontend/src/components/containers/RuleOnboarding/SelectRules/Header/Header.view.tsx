@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import EDSelect from '@/ui/EDSelect';
@@ -18,12 +19,18 @@ interface IProps {
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['header']}>
 			<div className={classes['innerHeader']}>
 				<div className={classes['titleContainer']}>
-					<span className={classes['titleContainer__text']}>POLICY LABEL</span>
-					<span className={classes['titleContainer__text']}>Rule Creation</span>
+					<span className={classes['titleContainer__text']}>
+						{t('ruleOnboarding.selectRules.header.ruleCreation')}
+					</span>
+					<span className={classes['titleContainer__text']}>
+						{t('ruleOnboarding.selectRules.header.ruleCreation')}
+					</span>
 				</div>
 				<div className={classes['libraryInformation']}>
 					<img
@@ -55,7 +62,9 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 
 					<div className={classes['autoFixContainer']}>
 						<input className={classes['autoFixContainer__checkbox']} type="checkbox" />
-						<span className={classes['autoFixContainer__text']}>Autofix</span>
+						<span className={classes['autoFixContainer__text']}>
+							{t('ruleOnboarding.selectRules.header.autoFix')}
+						</span>
 					</div>
 				</div>
 			</div>

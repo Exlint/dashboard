@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import type { IRule } from '@/interfaces/rule';
@@ -13,9 +14,13 @@ interface IProps {
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['header']}>
-			<span className={classes['header__title']}>Rule Configuration</span>
+			<span className={classes['header__title']}>
+				{t('ruleOnboarding.ruleConfiguration.header.title')}
+			</span>
 			<div className={classes['addRuleButton']}>
 				{props.isRuleOnUpdate ? (
 					<button

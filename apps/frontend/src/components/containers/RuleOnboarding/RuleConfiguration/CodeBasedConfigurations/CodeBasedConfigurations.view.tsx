@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import type { IRule } from '@/interfaces/rule';
@@ -19,10 +20,14 @@ interface IProps {
 }
 
 const CodeBasedConfigurationsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['inputCodeConfigurations']}>
 			<EDSvg name="inputCode" className={classes['inputCodeConfigurations__icon']} />
-			<span className={classes['inputCodeConfigurations__text']}>Input code-based configurations</span>
+			<span className={classes['inputCodeConfigurations__text']}>
+				{t('ruleOnboarding.ruleConfiguration.codeBasedConfigurations.inputTitle')}
+			</span>
 			<button
 				className={classes['editButton']}
 				type="button"
@@ -32,7 +37,9 @@ const CodeBasedConfigurationsView: React.FC<IProps> = (props: React.PropsWithChi
 				}}
 				onClick={props.onOpenCodeConfigurationsModal}
 			>
-				<span className={classes['editButton__text']}>Edit</span>
+				<span className={classes['editButton__text']}>
+					{t('ruleOnboarding.ruleConfiguration.codeBasedConfigurations.edit')}
+				</span>
 				<EDSvg name="arrowRight" className={classes['editButton__icon']} />
 			</button>
 

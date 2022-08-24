@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { IRule } from '@/interfaces/rule';
 
@@ -12,6 +13,8 @@ interface IProps {
 }
 
 const SelectedRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div
 			className={classes['ruleConfiguration']}
@@ -26,7 +29,9 @@ const SelectedRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 				style={{ display: props.selectedRulesList ? 'none' : 'flex' }}
 			/>
 			<div className={classes['innerRuleConfiguration']}>
-				<span className={classes['innerRuleConfiguration__title']}>Selected Rules</span>
+				<span className={classes['innerRuleConfiguration__title']}>
+					{t('ruleOnboarding.selectedRules.selectedRules')}
+				</span>
 				<hr className={classes['headerDivider']} />
 				<div className={classes['selectedRules']}>
 					{props.selectedRulesList &&

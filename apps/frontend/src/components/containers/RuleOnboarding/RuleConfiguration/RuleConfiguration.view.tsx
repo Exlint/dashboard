@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { IRule } from '@/interfaces/rule';
 
@@ -25,6 +26,8 @@ interface IProps {
 }
 
 const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['ruleConfiguration']}>
 			<span
@@ -61,14 +64,16 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 						className={classes['inputRuleConfigurations__icon']}
 					/>
 					<span className={classes['inputRuleConfigurations__text']}>
-						Input code-based configurations
+						{t('ruleOnboarding.ruleConfiguration.codeBasedConfiguration')}
 					</span>
 
 					<div
 						className={classes['disabledfeature']}
 						style={{ display: props.selectedRule === null ? 'none' : 'flex' }}
 					>
-						<span className={classes['disabledfeature__text']}>Comming Soon!</span>
+						<span className={classes['disabledfeature__text']}>
+							{t('ruleOnboarding.ruleConfiguration.commingSoon')}
+						</span>
 					</div>
 					<button
 						className={classes['editButton']}
@@ -78,7 +83,9 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 							borderColor: props.selectedRule === null ? '#B7B7B7' : '#6b7d98',
 						}}
 					>
-						<span className={classes['editButton__text']}>Edit</span>
+						<span className={classes['editButton__text']}>
+							{t('ruleOnboarding.ruleConfiguration.edit')}
+						</span>
 						<EDSvg name="arrowRight" className={classes['editButton__icon']} />
 					</button>
 				</div>

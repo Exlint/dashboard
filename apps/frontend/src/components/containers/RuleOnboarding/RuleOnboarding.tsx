@@ -20,7 +20,9 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
+
 	const [isRuleOnUpdateState, setIsRuleOnUpdateState] = useState<boolean>(false);
+
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
 
@@ -37,11 +39,10 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	});
 
 	const selectedRulesList: IRule[] | null = parasRulesList.map((rule) => {
-		console.log(rule, 'rule');
 		const ruleObject = {
 			ruleName: Object.keys(rule)[0]!,
 			alertType: rule[Object.keys(rule)[0]!],
-			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category!,
+			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
 			hasConfig: Object.keys(rule)[1] ? true : false,
 			configurations: JSON.stringify(rule),
 		};
@@ -51,6 +52,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const onSelectRule = (ruleName: string) => {
 		const selectedRule = selectedLibraryState.rules![ruleName];
+
 		selectedRule!.ruleName = ruleName;
 
 		if (!isRuleOnUpdateState && selectedRule) {
@@ -62,16 +64,21 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const onEditRule = (ruleName: string) => {
 		const selectedRule = selectedLibraryState.rules![ruleName];
+
 		selectedRule!.ruleName = ruleName;
 
 		setIsRuleOnUpdateState(() => true);
-		for (let rule of selectedRulesList) {
+
+		for (const rule of selectedRulesList) {
 			if (rule.ruleName === ruleName) {
 				const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
+
 				setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
+
 				rule.configurations && setRuleCodeBasedConfigurationsInputState(() => rule.configurations!);
 			}
 		}
+
 		selectedRule && setSelectedRuleState(() => selectedRule);
 	};
 

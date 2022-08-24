@@ -20,7 +20,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const selectedRule: Record<string, string> = {};
 
-	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName!]: selectedRuleType! });
+	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
 	const selectRuleReqBody = JSON.stringify(selectedRule);
 

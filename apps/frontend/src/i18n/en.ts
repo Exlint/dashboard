@@ -71,6 +71,35 @@ const en = {
 	navigateBackButton: {
 		back: 'Back',
 	},
+	ruleOnboarding: {
+		selectRules: {
+			header: {
+				ruleCreation: 'Rule Creation',
+				autoFix: 'Autofix',
+			},
+		},
+		ruleConfiguration: {
+			codeBasedConfiguration: 'Input code-based configurations',
+			commingSoon: 'Comming Soon!',
+			edit: 'Edit',
+			codeBasedConfigurations: {
+				inputTitle: 'Input code-based configurations',
+				edit: 'Edit',
+				modal: {
+					doneButton: 'Done',
+				},
+			},
+			header: {
+				title: 'Rule Configuration',
+			},
+		},
+		selectedRules: {
+			selectedRules: 'Selected Rules',
+			selectedRule: {
+				withConfig: '+ Code Config.',
+			},
+		},
+	},
 };
 
 export default en;

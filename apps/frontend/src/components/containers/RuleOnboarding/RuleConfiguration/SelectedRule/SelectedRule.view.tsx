@@ -11,7 +11,6 @@ interface IProps {
 }
 
 const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	console.log(props.selectedRule, 'selectedRule');
 	return (
 		<div
 			className={classes['selectedRule']}

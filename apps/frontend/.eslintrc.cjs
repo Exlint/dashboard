@@ -96,6 +96,12 @@ module.exports = {
 				'max-lines': 'off',
 			},
 		},
+		{
+			files: ['./src/i18n/en.ts'],
+			rules: {
+				'max-lines': ['error', { max: 200, skipBlankLines: true, skipComments: true }],
+			},
+		},
 	],
 	settings: {
 		react: {

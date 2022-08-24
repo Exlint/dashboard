@@ -13,17 +13,6 @@ interface IProps {
 }
 
 const SelectedRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// useEffect(() => {
-	// 	backendApi
-	// 		.post('/get-rules', {})
-	// 		.then((response) => {
-	// 			setSelectedRulesState(() => response.data);
-	// 		})
-	// 		.catch((err: AxiosError) => {
-	// 			alert(err.response?.data);
-	// 		});
-	// }, []);
-
 	const onRemoveRule = () => {
 		backendApi
 			.post('/remove-rule', {})

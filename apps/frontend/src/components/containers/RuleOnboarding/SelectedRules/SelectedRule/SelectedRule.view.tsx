@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import EDSvg from '@/ui/EDSvg';
 
 import classes from './SelectedRule.module.scss';
@@ -13,6 +15,8 @@ interface IProps {
 }
 
 const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={classes['selectedRule']}>
 			<div className={classes['innerSelectedrule']}>
@@ -23,7 +27,9 @@ const SelectedRuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				<div className={classes['middleSideContainer']}>
 					<span className={classes['middleSideContainer__text']}>{props.ruleAlertType}</span>
 					{props.hasConfig && (
-						<span className={classes['middleSideContainer__text']}>+ Code Config.</span>
+						<span className={classes['middleSideContainer__text']}>
+							{t('ruleOnboarding.selectedRules.selectedRule.withConfig')}
+						</span>
 					)}
 				</div>
 				<div className={classes['rightSideContainer']}>
