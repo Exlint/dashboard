@@ -21,7 +21,7 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 
 	const {
-		ref: tooltopRef,
+		ref: tooltipRef,
 		isVisible: isTooltipVisible,
 		toggleVisibility: toggleTooltipVisibility,
 	} = useClickOutside<HTMLDivElement>(false);
@@ -44,7 +44,7 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			policyLabel={props.policyLabel}
 			groupLabel={props.groupLabel}
 			isModelOnView={isModelOnViewState}
-			tooltopRef={tooltopRef}
+			tooltipRef={tooltipRef}
 			isTooltipVisible={isTooltipVisible}
 			toggleTooltipVisibility={toggleTooltipVisibility}
 			onOpenModal={onOpenModal}
