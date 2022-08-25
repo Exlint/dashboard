@@ -41,6 +41,31 @@ const en = {
 		title: 'Settings',
 		username: 'Username',
 	},
+	policySidebar: {
+		header: {
+			title: 'Back to',
+		},
+		body: {
+			createdAt: 'Created in:',
+			details: {
+				library: 'Library',
+				type: 'Type',
+				category: 'Category',
+				rules: 'Rules',
+			},
+		},
+		policySidebarModal: {
+			header: 'Are you sure you want to delete ',
+			subHeader: ' Policy?',
+			details: 'Once deleted, this can’t be undone. To confirm, type ',
+			inputPlaceholder: 'Type here',
+			confirmButton: 'Delete Policy',
+		},
+		policySidebarTooltip: {
+			renamePolicy: 'Rename Policy',
+			deletePolicy: 'Delete Policy',
+		},
+	},
 	groupCenter: {
 		newGroupLabel: 'New Group',
 		groupDetails: {
