@@ -1,0 +1,77 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: 26px 0 0 40px;
+
+	&__title {
+		font-size: 2rem;
+		font-weight: 600;
+		color: #202428;
+	}
+
+	.innerWrapper {
+		display: flex;
+		flex-direction: column;
+		margin-top: 35px;
+
+		&__title {
+			margin-bottom: 13px;
+			font-size: 1.7rem;
+			color: #202428;
+
+			&--disabled {
+				color: #bbb8ca;
+			}
+		}
+
+		&__input {
+			width: 230px;
+			height: 42px;
+			padding: 8px 7px;
+			background-color: #fefefe;
+			border: 2px solid #e7e7e7;
+			border-radius: 10px;
+
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+
+			&:disabled {
+				color: #bbb8ca;
+			}
+		}
+
+		&__selectWrapper {
+			display: flex;
+			align-items: center;
+
+			.select {
+				min-width: 230px;
+			}
+
+			.datePicker {
+				margin-inline-start: 10px;
+				border: 1px solid #bbb8ca;
+				border-radius: 5px;
+			}
+		}
+	}
+
+	&__button {
+		align-self: flex-end;
+		min-width: 220px;
+		padding: 10px 20px;
+		margin: 30px 15px 0 180px;
+		font-weight: 600;
+		color: #fefefe;
+		background-color: #2355a0;
+		border: 1px solid #462a93;
+		border-radius: 4px;
+
+		&:disabled {
+			color: #ebe5fa;
+			background-color: #8197b8;
+			border: 1px solid #2355a0;
+		}
+	}
+}

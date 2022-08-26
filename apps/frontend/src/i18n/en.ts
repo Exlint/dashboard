@@ -22,6 +22,28 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	tokenManagement: {
+		clientId: 'Client ID',
+		copied: 'Copied:',
+		table: {
+			title: 'Secrets',
+			revokeAll: 'Revoke All',
+			createSecret: 'Create Secret',
+			total: 'Total:',
+		},
+		tokenManagementModal: {
+			secretCreationTitle: 'Secret Creation',
+			label: 'Label',
+			expires: 'Expires',
+			createSecretButton: 'Create Secret & Countinue',
+			secretTokenTitle: 'Secret Token',
+			secretTokenSubTitle: 'Warning: This information will disappear as soon as you exit the window.',
+			copy: 'Copy',
+			copied: 'Copied!',
+			downloadCsv: 'Download .csv',
+			done: 'Done',
+		},
+	},
 	userSettings: {
 		title: 'User Settings',
 		username: 'User',

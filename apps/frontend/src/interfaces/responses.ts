@@ -1,4 +1,5 @@
 import type { IGroup } from './group';
+import type { ISecrets } from './secrets';
 
 export interface IAutoAuthResponseData {
 	readonly accessToken: string;
@@ -21,4 +22,12 @@ export interface IGetGroupsResponseData {
 
 export interface ICreateGroupResponseData {
 	readonly groupId: string;
+}
+
+export interface IGetSecretsResponseData {
+	readonly secrets: ISecrets[];
+}
+
+export interface ICreateSecretResponseData {
+	readonly clientSecret: string;
 }
