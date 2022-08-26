@@ -2,7 +2,7 @@ name: Integration
 
 on:
     pull_request:
-        branches: [main]
+        branches: [main-temp]
 
 jobs:
     test_pull_request:
