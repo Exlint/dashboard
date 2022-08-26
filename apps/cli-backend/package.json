@@ -35,7 +35,7 @@
 		"@compodoc/compodoc": "1.1.19",
 		"@nestjs/cli": "9.0.0",
 		"@nestjs/schematics": "9.0.1",
-		"@nestjs/swagger": "6.0.5",
+		"@nestjs/swagger": "6.1.0",
 		"@types/express": "4.17.13",
 		"@types/passport-jwt": "3.0.6",
 		"@typescript-eslint/eslint-plugin": "5.35.1",
