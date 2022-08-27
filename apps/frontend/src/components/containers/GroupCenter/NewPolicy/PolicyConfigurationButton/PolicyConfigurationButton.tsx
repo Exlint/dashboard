@@ -13,7 +13,7 @@ interface IProps {
 
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onCreateNewPolicy = () => {
-		backendApi.post(`/user/inline-policies/${props.selectedGroupId}`, {
+		backendApi.post(`/user/inline-policies/configuration/${props.selectedGroupId}`, {
 			label: props.policyLabelInput,
 			library: props.selectedLibrary?.toLocaleUpperCase(),
 		});
