@@ -39,3 +39,7 @@ export interface ICreateSecretResponseData {
 export interface IRefreshSecretResponseData {
 	readonly clientSecret: string;
 }
+
+export interface IGetPolicyIdResponseData {
+	readonly policyId: string;
+}

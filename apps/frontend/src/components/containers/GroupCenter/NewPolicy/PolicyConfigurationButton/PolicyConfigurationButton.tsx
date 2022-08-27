@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
+import type { IGetPolicyIdResponseData } from '@/interfaces/responses';
 
 import PolicyConfigurationButtonView from './PolicyConfigurationButton.view';
 
@@ -12,11 +14,16 @@ interface IProps {
 }
 
 const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const navigate = useNavigate();
+
 	const onCreateNewPolicy = () => {
-		backendApi.post(`/user/inline-policies/${props.selectedGroupId}`, {
-			label: props.policyLabelInput,
-			library: props.selectedLibrary?.toLocaleUpperCase(),
-		});
+		backendApi
+			.post<IGetPolicyIdResponseData>(`/user/inline-policies/${props.selectedGroupId}`, {
+				label: props.policyLabelInput,
+				library: props.selectedLibrary?.toLocaleUpperCase(),
+			})
+			.then((response) => navigate(`/policy-configuration/${response.data.policyId}`));
+		navigate(`/policy-configuration/${props.selectedLibrary}`);
 	};
 
 	return (

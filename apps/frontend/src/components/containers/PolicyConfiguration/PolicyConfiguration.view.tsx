@@ -26,7 +26,6 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 					<button
 						className={classes['ruleCreationButton']}
 						type="button"
-						role="button"
 						onClick={props.onUpdatePolicyConfiguration}
 					>
 						<span className={classes['ruleCreationButton__text']}>
@@ -35,6 +34,7 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 						<EDSvg className={classes['ruleCreationButton__icon']} name="confirmV" />
 					</button>
 				</div>
+
 				<EDCodeBasedConfigurationInput
 					configurationType="Policy"
 					labelInput="temp label"
