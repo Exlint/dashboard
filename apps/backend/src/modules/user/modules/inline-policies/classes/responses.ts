@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { Prisma } from '@prisma/client';
+import { PolicyLibrary, Prisma } from '@prisma/client';
 
 export class CreateInlinePolicyResponse {
 	@ApiResponseProperty({
@@ -15,4 +15,24 @@ export class GetConfigurationResponse {
 		example: { yazifConfig1: 'Yazif', yazifConfig2: 'Yazif 2' },
 	})
 	public configuration!: Prisma.JsonValue;
+}
+
+export class GetResponse {
+	@ApiResponseProperty({
+		type: String,
+		example: 'Yazif Policy',
+	})
+	public label!: string;
+
+	@ApiResponseProperty({
+		type: [PolicyLibrary],
+		example: PolicyLibrary.DEPCHECK,
+	})
+	public library!: PolicyLibrary;
+
+	@ApiResponseProperty({
+		type: Number,
+		example: 10000,
+	})
+	public createdAt!: number;
 }
