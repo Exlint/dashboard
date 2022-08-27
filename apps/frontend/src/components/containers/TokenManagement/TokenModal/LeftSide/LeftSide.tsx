@@ -9,6 +9,7 @@ import LeftSideView from './LeftSide.view';
 
 interface IProps {
 	readonly dispalyRightSideModal: boolean;
+	readonly secretLabel: string | null;
 	readonly onDisplayModalRightSide: () => void;
 	readonly onSecretLabelChange: (_: string) => void;
 	readonly onClientSecretChange: (_: string) => void;
@@ -72,6 +73,7 @@ const LeftSide: React.FC<IProps> = (props) => {
 			expirySelectedIndexState={expirySelectedIndexState}
 			isSortByClickedState={isSortByClickedState}
 			labelState={labelState}
+			secretLabel={props.secretLabel}
 			createSecretButtonState={createSecretButtonState}
 			dispalyRightSideModal={props.dispalyRightSideModal}
 			expiryDate={expiryDateState}

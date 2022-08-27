@@ -2,6 +2,7 @@ import React from 'react';
 
 import { backendApi } from '@/utils/http';
 import type { ISecrets } from '@/interfaces/secrets';
+import type { IRefreshSecretResponseData } from '@/interfaces/responses';
 
 import TokenTableView from './TokenTable.view';
 
@@ -9,6 +10,9 @@ interface IProps {
 	readonly secrets: ISecrets[] | null;
 	readonly onRenderTable: () => void;
 	readonly onOpenModal: () => void;
+	readonly onDisplayModalRightSide: () => void;
+	readonly onClientSecretChange: (_: string) => void;
+	readonly onSecretLabelChange: (_: string) => void;
 }
 
 const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -23,9 +27,15 @@ const TokenTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		props.onRenderTable();
 	};
 
-	const onRefreshSecret = async (secretId: string) => {
-		await backendApi.patch(`user/secrets/refresh-secret/${secretId}`);
+	const onRefreshSecret = async (secretId: string, secretLabel: string) => {
+		await backendApi
+			.patch<IRefreshSecretResponseData>(`user/secrets/refresh-secret/${secretId}`)
+			.then((response) => {
+				props.onClientSecretChange(response.data.clientSecret);
+				props.onSecretLabelChange(secretLabel);
+			});
 		props.onOpenModal();
+		props.onDisplayModalRightSide();
 	};
 
 	const onUpdateLabel = (secretLabel: string, secretId?: string) => {

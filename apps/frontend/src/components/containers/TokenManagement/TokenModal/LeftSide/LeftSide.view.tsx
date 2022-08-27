@@ -13,6 +13,7 @@ interface IProps {
 	readonly isExpiresClickedState: boolean | null;
 	readonly expirySelectedIndexState: number | null;
 	readonly labelState?: string | null;
+	readonly secretLabel: string | null;
 	readonly createSecretButtonState: boolean;
 	readonly isSortByClickedState: boolean;
 	readonly dispalyRightSideModal: boolean;
@@ -51,7 +52,7 @@ const LeftSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					disabled={props.dispalyRightSideModal}
 					type="text"
 					maxLength={20}
-					value={props.labelState ?? ''}
+					value={props.secretLabel ? props.secretLabel : props.labelState ? props.labelState : ''}
 					onChange={({ currentTarget: { value } }) => props.onLabelChange(value)}
 				/>
 				<span className={secretCrationTitlesClasses}>

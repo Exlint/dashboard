@@ -14,9 +14,9 @@ import classes from './TokenTable.module.scss';
 interface IProps {
 	readonly secrets: ISecrets[] | null;
 	readonly formatDate: (_: number) => string;
-	readonly onRefreshSecret: (_: string) => void;
+	readonly onRefreshSecret: (_: string, __: string) => void;
 	readonly onRevokeSecret: (_: string) => void;
-	readonly onUpdateLabel: (secretLabel: string, secretId?: string) => void;
+	readonly onUpdateLabel: (_: string, __?: string) => void;
 }
 
 const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -52,9 +52,15 @@ const TokenTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 			width: 100,
 			render: (_: unknown, __: DefaultRecordType, index: number) => {
 				const sercretId = props.secrets![index]!.id;
+				const sercretLabel = props.secrets![index]!.label;
 
 				return (
-					<button type="button" onClick={() => props.onRefreshSecret(sercretId)}>
+					<button
+						type="button"
+						onClick={() => {
+							props.onRefreshSecret(sercretId, sercretLabel);
+						}}
+					>
 						<EDSvg className={classes['refreshSecret']} name="refreshSecret" />
 					</button>
 				);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TokenModalView from './TokenModal.view';
 
@@ -7,23 +7,21 @@ interface IProps {
 	readonly onRenderTable: () => void;
 	readonly dispalyRightSideModal: boolean;
 	readonly onDisplayModalRightSide: () => void;
+	readonly clientSecretState: string | null;
+	readonly secretLabelState: string | null;
+	readonly onClientSecretChange: (_: string) => void;
+	readonly onSecretLabelChange: (_: string) => void;
 }
 
 const TokenModal: React.FC<IProps> = (props) => {
-	const [clientSecretState, setClientSecretState] = useState<string | null>(null);
-	const [secretLabelState, setSecretLabelState] = useState<string | null>(null);
-
-	const onSecretLabelChange = (value: string) => setSecretLabelState(() => value);
-	const onClientSecretChange = (value: string) => setClientSecretState(() => value);
-
 	return (
 		<TokenModalView
-			clientSecret={clientSecretState}
-			secretLabel={secretLabelState}
+			clientSecret={props.clientSecretState}
+			secretLabel={props.secretLabelState}
 			dispalyRightSideModal={props.dispalyRightSideModal}
 			onDisplayModalRightSide={props.onDisplayModalRightSide}
-			onSecretLabelChange={onSecretLabelChange}
-			onClientSecretChange={onClientSecretChange}
+			onSecretLabelChange={props.onSecretLabelChange}
+			onClientSecretChange={props.onClientSecretChange}
 			onCloseModal={props.onCloseModal}
 			onRenderTable={props.onRenderTable}
 		/>

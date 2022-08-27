@@ -15,6 +15,8 @@ interface IPropsFromState {
 interface IProps extends IPropsFromState {}
 
 const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const [secretLabelState, setSecretLabelState] = useState<string | null>(null);
+	const [clientSecretState, setClientSecretState] = useState<string | null>(null);
 	const [secretsState, setSecretsState] = useState<ISecrets[] | null>(null);
 	const [tokenLabelState, setTokenLabelState] = useState<string | null>(null);
 	const [dispalyRightSideModalState, setDispalyRightSideModalState] = useState<boolean>(false);
@@ -22,6 +24,8 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	const [copyClientIdState, setCopyClientIdState] = useState<boolean>(false);
 
 	const onDisplayModalRightSide = () => setDispalyRightSideModalState(() => true);
+	const onClientSecretChange = (value: string) => setClientSecretState(() => value);
+	const onSecretLabelChange = (value: string) => setSecretLabelState(() => value);
 
 	const onRenderTable = () => {
 		backendApi
@@ -42,7 +46,13 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	const tokenLabelChangeHandler = (value: string) => setTokenLabelState(() => value);
 
 	const onOpenModal = () => setIsModelOnViewState(() => true);
-	const onCloseModal = () => setIsModelOnViewState(() => false);
+
+	const onCloseModal = () => {
+		setSecretLabelState(() => null);
+		setClientSecretState(() => null);
+		setDispalyRightSideModalState(() => false);
+		setIsModelOnViewState(() => false);
+	};
 
 	const onCopyClientId = async () => {
 		setCopyClientIdState(() => true);
@@ -69,6 +79,10 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			onCloseModal={onCloseModal}
 			onCopyClientId={onCopyClientId}
 			onChangeTokenLabel={onChangeTokenLabel}
+			clientSecretState={clientSecretState}
+			secretLabelState={secretLabelState}
+			onSecretLabelChange={onSecretLabelChange}
+			onClientSecretChange={onClientSecretChange}
 		/>
 	);
 };

@@ -24,7 +24,7 @@ const en = {
 	},
 	tokenManagement: {
 		clientId: 'Client ID',
-		copied: 'Copied:',
+		copied: 'Copied!',
 		table: {
 			title: 'Secrets',
 			revokeAll: 'Revoke All',

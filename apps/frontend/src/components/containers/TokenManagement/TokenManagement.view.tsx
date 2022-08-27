@@ -27,6 +27,10 @@ interface IProps {
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
 	readonly tokenLabelChangeHandler: (_: string) => void;
+	readonly clientSecretState: string | null;
+	readonly secretLabelState: string | null;
+	readonly onSecretLabelChange: (_: string) => void;
+	readonly onClientSecretChange: (_: string) => void;
 }
 
 const TokenManagementView: React.FC<IProps> = (props) => {
@@ -81,6 +85,10 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 									onDisplayModalRightSide={props.onDisplayModalRightSide}
 									onCloseModal={props.onCloseModal}
 									onRenderTable={props.onRenderTable}
+									secretLabelState={props.secretLabelState}
+									clientSecretState={props.clientSecretState}
+									onSecretLabelChange={props.onSecretLabelChange}
+									onClientSecretChange={props.onClientSecretChange}
 								/>
 							)}
 						</div>
@@ -88,7 +96,10 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 					<TokenTable
 						secrets={props.secrets}
 						onRenderTable={props.onRenderTable}
+						onSecretLabelChange={props.onSecretLabelChange}
+						onClientSecretChange={props.onClientSecretChange}
 						onOpenModal={props.onOpenModal}
+						onDisplayModalRightSide={props.onDisplayModalRightSide}
 					/>
 					<div className={classes['footer']}>
 						<span className={classes['footer__text']}>

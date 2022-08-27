@@ -31,3 +31,7 @@ export interface IGetSecretsResponseData {
 export interface ICreateSecretResponseData {
 	readonly clientSecret: string;
 }
+
+export interface IRefreshSecretResponseData {
+	readonly clientSecret: string;
+}

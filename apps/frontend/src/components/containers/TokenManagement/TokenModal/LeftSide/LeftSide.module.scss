@@ -47,6 +47,10 @@
 
 			.select {
 				min-width: 230px;
+
+				&--disabled {
+					pointer-events: none;
+				}
 			}
 
 			.datePicker {

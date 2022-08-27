@@ -28,6 +28,7 @@ const TokenModalView: React.FC<IProps> = (props) => {
 					<div className={classes['secretCreation']}>
 						<LeftSide
 							dispalyRightSideModal={props.dispalyRightSideModal}
+							secretLabel={props.secretLabel}
 							onDisplayModalRightSide={props.onDisplayModalRightSide}
 							onSecretLabelChange={props.onSecretLabelChange}
 							onClientSecretChange={props.onClientSecretChange}
