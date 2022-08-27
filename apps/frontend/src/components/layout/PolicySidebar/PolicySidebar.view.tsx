@@ -16,7 +16,6 @@ interface IProps {
 	readonly library: string;
 	readonly type: string;
 	readonly category: string;
-	readonly rules: string;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 	readonly isModelOnView: boolean;
@@ -133,12 +132,6 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 							{t('policySidebar.body.details.category')}
 						</span>
 						<span className={classes['policyDetailsInnerWrpper__content']}>{props.category}</span>
-					</div>
-					<div className={classes['policyDetailsInnerWrpper']}>
-						<span className={classes['policyDetailsInnerWrpper__title']}>
-							{t('policySidebar.body.details.rules')}
-						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.rules}</span>
 					</div>
 				</div>
 			</section>
