@@ -8,7 +8,6 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import type { InlinePolicy } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -16,6 +15,7 @@ import Routes from './inline-policies.routes';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { GetResponse } from './classes/responses';
 import { GetContract } from './queries/contracts/get.contract';
+import type { IGetPolicyData } from './interfaces/policy-data';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
@@ -45,18 +45,14 @@ export class GetController {
 			`Will try to fetch policy data belongs to use with an Id: "${userId}" with policy Id: "${policyId}"`,
 		);
 
-		const policyData = await this.queryBus.execute<
-			GetContract,
-			Pick<InlinePolicy, 'label' | 'createdAt' | 'library'>
-		>(new GetContract(policyId));
+		const policyData = await this.queryBus.execute<GetContract, IGetPolicyData>(
+			new GetContract(policyId),
+		);
 
 		this.logger.log(
 			`Successfully got policy data belongs to user with an Id: "${userId}" with policy Id: "${policyId}"`,
 		);
 
-		return {
-			...policyData,
-			createdAt: policyData.createdAt.getTime(),
-		};
+		return policyData;
 	}
 }
