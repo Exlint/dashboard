@@ -5,7 +5,8 @@ import EDInlineEditView from './EDInlineEdit.view';
 interface IProps {
 	readonly valueFromDB: string;
 	readonly maxLength: number;
-	readonly onUpdateInput: (_: string) => void;
+	readonly onUpdateInput: (_: string, __?: string) => void;
+	readonly id?: string;
 }
 
 const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -19,7 +20,9 @@ const EDInlineEdit: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	};
 
 	const onUpdateInputHandler = () => {
-		if (inlineTextState) {
+		if (inlineTextState && props.id) {
+			props.onUpdateInput(inlineTextState, props.id);
+		} else {
 			props.onUpdateInput(inlineTextState);
 		}
 
