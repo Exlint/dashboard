@@ -6,7 +6,8 @@ const Routes = {
 	ADD_RULE: 'add-rule/:policy_id',
 	EDIT_RULE: 'edit-rule/:policy_id',
 	REMOVE_RULE: 'remove-rule/:policy_id',
-	GET_CONFIGURATION: ':policy_id',
+	GET_CONFIGURATION: 'configuration/:policy_id',
+	GET: ':policy_id',
 };
 
 export default Routes;

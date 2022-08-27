@@ -80,9 +80,16 @@ export class DBInlinePolicyService {
 	}
 
 	public getConfiguration(inlinePolicyId: string) {
-		return this.prisma.inlinePolicy.findFirst({
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: inlinePolicyId },
 			select: { configuration: true },
+		});
+	}
+
+	public getData(inlinePolicyId: string) {
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: inlinePolicyId },
+			select: { label: true, createdAt: true, library: true },
 		});
 	}
 }
