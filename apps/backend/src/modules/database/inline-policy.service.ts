@@ -89,7 +89,7 @@ export class DBInlinePolicyService {
 	public getData(inlinePolicyId: string) {
 		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: inlinePolicyId },
-			select: { label: true, createdAt: true, library: true },
+			select: { label: true, createdAt: true, library: true, group: { select: { label: true } } },
 		});
 	}
 }

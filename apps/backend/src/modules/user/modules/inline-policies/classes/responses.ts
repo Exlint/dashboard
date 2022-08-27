@@ -1,6 +1,8 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary, Prisma } from '@prisma/client';
 
+import type { IGetPolicyData } from '../interfaces/policy-data';
+
 export class CreateInlinePolicyResponse {
 	@ApiResponseProperty({
 		type: String,
@@ -17,7 +19,7 @@ export class GetConfigurationResponse {
 	public configuration!: Prisma.JsonValue;
 }
 
-export class GetResponse {
+export class GetResponse implements IGetPolicyData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Policy',
@@ -25,7 +27,7 @@ export class GetResponse {
 	public label!: string;
 
 	@ApiResponseProperty({
-		type: [PolicyLibrary],
+		enum: [PolicyLibrary],
 		example: PolicyLibrary.DEPCHECK,
 	})
 	public library!: PolicyLibrary;
@@ -35,4 +37,10 @@ export class GetResponse {
 		example: 10000,
 	})
 	public createdAt!: number;
+
+	@ApiResponseProperty({
+		type: String,
+		example: 'Yazif Group',
+	})
+	public groupLabel!: string | null;
 }

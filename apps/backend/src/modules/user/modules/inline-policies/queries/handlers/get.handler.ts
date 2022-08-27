@@ -8,7 +8,14 @@ import { GetContract } from '../contracts/get.contract';
 export class GetHandler implements ICommandHandler<GetContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	execute(contract: GetContract) {
-		return this.dbInlinePolicyService.getData(contract.policyId);
+	async execute(contract: GetContract) {
+		const policyData = await this.dbInlinePolicyService.getData(contract.policyId);
+
+		return {
+			label: policyData.label,
+			createdAt: policyData.createdAt.getTime(),
+			library: policyData.library,
+			groupLabel: policyData.group.label,
+		};
 	}
 }
