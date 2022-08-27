@@ -12,7 +12,6 @@ interface IProps {
 	readonly library: string;
 	readonly type: string;
 	readonly category: string;
-	readonly rules: string;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 }
@@ -40,7 +39,6 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			library={props.library}
 			type={props.type}
 			category={props.category}
-			rules={props.rules}
 			policyLabel={props.policyLabel}
 			groupLabel={props.groupLabel}
 			isModelOnView={isModelOnViewState}

@@ -16,10 +16,6 @@ export interface ICliAuthResponseData {
 	readonly email: string;
 }
 
-export interface IUpdatePolicyConfigurationResponseData {
-	readonly configuration: string;
-}
-
 export interface IGetGroupsResponseData {
 	readonly groups: IGroup[];
 }
@@ -42,4 +38,11 @@ export interface IRefreshSecretResponseData {
 
 export interface IGetPolicyIdResponseData {
 	readonly policyId: string;
+}
+
+export interface IGetPolicyResponseData {
+	readonly groupLabel: string;
+	readonly policyLabel: string;
+	readonly library: 'ESLint' | 'Stylelint' | 'Depcheck' | 'Prettier' | 'Inflint';
+	readonly createdAt: Date;
 }

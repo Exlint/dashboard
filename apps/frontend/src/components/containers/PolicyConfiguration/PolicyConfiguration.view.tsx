@@ -4,10 +4,14 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import EDCodeBasedConfigurationInput from '@/ui/EDCodeBasedConfigurationsInput';
 import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
+import PolicySidebar from '@/layout/PolicySidebar';
+
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 import classes from './PolicyConfiguration.module.scss';
 
 interface IProps {
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly isEditFileFormat: boolean;
 	readonly onUpdatePolicyConfiguration: () => void;
@@ -20,6 +24,14 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 
 	return (
 		<div className={classes['container']}>
+			<PolicySidebar
+				groupLabel="gruplabel"
+				category="placeholder"
+				type="type"
+				policyLabel="policy l;abel"
+				createdAt="11 jun"
+				library="ESLint"
+			/>
 			<main className={classes['policyConfigurationContainer']}>
 				<div className={classes['innerButtons']}>
 					<EDNavigateBackButton />

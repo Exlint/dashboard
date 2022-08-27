@@ -23,7 +23,7 @@ const PolicyConfigurationButton: React.FC<IProps> = (props: React.PropsWithChild
 				library: props.selectedLibrary?.toLocaleUpperCase(),
 			})
 			.then((response) => navigate(`/policy-configuration/${response.data.policyId}`));
-		navigate(`/policy-configuration/${props.selectedLibrary}`);
+		navigate('/policy-configuration/123456');
 	};
 
 	return (

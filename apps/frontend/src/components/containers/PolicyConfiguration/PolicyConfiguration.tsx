@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import type { AxiosError } from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
-import type { IUpdatePolicyConfigurationResponseData } from '@/interfaces/responses';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { IGetPolicyResponseData } from '@/interfaces/responses';
 
 import PolicyConfigurationView from './PolicyConfiguration.view';
 
@@ -12,6 +12,8 @@ interface IProps {}
 const PolicyConfiguration: React.FC<IProps> = () => {
 	const navigate = useNavigate();
 	const { policyId } = useParams();
+
+	const [selectedPolicy, setSeledtedPolicy] = useState<IPolicySidebar | null>(null);
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
@@ -29,22 +31,31 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	const onUpdatePolicyConfiguration = () => {
 		if (ruleCodeBasedConfigurationsInputState.length > 0) {
 			backendApi
-				.post<IUpdatePolicyConfigurationResponseData>(`/user/inline-policies/${policyId}`, {
-					configuration: ruleCodeBasedConfigurationsInputState,
+				.post(`/user/inline-policies/${policyId}`, {
+					configuration: JSON.stringify(ruleCodeBasedConfigurationsInputState),
 				})
 				.then(() => {
-					navigate('/');
-				})
-				.catch((err: AxiosError) => {
-					alert(err.response?.data);
+					navigate(`/rule-onboarding/${policyId}`);
 				});
 		} else {
-			navigate('/');
+			navigate(`/rule-onboarding/${policyId}`);
 		}
 	};
 
+	useEffect(() => {
+		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
+			setSeledtedPolicy({
+				groupLabel: response.data.groupLabel,
+				policyLabel: response.data.policyLabel,
+				libraryName: response.data.library,
+				createdAt: response.data.createdAt.toISOString(),
+			}),
+		);
+	}, [backendApi]);
+
 	return (
 		<PolicyConfigurationView
+			selectedPolicy={selectedPolicy}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
 			isEditFileFormat={isEditFileFormatState}
 			onUpdatePolicyConfiguration={onUpdatePolicyConfiguration}
