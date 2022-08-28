@@ -32,7 +32,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 					<Route>
 						<Route path="/group-center/*" element={<GroupCenter />} />
 						<Route path="/user-settings" element={<UserSettings />} />
-						<Route path="/policy-configuration/:library" element={<PolicyConfiguration />} />
+						<Route path="/policy-configuration/:policyId" element={<PolicyConfiguration />} />
 						<Route path="/token-management" element={<TokenManagement />} />
 					</Route>
 				)}
