@@ -76,6 +76,10 @@ const en = {
 				rules: 'Rules',
 			},
 		},
+		tooltip: {
+			renamePolicy: 'Rename Policy',
+			deletePolicy: 'Delete Policy',
+		},
 		policySidebarModal: {
 			header: 'Are you sure you want to delete ',
 			subHeader: ' Policy?',

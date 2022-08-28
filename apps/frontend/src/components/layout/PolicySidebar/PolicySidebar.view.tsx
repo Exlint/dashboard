@@ -4,7 +4,9 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
-import eslintLogo from '@/images/libraries/eslint.png';
+import type { ILibraryData } from '@/interfaces/libraries';
+import { librariesData } from '@/data/libraries-data';
+import logosObject from '@/utils/libraries-logos';
 
 import PolicySidebarModal from './PolicySidebarModal';
 
@@ -13,9 +15,6 @@ import classes from './PolicySidebar.module.scss';
 interface IProps {
 	readonly name: string;
 	readonly createdAt: string;
-	readonly library: string;
-	readonly type: string;
-	readonly category: string;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 	readonly isModelOnView: boolean;
@@ -28,6 +27,8 @@ interface IProps {
 
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
+
+	const libraryNameInLowerCase = props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
 
 	return (
 		<aside className={classes['container']}>
@@ -62,7 +63,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 										'innerWrapper__text--editText',
 									)}
 								>
-									Rename Policy
+									{t('policySidebar.tooltip.renamePolicy')}
 								</span>
 								<EDSvg
 									className={concatClasses(
@@ -85,7 +86,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 										'innerWrapper__text--deleteText',
 									)}
 								>
-									Delete Policy
+									{t('policySidebar.tooltip.deletePolicy')}
 								</span>
 								<EDSvg
 									className={concatClasses(
@@ -114,24 +115,28 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						</span>
 						<div className={classes['libraryContentWrapper']}>
 							<img
-								src={eslintLogo}
+								src={logosObject[libraryNameInLowerCase]}
 								alt="Eslint"
 								className={classes['libraryContentWrapper__img']}
 							/>
-							<span className={classes['libraryContentWrapper__content']}>{props.library}</span>
+							<span className={classes['libraryContentWrapper__content']}>{props.name}</span>
 						</div>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.type')}
 						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.type}</span>
+						<span className={classes['policyDetailsInnerWrpper__content']}>
+							{librariesData[libraryNameInLowerCase].type}
+						</span>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.category')}
 						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.category}</span>
+						<span className={classes['policyDetailsInnerWrpper__content']}>
+							{librariesData[libraryNameInLowerCase].category}
+						</span>
 					</div>
 				</div>
 			</section>
