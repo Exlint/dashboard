@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary, Prisma } from '@prisma/client';
+import { PolicyLibrary, type Prisma } from '@prisma/client';
 
 import type { IGetPolicyData } from '../interfaces/policy-data';
 
@@ -16,7 +16,7 @@ export class GetConfigurationResponse {
 		type: Object,
 		example: { yazifConfig1: 'Yazif', yazifConfig2: 'Yazif 2' },
 	})
-	public configuration!: Prisma.JsonValue;
+	public configuration!: Prisma.JsonValue | null;
 }
 
 export class GetResponse implements IGetPolicyData {
@@ -50,5 +50,5 @@ export class GetRulesResponse {
 		type: Object,
 		example: { yazifRule1: [2], yazifRule2: [1] },
 	})
-	public rules!: Prisma.JsonValue;
+	public rules!: Prisma.JsonValue | null;
 }
