@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { ILibraryData } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
+import PolicySidebar from '@/layout/PolicySidebar';
 
 import classes from './RuleOnboarding.module.scss';
 import SelectRules from './SelectRules';
@@ -28,6 +29,17 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 
 	return (
 		<section className={classes['manually']}>
+			<div className={classes['sidebar']}>
+				<div className={classes['innerSidebar']}>
+					<PolicySidebar
+						groupLabel="gruplabel"
+						policyLabel="policy l;abel"
+						createdAt="11 jun"
+						name="ESLint"
+					/>
+				</div>
+			</div>
+
 			<SelectRules
 				rulesObject={rulesObject}
 				libraryName={props.selectedLibrary!.name}

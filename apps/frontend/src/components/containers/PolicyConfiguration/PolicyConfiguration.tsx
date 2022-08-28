@@ -13,7 +13,7 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	const navigate = useNavigate();
 	const { policyId } = useParams();
 
-	const [selectedPolicy, setSeledtedPolicy] = useState<IPolicySidebar | null>(null);
+	const [selectedPolicy] = useState<IPolicySidebar | null>(null);
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
@@ -43,14 +43,11 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	};
 
 	useEffect(() => {
-		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
-			setSeledtedPolicy({
-				groupLabel: response.data.groupLabel,
-				policyLabel: response.data.policyLabel,
-				libraryName: response.data.library,
-				createdAt: response.data.createdAt.toISOString(),
-			}),
-		);
+		console.log('useEffect');
+		backendApi
+			.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`)
+			.then((response) => console.log(response))
+			.catch((e) => console.log(e));
 	}, [backendApi]);
 
 	return (

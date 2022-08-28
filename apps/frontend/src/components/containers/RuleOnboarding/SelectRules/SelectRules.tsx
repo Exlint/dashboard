@@ -16,6 +16,7 @@ interface IProps {
 const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [searchRuleInputState, setSearchRuleInputState] = useState<string | null>(null);
 	const [selectedCatagoryIndexState, setSelectedCatagoryIndexState] = useState<number | null>(null);
+	const [autofixCheckedState, setAutofixCheckedState] = useState<boolean>(false);
 
 	const rulesCatagories: string[] = [];
 
@@ -40,17 +41,23 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			}, {});
 	}
 
-	if (selectedCatagoryIndexState !== null) {
-		if (selectedCatagoryIndexState !== null && props.rulesObject) {
-			filteredRulesList = Object.keys(props.rulesObject)
-				.filter(
-					(value) =>
-						props.rulesObject![value]!.category !== rulesCatagories[selectedCatagoryIndexState],
-				)
-				.reduce((cur, key) => {
-					return Object.assign(cur, { [key]: props.rulesObject![key] });
-				}, {});
-		}
+	if (selectedCatagoryIndexState !== null && props.rulesObject) {
+		filteredRulesList = Object.keys(props.rulesObject)
+			.filter(
+				(value) =>
+					props.rulesObject![value]!.category !== rulesCatagories[selectedCatagoryIndexState],
+			)
+			.reduce((cur, key) => {
+				return Object.assign(cur, { [key]: props.rulesObject![key] });
+			}, {});
+	}
+
+	if (autofixCheckedState && props.rulesObject) {
+		filteredRulesList = Object.keys(props.rulesObject)
+			.filter((value) => props.rulesObject![value]!.hasAutoFix === true)
+			.reduce((cur, key) => {
+				return Object.assign(cur, { [key]: props.rulesObject![key] });
+			}, {});
 	}
 
 	const onSearchRuleInput = (input: string) => {
@@ -60,6 +67,8 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const onSelectedCatagory = (index: number) => {
 		setSelectedCatagoryIndexState(() => index);
 	};
+
+	const onSelectAutofix = () => setAutofixCheckedState((prev) => !prev);
 
 	return (
 		<SelectRulesView
@@ -73,6 +82,7 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			onSelectRule={props.onSelectRule}
 			onSearchRuleInput={onSearchRuleInput}
 			onSelectedCatagory={onSelectedCatagory}
+			onSelectAutofix={onSelectAutofix}
 		/>
 	);
 };

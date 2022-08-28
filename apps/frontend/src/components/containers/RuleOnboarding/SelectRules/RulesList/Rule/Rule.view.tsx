@@ -2,6 +2,7 @@ import React from 'react';
 import EDSvg from '@/ui/EDSvg';
 
 import type { IRule } from '@/interfaces/rule';
+import autofixLogo from '@/images/autofix-logo.png';
 
 import classes from './Rule.module.scss';
 
@@ -18,6 +19,8 @@ interface IProps {
 const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const isRuleIndexEven = props.key % 2 === 0;
 
+	console.log(props.hasAutoFix, 'Auto');
+
 	return (
 		<div
 			className={classes['rule']}
@@ -32,7 +35,17 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			<span className={classes['rule__name']}>{props.ruleName}</span>
 			<span className={classes['rule__description']}>{props.ruleDescription}</span>
 			<span className={classes['rule__catagory']}>{props.ruleCatagory}</span>
-			<span className={classes['rule__autoFix']}>{props.hasAutoFix}</span>
+			{props.hasAutoFix ? (
+				<div className={classes['autoFix']}>
+					<EDSvg className={classes['autoFix__v']} name="vAutofix" />
+					<div className={classes['textContiner']}>
+						<span className={classes['textContiner__text']}>Autofix</span>
+						<img className={classes['textContiner__img']} src={autofixLogo} alt="Auto fix" />
+					</div>
+				</div>
+			) : (
+				<span className={classes['placeholder']} />
+			)}
 
 			<button
 				className={classes['addRuleButton']}

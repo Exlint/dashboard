@@ -23,15 +23,15 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			</span>
 			<div className={classes['addRuleButton']}>
 				{props.isRuleOnUpdate ? (
+					<button className={classes['buttonContainer']} type="button" onClick={props.onUpdateRule}>
+						<EDSvg className={classes['buttonContainer__updateIcon']} name="updateRule" />
+					</button>
+				) : (
 					<button
 						className={classes['buttonContainer']}
 						type="button"
 						onClick={props.onAddRuleToList}
 					>
-						<EDSvg className={classes['buttonContainer__updateIcon']} name="updateRule" />
-					</button>
-				) : (
-					<button className={classes['buttonContainer']} type="button" onClick={props.onUpdateRule}>
 						<EDSvg className={classes['buttonContainer__addIcon']} name="addRuleButtonPurple" />
 					</button>
 				)}
