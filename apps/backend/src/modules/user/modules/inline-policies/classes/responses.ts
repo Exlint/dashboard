@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary, Prisma } from '@prisma/client';
+import { PolicyLibrary, type Prisma } from '@prisma/client';
 
 import type { IGetPolicyData } from '../interfaces/policy-data';
 
@@ -43,4 +43,12 @@ export class GetResponse implements IGetPolicyData {
 		example: 'Yazif Group',
 	})
 	public groupLabel!: string | null;
+}
+
+export class GetRulesResponse {
+	@ApiResponseProperty({
+		type: Object,
+		example: { yazifRule1: [2], yazifRule2: [1] },
+	})
+	public rules!: Prisma.JsonValue;
 }
