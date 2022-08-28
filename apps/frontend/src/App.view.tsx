@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 
+import Header from '@/layout/Header';
+
 interface IProps {
 	readonly isAuthenticated: boolean | null;
 }
@@ -21,6 +23,8 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 		<Suspense fallback={null}>
 			<div id="backdrop-root" />
 			<div id="overlay-root" />
+			{props.isAuthenticated && <Header />}
+
 			<Routes>
 				{props.isAuthenticated === false && (
 					<>

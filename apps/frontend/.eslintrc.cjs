@@ -104,7 +104,7 @@ module.exports = {
 				'./src/i18n/en.ts',
 			],
 			rules: {
-				'max-lines': ['error', { max: 250, skipBlankLines: true, skipComments: true }],
+				'max-lines': ['error', { max: 350, skipBlankLines: true, skipComments: true }],
 			},
 		},
 	],

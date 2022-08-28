@@ -1,4 +1,14 @@
 const en = {
+	header: {
+		rightSide: {
+			documentations: 'Documentations',
+		},
+		leftSide: {
+			groupCenter: 'Group Center',
+			tokenManagement: 'Token Management',
+			userSettings: 'User Settings',
+		},
+	},
 	redirect: {
 		header: 'You are being redirected',
 		subText: 'If nothing happens, please click',

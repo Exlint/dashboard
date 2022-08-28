@@ -1,0 +1,24 @@
+.rightSideContainer {
+	display: flex;
+	align-items: center;
+
+	.linkContainer {
+		position: relative;
+		top: 3px;
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+
+		&__text {
+			margin-inline-end: 7px;
+			font-size: 1.6rem;
+			font-weight: 660;
+			color: #e7e7e7;
+		}
+
+		&__icon {
+			width: 17px;
+			height: 16px;
+		}
+	}
+}
