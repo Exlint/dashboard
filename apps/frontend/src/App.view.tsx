@@ -11,6 +11,7 @@ const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const PolicyConfiguration = React.lazy(() => import('./pages/PolicyConfiguration'));
 const UserSettings = React.lazy(() => import('./pages/UserSettings'));
 const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
+const RuleOnboarding = React.lazy(() => import('./pages/RuleOnboarding'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -33,6 +34,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/group-center/*" element={<GroupCenter />} />
 						<Route path="/user-settings" element={<UserSettings />} />
 						<Route path="/policy-configuration/:policyId" element={<PolicyConfiguration />} />
+						<Route path="/rule-onboarding/:policyId" element={<RuleOnboarding />} />
 						<Route path="/token-management" element={<TokenManagement />} />
 					</Route>
 				)}

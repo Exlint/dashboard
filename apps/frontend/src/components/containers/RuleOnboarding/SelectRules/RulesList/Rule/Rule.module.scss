@@ -1,0 +1,42 @@
+.rule {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+
+	&__name {
+		width: 170px;
+		margin: 0 5px 0 20px;
+		font-size: 1.7rem;
+		font-weight: 560;
+		color: #4b4a65;
+	}
+
+	&__description {
+		width: 230px;
+		margin: 4.5px 0;
+		font-size: 1.7rem;
+		font-weight: 560;
+		color: #4b4a65;
+	}
+
+	&__catagory {
+		font-size: 1.7rem;
+		font-weight: 460;
+		color: #4b4a65;
+	}
+
+	.addRuleButton {
+		display: flex;
+		margin-inline-end: 20px;
+
+		&__icon {
+			width: 27px;
+			height: 27px;
+			fill: #70839e;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.selectedRule {
+	display: flex;
+	align-items: center;
+	min-height: 180px !important;
+	padding: 16px;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+
+	.innerRule {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.leftSideContainer {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 40%;
+			margin-inline-end: 14px;
+
+			&__ruleName {
+				font-size: 1.7rem;
+				font-weight: 560;
+				color: #4b4a65;
+			}
+
+			&__catagory {
+				margin-top: 2px;
+				font-size: 1.7rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+		}
+
+		.middleSideContainer {
+			display: flex;
+			width: 45%;
+
+			&__description {
+				margin-top: 2px;
+				font-size: 1.7rem;
+				font-weight: 460;
+				line-height: 20px;
+				color: #4b4a65;
+			}
+		}
+
+		.removeRuleButton {
+			align-items: center;
+
+			&__icon {
+				width: 25px;
+				height: 25px;
+				fill: transparent;
+				stroke: #7084a3;
+			}
+		}
+	}
+}
