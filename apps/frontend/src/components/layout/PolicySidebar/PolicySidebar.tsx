@@ -7,7 +7,6 @@ import PolicySidebarView from './PolicySidebar.view';
 interface IProps {
 	readonly name: string;
 	readonly createdAt: string;
-	readonly createdAt1: string;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 }
