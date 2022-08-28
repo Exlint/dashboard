@@ -19,6 +19,7 @@ interface IProps {
 	readonly onSelectRule: (_: string) => void;
 	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (_: number) => void;
+	readonly onSelectAutofix: () => void;
 }
 
 const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -32,6 +33,7 @@ const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 				selectedCatagoryIndex={props.selectedCatagoryIndex}
 				onSearchRuleInput={props.onSearchRuleInput}
 				onSelectedCatagory={props.onSelectedCatagory}
+				onSelectAutofix={props.onSelectAutofix}
 			/>
 			<RulesList
 				rulesObject={props.rulesObject}

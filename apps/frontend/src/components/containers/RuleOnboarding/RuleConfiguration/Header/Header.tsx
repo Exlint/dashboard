@@ -28,10 +28,10 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		backendApi
 			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody })
 			.then((response) => {
-				alert(response);
+				console.log(response);
 			})
 			.catch((err: AxiosError) => {
-				alert(err.response?.data);
+				console.log(err, ' ERROR');
 			});
 	};
 
