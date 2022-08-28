@@ -86,6 +86,13 @@ export class DBInlinePolicyService {
 		});
 	}
 
+	public getRules(inlinePolicyId: string) {
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: inlinePolicyId },
+			select: { rules: true },
+		});
+	}
+
 	public getData(inlinePolicyId: string) {
 		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: inlinePolicyId },
