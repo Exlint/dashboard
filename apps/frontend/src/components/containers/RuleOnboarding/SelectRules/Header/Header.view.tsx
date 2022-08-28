@@ -16,6 +16,7 @@ interface IProps {
 	readonly searchRuleInput: string | null;
 	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (index: number) => void;
+	readonly onSelectAutofix: () => void;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -61,7 +62,11 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					</div>
 
 					<div className={classes['autoFixContainer']}>
-						<input className={classes['autoFixContainer__checkbox']} type="checkbox" />
+						<input
+							className={classes['autoFixContainer__checkbox']}
+							type="checkbox"
+							onClick={props.onSelectAutofix}
+						/>
 						<span className={classes['autoFixContainer__text']}>
 							{t('ruleOnboarding.selectRules.header.autoFix')}
 						</span>

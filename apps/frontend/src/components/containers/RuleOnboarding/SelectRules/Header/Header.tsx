@@ -10,6 +10,7 @@ interface IProps {
 	readonly searchRuleInput: string | null;
 	readonly onSearchRuleInput: (_: string) => void;
 	readonly onSelectedCatagory: (index: number) => void;
+	readonly onSelectAutofix: () => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,6 +23,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			selectedCatagoryIndex={props.selectedCatagoryIndex}
 			onSearchRuleInput={props.onSearchRuleInput}
 			onSelectedCatagory={props.onSelectedCatagory}
+			onSelectAutofix={props.onSelectAutofix}
 		/>
 	);
 };

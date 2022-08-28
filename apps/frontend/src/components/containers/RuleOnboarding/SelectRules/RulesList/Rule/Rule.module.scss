@@ -29,6 +29,43 @@
 		color: #4b4a65;
 	}
 
+	.autoFix {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&__v {
+			width: 21px;
+			height: 100%;
+			fill: transparent;
+			stroke: #4b4a65;
+			stroke-linecap: round;
+			stroke-width: 4;
+		}
+
+		.textContiner {
+			display: flex;
+			align-items: center;
+			inset-block-start: 10px;
+
+			&__text {
+				margin-inline-end: 2px;
+				font-size: 1.7rem;
+				font-weight: 300;
+				color: #4b4a65;
+			}
+
+			&__img {
+				width: 22px;
+				height: 17px;
+			}
+		}
+	}
+
+	.placeholder {
+		width: 70px;
+	}
+
 	.addRuleButton {
 		display: flex;
 		margin-inline-end: 20px;
