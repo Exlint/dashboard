@@ -1,12 +1,12 @@
-import { CommandHandler, EventBus, type ICommandHandler } from '@nestjs/cqrs';
+import { type IQueryHandler, QueryHandler, EventBus } from '@nestjs/cqrs';
 
 import { DBInlinePolicyService } from '@/modules/database/inline-policy.service';
 
 import { CreateInlineContract } from '../contracts/create-inline.contract';
 import { CreatePolicyMixpanelContract } from '../../events/contracts/create-policy-mixpanel.contract';
 
-@CommandHandler(CreateInlineContract)
-export class CreateInlineHandler implements ICommandHandler<CreateInlineContract> {
+@QueryHandler(CreateInlineContract)
+export class CreateInlineHandler implements IQueryHandler<CreateInlineContract> {
 	constructor(
 		private readonly dbInlinePolicyService: DBInlinePolicyService,
 		private readonly eventBus: EventBus,

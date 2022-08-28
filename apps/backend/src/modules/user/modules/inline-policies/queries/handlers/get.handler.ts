@@ -1,11 +1,11 @@
-import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
+import { type IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 
 import { DBInlinePolicyService } from '@/modules/database/inline-policy.service';
 
 import { GetContract } from '../contracts/get.contract';
 
-@CommandHandler(GetContract)
-export class GetHandler implements ICommandHandler<GetContract> {
+@QueryHandler(GetContract)
+export class GetHandler implements IQueryHandler<GetContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
 	async execute(contract: GetContract) {
