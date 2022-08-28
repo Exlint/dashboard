@@ -16,7 +16,7 @@ export class GetConfigurationResponse {
 		type: Object,
 		example: { yazifConfig1: 'Yazif', yazifConfig2: 'Yazif 2' },
 	})
-	public configuration!: Prisma.JsonValue | null;
+	public configuration!: Prisma.JsonValue;
 }
 
 export class GetResponse implements IGetPolicyData {
@@ -50,5 +50,5 @@ export class GetRulesResponse {
 		type: Object,
 		example: { yazifRule1: [2], yazifRule2: [1] },
 	})
-	public rules!: Prisma.JsonValue | null;
+	public rules!: Prisma.JsonValue;
 }
