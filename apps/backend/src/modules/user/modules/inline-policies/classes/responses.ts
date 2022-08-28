@@ -44,3 +44,11 @@ export class GetResponse implements IGetPolicyData {
 	})
 	public groupLabel!: string | null;
 }
+
+export class GetRulesResponse {
+	@ApiResponseProperty({
+		type: Object,
+		example: { yazifRule1: [2], yazifRule2: [1] },
+	})
+	public rules!: Prisma.JsonValue;
+}
