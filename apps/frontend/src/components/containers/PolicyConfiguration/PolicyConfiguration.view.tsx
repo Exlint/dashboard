@@ -25,12 +25,11 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	return (
 		<div className={classes['container']}>
 			<PolicySidebar
+				name="eslint"
+				createdAt1="sss"
 				groupLabel="gruplabel"
-				category="placeholder"
-				type="type"
 				policyLabel="policy l;abel"
 				createdAt="11 jun"
-				library="ESLint"
 			/>
 			<main className={classes['policyConfigurationContainer']}>
 				<div className={classes['innerButtons']}>

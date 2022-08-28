@@ -11,12 +11,13 @@
 		top: 110px;
 		display: flex;
 		flex-direction: column;
-		inset-inline-start: 170px;
+		filter: drop-shadow(0 10px 20px #00000040);
 
 		.innerWrapper {
 			display: flex;
 			justify-content: space-between;
 			padding: 17px 12px;
+			margin-inline-start: 5px;
 			background-color: #fefefe;
 			border-color: #e7e7e7;
 			border-style: solid;
