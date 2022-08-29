@@ -44,7 +44,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					&nbsp;
 					<span className={classes['headerWrapper__title--purple']}>
 						<Trans>&lsquo;</Trans>
-						{props.groupLabel}
+						{props.groupLabel ?? ''}
 						<Trans>&rsquo;</Trans>
 					</span>
 				</div>
@@ -52,7 +52,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			<hr className={classes['divider']} />
 			<section className={classes['body']}>
 				<div className={classes['policyLabelWrapper']}>
-					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel}</span>
+					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel ?? ''}</span>
 					<EDSvg
 						className={classes['policyLabelWrapper__icon']}
 						name="threeDots"
@@ -106,12 +106,15 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					)}
 				</div>
 				{props.isModelOnView && (
-					<PolicySidebarModal policyLabel={props.policyLabel} onCloseModal={props.onCloseModal} />
+					<PolicySidebarModal
+						policyLabel={props.policyLabel ?? ''}
+						onCloseModal={props.onCloseModal}
+					/>
 				)}
 				<span className={classes['body__createdAt']}>
 					{t('policySidebar.body.createdAt')}
 					&nbsp;
-					{props.createdAt}
+					{props.createdAt ?? ''}
 				</span>
 				<div className={classes['policyDetailsWrpper']}>
 					<div className={classes['policyDetailsInnerWrpper']}>
@@ -124,7 +127,9 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 								alt="Eslint"
 								className={classes['libraryContentWrapper__img']}
 							/>
-							<span className={classes['libraryContentWrapper__content']}>{props.name}</span>
+							<span className={classes['libraryContentWrapper__content']}>
+								{props.name ?? ''}
+							</span>
 						</div>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
@@ -141,13 +146,13 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						</span>
 						{libraryCategory.length === 1 ? (
 							<span className={classes['policyDetailsInnerWrpper__content']}>
-								{LibraryCategory[libraryCategory[0]!]}
+								{LibraryCategory[libraryCategory[0]!] ?? ''}
 							</span>
 						) : (
 							<span className={classes['policyDetailsInnerWrpper__content']}>
-								{LibraryCategory[libraryCategory[0]!]}
+								{LibraryCategory[libraryCategory[0]!] ?? ''}
 								<br />
-								{LibraryCategory[libraryCategory[1]!]}
+								{LibraryCategory[libraryCategory[1]!] ?? ''}
 							</span>
 						)}
 					</div>
