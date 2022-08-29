@@ -31,9 +31,13 @@ interface IProps {
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-	const libraryNameInLowerCase = props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
-	const libraryType = librariesData[libraryNameInLowerCase].type[0];
-	const libraryCategory = librariesData[libraryNameInLowerCase].category;
+	const libraryNameInLowerCase = (props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>) ?? '';
+
+	const libraryType =
+		librariesData[libraryNameInLowerCase] && librariesData[libraryNameInLowerCase].type[0];
+
+	const libraryCategory =
+		librariesData[libraryNameInLowerCase] && librariesData[libraryNameInLowerCase].category;
 
 	return (
 		<aside className={classes['container']}>
@@ -144,15 +148,15 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.category')}
 						</span>
-						{libraryCategory.length === 1 ? (
+						{libraryCategory && libraryCategory.length === 1 ? (
 							<span className={classes['policyDetailsInnerWrpper__content']}>
-								{LibraryCategory[libraryCategory[0]!] ?? ''}
+								{(libraryCategory && LibraryCategory[libraryCategory[0]!]) ?? ''}
 							</span>
 						) : (
 							<span className={classes['policyDetailsInnerWrpper__content']}>
-								{LibraryCategory[libraryCategory[0]!] ?? ''}
+								{(libraryCategory && LibraryCategory[libraryCategory[0]!]) ?? ''}
 								<br />
-								{LibraryCategory[libraryCategory[1]!] ?? ''}
+								{(libraryCategory && LibraryCategory[libraryCategory[1]!]) ?? ''}
 							</span>
 						)}
 					</div>

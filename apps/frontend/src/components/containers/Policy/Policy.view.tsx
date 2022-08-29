@@ -1,7 +1,10 @@
 import React from 'react';
+import Table from 'rc-table';
 
 import EDSvg from '@/ui/EDSvg';
 import PolicySidebar from '@/layout/PolicySidebar';
+import type { ITableColumns } from './interfaces/table-columns';
+import type { ITableData } from './interfaces/table-data';
 
 import classes from './Policy.module.scss';
 
@@ -9,6 +12,8 @@ interface IProps {
 	readonly isModelOnView: boolean;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
+	readonly policiesTableColumns: ITableColumns[];
+	readonly policiesTableData: ITableData[];
 }
 
 const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -16,15 +21,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 
 	return (
 		<div className={classes['container']}>
-			<PolicySidebar
-				createdAt={''}
-				type={''}
-				library={''}
-				category={''}
-				rules={''}
-				policyLabel={''}
-				groupLabel={''}
-			/>
+			<PolicySidebar name="" createdAt="" policyLabel="" groupLabel="" />
 			<main className={classes['main']}>
 				<div className={classes['navigate']}>
 					<span className={classes['navigate__text']}>Group Label &gt;</span>
@@ -77,7 +74,14 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 							</div>
 						</div>
 					</div>
-					<div className={classes['rightSide']}>cdmicdm</div>
+					<div className={classes['rightSide']}>
+						<span className={classes['tableHeader']}>Rules</span>
+						<Table
+							className={classes['tableContainer']}
+							columns={props.policiesTableColumns}
+							data={props.policiesTableData}
+						/>
+					</div>
 				</section>
 			</main>
 		</div>
