@@ -10,8 +10,10 @@ import Header from './Header';
 import classes from './RuleConfiguration.module.scss';
 import RuleAlertType from './RuleAlertType';
 import CodeBasedConfigurations from './CodeBasedConfigurations';
+import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly policyId: string | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import type { ILibraryData } from '@/interfaces/libraries';
+import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 import PolicySidebar from '@/layout/PolicySidebar';
+import { librariesData } from '@/data/libraries-data';
 
 import classes from './RuleOnboarding.module.scss';
 import SelectRules from './SelectRules';
@@ -27,7 +28,19 @@ interface IProps {
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const rulesObject = props.selectedLibrary?.rules;
+	let libraryNameInLowerCase: 'eslint' | 'stylelint' | 'depcheck' | 'prettier' | 'inflint';
+	let libraryData: ILibraryData;
+	let rulesObject: Record<string, ILibraryRule> | undefined;
+
+	if (props.selectedPolicy) {
+		libraryNameInLowerCase = props.selectedPolicy?.libraryName.toLocaleLowerCase() as Lowercase<
+			ILibraryData['name']
+		>;
+
+		libraryData = libraryNameInLowerCase && librariesData[libraryNameInLowerCase];
+
+		rulesObject = libraryData?.rules;
+	}
 
 	return (
 		<section className={classes['manually']}>
@@ -44,8 +57,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 
 			<SelectRules
 				rulesObject={rulesObject}
-				libraryName={props.selectedLibrary!.name}
-				libraryLogo={props.selectedLibrary!.name}
+				selectedPolicy={props.selectedPolicy}
 				selectedRule={props.selectedRule}
 				onSelectRule={props.onSelectRule}
 			/>
@@ -53,6 +65,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 			<div className={classes['container']}>
 				<div className={classes['rightSideContainer']}>
 					<RuleConfiguration
+						selectedPolicy={props.selectedPolicy}
 						policyId={props.policyId}
 						selectedRule={props.selectedRule}
 						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}

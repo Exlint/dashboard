@@ -14,11 +14,23 @@ import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 interface IProps {}
 
 const RuleOnboarding: React.FC<IProps> = () => {
-	const response: string[] = [
-		'{"Getter Return":"error"}',
-		'{"Grouped Accessor Pairs":"warn", "singlechild": "true" }',
-		'{"Generator Star Spacing":"off","yazifConfig2":"yazifos"}',
-	];
+	const { policyId } = useParams();
+
+	// const selectedRulesFromDb: string[] = [];
+	// useEffect(() => {
+	// 	backendApi.get(`/user/inline-policies/rules/${policyId}`).then((res) => console.log(res.data));
+	// }, []);
+
+	const testResponse: Record<string, any[]> = {
+		'Getter Return': ['error'],
+		'Grouped Accessor Pairs': ['warn', { singlechild: true }],
+	};
+
+	// const response:string [] = [
+	// 	'{"Getter Return":"error"}',
+	// 	'{"Grouped Accessor Pairs":"warn", "singlechild": "true" }',
+	// 	'{"Generator Star Spacing":"off","yazifConfig2":"yazifos"}',
+	// ];
 
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
@@ -30,14 +42,17 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
 
-	const { policyId } = useParams();
+	const parasRulesList = Object.entries(testResponse).map((rule) => {
+		console.log(rule[0]);
+		console.log(rule[1]);
 
-	const parasRulesList = response.map((rule) => {
-		const parasRule = JSON.parse(rule);
+		// const parasRule = JSON.parse(rule[0]);
 
-		const ruleObject = {
-			...parasRule,
-		};
+		// const ruleObject = {
+		// 	...parasRule,
+		// };
+
+		const ruleObject = { ...rule };
 
 		return ruleObject;
 	});
@@ -45,7 +60,8 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	const selectedRulesList: IRule[] | null = parasRulesList.map((rule) => {
 		const ruleObject = {
 			ruleName: Object.keys(rule)[0]!,
-			alertType: rule[Object.keys(rule)[0]!],
+			alertType: 'linter',
+
 			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
 			hasConfig: Object.keys(rule)[1] ? true : false,
 			configurations: JSON.stringify(rule),

@@ -1,11 +1,11 @@
+import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import React from 'react';
 
 import HeaderView from './Header.view';
 
 interface IProps {
 	readonly rulesCatagories: string[];
-	readonly libraryName: string;
-	readonly libraryLogo: string;
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly selectedCatagoryIndex: number | null;
 	readonly searchRuleInput: string | null;
 	readonly onSearchRuleInput: (_: string) => void;
@@ -17,8 +17,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<HeaderView
 			rulesCatagories={props.rulesCatagories}
-			libraryName={props.libraryName}
-			libraryLogo={props.libraryLogo}
+			selectedPolicy={props.selectedPolicy}
 			searchRuleInput={props.searchRuleInput}
 			selectedCatagoryIndex={props.selectedCatagoryIndex}
 			onSearchRuleInput={props.onSearchRuleInput}

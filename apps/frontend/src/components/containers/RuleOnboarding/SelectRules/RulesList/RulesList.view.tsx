@@ -17,17 +17,18 @@ interface IProps {
 const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['rulesList']}>
-			{Object.entries(props.rulesObject!).map((rule, index) => (
-				<Rule
-					key={index}
-					ruleName={rule[0]}
-					ruleCatagory={rule[1].category}
-					ruleDescription={rule[1].description}
-					hasAutoFix={rule[1].hasAutoFix}
-					selectedRule={props.selectedRule}
-					onSelectRule={props.onSelectRule}
-				/>
-			))}
+			{props.rulesObject &&
+				Object.entries(props.rulesObject).map((rule, index) => (
+					<Rule
+						key={index}
+						ruleName={rule[0] ?? ''}
+						ruleCatagory={rule[1].category ?? ''}
+						ruleDescription={rule[1].description ?? ''}
+						hasAutoFix={rule[1].hasAutoFix}
+						selectedRule={props.selectedRule}
+						onSelectRule={props.onSelectRule}
+					/>
+				))}
 		</div>
 	);
 };
