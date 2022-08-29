@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { useClickOutside } from '@/hooks/click-outside';
+import { backendApi } from '@/utils/http';
 
 import PolicySidebarView from './PolicySidebar.view';
-import { backendApi } from '@/utils/http';
 
 interface IProps {
 	readonly name: string;
