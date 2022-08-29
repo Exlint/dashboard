@@ -9,7 +9,6 @@ import type { ILibraryData } from '@/interfaces/libraries';
 import { librariesData } from '@/data/libraries-data';
 import logosObject from '@/utils/libraries-logos';
 import { LibraryType } from '@/models/library-type';
-import EDInlineEdit from '@/ui/EDInlineEdit';
 import { LibraryCategory } from '@/models/library-category';
 
 import PolicySidebarModal from './PolicySidebarModal';
@@ -27,7 +26,6 @@ interface IProps {
 	readonly toggleTooltipVisibility: () => void;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
-	readonly onUpdateLabel: (_: string, __?: string) => void;
 }
 
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -54,14 +52,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			<hr className={classes['divider']} />
 			<section className={classes['body']}>
 				<div className={classes['policyLabelWrapper']}>
-					<span className={classes['policyLabelWrapper__text']}>
-						<EDInlineEdit
-							key="policyLabel"
-							valueFromDB={props.policyLabel}
-							maxLength={20}
-							onUpdateInput={props.onUpdateLabel}
-						/>
-					</span>
+					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel}</span>
 					<EDSvg
 						className={classes['policyLabelWrapper__icon']}
 						name="threeDots"
