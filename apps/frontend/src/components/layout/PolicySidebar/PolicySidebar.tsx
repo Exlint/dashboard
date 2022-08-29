@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useClickOutside } from '@/hooks/click-outside';
 
 import PolicySidebarView from './PolicySidebar.view';
+import { backendApi } from '@/utils/http';
 
 interface IProps {
 	readonly name: string;
@@ -27,6 +28,14 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	const onCloseModal = () => setIsModelOnViewState(() => false);
 
+	const onUpdateLabel = (secretLabel: string, secretId?: string) => {
+		backendApi
+			.patch(`/user/secrets/edit-label/${secretId}`, {
+				label: secretLabel,
+			})
+			.then(() => 'dsdsd');
+	};
+
 	return (
 		<PolicySidebarView
 			name={props.name}
@@ -39,6 +48,7 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			toggleTooltipVisibility={toggleTooltipVisibility}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
+			onUpdateLabel={onUpdateLabel}
 		/>
 	);
 };

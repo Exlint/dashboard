@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
@@ -7,6 +8,9 @@ import { concatClasses } from '@/utils/component';
 import type { ILibraryData } from '@/interfaces/libraries';
 import { librariesData } from '@/data/libraries-data';
 import logosObject from '@/utils/libraries-logos';
+import { LibraryType } from '@/models/library-type';
+import EDInlineEdit from '@/ui/EDInlineEdit';
+import { LibraryCategory } from '@/models/library-category';
 
 import PolicySidebarModal from './PolicySidebarModal';
 
@@ -23,16 +27,19 @@ interface IProps {
 	readonly toggleTooltipVisibility: () => void;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
+	readonly onUpdateLabel: (_: string, __?: string) => void;
 }
 
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	const libraryNameInLowerCase = props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
+	const libraryType = librariesData[libraryNameInLowerCase].type[0];
+	const libraryCategory = librariesData[libraryNameInLowerCase].category;
 
 	return (
 		<aside className={classes['container']}>
-			<section className={classes['headerWrapper']}>
+			<Link className={classes['headerWrapper']} to="/group-center">
 				<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
 				<div className={classes['headerWrapper__title']}>
 					{t('policySidebar.header.title')}
@@ -43,11 +50,18 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						<Trans>&rsquo;</Trans>
 					</span>
 				</div>
-			</section>
+			</Link>
 			<hr className={classes['divider']} />
 			<section className={classes['body']}>
 				<div className={classes['policyLabelWrapper']}>
-					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel}</span>
+					<span className={classes['policyLabelWrapper__text']}>
+						<EDInlineEdit
+							key="policyLabel"
+							valueFromDB={props.policyLabel}
+							maxLength={20}
+							onUpdateInput={props.onUpdateLabel}
+						/>
+					</span>
 					<EDSvg
 						className={classes['policyLabelWrapper__icon']}
 						name="threeDots"
@@ -127,16 +141,24 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 							{t('policySidebar.body.details.type')}
 						</span>
 						<span className={classes['policyDetailsInnerWrpper__content']}>
-							{librariesData[libraryNameInLowerCase].type}
+							{LibraryType[libraryType!] ?? ''}
 						</span>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.category')}
 						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>
-							{librariesData[libraryNameInLowerCase].category}
-						</span>
+						{libraryCategory.length === 1 ? (
+							<span className={classes['policyDetailsInnerWrpper__content']}>
+								{LibraryCategory[libraryCategory[0]!]}
+							</span>
+						) : (
+							<span className={classes['policyDetailsInnerWrpper__content']}>
+								{LibraryCategory[libraryCategory[0]!]}
+								<br />
+								{LibraryCategory[libraryCategory[1]!]}
+							</span>
+						)}
 					</div>
 				</div>
 			</section>
