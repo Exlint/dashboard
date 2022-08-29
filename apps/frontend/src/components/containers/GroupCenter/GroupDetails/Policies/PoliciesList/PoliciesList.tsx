@@ -82,7 +82,7 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			key: 'configurations',
 			width: 150,
 			render: (_: string, __: string, index: number) => {
-				const policyId = props.groupPolicy[index]!.id.toString();
+				const policyId = props.groupPolicy[index]!.id ?? '';
 
 				return (
 					<button

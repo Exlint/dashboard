@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import type { ILibraryData } from '@/interfaces/libraries';
@@ -7,6 +7,9 @@ import type { IRule } from '@/interfaces/rule';
 import { ruleAlertTypes } from '@/data/rule-alert-types';
 
 import RuleOnboardingView from './RuleOnboarding.view';
+import { backendApi } from '@/utils/http';
+import { IGetPolicyResponseData } from '@/interfaces/responses';
+import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {}
 
@@ -20,6 +23,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
+	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 
 	const [isRuleOnUpdateState, setIsRuleOnUpdateState] = useState<boolean>(false);
 
@@ -96,9 +100,21 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
 	};
 
+	useEffect(() => {
+		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
+			setSelectedPolicy({
+				groupLabel: response.data.groupLabel,
+				policyLabel: response.data.label,
+				libraryName: response.data.library,
+				createdAt: response.data.createdAt,
+			}),
+		);
+	}, [backendApi]);
+
 	return (
 		<RuleOnboardingView
 			policyId={policyId}
+			selectedPolicy={selectedPolicy}
 			selectedLibrary={selectedLibraryState}
 			selectedRule={selectedRuleState}
 			selectedRuleAlertTypeIndex={selectedRuleAlertTypeIndexState}

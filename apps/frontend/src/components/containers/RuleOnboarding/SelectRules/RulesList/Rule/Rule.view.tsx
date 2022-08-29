@@ -19,8 +19,6 @@ interface IProps {
 const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const isRuleIndexEven = props.key % 2 === 0;
 
-	console.log(props.hasAutoFix, 'Auto');
-
 	return (
 		<div
 			className={classes['rule']}

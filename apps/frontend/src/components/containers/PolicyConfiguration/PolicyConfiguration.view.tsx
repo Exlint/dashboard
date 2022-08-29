@@ -25,9 +25,9 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 	return (
 		<div className={classes['container']}>
 			<PolicySidebar
-				name="eslint"
-				groupLabel="gruplabel"
-				policyLabel="policy l;abel"
+				name={props.selectedPolicy?.libraryName!}
+				groupLabel={props.selectedPolicy?.groupLabel!}
+				policyLabel={props.selectedPolicy?.policyLabel!}
 				createdAt="11 jun"
 			/>
 			<main className={classes['policyConfigurationContainer']}>

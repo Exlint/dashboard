@@ -8,9 +8,11 @@ import classes from './RuleOnboarding.module.scss';
 import SelectRules from './SelectRules';
 import RuleConfiguration from './RuleConfiguration';
 import SelectedRules from './SelectedRules';
+import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly policyId: string | undefined;
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly selectedLibrary: ILibraryData | null;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
@@ -32,10 +34,10 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 			<div className={classes['sidebar']}>
 				<div className={classes['innerSidebar']}>
 					<PolicySidebar
-						groupLabel="gruplabel"
-						policyLabel="policy l;abel"
+						name={props.selectedPolicy?.libraryName!}
+						groupLabel={props.selectedPolicy?.groupLabel!}
+						policyLabel={props.selectedPolicy?.policyLabel!}
 						createdAt="11 jun"
-						name="ESLint"
 					/>
 				</div>
 			</div>
