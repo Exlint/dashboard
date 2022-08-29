@@ -10,6 +10,7 @@ const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedire
 const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const UserSettings = React.lazy(() => import('./pages/UserSettings'));
 const TokenManagement = React.lazy(() => import('./pages/TokenManagement'));
+const Policy = React.lazy(() => import('./pages/Policy'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -32,6 +33,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/group-center/*" element={<GroupCenter />} />
 						<Route path="/user-settings" element={<UserSettings />} />
 						<Route path="/token-management" element={<TokenManagement />} />
+						<Route path="/policy" element={<Policy />} />
 					</Route>
 				)}
 				<Route path="/cli-auth" element={<CliAuth />} />
