@@ -13,6 +13,8 @@ import { AddRuleController } from './add-rule.controller';
 import { RemoveRuleController } from './remove-rule.controller';
 import { EventHandlers } from './events/handlers';
 import { GetConfigurationController } from './get-configuration.controller';
+import { GetController } from './get.controller';
+import { GetRulesController } from './get-rules.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -23,6 +25,8 @@ import { GetConfigurationController } from './get-configuration.controller';
 		AddRuleController,
 		RemoveRuleController,
 		GetConfigurationController,
+		GetController,
+		GetRulesController,
 	],
 	providers: [
 		BelongingGroupGuard,

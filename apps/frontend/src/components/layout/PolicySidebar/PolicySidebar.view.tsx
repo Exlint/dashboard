@@ -1,10 +1,15 @@
 /* eslint-disable max-lines */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
-import eslintLogo from '@/images/libraries/eslint.png';
+import type { ILibraryData } from '@/interfaces/libraries';
+import { librariesData } from '@/data/libraries-data';
+import logosObject from '@/utils/libraries-logos';
+import { LibraryType } from '@/models/library-type';
+import { LibraryCategory } from '@/models/library-category';
 
 import PolicySidebarModal from './PolicySidebarModal';
 
@@ -13,10 +18,6 @@ import classes from './PolicySidebar.module.scss';
 interface IProps {
 	readonly name: string;
 	readonly createdAt: string;
-	readonly library: string;
-	readonly type: string;
-	readonly category: string;
-	readonly rules: string;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 	readonly isModelOnView: boolean;
@@ -30,24 +31,28 @@ interface IProps {
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
+	const libraryNameInLowerCase = props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
+	const libraryType = librariesData[libraryNameInLowerCase].type[0];
+	const libraryCategory = librariesData[libraryNameInLowerCase].category;
+
 	return (
 		<aside className={classes['container']}>
-			<section className={classes['headerWrapper']}>
+			<Link className={classes['headerWrapper']} to="/group-center">
 				<EDSvg className={classes['headerWrapper__icon']} name="backToGroupLabel" />
 				<div className={classes['headerWrapper__title']}>
 					{t('policySidebar.header.title')}
 					&nbsp;
 					<span className={classes['headerWrapper__title--purple']}>
 						<Trans>&lsquo;</Trans>
-						{props.groupLabel}
+						{props.groupLabel ?? ''}
 						<Trans>&rsquo;</Trans>
 					</span>
 				</div>
-			</section>
+			</Link>
 			<hr className={classes['divider']} />
 			<section className={classes['body']}>
 				<div className={classes['policyLabelWrapper']}>
-					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel}</span>
+					<span className={classes['policyLabelWrapper__text']}>{props.policyLabel ?? ''}</span>
 					<EDSvg
 						className={classes['policyLabelWrapper__icon']}
 						name="threeDots"
@@ -63,7 +68,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 										'innerWrapper__text--editText',
 									)}
 								>
-									Rename Policy
+									{t('policySidebar.tooltip.renamePolicy')}
 								</span>
 								<EDSvg
 									className={concatClasses(
@@ -86,7 +91,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 										'innerWrapper__text--deleteText',
 									)}
 								>
-									Delete Policy
+									{t('policySidebar.tooltip.deletePolicy')}
 								</span>
 								<EDSvg
 									className={concatClasses(
@@ -101,12 +106,15 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					)}
 				</div>
 				{props.isModelOnView && (
-					<PolicySidebarModal policyLabel={props.policyLabel} onCloseModal={props.onCloseModal} />
+					<PolicySidebarModal
+						policyLabel={props.policyLabel ?? ''}
+						onCloseModal={props.onCloseModal}
+					/>
 				)}
 				<span className={classes['body__createdAt']}>
 					{t('policySidebar.body.createdAt')}
 					&nbsp;
-					{props.createdAt}
+					{props.createdAt ?? ''}
 				</span>
 				<div className={classes['policyDetailsWrpper']}>
 					<div className={classes['policyDetailsInnerWrpper']}>
@@ -115,30 +123,38 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						</span>
 						<div className={classes['libraryContentWrapper']}>
 							<img
-								src={eslintLogo}
+								src={logosObject[libraryNameInLowerCase]}
 								alt="Eslint"
 								className={classes['libraryContentWrapper__img']}
 							/>
-							<span className={classes['libraryContentWrapper__content']}>{props.library}</span>
+							<span className={classes['libraryContentWrapper__content']}>
+								{props.name ?? ''}
+							</span>
 						</div>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.type')}
 						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.type}</span>
+						<span className={classes['policyDetailsInnerWrpper__content']}>
+							{LibraryType[libraryType!] ?? ''}
+						</span>
 					</div>
 					<div className={classes['policyDetailsInnerWrpper']}>
 						<span className={classes['policyDetailsInnerWrpper__title']}>
 							{t('policySidebar.body.details.category')}
 						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.category}</span>
-					</div>
-					<div className={classes['policyDetailsInnerWrpper']}>
-						<span className={classes['policyDetailsInnerWrpper__title']}>
-							{t('policySidebar.body.details.rules')}
-						</span>
-						<span className={classes['policyDetailsInnerWrpper__content']}>{props.rules}</span>
+						{libraryCategory.length === 1 ? (
+							<span className={classes['policyDetailsInnerWrpper__content']}>
+								{LibraryCategory[libraryCategory[0]!] ?? ''}
+							</span>
+						) : (
+							<span className={classes['policyDetailsInnerWrpper__content']}>
+								{LibraryCategory[libraryCategory[0]!] ?? ''}
+								<br />
+								{LibraryCategory[libraryCategory[1]!] ?? ''}
+							</span>
+						)}
 					</div>
 				</div>
 			</section>

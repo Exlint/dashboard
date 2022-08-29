@@ -1,0 +1,67 @@
+.selectedRule {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin: 0 16px 7px;
+
+	.innerSelectedrule {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.leftSideContainer {
+			display: flex;
+			flex-direction: column;
+
+			&__name {
+				font-size: 1.7rem;
+				font-weight: 560;
+				color: #4b4a65;
+			}
+
+			&__catagory {
+				margin-top: 10px;
+				font-size: 1.7rem;
+				font-weight: 460;
+				color: #4b4a65;
+			}
+		}
+
+		.middleSideContainer {
+			display: flex;
+			flex-direction: column;
+
+			&__text {
+				font-size: 1.7rem;
+				font-weight: 350;
+				color: #4b4a65;
+			}
+		}
+
+		.rightSideContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&__removeRule {
+				width: 25px;
+				height: 25px;
+				fill: transparent;
+				stroke: #7084a3;
+			}
+
+			&__editRule {
+				width: 25px;
+				height: 25px;
+				margin-top: 8px;
+				fill: #2355a0;
+			}
+		}
+	}
+
+	&__divider {
+		width: 100%;
+		margin-top: 6px;
+		border: 1px solid #e7e7e7;
+	}
+}

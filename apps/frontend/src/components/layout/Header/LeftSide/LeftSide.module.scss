@@ -1,0 +1,55 @@
+.leftsideContainer {
+	display: flex;
+
+	&__brandLogo {
+		width: 48px;
+		height: 50px;
+		margin-inline-end: 56px;
+	}
+
+	.navigationContainer {
+		display: flex;
+		align-items: center;
+
+		.linkContainer {
+			position: relative;
+			top: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-bottom: 10px;
+			text-decoration: none;
+
+			&__icon {
+				margin-inline-end: 6px;
+			}
+
+			&__icon--groupCenter {
+				width: 24px;
+				height: 26px;
+			}
+
+			&__icon--tokenManagement {
+				width: 30px;
+				height: 19px;
+			}
+
+			&__icon--userSettings {
+				width: 22px;
+				height: 22px;
+				background-color: #e7e7e7;
+				border-radius: 50%;
+			}
+
+			&__text {
+				font-size: 1.6rem;
+				font-weight: 460;
+				color: #e7e7e7;
+			}
+		}
+
+		.linkContainer:not(:last-child) {
+			margin-inline-end: 27px;
+		}
+	}
+}

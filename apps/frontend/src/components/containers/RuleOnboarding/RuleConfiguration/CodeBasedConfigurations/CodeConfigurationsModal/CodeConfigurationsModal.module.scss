@@ -1,0 +1,65 @@
+.codeBasedConfigurations {
+	position: fixed;
+	top: 50%;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 770px;
+	height: 670px;
+	padding: 24px 60px;
+	background: #fefefe;
+	background-color: #fefefe;
+	border-radius: 10px;
+	transform: translate(-50%, -50%);
+	inset-inline-start: 50%;
+
+	.goBackButton {
+		position: relative;
+		inset-inline-end: 55%;
+
+		&__icon {
+			width: 11px;
+			height: 19px;
+			fill: transparent;
+			stroke: #202428;
+		}
+	}
+
+	.innerCodeBasedConfigurations {
+		display: flex;
+		width: 100%;
+		height: 100%;
+	}
+
+	.doneButtonContainer {
+		display: flex;
+		justify-content: center;
+		width: fit-content;
+		padding: 10px 19px;
+		margin-top: 50px;
+		background: #2355a0;
+		border: 1px solid #2d3a7d;
+		border-radius: 10px;
+
+		.button {
+			display: flex;
+			align-items: center;
+
+			&__text {
+				margin-inline-end: 15px;
+				font-size: 1.5rem;
+				font-weight: 460;
+				color: #fefefe;
+			}
+
+			&__icon {
+				width: 15px;
+				height: 10px;
+				fill: transparent;
+				stroke: #fefefe;
+			}
+		}
+	}
+}

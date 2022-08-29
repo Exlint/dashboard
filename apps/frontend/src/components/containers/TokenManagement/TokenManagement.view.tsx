@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -82,11 +83,11 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 							{props.isModelOnView && (
 								<TokenModal
 									dispalyRightSideModal={props.dispalyRightSideModal}
+									secretLabelState={props.secretLabelState}
+									clientSecretState={props.clientSecretState}
 									onDisplayModalRightSide={props.onDisplayModalRightSide}
 									onCloseModal={props.onCloseModal}
 									onRenderTable={props.onRenderTable}
-									secretLabelState={props.secretLabelState}
-									clientSecretState={props.clientSecretState}
 									onSecretLabelChange={props.onSecretLabelChange}
 									onClientSecretChange={props.onClientSecretChange}
 								/>

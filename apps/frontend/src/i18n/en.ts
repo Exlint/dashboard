@@ -1,4 +1,14 @@
 const en = {
+	header: {
+		rightSide: {
+			documentations: 'Documentations',
+		},
+		leftSide: {
+			groupCenter: 'Group Center',
+			tokenManagement: 'Token Management',
+			userSettings: 'User Settings',
+		},
+	},
 	redirect: {
 		header: 'You are being redirected',
 		subText: 'If nothing happens, please click',
@@ -75,6 +85,10 @@ const en = {
 				category: 'Category',
 				rules: 'Rules',
 			},
+		},
+		tooltip: {
+			renamePolicy: 'Rename Policy',
+			deletePolicy: 'Delete Policy',
 		},
 		policySidebarModal: {
 			header: 'Are you sure you want to delete ',
@@ -198,6 +212,44 @@ const en = {
 		actions: {
 			linkText: 'Return Home',
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
+		},
+	},
+	policyConfiguration: {
+		saveAndUpdateButton: 'Save & Continue to Rule Creation',
+	},
+	codeBasedConfiguration: {
+		configurations: 'Configurations',
+	},
+	navigateBackButton: {
+		back: 'Back',
+	},
+	ruleOnboarding: {
+		selectRules: {
+			header: {
+				ruleCreation: 'Rule Creation',
+				autoFix: 'Autofix',
+			},
+		},
+		ruleConfiguration: {
+			codeBasedConfiguration: 'Input code-based configurations',
+			commingSoon: 'Comming Soon!',
+			edit: 'Edit',
+			codeBasedConfigurations: {
+				inputTitle: 'Input code-based configurations',
+				edit: 'Edit',
+				modal: {
+					doneButton: 'Done',
+				},
+			},
+			header: {
+				title: 'Rule Configuration',
+			},
+		},
+		selectedRules: {
+			selectedRules: 'Selected Rules',
+			selectedRule: {
+				withConfig: '+ Code Config.',
+			},
 		},
 	},
 };

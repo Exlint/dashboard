@@ -1,0 +1,21 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 0 map.get($sizes, minimal-padding);
+	background: linear-gradient(242.44deg, #ae7dfd -30.7%, #242337 36.93%, #242337 62.82%, #7a4df3 129.61%);
+
+	.innerHeader {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 16px 0;
+	}
+}

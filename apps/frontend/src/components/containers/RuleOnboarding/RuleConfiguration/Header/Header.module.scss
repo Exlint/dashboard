@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 17px;
+
+	&__title {
+		font-size: 2rem;
+		font-weight: 560;
+		color: #202428;
+	}
+
+	.addRuleButton {
+		display: flex;
+		align-items: center;
+
+		.buttonContainer {
+			display: flex;
+			margin-inline-end: 8px;
+
+			&__addIcon {
+				width: 34px;
+				height: 34px;
+			}
+
+			&__updateIcon {
+				width: 34px;
+				height: 34px;
+			}
+		}
+
+		&__text {
+			font-size: 1.6rem;
+			font-weight: 560;
+			color: #242337;
+		}
+	}
+}

@@ -35,3 +35,14 @@ export interface ICreateSecretResponseData {
 export interface IRefreshSecretResponseData {
 	readonly clientSecret: string;
 }
+
+export interface IGetPolicyIdResponseData {
+	readonly policyId: string;
+}
+
+export interface IGetPolicyResponseData {
+	readonly groupLabel: string;
+	readonly policyLabel: string;
+	readonly library: 'ESLint' | 'Stylelint' | 'Depcheck' | 'Prettier' | 'Inflint';
+	readonly createdAt: Date;
+}

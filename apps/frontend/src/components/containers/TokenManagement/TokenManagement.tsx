@@ -71,6 +71,8 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			isModelOnView={isModelOnViewState}
 			copyClientIdState={copyClientIdState}
 			tokenLabelState={tokenLabelState}
+			clientSecretState={clientSecretState}
+			secretLabelState={secretLabelState}
 			tokenLabelChangeHandler={tokenLabelChangeHandler}
 			onRevokeAllSecrets={onRevokeAllSecrets}
 			onRenderTable={onRenderTable}
@@ -79,8 +81,6 @@ const TokenManagement: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			onCloseModal={onCloseModal}
 			onCopyClientId={onCopyClientId}
 			onChangeTokenLabel={onChangeTokenLabel}
-			clientSecretState={clientSecretState}
-			secretLabelState={secretLabelState}
 			onSecretLabelChange={onSecretLabelChange}
 			onClientSecretChange={onClientSecretChange}
 		/>

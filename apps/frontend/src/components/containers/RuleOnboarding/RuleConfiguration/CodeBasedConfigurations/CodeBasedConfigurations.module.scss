@@ -1,0 +1,66 @@
+.inputCodeConfigurations {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 34px 35px 24px;
+	border-bottom: 2px solid #e7e7e7;
+
+	&__icon {
+		width: 50px;
+		height: 56px;
+	}
+
+	&__text {
+		margin: 11px 0 8px;
+		font-size: 1.7rem;
+		font-weight: 460;
+		color: #4b4a65;
+		text-align: center;
+	}
+
+	.editButton {
+		display: flex;
+		align-items: center;
+		padding: 11px 20px;
+		border-radius: 10px;
+
+		&__text {
+			margin-inline-end: 16px;
+			font-size: 1.6rem;
+			font-weight: 460;
+			color: #fefefe;
+		}
+
+		&__icon {
+			width: 5.5px;
+			height: 9.5px;
+			fill: transparent;
+			stroke: #fefefe;
+		}
+	}
+}
+
+@media (max-width: 1600px) {
+	.inputCodeConfigurations {
+		padding: 14px 35px 6px !important;
+
+		&__icon {
+			width: 50px !important;
+			height: 56px !important;
+		}
+
+		&__text {
+			font-size: 1.4rem !important;
+		}
+
+		.editButton {
+			padding: 11px 20px;
+
+			&__text {
+				margin-inline-end: 12px !important;
+				font-size: 1.2rem !important;
+			}
+		}
+	}
+}

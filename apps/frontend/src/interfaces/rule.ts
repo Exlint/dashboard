@@ -1,8 +1,8 @@
 export interface IRule {
-	readonly id?: string;
-	readonly name: string;
-	readonly description: string;
-	readonly catagory: string;
+	readonly ruleName?: string;
 	readonly alertType?: string;
-	readonly configurations?: Record<string, unknown> | null;
+	readonly category?: string;
+	readonly hasConfig?: boolean;
+	readonly description?: string;
+	readonly configurations?: string;
 }
