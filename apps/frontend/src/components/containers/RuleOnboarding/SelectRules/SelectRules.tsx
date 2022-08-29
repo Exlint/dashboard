@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import type { ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import SelectRulesView from './SelectRules.view';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;

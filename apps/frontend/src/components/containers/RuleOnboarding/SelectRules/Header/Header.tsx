@@ -1,5 +1,6 @@
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import React from 'react';
+
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 import HeaderView from './Header.view';
 

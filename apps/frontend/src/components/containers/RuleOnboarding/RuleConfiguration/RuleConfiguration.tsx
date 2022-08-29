@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import type { IRule } from '@/interfaces/rule';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 import RuleConfigurationView from './RuleConfiguration.view';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly selectedPolicy: IPolicySidebar | null;

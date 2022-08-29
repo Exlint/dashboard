@@ -1,36 +1,37 @@
+/* eslint-disable max-lines */
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import type { ILibraryData } from '@/interfaces/libraries';
+import { backendApi } from '@/utils/http';
+import type { IGetPolicyResponseData } from '@/interfaces/responses';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
 import { librariesData } from '@/data/libraries-data';
 import type { IRule } from '@/interfaces/rule';
 import { ruleAlertTypes } from '@/data/rule-alert-types';
 
 import RuleOnboardingView from './RuleOnboarding.view';
-import { backendApi } from '@/utils/http';
-import { IGetPolicyResponseData } from '@/interfaces/responses';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {}
 
 const RuleOnboarding: React.FC<IProps> = () => {
 	const { policyId } = useParams();
+	const nevigate = useNavigate();
+
+	let libraryNameInLowerCase: 'eslint' | 'stylelint' | 'depcheck' | 'prettier' | 'inflint';
+	let libraryData: ILibraryData;
+	let rulesObject: Record<string, ILibraryRule> | undefined;
 
 	// const selectedRulesFromDb: string[] = [];
-	// useEffect(() => {
-	// 	backendApi.get(`/user/inline-policies/rules/${policyId}`).then((res) => console.log(res.data));
-	// }, []);
 
-	const testResponse: Record<string, any[]> = {
+	useEffect(() => {
+		backendApi.get(`/user/inline-policies/rules/${policyId}`);
+	}, []);
+
+	const testResponse: Record<string, unknown[]> = {
 		'Getter Return': ['error'],
 		'Grouped Accessor Pairs': ['warn', { singlechild: true }],
 	};
-
-	// const response:string [] = [
-	// 	'{"Getter Return":"error"}',
-	// 	'{"Grouped Accessor Pairs":"warn", "singlechild": "true" }',
-	// 	'{"Generator Star Spacing":"off","yazifConfig2":"yazifos"}',
-	// ];
 
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
@@ -43,8 +44,8 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		useState<string>('');
 
 	const parasRulesList = Object.entries(testResponse).map((rule) => {
-		console.log(rule[0]);
-		console.log(rule[1]);
+		// console.log(rule[0]);
+		// console.log(rule[1]);
 
 		// const parasRule = JSON.parse(rule[0]);
 
@@ -71,7 +72,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	});
 
 	const onSelectRule = (ruleName: string) => {
-		const selectedRule = selectedLibraryState.rules![ruleName];
+		const selectedRule = libraryData.rules![ruleName];
 
 		selectedRule!.ruleName = ruleName;
 
@@ -119,7 +120,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	useEffect(() => {
 		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
 			setSelectedPolicy({
-				groupLabel: response.data.groupLabel,
+				groupLabel: response.data.groupLabel === null ? 'New Group' : response.data.groupLabel,
 				policyLabel: response.data.label,
 				libraryName: response.data.library,
 				createdAt: response.data.createdAt,
@@ -127,10 +128,25 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		);
 	}, [backendApi]);
 
+	if (selectedPolicy) {
+		libraryNameInLowerCase = selectedPolicy?.libraryName.toLocaleLowerCase() as Lowercase<
+			ILibraryData['name']
+		>;
+
+		libraryData = libraryNameInLowerCase && librariesData[libraryNameInLowerCase];
+
+		rulesObject = libraryData?.rules;
+	}
+
+	const onDoneButton = () => {
+		nevigate('/group-center');
+	};
+
 	return (
 		<RuleOnboardingView
 			policyId={policyId}
 			selectedPolicy={selectedPolicy}
+			rulesObject={rulesObject}
 			selectedLibrary={selectedLibraryState}
 			selectedRule={selectedRuleState}
 			selectedRuleAlertTypeIndex={selectedRuleAlertTypeIndexState}
@@ -142,6 +158,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 			onRemoveRule={onRemoveRule}
 			onSelectedRuleAlertType={onSelectedRuleAlertType}
 			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
+			onDoneButton={onDoneButton}
 		/>
 	);
 };

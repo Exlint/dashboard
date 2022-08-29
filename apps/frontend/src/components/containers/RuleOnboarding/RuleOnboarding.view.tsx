@@ -1,20 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
+import EDSvg from '@/ui/EDSvg';
+import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 import PolicySidebar from '@/layout/PolicySidebar';
-import { librariesData } from '@/data/libraries-data';
 
 import classes from './RuleOnboarding.module.scss';
 import SelectRules from './SelectRules';
 import RuleConfiguration from './RuleConfiguration';
 import SelectedRules from './SelectedRules';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly policyId: string | undefined;
 	readonly selectedPolicy: IPolicySidebar | null;
 	readonly selectedLibrary: ILibraryData | null;
+	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
@@ -25,61 +28,71 @@ interface IProps {
 	readonly onRemoveRule: () => void;
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
+	readonly onDoneButton: () => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	let libraryNameInLowerCase: 'eslint' | 'stylelint' | 'depcheck' | 'prettier' | 'inflint';
-	let libraryData: ILibraryData;
-	let rulesObject: Record<string, ILibraryRule> | undefined;
-
-	if (props.selectedPolicy) {
-		libraryNameInLowerCase = props.selectedPolicy?.libraryName.toLocaleLowerCase() as Lowercase<
-			ILibraryData['name']
-		>;
-
-		libraryData = libraryNameInLowerCase && librariesData[libraryNameInLowerCase];
-
-		rulesObject = libraryData?.rules;
-	}
+	const { t } = useTranslation();
 
 	return (
 		<section className={classes['manually']}>
 			<div className={classes['sidebar']}>
 				<div className={classes['innerSidebar']}>
 					<PolicySidebar
-						name={props.selectedPolicy?.libraryName!}
-						groupLabel={props.selectedPolicy?.groupLabel!}
-						policyLabel={props.selectedPolicy?.policyLabel!}
+						name={props.selectedPolicy?.libraryName ?? ''}
+						groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+						policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 						createdAt="11 jun"
 					/>
 				</div>
 			</div>
 
-			<SelectRules
-				rulesObject={rulesObject}
-				selectedPolicy={props.selectedPolicy}
-				selectedRule={props.selectedRule}
-				onSelectRule={props.onSelectRule}
-			/>
+			<div className={classes['onboradingContainer']}>
+				<div className={classes['buttonsContainer']}>
+					<EDNavigateBackButton />
+					<button
+						className={classes['doneButtonContainer']}
+						type="button"
+						onClick={props.onDoneButton}
+					>
+						<span className={classes['doneButtonContainer__text']}>
+							{t('ruleOnboarding.doneButton')}
+						</span>
+						<EDSvg className={classes['doneButtonContainer__icon']} name="arrowRight" />
+					</button>
+				</div>
+				<div className={classes['innerRules']}>
+					<div className={classes['selectRules']}>
+						<SelectRules
+							rulesObject={props.rulesObject}
+							selectedPolicy={props.selectedPolicy}
+							selectedRule={props.selectedRule}
+							onSelectRule={props.onSelectRule}
+						/>
+					</div>
 
-			<div className={classes['container']}>
-				<div className={classes['rightSideContainer']}>
-					<RuleConfiguration
-						selectedPolicy={props.selectedPolicy}
-						policyId={props.policyId}
-						selectedRule={props.selectedRule}
-						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
-						isRuleOnUpdate={props.isRuleOnUpdate}
-						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
-						onRemoveRule={props.onRemoveRule}
-						onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
-					/>
+					<div className={classes['container']}>
+						<div className={classes['rightSideContainer']}>
+							<RuleConfiguration
+								selectedPolicy={props.selectedPolicy}
+								policyId={props.policyId}
+								selectedRule={props.selectedRule}
+								selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
+								isRuleOnUpdate={props.isRuleOnUpdate}
+								ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
+								onSelectedRuleAlertType={props.onSelectedRuleAlertType}
+								onRemoveRule={props.onRemoveRule}
+								onCodeBasedConfigurationsInputChanged={
+									props.onCodeBasedConfigurationsInputChanged
+								}
+							/>
 
-					<SelectedRules
-						selectedRulesList={props.selectedRulesList}
-						onEditRule={props.onEditRule}
-					/>
+							<SelectedRules
+								selectedRulesList={props.selectedRulesList}
+								onEditRule={props.onEditRule}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

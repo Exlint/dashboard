@@ -4,13 +4,13 @@ import { useTranslation } from 'react-i18next';
 import type { IRule } from '@/interfaces/rule';
 
 import EDSvg from '@/ui/EDSvg';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 import SelectedRule from './SelectedRule';
 import Header from './Header';
 import classes from './RuleConfiguration.module.scss';
 import RuleAlertType from './RuleAlertType';
 import CodeBasedConfigurations from './CodeBasedConfigurations';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly selectedPolicy: IPolicySidebar | null;
@@ -77,19 +77,6 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 							{t('ruleOnboarding.ruleConfiguration.commingSoon')}
 						</span>
 					</div>
-					<button
-						className={classes['editButton']}
-						type="button"
-						style={{
-							backgroundColor: props.selectedRule === null ? '#D2D2D2' : '#8197b8',
-							borderColor: props.selectedRule === null ? '#B7B7B7' : '#6b7d98',
-						}}
-					>
-						<span className={classes['editButton__text']}>
-							{t('ruleOnboarding.ruleConfiguration.edit')}
-						</span>
-						<EDSvg name="arrowRight" className={classes['editButton__icon']} />
-					</button>
 				</div>
 			</div>
 		</div>

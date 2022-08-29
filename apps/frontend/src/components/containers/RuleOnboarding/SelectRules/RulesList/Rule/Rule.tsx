@@ -5,7 +5,7 @@ import type { IRule } from '@/interfaces/rule';
 import RuleView from './Rule.view';
 
 interface IProps {
-	readonly key: number;
+	readonly index: number;
 	readonly ruleName: string;
 	readonly ruleCatagory: string | undefined;
 	readonly ruleDescription: string;
@@ -17,7 +17,7 @@ interface IProps {
 const Rule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<RuleView
-			key={props.key}
+			index={props.index}
 			ruleName={props.ruleName}
 			ruleCatagory={props.ruleCatagory}
 			ruleDescription={props.ruleDescription}

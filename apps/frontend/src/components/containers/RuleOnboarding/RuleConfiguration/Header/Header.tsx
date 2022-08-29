@@ -25,14 +25,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const selectRuleReqBody = JSON.stringify(selectedRule);
 
 	const onAddRuleToList = () => {
-		backendApi
-			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody })
-			.then((response) => {
-				console.log(response);
-			})
-			.catch((err: AxiosError) => {
-				console.log(err, ' ERROR');
-			});
+		backendApi.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody });
 	};
 
 	const onUpdateRule = () => {

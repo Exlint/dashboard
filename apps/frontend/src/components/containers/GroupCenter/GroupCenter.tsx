@@ -44,7 +44,7 @@ const GroupCenter: React.FC<IProps> = () => {
 					{
 						label: t('groupCenter.newGroupLabel'),
 						id: response.data.groupId,
-						policies: [],
+						inlinePolicies: [],
 					},
 				];
 			});

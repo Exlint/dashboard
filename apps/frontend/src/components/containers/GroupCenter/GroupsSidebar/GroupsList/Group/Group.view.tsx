@@ -66,8 +66,9 @@ const GroupView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							{t('groupCenter.groupSideBar.group.policies')}
 						</span>
 						{props.policies.map((policy, index) => {
-							const libraryNameInLowerCase =
-								policy.libraryName.toLocaleLowerCase() as Lowercase<ILibraryData['name']>;
+							const libraryNameInLowerCase = policy.library.toLocaleLowerCase() as Lowercase<
+								ILibraryData['name']
+							>;
 
 							return (
 								<div className={classes['innerLibraryLogo']} key={index}>

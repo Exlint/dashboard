@@ -21,6 +21,7 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				Object.entries(props.rulesObject).map((rule, index) => (
 					<Rule
 						key={index}
+						index={index}
 						ruleName={rule[0] ?? ''}
 						ruleCatagory={rule[1].category ?? ''}
 						ruleDescription={rule[1].description ?? ''}

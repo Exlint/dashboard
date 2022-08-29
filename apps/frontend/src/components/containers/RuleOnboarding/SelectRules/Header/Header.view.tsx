@@ -1,14 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { ILibraryData } from '@/interfaces/libraries';
 import EDSvg from '@/ui/EDSvg';
 import EDSelect from '@/ui/EDSelect';
 import logosObject from '@/utils/libraries-logos';
 
-import { ILibraryData } from '@/interfaces/libraries';
-
 import classes from './Header.module.scss';
-import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
 	readonly rulesCatagories: string[];

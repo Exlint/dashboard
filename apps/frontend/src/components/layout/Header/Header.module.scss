@@ -3,7 +3,7 @@
 @import '../../../styles/variables.scss';
 
 .header {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	z-index: 1;
 	display: flex;
