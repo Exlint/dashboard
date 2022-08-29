@@ -13,11 +13,11 @@ export class BelongingInlinePolicyGuard implements CanActivate {
 		const userId = user.sub;
 		const inlinePolicyId = request.params.policy_id as string;
 
-		const groupBelongUser = await this.dbInlinePolicyService.doesInlinePolicyBelongUser(
-			userId,
+		const inlinePolicyBelongsUser = await this.dbInlinePolicyService.doesInlinePolicyBelongUser(
 			inlinePolicyId,
+			userId,
 		);
 
-		return groupBelongUser;
+		return inlinePolicyBelongsUser;
 	}
 }
