@@ -1,6 +1,7 @@
 .container {
 	display: flex;
 	flex-direction: column;
+	min-width: 245px;
 	height: 100%;
 	background-color: #fefefe;
 	border-inline-end: 3px solid #e7e7e7;

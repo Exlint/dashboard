@@ -1,10 +1,10 @@
 export interface ITableData {
-	number: string;
-	label: string;
-	libraryName: string;
-	category: string;
-	rulesNum: number;
-	configurations: string;
-	key: string;
-	render?: () => void;
+	'key': string;
+	'number': string;
+	'ruleName': string;
+	'category': string;
+	'description': string;
+	'off/warn/error': string;
+	'autofix': string;
+	'render'?: () => void;
 }

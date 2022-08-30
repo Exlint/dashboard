@@ -1,47 +1,63 @@
 /* eslint-disable react/no-multi-comp */
 /* eslint-disable react/display-name */
 /* eslint-disable max-lines */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import type { DefaultRecordType } from 'rc-table/lib/interface';
 
+import EDSvg from '@/ui/EDSvg';
+import { backendApi } from '@/utils/http';
 import type { ITableData } from './interfaces/table-data';
 
 import PolicyView from './Policy.view';
 
 import classes from './Policy.module.scss';
-import EDSvg from '@/ui/EDSvg';
+
+const groupPolicy = [
+	{
+		'key': '111',
+		'ruleName': 'dsds',
+		'category': 'visbnivusv',
+		'description': 'ubisubvs',
+		'off/warn/error': 'fioaneofiea',
+		'autofix': 'fbudifbsd',
+	},
+	{
+		'key': '111',
+		'ruleName': 'dsds',
+		'category': 'visbnivusv',
+		'description': 'ubisubvs',
+		'off/warn/error': 'fioaneofiea',
+		'autofix': 'fbudifbsd',
+	},
+];
 
 interface IProps {}
 
-const Policy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	console.log(props);
+const Policy: React.FC<IProps> = () => {
+	const { policyId } = useParams();
+
+	console.log(policyId);
 
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
+	const [rulesState, setRulesState] = useState([]);
+
+	console.log(rulesState);
 
 	const onOpenModal = () => setIsModelOnViewState(() => true);
 	const onCloseModal = () => setIsModelOnViewState(() => false);
 
-	const groupPolicy = [
-		{
-			id: 'dd',
-			rules: 'dsds',
-			key: '111',
-			label: 'ubisubvs',
-			libraryName: 'fioaneofiea',
-			category: 'visbnivusv',
-			rulesNum: 2,
-			configurations: 'fbudifbsd',
-		},
-		{
-			id: 'dd',
-			rules: 'dsds',
-			key: '111',
-			label: 'ubisubvs',
-			libraryName: 'fioaneofiea',
-			category: 'visbnivusv',
-			rulesNum: 2,
-			configurations: 'fbudifbsd',
-		},
-	];
+	const onRenderTable = () => {
+		backendApi
+			.get(`/user/inline-policies/rules/${policyId}`)
+			.then((response) => setRulesState(() => response.data.secrets));
+	};
+
+	useEffect(() => onRenderTable(), []);
+
+	const onRemoveRule = (id: string) => {
+		console.log(id);
+	};
 
 	const policiesTableColumns = [
 		{
@@ -54,7 +70,7 @@ const Policy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			title: 'Rule Name',
 			dataIndex: 'ruleName',
 			key: 'ruleName',
-			width: 210,
+			width: 240,
 		},
 		{
 			title: 'Category',
@@ -79,35 +95,74 @@ const Policy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			dataIndex: 'ruleConfig',
 			key: 'ruleConfig',
 			width: 150,
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				console.log(index);
+
+				return (
+					<button type="button" onClick={() => onRemoveRule('sercretId')}>
+						<EDSvg className={classes['configButtonIcon']} name="editPencil" />
+					</button>
+				);
+			},
 		},
 		{
 			title: 'File Config',
 			dataIndex: 'fileConfig',
 			key: 'fileConfig',
 			width: 150,
-		},
-		{
-			title: 'off/warn/error',
-			dataIndex: 'off/warn/error',
-			key: 'off/warn/error',
-			width: 150,
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				console.log(index);
+
+				return (
+					<button type="button" onClick={() => onRemoveRule('sercretId')}>
+						<EDSvg className={classes['configButtonIcon']} name="editPencil" />
+					</button>
+				);
+			},
 		},
 		{
 			title: 'Autofix',
 			dataIndex: 'autofix',
 			key: 'autofix',
 			width: 150,
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				console.log(index);
+
+				return (
+					<div onClick={() => onRemoveRule('sercretId')}>
+						<EDSvg className={classes['configButtonIcon']} name="vAutofix" />
+					</div>
+				);
+			},
 		},
 		{
 			title: (
-				<button className={classes['newRuleButton']} type="button" onClick={() => 'ddd'}>
+				<Link
+					to="/rule-onboarding"
+					className={classes['newRuleButton']}
+					type="button"
+					onClick={() => 'ddd'}
+				>
 					New
 					<EDSvg className={classes['newRuleButton__icon']} name="newRule" />
-				</button>
+				</Link>
 			),
-			dataIndex: 'autofix',
-			key: 'autofix',
+			dataIndex: 'removeRule',
+			key: 'removeRule',
 			width: 150,
+			render: (_: unknown, __: DefaultRecordType, index: number) => {
+				console.log(index);
+
+				return (
+					<button
+						className={classes['removeRuleButton']}
+						type="button"
+						onClick={() => onRemoveRule('sercretId')}
+					>
+						Remove
+					</button>
+				);
+			},
 		},
 	];
 
@@ -115,13 +170,13 @@ const Policy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	groupPolicy.map((policy, index) => {
 		policiesTableData.push({
-			key: policy.id,
-			number: `${index + 1}.`,
-			label: policy.label,
-			libraryName: policy.libraryName,
-			category: policy.category,
-			rulesNum: policy.rules ? Object.keys(policy.rules).length : 0,
-			configurations: policy.id,
+			'key': policy.key,
+			'number': `${index + 1}.`,
+			'ruleName': policy.ruleName,
+			'category': policy.category,
+			'description': policy.description,
+			'off/warn/error': policy['off/warn/error'],
+			'autofix': policy.autofix,
 		});
 	});
 

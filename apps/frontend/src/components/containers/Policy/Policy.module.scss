@@ -141,12 +141,29 @@
 					font-size: 1.7rem;
 					font-weight: 400;
 					color: #f2f2f2;
+					text-decoration: none;
 					background: linear-gradient(90deg, #4f339b 3.43%, #4f339b7d 120.79%);
 					border-radius: 10px;
 
 					&__icon {
 						margin-inline-start: 5px;
 					}
+				}
+
+				.removeRuleButton {
+					margin-inline-end: 15px;
+					font-size: 1.7rem;
+					font-weight: 400;
+					color: #b41e1e;
+					text-decoration: none;
+				}
+
+				.configButtonIcon {
+					width: 20px;
+					height: auto;
+					fill: transparent;
+					stroke: #4b4a65;
+					stroke-width: 1px;
 				}
 
 				.tableContainer {

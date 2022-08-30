@@ -31,15 +31,6 @@ interface IProps {
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-<<<<<<< HEAD
-	const libraryNameInLowerCase = (props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>) ?? '';
-
-	const libraryType =
-		librariesData[libraryNameInLowerCase] && librariesData[libraryNameInLowerCase].type[0];
-
-	const libraryCategory =
-		librariesData[libraryNameInLowerCase] && librariesData[libraryNameInLowerCase].category;
-=======
 	let libraryType: LibraryType | undefined;
 	let libraryCategory: LibraryCategory[] = [];
 
@@ -51,7 +42,6 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 		libraryType = librariesData[libraryNameInLowerCase].type[0];
 		libraryCategory = librariesData[libraryNameInLowerCase].category;
 	}
->>>>>>> origin/main-temp
 
 	return (
 		<aside className={classes['container']}>
