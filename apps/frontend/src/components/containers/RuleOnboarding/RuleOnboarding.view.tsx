@@ -21,7 +21,7 @@ interface IProps {
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
-	readonly selectedRulesList: IRule[] | null;
+	readonly selectedRulesList: IRule[];
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectRule: (_: string) => void;
 	readonly onEditRule: (_: string) => void;
@@ -29,6 +29,7 @@ interface IProps {
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
 	readonly onDoneButton: () => void;
+	readonly onUpdateSelectedRulesList: (_: IRule) => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -85,6 +86,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 								onCodeBasedConfigurationsInputChanged={
 									props.onCodeBasedConfigurationsInputChanged
 								}
+								onUpdateSelectedRulesList={props.onUpdateSelectedRulesList}
 							/>
 
 							<SelectedRules

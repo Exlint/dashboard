@@ -13,6 +13,7 @@ interface IProps {
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
+	readonly onUpdateSelectedRulesList: (_: IRule) => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,17 +23,16 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
-	console.log(selectedRule, 'body');
-
 	const onAddRuleToList = () => {
+		props.onUpdateSelectedRulesList(props.selectedRule!);
+
 		backendApi
 			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectedRule })
-			.then((res) => console.log(res, 'YAAYAZIF'))
+			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!))
 			.catch((e) => console.log(e, 'JOZEF'));
 	};
 
 	const onUpdateRule = () => {
-		console.log('update');
 		backendApi
 			.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {})
 			.then((response) => {

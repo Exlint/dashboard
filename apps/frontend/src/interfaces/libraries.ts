@@ -4,6 +4,7 @@ import type { LibraryType } from '../models/library-type';
 export interface ILibraryRule {
 	ruleName?: string;
 	readonly description: string;
+	alertType?: string;
 	readonly configApi?: string;
 	readonly hasAutoFix?: boolean;
 	readonly category?: string;

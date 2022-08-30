@@ -15,6 +15,7 @@ interface IProps {
 	readonly onSelectedRuleAlertType: (index: number) => void;
 	readonly onRemoveRule: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
+	readonly onUpdateSelectedRulesList: (_: IRule) => void;
 }
 
 const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -39,6 +40,7 @@ const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 			onOpenCodeConfigurationsModal={onOpenCodeConfigurationsModal}
 			onCloseCodeConfigurationsModal={onCloseCodeConfigurationsModal}
 			onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
+			onUpdateSelectedRulesList={props.onUpdateSelectedRulesList}
 		/>
 	);
 };

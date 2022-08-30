@@ -25,7 +25,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	// const selectedRulesFromDb: string[] = [];
 
 	useEffect(() => {
-		backendApi.get(`/user/inline-policies/rules/${policyId}`).then((res) => console.log(res, 'resssss'));
+		backendApi.get(`/user/inline-policies/rules/${policyId}`);
 	}, []);
 
 	const testResponse: Record<string, unknown[]> = {
@@ -35,7 +35,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
-	// const [selectedRulesState, setSelectedRulesState] = useState<IRule[] | null>(null);
+	const [selectedRulesListState, setSelectedRulesListState] = useState<IRule[]>([]);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
 	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 
@@ -45,51 +45,23 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		useState<string>('');
 
 	const parasRulesList = Object.entries(testResponse).map((rule) => {
-		// console.log(rule, 'Rule');
-		// console.log(rule[0], 0);
-		// console.log(rule[1], 1);
-
-		// const parasRule = JSON.parse(rule[0]);s
-
-		// const ruleObject = {
-		// 	...parasRule,
-		// };
 		let ruleObject: Record<string, unknown[]> = {};
 
 		ruleObject = {
 			...ruleObject,
-			[rule[0]]: JSON.parse(rule[1] as unknown as string),
+			[rule[0]]: rule[1],
 		};
 
 		return ruleObject;
 	});
 
-	console.log(rulesObject, 'ruleObject');
-	console.log(rulesObject, 'ruleObject');
-
-	const test: IRule[] | null = Object.entries(parasRulesList).map((rule) => {
-		console.log(rule, 'rule');
+	const selectedRulesList: IRule[] | null = Object.entries(parasRulesList).map((rule) => {
 		const ruleObject = {
-			ruleName: Object.keys(rule[1])[0],
-			alertType: JSON.stringify(Object.values(rule[1])[0] as unknown as string),
-			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
-			hasConfig: Object.keys(rule)[1] ? true : false,
-			configurations: JSON.stringify(rule),
-		};
-
-		return ruleObject;
-	});
-
-	console.log(test, 'rulesList');
-
-	const selectedRulesList: IRule[] | null = parasRulesList.map((rule) => {
-		const ruleObject = {
-			ruleName: Object.keys(rule)[0]!,
-			alertType: 'linter',
-
-			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
-			hasConfig: Object.keys(rule)[1] ? true : false,
-			configurations: JSON.stringify(rule),
+			ruleName: Object.keys(rule[1])[0] ?? '',
+			alertType: (Object.values(rule[1])[0]![0] as unknown as string) ?? '',
+			category: selectedLibraryState.rules![Object.keys(rule[1])[0]!]?.category ?? '',
+			hasConfig: Object.values(rule[1])[0]!.length > 1 ? true : false ?? false,
+			configurations: JSON.stringify(Object.values(rule[1])[0]!) ?? '',
 		};
 
 		return ruleObject;
@@ -99,6 +71,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		const selectedRule = libraryData.rules![ruleName];
 
 		selectedRule!.ruleName = ruleName;
+		selectedRule!.alertType = ruleAlertTypes[selectedRuleAlertTypeIndexState];
 
 		if (!isRuleOnUpdateState && selectedRule) {
 			setSelectedRuleAlertTypeIndexState(() => 0);
@@ -114,13 +87,18 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 		setIsRuleOnUpdateState(() => true);
 
-		for (const rule of selectedRulesList) {
-			if (rule.ruleName === ruleName) {
-				const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
+		if (selectedRulesList) {
+			for (const rule of selectedRulesList) {
+				if (rule.ruleName === ruleName) {
+					const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
 
-				setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
+					setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
 
-				rule.configurations && setRuleCodeBasedConfigurationsInputState(() => rule.configurations!);
+					rule.configurations &&
+						setRuleCodeBasedConfigurationsInputState(
+							() => `{"${ruleName}": ${rule.configurations!}}`,
+						);
+				}
 			}
 		}
 
@@ -141,9 +119,9 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
 	};
 
-	// const onUpdateSelectedRulesList = (rule: IRule) => {
-	// 	setSelectedRulesState(selectedRulesState?.push(rule))
-	// }
+	const onUpdateSelectedRulesList = (rule: IRule) => {
+		setSelectedRulesListState((prev: IRule[]) => [...prev, rule]);
+	};
 
 	useEffect(() => {
 		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
@@ -179,14 +157,15 @@ const RuleOnboarding: React.FC<IProps> = () => {
 			selectedRule={selectedRuleState}
 			selectedRuleAlertTypeIndex={selectedRuleAlertTypeIndexState}
 			isRuleOnUpdate={isRuleOnUpdateState}
-			selectedRulesList={selectedRulesList}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
+			selectedRulesList={selectedRulesListState}
 			onSelectRule={onSelectRule}
 			onEditRule={onEditRule}
 			onRemoveRule={onRemoveRule}
 			onSelectedRuleAlertType={onSelectedRuleAlertType}
 			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
 			onDoneButton={onDoneButton}
+			onUpdateSelectedRulesList={onUpdateSelectedRulesList}
 		/>
 	);
 };
