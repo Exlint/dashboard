@@ -42,6 +42,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 					<PolicySidebar
 						name={props.selectedPolicy?.libraryName ?? ''}
 						groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+						policyId={props.policyId}
 						policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 						createdAt="11 jun"
 					/>

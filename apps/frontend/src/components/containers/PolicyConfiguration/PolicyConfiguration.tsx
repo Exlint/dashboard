@@ -3,11 +3,11 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { ILibraryData } from '@/interfaces/libraries';
 import type { IGetPolicyResponseData } from '@/interfaces/responses';
+import { librariesData } from '@/data/libraries-data';
 
 import PolicyConfigurationView from './PolicyConfiguration.view';
-import { ILibraryData } from '@/interfaces/libraries';
-import { librariesData } from '@/data/libraries-data';
 
 interface IProps {}
 
@@ -97,6 +97,7 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 
 	return (
 		<PolicyConfigurationView
+			policyId={policyId}
 			shouldSkipRulesOnboarding={shouldSkipRulesOnboarding}
 			selectedPolicy={selectedPolicy}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}

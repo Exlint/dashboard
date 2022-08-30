@@ -11,6 +11,7 @@ import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import classes from './PolicyConfiguration.module.scss';
 
 interface IProps {
+	readonly policyId: string | undefined;
 	readonly shouldSkipRulesOnboarding: boolean;
 	readonly selectedPolicy: IPolicySidebar | null;
 	readonly ruleCodeBasedConfigurationsInput: string;
@@ -29,6 +30,7 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			<PolicySidebar
 				name={props.selectedPolicy?.libraryName ?? ''}
 				groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+				policyId={props.policyId}
 				policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 				createdAt="11 jun"
 			/>

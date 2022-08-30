@@ -18,6 +18,7 @@ import classes from './PolicySidebar.module.scss';
 interface IProps {
 	readonly name: string;
 	readonly createdAt: string;
+	readonly policyId: string | undefined;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 	readonly isModelOnView: boolean;
@@ -115,6 +116,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 				</div>
 				{props.isModelOnView && (
 					<PolicySidebarModal
+						policyId={props.policyId}
 						policyLabel={props.policyLabel ?? ''}
 						onCloseModal={props.onCloseModal}
 					/>
