@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
+	margin-top: 80px;
 
 	.sidebar {
 		position: sticky;
@@ -73,7 +74,6 @@
 					position: fixed;
 					display: flex;
 					width: 40%;
-					height: 600px !important;
 				}
 			}
 		}

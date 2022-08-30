@@ -25,7 +25,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	// const selectedRulesFromDb: string[] = [];
 
 	useEffect(() => {
-		backendApi.get(`/user/inline-policies/rules/${policyId}`);
+		backendApi.get(`/user/inline-policies/rules/${policyId}`).then((res) => console.log(res, 'resssss'));
 	}, []);
 
 	const testResponse: Record<string, unknown[]> = {
@@ -35,6 +35,7 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
+	// const [selectedRulesState, setSelectedRulesState] = useState<IRule[] | null>(null);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
 	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 
@@ -44,19 +45,42 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		useState<string>('');
 
 	const parasRulesList = Object.entries(testResponse).map((rule) => {
-		// console.log(rule[0]);
-		// console.log(rule[1]);
+		// console.log(rule, 'Rule');
+		// console.log(rule[0], 0);
+		// console.log(rule[1], 1);
 
-		// const parasRule = JSON.parse(rule[0]);
+		// const parasRule = JSON.parse(rule[0]);s
 
 		// const ruleObject = {
 		// 	...parasRule,
 		// };
+		let ruleObject: Record<string, unknown[]> = {};
 
-		const ruleObject = { ...rule };
+		ruleObject = {
+			...ruleObject,
+			[rule[0]]: JSON.parse(rule[1] as unknown as string),
+		};
 
 		return ruleObject;
 	});
+
+	console.log(rulesObject, 'ruleObject');
+	console.log(rulesObject, 'ruleObject');
+
+	const test: IRule[] | null = Object.entries(parasRulesList).map((rule) => {
+		console.log(rule, 'rule');
+		const ruleObject = {
+			ruleName: Object.keys(rule[1])[0],
+			alertType: JSON.stringify(Object.values(rule[1])[0] as unknown as string),
+			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
+			hasConfig: Object.keys(rule)[1] ? true : false,
+			configurations: JSON.stringify(rule),
+		};
+
+		return ruleObject;
+	});
+
+	console.log(test, 'rulesList');
 
 	const selectedRulesList: IRule[] | null = parasRulesList.map((rule) => {
 		const ruleObject = {
@@ -116,6 +140,10 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	const onCodeBasedConfigurationsInputChanged = (input: string) => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
 	};
+
+	// const onUpdateSelectedRulesList = (rule: IRule) => {
+	// 	setSelectedRulesState(selectedRulesState?.push(rule))
+	// }
 
 	useEffect(() => {
 		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>

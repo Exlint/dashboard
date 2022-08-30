@@ -22,13 +22,17 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
-	const selectRuleReqBody = JSON.stringify(selectedRule);
+	console.log(selectedRule, 'body');
 
 	const onAddRuleToList = () => {
-		backendApi.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody });
+		backendApi
+			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectedRule })
+			.then((res) => console.log(res, 'YAAYAZIF'))
+			.catch((e) => console.log(e, 'JOZEF'));
 	};
 
 	const onUpdateRule = () => {
+		console.log('update');
 		backendApi
 			.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {})
 			.then((response) => {
