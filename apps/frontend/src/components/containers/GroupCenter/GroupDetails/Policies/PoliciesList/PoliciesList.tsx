@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { LibraryCategory } from '@/models/library-category';
+import { librariesData } from '@/data/libraries-data';
 import EDSvg from '@/ui/EDSvg';
 import logosObject from '@/utils/libraries-logos';
 import type { ILibraryData, IPolicyData } from '@/interfaces/libraries';
@@ -20,11 +22,11 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const navigate = useNavigate();
 
 	const onNavigateToPolicyRules = (policyId: string) => {
-		navigate(`/group-center/policy/policyId:${policyId}/rules`);
+		navigate(`/group-center/policy/${policyId}/rules`);
 	};
 
 	const onNavigateToPolicyConfig = (policyId: string) => {
-		navigate(`/group-center/policy/:poilcy-id${policyId}/edit-config`);
+		navigate(`/policy-configuration/${policyId}/edit`);
 	};
 
 	const policiesTableColumns = [
@@ -46,7 +48,7 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			key: 'library',
 			width: 150,
 			render: (_: string, __: string, index: number) => {
-				const libraryName = props.groupPolicy[index]!.libraryName;
+				const libraryName = props.groupPolicy[index]!.library;
 
 				const libraryNameInLowerCase = libraryName.toLocaleLowerCase() as Lowercase<
 					ILibraryData['name']
@@ -82,7 +84,7 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			key: 'configurations',
 			width: 150,
 			render: (_: string, __: string, index: number) => {
-				const policyId = props.groupPolicy[index]!.id.toString();
+				const policyId = props.groupPolicy[index]!.id ?? '';
 
 				return (
 					<button
@@ -123,12 +125,22 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const policiesTableData: ITableData[] = [];
 
 	props.groupPolicy.map((policy, index) => {
+		let libraryCategory: LibraryCategory[] = [];
+
+		const libraryNameInLowerCase = policy.library
+			? (policy.library.toLocaleLowerCase() as Lowercase<ILibraryData['name']>)
+			: null;
+
+		if (libraryNameInLowerCase) {
+			libraryCategory = librariesData[libraryNameInLowerCase].category;
+		}
+
 		policiesTableData.push({
 			key: policy.id,
 			number: `${index + 1}.`,
 			label: policy.label,
-			libraryName: policy.libraryName,
-			category: policy.category,
+			libraryName: policy.library,
+			category: LibraryCategory[libraryCategory[0]!] ?? '',
 			rulesNum: policy.rules ? Object.keys(policy.rules).length : 0,
 			configurations: policy.id,
 		});

@@ -42,7 +42,7 @@ export interface IGetPolicyIdResponseData {
 
 export interface IGetPolicyResponseData {
 	readonly groupLabel: string;
-	readonly policyLabel: string;
+	readonly label: string;
 	readonly library: 'ESLint' | 'Stylelint' | 'Depcheck' | 'Prettier' | 'Inflint';
-	readonly createdAt: Date;
+	readonly createdAt: string;
 }

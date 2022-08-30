@@ -2,38 +2,6 @@
 
 @import '../../../styles/variables.scss';
 
-.header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 14px 50px;
-	background: linear-gradient(270deg, #0e0d14 36.98%, #7a4df3 100%);
-
-	&__img {
-		height: 50px;
-		object-fit: contain;
-	}
-
-	.documentationLink {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-
-		&__text {
-			margin-inline-end: 7px;
-			font-size: 1.6rem;
-			font-weight: 650;
-			color: #e7e7e7;
-		}
-
-		&__icon {
-			width: auto;
-			height: 16px;
-			fill: #e7e7e7;
-		}
-	}
-}
-
 .main {
 	display: flex;
 	flex-direction: column;

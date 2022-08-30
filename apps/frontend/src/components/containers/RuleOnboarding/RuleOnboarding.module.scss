@@ -5,9 +5,9 @@
 
 	.sidebar {
 		position: sticky;
-		width: 15%;
+		width: 10%;
 		height: 100%;
-		margin-inline-end: 20px;
+		margin-inline-end: 70px;
 
 		.innerSidebar {
 			position: fixed;
@@ -16,15 +16,66 @@
 		}
 	}
 
-	.container {
-		position: sticky;
-		width: 50%;
+	.onboradingContainer {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
 
-		.rightSideContainer {
-			position: fixed;
+		.buttonsContainer {
 			display: flex;
-			width: 40%;
-			height: 730px;
+			justify-content: space-between;
+			margin: 20px 22px 35px;
+
+			.doneButtonContainer {
+				position: fixed;
+				inset-inline-end: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 11.5px 20px;
+				background-color: #25a023;
+				border-radius: 10px;
+
+				&__text {
+					margin-inline-end: 15px;
+					font-size: 1.7;
+					font-weight: 500;
+					color: #fefefe;
+				}
+
+				&__icon {
+					width: 8px;
+					height: auto;
+					fill: transparent;
+					stroke: #fefefe;
+					stroke-width: 3px;
+				}
+			}
+		}
+
+		.innerRules {
+			display: flex;
+			width: 100%;
+
+			.selectRules {
+				display: flex;
+				width: 50%;
+				min-width: 50%;
+				margin: 0 22px;
+			}
+
+			.container {
+				position: sticky;
+				display: flex;
+				width: 50%;
+
+				.rightSideContainer {
+					position: fixed;
+					display: flex;
+					width: 40%;
+					height: 600px !important;
+				}
+			}
 		}
 	}
 }

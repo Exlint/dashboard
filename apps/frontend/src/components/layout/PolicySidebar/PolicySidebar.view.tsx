@@ -31,6 +31,7 @@ interface IProps {
 const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
+<<<<<<< HEAD
 	const libraryNameInLowerCase = (props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>) ?? '';
 
 	const libraryType =
@@ -38,6 +39,19 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 
 	const libraryCategory =
 		librariesData[libraryNameInLowerCase] && librariesData[libraryNameInLowerCase].category;
+=======
+	let libraryType: LibraryType | undefined;
+	let libraryCategory: LibraryCategory[] = [];
+
+	const libraryNameInLowerCase = props.name
+		? (props.name.toLocaleLowerCase() as Lowercase<ILibraryData['name']>)
+		: null;
+
+	if (libraryNameInLowerCase) {
+		libraryType = librariesData[libraryNameInLowerCase].type[0];
+		libraryCategory = librariesData[libraryNameInLowerCase].category;
+	}
+>>>>>>> origin/main-temp
 
 	return (
 		<aside className={classes['container']}>
@@ -127,7 +141,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 						</span>
 						<div className={classes['libraryContentWrapper']}>
 							<img
-								src={logosObject[libraryNameInLowerCase]}
+								src={logosObject[libraryNameInLowerCase!] ?? null}
 								alt="Eslint"
 								className={classes['libraryContentWrapper__img']}
 							/>

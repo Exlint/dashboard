@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import type { ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import SelectRulesView from './SelectRules.view';
 
 interface IProps {
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
-	readonly libraryName: string;
-	readonly libraryLogo: string;
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly selectedRule: IRule | null;
 	readonly onSelectRule: (_: string) => void;
 }
@@ -73,8 +73,7 @@ const SelectRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	return (
 		<SelectRulesView
 			rulesObject={filteredRulesList}
-			libraryName={props.libraryName}
-			libraryLogo={props.libraryLogo}
+			selectedPolicy={props.selectedPolicy}
 			selectedRule={props.selectedRule}
 			rulesCatagories={rulesCatagories}
 			searchRuleInput={searchRuleInputState}

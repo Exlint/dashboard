@@ -86,8 +86,6 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
-
-		'i18next/no-literal-string': 2,
 	},
 	overrides: [
 		{

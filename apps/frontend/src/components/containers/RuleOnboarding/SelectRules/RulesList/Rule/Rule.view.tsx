@@ -7,7 +7,7 @@ import autofixLogo from '@/images/autofix-logo.png';
 import classes from './Rule.module.scss';
 
 interface IProps {
-	readonly key: number;
+	readonly index: number;
 	readonly ruleName: string;
 	readonly ruleCatagory: string | undefined;
 	readonly ruleDescription: string;
@@ -17,15 +17,13 @@ interface IProps {
 }
 
 const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const isRuleIndexEven = props.key % 2 === 0;
-
-	console.log(props.hasAutoFix, 'Auto');
+	const isRuleIndexEven = props.index % 2 === 0;
 
 	return (
 		<div
 			className={classes['rule']}
 			style={{
-				backgroundColor: isRuleIndexEven ? '#FEFEFE' : '#F9F9F9',
+				backgroundColor: isRuleIndexEven ? '#FEFEFE' : '#f2f2f2',
 				borderImage:
 					props.selectedRule?.ruleName === props.ruleName
 						? 'linear-gradient(to right, rgba(79, 51, 155, 0.5), rgba(79, 51, 155, 1)) 1'

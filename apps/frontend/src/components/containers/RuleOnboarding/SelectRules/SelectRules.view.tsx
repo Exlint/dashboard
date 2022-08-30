@@ -7,11 +7,11 @@ import classes from './SelectRules.module.scss';
 
 import Header from './Header';
 import RulesList from './RulesList';
+import { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 interface IProps {
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
-	readonly libraryName: string;
-	readonly libraryLogo: string;
 	readonly selectedRule: IRule | null;
 	readonly rulesCatagories: string[];
 	readonly searchRuleInput: string | null;
@@ -26,9 +26,8 @@ const SelectRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	return (
 		<div className={classes['leftSideContainer']}>
 			<Header
+				selectedPolicy={props.selectedPolicy}
 				rulesCatagories={props.rulesCatagories}
-				libraryName={props.libraryName}
-				libraryLogo={props.libraryLogo}
 				searchRuleInput={props.searchRuleInput}
 				selectedCatagoryIndex={props.selectedCatagoryIndex}
 				onSearchRuleInput={props.onSearchRuleInput}

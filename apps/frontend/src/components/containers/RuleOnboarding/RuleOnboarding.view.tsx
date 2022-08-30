@@ -1,6 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import type { ILibraryData } from '@/interfaces/libraries';
+import EDSvg from '@/ui/EDSvg';
+import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 import PolicySidebar from '@/layout/PolicySidebar';
 
@@ -11,7 +15,9 @@ import SelectedRules from './SelectedRules';
 
 interface IProps {
 	readonly policyId: string | undefined;
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly selectedLibrary: ILibraryData | null;
+	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
@@ -22,49 +28,71 @@ interface IProps {
 	readonly onRemoveRule: () => void;
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
+	readonly onDoneButton: () => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const rulesObject = props.selectedLibrary?.rules;
+	const { t } = useTranslation();
 
 	return (
 		<section className={classes['manually']}>
 			<div className={classes['sidebar']}>
 				<div className={classes['innerSidebar']}>
 					<PolicySidebar
-						groupLabel="gruplabel"
-						policyLabel="policy l;abel"
+						name={props.selectedPolicy?.libraryName ?? ''}
+						groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+						policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 						createdAt="11 jun"
-						name="ESLint"
 					/>
 				</div>
 			</div>
 
-			<SelectRules
-				rulesObject={rulesObject}
-				libraryName={props.selectedLibrary!.name}
-				libraryLogo={props.selectedLibrary!.name}
-				selectedRule={props.selectedRule}
-				onSelectRule={props.onSelectRule}
-			/>
+			<div className={classes['onboradingContainer']}>
+				<div className={classes['buttonsContainer']}>
+					<EDNavigateBackButton />
+					<button
+						className={classes['doneButtonContainer']}
+						type="button"
+						onClick={props.onDoneButton}
+					>
+						<span className={classes['doneButtonContainer__text']}>
+							{t('ruleOnboarding.doneButton')}
+						</span>
+						<EDSvg className={classes['doneButtonContainer__icon']} name="arrowRight" />
+					</button>
+				</div>
+				<div className={classes['innerRules']}>
+					<div className={classes['selectRules']}>
+						<SelectRules
+							rulesObject={props.rulesObject}
+							selectedPolicy={props.selectedPolicy}
+							selectedRule={props.selectedRule}
+							onSelectRule={props.onSelectRule}
+						/>
+					</div>
 
-			<div className={classes['container']}>
-				<div className={classes['rightSideContainer']}>
-					<RuleConfiguration
-						policyId={props.policyId}
-						selectedRule={props.selectedRule}
-						selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
-						isRuleOnUpdate={props.isRuleOnUpdate}
-						ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
-						onSelectedRuleAlertType={props.onSelectedRuleAlertType}
-						onRemoveRule={props.onRemoveRule}
-						onCodeBasedConfigurationsInputChanged={props.onCodeBasedConfigurationsInputChanged}
-					/>
+					<div className={classes['container']}>
+						<div className={classes['rightSideContainer']}>
+							<RuleConfiguration
+								selectedPolicy={props.selectedPolicy}
+								policyId={props.policyId}
+								selectedRule={props.selectedRule}
+								selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
+								isRuleOnUpdate={props.isRuleOnUpdate}
+								ruleCodeBasedConfigurationsInput={props.ruleCodeBasedConfigurationsInput}
+								onSelectedRuleAlertType={props.onSelectedRuleAlertType}
+								onRemoveRule={props.onRemoveRule}
+								onCodeBasedConfigurationsInputChanged={
+									props.onCodeBasedConfigurationsInputChanged
+								}
+							/>
 
-					<SelectedRules
-						selectedRulesList={props.selectedRulesList}
-						onEditRule={props.onEditRule}
-					/>
+							<SelectedRules
+								selectedRulesList={props.selectedRulesList}
+								onEditRule={props.onEditRule}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

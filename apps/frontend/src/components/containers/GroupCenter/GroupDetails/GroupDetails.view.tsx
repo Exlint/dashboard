@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const GroupDetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const groupPolicies = props.selectedGroup.policies;
+	const groupPolicies = props.selectedGroup.inlinePolicies;
 
 	return (
 		<section className={classes['groupDetails']}>

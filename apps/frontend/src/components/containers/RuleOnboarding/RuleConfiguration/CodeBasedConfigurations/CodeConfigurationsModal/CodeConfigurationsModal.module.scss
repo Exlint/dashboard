@@ -6,10 +6,9 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 770px;
-	height: 670px;
-	padding: 24px 60px;
-	background: #fefefe;
+	width: 720px;
+	height: 570px;
+	padding: 14px 60px;
 	background-color: #fefefe;
 	border-radius: 10px;
 	transform: translate(-50%, -50%);
@@ -24,6 +23,7 @@
 			height: 19px;
 			fill: transparent;
 			stroke: #202428;
+			stroke-width: 3px;
 		}
 	}
 

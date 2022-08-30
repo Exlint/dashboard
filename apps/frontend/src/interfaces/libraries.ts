@@ -28,7 +28,7 @@ export interface ILbirariesData {
 
 export interface IPolicyData {
 	readonly id: string;
-	readonly libraryName: string;
+	readonly library: string;
 	readonly label: string;
 	readonly category: string;
 	// eslint-disable-next-line @typescript-eslint/ban-types

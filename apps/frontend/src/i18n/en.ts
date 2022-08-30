@@ -216,6 +216,7 @@ const en = {
 	},
 	policyConfiguration: {
 		saveAndUpdateButton: 'Save & Continue to Rule Creation',
+		saveConfiguration: 'Done',
 	},
 	codeBasedConfiguration: {
 		configurations: 'Configurations',
@@ -224,6 +225,7 @@ const en = {
 		back: 'Back',
 	},
 	ruleOnboarding: {
+		doneButton: 'Done',
 		selectRules: {
 			header: {
 				ruleCreation: 'Rule Creation',

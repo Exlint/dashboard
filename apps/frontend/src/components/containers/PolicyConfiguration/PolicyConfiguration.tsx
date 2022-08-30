@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
@@ -13,12 +13,20 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	const navigate = useNavigate();
 	const { policyId } = useParams();
 
-	const [selectedPolicy] = useState<IPolicySidebar | null>(null);
+	const route = useLocation();
+
+	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
 
 	const [isEditFileFormatState, setIsEditFileFormatState] = useState<boolean>(false);
+
+	let currentPage: string | null = null;
+
+	if (route.pathname.includes('/edit')) {
+		currentPage = 'edit';
+	}
 
 	const onCodeBasedConfigurationsInputChanged = (input: string) => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
@@ -42,22 +50,41 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 		}
 	};
 
+	const onSaveConfiguration = () => {
+		if (ruleCodeBasedConfigurationsInputState.length > 0) {
+			backendApi
+				.patch(`/user/inline-policies/${policyId}`, {
+					configuration: JSON.stringify(ruleCodeBasedConfigurationsInputState),
+				})
+				.then(() => {
+					navigate('/group-center');
+				});
+		} else {
+			navigate('/group-center');
+		}
+	};
+
 	useEffect(() => {
-		console.log('useEffect');
-		backendApi
-			.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`)
-			.then((response) => console.log(response))
-			.catch((e) => console.log(e));
+		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
+			setSelectedPolicy({
+				groupLabel: response.data.groupLabel === null ? 'New Group' : response.data.groupLabel,
+				policyLabel: response.data.label,
+				libraryName: response.data.library,
+				createdAt: response.data.createdAt,
+			}),
+		);
 	}, [backendApi]);
 
 	return (
 		<PolicyConfigurationView
+			currentPage={currentPage}
 			selectedPolicy={selectedPolicy}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
 			isEditFileFormat={isEditFileFormatState}
 			onUpdatePolicyConfiguration={onUpdatePolicyConfiguration}
 			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
 			onEditFileFormatButton={onEditFileFormatButton}
+			onSaveConfiguration={onSaveConfiguration}
 		/>
 	);
 };

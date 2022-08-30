@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
 import type { IRule } from '@/interfaces/rule';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 
 import RuleConfigurationView from './RuleConfiguration.view';
 
 interface IProps {
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly policyId: string | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
@@ -25,6 +27,7 @@ const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 
 	return (
 		<RuleConfigurationView
+			selectedPolicy={props.selectedPolicy}
 			policyId={props.policyId}
 			selectedRule={props.selectedRule}
 			selectedRuleAlertTypeIndex={props.selectedRuleAlertTypeIndex}
