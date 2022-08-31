@@ -16,8 +16,6 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	console.log(props.selectedRule, 'selectedRule');
-
 	const selectedRuleType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
 
 	const selectedRule: Record<string, string> = {};
