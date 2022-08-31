@@ -5,7 +5,7 @@ export interface ILibraryRule {
 	ruleName?: string;
 	readonly description: string;
 	alertType?: string;
-	readonly configApi?: string;
+	configApi?: string;
 	readonly hasAutoFix?: boolean;
 	readonly category?: string;
 }

@@ -25,7 +25,7 @@ interface IProps {
 	readonly onOpenCodeConfigurationsModal: () => void;
 	readonly onCloseCodeConfigurationsModal: () => void;
 	readonly onCodeBasedConfigurationsInputChanged: (input: string) => void;
-	readonly onUpdateSelectedRulesList: (_: IRule) => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule, method: string) => void;
 }
 
 const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

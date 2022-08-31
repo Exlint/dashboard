@@ -1,5 +1,4 @@
 import React from 'react';
-import type { AxiosError } from 'axios';
 
 import type { IRule } from '@/interfaces/rule';
 import { ruleAlertTypes } from '@/data/rule-alert-types';
@@ -13,10 +12,12 @@ interface IProps {
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
-	readonly onUpdateSelectedRulesList: (_: IRule) => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule, method: string) => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	console.log(props.selectedRule, 'selectedRule');
+
 	const selectedRuleType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
 
 	const selectedRule: Record<string, string> = {};
@@ -24,23 +25,30 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
 	const onAddRuleToList = () => {
-		props.onUpdateSelectedRulesList(props.selectedRule!);
+		props.onUpdateSelectedRulesList(props.selectedRule!, 'post');
 
 		backendApi
 			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectedRule })
-			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!))
+			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!, 'post'))
 			.catch((e) => console.log(e, 'JOZEF'));
 	};
 
 	const onUpdateRule = () => {
-		backendApi
-			.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {})
-			.then((response) => {
-				alert(response);
-			})
-			.catch((err: AxiosError) => {
-				alert(err.response?.data);
-			});
+		const ruleToUpdate = props.selectedRule!;
+
+		ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
+		ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
+
+		props.onUpdateSelectedRulesList(ruleToUpdate, 'patch');
+
+		backendApi.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {}).then(() => {
+			const ruleToUpdate = props.selectedRule!;
+
+			ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
+			ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
+
+			props.onUpdateSelectedRulesList(ruleToUpdate, 'patch');
+		});
 	};
 
 	return (

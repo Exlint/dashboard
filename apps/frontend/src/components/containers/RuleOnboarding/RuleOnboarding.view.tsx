@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
-import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
+import type { ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 import PolicySidebar from '@/layout/PolicySidebar';
 
@@ -16,7 +16,6 @@ import SelectedRules from './SelectedRules';
 interface IProps {
 	readonly policyId: string | undefined;
 	readonly selectedPolicy: IPolicySidebar | null;
-	readonly selectedLibrary: ILibraryData | null;
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
@@ -29,7 +28,7 @@ interface IProps {
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
 	readonly onDoneButton: () => void;
-	readonly onUpdateSelectedRulesList: (_: IRule) => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule, method: string) => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
