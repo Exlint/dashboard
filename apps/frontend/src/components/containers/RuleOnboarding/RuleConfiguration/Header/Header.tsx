@@ -12,7 +12,7 @@ interface IProps {
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
-	readonly onUpdateSelectedRulesList: (rule: IRule, method: string) => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule) => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -23,11 +23,11 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
 	const onAddRuleToList = () => {
-		props.onUpdateSelectedRulesList(props.selectedRule!, 'post');
+		props.onUpdateSelectedRulesList(props.selectedRule!);
 
 		backendApi
 			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectedRule })
-			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!, 'post'))
+			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!))
 			.catch((e) => console.log(e, 'JOZEF'));
 	};
 
@@ -37,7 +37,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
 		ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
 
-		props.onUpdateSelectedRulesList(ruleToUpdate, 'patch');
+		props.onUpdateSelectedRulesList(ruleToUpdate);
 
 		backendApi.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {}).then(() => {
 			const ruleToUpdate = props.selectedRule!;
@@ -45,7 +45,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
 			ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
 
-			props.onUpdateSelectedRulesList(ruleToUpdate, 'patch');
+			props.onUpdateSelectedRulesList(ruleToUpdate);
 		});
 	};
 

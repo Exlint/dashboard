@@ -40,6 +40,11 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
+	let selectedAlertIndex = selectedRuleAlertTypeIndexState;
+
+	useEffect(() => {
+		selectedAlertIndex = selectedRuleAlertTypeIndexState;
+	}, [selectedRuleAlertTypeIndexState]);
 
 	//Update selected policy
 	useEffect(() => {
@@ -98,14 +103,12 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		const selectedRule = libraryData.rules![ruleName];
 		setRuleCodeBasedConfigurationsInputState(() => `{"${ruleName}": ["off"]}`);
 
-		selectedRule!.ruleName = ruleName;
-		selectedRule!.alertType = ruleAlertTypes[selectedRuleAlertTypeIndexState];
-		selectedRule!.configApi = ruleCodeBasedConfigurationsInputState;
-
-		console.log(selectedRule, 'selectedRuleselectedRule');
-
 		if (!isRuleOnUpdateState && selectedRule) {
-			setSelectedRuleAlertTypeIndexState(() => 0);
+			selectedRule!.ruleName = ruleName;
+			selectedRule!.alertType = ruleAlertTypes[selectedAlertIndex];
+			selectedRule!.configApi = ruleCodeBasedConfigurationsInputState;
+
+			setSelectedRuleAlertTypeIndexState(() => 1);
 			setSelectedRuleState(() => selectedRule);
 		}
 	};
@@ -121,15 +124,12 @@ const RuleOnboarding: React.FC<IProps> = () => {
 				const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
 
 				setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
-				console.log(rule, 'rule');
 				rule.configurations
 					? setRuleCodeBasedConfigurationsInputState(
 							() => `{"${ruleName}": ${rule.configurations!}}`,
 					  )
 					: setRuleCodeBasedConfigurationsInputState(() => `{"${ruleName}": [${rule.alertType}]}`);
 			}
-
-			console.log(ruleCodeBasedConfigurationsInputState, 'ruleCodeBasedConfigurationsInputState');
 		}
 
 		selectedRule && setSelectedRuleState(() => selectedRule);
@@ -149,26 +149,42 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
 	};
 
-	const onUpdateSelectedRulesList = (rule: IRule, method: string) => {
-		if (method === 'post') {
-			setSelectedRulesListState((prev: IRule[]) => [...prev, rule]);
-		} else if (method === 'patch') {
-			setSelectedRulesListState((prev) =>
-				prev.map((ruleFromList) => {
-					if (ruleFromList.ruleName === rule.ruleName) {
-						return {
-							...ruleFromList,
-							alertType: ruleFromList.alertType,
-							configurations: ruleFromList.category,
-						};
-					}
+	const onUpdateSelectedRulesList = (rule: IRule) => {
+		setSelectedRulesListState((prev) =>
+			prev.map((ruleFromList) => {
+				if (ruleFromList.ruleName === rule.ruleName) {
+					return {
+						...ruleFromList,
+						alertType: ruleAlertTypes[selectedAlertIndex],
+						hasConfig: ruleCodeBasedConfigurationsInputState.length > 1 ? true : false ?? false,
+						configurations: ruleCodeBasedConfigurationsInputState,
+					};
+				}
 
-					return ruleFromList;
-				}),
-			);
-		}
-		onRemoveRule();
+				return ruleFromList;
+			}),
+		);
 	};
+
+	// const onUpdateSelectedRulesList = (rule: IRule) => {
+	// 	let ruleObject: IRule = {};
+	// 	selectedRulesListState.map((ruleFromList) => {
+	// 		if (ruleFromList.ruleName === rule.ruleName) {
+	// 			ruleObject = {
+	// 				ruleName: rule.ruleName,
+	// 				alertType: ruleAlertTypes[selectedAlertIndex],
+	// 				category: rule.category,
+	// 				hasConfig: ruleCodeBasedConfigurationsInputState.length > 1 ? true : false ?? false,
+	// 				configurations: ruleCodeBasedConfigurationsInputState,
+	// 			};
+	// 		}
+
+	// 		return ruleFromList;
+	// 	}),
+	// 		setSelectedRulesListState((prev) => [...prev, ruleObject]);
+
+	// 	onRemoveRule();
+	// };
 
 	const onDoneButton = () => {
 		nevigate('/group-center');

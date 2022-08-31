@@ -28,7 +28,7 @@ interface IProps {
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
 	readonly onDoneButton: () => void;
-	readonly onUpdateSelectedRulesList: (rule: IRule, method: string) => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule) => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
