@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'rc-table';
+import { Link } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
@@ -39,10 +40,13 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>File list</span>
-								<div className={classes['header__button']}>
+								<Link
+									to={`/policy-configuration/${props.policyId}/edit`}
+									className={classes['header__button']}
+								>
 									<span className={classes['text']}>Edit</span>
 									<EDSvg className={classes['icon']} name="downArrowIcon" />
-								</div>
+								</Link>
 							</div>
 							<hr className={classes['divider']} />
 							<div className={classes['body']}>
@@ -53,10 +57,13 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>Ignore list</span>
-								<div className={classes['header__button']}>
+								<Link
+									to={`/policy-configuration/${props.policyId}/edit`}
+									className={classes['header__button']}
+								>
 									<span className={classes['text']}>Edit</span>
 									<EDSvg className={classes['icon']} name="downArrowIcon" />
-								</div>
+								</Link>
 							</div>
 							<hr className={classes['divider']} />
 							<div className={classes['body']}>
@@ -69,10 +76,13 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>Policy Configuration</span>
-								<div className={classes['header__button']}>
+								<Link
+									to={`/policy-configuration/${props.policyId}/edit`}
+									className={classes['header__button']}
+								>
 									<span className={classes['text']}>Edit</span>
 									<EDSvg className={classes['icon']} name="downArrowIcon" />
-								</div>
+								</Link>
 							</div>
 							<hr className={classes['divider']} />
 							<div className={classes['body']}>

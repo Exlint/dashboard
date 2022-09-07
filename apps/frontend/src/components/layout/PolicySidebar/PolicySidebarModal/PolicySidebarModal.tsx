@@ -17,6 +17,8 @@ const PolicySidebarModal: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(true);
 
 	const onDeletePolicy = () => {
+		console.log(props.policyId);
+
 		backendApi.delete(`/user/inline-policies/${props.policyId}`).then(() => {
 			navigate('/group-center');
 		});

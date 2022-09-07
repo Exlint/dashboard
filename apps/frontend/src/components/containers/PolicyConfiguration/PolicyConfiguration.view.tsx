@@ -32,7 +32,7 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 				groupLabel={props.selectedPolicy?.groupLabel ?? ''}
 				policyId={props.policyId}
 				policyLabel={props.selectedPolicy?.policyLabel ?? ''}
-				createdAt="11 jun"
+				createdAt={props.selectedPolicy?.createdAt ?? ''}
 			/>
 			<main className={classes['policyConfigurationContainer']}>
 				<div className={classes['innerButtons']}>
