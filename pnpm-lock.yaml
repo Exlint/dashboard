@@ -257,7 +257,7 @@ importers:
       eslint-plugin-react: 7.31.7
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
-      hygen: 6.2.10
+      hygen: 6.2.11
       i18next: 21.9.1
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2
@@ -308,7 +308,7 @@ importers:
       eslint-plugin-react: 7.31.7_eslint@8.23.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.23.0
       eslint-plugin-unused-imports: 2.0.0_zko7vy5ljylfnjbd43q67qnl6a
-      hygen: 6.2.10
+      hygen: 6.2.11
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.16
       prettier: 2.6.2
@@ -9590,8 +9590,8 @@ packages:
     hasBin: true
     dev: true
 
-  /hygen/6.2.10:
-    resolution: {integrity: sha512-nL3r/xPrnpPlRZAli8h7XcL5nhvN/P8ZXGESGzMUYilKmWyFvSVBrHrQcUg9tSkYlY98SFAS6kQg4bByJ7OQVA==}
+  /hygen/6.2.11:
+    resolution: {integrity: sha512-t6/zLI2XozP5gvV74nnl8LZSbwpVNFUkUs/O9DwuOdiiBbws5k4AQNVwKZ9FGzcKjdJ5EBBYkVzlcUHkLyY0FQ==}
     hasBin: true
     dependencies:
       '@types/node': 17.0.35
