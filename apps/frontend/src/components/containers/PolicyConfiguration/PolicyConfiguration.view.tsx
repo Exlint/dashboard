@@ -11,7 +11,8 @@ import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import classes from './PolicyConfiguration.module.scss';
 
 interface IProps {
-	readonly currentPage: string | null;
+	readonly policyId: string | undefined;
+	readonly shouldSkipRulesOnboarding: boolean;
 	readonly selectedPolicy: IPolicySidebar | null;
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly isEditFileFormat: boolean;
@@ -29,13 +30,14 @@ const PolicyConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			<PolicySidebar
 				name={props.selectedPolicy?.libraryName ?? ''}
 				groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+				policyId={props.policyId}
 				policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 				createdAt="11 jun"
 			/>
 			<main className={classes['policyConfigurationContainer']}>
 				<div className={classes['innerButtons']}>
 					<EDNavigateBackButton />
-					{props.currentPage ? (
+					{props.shouldSkipRulesOnboarding ? (
 						<button
 							className={classes['ruleCreationButton']}
 							type="button"

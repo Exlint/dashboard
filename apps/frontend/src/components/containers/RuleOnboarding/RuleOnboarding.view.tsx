@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import EDSvg from '@/ui/EDSvg';
 import EDNavigateBackButton from '@/ui/EDNavigateBackButton';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
-import type { ILibraryData, ILibraryRule } from '@/interfaces/libraries';
+import type { ILibraryRule } from '@/interfaces/libraries';
 import type { IRule } from '@/interfaces/rule';
 import PolicySidebar from '@/layout/PolicySidebar';
 
@@ -16,12 +16,11 @@ import SelectedRules from './SelectedRules';
 interface IProps {
 	readonly policyId: string | undefined;
 	readonly selectedPolicy: IPolicySidebar | null;
-	readonly selectedLibrary: ILibraryData | null;
 	readonly rulesObject: Record<string, ILibraryRule> | undefined;
 	readonly selectedRule: IRule | null;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
-	readonly selectedRulesList: IRule[] | null;
+	readonly selectedRulesList: IRule[];
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly onSelectRule: (_: string) => void;
 	readonly onEditRule: (_: string) => void;
@@ -29,6 +28,7 @@ interface IProps {
 	readonly onSelectedRuleAlertType: (_: number) => void;
 	readonly onCodeBasedConfigurationsInputChanged: (_: string) => void;
 	readonly onDoneButton: () => void;
+	readonly onUpdateSelectedRulesList: (rule: IRule) => void;
 }
 
 const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -41,6 +41,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 					<PolicySidebar
 						name={props.selectedPolicy?.libraryName ?? ''}
 						groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+						policyId={props.policyId}
 						policyLabel={props.selectedPolicy?.policyLabel ?? ''}
 						createdAt="11 jun"
 					/>
@@ -85,6 +86,7 @@ const RuleOnboardingView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 								onCodeBasedConfigurationsInputChanged={
 									props.onCodeBasedConfigurationsInputChanged
 								}
+								onUpdateSelectedRulesList={props.onUpdateSelectedRulesList}
 							/>
 
 							<SelectedRules

@@ -7,6 +7,7 @@ import PolicySidebarView from './PolicySidebar.view';
 interface IProps {
 	readonly name: string;
 	readonly createdAt: string;
+	readonly policyId: string | undefined;
 	readonly policyLabel: string;
 	readonly groupLabel: string;
 }
@@ -31,6 +32,7 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		<PolicySidebarView
 			name={props.name}
 			createdAt={props.createdAt}
+			policyId={props.policyId}
 			policyLabel={props.policyLabel}
 			groupLabel={props.groupLabel}
 			isModelOnView={isModelOnViewState}

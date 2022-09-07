@@ -42,14 +42,6 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		setIsPolicyConfigurationClickedState(() => !isPolicyConfigurationClickedState);
 	};
 
-	useEffect(() => {
-		if (selectedLibraryState && policyLabelInputState !== null && policyLabelInputState.length > 0) {
-			setIsCreatePolicyDisabledState(() => false);
-		} else {
-			setIsCreatePolicyDisabledState(() => true);
-		}
-	}, [selectedLibraryState, policyLabelInputState]);
-
 	const onSearchLibraryInput = (input: string) => {
 		setSearchLibraryInputState(() => input);
 	};
@@ -61,6 +53,14 @@ const NewPolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	const onSelectCategory = (index: number) => {
 		setSelectedCategoryIndexState(() => index);
 	};
+
+	useEffect(() => {
+		if (selectedLibraryState && policyLabelInputState !== null && policyLabelInputState.length > 0) {
+			setIsCreatePolicyDisabledState(() => false);
+		} else {
+			setIsCreatePolicyDisabledState(() => true);
+		}
+	}, [selectedLibraryState, policyLabelInputState]);
 
 	return (
 		<NewPolicyView

@@ -106,7 +106,7 @@ const TokenManagementView: React.FC<IProps> = (props) => {
 						<span className={classes['footer__text']}>
 							{t('tokenManagement.table.total')}
 							&nbsp;
-							{props.secrets && props.secrets.length}
+							{props.secrets ? props.secrets.length : 0}
 						</span>
 					</div>
 				</div>

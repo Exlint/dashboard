@@ -1,5 +1,4 @@
 import React from 'react';
-import type { AxiosError } from 'axios';
 
 import type { IRule } from '@/interfaces/rule';
 import { ruleAlertTypes } from '@/data/rule-alert-types';
@@ -13,6 +12,7 @@ interface IProps {
 	readonly ruleCodeBasedConfigurationsInput: string;
 	readonly selectedRuleAlertTypeIndex: number;
 	readonly isRuleOnUpdate: boolean;
+	readonly onUpdateSelectedRulesList: (rule: IRule) => void;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,21 +22,31 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	selectedRule['rule'] = JSON.stringify({ [props.selectedRule?.ruleName ?? '']: selectedRuleType });
 
-	const selectRuleReqBody = JSON.stringify(selectedRule);
-
 	const onAddRuleToList = () => {
-		backendApi.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectRuleReqBody });
+		props.onUpdateSelectedRulesList(props.selectedRule!);
+
+		backendApi
+			.post(`/user/inline-policies/add-rule/${props.policyId}`, { selectedRule })
+			.then(() => props.onUpdateSelectedRulesList(props.selectedRule!))
+			.catch((e) => console.log(e, 'JOZEF'));
 	};
 
 	const onUpdateRule = () => {
-		backendApi
-			.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {})
-			.then((response) => {
-				alert(response);
-			})
-			.catch((err: AxiosError) => {
-				alert(err.response?.data);
-			});
+		const ruleToUpdate = props.selectedRule!;
+
+		ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
+		ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
+
+		props.onUpdateSelectedRulesList(ruleToUpdate);
+
+		backendApi.patch(`/user/inline-policies/edit-rule/${props.policyId}`, {}).then(() => {
+			const ruleToUpdate = props.selectedRule!;
+
+			ruleToUpdate.alertType = ruleAlertTypes[props.selectedRuleAlertTypeIndex];
+			ruleToUpdate.configurations = props.ruleCodeBasedConfigurationsInput;
+
+			props.onUpdateSelectedRulesList(ruleToUpdate);
+		});
 	};
 
 	return (

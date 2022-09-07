@@ -22,19 +22,17 @@ const RuleOnboarding: React.FC<IProps> = () => {
 	let libraryData: ILibraryData;
 	let rulesObject: Record<string, ILibraryRule> | undefined;
 
-	// const selectedRulesFromDb: string[] = [];
-
 	useEffect(() => {
 		backendApi.get(`/user/inline-policies/rules/${policyId}`);
 	}, []);
 
 	const testResponse: Record<string, unknown[]> = {
-		'Getter Return': ['error'],
-		'Grouped Accessor Pairs': ['warn', { singlechild: true }],
+		'Selector Type No Unknown': ['error'],
+		'Function Url Scheme Allowed List': ['warn', { singlechild: true }],
 	};
 
-	const [selectedLibraryState] = useState<ILibraryData>(librariesData.eslint);
 	const [selectedRuleState, setSelectedRuleState] = useState<IRule | null>(null);
+	const [selectedRulesListState, setSelectedRulesListState] = useState<IRule[]>([]);
 	const [selectedRuleAlertTypeIndexState, setSelectedRuleAlertTypeIndexState] = useState<number>(-1);
 	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 
@@ -42,81 +40,13 @@ const RuleOnboarding: React.FC<IProps> = () => {
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
+	let selectedAlertIndex = selectedRuleAlertTypeIndexState;
 
-	const parasRulesList = Object.entries(testResponse).map((rule) => {
-		// console.log(rule[0]);
-		// console.log(rule[1]);
+	useEffect(() => {
+		selectedAlertIndex = selectedRuleAlertTypeIndexState;
+	}, [selectedRuleAlertTypeIndexState]);
 
-		// const parasRule = JSON.parse(rule[0]);
-
-		// const ruleObject = {
-		// 	...parasRule,
-		// };
-
-		const ruleObject = { ...rule };
-
-		return ruleObject;
-	});
-
-	const selectedRulesList: IRule[] | null = parasRulesList.map((rule) => {
-		const ruleObject = {
-			ruleName: Object.keys(rule)[0]!,
-			alertType: 'linter',
-
-			category: selectedLibraryState.rules![Object.keys(rule)[0]!]?.category ?? '',
-			hasConfig: Object.keys(rule)[1] ? true : false,
-			configurations: JSON.stringify(rule),
-		};
-
-		return ruleObject;
-	});
-
-	const onSelectRule = (ruleName: string) => {
-		const selectedRule = libraryData.rules![ruleName];
-
-		selectedRule!.ruleName = ruleName;
-
-		if (!isRuleOnUpdateState && selectedRule) {
-			setSelectedRuleAlertTypeIndexState(() => 0);
-			setRuleCodeBasedConfigurationsInputState(() => `{"${ruleName}": ["off"]}`);
-			setSelectedRuleState(() => selectedRule);
-		}
-	};
-
-	const onEditRule = (ruleName: string) => {
-		const selectedRule = selectedLibraryState.rules![ruleName];
-
-		selectedRule!.ruleName = ruleName;
-
-		setIsRuleOnUpdateState(() => true);
-
-		for (const rule of selectedRulesList) {
-			if (rule.ruleName === ruleName) {
-				const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
-
-				setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
-
-				rule.configurations && setRuleCodeBasedConfigurationsInputState(() => rule.configurations!);
-			}
-		}
-
-		selectedRule && setSelectedRuleState(() => selectedRule);
-	};
-
-	const onRemoveRule = () => {
-		setSelectedRuleState(null);
-		setSelectedRuleAlertTypeIndexState(() => -1);
-		setIsRuleOnUpdateState(() => false);
-	};
-
-	const onSelectedRuleAlertType = (index: number) => {
-		setSelectedRuleAlertTypeIndexState(() => index);
-	};
-
-	const onCodeBasedConfigurationsInputChanged = (input: string) => {
-		setRuleCodeBasedConfigurationsInputState(() => input);
-	};
-
+	//Update selected policy
 	useEffect(() => {
 		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
 			setSelectedPolicy({
@@ -138,6 +68,124 @@ const RuleOnboarding: React.FC<IProps> = () => {
 		rulesObject = libraryData?.rules;
 	}
 
+	//Fetch all selected rules
+	useEffect(() => {
+		Object.entries(testResponse).map((rule) => {
+			let ruleObject: IRule = {};
+
+			ruleObject = {
+				ruleName: rule[0],
+				alertType: (rule[1][0] as string) ?? '',
+				category: rulesObject && rulesObject[rule[0]]?.category,
+				hasConfig: rule[1]!.length > 1 ? true : false ?? false,
+				configurations: `${JSON.stringify(rule[1])}` ?? '',
+			};
+
+			if (selectedRulesListState.length === 0) {
+				setSelectedRulesListState(() => [ruleObject]);
+
+				return;
+			}
+
+			for (const rule of selectedRulesListState) {
+				if (rule.ruleName !== ruleObject.ruleName) {
+					setSelectedRulesListState((prev: IRule[]) => [...prev, ruleObject]);
+				}
+
+				return;
+			}
+
+			return;
+		});
+	}, [selectedPolicy]);
+
+	const onSelectRule = (ruleName: string) => {
+		const selectedRule = libraryData.rules![ruleName];
+		setRuleCodeBasedConfigurationsInputState(() => `{"${ruleName}": ["off"]}`);
+
+		if (!isRuleOnUpdateState && selectedRule) {
+			selectedRule!.ruleName = ruleName;
+			selectedRule!.alertType = ruleAlertTypes[selectedAlertIndex];
+			selectedRule!.configApi = ruleCodeBasedConfigurationsInputState;
+
+			setSelectedRuleAlertTypeIndexState(() => 1);
+			setSelectedRuleState(() => selectedRule);
+		}
+	};
+
+	const onEditRule = (ruleName: string) => {
+		const selectedRule = libraryData.rules![ruleName];
+
+		selectedRule!.ruleName = ruleName;
+
+		setIsRuleOnUpdateState(() => true);
+		for (const rule of selectedRulesListState) {
+			if (rule.ruleName === ruleName) {
+				const alertTypeIndex = ruleAlertTypes.indexOf(rule.alertType!);
+
+				setSelectedRuleAlertTypeIndexState(() => alertTypeIndex);
+				rule.configurations
+					? setRuleCodeBasedConfigurationsInputState(
+							() => `{"${ruleName}": ${rule.configurations!}}`,
+					  )
+					: setRuleCodeBasedConfigurationsInputState(() => `{"${ruleName}": [${rule.alertType}]}`);
+			}
+		}
+
+		selectedRule && setSelectedRuleState(() => selectedRule);
+	};
+
+	const onRemoveRule = () => {
+		setSelectedRuleState(null);
+		setSelectedRuleAlertTypeIndexState(() => -1);
+		setIsRuleOnUpdateState(() => false);
+	};
+
+	const onSelectedRuleAlertType = (index: number) => {
+		setSelectedRuleAlertTypeIndexState(() => index);
+	};
+
+	const onCodeBasedConfigurationsInputChanged = (input: string) => {
+		setRuleCodeBasedConfigurationsInputState(() => input);
+	};
+
+	const onUpdateSelectedRulesList = (rule: IRule) => {
+		setSelectedRulesListState((prev) =>
+			prev.map((ruleFromList) => {
+				if (ruleFromList.ruleName === rule.ruleName) {
+					return {
+						...ruleFromList,
+						alertType: ruleAlertTypes[selectedAlertIndex],
+						hasConfig: ruleCodeBasedConfigurationsInputState.length > 1 ? true : false ?? false,
+						configurations: ruleCodeBasedConfigurationsInputState,
+					};
+				}
+
+				return ruleFromList;
+			}),
+		);
+	};
+
+	// const onUpdateSelectedRulesList = (rule: IRule) => {
+	// 	let ruleObject: IRule = {};
+	// 	selectedRulesListState.map((ruleFromList) => {
+	// 		if (ruleFromList.ruleName === rule.ruleName) {
+	// 			ruleObject = {
+	// 				ruleName: rule.ruleName,
+	// 				alertType: ruleAlertTypes[selectedAlertIndex],
+	// 				category: rule.category,
+	// 				hasConfig: ruleCodeBasedConfigurationsInputState.length > 1 ? true : false ?? false,
+	// 				configurations: ruleCodeBasedConfigurationsInputState,
+	// 			};
+	// 		}
+
+	// 		return ruleFromList;
+	// 	}),
+	// 		setSelectedRulesListState((prev) => [...prev, ruleObject]);
+
+	// 	onRemoveRule();
+	// };
+
 	const onDoneButton = () => {
 		nevigate('/group-center');
 	};
@@ -147,18 +195,18 @@ const RuleOnboarding: React.FC<IProps> = () => {
 			policyId={policyId}
 			selectedPolicy={selectedPolicy}
 			rulesObject={rulesObject}
-			selectedLibrary={selectedLibraryState}
 			selectedRule={selectedRuleState}
 			selectedRuleAlertTypeIndex={selectedRuleAlertTypeIndexState}
 			isRuleOnUpdate={isRuleOnUpdateState}
-			selectedRulesList={selectedRulesList}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
+			selectedRulesList={selectedRulesListState}
 			onSelectRule={onSelectRule}
 			onEditRule={onEditRule}
 			onRemoveRule={onRemoveRule}
 			onSelectedRuleAlertType={onSelectedRuleAlertType}
 			onCodeBasedConfigurationsInputChanged={onCodeBasedConfigurationsInputChanged}
 			onDoneButton={onDoneButton}
+			onUpdateSelectedRulesList={onUpdateSelectedRulesList}
 		/>
 	);
 };

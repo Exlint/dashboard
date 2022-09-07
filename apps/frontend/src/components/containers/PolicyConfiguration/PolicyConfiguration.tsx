@@ -3,7 +3,9 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
 import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
+import type { ILibraryData } from '@/interfaces/libraries';
 import type { IGetPolicyResponseData } from '@/interfaces/responses';
+import { librariesData } from '@/data/libraries-data';
 
 import PolicyConfigurationView from './PolicyConfiguration.view';
 
@@ -13,20 +15,20 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 	const navigate = useNavigate();
 	const { policyId } = useParams();
 
+	let libraryNameInLowerCase: 'eslint' | 'stylelint' | 'depcheck' | 'prettier' | 'inflint';
+
+	let libraryData: ILibraryData;
+
 	const route = useLocation();
 
 	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
+
+	const [shouldSkipRulesOnboarding, setShouldSkipRulesOnboarding] = useState<boolean>(false);
 
 	const [ruleCodeBasedConfigurationsInputState, setRuleCodeBasedConfigurationsInputState] =
 		useState<string>('');
 
 	const [isEditFileFormatState, setIsEditFileFormatState] = useState<boolean>(false);
-
-	let currentPage: string | null = null;
-
-	if (route.pathname.includes('/edit')) {
-		currentPage = 'edit';
-	}
 
 	const onCodeBasedConfigurationsInputChanged = (input: string) => {
 		setRuleCodeBasedConfigurationsInputState(() => input);
@@ -75,9 +77,28 @@ const PolicyConfiguration: React.FC<IProps> = () => {
 		);
 	}, [backendApi]);
 
+	useEffect(() => {
+		if (selectedPolicy) {
+			libraryNameInLowerCase = selectedPolicy?.libraryName.toLocaleLowerCase() as Lowercase<
+				ILibraryData['name']
+			>;
+
+			libraryData = libraryNameInLowerCase && librariesData[libraryNameInLowerCase];
+
+			if (libraryData.rules === undefined) {
+				setShouldSkipRulesOnboarding(() => true);
+			}
+		}
+
+		if (route.pathname.includes('/edit')) {
+			setShouldSkipRulesOnboarding(() => true);
+		}
+	}, [selectedPolicy, route]);
+
 	return (
 		<PolicyConfigurationView
-			currentPage={currentPage}
+			policyId={policyId}
+			shouldSkipRulesOnboarding={shouldSkipRulesOnboarding}
 			selectedPolicy={selectedPolicy}
 			ruleCodeBasedConfigurationsInput={ruleCodeBasedConfigurationsInputState}
 			isEditFileFormat={isEditFileFormatState}

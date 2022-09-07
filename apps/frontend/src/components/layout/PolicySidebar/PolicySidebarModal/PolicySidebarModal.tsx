@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { authActions } from '@/store/reducers/auth';
 import { backendApi } from '@/utils/http';
 
 import UserSettingsModalView from './PolicySidebarModal.view';
 
-interface IPropsFromDispatch {
-	readonly setUnauthenticated: () => PayloadAction;
-}
-
-interface IProps extends IPropsFromDispatch {
+interface IProps {
+	readonly policyId: string | undefined;
 	readonly policyLabel: string;
 	readonly onCloseModal: () => void;
 }
@@ -23,10 +17,8 @@ const PolicySidebarModal: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 	const [isConfirmButtonDisabledState, setIsConfirmButtonDisabledState] = useState<boolean>(true);
 
 	const onDeletePolicy = () => {
-		backendApi.delete('/user/inline-policy/delete').then(() => {
-			props.setUnauthenticated();
-
-			navigate('/auth');
+		backendApi.delete(`/user/inline-policies/${props.policyId}`).then(() => {
+			navigate('/group-center');
 		});
 	};
 
@@ -48,6 +40,4 @@ const PolicySidebarModal: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 PolicySidebarModal.displayName = 'PolicySidebarModal';
 PolicySidebarModal.defaultProps = {};
 
-export default connect(null, {
-	setUnauthenticated: authActions.setUnauthenticated,
-})(React.memo(PolicySidebarModal));
+export default React.memo(PolicySidebarModal);

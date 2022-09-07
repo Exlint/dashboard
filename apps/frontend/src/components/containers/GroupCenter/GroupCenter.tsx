@@ -18,21 +18,6 @@ const GroupCenter: React.FC<IProps> = () => {
 	const [groupsListState, setGroupsListState] = useState<IGroup[]>([]);
 	const [selectedGroupIndexState, setSelectGroupIndexState] = useState<number | null>(null);
 
-	useEffect(() => {
-		backendApi.get<IGetGroupsResponseData>('/user/groups/all').then((response) => {
-			const transformedGroupList = response.data.groups.map((group) => ({
-				...group,
-				label: group.label ? group.label : t('groupCenter.newGroupLabel'),
-			}));
-
-			setGroupsListState(() => transformedGroupList);
-
-			if (response.data.groups.length > 0) {
-				setSelectGroupIndexState(() => 0);
-			}
-		});
-	}, []);
-
 	const onCreateNewGroup = () => {
 		backendApi.post<ICreateGroupResponseData>('/user/groups').then((response) => {
 			setGroupsListState((prev) => {
@@ -87,6 +72,21 @@ const GroupCenter: React.FC<IProps> = () => {
 		setSelectGroupIndexState(() => index);
 		navigate('/group-center');
 	};
+
+	useEffect(() => {
+		backendApi.get<IGetGroupsResponseData>('/user/groups/all').then((response) => {
+			const transformedGroupList = response.data.groups.map((group) => ({
+				...group,
+				label: group.label ? group.label : t('groupCenter.newGroupLabel'),
+			}));
+
+			setGroupsListState(() => transformedGroupList);
+
+			if (response.data.groups.length > 0) {
+				setSelectGroupIndexState(() => 0);
+			}
+		});
+	}, []);
 
 	return (
 		<GroupCenterView
