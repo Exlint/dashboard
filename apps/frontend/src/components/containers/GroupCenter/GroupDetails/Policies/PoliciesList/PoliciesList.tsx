@@ -22,7 +22,7 @@ const PoliciesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const navigate = useNavigate();
 
 	const onNavigateToPolicyRules = (policyId: string) => {
-		navigate(`/group-center/policy/${policyId}/rules`);
+		navigate(`/policy/${policyId}`);
 	};
 
 	const onNavigateToPolicyConfig = (policyId: string) => {

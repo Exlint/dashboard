@@ -41,7 +41,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/policy-configuration/:policyId/*" element={<PolicyConfiguration />} />
 						<Route path="/rule-onboarding/:policyId" element={<RuleOnboarding />} />
 						<Route path="/token-management" element={<TokenManagement />} />
-						<Route path="/policy" element={<Policy />} />
+						<Route path="/policy/:policyId" element={<Policy />} />
 					</Route>
 				)}
 				<Route path="/cli-auth" element={<CliAuth />} />

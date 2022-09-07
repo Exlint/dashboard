@@ -28,6 +28,14 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	const onCloseModal = () => setIsModelOnViewState(() => false);
 
+	const formatDate = (unixDate: string) => {
+		const numUnixDate = Number(unixDate);
+
+		const date = new Date(numUnixDate);
+
+		return new Intl.DateTimeFormat('en-gb', { dateStyle: 'medium' }).format(date);
+	};
+
 	return (
 		<PolicySidebarView
 			name={props.name}
@@ -39,6 +47,7 @@ const PolicySidebar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			tooltopRef={tooltopRef}
 			isTooltipVisible={isTooltipVisible}
 			toggleTooltipVisibility={toggleTooltipVisibility}
+			formatDate={formatDate}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
 		/>

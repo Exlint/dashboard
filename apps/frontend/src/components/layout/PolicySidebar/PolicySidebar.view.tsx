@@ -25,6 +25,7 @@ interface IProps {
 	readonly tooltopRef: React.RefObject<HTMLDivElement>;
 	readonly isTooltipVisible: boolean;
 	readonly toggleTooltipVisibility: () => void;
+	readonly formatDate: (_: string) => string;
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
 }
@@ -124,7 +125,7 @@ const PolicySidebarView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 				<span className={classes['body__createdAt']}>
 					{t('policySidebar.body.createdAt')}
 					&nbsp;
-					{props.createdAt ?? ''}
+					{props.formatDate(props.createdAt) ?? ''}
 				</span>
 				<div className={classes['policyDetailsWrpper']}>
 					<div className={classes['policyDetailsInnerWrpper']}>

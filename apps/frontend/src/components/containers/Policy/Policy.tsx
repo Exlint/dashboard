@@ -7,6 +7,8 @@ import type { DefaultRecordType } from 'rc-table/lib/interface';
 
 import EDSvg from '@/ui/EDSvg';
 import { backendApi } from '@/utils/http';
+import type { IGetPolicyResponseData } from '@/interfaces/responses';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import type { ITableData } from './interfaces/table-data';
 
 import PolicyView from './Policy.view';
@@ -37,8 +39,7 @@ interface IProps {}
 const Policy: React.FC<IProps> = () => {
 	const { policyId } = useParams();
 
-	console.log(policyId);
-
+	const [selectedPolicy, setSelectedPolicy] = useState<IPolicySidebar | null>(null);
 	const [isModelOnViewState, setIsModelOnViewState] = useState<boolean>(false);
 	const [rulesState, setRulesState] = useState([]);
 
@@ -46,6 +47,10 @@ const Policy: React.FC<IProps> = () => {
 
 	const onOpenModal = () => setIsModelOnViewState(() => true);
 	const onCloseModal = () => setIsModelOnViewState(() => false);
+
+	const onRemoveRule = (id: string) => {
+		console.log(id);
+	};
 
 	const onRenderTable = () => {
 		backendApi
@@ -55,9 +60,17 @@ const Policy: React.FC<IProps> = () => {
 
 	useEffect(() => onRenderTable(), []);
 
-	const onRemoveRule = (id: string) => {
-		console.log(id);
-	};
+	//Update selected policy
+	useEffect(() => {
+		backendApi.get<IGetPolicyResponseData>(`/user/inline-policies/${policyId}`).then((response) =>
+			setSelectedPolicy({
+				groupLabel: response.data.groupLabel === null ? 'New Group' : response.data.groupLabel,
+				policyLabel: response.data.label,
+				libraryName: response.data.library,
+				createdAt: response.data.createdAt,
+			}),
+		);
+	}, [backendApi]);
 
 	const policiesTableColumns = [
 		{
@@ -185,6 +198,8 @@ const Policy: React.FC<IProps> = () => {
 			policiesTableColumns={policiesTableColumns}
 			policiesTableData={policiesTableData}
 			isModelOnView={isModelOnViewState}
+			selectedPolicy={selectedPolicy}
+			policyId={policyId}
 			onOpenModal={onOpenModal}
 			onCloseModal={onCloseModal}
 		/>

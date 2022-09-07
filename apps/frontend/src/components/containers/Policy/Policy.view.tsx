@@ -2,6 +2,7 @@ import React from 'react';
 import Table from 'rc-table';
 
 import EDSvg from '@/ui/EDSvg';
+import type { IPolicySidebar } from '@/interfaces/policy-sidebar';
 import PolicySidebar from '@/layout/PolicySidebar';
 import type { ITableColumns } from './interfaces/table-columns';
 import type { ITableData } from './interfaces/table-data';
@@ -13,15 +14,21 @@ interface IProps {
 	readonly onOpenModal: () => void;
 	readonly onCloseModal: () => void;
 	readonly policiesTableColumns: ITableColumns[];
+	readonly selectedPolicy: IPolicySidebar | null;
 	readonly policiesTableData: ITableData[];
+	readonly policyId: string | undefined;
 }
 
 const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	console.log(props);
-
 	return (
 		<div className={classes['container']}>
-			<PolicySidebar name="" createdAt="" policyLabel="" groupLabel="" />
+			<PolicySidebar
+				policyId={props.policyId}
+				name={props.selectedPolicy?.libraryName ?? ''}
+				createdAt={props.selectedPolicy?.createdAt ?? ''}
+				policyLabel={props.selectedPolicy?.policyLabel ?? ''}
+				groupLabel={props.selectedPolicy?.groupLabel ?? ''}
+			/>
 			<main className={classes['main']}>
 				<div className={classes['navigate']}>
 					<span className={classes['navigate__text']}>Group Label &gt;</span>
@@ -29,7 +36,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				</div>
 				<section className={classes['mainWrapper']}>
 					<div className={classes['leftSide']}>
-						<div className={classes['container']}>
+						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>File list</span>
 								<div className={classes['header__button']}>
@@ -43,7 +50,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 								<span className={classes['body__text']}>Objects added to the file list</span>
 							</div>
 						</div>
-						<div className={classes['container']}>
+						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>Ignore list</span>
 								<div className={classes['header__button']}>
@@ -59,7 +66,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 								</span>
 							</div>
 						</div>
-						<div className={classes['container']}>
+						<div className={classes['leftSideContainer']}>
 							<div className={classes['header']}>
 								<span className={classes['header__text']}>Policy Configuration</span>
 								<div className={classes['header__button']}>
