@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-12)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+
 # [1.18.0](https://github.com/Exlint/dashboard/compare/v1.17.1...v1.18.0) (2022-08-16)
 
 
