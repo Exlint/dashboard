@@ -273,6 +273,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.0.0
       stylelint-config-standard-scss: 5.0.0
+      stylelint-declaration-strict-value: 1.9.0
       tsconfig-paths-webpack-plugin: 4.0.0
       typescript: 4.8.3
       typescript-plugin-css-modules: 3.4.0
@@ -318,6 +319,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.10.0
       stylelint-config-recess-order: 3.0.0_stylelint@14.10.0
       stylelint-config-standard-scss: 5.0.0_azcu7ozukcosyoqn57hruaqjcq
+      stylelint-declaration-strict-value: 1.9.0_stylelint@14.10.0
       tsconfig-paths-webpack-plugin: 4.0.0
       typescript-plugin-css-modules: 3.4.0_typescript@4.8.3
 
@@ -6910,6 +6912,10 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
+  /css-color-names/0.0.4:
+    resolution: {integrity: sha512-zj5D7X1U2h2zsXOAM8EyUREBnnts6H+Jm+d1M2DbiQQcUtnqgQsMrdo8JW9R80YFUmIdBZeMu5wvYM7hcgWP/Q==}
+    dev: true
+
   /css-declaration-sorter/6.3.0_postcss@8.4.16:
     resolution: {integrity: sha512-OGT677UGHJTAVMRhPO+HJ4oKln3wkBTwtDFH0ojbqm+MJm6xuDMHp2nkhh/ThaBqq20IbraBQSWKfSLNHQO9Og==}
     engines: {node: ^10 || ^12 || >=14}
@@ -7036,6 +7042,10 @@ packages:
       fastparse: 1.1.2
     dev: true
 
+  /css-shorthand-properties/1.1.1:
+    resolution: {integrity: sha512-Md+Juc7M3uOdbAFwOYlTrccIZ7oCFuzrhKYQjdeUEW/sE1hv17Jp/Bws+ReOPpGVBTYCBoYo+G17V5Qo8QQ75A==}
+    dev: true
+
   /css-tree/1.0.0-alpha.37:
     resolution: {integrity: sha512-DMxWJg0rnz7UgxKT0Q1HU/L9BeJI0M6ksor0OgqOnF+aRCDWg/N2641HmVyU9KVIu0OVVWOb2IpC9A+BJRnejg==}
     engines: {node: '>=8.0.0'}
@@ -7050,6 +7060,14 @@ packages:
     dependencies:
       mdn-data: 2.0.14
       source-map: 0.6.1
+    dev: true
+
+  /css-values/0.1.0:
+    resolution: {integrity: sha512-hQ6JSn4t/70aOCvdlP9zTOsFFUifMSKWz3PX7rz5NZl+uEHCqTFVJJvfP07isErCGEVHYoc8Orja8wLKZRvOeg==}
+    dependencies:
+      css-color-names: 0.0.4
+      ends-with: 0.2.0
+      postcss-value-parser: 3.3.1
     dev: true
 
   /css-what/3.4.2:
@@ -7743,6 +7761,11 @@ packages:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
     dependencies:
       once: 1.4.0
+    dev: true
+
+  /ends-with/0.2.0:
+    resolution: {integrity: sha512-lRppY4dK3VkqBdR242sKcAJeYc8Gf/DhoX9AWvWI2RzccmLnqBQfwm2k4oSDv5MPDjUqawCauXhZkyWxkVhRsg==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /enhanced-resolve/5.10.0:
@@ -14431,6 +14454,12 @@ packages:
       rechoir: 0.6.2
     dev: true
 
+  /shortcss/0.1.3:
+    resolution: {integrity: sha512-MIOoTd99CIGTrAuGiMUx9VZrnrZmWzEHuKbGM/w+ia/w98cezhlN9w4aQOVSxswdoqkUnWrMw3tThOi3sevZAg==}
+    dependencies:
+      css-shorthand-properties: 1.1.1
+    dev: true
+
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
@@ -14985,6 +15014,16 @@ packages:
     dependencies:
       stylelint: 14.10.0
       stylelint-config-recommended: 8.0.0_stylelint@14.10.0
+    dev: true
+
+  /stylelint-declaration-strict-value/1.9.0_stylelint@14.10.0:
+    resolution: {integrity: sha512-L8jKpPWr/rvnYtzAAG11dKtiw76+ce3GXMkZeY4lfjpwHrVc8zvIPl5hcs2HX8RtnMidOFNB9T87G/rFs6x2IQ==}
+    peerDependencies:
+      stylelint: '>=7 <=14'
+    dependencies:
+      css-values: 0.1.0
+      shortcss: 0.1.3
+      stylelint: 14.10.0
     dev: true
 
   /stylelint-order/5.0.0_stylelint@14.10.0:
