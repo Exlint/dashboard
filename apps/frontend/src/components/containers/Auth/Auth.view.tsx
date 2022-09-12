@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import { concatClasses } from '@/utils/component';
-
 import authBrandLogo from '@/images/auth-brand-logo.png';
 import githubBrandLogo from '@/images/github-brand-logo.png';
 import googleBrandLogo from '@/images/google-brand-logo.png';

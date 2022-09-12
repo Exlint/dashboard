@@ -4,7 +4,7 @@
 
 .main {
 	display: flex;
-	font-family: poppins, sans-serif;
+	font-family: Poppins, sans-serif;
 
 	.leftSideContainer {
 		position: relative;
@@ -13,7 +13,7 @@
 		align-items: center;
 		justify-content: center;
 		width: 50%;
-		padding: 0 80px;
+		padding-inline: map.get($sizes, spacing-xxl-2);
 		background-image: url('../../../assets/images/auth-background.png');
 		background-repeat: no-repeat;
 		background-position: center;
@@ -21,19 +21,19 @@
 
 		&__brandLogo {
 			position: absolute;
-			top: 34px;
-			inset-inline-end: 34px;
+			top: map.get($sizes, spacing-xxl);
+			inset-inline-start: map.get($sizes, spacing-l);
 			width: 168px;
 			object-fit: contain;
 		}
 
 		&__header {
-			margin-bottom: 9px;
-			font-size: 5.5rem;
+			margin-bottom: map.get($sizes, spacing-xl);
+			font-size: 4.5rem;
 			font-weight: 700;
-			line-height: 65.25px;
+			line-height: 58.75px;
 			text-align: center;
-			background: linear-gradient(270deg, #9072a7 46.97%, #f2f2f2 93.64%);
+			background: linear-gradient(250deg, #dc6794 6.97%, #9747ff 93.64%);
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
 		}
@@ -41,7 +41,7 @@
 		&__subHeader {
 			font-size: 3.6rem;
 			font-weight: 400;
-			color: #bbb8ca;
+			color: map.get($colors, greys-gainsboro);
 			text-align: center;
 		}
 	}
@@ -56,42 +56,42 @@
 		&__header {
 			font-size: 4rem;
 			font-weight: 700;
-			color: map.get($colors, purple-text);
+			color: map.get($colors, purples-purple);
 		}
 
 		&__subHeader {
-			margin-bottom: 45px;
+			margin-bottom: map.get($sizes, spacing-xxl-2);
 			font-size: 3.5rem;
 			font-weight: 400;
-			color: map.get($colors, purple-text);
+			color: map.get($colors, purples-purple);
 		}
 
 		.rightSideExternalAuthContainer {
 			display: flex;
 			align-items: center;
-			width: 360px;
+			width: 357px;
 			height: 67px;
-			padding: 12px 50px 12px 21px;
+			padding: map.get($sizes, spacing-m) map.get($sizes, spacing-xl);
 			text-decoration: none;
-			border-radius: 7.5px;
+			border-radius: 10px;
 
 			&:not(:last-child) {
-				margin-bottom: 19px;
+				margin-bottom: map.get($sizes, spacing-l);
 			}
 
 			&--github {
-				background-color: #242337;
+				background-color: map.get($colors, blacks-yankees-black-blue);
 				border: 1.5px solid transparent;
 			}
 
 			&--google {
-				background-color: #fefefe;
-				border: 1.5px solid #e7e7e7;
+				background-color: map.get($colors, whites-white);
+				border: 1.5px solid map.get($colors, greys-platinum);
 			}
 
 			&__brandLogo {
-				height: 43px;
-				margin-inline-end: 34px;
+				height: 43.1px;
+				margin-inline-end: map.get($sizes, spacing-xxl);
 				object-fit: contain;
 			}
 
@@ -100,38 +100,38 @@
 				font-weight: 500;
 
 				&--github {
-					color: #f2f2f2;
+					color: map.get($colors, greys-anti-flash-grey-white);
 				}
 
 				&--google {
-					color: #202428;
+					color: map.get($colors, blacks-dark-gunmetal);
 				}
 			}
 		}
 
 		&__divider {
 			width: 203px;
-			height: 1px;
-			margin: 44px 0;
-			background-color: #4b4a65;
+			height: 2px;
+			margin-block: map.get($sizes, spacing-xxl-2);
+			background-color: map.get($colors, greys-platinum);
 		}
 
 		&__permissionsDisclaimer {
-			margin-bottom: 10px;
+			margin-bottom: map.get($sizes, spacing-m);
 			font-size: 1.6rem;
 			font-weight: 300;
-			color: #4b4a65;
+			color: map.get($colors, greys-independence-grey);
 		}
 
 		&__policyText {
 			font-size: 1.6rem;
 			font-weight: 300;
-			color: #4b4a65;
+			color: map.get($colors, greys-independence-grey);
 			text-align: center;
 		}
 
 		&__textLink {
-			color: #4b4a65;
+			color: map.get($colors, greys-independence-grey);
 		}
 	}
 }
