@@ -11,6 +11,7 @@
 	position: relative;
 	display: flex;
 	align-items: center;
+	width: 215px;
 	padding: map.get($sizes, spacing-s) map.get($sizes, spacing-m);
 	margin-inline-end: map.get($sizes, spacing-xxl);
 	text-decoration: none;
