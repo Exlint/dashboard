@@ -9,7 +9,7 @@ interface IHookResponse<T extends IHTTPResponeData> {
 	response: AxiosResponse<T> | null;
 	error: AxiosError | null;
 	loading: boolean;
-	request: () => Promise<() => void>;
+	request: () => Promise<VoidFunction>;
 }
 
 const backendInstance = axios.create({

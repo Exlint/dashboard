@@ -1,6 +1,6 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 
-import type { IAutoAuthLoggedUser } from '../interfaces/user';
+import type { IAutoAuthLoggedUserResponse } from '../interfaces/user';
 
 export class RefreshTokenResponse {
 	@ApiResponseProperty({
@@ -11,7 +11,7 @@ export class RefreshTokenResponse {
 	public accessToken!: string;
 }
 
-export class AutoLoginResponse implements IAutoAuthLoggedUser {
+export class AutoLoginResponse implements IAutoAuthLoggedUserResponse {
 	@ApiResponseProperty({
 		type: String,
 		example:
@@ -24,4 +24,7 @@ export class AutoLoginResponse implements IAutoAuthLoggedUser {
 
 	@ApiResponseProperty({ type: String, example: 'Yazif' })
 	public name!: string;
+
+	@ApiResponseProperty({ type: Number, example: 43343234223 })
+	public createdAt!: number;
 }

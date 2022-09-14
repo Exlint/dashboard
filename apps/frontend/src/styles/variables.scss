@@ -1,4 +1,5 @@
 $sizes: (
+	root-font-size: 10px,
 	spacing-xxs: 1px,
 	spacing-xs: 2px,
 	spacing-s: 4px,
@@ -8,6 +9,7 @@ $sizes: (
 	spacing-xxl: 32px,
 	spacing-xxl-2: 52px,
 	spacing-xxl-3: 64px,
+	spacing-xxl-4: 128px,
 );
 $colors: (
 	greens-japanese-laurel: #2f7d2d,
@@ -35,4 +37,11 @@ $colors: (
 	blacks-dark-gunmetal: #202428,
 	greens-nyanza: #e6ffdd,
 	blues-light-cyan: #d7faff,
+	greys-backdrop: #16161680,
+	greens-sea-green: #24a1484d,
+	reds-lavender-blush: #fff1f1,
+	reds-maximum-red: #da1e284d,
+	yellows-deep-lemon: #f1c21b,
+	yellows-deep-lemon-30-p: #f1c21b4d,
+	yellows-papaya-whip: #fcf4d6,
 );

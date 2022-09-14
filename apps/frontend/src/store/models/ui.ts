@@ -1,0 +1,3 @@
+const SECOND = 1000;
+
+export const NOTIFICATION_SHOW_TIMEOUT = 8 * SECOND;

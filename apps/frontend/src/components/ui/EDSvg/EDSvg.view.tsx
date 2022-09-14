@@ -10,7 +10,7 @@ interface IProps {
 	readonly name: keyof typeof icons;
 	readonly className?: string;
 	readonly style?: CSSProperties;
-	readonly onClick?: () => void;
+	readonly onClick?: VoidFunction;
 }
 
 const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

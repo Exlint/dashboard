@@ -1,13 +1,15 @@
 import React, { Suspense } from 'react';
 import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 
+import EDNotification from '@/ui/EDNotification';
+
 interface IProps {
 	readonly isAuthenticated: boolean | null;
 }
 
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
-const UserSettings = React.lazy(() => import('./pages/UserSettings'));
+const AccountSettings = React.lazy(() => import('./pages/AccountSettings'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -17,6 +19,9 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 		<Suspense fallback={null}>
 			<div id="backdrop-root" />
 			<div id="overlay-root" />
+
+			<EDNotification />
+
 			<Routes>
 				{props.isAuthenticated === false && (
 					<>
@@ -25,7 +30,7 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					</>
 				)}
-				{props.isAuthenticated && <Route path="/user-settings" element={<UserSettings />} />}
+				{props.isAuthenticated && <Route path="/account-settings/*" element={<AccountSettings />} />}
 				<Route path="/cli-auth" element={<CliAuth />} />
 				<Route path="/cli-authenticated" element={<CliAuthenticated />} />
 				<Route path="/not-found" element={<NotFound />} />

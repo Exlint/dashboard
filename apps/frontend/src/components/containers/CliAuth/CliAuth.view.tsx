@@ -6,7 +6,7 @@ import ExternalAction from '@/layout/ExternalAction';
 import classes from './CliAuth.module.scss';
 
 interface IProps {
-	readonly onAuthClick: () => void;
+	readonly onAuthClick: VoidFunction;
 }
 
 const CliAuthView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

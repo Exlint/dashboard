@@ -11,16 +11,16 @@ import { authActions } from './store/reducers/auth';
 
 import AppView from './App.view';
 
-interface PropsFromState {
+interface IPropsFromState {
 	readonly isAuthenticated: boolean | null;
 }
 
-interface PropsFromDispatch {
+interface IPropsFromDispatch {
 	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
 	readonly setUnauthenticated: () => PayloadAction;
 }
 
-interface IProps extends PropsFromState, PropsFromDispatch {}
+interface IProps extends IPropsFromState, IPropsFromDispatch {}
 
 const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	useEffect(() => {
@@ -72,6 +72,7 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				props.auth({
 					id: response.data.id,
 					name: response.data.name,
+					createdAt: response.data.createdAt,
 				});
 			})
 			.catch(() => {

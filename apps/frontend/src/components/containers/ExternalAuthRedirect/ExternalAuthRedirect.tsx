@@ -81,6 +81,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				props.auth({
 					id: autoAuthResponseData.id,
 					name: autoAuthResponseData.name,
+					createdAt: autoAuthResponseData.createdAt,
 				});
 			};
 
