@@ -6,8 +6,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 14px 50px;
-	background: linear-gradient(270deg, #0e0d14 36.98%, #7a4df3 100%);
+	height: 80px;
+	padding-inline: map.get($sizes, spacing-xxl);
+	background-image: linear-gradient(
+		242.44deg,
+		#ae7dfd -30.7%,
+		map.get($colors, blacks-yankees-black-blue) 36.93%,
+		map.get($colors, blacks-yankees-black-blue) 62.82%,
+		map.get($colors, purples-purple) 129.61%
+	);
 
 	&__img {
 		height: 50px;
@@ -20,16 +27,16 @@
 		text-decoration: none;
 
 		&__text {
-			margin-inline-end: 7px;
-			font-size: 1.6rem;
-			font-weight: 650;
-			color: #e7e7e7;
+			margin-inline-end: map.get($sizes, spacing-m);
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: map.get($colors, greys-platinum);
 		}
 
 		&__icon {
 			width: auto;
-			height: 16px;
-			fill: #e7e7e7;
+			height: 16.1px;
+			fill: map.get($colors, greys-platinum);
 		}
 	}
 }
@@ -44,27 +51,30 @@
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		height: 350px;
-		background: linear-gradient(90deg, #d57c7c 3.43%, #4f339b7d 120.79%);
+		height: 314px;
+		background-image: linear-gradient(
+			90deg,
+			map.get($colors, purples-purple),
+			map.get($colors, blacks-harsh-black) 63%
+		);
 
 		.notFoundTextContainer {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
-			margin-inline-end: 20px;
+			margin-inline-end: map.get($sizes, spacing-xxl);
 
 			&__header {
-				font-size: 10.64rem;
-				font-weight: 650;
-				color: #fefefe;
-				text-shadow: 0 4.72px 4.72px #00000040;
+				font-size: 10rem;
+				color: map.get($colors, whites-white);
+				text-shadow: 0 10px 20px #00000040;
 			}
 
 			&__subHeader {
-				font-size: 4rem;
-				color: #fefefe;
-				text-align: right;
-				text-shadow: 0 4.72px 4.72px #00000040;
+				font-size: 5.22rem;
+				color: map.get($colors, whites-white);
+				text-align: end;
+				text-shadow: 0 10px 20px #00000040;
 			}
 		}
 
@@ -76,23 +86,22 @@
 	}
 
 	.returnLink {
-		padding: 15px 30px;
-		margin: 30px 0;
-		font-size: 1.9rem;
-		font-weight: 550;
-		color: #202428;
+		padding: map.get($sizes, spacing-l);
+		margin-block: map.get($sizes, spacing-xxl);
+		font-size: 2.1rem;
+		font-weight: 500;
+		color: map.get($colors, blacks-dark-gunmetal);
 		text-decoration: none;
-		border: 2px solid #33383e;
-		border-radius: 5px;
+		border: 2px solid map.get($colors, greys-onyx);
+		border-radius: 6px;
 	}
 
 	.contact {
 		font-size: 2.1rem;
-		font-weight: 450;
-		color: map.get($colors, grey-text);
+		color: map.get($colors, greys-onyx);
 
 		&__link {
-			color: map.get($colors, purple-text);
+			color: map.get($colors, purples-purple);
 		}
 	}
 }

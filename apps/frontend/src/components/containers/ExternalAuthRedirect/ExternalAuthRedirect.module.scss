@@ -2,22 +2,26 @@
 
 @import '../../../styles/variables.scss';
 
+.container {
+	padding-block: map.get($sizes, spacing-xxl);
+}
+
 .header {
-	margin-bottom: 30px;
+	margin-bottom: map.get($sizes, spacing-xxl);
 	font-size: 3.5rem;
-	color: map.get($colors, black-text);
+	color: map.get($colors, greys-onyx);
 }
 
 .subTextContainer {
 	display: flex;
 
 	&__text {
-		font-size: 2.2rem;
-		color: map.get($colors, grey-text);
+		font-size: 2.1rem;
+		color: map.get($colors, greys-onyx);
 	}
 
 	&__postfix {
-		font-size: 2.2rem;
-		color: map.get($colors, purple-text);
+		font-size: 2.1rem;
+		color: map.get($colors, purples-purple);
 	}
 }

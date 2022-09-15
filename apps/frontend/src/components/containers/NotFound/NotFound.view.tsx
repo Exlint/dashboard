@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
 
-import notFoundBrandLogo from '@/images/not-found-brand-logo.png';
+import whiteBrandLogo from '@/images/white-brand-logo.png';
 import notFound from '@/images/not-found.gif';
 
 import classes from './NotFound.module.scss';
@@ -17,7 +17,7 @@ const NotFoundView: React.FC<IProps> = () => {
 	return (
 		<>
 			<header className={classes['header']}>
-				<img className={classes['header__img']} src={notFoundBrandLogo} alt="Exlint" />
+				<img className={classes['header__img']} src={whiteBrandLogo} alt="Exlint" />
 
 				<a className={classes['documentationLink']} href="https://www.docs.exlint.io">
 					<span className={classes['documentationLink__text']}>
