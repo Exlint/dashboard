@@ -4,13 +4,19 @@
 
 .container {
 	position: fixed;
-	inset-block-end: map.get($sizes, spacing-xxl);
-	inset-inline-end: map.get($sizes, spacing-xxl);
 	display: flex;
 	width: 258px;
 	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
 	border: 2px solid;
 	border-inline-start: 3px solid;
+	opacity: 0;
+	inset-block-end: map.get($sizes, spacing-xxl);
+	inset-inline-end: map.get($sizes, spacing-xxl);
+	transition: 0.3s ease-in opacity;
+
+	&--fullOpacity {
+		opacity: 1;
+	}
 
 	&--info {
 		background-color: map.get($colors, whites-white);
@@ -40,22 +46,6 @@
 		width: auto;
 		height: 17.5px;
 		margin-inline-end: map.get($sizes, spacing-l);
-
-		&--info {
-			stroke: map.get($colors, greys-onyx);
-		}
-
-		&--checkmark {
-			fill: map.get($colors, greens-japanese-laurel);
-		}
-
-		&--warning {
-			fill: map.get($colors, yellows-deep-lemon-30-p);
-		}
-
-		&--error {
-			fill: map.get($colors, reds-persian-plum);
-		}
 	}
 
 	&__closeIcon {
