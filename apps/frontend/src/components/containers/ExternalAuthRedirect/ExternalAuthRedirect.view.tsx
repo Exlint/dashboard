@@ -11,7 +11,7 @@ const ExternalAuthRedirectView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<ExternalAction>
+		<ExternalAction className={classes['container']}>
 			<h2 className={classes['header']}>
 				{t('redirect.header')}
 				<Trans>...</Trans>

@@ -75,7 +75,7 @@ const en = {
 		},
 		message: "As far as we know,<br />This page doesn't exist!",
 		actions: {
-			linkText: 'Return Home',
+			linkText: 'Return To Group Center',
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
 	},

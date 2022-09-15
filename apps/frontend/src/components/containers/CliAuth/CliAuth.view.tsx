@@ -13,7 +13,7 @@ const CliAuthView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const { t } = useTranslation();
 
 	return (
-		<ExternalAction>
+		<ExternalAction className={classes['container']}>
 			<h2 className={classes['header']}>{t('cliAuth.header')}</h2>
 
 			<span className={classes['commandText']}>
