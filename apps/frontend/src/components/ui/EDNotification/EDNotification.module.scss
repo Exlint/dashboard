@@ -1,0 +1,74 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	position: fixed;
+	display: flex;
+	width: 258px;
+	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+	border: 2px solid;
+	border-inline-start: 3px solid;
+	opacity: 0;
+	inset-block-end: map.get($sizes, spacing-xxl);
+	inset-inline-end: map.get($sizes, spacing-xxl);
+	transition: 0.3s ease-in opacity;
+
+	&--fullOpacity {
+		opacity: 1;
+	}
+
+	&--info {
+		background-color: map.get($colors, whites-white);
+		border-color: map.get($colors, greys-platinum);
+		border-inline-start-color: map.get($colors, greys-onyx);
+	}
+
+	&--checkmark {
+		background-color: map.get($colors, greens-nyanza);
+		border-color: map.get($colors, greens-sea-green);
+		border-inline-start-color: map.get($colors, greens-japanese-laurel);
+	}
+
+	&--warning {
+		background-color: map.get($colors, yellows-papaya-whip);
+		border-color: map.get($colors, yellows-deep-lemon-30-p);
+		border-inline-start-color: map.get($colors, yellows-deep-lemon);
+	}
+
+	&--error {
+		background-color: map.get($colors, reds-lavender-blush);
+		border-color: map.get($colors, reds-maximum-red);
+		border-inline-start-color: map.get($colors, reds-persian-plum);
+	}
+
+	&__icon {
+		width: auto;
+		height: 17.5px;
+		margin-inline-end: map.get($sizes, spacing-l);
+	}
+
+	&__closeIcon {
+		width: auto;
+		height: 8px;
+		cursor: pointer;
+		fill: map.get($colors, greys-onyx);
+	}
+}
+
+.textContainer {
+	display: flex;
+	flex-direction: column;
+
+	&__title {
+		margin-bottom: map.get($sizes, spacing-xs);
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: map.get($colors, greys-onyx);
+	}
+
+	&__message {
+		font-size: 1.5rem;
+		color: map.get($colors, greys-onyx);
+	}
+}

@@ -10,7 +10,7 @@ interface IProps {
 	readonly name: keyof typeof icons;
 	readonly className?: string;
 	readonly style?: CSSProperties;
-	readonly onClick?: () => void;
+	readonly onClick?: VoidFunction;
 }
 
 const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -25,7 +25,7 @@ const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={'0 0 ' + icons[props.name][0]}
 			dangerouslySetInnerHTML={{ __html: icons[props.name][1] ?? '' }}
-			onClick={props.onClick}
+			onClick={() => props.onClick && props.onClick()}
 		/>
 	);
 };

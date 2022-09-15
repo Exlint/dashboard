@@ -20,8 +20,8 @@ module.exports = {
 		'scss/at-import-partial-extension': null,
 
 		'scale-unlimited/declaration-strict-value': [
-			['/color/', '/padding/', '/top/', '/bottom/', '/margin/', 'font-size'],
-			{ ignoreVariables: false, ignoreValues: ['transparent', '/rem/'] },
+			['/color/', '/padding/', 'top', 'bottom', '/margin/', 'font-size', 'fill'],
+			{ ignoreVariables: false, ignoreValues: ['transparent', '/rem/', '0'] },
 		],
 	},
 };

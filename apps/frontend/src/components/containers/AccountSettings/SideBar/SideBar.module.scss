@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.innerLink {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 215px;
+	padding: map.get($sizes, spacing-s) map.get($sizes, spacing-m);
+	margin-inline-end: map.get($sizes, spacing-xxl);
+	text-decoration: none;
+
+	&:not(:last-child) {
+		margin-bottom: map.get($sizes, spacing-m);
+	}
+
+	&__border {
+		position: absolute;
+		display: none;
+		width: 4px;
+		height: calc(100% - 2 * map.get($sizes, spacing-xs));
+		background-color: map.get($colors, purples-purple);
+		border-radius: 6px;
+		inset-inline-start: calc(map.get($sizes, spacing-m) * -1);
+	}
+
+	&--active {
+		background-color: map.get($colors, greys-anti-flash-grey-white);
+		border-radius: 6px;
+
+		.innerLink {
+			&__border {
+				display: block;
+			}
+		}
+	}
+
+	&__icon {
+		width: auto;
+		height: 17px;
+		margin-inline-end: map.get($sizes, spacing-s);
+		fill: map.get($colors, greys-philippine-gray);
+	}
+
+	&__text {
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: map.get($colors, greys-onyx);
+		white-space: nowrap;
+	}
+}

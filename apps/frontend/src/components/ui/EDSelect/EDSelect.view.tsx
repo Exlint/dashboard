@@ -12,7 +12,7 @@ interface IProps {
 	readonly selectedOptionIndex: number | null;
 	readonly tooltopRef: React.RefObject<HTMLDivElement>;
 	readonly isTooltipVisible: boolean;
-	readonly toggleTooltipVisibility: () => void;
+	readonly toggleTooltipVisibility: VoidFunction;
 	readonly onOptionSelect: (index: number) => void;
 }
 

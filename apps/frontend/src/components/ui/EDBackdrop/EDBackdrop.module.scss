@@ -1,7 +1,12 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
 .container {
 	position: fixed;
 	top: 0;
+	z-index: 1;
 	width: 100vw;
 	height: 100vh;
-	background-color: #000000bf;
+	background-color: map.get($colors, greys-backdrop);
 }

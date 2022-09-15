@@ -12,6 +12,7 @@ export class AutoLoginHandler implements IQueryHandler<AutoAuthContract> {
 		const userData = await this.dbUserService.findByEmail(contract.email, {
 			id: true,
 			name: true,
+			createdAt: true,
 		});
 
 		return userData;

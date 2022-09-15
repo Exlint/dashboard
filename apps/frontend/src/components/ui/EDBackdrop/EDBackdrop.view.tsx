@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import classes from './EDBackdrop.module.scss';
 
 interface IProps {
-	readonly onBackdropClick: () => void;
+	readonly onBackdropClick: VoidFunction;
 }
 
 const EDBackdropView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

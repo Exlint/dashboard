@@ -22,24 +22,38 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
-	userSettings: {
-		title: 'User Settings',
-		username: 'User',
-		deleteUserAction: 'Delete user',
-		logoutAction: 'Log-out',
-		userSettingsModal: {
-			cancelButton: 'Cancel',
-			header: 'You are about to delete your user:',
-			details: 'All saved data, groups, policies and configurations will be lost',
-			actionText: 'To confirm, type',
-			actionPhraseText: 'DELETE-USER',
-			inputPlaceholder: 'Type here',
-			confirmButton: 'Confirm',
+	accountSettings: {
+		header: {
+			routeText: 'Account Settings',
+			clientId: 'Client ID',
+			userCreated: 'User Created',
 		},
-	},
-	settingsSidebar: {
-		title: 'Settings',
-		username: 'Username',
+		sideBar: {
+			account: 'Account',
+			tokenManagement: 'Token Management',
+		},
+		account: {
+			signOutHeader: 'Sign Out',
+			signOutSubHeader: 'Sign out of your account.',
+			signOutButton: 'Sign out',
+			deleteAccountHeader: 'Delete Account',
+			deleteAccountSubHeader:
+				'Once you delete your account, there is no going back. Please be certain.',
+			deleteAccountButton: 'Delete your account',
+			deleteModal: {
+				cancel: 'Cancel',
+				header: 'You are about to delete your user:',
+				subHeader: 'All saved data, groups, policies and configurations will be lost',
+				actionText: 'To confirm, type',
+				inputPlaceholder: 'Type here',
+				actionPhraseText: 'DELETE-USER',
+				confirmButton: 'Confirm',
+			},
+		},
+		copyNotification: {
+			title: 'ID Copied to clipboard',
+			message: 'Paste it wherever you want.',
+		},
 	},
 	cliAuth: {
 		header: 'Authenticate for CLI',
@@ -64,6 +78,11 @@ const en = {
 			linkText: 'Return Home',
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
+	},
+	nav: {
+		groupCenter: 'Group Center',
+		accountSettings: 'Account Settings',
+		documentation: 'Documentation',
 	},
 };
 

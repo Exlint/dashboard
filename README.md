@@ -130,7 +130,7 @@ Then, you can browse to `http://localhost:3000/api` (replace the port if you use
 ## Cli backend OpenAPI
 
 When you want look at the cli backend OpenAPI (Swagger), you need to run the application in development mode.
-Then, you can browse to `http://localhost:5000/api` (replace the port if you use other port)
+Then, you can browse to `http://localhost:4000/api` (replace the port if you use other port)
 
 ## Improvements
 

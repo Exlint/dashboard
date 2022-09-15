@@ -73,6 +73,7 @@ export class AutoAuthController {
 		return {
 			accessToken,
 			...loggedUser,
+			createdAt: loggedUser.createdAt.getTime(),
 		};
 	}
 }

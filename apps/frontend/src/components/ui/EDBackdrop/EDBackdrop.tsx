@@ -3,7 +3,7 @@ import React from 'react';
 import EDBackdropView from './EDBackdrop.view';
 
 interface IProps {
-	readonly onBackdropClick: () => void;
+	readonly onBackdropClick: VoidFunction;
 }
 
 const EDBackdrop: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
