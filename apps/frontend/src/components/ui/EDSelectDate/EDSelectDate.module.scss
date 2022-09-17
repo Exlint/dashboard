@@ -74,8 +74,24 @@
 	}
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
-:global(.react-datepicker-wrapper) {
+.datePickerValueText {
+	width: 100%;
+	padding: 0;
+	font-size: 1.5rem;
+	color: map.get($colors, greys-independence-grey);
+	text-align: center;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.datePickerDayText {
+	width: 25px;
+	padding: map.get($sizes, spacing-s);
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.datePickerWrapper {
 	display: flex;
 	justify-content: center;
 	width: 132px;
@@ -84,14 +100,22 @@
 	background-color: map.get($colors, whites-ghost-white);
 	border: 2px solid map.get($colors, greys-platinum);
 	border-radius: 6px;
+}
 
-	input {
-		width: 100%;
-		padding: 0;
-		font-size: 1.5rem;
-		color: map.get($colors, greys-independence-grey);
-		text-align: center;
-		cursor: pointer;
-		background-color: transparent;
-	}
+.datePickerWeekDay {
+	width: 25px;
+	font-size: 1.5rem;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.react-datepicker__current-month) {
+	margin-bottom: map.get($sizes, spacing-s);
+	font-size: 1.5rem;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.react-datepicker__navigation) {
+	width: 18px;
+	height: 18px;
+	margin-top: map.get($sizes, spacing-m);
 }

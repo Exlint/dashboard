@@ -61,6 +61,10 @@ const EDSelectDateView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 			{selectedOption.withPicker && (
 				<DatePicker
+					className={classes['datePickerValueText']}
+					dayClassName={() => classes['datePickerDayText']!}
+					wrapperClassName={classes['datePickerWrapper']}
+					weekDayClassName={() => classes['datePickerWeekDay']!}
 					selected={props.datePickerDate || new Date()}
 					locale="en-US"
 					adjustDateOnChange
