@@ -19,22 +19,22 @@ class UserSecretGetAll implements IUserSecretsGetAll {
 		type: Number,
 		example: 12345678,
 	})
-	public expiration!: number;
-
-	@ApiResponseProperty({
-		type: Number,
-		example: 12345678,
-	})
-	public createdAt!: number;
+	public expiration!: number | null;
 }
 
 export class CreateClientSecretResponse {
 	@ApiResponseProperty({
 		type: String,
+		example: '62e5362119bea07115434f4a',
+	})
+	public secretId!: string;
+
+	@ApiResponseProperty({
+		type: String,
 		example:
 			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
 	})
-	public clientSecret!: string;
+	public secretValue!: string;
 }
 
 export class RefreshClientSecretResponse {
@@ -43,7 +43,7 @@ export class RefreshClientSecretResponse {
 		example:
 			'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
 	})
-	public clientSecret!: string;
+	public secretValue!: string;
 }
 
 export class GetAllSecretsResponse {
@@ -51,4 +51,11 @@ export class GetAllSecretsResponse {
 		type: [UserSecretGetAll],
 	})
 	public secrets!: IUserSecretsGetAll[];
+}
+
+export class AvailableLabelResponse {
+	@ApiResponseProperty({
+		type: Boolean,
+	})
+	public isAvailable!: boolean;
 }

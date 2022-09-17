@@ -91,7 +91,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['./src/assets/icons.ts', './src/data/**/*.ts'],
+			files: ['./src/assets/icons.ts', './src/data/**/*.ts', './src/i18n/en.ts'],
 			rules: {
 				'max-lines': 'off',
 			},

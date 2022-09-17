@@ -41,6 +41,10 @@
 			border-color: map.get($colors, greys-philippine-gray);
 		}
 
+		&:active {
+			border-color: map.get($colors, greys-onyx);
+		}
+
 		&__value {
 			margin-inline-end: map.get($sizes, spacing-m);
 			font-size: 1.5rem;

@@ -53,7 +53,7 @@ export class RefreshSecretController {
 		this.logger.log('Successfully refreshed a client secret');
 
 		return {
-			clientSecret: secret,
+			secretValue: secret,
 		};
 	}
 }

@@ -30,7 +30,7 @@ const en = {
 		},
 		sideBar: {
 			account: 'Account',
-			tokenManagement: 'Token Management',
+			secretManagement: 'Secret Management',
 		},
 		account: {
 			signOutHeader: 'Sign Out',
@@ -53,6 +53,37 @@ const en = {
 		copyNotification: {
 			title: 'ID Copied to clipboard',
 			message: 'Paste it wherever you want.',
+		},
+		secretManagement: {
+			actionHeader: 'Secret Management',
+			actionSubHeaderPrefix: 'Create secrets for',
+			actionSubHeaderPostfix: 'our GitHub action',
+			generateNewSecretButton: 'Generate new secret',
+			noSecrets: 'No Secrets Created!',
+			secretExpirationPrefix: 'Expires on',
+			secretExpirationNeverExpires: 'Never expires',
+			refreshSecretAction: 'Refresh Secret',
+			deleteSecretAction: 'Delete',
+			revokeAllSecretAction: 'Revoke All',
+			postSecretCreationDisclaimer:
+				"Make sure to copy the secret now. You won't be able to see it again!",
+			copyNotificationTitle: 'Secret copied to clipboard',
+			copyNotificationMessage: 'Paste it wherever you want.',
+		},
+		newSecret: {
+			actionHeader: 'New Secret',
+			nameInputLabel: 'Secret name',
+			secretUsageHint: "What's this secret for?",
+			secretExpirationHint: 'This secret will expire on',
+			generateButton: 'Generate Secret',
+			cancelButton: 'Cancel',
+			dateSelect: {
+				days: 'days',
+				custom: 'Custom',
+				noExpiration: 'No expiration',
+			},
+			labelIsAvailable: 'Name available!',
+			labelIsUnavailable: 'Name unavailable. Try another?',
 		},
 	},
 	cliAuth: {

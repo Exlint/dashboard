@@ -6,6 +6,8 @@ import Nav from '@/layout/Nav';
 import Header from './Header';
 import SideBar from './SideBar';
 import Account from './Account';
+import SecretManagement from './SecretManagement';
+import NewSecret from './NewSecret';
 
 import classes from './AccountSettings.module.scss';
 
@@ -21,7 +23,13 @@ const AccountSettingsView: React.FC<IProps> = () => {
 				<Routes>
 					<Route path="/" element={<Navigate to="account" replace />} />
 					<Route path="/account" element={<Account />} />
-					<Route path="/token-management" element={<div>&nbsp;</div>} />
+					<Route path="/secret-management" element={<SecretManagement />} />
+					<Route path="/secret-management/new" element={<NewSecret />} />
+					<Route
+						path="/secret-management/*"
+						element={<Navigate to="secret-management" replace />}
+					/>
+					<Route path="/*" element={<Navigate to="account" replace />} />
 				</Routes>
 			</div>
 		</div>

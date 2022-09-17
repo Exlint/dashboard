@@ -13,7 +13,6 @@ export class GetAllSecretsHandler implements IQueryHandler<GetAllSecretsContract
 
 		return secrets.map((secret) => ({
 			...secret,
-			createdAt: secret.createdAt.getTime(),
 			expiration: secret.expiration ? secret.expiration.getTime() : null,
 		}));
 	}
