@@ -16,6 +16,12 @@ module.exports = {
 		'declaration-block-no-duplicate-properties': [true],
 		'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hwb'],
 		'property-disallowed-list': ['/.*(right|left).*/'],
+		'selector-pseudo-class-no-unknown': [
+			true,
+			{
+				ignorePseudoClasses: ['global'],
+			},
+		],
 
 		'scss/at-import-partial-extension': null,
 

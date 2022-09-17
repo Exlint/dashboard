@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { JwtModule } from '@nestjs/jwt';
 
+import { AvailableLabelController } from './available-label.controller';
 import { CommandHandlers } from './commands/handlers';
 import { CreateController } from './create.controller';
 import { DeleteController } from './delete.controller';
@@ -20,6 +21,7 @@ import { SecretsService } from './secrets.service';
 		CreateController,
 		EditSecretController,
 		GetAllController,
+		AvailableLabelController,
 	],
 	providers: [...CommandHandlers, ...QueryHandlers, BelongingSecretGuard, SecretsService],
 })

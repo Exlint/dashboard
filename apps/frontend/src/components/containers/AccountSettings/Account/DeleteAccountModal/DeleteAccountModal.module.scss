@@ -84,6 +84,10 @@
 		color: map.get($colors, greys-independence-grey);
 		border: 2px solid map.get($colors, greys-platinum);
 		border-radius: 10px;
+
+		&::placeholder {
+			opacity: 1;
+		}
 	}
 
 	&__button {

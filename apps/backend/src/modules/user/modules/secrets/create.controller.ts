@@ -43,7 +43,7 @@ export class CreateController {
 	): Promise<CreateClientSecretResponse> {
 		this.logger.log(`Will try to create a client secret with to user with an Id: "${userId}"`);
 
-		const secret = await this.queryBus.execute<CreateSecretContract, string>(
+		const secret = await this.queryBus.execute<CreateSecretContract, CreateClientSecretResponse>(
 			new CreateSecretContract(
 				userId,
 				userEmail,
@@ -52,8 +52,8 @@ export class CreateController {
 			),
 		);
 
-		this.logger.log('Successfully deleted a client secret');
+		this.logger.log('Successfully created a client secret');
 
-		return { clientSecret: secret };
+		return secret;
 	}
 }

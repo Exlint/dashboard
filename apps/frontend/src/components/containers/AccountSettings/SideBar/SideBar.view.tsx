@@ -28,12 +28,12 @@ const SideBarView: React.FC<IProps> = () => {
 				className={({ isActive }) =>
 					concatClasses(classes, 'innerLink', isActive ? 'innerLink--active' : null)
 				}
-				to="token-management"
+				to="secret-management"
 			>
 				<div className={classes['innerLink__border']} />
 				<EDSvg className={classes['innerLink__icon']} name="key" />
 				<span className={classes['innerLink__text']}>
-					{t('accountSettings.sideBar.tokenManagement')}
+					{t('accountSettings.sideBar.secretManagement')}
 				</span>
 			</NavLink>
 		</aside>

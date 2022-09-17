@@ -6,6 +6,7 @@ const Routes = {
 	REFRSH_SECRET: 'refresh-secret/:secret_id',
 	EDIT_LABEL: 'edit-label/:secret_id',
 	GET_ALL: '',
+	AVAILABLE_LABEL: ':label',
 };
 
 export default Routes;

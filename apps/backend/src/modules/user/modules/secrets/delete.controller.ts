@@ -59,6 +59,6 @@ export class DeleteController {
 
 		await this.commandBus.execute<RevokeSecretsContract, void>(new RevokeSecretsContract(userId));
 
-		this.logger.log('Successfully deleted a client secret');
+		this.logger.log("Successfully deleted revoked user's secrets");
 	}
 }

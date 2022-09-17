@@ -45,20 +45,34 @@ const EDNotificationView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 			className={concatClasses(
 				classes,
 				'container',
-				`container--${props.notificationType}`,
 				props.isWithFullOpacity ? 'container--fullOpacity' : null,
 			)}
 		>
-			<EDSvg className={classes['container__icon']} name={notificationIcon} />
-			<div className={classes['textContainer']}>
-				<h5 className={classes['textContainer__title']}>{props.notificationTitle}</h5>
-				<span className={classes['textContainer__message']}>{props.notificationMessage}</span>
-			</div>
-			<EDSvg
-				className={classes['container__closeIcon']}
-				name="close"
-				onClick={props.onCloseNotification}
+			<div
+				className={concatClasses(
+					classes,
+					'notificationBorder',
+					`notificationBorder--${props.notificationType}`,
+				)}
 			/>
+			<div
+				className={concatClasses(
+					classes,
+					'notificationContent',
+					`notificationContent--${props.notificationType}`,
+				)}
+			>
+				<EDSvg className={classes['notificationContent__icon']} name={notificationIcon} />
+				<div className={classes['textContainer']}>
+					<h5 className={classes['textContainer__title']}>{props.notificationTitle}</h5>
+					<span className={classes['textContainer__message']}>{props.notificationMessage}</span>
+				</div>
+				<EDSvg
+					className={classes['notificationContent__closeIcon']}
+					name="close"
+					onClick={props.onCloseNotification}
+				/>
+			</div>
 		</div>
 	);
 };

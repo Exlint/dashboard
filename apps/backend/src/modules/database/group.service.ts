@@ -8,7 +8,7 @@ export class DBGroupService {
 
 	public async createGroup(userId: string) {
 		const createdGroup = await this.prisma.group.create({
-			data: { userId, policyIDs: [] },
+			data: { userId },
 			select: { id: true },
 		});
 
