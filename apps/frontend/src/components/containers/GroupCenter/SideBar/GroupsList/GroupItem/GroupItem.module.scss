@@ -34,6 +34,7 @@
 	box-shadow: 0 4px 8px 0 #00000026;
 
 	&--selected {
+		cursor: default;
 		box-shadow: unset;
 	}
 
@@ -64,6 +65,7 @@
 		&__icon {
 			width: auto;
 			height: 19.9px;
+			cursor: pointer;
 			fill: map.get($colors, greys-independence-grey);
 		}
 	}

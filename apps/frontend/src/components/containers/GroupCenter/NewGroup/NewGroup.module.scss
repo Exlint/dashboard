@@ -15,7 +15,7 @@
 	padding-inline: map.get($sizes, spacing-xxl);
 	padding-top: map.get($sizes, spacing-xl);
 	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 1px solid map.get($colors, greys-platinum);
+	border-bottom: 2px solid map.get($colors, greys-platinum);
 
 	.headerTitleContainer {
 		display: flex;
@@ -56,10 +56,10 @@
 
 		&__border {
 			position: absolute;
-			bottom: calc(-1.5 * map.get($sizes, spacing-xxs));
+			bottom: calc(-2 * map.get($sizes, spacing-xxs));
 			width: 100%;
 			height: 2px;
-			background-image: linear-gradient(to left, #dc6794 128%, #9747ff 17%);
+			background-image: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
 		}
 	}
 }

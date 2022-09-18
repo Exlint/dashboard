@@ -10,7 +10,6 @@
 	font-weight: 600;
 	color: map.get($colors, greys-anti-flash-grey-white);
 	background-color: map.get($colors, greens-slimy-green);
-	border: 1px solid map.get($colors, greens-japanese-laurel);
 	border-radius: 6px;
 
 	&__text {
@@ -29,7 +28,7 @@
 	&:disabled {
 		color: map.get($colors, greys-philippine-gray);
 		background-color: map.get($colors, whites-ghost-white);
-		border-color: map.get($colors, greys-platinum);
+		box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
 
 		.container {
 			&__text {
