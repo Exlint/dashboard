@@ -13,6 +13,7 @@ const AccountSettings = React.lazy(() => import('./pages/AccountSettings'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 
 const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 	<BrowserRouter>
@@ -30,7 +31,13 @@ const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 						<Route path="/external-auth-redirect" element={<ExternalAuthRedirect />} />
 					</>
 				)}
-				{props.isAuthenticated && <Route path="/account-settings/*" element={<AccountSettings />} />}
+				{props.isAuthenticated && (
+					<>
+						<Route path="/" element={<GroupCenter />} />
+						<Route path="/account-settings/*" element={<AccountSettings />} />
+						<Route path="/group-center/*" element={<GroupCenter />} />
+					</>
+				)}
 				<Route path="/cli-auth" element={<CliAuth />} />
 				<Route path="/cli-authenticated" element={<CliAuthenticated />} />
 				<Route path="/not-found" element={<NotFound />} />

@@ -44,7 +44,7 @@ class UserGroupGetAll implements IUserGroupGetAll {
 	@ApiResponseProperty({
 		type: [UserGroupInlinePolicyGetAll],
 	})
-	public inlinePolicies!: IUserGroupInlinePolicy[];
+	public librariesNames!: PolicyLibrary[];
 }
 
 export class CreateGroupResponse {
@@ -60,4 +60,20 @@ export class GetAllGroupsResponse {
 		type: [UserGroupGetAll],
 	})
 	public groups!: IUserGroupGetAll[];
+}
+
+export class AvailableLabelResponse {
+	@ApiResponseProperty({
+		type: Boolean,
+		example: true,
+	})
+	public isAvailable!: boolean;
+}
+
+export class GetResponse {
+	@ApiResponseProperty({
+		type: String,
+		example: 'Yazif Group',
+	})
+	public label!: string;
 }

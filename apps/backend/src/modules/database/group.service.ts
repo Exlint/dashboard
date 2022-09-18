@@ -6,9 +6,9 @@ import { PrismaService } from './prisma.service';
 export class DBGroupService {
 	constructor(private prisma: PrismaService) {}
 
-	public async createGroup(userId: string) {
+	public async createGroup(userId: string, label: string, description: string | null) {
 		const createdGroup = await this.prisma.group.create({
-			data: { userId },
+			data: { userId, label, description },
 			select: { id: true },
 		});
 
@@ -29,18 +29,33 @@ export class DBGroupService {
 		await this.prisma.group.delete({ where: { id: groupId } });
 	}
 
-	public async getUserGroups(userId: string) {
-		const userGroups = await this.prisma.group.findMany({
+	public getUserGroups(userId: string) {
+		return this.prisma.group.findMany({
 			where: { userId },
 			select: {
 				id: true,
 				label: true,
 				inlinePolicies: {
-					select: { id: true, label: true, library: true, configuration: true },
+					select: { library: true },
 				},
 			},
 		});
+	}
 
-		return userGroups;
+	public async isLabelAvailable(userId: string, label: string) {
+		const record = await this.prisma.group.findFirst({
+			where: { userId, label },
+		});
+
+		return record === null;
+	}
+
+	public getUserGroup(userId: string, groupId: string) {
+		return this.prisma.group.findFirst({
+			where: { userId, id: groupId },
+			select: {
+				label: true,
+			},
+		});
 	}
 }

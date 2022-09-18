@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import EDSelectDate from '@/ui/EDSelectDate';
 import type { IOption } from '@/ui/EDSelectDate/interfaces/option';
+import EDAcceptButton from '@/ui/EDAcceptButton';
 
 import { MONTH_INTERVAL, THREE_MONTHS_INTERVAL, WEEK_INTERVAL } from './models/time';
 import LabelInput from './LabelInput';
@@ -62,13 +63,13 @@ const NewSecretView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<hr className={classes['generateSecretForm__divider']} />
 
 					<div className={classes['formActions']}>
-						<button
+						<EDAcceptButton
 							className={classes['formActions__submit']}
 							type="submit"
 							disabled={!props.isSecretLabelValid}
 						>
 							{t('accountSettings.newSecret.generateButton')}
-						</button>
+						</EDAcceptButton>
 						<Link
 							className={classes['formActions__cancel']}
 							to="/account-settings/secret-management"

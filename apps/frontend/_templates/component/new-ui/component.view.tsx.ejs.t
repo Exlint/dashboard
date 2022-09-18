@@ -8,7 +8,7 @@ import classes from './ED<%= h.changeCase.pascalCase(name) %>.module.scss';
 interface IProps {}
 
 const ED<%= h.changeCase.pascalCase(name) %>View: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-  return <React.Fragment></React.Fragment>;
+  return <></>;
 };
 
 ED<%= h.changeCase.pascalCase(name) %>View.displayName = 'ED<%= h.changeCase.pascalCase(name) %>View';

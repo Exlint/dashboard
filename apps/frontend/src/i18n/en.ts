@@ -82,8 +82,6 @@ const en = {
 				custom: 'Custom',
 				noExpiration: 'No expiration',
 			},
-			labelIsAvailable: 'Name available!',
-			labelIsUnavailable: 'Name unavailable. Try another?',
 		},
 	},
 	cliAuth: {
@@ -114,6 +112,40 @@ const en = {
 		groupCenter: 'Group Center',
 		accountSettings: 'Account Settings',
 		documentation: 'Documentation',
+	},
+	groupCenter: {
+		defaultGroupName: 'Group Label',
+		sideBar: {
+			searchInputPlaceholder: 'Search Groups',
+			newGroupAction: 'New',
+			noGroupsHeader: 'Create your first group',
+			uniqueId: 'Unique ID',
+			policies: 'Policies',
+			copyNotification: {
+				title: 'ID Copied to clipboard',
+				message: 'Paste it wherever you want.',
+			},
+		},
+		newGroup: {
+			headerTitle: 'New Group',
+			tabs: {
+				groupCreation: 'Group Creation',
+			},
+			content: {
+				title: 'Create a new group',
+				subTitle:
+					'A group is a centralized compliance, which contains a bundle of policies that can be run together against code.',
+				groupLabelInputLabel: 'Group label',
+				groupLabelInputPlaceholder: 'Enter a name for the group...',
+				groupDescriptionInputLabelPrefix: 'Description',
+				groupDescriptionInputLabelPostfix: 'optional',
+				createGroupButton: 'Create Group',
+			},
+		},
+	},
+	labelAvailability: {
+		isAvailable: 'Label available!',
+		isUnavailable: 'Label unavailable. Try another?',
 	},
 };
 

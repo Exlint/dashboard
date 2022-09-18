@@ -1,5 +1,4 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
-import type { Prisma } from '@prisma/client';
 
 import { DBGroupService } from '@/modules/database/group.service';
 
@@ -14,12 +13,7 @@ export class GetAllGroupsHandler implements IQueryHandler<GetAllGroupsContract> 
 
 		return userGroups.map((userGroup) => ({
 			...userGroup,
-			inlinePolicies: userGroup.inlinePolicies.map((inlinePolicy) => ({
-				...inlinePolicy,
-				rulesCount: Object.keys((inlinePolicy.configuration as Prisma.JsonObject)?.['rules'] ?? {})
-					.length,
-				configuration: undefined,
-			})),
+			librariesNames: userGroup.inlinePolicies.map((inlinePolicy) => inlinePolicy.library),
 		}));
 	}
 }

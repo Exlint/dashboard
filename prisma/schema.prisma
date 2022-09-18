@@ -84,8 +84,9 @@ model InlinePolicy {
 model Group {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId String  @db.ObjectId
-  label  String?
+  userId      String  @db.ObjectId
+  label       String
+  description String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
