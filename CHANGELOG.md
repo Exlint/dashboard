@@ -5,6 +5,20 @@
 
 * 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
 * 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-18)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
 * 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
 * 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
 * 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
