@@ -16,6 +16,12 @@ interface IProps {
 const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const svgClasses = concatDiverseClasses(classes['container'], props.className);
 
+	const clickHandler = (e: React.MouseEvent) => {
+		e.preventDefault();
+
+		props.onClick!();
+	};
+
 	return (
 		<svg
 			style={props.style}
@@ -25,7 +31,7 @@ const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox={'0 0 ' + icons[props.name][0]}
 			dangerouslySetInnerHTML={{ __html: icons[props.name][1] ?? '' }}
-			onClick={() => props.onClick && props.onClick()}
+			onClick={props.onClick && clickHandler}
 		/>
 	);
 };
