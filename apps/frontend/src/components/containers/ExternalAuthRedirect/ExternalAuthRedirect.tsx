@@ -83,6 +83,10 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					name: autoAuthResponseData.name,
 					createdAt: autoAuthResponseData.createdAt,
 				});
+
+				if (!port) {
+					navigate('/');
+				}
 			};
 
 			fetchResults();

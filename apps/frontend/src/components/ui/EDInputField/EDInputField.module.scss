@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+	font-size: 1.5rem;
+	color: map.get($colors, greys-philippine-gray);
+	background-color: map.get($colors, whites-ghost-white);
+	border-radius: 6px;
+	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+	transition: 0.3s ease-in box-shadow;
+
+	&::placeholder {
+		opacity: 1;
+	}
+
+	&:hover,
+	&:focus {
+		box-shadow: inset 0 0 0 2px map.get($colors, greys-silver-sand);
+	}
+}

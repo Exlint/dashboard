@@ -20,6 +20,7 @@ const AccountSettingsView: React.FC<IProps> = () => {
 			<Header />
 			<div className={classes['content']}>
 				<SideBar />
+
 				<Routes>
 					<Route path="/" element={<Navigate to="account" replace />} />
 					<Route path="/account" element={<Account />} />

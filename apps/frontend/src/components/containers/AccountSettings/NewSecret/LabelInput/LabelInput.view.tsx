@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { concatClasses } from '@/utils/component';
-import EDSvg from '@/ui/EDSvg';
+import EDInputFieldAvailability from '@/ui/EDInputFieldAvailability';
 
 import classes from './LabelInput.module.scss';
 
@@ -20,35 +19,13 @@ const LabelInputView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 			<label className={classes['label']} htmlFor="generateSecretNameInput">
 				{t('accountSettings.newSecret.nameInputLabel')}
 			</label>
-			<div className={classes['inputContainer']}>
-				<input
-					className={classes['inputContainer__input']}
-					id="generateSecretNameInput"
-					type="text"
-					value={props.secretLabelInput ?? ''}
-					maxLength={30}
-					onChange={({ currentTarget: { value } }) => props.onSecretLabelInputChange(value)}
-				/>
-				{props.isSecretLabelAvailable !== null && (
-					<div className={classes['tooltip']}>
-						<EDSvg
-							className={concatClasses(
-								classes,
-								'tooltip__icon',
-								props.isSecretLabelAvailable
-									? 'tooltip__icon--available'
-									: 'tooltip__icon--unavailable',
-							)}
-							name={props.isSecretLabelAvailable ? 'vStroke' : 'xFill'}
-						/>
-						<span className={classes['tooltip__text']}>
-							{props.isSecretLabelAvailable
-								? t('accountSettings.newSecret.labelIsAvailable')
-								: t('accountSettings.newSecret.labelIsUnavailable')}
-						</span>
-					</div>
-				)}
-			</div>
+			<EDInputFieldAvailability
+				id="generateSecretNameInput"
+				value={props.secretLabelInput}
+				maxLength={30}
+				isAvailable={props.isSecretLabelAvailable}
+				onChange={props.onSecretLabelInputChange}
+			/>
 			<small className={classes['hint']}>{t('accountSettings.newSecret.secretUsageHint')}</small>
 		</>
 	);

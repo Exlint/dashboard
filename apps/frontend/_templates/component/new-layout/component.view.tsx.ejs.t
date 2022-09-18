@@ -11,7 +11,7 @@ interface IProps {}
 const <%= h.changeCase.pascalCase(name) %>View: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
   const { t } = useTranslation();
 
-  return <React.Fragment></React.Fragment>;
+  return <></>;
 };
 
 <%= h.changeCase.pascalCase(name) %>View.displayName = '<%= h.changeCase.pascalCase(name) %>View';

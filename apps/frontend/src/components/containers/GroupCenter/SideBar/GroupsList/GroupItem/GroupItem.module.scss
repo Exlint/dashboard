@@ -1,0 +1,104 @@
+@use 'sass:map';
+
+@import '../../../../../../styles/variables.scss';
+
+.container {
+	position: relative;
+	padding-inline-start: map.get($sizes, spacing-xxl);
+
+	&:not(:last-child) {
+		margin-bottom: map.get($sizes, spacing-l);
+	}
+
+	&__border {
+		position: absolute;
+		top: 0;
+		inset-inline-start: 0;
+		width: 4px;
+		height: 100%;
+		background-color: map.get($colors, purples-purple);
+		border-start-end-radius: 6px;
+		border-end-end-radius: 6px;
+	}
+}
+
+.groupItem {
+	display: flex;
+	flex-direction: column;
+	padding: map.get($sizes, spacing-xl);
+	text-decoration: none;
+	cursor: pointer;
+	background-color: map.get($colors, whites-white);
+	border: 2px solid map.get($colors, greys-platinum);
+	border-radius: 6px;
+	box-shadow: 0 4px 8px 0 #00000026;
+
+	&--selected {
+		cursor: default;
+		box-shadow: unset;
+	}
+
+	&__label {
+		overflow-x: hidden;
+		font-size: 2.1rem;
+		font-weight: 500;
+		color: map.get($colors, blacks-dark-gunmetal);
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&--selected {
+			color: map.get($colors, purples-purple);
+		}
+	}
+
+	.groupIdContainer {
+		display: flex;
+		align-content: center;
+		margin-block: map.get($sizes, spacing-l);
+
+		&__value {
+			margin-inline-end: map.get($sizes, spacing-s);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+		}
+
+		&__icon {
+			width: auto;
+			height: 19.9px;
+			cursor: pointer;
+			fill: map.get($colors, greys-independence-grey);
+		}
+	}
+
+	.policiesContainer {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			margin-inline-end: map.get($sizes, spacing-s);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+		}
+
+		.policyItem {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 27px;
+			height: 27px;
+			padding: map.get($sizes, spacing-s);
+			background-color: map.get($colors, greys-anti-flash-grey-white);
+			border: 1px solid map.get($colors, greys-platinum);
+			border-radius: 6px;
+
+			&:not(:last-child) {
+				margin-inline-end: map.get($sizes, spacing-s);
+			}
+
+			&__img {
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
