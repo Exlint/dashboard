@@ -1,5 +1,3 @@
-export interface IGroup {
+export interface IGetGroupResponse {
 	readonly label: string;
 }
-
-export interface IGetGroupResponse extends IGroup {}

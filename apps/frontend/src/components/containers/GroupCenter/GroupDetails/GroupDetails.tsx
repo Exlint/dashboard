@@ -1,40 +1,67 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { backendApi } from '@/utils/http';
+import type {
+	IEditSideBarGroupLabelPayload,
+	ISelectedSideBarGroup,
+	ISetSelectedSideBarGroupPayload,
+} from '@/store/interfaces/groups';
+import { groupsActions } from '@/store/reducers/groups';
+import type { AppState } from '@/store/app';
 
-import type { IGetGroupResponse, IGroup } from './interfaces/group';
+import type { IGetGroupResponse } from './interfaces/group';
 
 import GroupDetailsView from './GroupDetails.view';
 
-interface IProps {}
+interface IPropsFromState {
+	readonly selectedSideBarGroup: ISelectedSideBarGroup;
+}
 
-const GroupDetails: React.FC<IProps> = () => {
-	const [groupState, setGroupState] = useState<IGroup | null>(null);
+interface IPropsFromDispatch {
+	readonly editSideBarGroup: (
+		editDetails: IEditSideBarGroupLabelPayload,
+	) => PayloadAction<IEditSideBarGroupLabelPayload>;
+	readonly setSelectedSideBarGroup: (
+		selectedDetails: ISetSelectedSideBarGroupPayload,
+	) => PayloadAction<ISetSelectedSideBarGroupPayload>;
+}
 
+interface IProps extends IPropsFromState, IPropsFromDispatch {}
+
+const GroupDetails: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
-	const params = useParams<{ readonly '*': string }>();
-	const groupId = params['*'];
+	const params = useParams<Record<string & 'groupId', string>>();
 
 	useEffect(() => {
-		if (!groupId) {
-			navigate('/group-center');
-
-			return;
-		}
-
 		backendApi
-			.get<IGetGroupResponse>(`/user/groups/${groupId}`)
+			.get<IGetGroupResponse>(`/user/groups/${params.groupId!}`)
 			.then((response) => {
-				setGroupState(() => response.data);
+				props.setSelectedSideBarGroup({
+					selectedSideBarGroup: {
+						...response.data,
+						id: params.groupId!,
+					},
+				});
 			})
 			.catch(() => navigate('/group-center'));
-	}, [groupId, backendApi]);
+	}, [params, backendApi]);
 
-	return <GroupDetailsView group={groupState} />;
+	return <GroupDetailsView selectedGroup={props.selectedSideBarGroup} />;
 };
 
 GroupDetails.displayName = 'GroupDetails';
 GroupDetails.defaultProps = {};
 
-export default React.memo(GroupDetails);
+const mapStateToProps = (state: AppState) => {
+	return {
+		selectedSideBarGroup: state.groups.selectedSideBarGroup!,
+	};
+};
+
+export default connect(mapStateToProps, {
+	editSideBarGroup: groupsActions.editSideBarGroup,
+	setSelectedSideBarGroup: groupsActions.setSelectedSideBarGroup,
+})(React.memo(GroupDetails));

@@ -11,7 +11,7 @@ import classes from './EDNotification.module.scss';
 interface IProps {
 	readonly notificationType: NotificationType | null;
 	readonly notificationTitle: string | null;
-	readonly notificationMessage: string | null;
+	readonly notificationMessage?: string | null;
 	readonly isWithFullOpacity: boolean;
 	readonly onCloseNotification: VoidFunction;
 }
@@ -65,7 +65,9 @@ const EDNotificationView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 				<EDSvg className={classes['notificationContent__icon']} name={notificationIcon} />
 				<div className={classes['textContainer']}>
 					<h5 className={classes['textContainer__title']}>{props.notificationTitle}</h5>
-					<span className={classes['textContainer__message']}>{props.notificationMessage}</span>
+					{props.notificationMessage && (
+						<span className={classes['textContainer__message']}>{props.notificationMessage}</span>
+					)}
 				</div>
 				<EDSvg
 					className={classes['notificationContent__closeIcon']}

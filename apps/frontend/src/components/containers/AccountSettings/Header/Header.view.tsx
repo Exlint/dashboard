@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import EDSvg from '@/ui/EDSvg';
+import EDCopyTextBox from '@/ui/EDCopyTextBox';
 
 import classes from './Header.module.scss';
 
@@ -9,7 +9,6 @@ interface IProps {
 	readonly name: string;
 	readonly clientId: string;
 	readonly userCreationDate: string;
-	readonly onCopyClientId: VoidFunction;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -31,14 +30,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					{t('accountSettings.header.clientId')}
 					<Trans>&#58;</Trans>
 				</span>
-				<div className={classes['clientIdContainer']}>
-					<span className={classes['clientIdContainer__value']}>{props.clientId}</span>
-					<EDSvg
-						className={classes['clientIdContainer__icon']}
-						name="copy"
-						onClick={props.onCopyClientId}
-					/>
-				</div>
+				<EDCopyTextBox className={classes['clientIdContainer']} value={props.clientId} />
 				<span className={classes['accountDetails__rawText']}>
 					{t('accountSettings.header.userCreated')}
 					<Trans>&#58;</Trans>

@@ -10,7 +10,7 @@
 	border-bottom: map.get($sizes, spacing-xs) solid transparent;
 
 	&--active {
-		border-color: map.get($colors, greys-platinum);
+		border-bottom-color: map.get($colors, greys-platinum);
 	}
 
 	&:not(:last-child) {

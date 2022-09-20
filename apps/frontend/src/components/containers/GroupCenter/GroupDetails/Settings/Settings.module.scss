@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl);
+}
+
+.sideTab {
+	display: flex;
+	margin-inline-end: map.get($sizes, spacing-xxl);
+
+	&__border {
+		width: 4px;
+		margin-inline-end: map.get($sizes, spacing-s);
+		background-color: map.get($colors, purples-purple);
+		border-radius: 6px;
+	}
+
+	&__text {
+		width: 207px;
+		padding: map.get($sizes, spacing-s) map.get($sizes, spacing-m);
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: map.get($colors, greys-onyx);
+		text-align: start;
+		background-color: map.get($colors, greys-anti-flash-grey-white);
+		border-radius: 6px;
+	}
+}
+
+.actionsForm {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 708px;
+}

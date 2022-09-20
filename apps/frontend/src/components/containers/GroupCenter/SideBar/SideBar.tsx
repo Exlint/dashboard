@@ -1,37 +1,82 @@
-import React, { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-import type { ISideBarGroup } from '../interfaces/group';
+import type { AppState } from '@/store/app';
+import type {
+	ISetSelectedSideBarGroupPayload,
+	ISetSideBarGroupsPayload,
+	ISideBarGroup,
+} from '@/store/interfaces/groups';
+import { groupsActions } from '@/store/reducers/groups';
+import { backendApi } from '@/utils/http';
+
+import type { IGetAllGroupsResponse } from '../interfaces/group';
 
 import SideBarView from './SideBar.view';
 
-interface IProps {
-	readonly groups: ISideBarGroup[];
+interface IPropsFromState {
+	readonly sideBarGroups: ISideBarGroup[];
 }
 
-const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const { t } = useTranslation();
+interface IPropsFromDispatch {
+	readonly setSideBarGroups: (groups: ISetSideBarGroupsPayload) => PayloadAction<ISetSideBarGroupsPayload>;
+	readonly setSelectedSideBarGroup: (
+		selectedDetails: ISetSelectedSideBarGroupPayload,
+	) => PayloadAction<ISetSelectedSideBarGroupPayload>;
+	readonly unsetSelectedSideBarGroup: () => PayloadAction;
+}
 
+interface IProps extends IPropsFromState, IPropsFromDispatch {}
+
+const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [searchInputState, setSearchInputState] = useState<string | null>(null);
 
 	const filteredGroups = useMemo(() => {
 		if (!searchInputState) {
-			return props.groups;
+			return props.sideBarGroups;
 		}
 
-		return props.groups.filter((group) =>
-			(group.label ?? t('groupCenter.defaultGroupName')).includes(searchInputState),
+		return props.sideBarGroups.filter((group) =>
+			group.label.toLowerCase().includes(searchInputState.toLowerCase()),
 		);
-	}, [props.groups, searchInputState]);
+	}, [props.sideBarGroups, searchInputState]);
 
 	const navigate = useNavigate();
-	const location = useLocation();
-	const isNewGroupButtonDisabled = location.pathname === '/group-center/new';
+	const params = useParams<{ readonly '*': string; readonly 'groupId': string }>();
+	const isNewGroupButtonDisabled = params['*'] === 'new';
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		backendApi.get<IGetAllGroupsResponse>('/user/groups').then((response) => {
+			const groups = response.data.groups;
+
+			props.setSideBarGroups({ sideBarGroups: groups });
+
+			const groupId = groups[0]?.id;
+			const groupLabel = groups[0]?.label;
+
+			if (pathname !== '/group-center/new' && !params.groupId && groupId && groupLabel) {
+				props.setSelectedSideBarGroup({
+					selectedSideBarGroup: {
+						id: groupId,
+						label: groupLabel,
+					},
+				});
+
+				navigate(`/group-center/${groupId}/policies`);
+			}
+		});
+	}, [backendApi, params, location]);
 
 	const onSearchInputChange = (value: string) => setSearchInputState(() => value);
 
-	const onNewButtonClick = () => navigate('/group-center/new');
+	const onNewButtonClick = () => {
+		props.unsetSelectedSideBarGroup();
+
+		navigate('/group-center/new');
+	};
 
 	return (
 		<SideBarView
@@ -47,4 +92,14 @@ const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 SideBar.displayName = 'SideBar';
 SideBar.defaultProps = {};
 
-export default React.memo(SideBar);
+const mapStateToProps = (state: AppState) => {
+	return {
+		sideBarGroups: state.groups.sideBarGroups,
+	};
+};
+
+export default connect(mapStateToProps, {
+	setSideBarGroups: groupsActions.setSideBarGroups,
+	setSelectedSideBarGroup: groupsActions.setSelectedSideBarGroup,
+	unsetSelectedSideBarGroup: groupsActions.unsetSelectedSideBarGroup,
+})(React.memo(SideBar));

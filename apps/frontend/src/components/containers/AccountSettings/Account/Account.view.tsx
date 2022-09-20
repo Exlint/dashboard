@@ -2,16 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { concatClasses } from '@/utils/component';
-
-import DeleteAccountModal from './DeleteAccountModal';
+import EDDeleteButton from '@/ui/EDDeleteButton';
+import EDAcceptButton from '@/ui/EDAcceptButton';
 
 import classes from './Account.module.scss';
 
 interface IProps {
-	readonly isDeleteAccountModalOnView: boolean;
 	readonly onSignOutClick: VoidFunction;
-	readonly onOpenDeleteAccountModal: VoidFunction;
-	readonly onCloseDeleteAccountModal: VoidFunction;
+	readonly onModalConfirmClick: VoidFunction;
 }
 
 const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -27,13 +25,14 @@ const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<span className={classes['actionSection__subHeader']}>
 					{t('accountSettings.account.signOutSubHeader')}
 				</span>
-				<button
+				<EDAcceptButton
 					className={classes['actionSection__button']}
+					disabled={false}
 					type="button"
 					onClick={props.onSignOutClick}
 				>
 					{t('accountSettings.account.signOutButton')}
-				</button>
+				</EDAcceptButton>
 			</section>
 
 			<section className={classes['actionSection']}>
@@ -50,20 +49,14 @@ const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<span className={classes['actionSection__subHeader']}>
 					{t('accountSettings.account.deleteAccountSubHeader')}
 				</span>
-				<button
-					className={concatClasses(
-						classes,
-						'actionSection__button',
-						'actionSection__button--delete',
-					)}
-					type="button"
-					onClick={props.onOpenDeleteAccountModal}
+				<EDDeleteButton
+					modalTitle={t('accountSettings.account.deleteModal.header')}
+					modalSubTitle={t('accountSettings.account.deleteModal.subHeader')}
+					modalConfirmationKeyword={t('accountSettings.account.deleteModal.actionPhraseText')}
+					onModalConfirmClick={props.onModalConfirmClick}
 				>
 					{t('accountSettings.account.deleteAccountButton')}
-				</button>
-				{props.isDeleteAccountModalOnView && (
-					<DeleteAccountModal onClose={props.onCloseDeleteAccountModal} />
-				)}
+				</EDDeleteButton>
 			</section>
 		</main>
 	);

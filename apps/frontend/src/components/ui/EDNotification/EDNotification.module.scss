@@ -7,9 +7,9 @@
 	display: flex;
 	width: 258px;
 	opacity: 0;
+	transition: 0.3s ease-in opacity;
 	inset-block-end: map.get($sizes, spacing-xxl);
 	inset-inline-end: map.get($sizes, spacing-xxl);
-	transition: 0.3s ease-in opacity;
 
 	&--fullOpacity {
 		opacity: 1;
@@ -38,6 +38,7 @@
 
 .notificationContent {
 	display: flex;
+	width: 100%;
 	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
 	border: 2px solid;
 	border-inline-start: none;
@@ -78,15 +79,16 @@
 	.textContainer {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 
 		&__title {
-			margin-bottom: map.get($sizes, spacing-xs);
 			font-size: 1.5rem;
 			font-weight: 600;
 			color: map.get($colors, greys-onyx);
 		}
 
 		&__message {
+			margin-top: map.get($sizes, spacing-xs);
 			font-size: 1.5rem;
 			color: map.get($colors, greys-onyx);
 		}

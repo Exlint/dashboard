@@ -1,17 +1,23 @@
 import React, { type FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { scroller } from 'react-scroll';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
+import { groupsActions } from '@/store/reducers/groups';
+import type { IAddSideBarGroupsPayload } from '@/store/interfaces/groups';
 
-import type { ISideBarGroup } from '../interfaces/group';
 import type { IAvailableLabelResponse, ICreateGroupResponse } from './interfaces/response';
 
 import NewGroupView from './NewGroup.view';
 
-interface IProps {
-	readonly onAddGroupToSideBar: (group: ISideBarGroup) => void;
+interface IPropsFromDispatch {
+	readonly addSideBarGroup: (groups: IAddSideBarGroupsPayload) => PayloadAction<IAddSideBarGroupsPayload>;
 }
+
+interface IProps extends IPropsFromDispatch {}
 
 const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [groupLabelInputState, setGroupLabelInputState] = useState<string | null>(null);
@@ -66,10 +72,18 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 						: null,
 			})
 			.then((response) => {
-				props.onAddGroupToSideBar({
-					id: response.data.groupId,
-					label: groupLabelInputState,
-					librariesNames: [],
+				props.addSideBarGroup({
+					sideBarGroup: {
+						id: response.data.groupId,
+						label: groupLabelInputState!,
+						librariesNames: [],
+					},
+				});
+
+				scroller.scrollTo('group-list-end', {
+					containerId: 'group-list-container',
+					smooth: true,
+					duration: 500,
 				});
 
 				navigate(`/group-center/${response.data.groupId}`);
@@ -92,4 +106,6 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 NewGroup.displayName = 'NewGroup';
 NewGroup.defaultProps = {};
 
-export default React.memo(NewGroup);
+export default connect(null, {
+	addSideBarGroup: groupsActions.addSideBarGroup,
+})(React.memo(NewGroup));
