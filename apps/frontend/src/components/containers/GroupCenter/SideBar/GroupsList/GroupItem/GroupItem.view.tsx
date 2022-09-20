@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 import { concatClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
-import type { ISideBarGroup } from '@/containers/GroupCenter/interfaces/group';
 import logosObject from '@/utils/libraries-logos';
+import type { ISideBarGroup } from '@/store/interfaces/groups';
 
 import classes from './GroupItem.module.scss';
 
 interface IProps {
 	readonly group: ISideBarGroup;
 	readonly isSelected: boolean;
-	readonly onCopyGroupId: (groupId: string) => void;
+	readonly onCopyGroupId: () => void;
 }
 
 const GroupItemView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -36,7 +36,7 @@ const GroupItemView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					'groupItem',
 					props.isSelected ? 'groupItem--selected' : null,
 				)}
-				to={`/group-center/${props.group.id}`}
+				to={`/group-center/${props.group.id}/policies`}
 			>
 				<h3
 					className={concatClasses(
@@ -49,7 +49,7 @@ const GroupItemView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				</h3>
 				<div className={classes['groupIdContainer']}>
 					<span className={classes['groupIdContainer__value']}>
-						{t('groupCenter.sideBar.uniqueId')}
+						{t('groupCenter.uniqueId')}
 						<Trans>&#58;</Trans>
 						&nbsp;
 						{props.group.id.substring(0, 7)}
@@ -58,7 +58,7 @@ const GroupItemView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					<EDSvg
 						className={classes['groupIdContainer__icon']}
 						name="copy"
-						onClick={() => props.onCopyGroupId(props.group.id)}
+						onClick={props.onCopyGroupId}
 					/>
 				</div>
 				<div className={classes['policiesContainer']}>

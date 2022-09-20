@@ -22,11 +22,7 @@ const NavView: React.FC<IProps> = () => {
 				</Link>
 
 				<NavLink route="/group-center" iconName="groupCenterRoute" text={t('nav.groupCenter')} />
-				<NavLink
-					route="/account-settings/account"
-					iconName="greyUser"
-					text={t('nav.accountSettings')}
-				/>
+				<NavLink route="/account-settings" iconName="greyUser" text={t('nav.accountSettings')} />
 			</div>
 
 			<a className={classes['documentationLink']} href="https://www.docs.exlint.io">

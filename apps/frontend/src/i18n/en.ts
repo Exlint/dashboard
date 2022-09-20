@@ -22,6 +22,10 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	copyNotification: {
+		title: 'ID Copied to clipboard',
+		message: 'Paste it wherever you want.',
+	},
 	accountSettings: {
 		header: {
 			routeText: 'Account Settings',
@@ -41,18 +45,10 @@ const en = {
 				'Once you delete your account, there is no going back. Please be certain.',
 			deleteAccountButton: 'Delete your account',
 			deleteModal: {
-				cancel: 'Cancel',
 				header: 'You are about to delete your user:',
 				subHeader: 'All saved data, groups, policies and configurations will be lost',
-				actionText: 'To confirm, type',
-				inputPlaceholder: 'Type here',
 				actionPhraseText: 'DELETE-USER',
-				confirmButton: 'Confirm',
 			},
-		},
-		copyNotification: {
-			title: 'ID Copied to clipboard',
-			message: 'Paste it wherever you want.',
 		},
 		secretManagement: {
 			actionHeader: 'Secret Management',
@@ -114,17 +110,12 @@ const en = {
 		documentation: 'Documentation',
 	},
 	groupCenter: {
-		defaultGroupName: 'Group Label',
+		uniqueId: 'Unique ID',
 		sideBar: {
 			searchInputPlaceholder: 'Search Groups',
 			newGroupAction: 'New',
 			noGroupsHeader: 'Create your first group',
-			uniqueId: 'Unique ID',
 			policies: 'Policies',
-			copyNotification: {
-				title: 'ID Copied to clipboard',
-				message: 'Paste it wherever you want.',
-			},
 		},
 		newGroup: {
 			headerTitle: 'New Group',
@@ -142,10 +133,38 @@ const en = {
 				createGroupButton: 'Create Group',
 			},
 		},
+		tabs: {
+			policies: 'Policies',
+			history: 'History',
+			settings: 'Settings',
+		},
+		settings: {
+			tab: 'Group Settings',
+			informationTitle: 'Information',
+			deleteTitle: 'Delete',
+			groupLabelLabel: 'Group label',
+			groupLabelInputPlacehoder: 'Enter a new group label...',
+			submitButton: 'Save Changes',
+			deleteInstruction: 'Deleting ‘{{label}}’ can’t be undone. Please be certain.',
+			deleteButton: 'Delete ‘{{label}}’',
+			deleteModal: {
+				header: 'Are you sure you want to delete ‘{{label}}’ Group?',
+				subHeader: 'Once deleted, this can’t be undone.',
+			},
+			saveChangesNotification: {
+				title: 'Changes saved',
+			},
+		},
 	},
 	labelAvailability: {
 		isAvailable: 'Label available!',
 		isUnavailable: 'Label unavailable. Try another?',
+	},
+	deleteModal: {
+		cancel: 'Cancel',
+		actionText: 'To confirm, type',
+		inputPlaceholder: 'Type here',
+		confirmButton: 'Confirm',
 	},
 };
 

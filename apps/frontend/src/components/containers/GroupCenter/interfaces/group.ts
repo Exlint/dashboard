@@ -1,10 +1,4 @@
-import type { ILibraryName } from '@/interfaces/libraries';
-
-export interface ISideBarGroup {
-	readonly id: string;
-	readonly label: string | null;
-	readonly librariesNames: ILibraryName[];
-}
+import type { ISideBarGroup } from '@/store/interfaces/groups';
 
 export interface IGetAllGroupsResponse {
 	readonly groups: ISideBarGroup[];

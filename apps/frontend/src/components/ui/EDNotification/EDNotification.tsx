@@ -12,7 +12,7 @@ interface IPropsFromState {
 	readonly isNotificationVisible: boolean;
 	readonly notificationType: NotificationType | null;
 	readonly notificationTitle: string | null;
-	readonly notificationMessage: string | null;
+	readonly notificationMessage?: string | null;
 }
 
 interface IPropsFromDispatch {

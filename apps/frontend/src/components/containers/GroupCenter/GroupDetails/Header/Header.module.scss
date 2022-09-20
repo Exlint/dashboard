@@ -1,0 +1,89 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	padding-inline: map.get($sizes, spacing-xxl);
+	padding-top: map.get($sizes, spacing-l);
+	background-color: map.get($colors, whites-ghost-white);
+	border-bottom: 2px solid map.get($colors, greys-platinum);
+}
+
+.groupDetails {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: map.get($sizes, spacing-l);
+
+	.groupLabel {
+		display: flex;
+		align-items: center;
+
+		&__icon {
+			width: auto;
+			height: 28px;
+			margin-inline-end: map.get($sizes, spacing-m);
+			fill: map.get($colors, greys-philippine-gray);
+		}
+
+		&__text {
+			font-size: 2.1rem;
+			font-weight: 500;
+			color: map.get($colors, purples-purple);
+		}
+	}
+
+	.groupId {
+		display: flex;
+		align-items: center;
+
+		&__prefix {
+			margin-inline-end: map.get($sizes, spacing-m);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+		}
+	}
+}
+
+.tabs {
+	display: flex;
+
+	.tab {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding-bottom: map.get($sizes, spacing-l);
+		text-decoration: none;
+
+		&:not(:last-child) {
+			margin-inline-end: map.get($sizes, spacing-xxl);
+		}
+
+		&__icon {
+			width: auto;
+			height: 20px;
+			margin-inline-end: map.get($sizes, spacing-m);
+			fill: map.get($colors, greys-philippine-gray);
+		}
+
+		&__text {
+			font-size: 1.5rem;
+			color: map.get($colors, greys-onyx);
+		}
+
+		&__border {
+			position: absolute;
+			bottom: calc(-2 * map.get($sizes, spacing-xxs));
+			display: none;
+			width: 100%;
+			height: 2px;
+			background-image: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
+		}
+
+		&--active .tab__border {
+			display: block;
+		}
+	}
+}

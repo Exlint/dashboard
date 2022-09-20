@@ -111,6 +111,7 @@ module.exports = {
 				message: 'The year is not 2015 anymore',
 			},
 		],
+		'no-warning-comments': ['error'],
 
 		'@typescript-eslint/no-unused-vars': ['error'],
 		'@typescript-eslint/no-empty-interface': 'off',

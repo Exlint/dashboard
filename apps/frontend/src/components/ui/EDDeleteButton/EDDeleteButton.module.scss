@@ -1,6 +1,12 @@
 @use 'sass:map';
 
-@import '../../../../../styles/variables.scss';
+@import '../../../styles/variables.scss';
+
+.button {
+	color: map.get($colors, reds-persian-plum);
+	background-color: map.get($colors, whites-ghost-white);
+	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+}
 
 .container {
 	position: absolute;
@@ -57,6 +63,7 @@
 		font-size: 2.4rem;
 		font-weight: 500;
 		color: map.get($colors, blacks-dark-gunmetal);
+		text-align: center;
 	}
 
 	&__subHeader {

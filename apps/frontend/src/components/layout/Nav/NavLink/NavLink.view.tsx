@@ -12,13 +12,20 @@ interface IProps {
 	readonly route: string;
 	readonly iconName: keyof typeof icons;
 	readonly text: string;
+	readonly activePathName: string;
 }
 
 const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<NavLink
 			className={({ isActive }) =>
-				concatClasses(classes, 'container', isActive ? 'container--active' : null)
+				concatClasses(
+					classes,
+					'container',
+					(props.activePathName === '/' && props.route === '/group-center') || isActive
+						? 'container--active'
+						: null,
+				)
 			}
 			to={props.route}
 		>

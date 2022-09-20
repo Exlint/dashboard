@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import type icons from '../../../../assets/icons';
 
@@ -11,7 +12,16 @@ interface IProps {
 }
 
 const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <NavLinkView route={props.route} iconName={props.iconName} text={props.text} />;
+	const { pathname } = useLocation();
+
+	return (
+		<NavLinkView
+			route={props.route}
+			iconName={props.iconName}
+			text={props.text}
+			activePathName={pathname}
+		/>
+	);
 };
 
 NavLink.displayName = 'NavLink';

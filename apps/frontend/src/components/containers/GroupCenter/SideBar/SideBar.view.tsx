@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import EDInputField from '@/ui/EDInputField';
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import noGroupsImg from '@/images/no-groups.png';
-
-import type { ISideBarGroup } from '../interfaces/group';
+import type { ISideBarGroup } from '@/store/interfaces/groups';
 
 import classes from './SideBar.module.scss';
 import GroupsList from './GroupsList';
