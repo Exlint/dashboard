@@ -6,7 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	padding-inline: map.get($sizes, spacing-xxl);
-	padding-top: map.get($sizes, spacing-xxl);
+	padding-top: map.get($sizes, spacing-l);
 	background-color: map.get($colors, whites-ghost-white);
 	border-bottom: 2px solid map.get($colors, greys-platinum);
 }
