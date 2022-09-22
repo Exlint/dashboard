@@ -33,7 +33,7 @@ export class GetAllController {
 	@Get(Routes.GET_ALL)
 	@HttpCode(HttpStatus.OK)
 	public async getAll(@CurrentUserId() userId: string): Promise<GetAllGroupsResponse> {
-		this.logger.log(`Will try to fetch all groups belong to use with an Id: "${userId}"`);
+		this.logger.log(`Will try to fetch all groups belong to user with an Id: "${userId}"`);
 
 		const userGroups = await this.queryBus.execute<GetAllGroupsContract, IUserGroupGetAll[]>(
 			new GetAllGroupsContract(userId),

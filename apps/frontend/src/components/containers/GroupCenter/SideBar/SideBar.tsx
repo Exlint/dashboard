@@ -68,7 +68,7 @@ const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				navigate(`/group-center/${groupId}/policies`);
 			}
 		});
-	}, [backendApi, params, location]);
+	}, [backendApi]);
 
 	const onSearchInputChange = (value: string) => setSearchInputState(() => value);
 

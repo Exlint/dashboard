@@ -25,6 +25,10 @@ export class DBGroupService {
 		await this.prisma.group.update({ where: { id: groupId }, data: { label } });
 	}
 
+	public async editGroupDescription(groupId: string, description: string | null) {
+		await this.prisma.group.update({ where: { id: groupId }, data: { description } });
+	}
+
 	public async deleteGroup(groupId: string) {
 		await this.prisma.group.delete({ where: { id: groupId } });
 	}
@@ -50,12 +54,42 @@ export class DBGroupService {
 		return record === null;
 	}
 
-	public getUserGroup(userId: string, groupId: string) {
-		return this.prisma.group.findFirst({
-			where: { userId, id: groupId },
+	public getUserGroup(groupId: string) {
+		return this.prisma.group.findUnique({
+			where: { id: groupId },
 			select: {
 				label: true,
 			},
 		});
+	}
+
+	public async getInlinePoliciesAndDescription(groupId: string, page: number) {
+		const [count, policies] = await this.prisma.$transaction([
+			this.prisma.inlinePolicy.count({
+				where: {
+					groupId,
+				},
+			}),
+			this.prisma.group.findUniqueOrThrow({
+				where: { id: groupId },
+				select: {
+					description: true,
+					inlinePolicies: {
+						select: {
+							id: true,
+							label: true,
+							library: true,
+						},
+						take: 10,
+						skip: 10 * (page - 1),
+					},
+				},
+			}),
+		]);
+
+		return {
+			...policies,
+			count,
+		};
 	}
 }

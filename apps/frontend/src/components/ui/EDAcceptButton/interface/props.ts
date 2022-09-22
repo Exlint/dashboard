@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import type icons from '../../../../assets/icons';
+import type icons from '@/assets/icons';
 
 interface IBaseProps<
 	ButtonType = Extract<ButtonHTMLAttributes<HTMLButtonElement>['type'], 'button' | 'submit'>,

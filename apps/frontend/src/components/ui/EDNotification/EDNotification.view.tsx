@@ -2,8 +2,8 @@ import React from 'react';
 
 import { concatClasses } from '@/utils/component';
 import type { NotificationType } from '@/store/interfaces/ui';
+import type icons from '@/assets/icons';
 
-import type icons from '../../../assets/icons';
 import EDSvg from '../EDSvg';
 
 import classes from './EDNotification.module.scss';

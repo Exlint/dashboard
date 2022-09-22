@@ -155,6 +155,22 @@ const en = {
 				title: 'Changes saved',
 			},
 		},
+		policies: {
+			aboutHeader: 'About',
+			descriptionPlaceholder: 'Got any notes?',
+			table: {
+				header: 'Policies',
+				newButton: 'New',
+				columns: {
+					label: 'Label',
+					library: 'Library',
+					language: 'Language',
+				},
+				placeholderHeader: 'Create your first policy',
+				createPolicyLeft: 'Select a library',
+				createPolicyRight: 'Choose your own rules<br/>or use a recommended policy',
+			},
+		},
 	},
 	labelAvailability: {
 		isAvailable: 'Label available!',
@@ -165,6 +181,11 @@ const en = {
 		actionText: 'To confirm, type',
 		inputPlaceholder: 'Type here',
 		confirmButton: 'Confirm',
+	},
+	table: {
+		of: 'of',
+		items: 'items',
+		pages: 'pages',
 	},
 };
 

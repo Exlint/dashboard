@@ -42,7 +42,7 @@ export class GetConfigurationController {
 		@Param('policy_id') policyId: string,
 	): Promise<GetConfigurationResponse> {
 		this.logger.log(
-			`Will try to fetch policy configuration belongs to use with an Id: "${userId}" with policy Id: "${policyId}"`,
+			`Will try to fetch policy configuration belongs to user with an Id: "${userId}" with policy Id: "${policyId}"`,
 		);
 
 		const policyConfiguration = await this.queryBus.execute<GetConfigurationContract, Prisma.JsonValue>(

@@ -9,6 +9,6 @@ export class GetGroupHandler implements IQueryHandler<GetGroupContract> {
 	constructor(private readonly dbGroupService: DBGroupService) {}
 
 	execute(contract: GetGroupContract) {
-		return this.dbGroupService.getUserGroup(contract.userId, contract.groupId);
+		return this.dbGroupService.getUserGroup(contract.groupId);
 	}
 }

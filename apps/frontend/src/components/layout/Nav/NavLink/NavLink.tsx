@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import type icons from '../../../../assets/icons';
+import type icons from '@/assets/icons';
 
 import NavLinkView from './NavLink.view';
 

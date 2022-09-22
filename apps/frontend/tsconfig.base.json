@@ -15,6 +15,7 @@
 			"@/utils/*": ["src/utils/*"],
 			"@/store/*": ["src/store/*"],
 			"@/images/*": ["src/assets/images/*"],
+			"@/assets/*": ["src/assets/*"],
 			"@/hooks/*": ["src/hooks/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"],

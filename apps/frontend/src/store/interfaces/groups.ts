@@ -1,4 +1,4 @@
-type ILibraryName = 'eslint' | 'depcheck' | 'inflint' | 'prettier' | 'stylelint';
+import type { ILibraryName } from '@/interfaces/libraries';
 
 export interface ISideBarGroup {
 	readonly id: string;

@@ -36,7 +36,7 @@ export class GetAllController {
 	@Get(Routes.GET_ALL)
 	@HttpCode(HttpStatus.OK)
 	public async getAll(@CurrentUserId() userId: string): Promise<GetAllSecretsResponse> {
-		this.logger.log(`Will try to fetch all secrets belong to use with an Id: "${userId}"`);
+		this.logger.log(`Will try to fetch all secrets belong to user with an Id: "${userId}"`);
 
 		const userSecrets = await this.queryBus.execute<GetAllSecretsContract, IUserSecretsGetAll[]>(
 			new GetAllSecretsContract(userId),

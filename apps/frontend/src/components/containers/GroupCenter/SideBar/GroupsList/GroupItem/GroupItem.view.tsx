@@ -22,7 +22,7 @@ const GroupItemView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	const policiesNames = [null, null, null, null].map((item, index) => {
 		if (librariesNamesSlice[index]) {
-			return librariesNamesSlice[index]!;
+			return librariesNamesSlice[index]!.toLowerCase() as keyof typeof logosObject;
 		}
 
 		return item;
