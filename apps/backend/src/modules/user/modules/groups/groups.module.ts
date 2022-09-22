@@ -12,6 +12,8 @@ import { EventHandlers } from './events/handlers';
 import { GetAllController } from './get-all.controller';
 import { AvailableLabelController } from './available-label.controller';
 import { GetController } from './get.contoller';
+import { GetInlinePoliciesController } from './get-inline-policies.controller';
+import { EditDescriptionController } from './edit-description.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -22,6 +24,8 @@ import { GetController } from './get.contoller';
 		GetAllController,
 		AvailableLabelController,
 		GetController,
+		GetInlinePoliciesController,
+		EditDescriptionController,
 	],
 	providers: [...QueryHandlers, ...CommandHandlers, ...EventHandlers, BelongingGroupGuard],
 })

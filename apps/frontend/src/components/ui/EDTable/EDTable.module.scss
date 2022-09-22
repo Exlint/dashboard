@@ -1,0 +1,10 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid map.get($colors, greys-platinum);
+	border-radius: 6px;
+}

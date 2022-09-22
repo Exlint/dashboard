@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.data {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding-inline: map.get($sizes, spacing-l);
+	overflow-y: auto;
+	background-color: map.get($colors, whites-white);
+
+	.dataRow {
+		display: flex;
+		align-items: center;
+		padding: map.get($sizes, spacing-l);
+		text-decoration: none;
+		border-bottom: 2px solid map.get($colors, greys-platinum);
+
+		&__item {
+			width: 100%;
+			overflow-x: hidden;
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			&--fixed {
+				width: 52px;
+				min-width: 52px;
+			}
+		}
+
+		&__linkItem {
+			width: 30px;
+			height: auto;
+			fill: transparent;
+			stroke: map.get($colors, greys-philippine-gray);
+		}
+	}
+}

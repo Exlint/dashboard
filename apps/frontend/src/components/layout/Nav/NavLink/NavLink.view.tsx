@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
-
-import type icons from '../../../../assets/icons';
+import type icons from '@/assets/icons';
 
 import classes from './NavLink.module.scss';
 

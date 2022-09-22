@@ -5,6 +5,9 @@
 .container {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
+	height: 106px;
+	min-height: 106px;
 	padding-inline: map.get($sizes, spacing-xxl);
 	padding-top: map.get($sizes, spacing-l);
 	background-color: map.get($colors, whites-ghost-white);

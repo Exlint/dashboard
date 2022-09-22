@@ -48,14 +48,16 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			return;
 		}
 
-		backendApi.patch(`/user/groups/${props.groupId}`, { label: newGroupLabelInputState! }).then(() => {
-			props.editSideBarGroup({ id: props.groupId, label: newGroupLabelInputState! });
-			props.showNotification({
-				notificationType: 'checkmark',
-				notificationTitle: t('groupCenter.settings.saveChangesNotification.title'),
-				notificationMessage: '',
+		backendApi
+			.patch(`/user/groups/label/${props.groupId}`, { label: newGroupLabelInputState! })
+			.then(() => {
+				props.editSideBarGroup({ id: props.groupId, label: newGroupLabelInputState! });
+				props.showNotification({
+					notificationType: 'checkmark',
+					notificationTitle: t('groupCenter.settings.saveChangesNotification.title'),
+					notificationMessage: '',
+				});
 			});
-		});
 	};
 
 	return (

@@ -24,3 +24,5 @@ export interface ILbirariesData {
 	readonly prettier: ILibraryData;
 	readonly stylelint: ILibraryData;
 }
+
+export type ILibraryName = 'ESLint' | 'Depcheck' | 'Inflint' | 'Prettier' | 'Stylelint';

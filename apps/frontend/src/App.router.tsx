@@ -7,6 +7,7 @@ import NewSecret from '@/containers/AccountSettings/NewSecret';
 import NewGroup from '@/containers/GroupCenter/NewGroup';
 import GroupDetails from '@/containers/GroupCenter/GroupDetails';
 import Settings from '@/containers/GroupCenter/GroupDetails/Settings';
+import Policies from '@/containers/GroupCenter/GroupDetails/Policies';
 
 interface IProps {
 	readonly isAuthenticated: boolean | null;
@@ -44,7 +45,7 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<Route path="new" element={<NewGroup />} />
 					<Route path=":groupId" element={<GroupDetails />}>
 						<Route path="" element={<Navigate to="policies" replace />} />
-						<Route path="policies" element={<div>&nbsp;</div>} />
+						<Route path="policies" element={<Policies />} />
 						<Route path="history" element={<div>&nbsp;</div>} />
 						<Route path="settings" element={<Settings />} />
 					</Route>
