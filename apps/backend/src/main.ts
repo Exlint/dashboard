@@ -10,6 +10,9 @@ import { LoggingInterceptor } from './interceptors/logger.interceptor';
 import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from './models/jwt-token';
 import type { IEnvironment } from './config/env.interface';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const module: any;
+
 async function bootstrap() {
 	const prisma = new PrismaClient();
 
@@ -28,6 +31,11 @@ async function bootstrap() {
 	});
 
 	const app = await NestFactory.create(AppModule);
+
+	if (module.hot) {
+		module.hot.accept();
+		module.hot.dispose(() => app.close());
+	}
 
 	// Apply validation pipe for controllers' request data
 	app.useGlobalPipes(

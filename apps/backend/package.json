@@ -8,7 +8,7 @@
 	"scripts": {
 		"build": "nest build",
 		"start": "dotenv -e ./envs/.env.production -e ../../prisma/.env.production nest start",
-		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest start --watch",
+		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest build --watch",
 		"start:prod": "dotenv -e ./envs/.env.production -e ../../prisma/.env.production node dist/main",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"compodoc": "compodoc && open-cli ./documentation/index.html",
@@ -60,9 +60,9 @@
 		"open-cli": "7.0.1",
 		"prisma": "4.3.1",
 		"rimraf": "3.0.2",
+		"run-script-webpack-plugin": "0.1.1",
 		"ts-loader": "9.4.1",
 		"typescript": "4.8.3",
-		"webpack": "5.74.0",
-		"webpack-shell-plugin-next": "2.2.2"
+		"webpack-node-externals": "3.0.0"
 	}
 }

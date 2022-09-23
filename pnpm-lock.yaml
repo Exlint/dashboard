@@ -102,11 +102,11 @@ importers:
       prisma: 4.3.1
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
+      run-script-webpack-plugin: 0.1.1
       rxjs: 7.5.6
       ts-loader: 9.4.1
       typescript: 4.8.3
-      webpack: 5.74.0
-      webpack-shell-plugin-next: 2.2.2
+      webpack-node-externals: 3.0.0
     dependencies:
       '@nestjs/common': 9.1.2_allg6cauirbqzgqcmexy2wdnoq
       '@nestjs/config': 2.2.0_uuxozj22b7txoqlrlgrj6jirny
@@ -150,10 +150,10 @@ importers:
       open-cli: 7.0.1
       prisma: 4.3.1
       rimraf: 3.0.2
-      ts-loader: 9.4.1_kb3egcnme7w23lfa5xodfjfhge
+      run-script-webpack-plugin: 0.1.1
+      ts-loader: 9.4.1_typescript@4.8.3
       typescript: 4.8.3
-      webpack: 5.74.0
-      webpack-shell-plugin-next: 2.2.2_webpack@5.74.0
+      webpack-node-externals: 3.0.0
 
   apps/cli-backend:
     specifiers:
@@ -14279,6 +14279,11 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
+  /run-script-webpack-plugin/0.1.1:
+    resolution: {integrity: sha512-PrxBRLv1K9itDKMlootSCyGhdTU+KbKGJ2wF6/k0eyo6M0YGPC58HYbS/J/QsDiwM0t7G99WcuCqto0J7omOXA==}
+    engines: {node: '>=14'}
+    dev: true
+
   /rxjs/5.5.12:
     resolution: {integrity: sha512-xx2itnL5sBbqeeiVgNPVuQQ1nC8Jp2WfNJhXWHmElW9YmrpS9UVnNzhP3EH3HFqexO5Tlp8GhYY+WEcqcVMvGw==}
     engines: {npm: '>=2.0.0'}
@@ -15641,6 +15646,20 @@ packages:
       semver: 7.3.7
       typescript: 4.8.3
       webpack: 5.74.0
+    dev: true
+
+  /ts-loader/9.4.1_typescript@4.8.3:
+    resolution: {integrity: sha512-384TYAqGs70rn9F0VBnh6BPTfhga7yFNdC5gXbQpDrBj9/KsT4iRkGqKXhziofHOlE2j6YEaiTYVGKKvPhGWvw==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      typescript: '*'
+      webpack: ^5.0.0
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.10.0
+      micromatch: 4.0.5
+      semver: 7.3.7
+      typescript: 4.8.3
     dev: true
 
   /ts-morph/13.0.3:
