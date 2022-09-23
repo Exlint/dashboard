@@ -268,7 +268,7 @@ importers:
       react-datepicker: 4.8.0
       react-dom: 18.2.0
       react-i18next: 11.18.6
-      react-redux: 8.0.2
+      react-redux: 8.0.4
       react-router-dom: 6.4.1
       react-scripts: 5.0.1
       react-scroll: 1.8.7
@@ -283,7 +283,7 @@ importers:
       typescript: 4.8.3
       typescript-plugin-css-modules: 3.4.0
     dependencies:
-      '@reduxjs/toolkit': 1.8.5_kkwg4cbsojnjnupd3btipussee
+      '@reduxjs/toolkit': 1.8.5_kuo2ie247izvzll3jejufdtq3q
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
       axios: 0.27.2
@@ -292,7 +292,7 @@ importers:
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 11.18.6_ulhmqqxshznzmtuvahdi5nasbq
-      react-redux: 8.0.2_5uumaiclxbdbzaqafclbf6maf4
+      react-redux: 8.0.4_5uumaiclxbdbzaqafclbf6maf4
       react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.7_biqbaboplfbrettd7655fr4n2y
       react-textarea-autosize: 8.3.4_iapumuv4e6jcjznwuxpf4tt22e
@@ -4262,7 +4262,7 @@ packages:
     resolution: {integrity: sha512-4JF/uMaEDAPdcdZNOrnzE3BvrbGpjgV0FcPT3EVoi6I86fWkloqqxBt+KcK/+fIRR0Pxj66uGR9wVH8U1Y13JA==}
     requiresBuild: true
 
-  /@reduxjs/toolkit/1.8.5_kkwg4cbsojnjnupd3btipussee:
+  /@reduxjs/toolkit/1.8.5_kuo2ie247izvzll3jejufdtq3q:
     resolution: {integrity: sha512-f4D5EXO7A7Xq35T0zRbWq5kJQyXzzscnHKmjnu2+37B3rwHU6mX9PYlbfXdnxcY6P/7zfmjhgan0Z+yuOfeBmA==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
@@ -4275,7 +4275,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 18.2.0
-      react-redux: 8.0.2_5uumaiclxbdbzaqafclbf6maf4
+      react-redux: 8.0.4_5uumaiclxbdbzaqafclbf6maf4
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -13697,8 +13697,8 @@ packages:
       react-fast-compare: 3.2.0
       warning: 4.0.3
 
-  /react-redux/8.0.2_5uumaiclxbdbzaqafclbf6maf4:
-    resolution: {integrity: sha512-nBwiscMw3NoP59NFCXFf02f8xdo+vSHT/uZ1ldDwF7XaTpzm+Phk97VT4urYBl5TYAPNVaFm12UHAEyzkpNzRA==}
+  /react-redux/8.0.4_5uumaiclxbdbzaqafclbf6maf4:
+    resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
       '@types/react-dom': ^16.8 || ^17.0 || ^18.0
