@@ -9,6 +9,7 @@
 		"@commitlint/cli",
 		"@types/node",
 		"stylelint",
-		"@prisma/client"
+		"@prisma/client",
+		"is-docker"
 	]
 }
