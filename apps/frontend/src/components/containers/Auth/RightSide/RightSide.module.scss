@@ -1,0 +1,92 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.rightSideContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+
+	&__header {
+		font-size: 4rem;
+		font-weight: 700;
+		color: map.get($colors, purples-purple);
+	}
+
+	&__subHeader {
+		margin-bottom: map.get($sizes, spacing-xxl-2);
+		font-size: 3.5rem;
+		font-weight: 400;
+		color: map.get($colors, purples-purple);
+	}
+
+	.rightSideExternalAuthContainer {
+		display: flex;
+		align-items: center;
+		width: 357px;
+		height: 67px;
+		padding: map.get($sizes, spacing-m) map.get($sizes, spacing-xl);
+		text-decoration: none;
+		border-radius: 10px;
+
+		&:not(:last-child) {
+			margin-bottom: map.get($sizes, spacing-l);
+		}
+
+		&--github {
+			background-color: map.get($colors, blacks-yankees-black-blue);
+			border: 1.5px solid transparent;
+		}
+
+		&--google {
+			background-color: map.get($colors, whites-white);
+			border: 1.5px solid map.get($colors, greys-platinum);
+		}
+
+		&__brandLogo {
+			height: 43.1px;
+			margin-inline-end: map.get($sizes, spacing-xxl);
+			object-fit: contain;
+		}
+
+		&__text {
+			font-size: 1.9rem;
+			font-weight: 500;
+
+			&--github {
+				color: map.get($colors, greys-anti-flash-grey-white);
+			}
+
+			&--google {
+				color: map.get($colors, blacks-dark-gunmetal);
+			}
+		}
+	}
+
+	&__divider {
+		width: 203px;
+		height: 2px;
+		margin-block: map.get($sizes, spacing-xxl-2);
+		background-color: map.get($colors, greys-platinum);
+	}
+
+	&__permissionsDisclaimer {
+		margin-bottom: map.get($sizes, spacing-m);
+		font-size: 1.6rem;
+		font-weight: 300;
+		color: map.get($colors, greys-independence-grey);
+	}
+
+	&__policyText {
+		font-size: 1.6rem;
+		font-weight: 300;
+		color: map.get($colors, greys-independence-grey);
+		text-align: center;
+	}
+
+	&__textLink {
+		color: map.get($colors, greys-independence-grey);
+	}
+}

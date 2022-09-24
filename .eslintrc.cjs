@@ -14,7 +14,6 @@ module.exports = {
 		project: './tsconfig.eslint.json',
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
-		extraFileExtensions: ['.cjs'],
 	},
 	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
 	rules: {
@@ -112,6 +111,7 @@ module.exports = {
 				message: 'The year is not 2015 anymore',
 			},
 		],
+		'no-warning-comments': ['error'],
 
 		'@typescript-eslint/no-unused-vars': ['error'],
 		'@typescript-eslint/no-empty-interface': 'off',

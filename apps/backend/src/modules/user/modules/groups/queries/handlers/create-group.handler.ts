@@ -10,7 +10,11 @@ export class CreateGroupHandler implements IQueryHandler<CreateGroupContract> {
 	constructor(private readonly dbGroupService: DBGroupService, private readonly eventBus: EventBus) {}
 
 	async execute(contract: CreateGroupContract) {
-		const createdGroupId = await this.dbGroupService.createGroup(contract.userId);
+		const createdGroupId = await this.dbGroupService.createGroup(
+			contract.userId,
+			contract.label,
+			contract.description,
+		);
 
 		this.eventBus.publish(new CreateGroupMixpanelContract(contract.userId, contract.ip));
 

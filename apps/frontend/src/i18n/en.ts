@@ -22,6 +22,64 @@ const en = {
 			privacyPolicy: 'Privacy Policy',
 		},
 	},
+	copyNotification: {
+		title: 'ID Copied to clipboard',
+		message: 'Paste it wherever you want.',
+	},
+	accountSettings: {
+		header: {
+			routeText: 'Account Settings',
+			clientId: 'Client ID',
+			userCreated: 'User Created',
+		},
+		sideBar: {
+			account: 'Account',
+			secretManagement: 'Secret Management',
+		},
+		account: {
+			signOutHeader: 'Sign Out',
+			signOutSubHeader: 'Sign out of your account.',
+			signOutButton: 'Sign out',
+			deleteAccountHeader: 'Delete Account',
+			deleteAccountSubHeader:
+				'Once you delete your account, there is no going back. Please be certain.',
+			deleteAccountButton: 'Delete your account',
+			deleteModal: {
+				header: 'You are about to delete your user:',
+				subHeader: 'All saved data, groups, policies and configurations will be lost',
+				actionPhraseText: 'DELETE-USER',
+			},
+		},
+		secretManagement: {
+			actionHeader: 'Secret Management',
+			actionSubHeaderPrefix: 'Create secrets for',
+			actionSubHeaderPostfix: 'our GitHub action',
+			generateNewSecretButton: 'Generate new secret',
+			noSecrets: 'No Secrets Created!',
+			secretExpirationPrefix: 'Expires on',
+			secretExpirationNeverExpires: 'Never expires',
+			refreshSecretAction: 'Refresh Secret',
+			deleteSecretAction: 'Delete',
+			revokeAllSecretAction: 'Revoke All',
+			postSecretCreationDisclaimer:
+				"Make sure to copy the secret now. You won't be able to see it again!",
+			copyNotificationTitle: 'Secret copied to clipboard',
+			copyNotificationMessage: 'Paste it wherever you want.',
+		},
+		newSecret: {
+			actionHeader: 'New Secret',
+			nameInputLabel: 'Secret name',
+			secretUsageHint: "What's this secret for?",
+			secretExpirationHint: 'This secret will expire on',
+			generateButton: 'Generate Secret',
+			cancelButton: 'Cancel',
+			dateSelect: {
+				days: 'days',
+				custom: 'Custom',
+				noExpiration: 'No expiration',
+			},
+		},
+	},
 	cliAuth: {
 		header: 'Authenticate for CLI',
 		commandText: {
@@ -42,9 +100,92 @@ const en = {
 		},
 		message: "As far as we know,<br />This page doesn't exist!",
 		actions: {
-			linkText: 'Return Home',
+			linkText: 'Return To Group Center',
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
+	},
+	nav: {
+		groupCenter: 'Group Center',
+		accountSettings: 'Account Settings',
+		documentation: 'Documentation',
+	},
+	groupCenter: {
+		uniqueId: 'Unique ID',
+		sideBar: {
+			searchInputPlaceholder: 'Search Groups',
+			newGroupAction: 'New',
+			noGroupsHeader: 'Create your first group',
+			policies: 'Policies',
+		},
+		newGroup: {
+			headerTitle: 'New Group',
+			tabs: {
+				groupCreation: 'Group Creation',
+			},
+			content: {
+				title: 'Create a new group',
+				subTitle:
+					'A group is a centralized compliance, which contains a bundle of policies that can be run together against code.',
+				groupLabelInputLabel: 'Group label',
+				groupLabelInputPlaceholder: 'Enter a name for the group...',
+				groupDescriptionInputLabelPrefix: 'Description',
+				groupDescriptionInputLabelPostfix: 'optional',
+				createGroupButton: 'Create Group',
+			},
+		},
+		tabs: {
+			policies: 'Policies',
+			history: 'History',
+			settings: 'Settings',
+		},
+		settings: {
+			tab: 'Group Settings',
+			informationTitle: 'Information',
+			deleteTitle: 'Delete',
+			groupLabelLabel: 'Group label',
+			groupLabelInputPlacehoder: 'Enter a new group label...',
+			submitButton: 'Save Changes',
+			deleteInstruction: 'Deleting ‘{{label}}’ can’t be undone. Please be certain.',
+			deleteButton: 'Delete ‘{{label}}’',
+			deleteModal: {
+				header: 'Are you sure you want to delete ‘{{label}}’ Group?',
+				subHeader: 'Once deleted, this can’t be undone.',
+			},
+			saveChangesNotification: {
+				title: 'Changes saved',
+			},
+		},
+		policies: {
+			aboutHeader: 'About',
+			descriptionPlaceholder: 'Got any notes?',
+			table: {
+				header: 'Policies',
+				newButton: 'New',
+				columns: {
+					label: 'Label',
+					library: 'Library',
+					language: 'Language',
+				},
+				placeholderHeader: 'Create your first policy',
+				createPolicyLeft: 'Select a library',
+				createPolicyRight: 'Choose your own rules<br/>or use a recommended policy',
+			},
+		},
+	},
+	labelAvailability: {
+		isAvailable: 'Label available!',
+		isUnavailable: 'Label unavailable. Try another?',
+	},
+	deleteModal: {
+		cancel: 'Cancel',
+		actionText: 'To confirm, type',
+		inputPlaceholder: 'Type here',
+		confirmButton: 'Confirm',
+	},
+	table: {
+		of: 'of',
+		items: 'items',
+		pages: 'pages',
 	},
 };
 

@@ -13,9 +13,8 @@ module.exports = {
 		project: './tsconfig.eslint.json',
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
-		extraFileExtensions: ['.cjs'],
 	},
-	plugins: ['jsx-a11y', 'react', 'react-hooks'],
+	plugins: ['jsx-a11y', 'react', 'react-hooks', 'i18next'],
 	rules: {
 		'jsx-quotes': ['error', 'prefer-double'],
 		'curly': ['error', 'all'],
@@ -29,6 +28,7 @@ module.exports = {
 			},
 		],
 		'jsx-a11y/lang': 'error',
+		'jsx-a11y/no-redundant-roles': 'error',
 
 		'react/jsx-fragments': 'error',
 		'react/jsx-wrap-multilines': [
@@ -86,10 +86,12 @@ module.exports = {
 		'react/jsx-no-duplicate-props': ['error'],
 
 		'react-hooks/rules-of-hooks': ['error'],
+
+		'i18next/no-literal-string': 2,
 	},
 	overrides: [
 		{
-			files: ['./src/assets/icons.ts'],
+			files: ['./src/assets/icons.ts', './src/data/**/*.ts', './src/i18n/en.ts'],
 			rules: {
 				'max-lines': 'off',
 			},

@@ -6,12 +6,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 175px;
-	margin-bottom: 50px;
-	background: linear-gradient(270deg, #4f339b 46.97%, #000 93.64%);
+	height: 176px;
+	background-image: linear-gradient(
+		242.44deg,
+		#ae7dfd -30.7%,
+		map.get($colors, blacks-yankees-black-blue) 36.93%,
+		map.get($colors, blacks-yankees-black-blue) 62.82%,
+		map.get($colors, purples-purple) 129.61%
+	);
 
 	&__img {
-		height: 55px;
+		height: 56px;
 		object-fit: contain;
 	}
 }
@@ -23,13 +28,13 @@
 }
 
 .footer {
-	padding: 20px 10px;
+	padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl);
 	font-size: 2.1rem;
 	color: map.get($colors, grey-text);
-	background-color: #f7f7f7;
+	background-color: map.get($colors, greys-anti-flash-grey-white);
 
 	&__contact {
-		color: map.get($colors, purple-text);
+		color: map.get($colors, purples-purple);
 		text-decoration: none;
 	}
 }

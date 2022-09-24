@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	padding-block: map.get($sizes, spacing-m);
+	text-decoration: none;
+	border-bottom: map.get($sizes, spacing-xs) solid transparent;
+
+	&--active {
+		border-bottom-color: map.get($colors, greys-platinum);
+	}
+
+	&:not(:last-child) {
+		margin-inline-end: map.get($sizes, spacing-xl);
+	}
+
+	&__icon {
+		width: auto;
+		height: 26px;
+		margin-inline-end: map.get($sizes, spacing-m);
+		fill: map.get($colors, greys-platinum);
+	}
+
+	&__text {
+		font-size: 1.5rem;
+		color: map.get($colors, greys-platinum);
+	}
+}

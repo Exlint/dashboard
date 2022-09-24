@@ -1,5 +1,4 @@
 import { CommandHandler, type ICommandHandler } from '@nestjs/cqrs';
-import { UnauthorizedException } from '@nestjs/common';
 
 import { DBUserService } from '@/modules/database/user.service';
 
@@ -12,10 +11,6 @@ export class DeleteUserHandler implements ICommandHandler<DeleteUserContract> {
 
 	async execute(contract: DeleteUserContract) {
 		const authData = await this.dbUserService.getAuthTypeData(contract.userId);
-
-		if (!authData) {
-			throw new UnauthorizedException();
-		}
 
 		// * - Won't delete and revoke refresh token in parallel - need to ensure revoke action completed successfully
 

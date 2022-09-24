@@ -1,3 +1,435 @@
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-23)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-67] support policies page of a group ([0693db4](https://github.com/Exlint/dashboard/commit/0693db472e91dac01317aea4229bab2b5616b2cd))
+* 🔥 [EXL-67] support policies page of a group ([#332](https://github.com/Exlint/dashboard/issues/332)) ([842b65b](https://github.com/Exlint/dashboard/commit/842b65b97f24c065b8262a47ea299f60ea3de217))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-23)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-67] support policies page of a group ([0693db4](https://github.com/Exlint/dashboard/commit/0693db472e91dac01317aea4229bab2b5616b2cd))
+* 🔥 [EXL-67] support policies page of a group ([#332](https://github.com/Exlint/dashboard/issues/332)) ([842b65b](https://github.com/Exlint/dashboard/commit/842b65b97f24c065b8262a47ea299f60ea3de217))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-22)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-67] support policies page of a group ([0693db4](https://github.com/Exlint/dashboard/commit/0693db472e91dac01317aea4229bab2b5616b2cd))
+* 🔥 [EXL-67] support policies page of a group ([#332](https://github.com/Exlint/dashboard/issues/332)) ([842b65b](https://github.com/Exlint/dashboard/commit/842b65b97f24c065b8262a47ea299f60ea3de217))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-22)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-67] support policies page of a group ([0693db4](https://github.com/Exlint/dashboard/commit/0693db472e91dac01317aea4229bab2b5616b2cd))
+* 🔥 [EXL-67] support policies page of a group ([#332](https://github.com/Exlint/dashboard/issues/332)) ([842b65b](https://github.com/Exlint/dashboard/commit/842b65b97f24c065b8262a47ea299f60ea3de217))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-22)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-22)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-22)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-21)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-20)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-20)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-69] support group settings page ([ce9373e](https://github.com/Exlint/dashboard/commit/ce9373efb9102d739eacfd06c1fd79a9b84d6512))
+* 🔥 [EXL-69] support group settings page ([#324](https://github.com/Exlint/dashboard/issues/324)) ([2a3e291](https://github.com/Exlint/dashboard/commit/2a3e291f6468ccf16c6de49fe1b96022f62ecb7b))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-20)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-20)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-19)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-19)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-19)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-19)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-18)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-68] support group creation page ([b14ea17](https://github.com/Exlint/dashboard/commit/b14ea17eff2d04190e5e2c536448ef31bdbf6fbe))
+* 🔥 [EXL-68] support group creation page ([#317](https://github.com/Exlint/dashboard/issues/317)) ([9bdf639](https://github.com/Exlint/dashboard/commit/9bdf6398c1a3d4fcd45c875788705f46aa866e12))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-18)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-17)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+* 🔥 [EXL-77] support secret management page ([cdbe5a0](https://github.com/Exlint/dashboard/commit/cdbe5a0f5bad87e773ac127948382be7a2ea527b))
+* 🔥 [EXL-77] support secret management page ([#315](https://github.com/Exlint/dashboard/issues/315)) ([5a203b9](https://github.com/Exlint/dashboard/commit/5a203b9466c50d67516be5e34050c60640d0dc1f))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-16)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-16)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-15)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-15)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-15)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-15)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-15)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+* 🔥 [EXL-76] account settings page ready ([1e987fd](https://github.com/Exlint/dashboard/commit/1e987fdeee504d7842b337a050fa59b60fa681b6))
+* 🔥 [EXL-76] account settings page ready ([#312](https://github.com/Exlint/dashboard/issues/312)) ([f7f838e](https://github.com/Exlint/dashboard/commit/f7f838e32b1f537fadb905de6607ce5e7a397361))
+
+# [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-09-12)
+
+
+### Features
+
+* 🔥 [EXL-66] auth page aligned with public version ([8105a41](https://github.com/Exlint/dashboard/commit/8105a41f2b8449358bdda565f726bcfeae7e6bc9))
+* 🔥 [EXL-66] auth page aligned with public version ([#306](https://github.com/Exlint/dashboard/issues/306)) ([50d064f](https://github.com/Exlint/dashboard/commit/50d064f6722fee9f097db9f3a5d196cdfd424601))
+
+# [1.18.0](https://github.com/Exlint/dashboard/compare/v1.17.1...v1.18.0) (2022-08-16)
+
+
+### Features
+
+* 🔥 add EDSelect ([605000c](https://github.com/Exlint/dashboard/commit/605000cd3915fe3cced0b1cba72a99c0a8b74686))
+
+## [1.17.1](https://github.com/Exlint/dashboard/compare/v1.17.0...v1.17.1) (2022-08-11)
+
+
+### Bug Fixes
+
+* 🐞 fix issues with lintstaged and eslint ([04981aa](https://github.com/Exlint/dashboard/commit/04981aad1e6661fc9ef2c16fe14334b03a5e1ed5))
+
+# [1.17.0](https://github.com/Exlint/dashboard/compare/v1.16.0...v1.17.0) (2022-08-02)
+
+
+### Features
+
+* 🔥 added rules data file ([404ab6b](https://github.com/Exlint/dashboard/commit/404ab6b170631b4fb0c46ae9752a7c6ca80eba6a))
+
+# [1.16.0](https://github.com/Exlint/dashboard/compare/v1.15.0...v1.16.0) (2022-07-31)
+
+
+### Features
+
+* 🔥 full swagger support ([99618e9](https://github.com/Exlint/dashboard/commit/99618e9ca7dae80d8edc6474cd24abef305e555f))
+
+# [1.15.0](https://github.com/Exlint/dashboard/compare/v1.14.1...v1.15.0) (2022-07-30)
+
+
+### Features
+
+* 🔥 more informative swagger ([b09928c](https://github.com/Exlint/dashboard/commit/b09928c88c811f693bcf946e69b377341a94bfad))
+
+## [1.14.1](https://github.com/Exlint/dashboard/compare/v1.14.0...v1.14.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* 🐞 remove deprecated propety and apply JWT to refresh secret ([0b882a8](https://github.com/Exlint/dashboard/commit/0b882a85b3885ef27df8e8169de7c8ccaed81e11))
+* 🐞 secrets are generated with JWT ([3299742](https://github.com/Exlint/dashboard/commit/32997421a5cd112a03c4aff103d792319888c185))
+
+# [1.14.0](https://github.com/Exlint/dashboard/compare/v1.13.0...v1.14.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support policy config api ([3a2079a](https://github.com/Exlint/dashboard/commit/3a2079a6d2195f1c5badfefda68c83edf0c0700c))
+
+# [1.13.0](https://github.com/Exlint/dashboard/compare/v1.12.0...v1.13.0) (2022-07-29)
+
+
+### Features
+
+* 🔥 support getting secrets api ([1feba40](https://github.com/Exlint/dashboard/commit/1feba400bd0714f5e96a332dfb171a5bda0cf485))
+
+# [1.12.0](https://github.com/Exlint/dashboard/compare/v1.11.0...v1.12.0) (2022-07-27)
+
+
+### Features
+
+* 🔥 added controller for getting all user groups ([c3e382a](https://github.com/Exlint/dashboard/commit/c3e382aa50a297a42e62efe30e8de6da5bd8057e))
+
 # [1.11.0](https://github.com/Exlint/dashboard/compare/v1.10.0...v1.11.0) (2022-07-21)
 
 

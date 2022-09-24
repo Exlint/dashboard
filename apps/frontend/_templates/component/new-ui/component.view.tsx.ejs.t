@@ -1,17 +1,17 @@
 ---
-to: src/components/ui/V<%= h.changeCase.pascalCase(name.toLowerCase()) %>/V<%= h.changeCase.pascalCase(name.toLowerCase()) %>.view.tsx
+to: src/components/ui/ED<%= h.changeCase.pascalCase(name.toLowerCase()) %>/ED<%= h.changeCase.pascalCase(name.toLowerCase()) %>.view.tsx
 ---
 <% name = name.toLowerCase() %>import React from 'react';
 
-import classes from './V<%= h.changeCase.pascalCase(name) %>.module.scss';
+import classes from './ED<%= h.changeCase.pascalCase(name) %>.module.scss';
 
 interface IProps {}
 
-const V<%= h.changeCase.pascalCase(name) %>View: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-  return <React.Fragment></React.Fragment>;
+const ED<%= h.changeCase.pascalCase(name) %>View: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+  return <></>;
 };
 
-V<%= h.changeCase.pascalCase(name) %>View.displayName = 'V<%= h.changeCase.pascalCase(name) %>View';
-V<%= h.changeCase.pascalCase(name) %>View.defaultProps = {};
+ED<%= h.changeCase.pascalCase(name) %>View.displayName = 'ED<%= h.changeCase.pascalCase(name) %>View';
+ED<%= h.changeCase.pascalCase(name) %>View.defaultProps = {};
 
-export default React.memo(V<%= h.changeCase.pascalCase(name) %>View);
+export default React.memo(ED<%= h.changeCase.pascalCase(name) %>View);

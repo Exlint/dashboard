@@ -4,6 +4,7 @@ module.exports = {
 		'stylelint-config-recess-order',
 		'stylelint-config-prettier-scss',
 	],
+	plugins: ['stylelint-declaration-strict-value'],
 	rules: {
 		'selector-class-pattern': [
 			'^[a-z][A-Za-z0-9]*((--([a-z][A-Za-z0-9]*)(__([a-z][A-Za-z0-9]*))?)|(__([a-z][A-Za-z0-9]*)(--([a-z][A-Za-z0-9]*))?))?$',
@@ -14,8 +15,19 @@ module.exports = {
 		'color-named': ['never'],
 		'declaration-block-no-duplicate-properties': [true],
 		'function-disallowed-list': ['rgb', 'rgba', 'hsl', 'hwb'],
-		'property-disallowed-list': ['margin-right', 'margin-left', 'padding-right', 'padding-left'],
+		'property-disallowed-list': ['/.*(right|left).*/'],
+		'selector-pseudo-class-no-unknown': [
+			true,
+			{
+				ignorePseudoClasses: ['global'],
+			},
+		],
 
 		'scss/at-import-partial-extension': null,
+
+		'scale-unlimited/declaration-strict-value': [
+			['/color/', '/padding/', 'top', 'bottom', '/margin/', 'font-size', 'fill'],
+			{ ignoreVariables: false, ignoreValues: ['transparent', '/rem/', '0'] },
+		],
 	},
 };

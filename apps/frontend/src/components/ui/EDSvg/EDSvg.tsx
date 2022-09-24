@@ -1,6 +1,6 @@
 import React, { type CSSProperties } from 'react';
 
-import type icons from '../../../assets/icons';
+import type icons from '@/assets/icons';
 
 import EDSvgView from './EDSvg.view';
 
@@ -8,7 +8,7 @@ interface IProps {
 	readonly name: keyof typeof icons;
 	readonly className?: string;
 	readonly style?: CSSProperties;
-	readonly onClick?: () => void;
+	readonly onClick?: VoidFunction;
 }
 
 const EDSvg: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

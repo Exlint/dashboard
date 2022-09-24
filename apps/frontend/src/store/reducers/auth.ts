@@ -6,6 +6,7 @@ const initialState: IAuthState = {
 	isAuthenticated: null,
 	id: null,
 	name: null,
+	createdAt: null,
 };
 
 const authSlice = createSlice({
@@ -16,13 +17,13 @@ const authSlice = createSlice({
 			state.isAuthenticated = true;
 			state.id = action.payload.id;
 			state.name = action.payload.name;
+			state.createdAt = action.payload.createdAt;
 		},
 		setUnauthenticated(state) {
 			state.isAuthenticated = false;
-		},
-		logout(state) {
 			state.id = null;
 			state.name = null;
+			state.createdAt = null;
 		},
 	},
 });

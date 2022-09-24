@@ -11,23 +11,26 @@ import { authActions } from './store/reducers/auth';
 
 import AppView from './App.view';
 
-interface PropsFromState {
+interface IPropsFromState {
 	readonly isAuthenticated: boolean | null;
 }
 
-interface PropsFromDispatch {
+interface IPropsFromDispatch {
 	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
 	readonly setUnauthenticated: () => PayloadAction;
 }
 
-interface IProps extends PropsFromState, PropsFromDispatch {}
+interface IProps extends IPropsFromState, IPropsFromDispatch {}
 
 const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	useEffect(() => {
 		const backendAuthorizationInterceptor = backendApi.interceptors.request.use((request) => {
 			let token: string | null;
 
-			if (request.url === '/user/auth/auto-auth' || request.url === '/user/auth/refresh-token') {
+			if (
+				(request.url === '/user/auth' && request.method === 'get') ||
+				(request.url === '/user/auth/refresh-token' && request.method === 'get')
+			) {
 				token = localStorage.getItem('token');
 			} else {
 				token = sessionStorage.getItem('token');
@@ -62,13 +65,14 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	useEffect(() => {
 		backendApi
-			.post('/user/auth/auto-auth')
+			.get('/user/auth')
 			.then((response: AxiosResponse<IAutoAuthResponseData>) => {
 				sessionStorage.setItem('token', response.data.accessToken);
 
 				props.auth({
 					id: response.data.id,
 					name: response.data.name,
+					createdAt: response.data.createdAt,
 				});
 			})
 			.catch(() => {

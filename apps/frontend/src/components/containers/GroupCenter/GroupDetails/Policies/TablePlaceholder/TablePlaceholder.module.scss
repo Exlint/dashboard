@@ -1,0 +1,52 @@
+@use 'sass:map';
+
+@import '../../../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+
+	&__header {
+		margin-bottom: map.get($sizes, spacing-xxl-2);
+		font-size: 2.4rem;
+		font-weight: 500;
+		color: map.get($colors, greys-independence-grey);
+	}
+}
+
+.illustrationsContainer {
+	display: flex;
+	align-items: center;
+
+	&__icon {
+		width: 35px;
+		margin-inline: map.get($sizes, spacing-xxl-2);
+		fill: map.get($colors, greys-independence-grey);
+	}
+}
+
+.contentContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__text {
+		margin-top: map.get($sizes, spacing-xl);
+		font-size: 1.5rem;
+		color: map.get($colors, greys-independence-grey);
+		text-align: center;
+	}
+
+	&__leftImg {
+		height: 94px;
+		object-fit: contain;
+	}
+
+	&__rightImg {
+		height: 72px;
+		object-fit: contain;
+	}
+}

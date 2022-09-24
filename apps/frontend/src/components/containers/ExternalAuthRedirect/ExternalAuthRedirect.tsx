@@ -31,9 +31,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				let autoAuthResponseData: IAutoAuthResponseData;
 
 				try {
-					const autoAuthResponse = await backendApi.post<IAutoAuthResponseData>(
-						'/user/auth/auto-auth',
-					);
+					const autoAuthResponse = await backendApi.get<IAutoAuthResponseData>('/user/auth');
 
 					autoAuthResponseData = autoAuthResponse.data;
 
@@ -83,7 +81,12 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				props.auth({
 					id: autoAuthResponseData.id,
 					name: autoAuthResponseData.name,
+					createdAt: autoAuthResponseData.createdAt,
 				});
+
+				if (!port) {
+					navigate('/');
+				}
 			};
 
 			fetchResults();

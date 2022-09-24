@@ -6,6 +6,7 @@
 		"stylelint-config-standard-scss",
 		"react-scripts",
 		"postcss-flexbugs-fixes",
-		"typescript-plugin-css-modules"
+		"typescript-plugin-css-modules",
+		"stylelint-declaration-strict-value"
 	]
 }

@@ -8,36 +8,33 @@ datasource db {
 }
 
 enum AuthType {
-  LOCAL
   GOOGLE
   GITHUB
 }
 
 enum PolicyLibrary {
-  ESLINT
-  PRETTIER
-  INFLINT
-  STYLELINT
-  DEPCHECK
+  ESLint
+  Prettier
+  Inflint
+  Stylelint
+  Depcheck
 }
 
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  name         String
-  email        String  @unique
-  passwordHash String?
+  name  String
+  email String @unique
 
   authType      AuthType
-  externalToken String?
+  externalToken String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   refreshTokens RefreshToken[]
-  clientSecrets ClientSecret[]
+  secrets       Secret[]
   groups        Group[]
-  policies      Policy[]
 }
 
 model RefreshToken {
@@ -52,7 +49,7 @@ model RefreshToken {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model ClientSecret {
+model Secret {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   secret String
@@ -87,34 +84,16 @@ model InlinePolicy {
 model Group {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  userId    String   @db.ObjectId
-  label     String?
-  policyIDs String[] @db.ObjectId
+  userId      String  @db.ObjectId
+  label       String
+  description String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   inlinePolicies InlinePolicy[]
 
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  policies Policy[] @relation(fields: [policyIDs], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique(fields: [userId, label], name: "unique_user_labels")
-}
-
-model Policy {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  userId        String        @db.ObjectId
-  label         String
-  library       PolicyLibrary
-  configuration Json?
-  rules         Json?
-  groupsIDs     String[]      @db.ObjectId
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  groups Group[] @relation(fields: [groupsIDs], references: [id])
 }

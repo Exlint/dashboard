@@ -11,7 +11,7 @@ const CliAuthenticatedView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<ExternalAction>
+		<ExternalAction className={classes['container']}>
 			<h2 className={classes['header']}>{t('cliAuthenticated.header')}</h2>
 			<span className={classes['text']}>{t('cliAuthenticated.text')}</span>
 		</ExternalAction>

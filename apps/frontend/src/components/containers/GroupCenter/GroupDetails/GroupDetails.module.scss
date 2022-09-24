@@ -1,0 +1,9 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}

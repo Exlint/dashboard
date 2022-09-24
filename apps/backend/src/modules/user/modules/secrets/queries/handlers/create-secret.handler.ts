@@ -13,15 +13,21 @@ export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> 
 	) {}
 
 	async execute(contract: CreateSecretContract) {
-		const secret = this.secretsService.generateSecret();
-
-		await this.dbClientSecretService.createSecret(
+		const secret = await this.secretsService.generateSecret(
 			contract.userId,
-			secret,
-			contract.label,
+			contract.email,
 			contract.expiration,
 		);
 
-		return secret;
+		const expirationDate = contract.expiration ? new Date(contract.expiration) : null;
+
+		const createdSecret = await this.dbClientSecretService.createSecret(
+			contract.userId,
+			secret,
+			contract.label,
+			expirationDate,
+		);
+
+		return { secretId: createdSecret.id, secretValue: secret };
 	}
 }
