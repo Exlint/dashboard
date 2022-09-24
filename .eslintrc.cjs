@@ -176,7 +176,7 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./scripts/onboarding.cjs'],
+			files: ['./scripts/onboarding.cjs', './docker/scripts/**/*.js'],
 			rules: {
 				'no-console': 'off',
 			},
