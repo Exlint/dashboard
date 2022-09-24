@@ -23,7 +23,13 @@ const waitOnOptions = {
 		await waitOn(waitOnOptions);
 		await open('http://localhost:8080');
 
-		console.log(chalk.magenta('\nReady to go! If you\'re done, run: "pnpm cluster:stop"'));
+		console.log(
+			chalk.magenta(
+				`\nReady to go! If you're done working, run ${chalk.italic.bgBlack.white(
+					' pnpm cluster:stop ',
+				)}`,
+			),
+		);
 	} catch (e) {
 		console.log(chalk.red.bold(`\n\nFailed to start cluster with an error:\n${e}`));
 
