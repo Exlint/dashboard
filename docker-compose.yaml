@@ -6,9 +6,9 @@ services:
         image: mongo:6.0.1
         restart: on-failure
         networks:
-            - mongo_network
+            - dashboard_network
         volumes:
-            - ./docker/mongo-setup.sh:/scripts/mongo-setup.sh
+            - ./docker/scripts/mongo-setup.sh:/scripts/mongo-setup.sh
         entrypoint: ['sh', '/scripts/mongo-setup.sh']
     mongo_replica_1:
         container_name: mongo_replica_1
@@ -31,7 +31,7 @@ services:
             - ./.volumes/mongo/replica1:/data/db
             - ./.volumes/mongo/replica1/configdb:/data/configdb
         networks:
-            - mongo_network
+            - dashboard_network
     mongo_replica_2:
         container_name: mongo_replica_2
         image: mongo:6.0.1
@@ -53,7 +53,7 @@ services:
             - ./.volumes/mongo/replica2:/data/db
             - ./.volumes/mongo/replica2/configdb:/data/configdb
         networks:
-            - mongo_network
+            - dashboard_network
     mongo_replica_3:
         container_name: mongo_replica_3
         image: mongo:6.0.1
@@ -75,8 +75,64 @@ services:
             - ./.volumes/mongo/replica3:/data/db
             - ./.volumes/mongo/replica3/configdb:/data/configdb
         networks:
-            - mongo_network
-
+            - dashboard_network
+    backend:
+        container_name: backend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.backend-dev
+        env_file:
+            - ./apps/backend/envs/.env.development
+            - ./docker/envs/.env.development
+        ports:
+            - 3000:3000
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - dashboard_network
+        volumes:
+            - type: bind
+              source: ./apps/backend/src
+              target: /dashboard/apps/backend/src
+    cli-backend:
+        container_name: cli-backend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.cli-backend-dev
+        env_file:
+            - ./apps/cli-backend/envs/.env.development
+            - ./docker/envs/.env.development
+        ports:
+            - 4000:4000
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - dashboard_network
+        volumes:
+            - type: bind
+              source: ./apps/cli-backend/src
+              target: /dashboard/apps/cli-backend/src
+    frontend:
+        container_name: frontend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.frontend-dev
+        env_file:
+            - ./apps/frontend/.env.development
+        ports:
+            - 8080:8080
+        restart: always
+        depends_on:
+            - backend
+            - cli-backend
+        networks:
+            - dashboard_network
 networks:
-    mongo_network:
+    dashboard_network:
         driver: bridge

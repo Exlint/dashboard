@@ -24,7 +24,7 @@ jobs:
                   version: 7.1.0
 
             - name: Installing dependencies
-              run: pnpm install
+              run: pnpm i
 
             - name: Check unused dependencies
               run: pnpm depcheck && pnpm -r --parallel depcheck
