@@ -26,12 +26,14 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
+      open-cli: 7.0.1
       pnpm: 7.12.2
       prettier: 2.7.1
       prisma: 4.3.1
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.3
+      wait-on: 6.0.1
     devDependencies:
       '@commitlint/cli': 17.1.2
       '@exlint.io/inflint': 1.2.9_2czvso7fgvx5jwiqwq3hb3lwcu
@@ -55,12 +57,14 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
+      open-cli: 7.0.1
       pnpm: 7.12.2
       prettier: 2.7.1
       prisma: 4.3.1
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.3
+      wait-on: 6.0.1
 
   apps/backend:
     specifiers:
@@ -2396,6 +2400,16 @@ packages:
     resolution: {integrity: sha512-59SgoZ3EXbkfSX7b63tsou/SDGzwUEK6MuB5sKqgVK1/XE0fxmpsOb9DQI8LXW3KfGnAjImCGhhEb7uPPAUVNA==}
     dev: true
 
+  /@hapi/hoek/9.3.0:
+    resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
+    dev: true
+
+  /@hapi/topo/5.1.0:
+    resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
+    dependencies:
+      '@hapi/hoek': 9.3.0
+    dev: true
+
   /@humanwhocodes/config-array/0.10.5:
     resolution: {integrity: sha512-XVVDtp+dVvRxMoxSiSfasYaG02VEe1qH5cKgMQJWhol6HwzbcqoCMJi8dAGoYAO57jhUyhI6cWuRiTcRaDaYug==}
     engines: {node: '>=10.10.0'}
@@ -3334,6 +3348,20 @@ packages:
 
   /@rushstack/eslint-patch/1.2.0:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
+    dev: true
+
+  /@sideway/address/4.1.4:
+    resolution: {integrity: sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==}
+    dependencies:
+      '@hapi/hoek': 9.3.0
+    dev: true
+
+  /@sideway/formula/3.0.0:
+    resolution: {integrity: sha512-vHe7wZ4NOXVfkoRb8T5otiENVlT7a3IAiw7H5M2+GO+9CDgcVUUsX1zalAztCmwyOr2RUTGJdgB+ZvSVqmdHmg==}
+    dev: true
+
+  /@sideway/pinpoint/2.0.0:
+    resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
     dev: true
 
   /@sinclair/typebox/0.24.42:
@@ -4732,6 +4760,14 @@ packages:
   /axe-core/4.4.3:
     resolution: {integrity: sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==}
     engines: {node: '>=4'}
+    dev: true
+
+  /axios/0.25.0:
+    resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /axios/0.27.2:
@@ -9712,6 +9748,16 @@ packages:
       - supports-color
       - ts-node
       - utf-8-validate
+    dev: true
+
+  /joi/17.6.1:
+    resolution: {integrity: sha512-Hl7/iBklIX345OCM1TiFSCZRVaAOLDGlWCp0Df2vWYgBgjkezaR7Kvm3joBciBHQjZj5sxXs859r6eqsRSlG8w==}
+    dependencies:
+      '@hapi/hoek': 9.3.0
+      '@hapi/topo': 5.1.0
+      '@sideway/address': 4.1.4
+      '@sideway/formula': 3.0.0
+      '@sideway/pinpoint': 2.0.0
     dev: true
 
   /js-sdsl/4.1.4:
@@ -14936,6 +14982,20 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       xml-name-validator: 3.0.0
+    dev: true
+
+  /wait-on/6.0.1:
+    resolution: {integrity: sha512-zht+KASY3usTY5u2LgaNqn/Cd8MukxLGjdcZxT2ns5QzDmTFc4XoWBgC+C/na+sMRZTuVygQoMYwdcVjHnYIVw==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    dependencies:
+      axios: 0.25.0
+      joi: 17.6.1
+      lodash: 4.17.21
+      minimist: 1.2.6
+      rxjs: 7.5.6
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /walker/1.0.8:
