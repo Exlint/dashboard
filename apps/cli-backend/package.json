@@ -10,7 +10,6 @@
 		"build": "nest build",
 		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest build --watch",
 		"start:dev:docker": "nest build --watch",
-		"start:prod": "node ./dist/main",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"compodoc": "compodoc && open-cli ./documentation/index.html",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",

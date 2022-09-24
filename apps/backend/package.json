@@ -8,10 +8,8 @@
 	"scripts": {
 		"postinstall": "pnpm prisma-gen",
 		"build": "nest build",
-		"start": "dotenv -e ./envs/.env.production -e ../../prisma/.env.production nest start",
 		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest build --watch",
 		"start:dev:docker": "nest build --watch",
-		"start:prod": "dotenv -e ./envs/.env.production -e ../../prisma/.env.production node dist/main",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"compodoc": "compodoc && open-cli ./documentation/index.html",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
