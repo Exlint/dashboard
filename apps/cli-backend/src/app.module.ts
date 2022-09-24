@@ -9,6 +9,8 @@ import { CliTokenGuard } from './guards/cli-token.guard';
 import { DatabaseModule } from './modules/database/database.module';
 import { UserModule } from './modules/user/user.module';
 import { CliTokenStrategy } from './strategies/cli-token.strategy';
+import { HealthModule } from './modules/health/health.module';
+import { VersionController } from './modules/health/version.controller';
 
 @Module({
 	imports: [
@@ -25,6 +27,7 @@ import { CliTokenStrategy } from './strategies/cli-token.strategy';
 				abortEarly: true,
 			},
 		}),
+		HealthModule,
 	],
 	providers: [
 		{
@@ -33,5 +36,6 @@ import { CliTokenStrategy } from './strategies/cli-token.strategy';
 		},
 		CliTokenStrategy,
 	],
+	controllers: [VersionController],
 })
 export class AppModule {}

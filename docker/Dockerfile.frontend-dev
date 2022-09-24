@@ -11,4 +11,4 @@ RUN pnpm --filter frontend i
 
 COPY ./ ./
 
-CMD ["pnpm", "--filter", "frontend", "start:dev"]
+CMD ["pnpm", "--filter", "frontend", "start:dev:docker"]

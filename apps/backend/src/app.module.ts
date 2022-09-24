@@ -9,6 +9,8 @@ import { AccessTokenGuard } from './guards/access-token.guard';
 import { DatabaseModule } from './modules/database/database.module';
 import { UserModule } from './modules/user/user.module';
 import { AccessTokenStrategy } from './strategies/access-token.strategy';
+import { HealthModule } from './modules/health/health.module';
+import { VersionController } from './modules/health/version.controller';
 
 @Module({
 	imports: [
@@ -25,6 +27,7 @@ import { AccessTokenStrategy } from './strategies/access-token.strategy';
 				abortEarly: true,
 			},
 		}),
+		HealthModule,
 	],
 	providers: [
 		{
@@ -33,5 +36,6 @@ import { AccessTokenStrategy } from './strategies/access-token.strategy';
 		},
 		AccessTokenStrategy,
 	],
+	controllers: [VersionController],
 })
 export class AppModule {}

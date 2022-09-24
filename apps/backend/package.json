@@ -8,7 +8,7 @@
 	"scripts": {
 		"postinstall": "pnpm prisma-gen",
 		"build": "nest build",
-		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development nest build --watch",
+		"start:dev": "dotenv -e ./envs/.env.development -e ../../prisma/.env.development -- nest build --watch",
 		"start:dev:docker": "nest build --watch",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"compodoc": "compodoc && open-cli ./documentation/index.html",

@@ -15,7 +15,7 @@
 		"prisma-format": "prisma format",
 		"prisma-push:dev": "dotenv -e ./prisma/.env.development prisma db push --schema ./prisma/schema.prisma",
 		"prisma-push:prod": "dotenv -e ./prisma/.env.production prisma db push --schema ./prisma/schema.prisma",
-		"cluster:start": "pnpm exec ./docker/scripts/start-cluster.sh && wait-on http://localhost:8080 tcp:3000 tcp:4000 && open-cli http://localhost:8080",
+		"cluster:start": "pnpm exec ./docker/scripts/start-cluster.sh && wait-on http-get://localhost:8080 http-get://localhost:3000/health/version http-get://localhost:4000/health/version && open-cli http://localhost:8080",
 		"cluster:stop": "pnpm exec ./docker/scripts/stop-cluster.sh",
 		"cluster:restart": "pnpm exec ./docker/scripts/restart-cluster.sh",
 		"db:clean": "rimraf ./.volumes/mongo",
