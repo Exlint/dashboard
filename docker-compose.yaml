@@ -133,6 +133,10 @@ services:
             - cli-backend
         networks:
             - dashboard_network
+        volumes:
+            - type: bind
+              source: ./apps/frontend/src
+              target: /dashboard/apps/frontend/src
 networks:
     dashboard_network:
         driver: bridge

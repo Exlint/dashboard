@@ -49,6 +49,16 @@ const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
+		if (pathname !== '/group-center/new' && !params.groupId) {
+			const firstGroupId = props.sideBarGroups[0]?.id;
+
+			if (firstGroupId) {
+				navigate(`/group-center/${firstGroupId}/policies`);
+			}
+		}
+	}, [params.groupId, pathname, props.sideBarGroups]);
+
+	useEffect(() => {
 		backendApi.get<IGetAllGroupsResponse>('/user/groups').then((response) => {
 			const groups = response.data.groups;
 
@@ -58,13 +68,6 @@ const SideBar: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			const groupLabel = groups[0]?.label;
 
 			if (pathname !== '/group-center/new' && !params.groupId && groupId && groupLabel) {
-				props.setSelectedSideBarGroup({
-					selectedSideBarGroup: {
-						id: groupId,
-						label: groupLabel,
-					},
-				});
-
 				navigate(`/group-center/${groupId}/policies`);
 			}
 		});
