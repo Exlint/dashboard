@@ -280,7 +280,7 @@ importers:
       i18next: 21.9.2
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2
-      prettier: 2.6.2
+      prettier: 2.7.1
       react: 18.2.0
       react-datepicker: 4.8.0
       react-dom: 18.2.0
@@ -340,7 +340,7 @@ importers:
       hygen: 6.2.11
       postcss: 8.4.16
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.16
-      prettier: 2.6.2
+      prettier: 2.7.1
       react-scripts: 5.0.1_ylswnh42z64a2og6ktgrqdmixi
       sass: 1.55.0
       stylelint: 14.12.1
@@ -12327,12 +12327,6 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
-    dev: true
-
-  /prettier/2.6.2:
-    resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /prettier/2.7.1:
