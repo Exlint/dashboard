@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@commitlint/cli': 17.1.2
       '@exlint.io/inflint': 1.2.9
-      '@prisma/client': 4.3.1
+      '@prisma/client': 4.4.0
       '@types/node': 17.0.35
       '@typescript-eslint/eslint-plugin': 5.38.1
       '@typescript-eslint/parser': 5.38.1
@@ -29,7 +29,7 @@ importers:
       open: 8.4.0
       pnpm: 7.12.2
       prettier: 2.7.1
-      prisma: 4.3.1
+      prisma: 4.4.0
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.4
@@ -37,7 +37,7 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.1.2
       '@exlint.io/inflint': 1.2.9_n25z2epmztii6xa2hzhjcem4e4
-      '@prisma/client': 4.3.1_prisma@4.3.1
+      '@prisma/client': 4.4.0_prisma@4.4.0
       '@types/node': 17.0.35
       '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq
       '@typescript-eslint/parser': 5.38.1_ypn2ylkkyfa5i233caldtndbqa
@@ -60,7 +60,7 @@ importers:
       open: 8.4.0
       pnpm: 7.12.2
       prettier: 2.7.1
-      prisma: 4.3.1
+      prisma: 4.4.0
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.4
@@ -80,7 +80,7 @@ importers:
       '@nestjs/schematics': 9.0.3
       '@nestjs/swagger': 6.1.2
       '@octokit/oauth-app': 4.0.8
-      '@prisma/client': 4.3.1
+      '@prisma/client': 4.4.0
       '@types/express': 4.17.14
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
@@ -105,7 +105,7 @@ importers:
       passport-github2: 0.1.12
       passport-google-oauth20: 2.0.0
       passport-jwt: 4.0.0
-      prisma: 4.3.1
+      prisma: 4.4.0
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
       run-script-webpack-plugin: 0.1.1
@@ -123,7 +123,7 @@ importers:
       '@nestjs/passport': 9.0.0_okkunj32hqcrg5gw7tl7a43dqq
       '@nestjs/platform-express': 9.1.2_umdjpi6fqr4wvw73r3mhthbyle
       '@octokit/oauth-app': 4.0.8
-      '@prisma/client': 4.3.1_prisma@4.3.1
+      '@prisma/client': 4.4.0_prisma@4.4.0
       class-transformer: 0.5.1
       class-validator: 0.13.2
       googleapis: 108.0.0
@@ -155,7 +155,7 @@ importers:
       eslint-plugin-node: 11.1.0_eslint@8.24.0
       eslint-plugin-unused-imports: 2.0.0_midyrlpgzehpt3miiu2m4e3aei
       open-cli: 7.0.1
-      prisma: 4.3.1
+      prisma: 4.4.0
       rimraf: 3.0.2
       run-script-webpack-plugin: 0.1.1
       ts-loader: 9.4.1_qqxisngxjbp7lstdk7boexbu3e
@@ -176,7 +176,7 @@ importers:
       '@nestjs/platform-express': 9.1.2
       '@nestjs/schematics': 9.0.3
       '@nestjs/swagger': 6.1.2
-      '@prisma/client': 4.3.1
+      '@prisma/client': 4.4.0
       '@types/express': 4.17.14
       '@types/passport-jwt': 3.0.6
       '@typescript-eslint/eslint-plugin': 5.38.1
@@ -196,7 +196,7 @@ importers:
       open-cli: 7.0.1
       passport: 0.6.0
       passport-jwt: 4.0.0
-      prisma: 4.3.1
+      prisma: 4.4.0
       reflect-metadata: 0.1.13
       rimraf: 3.0.2
       run-script-webpack-plugin: 0.1.1
@@ -213,7 +213,7 @@ importers:
       '@nestjs/jwt': 9.0.0_@nestjs+common@9.1.2
       '@nestjs/passport': 9.0.0_okkunj32hqcrg5gw7tl7a43dqq
       '@nestjs/platform-express': 9.1.2_umdjpi6fqr4wvw73r3mhthbyle
-      '@prisma/client': 4.3.1_prisma@4.3.1
+      '@prisma/client': 4.4.0_prisma@4.4.0
       class-transformer: 0.5.1
       class-validator: 0.13.2
       mixpanel: 0.17.0
@@ -240,7 +240,7 @@ importers:
       eslint-plugin-unused-imports: 2.0.0_midyrlpgzehpt3miiu2m4e3aei
       open-cli: 7.0.1
       passport: 0.6.0
-      prisma: 4.3.1
+      prisma: 4.4.0
       rimraf: 3.0.2
       run-script-webpack-plugin: 0.1.1
       ts-loader: 9.4.1_qqxisngxjbp7lstdk7boexbu3e
@@ -4180,8 +4180,8 @@ packages:
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
 
-  /@prisma/client/4.3.1_prisma@4.3.1:
-    resolution: {integrity: sha512-FA0/d1VMJNWqzU7WVWTNWJ+lGOLR9JUBnF73GdIPAEVo/6dWk4gHx0EmgeU+SMv4MZoxgOeTBJF2azhg7x0hMw==}
+  /@prisma/client/4.4.0_prisma@4.4.0:
+    resolution: {integrity: sha512-ciKOP246x1xwr04G9ajHlJ4pkmtu9Q6esVyqVBO0QJihaKQIUvbPjClp17IsRJyxqNpFm4ScbOc/s9DUzKHINQ==}
     engines: {node: '>=14.17'}
     requiresBuild: true
     peerDependencies:
@@ -4190,14 +4190,14 @@ packages:
       prisma:
         optional: true
     dependencies:
-      '@prisma/engines-version': 4.3.0-32.c875e43600dfe042452e0b868f7a48b817b9640b
-      prisma: 4.3.1
+      '@prisma/engines-version': 4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6
+      prisma: 4.4.0
 
-  /@prisma/engines-version/4.3.0-32.c875e43600dfe042452e0b868f7a48b817b9640b:
-    resolution: {integrity: sha512-8yWpXkQRmiSfsi2Wb/ZS5D3RFbeu/btL9Pm/gdF4phB0Lo5KGsDFMxFMgaD64mwED2nHc8ZaEJg/+4Jymb9Znw==}
+  /@prisma/engines-version/4.4.0-66.f352a33b70356f46311da8b00d83386dd9f145d6:
+    resolution: {integrity: sha512-P5v/PuEIJLYXZUZBvOLPqoyCW+m6StNqHdiR6te++gYVODpPdLakks5HVx3JaZIY+LwR02juJWFlwpc9Eog/ug==}
 
-  /@prisma/engines/4.3.1:
-    resolution: {integrity: sha512-4JF/uMaEDAPdcdZNOrnzE3BvrbGpjgV0FcPT3EVoi6I86fWkloqqxBt+KcK/+fIRR0Pxj66uGR9wVH8U1Y13JA==}
+  /@prisma/engines/4.4.0:
+    resolution: {integrity: sha512-Fpykccxlt9MHrAs/QpPGpI2nOiRxuLA+LiApgA59ibbf24YICZIMWd3SI2YD+q0IAIso0jCGiHhirAIbxK3RyQ==}
     requiresBuild: true
 
   /@reduxjs/toolkit/1.8.5_kuo2ie247izvzll3jejufdtq3q:
@@ -13332,13 +13332,13 @@ packages:
       react-is: 18.2.0
     dev: true
 
-  /prisma/4.3.1:
-    resolution: {integrity: sha512-90xo06wtqil76Xsi3mNpc4Js3SdDRR5g4qb9h+4VWY4Y8iImJY6xc3PX+C9xxTSt1lr0Q89A0MLkJjd8ax6KiQ==}
+  /prisma/4.4.0:
+    resolution: {integrity: sha512-l/QKLmLcKJQFuc+X02LyICo0NWTUVaNNZ00jKJBqwDyhwMAhboD1FWwYV50rkH4Wls0RviAJSFzkC2ZrfawpfA==}
     engines: {node: '>=14.17'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 4.3.1
+      '@prisma/engines': 4.4.0
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
