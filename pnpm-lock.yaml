@@ -79,7 +79,7 @@ importers:
       '@nestjs/platform-express': 9.1.2
       '@nestjs/schematics': 9.0.3
       '@nestjs/swagger': 6.1.2
-      '@octokit/oauth-app': 4.0.8
+      '@octokit/oauth-app': 4.1.0
       '@prisma/client': 4.4.0
       '@types/express': 4.17.14
       '@types/passport-github2': 1.2.5
@@ -122,7 +122,7 @@ importers:
       '@nestjs/jwt': 9.0.0_@nestjs+common@9.1.2
       '@nestjs/passport': 9.0.0_okkunj32hqcrg5gw7tl7a43dqq
       '@nestjs/platform-express': 9.1.2_umdjpi6fqr4wvw73r3mhthbyle
-      '@octokit/oauth-app': 4.0.8
+      '@octokit/oauth-app': 4.1.0
       '@prisma/client': 4.4.0_prisma@4.4.0
       class-transformer: 0.5.1
       class-validator: 0.13.2
@@ -4038,8 +4038,8 @@ packages:
       - encoding
     dev: false
 
-  /@octokit/oauth-app/4.0.8:
-    resolution: {integrity: sha512-bPZNtV2KD8x9deUa+gLX1o6IhIMFwt6UlVZNJTnS9zSCbTpnmWzHhrZr86nM3fKOvU/KPyz40zJMGsoLtvaOgw==}
+  /@octokit/oauth-app/4.1.0:
+    resolution: {integrity: sha512-dGZcfmwPkS3VZ9CNnvNszp6mlnbOZh9+/uPNiK/AkvSUJGXTbUVIZTkMvAjbyIFw2WlIx++hhtrTeKNJq6uMbw==}
     engines: {node: '>= 14'}
     dependencies:
       '@octokit/auth-oauth-app': 5.0.2
