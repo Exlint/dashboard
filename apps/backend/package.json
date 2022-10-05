@@ -57,7 +57,7 @@
 		"eslint-plugin-import": "2.26.0",
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-unused-imports": "2.0.0",
-		"open-cli": "7.0.1",
+		"open-cli": "7.1.0",
 		"prisma": "4.4.0",
 		"rimraf": "3.0.2",
 		"run-script-webpack-plugin": "0.1.1",
