@@ -11,7 +11,8 @@
 			"@/decorators/*": ["src/decorators/*"],
 			"@/models/*": ["src/models/*"],
 			"@/interfaces/*": ["src/interfaces/*"],
-			"@/guards/*": ["src/guards/*"]
+			"@/guards/*": ["src/guards/*"],
+			"@/data/*": ["src/data/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"]
 	}

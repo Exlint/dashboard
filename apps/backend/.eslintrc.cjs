@@ -14,4 +14,12 @@ module.exports = {
 
 		'node/no-sync': 'error',
 	},
+	overrides: [
+		{
+			files: ['./src/data/**/*.ts'],
+			rules: {
+				'max-lines': 'off',
+			},
+		},
+	],
 };

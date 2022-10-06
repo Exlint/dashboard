@@ -1,18 +1,56 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { Prisma } from '@prisma/client';
+import { PolicyLibrary } from '@prisma/client';
 
-export class CreateInlinePolicyResponse {
+import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
+
+class GetLibrary implements Omit<ILibraryData, 'rules'> {
+	@ApiResponseProperty({
+		enum: PolicyLibrary,
+	})
+	public name!: PolicyLibrary;
+
 	@ApiResponseProperty({
 		type: String,
-		example: '62e5362119bea07115434f4a',
+		example: 'Yazif',
 	})
-	public policyId!: string;
+	public author!: string;
+
+	@ApiResponseProperty({
+		type: String,
+		example: 'Nice library by Yazif',
+	})
+	public description!: string;
+
+	@ApiResponseProperty({
+		type: [String],
+		example: ['Linters'],
+	})
+	public types!: IType[];
+
+	@ApiResponseProperty({
+		type: [String],
+		example: ['Code'],
+	})
+	public categories!: ICategory[];
+
+	@ApiResponseProperty({
+		type: String,
+		example: 'JavaScript',
+	})
+	public language!: ILanguage;
 }
 
-export class GetConfigurationResponse {
+export class AvailableLabelResponse {
 	@ApiResponseProperty({
-		type: Object,
-		example: { yazifConfig1: 'Yazif', yazifConfig2: 'Yazif 2' },
+		type: Boolean,
+		example: true,
 	})
-	public configuration!: Prisma.JsonValue;
+	public isAvailable!: boolean;
+}
+
+export class GetLibrariesResponse {
+	@ApiResponseProperty({
+		type: [GetLibrary],
+	})
+	public libraries!: Omit<ILibraryData, 'rules'>[];
 }

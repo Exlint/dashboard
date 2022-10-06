@@ -1,4 +1,3 @@
-import { CreatePolicyMixpanelHandler } from './create-policy-mixpanel.handler';
-import { CreateRuleMixpanelHandler } from './create-rule-mixpanel.handler';
+import { CreateMixpanelHandler } from './create-mixpanel.handler';
 
-export const EventHandlers = [CreatePolicyMixpanelHandler, CreateRuleMixpanelHandler];
+export const EventHandlers = [CreateMixpanelHandler];

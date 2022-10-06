@@ -17,6 +17,7 @@ const EDSvgView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 
 	const clickHandler = (e: React.MouseEvent) => {
 		e.preventDefault();
+		e.stopPropagation();
 
 		props.onClick!();
 	};

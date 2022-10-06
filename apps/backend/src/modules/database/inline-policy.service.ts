@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { PolicyLibrary, Prisma } from '@prisma/client';
+import type { PolicyLibrary } from '@prisma/client';
 
 import { PrismaService } from './prisma.service';
 
@@ -7,23 +7,14 @@ import { PrismaService } from './prisma.service';
 export class DBInlinePolicyService {
 	constructor(private prisma: PrismaService) {}
 
-	public async createInlinePolicy(groupId: string, label: string, library: PolicyLibrary) {
-		const createdInlinePolicy = await this.prisma.inlinePolicy.create({
-			data: { groupId, label, library },
-			select: { id: true },
-		});
-
-		return createdInlinePolicy.id;
-	}
-
-	public async deleteInlinePolicy(inlinePolicyId: string) {
-		await this.prisma.inlinePolicy.delete({ where: { id: inlinePolicyId } });
-	}
-
-	public async updateConfiguration(inlinePolicyId: string, configuration: Record<string, unknown>) {
-		await this.prisma.inlinePolicy.update({
-			where: { id: inlinePolicyId },
-			data: { configuration: configuration as Prisma.JsonObject },
+	public async createInlinePolicy(
+		groupId: string,
+		label: string,
+		description: string | null,
+		library: PolicyLibrary,
+	) {
+		await this.prisma.inlinePolicy.create({
+			data: { groupId, label, description, library },
 		});
 	}
 
@@ -35,54 +26,21 @@ export class DBInlinePolicyService {
 		return inlinePolicyDB !== null;
 	}
 
-	public async addRule(inlinePolicyId: string, rule: Record<string, unknown>) {
-		const inlinePolicyDB = await this.prisma.inlinePolicy.findUniqueOrThrow({
-			where: { id: inlinePolicyId },
-			select: { rules: true },
+	public async isLabelAvailable(userId: string, label: string) {
+		const record = await this.prisma.inlinePolicy.findFirst({
+			where: { label, group: { userId } },
 		});
 
-		let newInlinePolicyRules: Prisma.JsonObject;
-
-		if (!inlinePolicyDB.rules) {
-			newInlinePolicyRules = rule as Prisma.JsonObject;
-		} else {
-			newInlinePolicyRules = {
-				...(inlinePolicyDB.rules as Prisma.JsonObject),
-				...rule,
-			} as Prisma.JsonObject;
-		}
-
-		await this.prisma.inlinePolicy.update({
-			where: { id: inlinePolicyId },
-			data: { rules: newInlinePolicyRules },
-		});
+		return record === null;
 	}
 
-	public async removeRule(inlinePolicyId: string, ruleName: string) {
-		const inlinePolicyDB = await this.prisma.inlinePolicy.findUniqueOrThrow({
-			where: { id: inlinePolicyId },
-			select: { rules: true },
-		});
-
-		if (!inlinePolicyDB.rules) {
-			return;
-		}
-
-		const rulesWithoutRule = {
-			...(inlinePolicyDB.rules as Prisma.JsonObject),
-			[ruleName]: undefined,
-		};
-
-		await this.prisma.inlinePolicy.update({
-			where: { id: inlinePolicyId },
-			data: { rules: rulesWithoutRule },
-		});
+	public getUserGroupLibraries(groupId: string) {
+		return this.prisma.inlinePolicy.findMany({ where: { groupId }, select: { library: true } });
 	}
 
-	public getConfiguration(inlinePolicyId: string) {
-		return this.prisma.inlinePolicy.findFirst({
-			where: { id: inlinePolicyId },
-			select: { configuration: true },
-		});
+	public async groupHasLibrary(groupId: string, library: PolicyLibrary) {
+		const record = await this.prisma.inlinePolicy.findFirst({ where: { groupId, library } });
+
+		return record !== null;
 	}
 }

@@ -38,6 +38,7 @@
 		&__text {
 			font-size: 1.5rem;
 			color: map.get($colors, greys-onyx);
+			white-space: nowrap;
 		}
 	}
 }

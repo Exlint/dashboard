@@ -20,6 +20,7 @@ const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
+const NewPolicy = React.lazy(() => import('./pages/NewPolicy'));
 
 const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 	<Routes>
@@ -50,6 +51,7 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<Route path="settings" element={<Settings />} />
 					</Route>
 				</Route>
+				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
 			</>
 		)}
 		<Route path="cli-auth" element={<CliAuth />} />

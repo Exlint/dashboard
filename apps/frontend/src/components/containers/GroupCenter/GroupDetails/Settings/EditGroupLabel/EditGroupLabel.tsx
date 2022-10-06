@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
-
-import type { IAvailableLabelResponse } from './interfaces/response';
+import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
 import EditGroupLabelView from './EditGroupLabel.view';
 

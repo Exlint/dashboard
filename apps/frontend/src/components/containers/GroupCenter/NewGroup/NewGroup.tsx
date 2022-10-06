@@ -8,8 +8,9 @@ import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
 import { groupsActions } from '@/store/reducers/groups';
 import type { IAddSideBarGroupsPayload } from '@/store/interfaces/groups';
+import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
-import type { IAvailableLabelResponse, ICreateGroupResponse } from './interfaces/response';
+import type { ICreateGroupResponse } from './interfaces/response';
 
 import NewGroupView from './NewGroup.view';
 
@@ -41,8 +42,8 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				backendApi
 					.get<IAvailableLabelResponse>(`/user/groups/available/${groupLabelInputState}`)
 					.then((response) => {
-						setIsGroupLabelValidState(response.data.isAvailable);
-						setIsGroupLabelAvailableState(response.data.isAvailable);
+						setIsGroupLabelValidState(() => response.data.isAvailable);
+						setIsGroupLabelAvailableState(() => response.data.isAvailable);
 					});
 			}
 		},

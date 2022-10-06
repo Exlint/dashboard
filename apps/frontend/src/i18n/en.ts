@@ -187,6 +187,36 @@ const en = {
 		items: 'items',
 		pages: 'pages',
 	},
+	newPolicy: {
+		formHeader: 'Create a new policy',
+		formSubHeader:
+			'A policy contains a custom-made rule set and configurations, including CLI usage history.',
+		group: 'Group',
+		policyLabel: 'Policy label',
+		descriptionLabel: 'Description',
+		descriptionLabelPostfix: '(optional)',
+		librarySelection: {
+			header: 'Choose a Library',
+			filterInputPlaceholder: 'Search Library',
+			selectPrefix: 'Sort',
+			languageSort: 'Language',
+			filters: {
+				all: 'All',
+				languageTitle: 'Language',
+				typeFilter: 'Types',
+				categoryFilter: 'Categories',
+				agnostic: 'Agnostic',
+				linters: 'Linters',
+				formatters: 'Formatters',
+				code: 'Code',
+				fileSystem: 'File System',
+				styles: 'Styles',
+				dependencies: 'Dependecies',
+			},
+			selected: 'Selected',
+		},
+		formSubmit: 'Create Policy',
+	},
 };
 
 export default en;
