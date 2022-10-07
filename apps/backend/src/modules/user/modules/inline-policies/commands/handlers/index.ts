@@ -1,3 +1,4 @@
-import { CreateInlineHandler } from './create.handler';
+import { DeleteHandler } from './delete.handler';
+import { EditLabelHandler } from './edit-label.handler';
 
-export const CommandHandlers = [CreateInlineHandler];
+export const CommandHandlers = [EditLabelHandler, DeleteHandler];

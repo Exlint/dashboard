@@ -6,6 +6,7 @@ import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/inte
 class GetLibrary implements Omit<ILibraryData, 'rules'> {
 	@ApiResponseProperty({
 		enum: PolicyLibrary,
+		example: PolicyLibrary.ESLint,
 	})
 	public name!: PolicyLibrary;
 
@@ -53,4 +54,32 @@ export class GetLibrariesResponse {
 		type: [GetLibrary],
 	})
 	public libraries!: Omit<ILibraryData, 'rules'>[];
+}
+
+export class CreateResponse {
+	@ApiResponseProperty({
+		type: String,
+		example: '62e5362119bea07115434f4a',
+	})
+	public policyId!: string;
+}
+
+export class GetResponse {
+	@ApiResponseProperty({
+		type: String,
+		example: 'Yazif Group',
+	})
+	public groupLabel!: string;
+
+	@ApiResponseProperty({
+		type: String,
+		example: 'Yazif Policy',
+	})
+	public policyLabel!: string;
+
+	@ApiResponseProperty({
+		enum: PolicyLibrary,
+		example: PolicyLibrary.ESLint,
+	})
+	public library!: PolicyLibrary;
 }

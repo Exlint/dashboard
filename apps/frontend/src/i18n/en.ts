@@ -217,6 +217,34 @@ const en = {
 		},
 		formSubmit: 'Create Policy',
 	},
+	policy: {
+		header: {
+			libraryPrefix: 'Library',
+			tabs: {
+				rules: 'Rules',
+				configurations: 'Configurations',
+				history: 'History',
+				settings: 'Settings',
+			},
+		},
+		settings: {
+			informationTitle: 'Information',
+			policyLabelLabel: 'Policy label',
+			policyLabelInputPlacehoder: 'Enter a new policy label...',
+			submitButton: 'Save Changes',
+			saveChangesNotification: {
+				title: 'Changes saved',
+			},
+			tab: 'Policy Settings',
+			deleteTitle: 'Delete Policy',
+			deleteInstruction: 'Deleting ‘{{label}}’ can’t be undone. Please be certain.',
+			deleteModal: {
+				header: 'Are you sure you want to delete ‘{{label}}’ Policy?',
+				subHeader: 'Once deleted, this can’t be undone.',
+			},
+			deleteButton: 'Delete ‘{{label}}’',
+		},
+	},
 };
 
 export default en;

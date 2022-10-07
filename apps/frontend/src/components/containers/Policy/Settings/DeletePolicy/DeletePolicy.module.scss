@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.title {
+	width: 100%;
+	padding-bottom: map.get($sizes, spacing-l);
+	margin-block: map.get($sizes, spacing-xxl) map.get($sizes, spacing-l);
+	font-size: 2.4rem;
+	font-weight: normal;
+	color: map.get($colors, reds-persian-plum);
+	border-bottom: 2px solid map.get($colors, greys-platinum);
+}
+
+.instructionText {
+	font-size: 1.5rem;
+	color: map.get($colors, greys-independence-grey);
+}
+
+.deleteButton {
+	margin-top: map.get($sizes, spacing-m);
+}

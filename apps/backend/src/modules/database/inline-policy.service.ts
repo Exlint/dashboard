@@ -13,9 +13,11 @@ export class DBInlinePolicyService {
 		description: string | null,
 		library: PolicyLibrary,
 	) {
-		await this.prisma.inlinePolicy.create({
+		const createdRecord = await this.prisma.inlinePolicy.create({
 			data: { groupId, label, description, library },
 		});
+
+		return createdRecord.id;
 	}
 
 	public async doesInlinePolicyBelongUser(inlinePolicyId: string, userId: string) {
@@ -42,5 +44,24 @@ export class DBInlinePolicyService {
 		const record = await this.prisma.inlinePolicy.findFirst({ where: { groupId, library } });
 
 		return record !== null;
+	}
+
+	public get(policyId: string) {
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: policyId },
+			select: {
+				group: { select: { label: true } },
+				label: true,
+				library: true,
+			},
+		});
+	}
+
+	public async editPolicyLabel(policyId: string, label: string) {
+		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { label } });
+	}
+
+	public async deletePolicy(policyId: string) {
+		await this.prisma.inlinePolicy.delete({ where: { id: policyId } });
 	}
 }
