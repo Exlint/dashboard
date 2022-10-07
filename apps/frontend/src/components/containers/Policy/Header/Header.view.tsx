@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
@@ -8,11 +8,13 @@ import type { ILibraryName } from '@/interfaces/libraries';
 import logosObject from '@/utils/libraries-logos';
 
 import classes from './Header.module.scss';
+import Tabs from './Tabs';
 
 interface IProps {
 	readonly groupLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: ILibraryName | null;
+	readonly groupId: string;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -22,8 +24,10 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<header className={classes['container']}>
 			<div className={classes['topHeader']}>
 				<div className={classes['labelsContainer']}>
-					<EDSvg className={classes['labelsContainer__icon']} name="group" />
-					<span className={classes['labelsContainer__label']}>{props.groupLabel}</span>
+					<Link className={classes['groupLink']} to={`/group-center/${props.groupId}`}>
+						<EDSvg className={classes['labelsContainer__icon']} name="group" />
+						<span className={classes['labelsContainer__label']}>{props.groupLabel}</span>
+					</Link>
 
 					<span className={classes['labelsContainer__divider']}>&#47;</span>
 
@@ -58,48 +62,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				</div>
 			</div>
 
-			<div className={classes['tabs']}>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
-					}
-					to="rules"
-				>
-					<EDSvg className={classes['tab__icon']} name="rule" />
-					<span className={classes['tab__text']}>{t('policy.header.tabs.rules')}</span>
-					<div className={classes['tab__border']} />
-				</NavLink>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
-					}
-					to="configurations"
-				>
-					<EDSvg className={classes['tab__icon']} name="configurations" />
-					<span className={classes['tab__text']}>{t('policy.header.tabs.configurations')}</span>
-					<div className={classes['tab__border']} />
-				</NavLink>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
-					}
-					to="history"
-				>
-					<EDSvg className={classes['tab__icon']} name="history" />
-					<span className={classes['tab__text']}>{t('policy.header.tabs.history')}</span>
-					<div className={classes['tab__border']} />
-				</NavLink>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
-					}
-					to="settings"
-				>
-					<EDSvg className={classes['tab__icon']} name="settings" />
-					<span className={classes['tab__text']}>{t('policy.header.tabs.settings')}</span>
-					<div className={classes['tab__border']} />
-				</NavLink>
-			</div>
+			<Tabs />
 		</header>
 	);
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import type { ILibraryName } from '@/interfaces/libraries';
 
@@ -11,8 +12,15 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const params = useParams<{ readonly groupId: string }>();
+
 	return (
-		<HeaderView groupLabel={props.groupLabel} policyLabel={props.policyLabel} library={props.library} />
+		<HeaderView
+			groupLabel={props.groupLabel}
+			policyLabel={props.policyLabel}
+			library={props.library}
+			groupId={params.groupId!}
+		/>
 	);
 };
 
