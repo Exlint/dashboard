@@ -9,7 +9,7 @@ import {
 	Post,
 	UseGuards,
 } from '@nestjs/common';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { QueryBus } from '@nestjs/cqrs';
 import { RealIP } from 'nestjs-real-ip';
 import {
 	ApiBearerAuth,
@@ -25,20 +25,22 @@ import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './inline-policies.routes';
 import { CreateDto } from './classes/create.dto';
-import { CreateContract } from './commands/contracts/create.contract';
+import { CreateContract } from './queries/contracts/create.contract';
 import { GroupHasLibraryContract } from './queries/contracts/group-has-library.contract';
+import { CreateResponse } from './classes/responses';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
-export class createController {
-	private readonly logger = new Logger(createController.name);
+export class CreateController {
+	private readonly logger = new Logger(CreateController.name);
 
-	constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+	constructor(private readonly queryBus: QueryBus) {}
 
 	@ApiOperation({ description: 'Create a new inline policy with label, description and chosen library' })
 	@ApiBearerAuth('access-token')
 	@ApiCreatedResponse({
 		description: 'If successfully created the inline policy',
+		type: CreateResponse,
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is missing or invalid',
@@ -52,7 +54,7 @@ export class createController {
 		@Param('group_id') groupId: string,
 		@Body() createDto: CreateDto,
 		@RealIP() ip: string,
-	): Promise<void> {
+	): Promise<CreateResponse> {
 		this.logger.log(
 			`Will try to create an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
 		);
@@ -65,7 +67,7 @@ export class createController {
 			throw new BadRequestException();
 		}
 
-		await this.commandBus.execute<CreateContract, void>(
+		const createdPolicyId = await this.queryBus.execute<CreateContract, string>(
 			new CreateContract(
 				userId,
 				groupId,
@@ -79,5 +81,7 @@ export class createController {
 		this.logger.log(
 			`Successfully created an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
 		);
+
+		return { policyId: createdPolicyId };
 	}
 }

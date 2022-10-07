@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
 
+import type { ICreateResponseData } from './interfaces/responses';
+
 import NewPolicyView from './NewPolicy.view';
 
 interface IProps {}
@@ -33,13 +35,13 @@ const NewPolicy: React.FC<IProps> = () => {
 		e.preventDefault();
 
 		backendApi
-			.post(`/user/inline-policies/${params.groupId}`, {
+			.post<ICreateResponseData>(`/user/inline-policies/${params.groupId}`, {
 				label: policyLabelState,
 				description: policyDescriptionState,
 				library: selectedLibraryState,
 			})
-			.then(() => {
-				navigate('/');
+			.then((response) => {
+				navigate(`/group-center/${params.groupId}/policies/${response.data.policyId}`);
 			});
 	};
 

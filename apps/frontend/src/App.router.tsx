@@ -6,8 +6,9 @@ import SecretManagement from '@/containers/AccountSettings/SecretManagement';
 import NewSecret from '@/containers/AccountSettings/NewSecret';
 import NewGroup from '@/containers/GroupCenter/NewGroup';
 import GroupDetails from '@/containers/GroupCenter/GroupDetails';
-import Settings from '@/containers/GroupCenter/GroupDetails/Settings';
+import GroupSettings from '@/containers/GroupCenter/GroupDetails/Settings';
 import Policies from '@/containers/GroupCenter/GroupDetails/Policies';
+import PolicySettings from '@/containers/Policy/Settings';
 
 interface IProps {
 	readonly isAuthenticated: boolean | null;
@@ -21,6 +22,7 @@ const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const NewPolicy = React.lazy(() => import('./pages/NewPolicy'));
+const Policy = React.lazy(() => import('./pages/Policy'));
 
 const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 	<Routes>
@@ -47,11 +49,18 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<Route path=":groupId" element={<GroupDetails />}>
 						<Route path="" element={<Navigate to="policies" replace />} />
 						<Route path="policies" element={<Policies />} />
-						<Route path="history" element={<div>&nbsp;</div>} />
-						<Route path="settings" element={<Settings />} />
+						<Route path="history" element={null} />
+						<Route path="settings" element={<GroupSettings />} />
 					</Route>
 				</Route>
 				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
+				<Route path="group-center/:groupId/policies/:policyId" element={<Policy />}>
+					<Route path="" element={<Navigate to="rules" replace />} />
+					<Route path="rules" element={null} />
+					<Route path="configurations" element={null} />
+					<Route path="history" element={null} />
+					<Route path="settings" element={<PolicySettings />} />
+				</Route>
 			</>
 		)}
 		<Route path="cli-auth" element={<CliAuth />} />
