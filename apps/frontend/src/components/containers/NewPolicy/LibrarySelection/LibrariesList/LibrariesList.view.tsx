@@ -29,7 +29,11 @@ const LibrariesListView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 				return (
 					<div
 						key={index}
-						className={classes['libraryItem']}
+						className={concatClasses(
+							classes,
+							'libraryItem',
+							isSelected ? 'libraryItem--selected' : null,
+						)}
 						onClick={() => props.onLibrarySelect(library.name)}
 					>
 						<div

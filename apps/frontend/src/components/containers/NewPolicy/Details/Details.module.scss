@@ -27,9 +27,27 @@
 	}
 
 	.labelTable {
-		width: min-content;
+		align-self: flex-start;
 		margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-l);
-		border-spacing: map.get($sizes, spacing-m) map.get($sizes, spacing-s);
+		border-collapse: collapse;
+
+		& td {
+			background-clip: padding-box;
+			border: 0 solid transparent;
+		}
+
+		& th {
+			background-clip: padding-box;
+			border: 0 solid transparent;
+		}
+
+		& tr > td + td {
+			border-inline-start-width: map.get($sizes, spacing-s);
+		}
+
+		& tr > th + th {
+			border-inline-start-width: map.get($sizes, spacing-s);
+		}
 
 		&__header {
 			font-size: 1.7rem;
@@ -51,6 +69,7 @@
 				margin-inline-end: map.get($sizes, spacing-s);
 				font-size: 1.7rem;
 				color: map.get($colors, greys-onyx);
+				white-space: nowrap;
 			}
 
 			&__postfix {

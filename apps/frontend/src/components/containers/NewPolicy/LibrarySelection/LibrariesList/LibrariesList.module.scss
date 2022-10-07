@@ -15,6 +15,10 @@
 	display: flex;
 	cursor: pointer;
 
+	&--selected {
+		cursor: default;
+	}
+
 	.libraryImgBorder {
 		display: flex;
 		align-items: center;
@@ -83,6 +87,7 @@
 				&__icon {
 					width: 10px;
 					height: auto;
+					cursor: pointer;
 					fill: map.get($colors, greys-independence-grey);
 				}
 			}
