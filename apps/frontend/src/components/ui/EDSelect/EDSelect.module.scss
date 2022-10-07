@@ -1,0 +1,67 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	position: relative;
+	width: 200px;
+
+	.selectedOptionContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+		background-color: map.get($colors, whites-white);
+		border: 2px solid map.get($colors, greys-platinum);
+		border-radius: 6px;
+
+		&--open {
+			border-block-end-color: transparent;
+			border-end-start-radius: 0;
+			border-end-end-radius: 0;
+		}
+
+		.selectedOptionText {
+			display: flex;
+
+			&__prefix {
+				font-size: 1.5rem;
+				color: map.get($colors, greys-independence-grey);
+			}
+
+			&__selectedLabel {
+				font-size: 1.5rem;
+				font-weight: 500;
+				color: map.get($colors, greys-onyx);
+			}
+		}
+
+		&__icon {
+			width: 8px;
+			height: auto;
+			fill: transparent;
+			stroke: map.get($colors, greys-onyx);
+		}
+	}
+
+	.optionsContainer {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding-inline: map.get($sizes, spacing-l);
+		background-color: map.get($colors, whites-white);
+		border: 2px solid map.get($colors, greys-platinum);
+
+		&__option {
+			padding-block: map.get($sizes, spacing-m);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+			cursor: default;
+
+			&:not(:last-child) {
+				border-bottom: 2px solid map.get($colors, greys-platinum);
+			}
+		}
+	}
+}

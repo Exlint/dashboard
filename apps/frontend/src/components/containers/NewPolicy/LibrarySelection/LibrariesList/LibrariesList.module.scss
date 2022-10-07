@@ -1,0 +1,132 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-auto-rows: min-content;
+	gap: map.get($sizes, spacing-xxl);
+	width: 100%;
+	margin-inline-start: map.get($sizes, spacing-xxl-2);
+}
+
+.libraryItem {
+	display: flex;
+	cursor: pointer;
+
+	&--selected {
+		cursor: default;
+	}
+
+	.libraryImgBorder {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 53px;
+		min-width: 53px;
+		height: 53px;
+		margin-inline-end: map.get($sizes, spacing-m);
+		background: transparent;
+		border-radius: 50%;
+
+		&--selected {
+			background: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%),
+				linear-gradient(0deg, #fefefe, #fefefe);
+		}
+	}
+
+	.libraryImgContainer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 49px;
+		min-width: 49px;
+		height: 49px;
+		background-color: map.get($colors, whites-white);
+		border-radius: 50%;
+		box-shadow: 0 4px 8px 0 #00000026;
+
+		&__img {
+			width: 30px;
+			height: 30px;
+			object-fit: contain;
+		}
+	}
+
+	.libraryDetails {
+		display: flex;
+		flex-direction: column;
+
+		.libraryNameContainer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom-style: solid;
+			border-bottom-width: 2px;
+			border-image: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%) 30;
+
+			&__name {
+				font-size: 1.7rem;
+				font-weight: 600;
+				background: -webkit-linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			.libraryNameAction {
+				display: flex;
+
+				&__text {
+					margin-inline-end: map.get($sizes, spacing-s);
+					font-size: 1.5rem;
+					font-weight: 500;
+					color: map.get($colors, greys-independence-grey);
+				}
+
+				&__icon {
+					width: 10px;
+					height: auto;
+					cursor: pointer;
+					fill: map.get($colors, greys-independence-grey);
+				}
+			}
+		}
+
+		&__name {
+			font-size: 1.7rem;
+			font-weight: 600;
+			color: map.get($colors, purples-purple);
+			border-bottom: 2px solid transparent;
+		}
+
+		&__author {
+			margin-block: map.get($sizes, spacing-s);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-independence-grey);
+		}
+
+		&__description {
+			font-size: 1.5rem;
+			font-weight: 300;
+			color: map.get($colors, greys-independence-grey);
+		}
+
+		.libraryCategorization {
+			display: flex;
+			margin-top: map.get($sizes, spacing-s);
+
+			&__item {
+				padding: map.get($sizes, spacing-xs) map.get($sizes, spacing-m);
+				font-size: 1.3rem;
+				color: map.get($colors, greys-independence-grey);
+				border: 1px solid map.get($colors, greys-silver-sand);
+				border-radius: 10px;
+
+				&:not(:last-child) {
+					margin-inline-end: map.get($sizes, spacing-s);
+				}
+			}
+		}
+	}
+}

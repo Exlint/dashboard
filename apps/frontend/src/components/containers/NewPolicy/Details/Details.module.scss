@@ -1,0 +1,93 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	padding-top: map.get($sizes, spacing-xxl-2);
+
+	&__header {
+		font-size: 2.4rem;
+		font-weight: normal;
+		color: map.get($colors, greys-onyx);
+	}
+
+	&__subHeader {
+		margin-top: map.get($sizes, spacing-s);
+		font-size: 1.7rem;
+		color: map.get($colors, greys-independence-grey);
+	}
+
+	&__divider {
+		width: 708px;
+		height: 2px;
+		margin-top: map.get($sizes, spacing-xl);
+		background-color: map.get($colors, greys-platinum);
+	}
+
+	.labelTable {
+		align-self: flex-start;
+		margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-l);
+		border-collapse: collapse;
+
+		& td {
+			background-clip: padding-box;
+			border: 0 solid transparent;
+		}
+
+		& th {
+			background-clip: padding-box;
+			border: 0 solid transparent;
+		}
+
+		& tr > td + td {
+			border-inline-start-width: map.get($sizes, spacing-s);
+		}
+
+		& tr > th + th {
+			border-inline-start-width: map.get($sizes, spacing-s);
+		}
+
+		&__header {
+			font-size: 1.7rem;
+			font-weight: 500;
+			color: map.get($colors, greys-onyx);
+			text-align: start;
+
+			&--inputlabel {
+				width: 259px;
+			}
+		}
+
+		.groupLabel {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&__value {
+				margin-inline-end: map.get($sizes, spacing-s);
+				font-size: 1.7rem;
+				color: map.get($colors, greys-onyx);
+				white-space: nowrap;
+			}
+
+			&__postfix {
+				font-size: 2.1rem;
+				font-weight: 500;
+				color: map.get($colors, greys-onyx);
+			}
+		}
+	}
+
+	&__descriptionLabel {
+		margin-bottom: map.get($sizes, spacing-m);
+		font-size: 1.7rem;
+		font-weight: 500;
+		color: map.get($colors, greys-independence-grey);
+
+		&--postfix {
+			font-size: 1.5rem;
+		}
+	}
+}

@@ -1,9 +1,9 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 
 import { DBGroupService } from '@/modules/database/group.service';
+import { librariesData } from '@/data/libraries-data';
 
 import { GetInlinePoliciesContract } from '../contracts/get-inline-policies.contract';
-import { libariesLanguages } from '../../data/libraries';
 
 @QueryHandler(GetInlinePoliciesContract)
 export class GetInlinePoliciesHandler implements IQueryHandler<GetInlinePoliciesContract> {
@@ -17,10 +17,16 @@ export class GetInlinePoliciesHandler implements IQueryHandler<GetInlinePolicies
 			isPageANumber ? parseInt(contract.page!) : 1,
 		);
 
-		data.inlinePolicies = data.inlinePolicies.map((inlinePolicy) => ({
-			...inlinePolicy,
-			language: libariesLanguages[inlinePolicy.library],
-		}));
+		data.inlinePolicies = data.inlinePolicies.map((inlinePolicy) => {
+			const matchingLibraryData = librariesData.find(
+				(libraryData) => libraryData.name === inlinePolicy.library,
+			)!;
+
+			return {
+				...inlinePolicy,
+				language: matchingLibraryData.language,
+			};
+		});
 
 		return data;
 	}

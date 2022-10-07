@@ -1,8 +1,9 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
 
-import type { IGroupInlinePolicies, IGroupInlinePolicy } from '../interfaces/group-policies';
+import { ILanguage } from '@/interfaces/libraries-data';
 
+import type { IGroupInlinePolicies, IGroupInlinePolicy } from '../interfaces/group-policies';
 import type { IUserGroupGetAll, IUserGroupInlinePolicy } from '../interfaces/user-group';
 
 class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
@@ -71,7 +72,7 @@ class GroupInlinePolicy implements IGroupInlinePolicy {
 		type: String,
 		example: 'JavaScript',
 	})
-	public language!: string;
+	public language!: ILanguage;
 }
 
 export class CreateGroupResponse {

@@ -6,8 +6,8 @@ import {
 } from '@reduxjs/toolkit';
 
 import { backendApi } from '@/utils/http';
-import type { IRefreshTokenResponseData } from '@/interfaces/responses';
 
+import type { IRefreshTokenResponseData } from '../interfaces/responses';
 import { authActions } from '../reducers/auth';
 import { ACCESS_TOKEN_REFRESH_TIMEOUT } from '../models/auth';
 

@@ -8,9 +8,9 @@ COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
 COPY ./apps/cli-backend/package.json ./apps/cli-backend/
 COPY ./prisma/schema.prisma ./prisma/
 
-RUN pnpm add -D @prisma/client -w
 RUN pnpm --filter cli-backend i
 
-COPY ./ ./
+COPY ./tsconfig.base.json  ./
+COPY ./apps/cli-backend/ ./apps/cli-backend/
 
 CMD ["pnpm", "--filter", "cli-backend", "start:dev:docker"]

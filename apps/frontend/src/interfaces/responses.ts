@@ -5,11 +5,15 @@ export interface IAutoAuthResponseData {
 	readonly createdAt: number;
 }
 
-export interface IRefreshTokenResponseData {
-	readonly accessToken: string;
-}
-
 export interface ICliAuthResponseData {
 	readonly cliToken: string;
 	readonly email: string;
+}
+
+export interface IGetGroupResponse {
+	readonly label: string;
+}
+
+export interface IAvailableLabelResponse {
+	readonly isAvailable: boolean;
 }

@@ -71,6 +71,7 @@ model InlinePolicy {
 
   groupId       String        @db.ObjectId
   label         String
+  description String?
   library       PolicyLibrary
   configuration Json?
   rules         Json?

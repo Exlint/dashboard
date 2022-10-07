@@ -1,12 +1,8 @@
 const Routes = {
 	CONTROLLER: 'inline-policies',
 	CREATE: ':group_id',
-	DELETE: ':policy_id',
-	UPDATE_CONFIGURATION: ':policy_id',
-	ADD_RULE: 'add-rule/:policy_id',
-	EDIT_RULE: 'edit-rule/:policy_id',
-	REMOVE_RULE: 'remove-rule/:policy_id',
-	GET_CONFIGURATION: ':policy_id',
+	AVAILABLE_LABEL: 'available/:label',
+	GET_LIBRARIES: 'libraries/:group_id',
 };
 
 export default Routes;

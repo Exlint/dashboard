@@ -11,8 +11,7 @@ import type {
 } from '@/store/interfaces/groups';
 import { groupsActions } from '@/store/reducers/groups';
 import type { AppState } from '@/store/app';
-
-import type { IGetGroupResponse } from './interfaces/group';
+import type { IGetGroupResponse } from '@/interfaces/responses';
 
 import GroupDetailsView from './GroupDetails.view';
 

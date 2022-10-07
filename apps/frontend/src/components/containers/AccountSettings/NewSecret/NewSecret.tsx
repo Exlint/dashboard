@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
+import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
-import type { IAvailableLabelResponse, ICreateSecretResponse } from './interfaces/responses';
+import type { ICreateSecretResponse } from './interfaces/responses';
 import { WEEK_INTERVAL } from './models/time';
 
 import NewSecretView from './NewSecret.view';

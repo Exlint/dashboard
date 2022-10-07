@@ -1,4 +1,5 @@
-import { CreateInlineHandler } from './create-inline.handler';
-import { GetConfigurationHandler } from './get-configuration.handler';
+import { AvailableLabelHandler } from './available-label.handler';
+import { GroupHasLibraryHandler } from './group-has-library.handler';
+import { UserGroupLibrariesHandler } from './user-group-libraries.handler';
 
-export const QueryHandlers = [CreateInlineHandler, GetConfigurationHandler];
+export const QueryHandlers = [AvailableLabelHandler, UserGroupLibrariesHandler, GroupHasLibraryHandler];
