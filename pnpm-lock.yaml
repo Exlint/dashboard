@@ -295,7 +295,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.0.0
       stylelint-config-standard-scss: 5.0.0
-      stylelint-declaration-strict-value: 1.9.0
+      stylelint-declaration-strict-value: 1.9.1
       tsconfig-paths-webpack-plugin: 4.0.0
       typescript: 4.8.4
       typescript-plugin-css-modules: 3.4.0
@@ -347,7 +347,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.13.0
       stylelint-config-recess-order: 3.0.0_stylelint@14.13.0
       stylelint-config-standard-scss: 5.0.0_5yg2enrd6w5uhqlhk7xeqwtyqm
-      stylelint-declaration-strict-value: 1.9.0_stylelint@14.13.0
+      stylelint-declaration-strict-value: 1.9.1_stylelint@14.13.0
       tsconfig-paths-webpack-plugin: 4.0.0
       typescript-plugin-css-modules: 3.4.0_typescript@4.8.4
 
@@ -15042,8 +15042,8 @@ packages:
       stylelint-config-recommended: 8.0.0_stylelint@14.13.0
     dev: true
 
-  /stylelint-declaration-strict-value/1.9.0_stylelint@14.13.0:
-    resolution: {integrity: sha512-L8jKpPWr/rvnYtzAAG11dKtiw76+ce3GXMkZeY4lfjpwHrVc8zvIPl5hcs2HX8RtnMidOFNB9T87G/rFs6x2IQ==}
+  /stylelint-declaration-strict-value/1.9.1_stylelint@14.13.0:
+    resolution: {integrity: sha512-iIkMh2ukIfSTtJoEDgGq5cqUyYWP8NExPk2YSGcePtFikb7KmJoSi0QYajiZRxge/PTbYspci7nIcrtArJlAsw==}
     peerDependencies:
       stylelint: '>=7 <=14'
     dependencies:
