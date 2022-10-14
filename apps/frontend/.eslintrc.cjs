@@ -21,12 +21,7 @@ module.exports = {
 
 		'jsx-a11y/alt-text': 'error',
 		'jsx-a11y/html-has-lang': 'error',
-		'jsx-a11y/img-redundant-alt': [
-			'error',
-			{
-				components: ['Image'],
-			},
-		],
+		'jsx-a11y/img-redundant-alt': ['error'],
 		'jsx-a11y/lang': 'error',
 		'jsx-a11y/no-redundant-roles': 'error',
 

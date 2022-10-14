@@ -9,6 +9,8 @@ module.exports = {
 		'plugin:import/typescript',
 		'prettier',
 	],
+	reportUnusedDisableDirectives: true,
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 12,
 		project: './tsconfig.eslint.json',
