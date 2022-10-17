@@ -10,6 +10,8 @@
 		"@types/node",
 		"stylelint",
 		"is-docker",
-		"@prisma/client"
+		"@prisma/client",
+		"wait-on",
+		"open"
 	]
 }

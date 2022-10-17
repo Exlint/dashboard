@@ -164,7 +164,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['**/*.cjs', '**/*.js'],
+			files: ['**/*.{cjs,js}'],
 			rules: {
 				'import/no-commonjs': 'off',
 				'@typescript-eslint/no-require-imports': 'off',
@@ -178,7 +178,7 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./scripts/onboarding.cjs', './docker/scripts/**/*.js'],
+			files: ['./scripts/onboarding.cjs', './docker/scripts/open-dashboard.cjs'],
 			rules: {
 				'no-console': 'off',
 			},

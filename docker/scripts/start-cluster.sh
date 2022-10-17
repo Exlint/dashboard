@@ -2,4 +2,4 @@
 
 docker-compose up -d
 
-node ./docker/scripts/open-dashboard.js
+node ./docker/scripts/open-dashboard.cjs
