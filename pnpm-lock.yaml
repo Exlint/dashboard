@@ -27,7 +27,7 @@ importers:
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
       open: 8.4.0
-      pnpm: 7.13.5
+      pnpm: 7.13.6
       prettier: 2.7.1
       prisma: 4.5.0
       rimraf: 3.0.2
@@ -58,7 +58,7 @@ importers:
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
       open: 8.4.0
-      pnpm: 7.13.5
+      pnpm: 7.13.6
       prettier: 2.7.1
       prisma: 4.5.0
       rimraf: 3.0.2
@@ -12426,8 +12426,8 @@ packages:
     resolution: {integrity: sha512-k+YsbhpA9e+EFfKjTCH3VW6aoKlyNYI6NYdTfDL4CIvFnvsuO84ttonmZE7rc+v23SLTH8XX+5w/Ak9v0xGY4g==}
     dev: true
 
-  /pnpm/7.13.5:
-    resolution: {integrity: sha512-7+xyYPunBiAAJclpmUU2CTqe7uHipDjguUF2qmd9+r8hfZEVj0TnMTfblPnRF9aiVsmE4X3zRPlY3A5zk7r73w==}
+  /pnpm/7.13.6:
+    resolution: {integrity: sha512-KIGf//0cojjX3cUL63gvAk8d5t9tg+5h6AxLGyxQwoCPtpsjXafm/auIJyDUUh9RVmcPusJxdiONkgxPnbW1YA==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
