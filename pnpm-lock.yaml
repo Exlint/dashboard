@@ -259,7 +259,7 @@ importers:
       '@types/node': 17.0.35
       '@types/react': 18.0.22
       '@types/react-datepicker': 4.4.2
-      '@types/react-dom': 18.0.6
+      '@types/react-dom': 18.0.7
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.4
       '@typescript-eslint/eslint-plugin': 5.40.1
@@ -302,14 +302,14 @@ importers:
     dependencies:
       '@reduxjs/toolkit': 1.8.6_kuo2ie247izvzll3jejufdtq3q
       '@types/react': 18.0.22
-      '@types/react-dom': 18.0.6
+      '@types/react-dom': 18.0.7
       axios: 0.27.2
       i18next: 21.10.0
       react: 18.2.0
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.0.0_vfm63zmruocgezzfl2v26zlzpy
-      react-redux: 8.0.4_st6dwrvchwfjy6a36oibetvw5u
+      react-redux: 8.0.4_pfva2yqwphl3e2f6qzlabaeuhu
       react-router-dom: 6.4.2_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
       react-textarea-autosize: 8.3.4_gd4tregka43x4eiz452mfdbv4y
@@ -4209,7 +4209,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 18.2.0
-      react-redux: 8.0.4_st6dwrvchwfjy6a36oibetvw5u
+      react-redux: 8.0.4_pfva2yqwphl3e2f6qzlabaeuhu
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -4817,8 +4817,8 @@ packages:
       - react-dom
     dev: true
 
-  /@types/react-dom/18.0.6:
-    resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
+  /@types/react-dom/18.0.7:
+    resolution: {integrity: sha512-HaXc+BbqAZE1RdsK3tC8SbkFy6UL2xF76lT9rQs5JkPrJg3rWA3Ou/Lhw3YJQzEDkBpmJ79nBsfnd05WrBd2QQ==}
     dependencies:
       '@types/react': 18.0.22
     dev: false
@@ -13603,7 +13603,7 @@ packages:
       react-fast-compare: 3.2.0
       warning: 4.0.3
 
-  /react-redux/8.0.4_st6dwrvchwfjy6a36oibetvw5u:
+  /react-redux/8.0.4_pfva2yqwphl3e2f6qzlabaeuhu:
     resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -13627,7 +13627,7 @@ packages:
       '@babel/runtime': 7.19.0
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.22
-      '@types/react-dom': 18.0.6
+      '@types/react-dom': 18.0.7
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
