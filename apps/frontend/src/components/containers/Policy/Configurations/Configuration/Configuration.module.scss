@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.configurationTabs {
+	display: flex;
+
+	&__tab {
+		width: 50%;
+		padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: map.get($colors, greys-philippine-gray);
+		text-align: center;
+		text-decoration: none;
+		border: 2px solid map.get($colors, greys-platinum);
+		border-radius: 6px;
+
+		&:not(:last-child) {
+			margin-inline-end: map.get($sizes, spacing-xxl);
+		}
+
+		&--active {
+			color: map.get($colors, greys-onyx);
+			border-color: map.get($colors, greys-onyx);
+		}
+	}
+}

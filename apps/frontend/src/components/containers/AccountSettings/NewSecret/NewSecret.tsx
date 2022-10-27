@@ -38,8 +38,8 @@ const NewSecret: React.FC<IProps> = () => {
 				backendApi
 					.get<IAvailableLabelResponse>(`/user/secrets/${secretLabelInputState}`)
 					.then((response) => {
-						setIsSecretLabelValidState(response.data.isAvailable);
-						setIsSecretLabelAvailableState(response.data.isAvailable);
+						setIsSecretLabelValidState(() => response.data.isAvailable);
+						setIsSecretLabelAvailableState(() => response.data.isAvailable);
 					});
 			}
 		},

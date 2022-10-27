@@ -8,12 +8,14 @@ import EDSvg from '../EDSvg';
 import classes from './EDSelect.module.scss';
 
 interface IProps {
+	readonly wrapperClassName?: string;
+	readonly optionsClassName?: string;
 	readonly className?: string;
 	readonly selectRef: RefObject<HTMLDivElement>;
 	readonly isSelectVisible: boolean;
 	readonly options: string[];
 	readonly selectedIndex: number;
-	readonly prefix: string;
+	readonly prefix?: string;
 	readonly onSelect: (index: number) => void;
 	readonly toggleSelectVisibility: VoidFunction;
 }
@@ -21,24 +23,29 @@ interface IProps {
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const selectedOption = props.options[props.selectedIndex]!;
 
-	const selectedOptionClasses = concatClasses(
-		classes,
-		'selectedOptionContainer',
-		props.isSelectVisible ? 'selectedOptionContainer--open' : null,
+	const selectedOptionClasses = concatDiverseClasses(
+		concatClasses(
+			classes,
+			'selectedOptionContainer',
+			props.isSelectVisible ? 'selectedOptionContainer--open' : null,
+		),
+		props.className,
 	);
 
 	return (
-		<div ref={props.selectRef} className={classes['container']}>
-			<div
-				className={concatDiverseClasses(selectedOptionClasses, props.className)}
-				onClick={props.toggleSelectVisibility}
-			>
+		<div
+			ref={props.selectRef}
+			className={concatDiverseClasses(classes['container'], props.wrapperClassName)}
+		>
+			<div className={selectedOptionClasses} onClick={props.toggleSelectVisibility}>
 				<div className={classes['selectedOptionText']}>
-					<span className={classes['selectedOptionText__prefix']}>
-						{props.prefix}
-						<Trans>&#58;</Trans>
-						&nbsp;
-					</span>
+					{props.prefix && (
+						<span className={classes['selectedOptionText__prefix']}>
+							{props.prefix}
+							<Trans>&#58;</Trans>
+							&nbsp;
+						</span>
+					)}
 
 					<span className={classes['selectedOptionText__selectedLabel']}>{selectedOption}</span>
 				</div>
@@ -46,7 +53,7 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			</div>
 
 			{props.isSelectVisible && (
-				<div className={classes['optionsContainer']}>
+				<div className={concatDiverseClasses(classes['optionsContainer'], props.optionsClassName)}>
 					{props.options.map((option, index) => (
 						<span
 							key={index}

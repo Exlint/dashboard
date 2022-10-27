@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import type { PolicyLibrary } from '@prisma/client';
 
+import { FileListType } from '@/models/file-list';
+
 import { PrismaService } from './prisma.service';
 
 @Injectable()
@@ -63,5 +65,42 @@ export class DBInlinePolicyService {
 
 	public async deletePolicy(policyId: string) {
 		await this.prisma.inlinePolicy.delete({ where: { id: policyId } });
+	}
+
+	public async setFileList(policyId: string, files: string[], type: FileListType) {
+		if (type === FileListType.File) {
+			await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { fileList: files } });
+
+			return;
+		}
+
+		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { ignoreList: files } });
+	}
+
+	public async getFileList(policyId: string, type: FileListType) {
+		if (type === FileListType.File) {
+			const policyDocument = await this.prisma.inlinePolicy.findUniqueOrThrow({
+				where: { id: policyId },
+				select: { fileList: true },
+			});
+
+			return policyDocument.fileList;
+		}
+
+		const policyDocument = await this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: policyId },
+			select: { ignoreList: true },
+		});
+
+		return policyDocument.ignoreList;
+	}
+
+	public async getConfiguration(policyId: string) {
+		const document = await this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: policyId },
+			select: { configuration: true },
+		});
+
+		return document.configuration;
 	}
 }

@@ -71,9 +71,12 @@ model InlinePolicy {
 
   groupId       String        @db.ObjectId
   label         String
-  description String?
+  description   String?
   library       PolicyLibrary
   configuration Json?
+  cliArgs       Json?
+  fileList      String[]      @default([])
+  ignoreList    String[]      @default([])
   rules         Json?
 
   createdAt DateTime @default(now())

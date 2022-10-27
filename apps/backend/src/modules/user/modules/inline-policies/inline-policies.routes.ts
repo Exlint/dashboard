@@ -6,6 +6,9 @@ const Routes = {
 	GET: ':policy_id',
 	EDIT_LABEL: 'label/:policy_id',
 	DELETE: ':policy_id',
+	SET_FILE_LIST: 'file-list/:policy_id',
+	GET_FILE_LIST: 'file-list/:policy_id/:file_list_type',
+	GET_CONFIGURATION: 'configuration/:policy_id',
 };
 
 export default Routes;

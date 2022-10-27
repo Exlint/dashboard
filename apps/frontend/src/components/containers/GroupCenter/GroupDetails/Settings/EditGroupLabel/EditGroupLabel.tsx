@@ -30,8 +30,8 @@ const EditGroupLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 				backendApi
 					.get<IAvailableLabelResponse>(`/user/groups/available/${props.newGroupLabelInput}`)
 					.then((response) => {
-						setNewIsGroupLabelValidState(response.data.isAvailable);
-						setNewIsGroupLabelAvailableState(response.data.isAvailable);
+						setNewIsGroupLabelValidState(() => response.data.isAvailable);
+						setNewIsGroupLabelAvailableState(() => response.data.isAvailable);
 					});
 			}
 		},

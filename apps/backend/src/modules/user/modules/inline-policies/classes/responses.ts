@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary } from '@prisma/client';
+import { PolicyLibrary, Prisma } from '@prisma/client';
 
 import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
 
@@ -82,4 +82,20 @@ export class GetResponse {
 		example: PolicyLibrary.ESLint,
 	})
 	public library!: PolicyLibrary;
+}
+
+export class GetFileListResponse {
+	@ApiResponseProperty({
+		type: [String],
+		example: ['**/*.js', '*.ts'],
+	})
+	public fileList!: string[];
+}
+
+export class GetConfigurationResponse {
+	@ApiResponseProperty({
+		type: [Object],
+		example: { root: true },
+	})
+	public configuration!: Prisma.JsonObject;
 }

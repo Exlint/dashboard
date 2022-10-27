@@ -1,4 +1,5 @@
 import { DeleteHandler } from './delete.handler';
 import { EditLabelHandler } from './edit-label.handler';
+import { SetFileListHandler } from './set-file-list.handler';
 
-export const CommandHandlers = [EditLabelHandler, DeleteHandler];
+export const CommandHandlers = [EditLabelHandler, DeleteHandler, SetFileListHandler];

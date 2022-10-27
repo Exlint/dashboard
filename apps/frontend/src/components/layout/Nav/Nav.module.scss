@@ -20,10 +20,13 @@
 		display: flex;
 		align-items: center;
 
-		&__logo {
-			height: 50px;
-			object-fit: contain;
+		.logoLink {
 			margin-inline-end: map.get($sizes, spacing-xxl-2);
+
+			&__logo {
+				height: 50px;
+				object-fit: contain;
+			}
 		}
 	}
 

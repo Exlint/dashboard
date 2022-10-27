@@ -13,6 +13,9 @@ import { GetController } from './get.controller';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { EditLabelController } from './edit-label.controller';
 import { DeleteController } from './delete.controller';
+import { SetFileListController } from './set-file-list.controller';
+import { GetFileListController } from './get-file-list.controller';
+import { GetConfigurationController } from './get-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -23,6 +26,9 @@ import { DeleteController } from './delete.controller';
 		GetController,
 		EditLabelController,
 		DeleteController,
+		SetFileListController,
+		GetFileListController,
+		GetConfigurationController,
 	],
 	providers: [
 		BelongingInlinePolicyGuard,

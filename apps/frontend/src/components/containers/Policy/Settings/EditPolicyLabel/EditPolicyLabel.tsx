@@ -35,8 +35,8 @@ const EditPolicyLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 						`/user/inline-policies/available/${props.newPolicyLabelInput}`,
 					)
 					.then((response) => {
-						setNewIsPolicyLabelValidState(response.data.isAvailable);
-						setNewIsPolicyLabelAvailableState(response.data.isAvailable);
+						setNewIsPolicyLabelValidState(() => response.data.isAvailable);
+						setNewIsPolicyLabelAvailableState(() => response.data.isAvailable);
 					});
 			}
 		},

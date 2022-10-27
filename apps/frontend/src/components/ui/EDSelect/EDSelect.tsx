@@ -8,9 +8,11 @@ import EDSelectView from './EDSelect.view';
 
 interface IProps<T> {
 	readonly className?: string;
+	readonly optionsClassName?: string;
+	readonly wrapperClassName?: string;
 	readonly options: IOption<T>[];
 	readonly selectedIndex: number;
-	readonly prefix: string;
+	readonly prefix?: string;
 	readonly onSelect: (index: number) => void;
 }
 
@@ -25,6 +27,8 @@ const EDSelect = <T,>(props: React.PropsWithChildren<IProps<T>>) => {
 
 	return (
 		<EDSelectView
+			wrapperClassName={props.wrapperClassName}
+			optionsClassName={props.optionsClassName}
 			className={props.className}
 			selectRef={selectRef}
 			isSelectVisible={isSelectVisible}

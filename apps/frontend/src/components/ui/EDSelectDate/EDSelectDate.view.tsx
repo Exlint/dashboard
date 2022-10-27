@@ -1,5 +1,6 @@
 import React, { type RefObject } from 'react';
 import DatePicker from 'react-datepicker';
+import enUS from 'date-fns/locale/en-US';
 
 import { concatClasses } from '@/utils/component';
 
@@ -66,7 +67,7 @@ const EDSelectDateView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 					wrapperClassName={classes['datePickerWrapper']}
 					weekDayClassName={() => classes['datePickerWeekDay']!}
 					selected={props.datePickerDate || new Date()}
-					locale="en-US"
+					locale={enUS}
 					adjustDateOnChange
 					minDate={new Date()}
 					onChange={(date: Date) => props.onPickDate(props.selectedIndex, date)}

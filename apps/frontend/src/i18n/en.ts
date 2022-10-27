@@ -244,6 +244,22 @@ const en = {
 			},
 			deleteButton: 'Delete ‘{{label}}’',
 		},
+		configurations: {
+			tabs: {
+				form: 'Form-Based Configuration',
+				code: 'Code-Based Configuration',
+				configuration: 'Configuration',
+				fileList: 'File List',
+				ignoreList: 'Ignore List',
+			},
+		},
+	},
+	textCode: {
+		submit: 'Save Changes',
+	},
+	configCode: {
+		fileType: 'File Type',
+		submit: 'Save Changes',
 	},
 };
 

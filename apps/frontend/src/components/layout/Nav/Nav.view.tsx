@@ -17,8 +17,8 @@ const NavView: React.FC<IProps> = () => {
 	return (
 		<nav className={classes['container']}>
 			<div className={classes['linksContainer']}>
-				<Link to="/">
-					<img className={classes['linksContainer__logo']} src={whiteBrandLogo} alt="Exlint" />
+				<Link className={classes['logoLink']} to="/">
+					<img className={classes['logoLink__logo']} src={whiteBrandLogo} alt="Exlint" />
 				</Link>
 
 				<NavLink route="/group-center" iconName="groupCenterRoute" text={t('nav.groupCenter')} />
