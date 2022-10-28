@@ -37,7 +37,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test Depcheck
               run: pnpm depcheck && pnpm -r --parallel depcheck
@@ -67,7 +67,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test Inflint
               run: pnpm inflint
@@ -97,7 +97,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test TypeScript
               run: pnpm type-check && pnpm -r --parallel type-check
@@ -127,7 +127,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test Prettier
               run: pnpm prettier
@@ -157,7 +157,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test ESLint
               run: pnpm lint && pnpm -r --parallel lint
@@ -187,7 +187,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test Stylelint
               run: pnpm --filter frontend stylelint
@@ -217,7 +217,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -247,7 +247,7 @@ jobs:
                   cache: 'pnpm'
 
             - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+              run: pnpm i --frozen-lockfile --offline
 
             - name: Test build
               run: pnpm -r --parallel build
