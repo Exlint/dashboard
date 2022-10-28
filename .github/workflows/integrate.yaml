@@ -6,6 +6,7 @@ on:
 
 jobs:
     call_pnpm_caching_workflow:
+        name: Set pnpm caching
         uses: ./.github/workflows/pnpm-caching.yaml
         with:
             runner: ubuntu-latest
