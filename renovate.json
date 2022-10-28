@@ -16,7 +16,7 @@
 			"datasourceTemplate": "npm"
 		},
 		{
-			"fileMatch": ["^docker\\/Dockerfile\\.*$"],
+			"fileMatch": ["^docker\\/Dockerfile\\..*$"],
 			"matchStrings": ["FROM node:(?<currentValue>.*?)"],
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node",
