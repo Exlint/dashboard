@@ -9,6 +9,7 @@ const Routes = {
 	SET_FILE_LIST: 'file-list/:policy_id',
 	GET_FILE_LIST: 'file-list/:policy_id/:file_list_type',
 	GET_CONFIGURATION: 'configuration/:policy_id',
+	SET_CODE_CONFIGURATION: 'code-configuration/:policy_id',
 };
 
 export default Routes;

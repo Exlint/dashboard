@@ -65,7 +65,7 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	}
 
 	return (
-		<div className={classes['container']}>
+		<form className={classes['container']} onSubmit={props.onSubmit}>
 			<div className={classes['actionContainer']}>
 				<span className={classes['actionContainer__instruction']}>
 					{t('configCode.fileType')}
@@ -99,7 +99,7 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				extensions={[chosenExtension]}
 				onChange={(value) => props.onInputChange(value)}
 			/>
-		</div>
+		</form>
 	);
 };
 

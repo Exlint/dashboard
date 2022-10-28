@@ -84,6 +84,7 @@ importers:
       '@octokit/oauth-app': 4.1.0
       '@prisma/client': 4.5.0
       '@types/express': 4.17.14
+      '@types/js-yaml': 4.0.5
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
       '@types/passport-jwt': 3.0.7
@@ -100,6 +101,7 @@ importers:
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
       googleapis: 108.0.1
+      js-yaml: 4.1.0
       mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0
       open-cli: 7.1.0
@@ -114,6 +116,7 @@ importers:
       rxjs: 7.5.7
       ts-loader: 9.4.1
       typescript: 4.8.4
+      vm2: 3.9.11
       webpack: 5.74.0
       webpack-node-externals: 3.0.0
     dependencies:
@@ -129,6 +132,7 @@ importers:
       class-transformer: 0.5.1
       class-validator: 0.13.2
       googleapis: 108.0.1
+      js-yaml: 4.1.0
       mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0_@nestjs+common@9.1.6
       passport: 0.6.0
@@ -137,12 +141,14 @@ importers:
       passport-jwt: 4.0.0
       reflect-metadata: 0.1.13
       rxjs: 7.5.7
+      vm2: 3.9.11
     devDependencies:
       '@compodoc/compodoc': 1.1.19
       '@nestjs/cli': 9.1.5
       '@nestjs/schematics': 9.0.3_typescript@4.8.4
       '@nestjs/swagger': 6.1.3_h6kbnmnvyyl73y6mu4cczkstmm
       '@types/express': 4.17.14
+      '@types/js-yaml': 4.0.5
       '@types/passport-github2': 1.2.5
       '@types/passport-google-oauth20': 2.0.11
       '@types/passport-jwt': 3.0.7
@@ -4837,6 +4843,10 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
+  /@types/js-yaml/4.0.5:
+    resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
+    dev: true
+
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -5587,7 +5597,6 @@ packages:
   /acorn-walk/8.2.0:
     resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
     engines: {node: '>=0.4.0'}
-    dev: true
 
   /acorn/7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
@@ -5599,7 +5608,6 @@ packages:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-    dev: true
 
   /address/1.2.1:
     resolution: {integrity: sha512-B+6bi5D34+fDYENiH5qOlA0cV2rAGKuWZ9LeyUUehbXy8e0VS9e498yO0Jeeh+iM+6KbfudHTFjXw2MmJD4QRA==}
@@ -5801,7 +5809,6 @@ packages:
 
   /argparse/2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
-    dev: true
 
   /aria-query/4.2.2:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
@@ -11033,7 +11040,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
 
   /jsdom/16.7.0:
     resolution: {integrity: sha512-u9Smc2G1USStM+s/x1ru5Sxrl6mPYCbByG1U/hUmqaVsm4tbNyS7CicOSRyuGQYZhTu0h84qkZZQ/I+dzizSVw==}
@@ -16262,6 +16268,15 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+
+  /vm2/3.9.11:
+    resolution: {integrity: sha512-PFG8iJRSjvvBdisowQ7iVF580DXb1uCIiGaXgm7tynMR1uTBlv7UJlB1zdv5KJ+Tmq1f0Upnj3fayoEOPpCBKg==}
+    engines: {node: '>=6.0'}
+    hasBin: true
+    dependencies:
+      acorn: 8.8.0
+      acorn-walk: 8.2.0
+    dev: false
 
   /void-elements/3.1.0:
     resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}

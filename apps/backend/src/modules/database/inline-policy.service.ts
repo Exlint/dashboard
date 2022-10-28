@@ -103,4 +103,8 @@ export class DBInlinePolicyService {
 
 		return document.configuration;
 	}
+
+	public async setCodeConfiguration(policyId: string, input: object | null) {
+		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { configuration: input } });
+	}
 }

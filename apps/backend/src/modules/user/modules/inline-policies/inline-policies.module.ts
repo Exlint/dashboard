@@ -16,6 +16,7 @@ import { DeleteController } from './delete.controller';
 import { SetFileListController } from './set-file-list.controller';
 import { GetFileListController } from './get-file-list.controller';
 import { GetConfigurationController } from './get-configuration.controller';
+import { SetCodeConfigurationController } from './set-code-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -29,6 +30,7 @@ import { GetConfigurationController } from './get-configuration.controller';
 		SetFileListController,
 		GetFileListController,
 		GetConfigurationController,
+		SetCodeConfigurationController,
 	],
 	providers: [
 		BelongingInlinePolicyGuard,

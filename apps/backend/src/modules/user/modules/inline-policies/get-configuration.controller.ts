@@ -31,7 +31,7 @@ export class GetConfigurationController {
 		type: GetConfigurationResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is missing or invalid',
+		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to get the configuration' })
 	@UseGuards(BelongingInlinePolicyGuard)

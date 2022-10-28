@@ -18,7 +18,7 @@ const Code: React.FC<IProps> = () => {
 	const [selectedFileTypeIndexState, setSelectedFileTypeIndexState] = useState<number>(0);
 
 	const isSaveChangesDisabled = useMemo(
-		() => (codeInServerState ?? '') === codeInputState,
+		() => (codeInServerState ?? '') === (codeInputState ?? ''),
 		[codeInServerState, codeInputState],
 	);
 
@@ -51,7 +51,7 @@ const Code: React.FC<IProps> = () => {
 		backendApi
 			.patch(`/user/inline-policies/code-configuration/${params.policyId}`, {
 				code: codeInputState,
-				type: selectedFileTypeValue,
+				type: selectedFileTypeValue.value,
 			})
 			.then(() => setCodeInServerState(() => codeInputState))
 			.catch(() => {

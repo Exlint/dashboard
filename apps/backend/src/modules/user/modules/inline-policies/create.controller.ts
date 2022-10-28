@@ -43,7 +43,7 @@ export class CreateController {
 		type: CreateResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is missing or invalid',
+		description: 'If access token is missing or invalid, or group does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to create inline policy' })
 	@UseGuards(BelongingGroupGuard)
