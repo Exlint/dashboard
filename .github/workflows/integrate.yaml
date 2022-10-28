@@ -4,48 +4,255 @@ on:
     pull_request:
         branches: [main]
 
+env:
+    RUNNER: ubuntu-latest
+    NODE_VERSION: 18
+    PNPM_VERSION: 7.14.0
+
 jobs:
-    test_pull_request:
-        name: Testing & Checking the code
-        runs-on: ubuntu-latest
+    call_pnpm_caching_workflow:
+        uses: ./.github/workflows/pnpm-caching.yaml
+        with:
+            runnner: ubuntu-latest
+            node-version: $NODE_VERSION
+            pnpm-version: $PNPM_VERSION
+
+    test_depcheck:
+        needs: call_pnpm_caching_workflow
+        name: Testing Depcheck
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
 
         steps:
-            - name: Checkout
+            - name: Checkout repository
               uses: actions/checkout@v3
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
 
             - name: Install pnpm
               uses: pnpm/action-setup@v2
               with:
-                  version: 7.1.0
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
 
             - name: Installing dependencies
               run: pnpm i --frozen-lockfile
 
-            - name: Check unused dependencies
+            - name: Test Depcheck
               run: pnpm depcheck && pnpm -r --parallel depcheck
 
-            - name: Check Files and Directories Linter
+    test_inflint:
+        needs: call_pnpm_caching_workflow
+        name: Testing Inflint
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test Inflint
               run: pnpm inflint
 
-            - name: Check Typescript
+    test_typescript:
+        needs: call_pnpm_caching_workflow
+        name: Testing TypeScript
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test TypeScript
               run: pnpm type-check && pnpm -r --parallel type-check
 
-            - name: Check Prettier
+    test_prettier:
+        needs: call_pnpm_caching_workflow
+        name: Testing Prettier
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test Prettier
               run: pnpm prettier
 
-            - name: Check ESLint
+    test_eslint:
+        needs: call_pnpm_caching_workflow
+        name: Testing ESLint
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test ESLint
               run: pnpm lint && pnpm -r --parallel lint
 
-            - name: Check Stylelint
+    test_stylelint:
+        needs: call_pnpm_caching_workflow
+        name: Testing Stylelint
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test Stylelint
               run: pnpm --filter frontend stylelint
 
-            - name: Check Prisma Schema
+    test_prisma:
+        needs: call_pnpm_caching_workflow
+        name: Testing Prisma
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test Prisma
               run: pnpm prisma-format
 
-            - name: Check build command
+    test_build:
+        needs: call_pnpm_caching_workflow
+        name: Testing build
+        runs-on: $RUNNER
+        strategy:
+            matrix:
+                node-version: ['$NODE_VERSION']
+                pnpm-version: ['$PNPM_VERSION']
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: ${{ matrix.pnpm-version }}
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Installing dependencies
+              run: pnpm i --frozen-lockfile
+
+            - name: Test build
               run: pnpm -r --parallel build
