@@ -4,10 +4,6 @@ on:
     pull_request:
         branches: [main]
 
-env:
-    NODE_VERSION: 18
-    PNPM_VERSION: 7.14.0
-
 jobs:
     call_pnpm_caching_workflow:
         uses: ./.github/workflows/pnpm-caching.yaml
@@ -22,8 +18,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -52,8 +48,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -82,8 +78,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -112,8 +108,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -142,8 +138,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -172,8 +168,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -202,8 +198,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
@@ -232,8 +228,8 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: ['$NODE_VERSION']
-                pnpm-version: ['$PNPM_VERSION']
+                node-version: [18]
+                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
