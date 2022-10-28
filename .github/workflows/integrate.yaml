@@ -13,7 +13,7 @@ jobs:
     call_pnpm_caching_workflow:
         uses: ./.github/workflows/pnpm-caching.yaml
         with:
-            runnner: ubuntu-latest
+            runner: ubuntu-latest
             node-version: $NODE_VERSION
             pnpm-version: $PNPM_VERSION
 
