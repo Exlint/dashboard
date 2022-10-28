@@ -3,8 +3,8 @@
 	"extends": ["config:base", ":semanticCommitTypeAll(chore)", ":semanticCommitScopeDisabled"],
 	"regexManagers": [
 		{
-			"fileMatch": ["^Dockerfile$"],
-			"matchStrings": ["FROM node:(?<currentValue>.*?)\\n"],
+			"fileMatch": ["^(\\.github\\/workflows)\\/[^/]+\\.yaml$"],
+			"matchStrings": ["node-version: (?<currentValue>.*?)"],
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node",
 			"versioningTemplate": "node"
@@ -14,11 +14,6 @@
 		{
 			"updateTypes": ["minor", "patch"],
 			"automerge": true
-		},
-		{
-			"matchPackageNames": ["node"],
-			"matchManagers": ["dockerfile"],
-			"enabled": false
 		}
 	],
 	"ignoreDeps": ["chalk"],
