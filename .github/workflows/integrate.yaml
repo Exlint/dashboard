@@ -17,28 +17,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Depcheck
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test Depcheck
               run: pnpm depcheck && pnpm -r --parallel depcheck
@@ -47,28 +35,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Inflint
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test Inflint
               run: pnpm inflint
@@ -77,28 +53,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing TypeScript
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test TypeScript
               run: pnpm type-check && pnpm -r --parallel type-check
@@ -107,28 +71,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prettier
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test Prettier
               run: pnpm prettier
@@ -137,28 +89,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing ESLint
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test ESLint
               run: pnpm lint && pnpm -r --parallel lint
@@ -167,28 +107,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Stylelint
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test Stylelint
               run: pnpm --filter frontend stylelint
@@ -197,28 +125,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prisma
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -227,28 +143,16 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing build
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [18]
-                pnpm-version: [7.14.0]
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: ./.github/actions/setup-node-environment
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile --prefer-offline
+                  node-version: 18
+                  pnpm-version: 7.14.0
 
             - name: Test build
               run: pnpm -r --parallel build

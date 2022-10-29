@@ -1,0 +1,27 @@
+name: 'Setup Node environment'
+description: 'Installing pnpm, NodeJS, setting a cache and install dependencies'
+inputs:
+    node-version:
+        description: 'Version of NodeJS to use'
+        required: true
+    pnpm-version:
+        description: 'Version of pnpm to use'
+        required: true
+
+runs:
+    using: 'composite'
+    steps:
+        - name: Install pnpm
+          uses: pnpm/action-setup@v2
+          with:
+              version: ${{ inputs.pnpm-version }}
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+              node-version: ${{ inputs.node-version }}
+              cache: 'pnpm'
+
+        - name: Installing dependencies
+          run: pnpm i --frozen-lockfile --prefer-offline
+          shell: bash
