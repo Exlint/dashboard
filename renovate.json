@@ -11,7 +11,7 @@
 		},
 		{
 			"fileMatch": ["^(\\.github\\/workflows)\\/[^/]+\\.yaml$"],
-			"matchStrings": ["pnpm-version: (?<currentValue>.*?)"],
+			"matchStrings": ["(pnpm-version|package-manager-version): (?<currentValue>.*?)"],
 			"depNameTemplate": "pnpm",
 			"datasourceTemplate": "npm"
 		},
