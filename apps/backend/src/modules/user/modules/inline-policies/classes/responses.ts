@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary, Prisma } from '@prisma/client';
+import { PolicyLibrary, CodeType } from '@prisma/client';
 
 import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
 
@@ -92,10 +92,16 @@ export class GetFileListResponse {
 	public fileList!: string[];
 }
 
-export class GetConfigurationResponse {
+export class GetCodeConfigurationResponse {
 	@ApiResponseProperty({
-		type: [Object],
-		example: { root: true },
+		type: String,
+		example: 'module.exports = { root: true };',
 	})
-	public configuration!: Prisma.JsonObject;
+	public codeConfiguration!: string | null;
+
+	@ApiResponseProperty({
+		enum: CodeType,
+		example: CodeType.JS,
+	})
+	public codeType!: CodeType | null;
 }

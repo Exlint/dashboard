@@ -2,8 +2,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { backendApi } from '@/utils/http';
+import type { CodeType } from '@/models/code-type';
 
-import type { IGetCodeResponseData } from './interfaces/responses';
+import type { IGetCodeConfigurationResponseData } from './interfaces/responses';
 import { fileTypeOptions } from './models/file-type';
 
 import CodeView from './Code.view';
@@ -16,26 +17,35 @@ const Code: React.FC<IProps> = () => {
 	const [codeInServerState, setCodeInServerState] = useState<string | null>(null);
 	const [codeInputState, setCodeInputState] = useState<string | null>(null);
 	const [selectedFileTypeIndexState, setSelectedFileTypeIndexState] = useState<number>(0);
-
-	const isSaveChangesDisabled = useMemo(
-		() => (codeInServerState ?? '') === (codeInputState ?? ''),
-		[codeInServerState, codeInputState],
-	);
+	const [serverCodeTypeState, setServerCodeTypeState] = useState<CodeType | null>(null);
 
 	const selectedFileTypeValue = useMemo(
 		() => fileTypeOptions[selectedFileTypeIndexState],
 		[selectedFileTypeIndexState],
 	);
 
+	const isSaveChangesDisabled = useMemo(
+		() =>
+			(codeInServerState ?? '') === (codeInputState ?? '') &&
+			selectedFileTypeValue?.value === serverCodeTypeState,
+		[codeInServerState, codeInputState, selectedFileTypeValue],
+	);
+
 	useEffect(() => {
 		backendApi
-			.get<IGetCodeResponseData>(`/user/inline-policies/configuration/${params.policyId}`)
+			.get<IGetCodeConfigurationResponseData>(
+				`/user/inline-policies/code-configuration/${params.policyId}`,
+			)
 			.then((response) => {
-				const stringConfiguration =
-					response.data.configuration && JSON.stringify(response.data.configuration, null, 2);
+				setCodeInServerState(() => response.data.codeConfiguration);
+				setCodeInputState(() => response.data.codeConfiguration);
+				setServerCodeTypeState(() => response.data.codeType);
 
-				setCodeInServerState(() => stringConfiguration);
-				setCodeInputState(() => stringConfiguration);
+				const codeTypeOptionIndex = fileTypeOptions.findIndex(
+					(option) => option.value === response.data.codeType,
+				);
+
+				setSelectedFileTypeIndexState(() => (codeTypeOptionIndex === -1 ? 0 : codeTypeOptionIndex));
 			});
 	}, [backendApi]);
 

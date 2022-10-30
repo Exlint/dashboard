@@ -8,7 +8,7 @@ import { tags } from '@lezer/highlight';
 import { StreamLanguage, LanguageSupport } from '@codemirror/language';
 import { yaml } from '@codemirror/legacy-modes/mode/yaml';
 
-import { FileTypeValue } from '@/models/file-type';
+import { CodeType } from '@/models/code-type';
 
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';
@@ -58,9 +58,9 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 	let chosenExtension = json();
 
-	if (selectedFileType === FileTypeValue.Js) {
+	if (selectedFileType === CodeType.JS) {
 		chosenExtension = javascript();
-	} else if (selectedFileType === FileTypeValue.Yaml) {
+	} else if (selectedFileType === CodeType.YAML) {
 		chosenExtension = yamlExtension;
 	}
 

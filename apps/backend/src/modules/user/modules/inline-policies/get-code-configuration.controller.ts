@@ -8,51 +8,52 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import type { Prisma } from '@prisma/client';
+import type { InlinePolicy } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
-import { GetConfigurationResponse } from './classes/responses';
-import { GetConfigurationContract } from './queries/contracts/get-configuration.contract';
+import { GetCodeConfigurationResponse } from './classes/responses';
+import { GetCodeConfigurationContract } from './queries/contracts/get-code-configuration.contract';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
-export class GetConfigurationController {
-	private readonly logger = new Logger(GetConfigurationController.name);
+export class GetCodeConfigurationController {
+	private readonly logger = new Logger(GetCodeConfigurationController.name);
 
 	constructor(private readonly queryBus: QueryBus) {}
 
-	@ApiOperation({ description: 'Get configuration of linter/formatter' })
+	@ApiOperation({ description: 'Get code configuration of linter/formatter' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: 'If fetched the configuration successfully',
-		type: GetConfigurationResponse,
+		type: GetCodeConfigurationResponse,
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to get the configuration' })
 	@UseGuards(BelongingInlinePolicyGuard)
-	@Get(Routes.GET_CONFIGURATION)
+	@Get(Routes.GET_CODE_CONFIGURATION)
 	@HttpCode(HttpStatus.OK)
-	public async getConfiguration(
+	public async getCodeConfiguration(
 		@CurrentUserId() userId: string,
 		@Param('policy_id') policyId: string,
-	): Promise<GetConfigurationResponse> {
+	): Promise<GetCodeConfigurationResponse> {
 		this.logger.log(
-			`Will try to get configuration of policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
+			`Will try to get code configuration of policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
 		);
 
-		const configuration = await this.queryBus.execute<GetConfigurationContract, Prisma.JsonObject>(
-			new GetConfigurationContract(policyId),
-		);
+		const configuration = await this.queryBus.execute<
+			GetCodeConfigurationContract,
+			Pick<InlinePolicy, 'codeConfiguration' | 'codeType'>
+		>(new GetCodeConfigurationContract(policyId));
 
 		this.logger.log(
 			`Successfully fetched configuration of policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
 		);
 
-		return { configuration };
+		return configuration;
 	}
 }

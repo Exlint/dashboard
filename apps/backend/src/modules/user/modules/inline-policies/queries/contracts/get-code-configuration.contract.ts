@@ -1,3 +1,3 @@
-export class GetConfigurationContract {
+export class GetCodeConfigurationContract {
 	constructor(readonly policyId: string) {}
 }

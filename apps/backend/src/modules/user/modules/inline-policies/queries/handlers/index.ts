@@ -1,6 +1,6 @@
 import { AvailableLabelHandler } from './available-label.handler';
 import { CreateHandler } from './create.handler';
-import { GetConfigurationHandler } from './get-configuration.handler';
+import { GetCodeConfigurationHandler } from './get-code-configuration.handler';
 import { GetFileListHandler } from './get-file-list.handler';
 import { GetHandler } from './get.handler';
 import { GroupHasLibraryHandler } from './group-has-library.handler';
@@ -13,5 +13,5 @@ export const QueryHandlers = [
 	CreateHandler,
 	GetHandler,
 	GetFileListHandler,
-	GetConfigurationHandler,
+	GetCodeConfigurationHandler,
 ];

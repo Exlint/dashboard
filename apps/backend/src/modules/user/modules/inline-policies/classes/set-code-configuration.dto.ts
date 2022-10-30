@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, IsString, MaxLength } from 'class-validator';
+import { CodeType } from '@prisma/client';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
-import { FileType } from '@/models/file-type';
 
 export class SetCodeConfigurationDto {
 	@ApiProperty({ type: String, description: 'Code configuration', example: '{ root: true }' })
@@ -11,7 +11,7 @@ export class SetCodeConfigurationDto {
 	@MaxLength(1000)
 	readonly code!: string | null;
 
-	@ApiProperty({ enum: FileType, description: 'The file type' })
-	@IsEnum(FileType)
-	readonly type!: FileType;
+	@ApiProperty({ enum: CodeType, description: 'The code type', example: CodeType.JSON })
+	@IsEnum(CodeType)
+	readonly type!: CodeType;
 }

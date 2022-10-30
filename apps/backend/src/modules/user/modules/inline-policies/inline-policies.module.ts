@@ -15,8 +15,8 @@ import { EditLabelController } from './edit-label.controller';
 import { DeleteController } from './delete.controller';
 import { SetFileListController } from './set-file-list.controller';
 import { GetFileListController } from './get-file-list.controller';
-import { GetConfigurationController } from './get-configuration.controller';
 import { SetCodeConfigurationController } from './set-code-configuration.controller';
+import { GetCodeConfigurationController } from './get-code-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -29,7 +29,7 @@ import { SetCodeConfigurationController } from './set-code-configuration.control
 		DeleteController,
 		SetFileListController,
 		GetFileListController,
-		GetConfigurationController,
+		GetCodeConfigurationController,
 		SetCodeConfigurationController,
 	],
 	providers: [

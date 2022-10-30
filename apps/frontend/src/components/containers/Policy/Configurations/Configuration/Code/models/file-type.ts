@@ -1,16 +1,16 @@
-import { FileTypeValue } from '@/models/file-type';
+import { CodeType } from '@/models/code-type';
 
 export const fileTypeOptions = [
 	{
-		value: FileTypeValue.Json,
+		value: CodeType.JSON,
 		label: 'JSON',
 	},
 	{
-		value: FileTypeValue.Yaml,
+		value: CodeType.YAML,
 		label: 'YAML',
 	},
 	{
-		value: FileTypeValue.Js,
+		value: CodeType.JS,
 		label: 'JS',
 	},
 ];

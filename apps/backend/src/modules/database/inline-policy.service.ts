@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { PolicyLibrary } from '@prisma/client';
+import type { CodeType, PolicyLibrary } from '@prisma/client';
 
 import { FileListType } from '@/models/file-list';
 
@@ -95,16 +95,17 @@ export class DBInlinePolicyService {
 		return policyDocument.ignoreList;
 	}
 
-	public async getConfiguration(policyId: string) {
-		const document = await this.prisma.inlinePolicy.findUniqueOrThrow({
+	public getCodeConfiguration(policyId: string) {
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: policyId },
-			select: { configuration: true },
+			select: { codeConfiguration: true, codeType: true },
 		});
-
-		return document.configuration;
 	}
 
-	public async setCodeConfiguration(policyId: string, input: object | null) {
-		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { configuration: input } });
+	public async setCodeConfiguration(policyId: string, input: string | null, type: CodeType) {
+		await this.prisma.inlinePolicy.update({
+			where: { id: policyId },
+			data: { codeConfiguration: input, codeType: type },
+		});
 	}
 }
