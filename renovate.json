@@ -4,20 +4,16 @@
 	"regexManagers": [
 		{
 			"fileMatch": ["^(\\.github\\/workflows)\\/[^/]+\\.yaml$"],
-			"matchStrings": ["node-version: (?<currentValue>.*?)"],
-			"depNameTemplate": "node",
-			"datasourceTemplate": "node",
-			"versioningTemplate": "node"
-		},
-		{
-			"fileMatch": ["^(\\.github\\/workflows)\\/[^/]+\\.yaml$"],
-			"matchStrings": ["pnpm-version: (?<currentValue>.*?)"],
+			"matchStrings": [
+				"pnpm-version: (?<currentValue>.*)",
+				"package-manager-version: (?<currentValue>.*)"
+			],
 			"depNameTemplate": "pnpm",
 			"datasourceTemplate": "npm"
 		},
 		{
-			"fileMatch": ["^docker\\/Dockerfile\\..*$"],
-			"matchStrings": ["FROM node:(?<currentValue>.*?)"],
+			"fileMatch": ["^docker\\/Dockerfile\\..*$", "^(\\.github\\/workflows)\\/[^/]+\\.yaml$"],
+			"matchStrings": ["FROM node:(?<currentValue>.*)", "node-version: (?<currentValue>.*)"],
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node",
 			"versioningTemplate": "node"

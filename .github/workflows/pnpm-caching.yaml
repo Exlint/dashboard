@@ -17,25 +17,11 @@ jobs:
     install_dependencies:
         name: Install dependencies and caching
         runs-on: ${{ inputs.runner }}
-        strategy:
-            matrix:
-                node-version: ['${{ inputs.node-version }}']
-                pnpm-version: ['${{ inputs.pnpm-version }}']
 
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
-
-            - name: Install pnpm
-              uses: pnpm/action-setup@v2
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.0.4
               with:
-                  version: ${{ matrix.pnpm-version }}
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
-
-            - name: Installing dependencies
-              run: pnpm i --frozen-lockfile
+                  node-version: 18.12.0
+                  package-manager: pnpm
+                  package-manager-version: 7.14.1
