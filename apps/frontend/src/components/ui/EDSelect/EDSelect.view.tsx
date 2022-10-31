@@ -32,6 +32,11 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 		props.className,
 	);
 
+	const selectOptionClickHandler = (index: number) => {
+		props.onSelect(index);
+		props.toggleSelectVisibility();
+	};
+
 	return (
 		<div
 			ref={props.selectRef}
@@ -58,7 +63,7 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 						<span
 							key={index}
 							className={classes['optionsContainer__option']}
-							onClick={() => props.onSelect(index)}
+							onClick={() => selectOptionClickHandler(index)}
 						>
 							{option}
 						</span>
