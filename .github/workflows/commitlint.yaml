@@ -3,6 +3,7 @@ on: [pull_request]
 
 jobs:
     commitlint:
+        name: Commitlint
         permissions:
             pull-requests: read
 
