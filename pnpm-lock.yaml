@@ -12,7 +12,7 @@ importers:
       '@typescript-eslint/parser': 5.41.0
       chalk: 4.1.2
       commitizen: 4.2.5
-      cz-vinyl: 1.5.0
+      cz-vinyl: 1.6.2
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.26.0
@@ -43,7 +43,7 @@ importers:
       '@typescript-eslint/parser': 5.41.0_wyqvi574yv7oiwfeinomdzmc3m
       chalk: 4.1.2
       commitizen: 4.2.5
-      cz-vinyl: 1.5.0_7jzoohtnaegavowzoeccrsbhty
+      cz-vinyl: 1.6.2_7jzoohtnaegavowzoeccrsbhty
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.26.0
@@ -7205,8 +7205,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /cz-vinyl/1.5.0_7jzoohtnaegavowzoeccrsbhty:
-    resolution: {integrity: sha512-8T3yCU0SZL+cGsCQ4V8/WfkpH3e9SkS05NwQuC8YK2iWEGpqjLeZcB6UmQve0OBBq6y2IqTYRNELmCtL+OskPw==}
+  /cz-vinyl/1.6.2_7jzoohtnaegavowzoeccrsbhty:
+    resolution: {integrity: sha512-fg/BKTF4Ky8n7GfZAdRjCVtjAnOXlFzVAJHA97RByBPOBCf0ATGhVdDi6nP6XI/W1NzdoHTOdgV+lWEJ3iVW2Q==}
     engines: {node: '>= 12'}
     peerDependencies:
       '@types/node': 17.0.33
