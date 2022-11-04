@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { IGetGroupResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 import type {
@@ -11,7 +12,6 @@ import type {
 } from '@/store/interfaces/groups';
 import { groupsActions } from '@/store/reducers/groups';
 import type { AppState } from '@/store/app';
-import type { IGetGroupResponse } from '@/interfaces/responses';
 
 import GroupDetailsView from './GroupDetails.view';
 
@@ -36,7 +36,7 @@ const GroupDetails: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	useEffect(() => {
 		backendApi
-			.get<IGetGroupResponse>(`/user/groups/${params.groupId!}`)
+			.get<IGetGroupResponseData>(`/user/groups/${params.groupId!}`)
 			.then((response) => {
 				props.setSelectedSideBarGroup({
 					selectedSideBarGroup: {

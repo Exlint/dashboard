@@ -1,5 +1,5 @@
 {
 	"extends": "./tsconfig.base.json",
 	"include": ["**/*.ts", "**/*.js", "**/*.cjs"],
-	"exclude": ["node_modules", "apps"] // ESLint will be configured in each app
+	"exclude": ["node_modules", "apps", "packages"] // ESLint will be configured in each app
 }

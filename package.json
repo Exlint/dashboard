@@ -19,7 +19,7 @@
 		"cluster:stop": "pnpm exec ./docker/scripts/stop-cluster.sh",
 		"cluster:restart": "pnpm exec ./docker/scripts/restart-cluster.sh",
 		"db:clean": "rimraf ./.volumes/mongo",
-		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
+		"lint": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' --ignore-pattern 'packages' \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
 		"type-check": "tsc --project ./tsconfig.json",
 		"inflint": "inflint -c ./inflint.config.ts",
 		"depcheck": "depcheck --config ./.depcheckrc.json",

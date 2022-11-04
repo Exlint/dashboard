@@ -1,0 +1,22 @@
+{
+	"name": "@exlint-dashboard/common",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Common package",
+	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
+	"license": "UNLICENSED",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"./dist/index.d.ts"
+	],
+	"scripts": {
+		"postinstall": "pnpm build",
+		"build": "rimraf ./dist && tsc --project ./tsconfig.build.json",
+		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
+		"type-check": "tsc --project ./tsconfig.json"
+	},
+	"devDependencies": {
+		"pnpm": "7.14.2",
+		"rimraf": "3.0.2"
+	}
+}

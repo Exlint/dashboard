@@ -62,3 +62,5 @@ apps/frontend/stylelint.config.cjs
 apps/frontend/dist
 apps/frontend/tsconfig.eslint.json
 apps/frontend/.depcheckrc.json
+
+packages

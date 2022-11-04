@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
-import type { IAvailableLabelResponse, IGetGroupResponse } from '@/interfaces/responses';
 import { useDebounce } from '@/hooks/use-debounce';
 
 import DetailsView from './Details.view';
@@ -31,7 +31,7 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		}
 
 		backendApi
-			.get<IGetGroupResponse>(`/user/groups/${params.groupId}`)
+			.get<IGetGroupResponseData>(`/user/groups/${params.groupId}`)
 			.then((response) => setGroupLabelState(() => response.data.label))
 			.catch(() => navigate('/'));
 	}, [params.groupId, backendApi]);
@@ -48,7 +48,7 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				props.onSetPolicyLabelValid(false);
 			} else {
 				backendApi
-					.get<IAvailableLabelResponse>(`/user/inline-policies/available/${props.policyLabel}`)
+					.get<IAvailableLabelResponseData>(`/user/inline-policies/available/${props.policyLabel}`)
 					.then((response) => {
 						props.onSetPolicyLabelAvailable(response.data.isAvailable);
 						props.onSetPolicyLabelValid(response.data.isAvailable);

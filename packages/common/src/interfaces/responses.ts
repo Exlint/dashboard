@@ -10,10 +10,10 @@ export interface ICliAuthResponseData {
 	readonly email: string;
 }
 
-export interface IGetGroupResponse {
+export interface IGetGroupResponseData {
 	readonly label: string;
 }
 
-export interface IAvailableLabelResponse {
+export interface IAvailableLabelResponseData {
 	readonly isAvailable: boolean;
 }
