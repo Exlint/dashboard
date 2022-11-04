@@ -7,4 +7,11 @@ export const inflintData: ILibraryData = {
 	types: ['Linters'],
 	categories: ['File System'],
 	language: 'Agnostic',
+	configuration: {
+		extends: {
+			title: 'Extends',
+			description: 'The path to other config file to extend from',
+			type: 'string',
+		},
+	},
 };

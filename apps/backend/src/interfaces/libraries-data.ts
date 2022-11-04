@@ -21,4 +21,5 @@ export interface ILibraryData {
 	readonly categories: ICategory[];
 	readonly language: ILanguage;
 	readonly rules?: Record<string, ILibraryRule>;
+	readonly configuration: Record<string, unknown>;
 }
