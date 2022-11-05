@@ -33,6 +33,7 @@
 				"{projectRoot}/tsconfig.base.json",
 				"{workspaceRoot}/tsconfig.base.json"
 			],
+			"dependsOn": ["^build"],
 			"outputs": []
 		},
 		"depcheck": {
