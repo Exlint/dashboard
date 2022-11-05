@@ -10,8 +10,8 @@
 		"./dist/index.d.ts"
 	],
 	"scripts": {
-		"postinstall": "pnpm build",
 		"build": "rimraf ./dist && tsc --project ./tsconfig.build.json",
+		"start:dev": "tsc --project ./tsconfig.build.json --watch",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json"
 	},
