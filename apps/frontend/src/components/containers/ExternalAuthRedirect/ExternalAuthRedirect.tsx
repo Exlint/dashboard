@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { IAutoAuthResponseData, ICliAuthResponseData } from '@exlint-dashboard/common';
 
 import { backendApi, cliBackendApi, temporaryCliServerApi } from '@/utils/http';
-import type { IAutoAuthResponseData, ICliAuthResponseData } from '@/interfaces/responses';
 import { authActions } from '@/store/reducers/auth';
 import type { IAuthPayload } from '@/store/interfaces/auth';
 

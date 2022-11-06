@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { scroller } from 'react-scroll';
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
 import { groupsActions } from '@/store/reducers/groups';
 import type { IAddSideBarGroupsPayload } from '@/store/interfaces/groups';
-import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
 import type { ICreateGroupResponse } from './interfaces/response';
 
@@ -40,7 +40,7 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				setIsGroupLabelValidState(() => false);
 			} else {
 				backendApi
-					.get<IAvailableLabelResponse>(`/user/groups/available/${groupLabelInputState}`)
+					.get<IAvailableLabelResponseData>(`/user/groups/available/${groupLabelInputState}`)
 					.then((response) => {
 						setIsGroupLabelValidState(() => response.data.isAvailable);
 						setIsGroupLabelAvailableState(() => response.data.isAvailable);

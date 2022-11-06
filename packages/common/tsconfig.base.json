@@ -1,0 +1,11 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@/models/*": ["src/models/*"],
+			"@/interfaces/*": ["src/interfaces/*"]
+		},
+		"typeRoots": ["./node_modules/@types"]
+	}
+}

@@ -1,9 +1,9 @@
 import React, { type FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
-import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
 import type { ICreateSecretResponse } from './interfaces/responses';
 import { WEEK_INTERVAL } from './models/time';
@@ -36,7 +36,7 @@ const NewSecret: React.FC<IProps> = () => {
 				setIsSecretLabelValidState(() => false);
 			} else {
 				backendApi
-					.get<IAvailableLabelResponse>(`/user/secrets/${secretLabelInputState}`)
+					.get<IAvailableLabelResponseData>(`/user/secrets/${secretLabelInputState}`)
 					.then((response) => {
 						setIsSecretLabelValidState(response.data.isAvailable);
 						setIsSecretLabelAvailableState(response.data.isAvailable);

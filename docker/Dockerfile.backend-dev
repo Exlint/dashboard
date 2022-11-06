@@ -6,11 +6,13 @@ WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
 COPY ./apps/backend/package.json ./apps/backend/
+COPY ./packages/common/package.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
+RUN pnpm i -w
 RUN pnpm --filter backend i
 
-COPY ./tsconfig.base.json  ./
+COPY ./tsconfig.base.json ./nx.json ./
 COPY ./apps/backend/ ./apps/backend/
 
-CMD ["pnpm", "--filter", "backend", "start:dev:docker"]
+CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/backend"]

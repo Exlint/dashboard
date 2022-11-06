@@ -1,5 +1,6 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 
 import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
 
@@ -41,7 +42,7 @@ class GetLibrary implements Omit<ILibraryData, 'rules'> {
 	public language!: ILanguage;
 }
 
-export class AvailableLabelResponse {
+export class AvailableLabelResponse implements IAvailableLabelResponseData {
 	@ApiResponseProperty({
 		type: Boolean,
 		example: true,

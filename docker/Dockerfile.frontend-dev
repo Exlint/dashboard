@@ -6,10 +6,12 @@ WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
 COPY ./apps/frontend/package.json ./apps/frontend/
+COPY ./packages/common/package.json ./packages/common/
 
+RUN pnpm i -w
 RUN pnpm --filter frontend i
 
-COPY ./tsconfig.base.json  ./
+COPY ./tsconfig.base.json ./nx.json ./
 COPY ./apps/frontend/ ./apps/frontend/
 
-CMD ["pnpm", "--filter", "frontend", "start:dev:docker"]
+CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/frontend"]
