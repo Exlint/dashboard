@@ -260,7 +260,7 @@ importers:
       '@babel/plugin-syntax-flow': 7.18.6
       '@babel/plugin-transform-react-jsx': 7.19.0
       '@craco/craco': 6.4.5
-      '@exlint-dashboard/common': workspace:1.0.0
+      '@exlint-dashboard/common': workspace:*
       '@reduxjs/toolkit': 1.9.0
       '@types/craco__craco': 6.4.0
       '@types/node': 18.11.9
