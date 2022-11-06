@@ -1,3 +1,5 @@
+import type { Group, User } from '@prisma/client';
+
 export interface IAutoAuthResponseData {
 	readonly accessToken: string;
 	readonly id: string;
@@ -5,14 +7,11 @@ export interface IAutoAuthResponseData {
 	readonly createdAt: number;
 }
 
-export interface ICliAuthResponseData {
+export interface ICliAuthResponseData extends Pick<User, 'email'> {
 	readonly cliToken: string;
-	readonly email: string;
 }
 
-export interface IGetGroupResponseData {
-	readonly label: string;
-}
+export type IGetGroupResponseData = Pick<Group, 'label'>;
 
 export interface IAvailableLabelResponseData {
 	readonly isAvailable: boolean;

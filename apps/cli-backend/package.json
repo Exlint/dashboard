@@ -17,6 +17,7 @@
 		"depcheck": "depcheck --config ./.depcheckrc.json"
 	},
 	"dependencies": {
+		"@exlint-dashboard/common": "workspace:*",
 		"@nestjs/common": "9.1.6",
 		"@nestjs/config": "2.2.0",
 		"@nestjs/core": "9.1.6",

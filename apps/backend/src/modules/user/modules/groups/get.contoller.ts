@@ -12,7 +12,7 @@ import {
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './groups.routes';
-import { GetResponse } from './classes/responses';
+import { GetGroupResponse } from './classes/responses';
 import { GetGroupContract } from './queries/contracts/get-group.contract';
 
 @ApiTags('Groups')
@@ -24,7 +24,7 @@ export class GetController {
 
 	@ApiBearerAuth('access-token')
 	@ApiOperation({ description: 'Get a group of a user' })
-	@ApiOkResponse({ description: "If successfully got a user's group", type: GetResponse })
+	@ApiOkResponse({ description: "If successfully got a user's group", type: GetGroupResponse })
 	@ApiUnauthorizedResponse({
 		description: 'If access token is either missing or invalid',
 	})
@@ -34,12 +34,12 @@ export class GetController {
 	public async get(
 		@CurrentUserId() userId: string,
 		@Param('group_id') groupId: string,
-	): Promise<GetResponse> {
+	): Promise<GetGroupResponse> {
 		this.logger.log(
 			`Will try to fetch a user group with an ID: "${groupId}" belongs to user with an Id: "${userId}"`,
 		);
 
-		const userGroup = await this.queryBus.execute<GetGroupContract, GetResponse | null>(
+		const userGroup = await this.queryBus.execute<GetGroupContract, GetGroupResponse | null>(
 			new GetGroupContract(groupId),
 		);
 

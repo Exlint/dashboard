@@ -9,10 +9,10 @@ COPY ./apps/backend/package.json ./apps/backend/
 COPY ./packages/common/package.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
-RUN pnpm --filter backend --filter common i
+RUN pnpm i -w
+RUN pnpm --filter backend i
 
-COPY ./tsconfig.base.json  ./
+COPY ./tsconfig.base.json ./nx.json ./
 COPY ./apps/backend/ ./apps/backend/
-COPY ./packages/common/ ./packages/common/
 
 CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/backend"]

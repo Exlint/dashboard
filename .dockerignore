@@ -63,4 +63,12 @@ apps/frontend/dist
 apps/frontend/tsconfig.eslint.json
 apps/frontend/.depcheckrc.json
 
-packages
+packages/common/tsconfig.tsbuildinfo
+packages/common/.gitignore
+packages/common/.eslintrc.cjs
+packages/common/.eslintignore
+packages/common/node_modules
+packages/common/dist
+packages/common/tsconfig.json
+packages/common/tsconfig.eslint.json
+packages/common/.depcheckrc.json

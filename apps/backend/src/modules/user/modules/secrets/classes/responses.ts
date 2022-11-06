@@ -1,3 +1,4 @@
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 import { ApiResponseProperty } from '@nestjs/swagger';
 
 import type { IUserSecretsGetAll } from '../interfaces/user-secrets';
@@ -53,7 +54,7 @@ export class GetAllSecretsResponse {
 	public secrets!: IUserSecretsGetAll[];
 }
 
-export class AvailableLabelResponse {
+export class AvailableLabelResponse implements IAvailableLabelResponseData {
 	@ApiResponseProperty({
 		type: Boolean,
 	})
