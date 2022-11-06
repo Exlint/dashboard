@@ -1216,7 +1216,7 @@ export const stylelintData: ILibraryData = {
 		extends: {
 			title: 'Extends',
 			description: 'You can extend an existing configuration.',
-			type: 'free-multi-select',
+			type: 'multi-free',
 			values: ['stylelint-config-recommended', 'stylelint-config-standard'],
 		},
 		defaultSeverity: {
@@ -1229,29 +1229,30 @@ export const stylelintData: ILibraryData = {
 		reportDescriptionlessDisables: {
 			title: 'Report Descriptionless Disables',
 			description: 'Report stylelint-disable comments without a description. A report* property.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		reportInvalidScopeDisables: {
 			title: 'Report Invalid Scope Disables',
 			description:
 				"Report stylelint-disable comments that don't match rules that are specified in the configuration object. A report* property.",
-			type: 'radio',
+			type: 'boolean',
 		},
 		reportNeedlessDisables: {
 			title: 'Report Needless Disables',
 			description:
 				"Report stylelint-disable comments that don't actually match any lints that need to be disabled. A report* property.",
-			type: 'radio',
+			type: 'boolean',
 		},
 		ignoreDisables: {
 			title: 'Ignore Disables',
 			description: 'Ignore stylelint-disable (e.g. /* stylelint-disable block-no-empty */) comments.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		ignoreFiles: {
 			title: 'Ignore Files',
 			description: 'You can provide a glob or array of globs to ignore specific files.',
-			type: 'free-multi',
+			type: 'multi-free',
+			values: [],
 		},
 	},
 };

@@ -11,29 +11,30 @@ export const depcheckData: ILibraryData = {
 		ignoreBinPackage: {
 			title: 'Ignore Bin Package',
 			description: ' A flag to indicate if depcheck ignores the packages containing bin entry.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		skipMissing: {
 			title: 'Skip Missing',
 			description: 'Skip calculation of missing dependencies',
-			type: 'radio',
+			type: 'boolean',
 		},
 		json: {
 			title: 'JSON Output',
 			description:
 				'Output results in JSON. When not specified, depcheck outputs in human friendly format.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		oneline: {
 			title: 'Oneline output',
 			description: 'Output results as space separated string. Useful for copy/paste.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		ignores: {
 			title: 'Ignores',
 			description:
 				'A comma separated array containing package names to ignore. It can be glob expressions.',
-			type: 'free-multi',
+			type: 'multi-free',
+			values: [],
 		},
 		ignorePath: {
 			title: 'Ignore Matches',
@@ -43,7 +44,8 @@ export const depcheckData: ILibraryData = {
 		ignorePatterns: {
 			title: 'Ignore Patterns',
 			description: 'Comma separated patterns describing files to ignore.',
-			type: 'free-multi',
+			type: 'multi-free',
+			values: [],
 		},
 	},
 };

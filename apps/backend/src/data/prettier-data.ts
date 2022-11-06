@@ -21,17 +21,17 @@ export const prettierData: ILibraryData = {
 		useTabs: {
 			title: 'Tabs',
 			description: 'Indent lines with tabs instead of spaces.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		semi: {
 			title: 'Semicolons',
 			description: 'Print semicolons at the ends of statements.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		singleQuote: {
 			title: 'Quotes',
 			description: 'Use single quotes instead of double quotes.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		quoteProps: {
 			title: 'Quote Props',
@@ -42,7 +42,7 @@ export const prettierData: ILibraryData = {
 		jsxSingleQuote: {
 			title: 'JSX Quotes',
 			description: 'Use single quotes instead of double quotes in JSX.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		trailingComma: {
 			title: 'Trailing Commas',
@@ -54,13 +54,13 @@ export const prettierData: ILibraryData = {
 		bracketSpacing: {
 			title: 'Bracket Spacing',
 			description: 'Print spaces between brackets in object literals.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		bracketSameLine: {
 			title: 'Bracket Line',
 			description:
 				'Put the > of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line instead of being alone on the next line (does not apply to self closing elements).',
-			type: 'radio',
+			type: 'boolean',
 		},
 		arrowParens: {
 			title: 'Arrow Function Parentheses',
@@ -82,13 +82,13 @@ export const prettierData: ILibraryData = {
 			title: 'Require Pragma',
 			description:
 				'Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file. This is very useful when gradually transitioning large, unformatted codebases to Prettier.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		insertPragma: {
 			title: 'Insert Pragma',
 			description:
 				'Prettier can insert a special @format marker at the top of files specifying that the file has been formatted with Prettier. This works well when used in tandem with the --require-pragma option. If there is already a docblock at the top of the file then this option will add a newline to it with the @format marker.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		proseWrap: {
 			title: 'Prose Wrap',
@@ -107,7 +107,7 @@ export const prettierData: ILibraryData = {
 			title: 'Vue files script and style tags indentation',
 			description:
 				'Whether or not to indent the code inside <script> and <style> tags in Vue files. Some people (like the creator of Vue) don’t indent to save an indentation level, but this might break code folding in your editor.',
-			type: 'radio',
+			type: 'boolean',
 		},
 		endOfLine: {
 			title: 'End of Line',
@@ -125,7 +125,7 @@ export const prettierData: ILibraryData = {
 		singleAttributePerLine: {
 			title: 'Single Attribute Per Line',
 			description: 'Enforce single attribute per line in HTML, Vue and JSX.',
-			type: 'radio',
+			type: 'boolean',
 		},
 	},
 };
