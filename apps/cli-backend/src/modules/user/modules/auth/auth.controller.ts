@@ -8,11 +8,11 @@ import {
 	Query,
 	UseGuards,
 } from '@nestjs/common';
+import type { ICliAuthResponseData } from '@exlint-dashboard/common';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
-import type { IAuthResponse } from '@/interfaces/responses';
 
 import Routes from './auth.routes';
 import { RefreshTokenGuard } from './guards/refresh-token.guard';
@@ -32,7 +32,7 @@ export class AuthController {
 		@CurrentUserId() userId: string,
 		@CurrentUserEmail() userEmail: string,
 		@Query('port') port?: string,
-	): Promise<IAuthResponse> {
+	): Promise<ICliAuthResponseData> {
 		if (!port) {
 			throw new BadRequestException();
 		}

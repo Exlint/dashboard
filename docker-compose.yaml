@@ -76,6 +76,24 @@ services:
             - ./.volumes/mongo/replica3/configdb:/data/configdb
         networks:
             - dashboard_network
+
+    common:
+        container_name: common
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.common-dev
+        restart: always
+        networks:
+            - dashboard_network
+        volumes:
+            - type: bind
+              source: ./packages/common/src
+              target: /dashboard/packages/common/src
+            - type: bind
+              source: ./packages/common/dist
+              target: /dashboard/packages/common/dist
+            - /dashboard/packages/common/node_modules
+
     backend:
         container_name: backend
         build:
@@ -91,12 +109,17 @@ services:
             - mongo_replica_1
             - mongo_replica_2
             - mongo_replica_3
+            - common
         networks:
             - dashboard_network
         volumes:
             - type: bind
               source: ./apps/backend/src
               target: /dashboard/apps/backend/src
+            - type: bind
+              source: ./packages/common/dist
+              target: /dashboard/packages/common/dist
+            - /dashboard/apps/backend/node_modules
     cli-backend:
         container_name: cli-backend
         build:
@@ -112,12 +135,17 @@ services:
             - mongo_replica_1
             - mongo_replica_2
             - mongo_replica_3
+            - common
         networks:
             - dashboard_network
         volumes:
             - type: bind
               source: ./apps/cli-backend/src
               target: /dashboard/apps/cli-backend/src
+            - type: bind
+              source: ./packages/common/dist
+              target: /dashboard/packages/common/dist
+            - /dashboard/apps/cli-backend/node_modules
     frontend:
         container_name: frontend
         build:
@@ -131,12 +159,18 @@ services:
         depends_on:
             - backend
             - cli-backend
+            - common
         networks:
             - dashboard_network
         volumes:
             - type: bind
               source: ./apps/frontend/src
               target: /dashboard/apps/frontend/src
+            - type: bind
+              source: ./packages/common/dist
+              target: /dashboard/packages/common/dist
+            - /dashboard/apps/frontend/node_modules
+
 networks:
     dashboard_network:
         driver: bridge

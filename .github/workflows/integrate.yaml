@@ -31,7 +31,7 @@ jobs:
                   package-manager-version: 7.14.2
 
             - name: Test Depcheck
-              run: pnpm depcheck && pnpm -r --parallel depcheck
+              run: pnpm depcheck:all
 
     test_inflint:
         needs: call_pnpm_caching_workflow
@@ -63,7 +63,7 @@ jobs:
                   package-manager-version: 7.14.2
 
             - name: Test TypeScript
-              run: pnpm type-check && pnpm -r --parallel type-check
+              run: pnpm type-check:all
 
     test_prettier:
         needs: call_pnpm_caching_workflow
@@ -95,7 +95,7 @@ jobs:
                   package-manager-version: 7.14.2
 
             - name: Test ESLint
-              run: pnpm lint && pnpm -r --parallel lint
+              run: pnpm lint:all
 
     test_stylelint:
         needs: call_pnpm_caching_workflow
@@ -111,7 +111,7 @@ jobs:
                   package-manager-version: 7.14.2
 
             - name: Test Stylelint
-              run: pnpm --filter frontend stylelint
+              run: pnpm nx stylelint @exlint-dashboard/frontend
 
     test_prisma:
         needs: call_pnpm_caching_workflow
@@ -143,4 +143,4 @@ jobs:
                   package-manager-version: 7.14.2
 
             - name: Test build
-              run: pnpm -r --parallel build
+              run: pnpm build:nested

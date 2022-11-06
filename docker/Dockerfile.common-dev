@@ -5,14 +5,13 @@ RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
-COPY ./apps/cli-backend/package.json ./apps/cli-backend/
 COPY ./packages/common/package.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
 RUN pnpm i -w
-RUN pnpm --filter cli-backend i
+RUN pnpm --filter common i
 
 COPY ./tsconfig.base.json ./nx.json ./
-COPY ./apps/cli-backend/ ./apps/cli-backend/
+COPY ./packages/common/ ./packages/common/
 
-CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/cli-backend"]
+CMD ["pnpm", "exec", "nx", "start:dev", "@exlint-dashboard/common"]

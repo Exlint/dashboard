@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
-import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
 import EditGroupLabelView from './EditGroupLabel.view';
 
@@ -28,7 +28,7 @@ const EditGroupLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 				setNewIsGroupLabelValidState(() => false);
 			} else if (props.newGroupLabelInput !== props.groupLabel) {
 				backendApi
-					.get<IAvailableLabelResponse>(`/user/groups/available/${props.newGroupLabelInput}`)
+					.get<IAvailableLabelResponseData>(`/user/groups/available/${props.newGroupLabelInput}`)
 					.then((response) => {
 						setNewIsGroupLabelValidState(() => response.data.isAvailable);
 						setNewIsGroupLabelAvailableState(() => response.data.isAvailable);

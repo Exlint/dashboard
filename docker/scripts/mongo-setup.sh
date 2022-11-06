@@ -6,7 +6,7 @@ MONGODB_REPLICA_3=mongo_replica_3
 
 echo "************ [ Waiting for startup ] **************" ${MONGODB_REPLICA_1}
 
-until curl http://${MONGODB_REPLICA_1}:27017/serverStatus\?text\=1 2>&1 | grep uptime | head -1; do
+until mongosh --host ${MONGODB_REPLICA_1}:27017 --eval "printjson(db.serverStatus())"; do
   printf '.'
   sleep 1
 done

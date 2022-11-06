@@ -14,6 +14,7 @@ const inflintConfig: Config = {
 		'apps/frontend/src/components/{containers,layout}/**/*.{tsx,scss}': [2, 'PascalCase.Point'],
 		'apps/frontend/src/components/ui/*.{tsx,scss}': [2, '[UIComponent]'],
 		'apps/frontend/src/components/ui/*': [2, '[UIComponent]', { onlyDirectories: true }],
+		'packages/common/src/**/*': [2, 'kebab-case'],
 	},
 };
 

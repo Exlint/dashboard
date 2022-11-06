@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
-import type { IAvailableLabelResponse } from '@/interfaces/responses';
 
 import EditPolicyLabelView from './EditPolicyLabel.view';
 
@@ -31,7 +31,7 @@ const EditPolicyLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 				setNewIsPolicyLabelValidState(() => false);
 			} else if (props.newPolicyLabelInput !== props.policyLabel) {
 				backendApi
-					.get<IAvailableLabelResponse>(
+					.get<IAvailableLabelResponseData>(
 						`/user/inline-policies/available/${props.newPolicyLabelInput}`,
 					)
 					.then((response) => {

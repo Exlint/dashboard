@@ -1,5 +1,6 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
+import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint-dashboard/common';
 
 import { ILanguage } from '@/interfaces/libraries-data';
 
@@ -90,7 +91,7 @@ export class GetAllGroupsResponse {
 	public groups!: IUserGroupGetAll[];
 }
 
-export class AvailableLabelResponse {
+export class AvailableLabelResponse implements IAvailableLabelResponseData {
 	@ApiResponseProperty({
 		type: Boolean,
 		example: true,
@@ -98,7 +99,7 @@ export class AvailableLabelResponse {
 	public isAvailable!: boolean;
 }
 
-export class GetResponse {
+export class GetGroupResponse implements IGetGroupResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Group',

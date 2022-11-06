@@ -5,3 +5,5 @@ apps/cli-backend/node_modules
 apps/backend/dist
 apps/frontend/dist
 apps/cli-backend/dist
+packages/common/dist
+packages/common/node_modules
