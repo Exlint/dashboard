@@ -6,6 +6,7 @@ WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
 COPY ./packages/common/package.json ./packages/common/
+COPY ./prisma/schema.prisma ./prisma/
 
 RUN pnpm i -w
 RUN pnpm --filter common i
