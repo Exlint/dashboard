@@ -1,5 +1,7 @@
 import type { Group, User, InlinePolicy, Secret, PolicyLibrary } from '@prisma/client';
 
+import type { ILibraryData } from './libraries-data';
+
 export interface ICliAuthResponseData extends Pick<User, 'email'> {
 	readonly cliToken: string;
 }
@@ -41,3 +43,15 @@ export interface IGetAllSecretsResponseData {
 }
 
 export interface IGetFileListResponseData extends Pick<InlinePolicy, 'fileList'> {}
+
+export interface IGetLibrariesResponseData {
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
+}
+
+export interface ICreateGroupResponseData extends Pick<Group, 'id'> {}
+
+export interface IGetPoliciesResponseData extends Pick<Group, 'description'> {
+	readonly count: number;
+	readonly inlinePolicies: (Pick<InlinePolicy, 'id' | 'label' | 'library'> &
+		Pick<ILibraryData, 'language'>)[];
+}

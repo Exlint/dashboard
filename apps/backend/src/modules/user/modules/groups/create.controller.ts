@@ -49,7 +49,7 @@ export class CreateController {
 		);
 
 		return {
-			groupId: createdGroupId,
+			id: createdGroupId,
 		};
 	}
 }

@@ -6,7 +6,7 @@ import LibrariesListView from './LibrariesList.view';
 
 interface IProps {
 	readonly selectedLibrary: PolicyLibrary | null;
-	readonly libraries: ILibraryData[];
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
 	readonly onLibrarySelect: (library: PolicyLibrary) => void;
 	readonly onLibraryDeselect: VoidFunction;
 }

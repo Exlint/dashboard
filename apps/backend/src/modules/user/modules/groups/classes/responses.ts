@@ -5,9 +5,11 @@ import {
 	type IGetAllGroupsResponseData,
 	type IGetGroupResponseData,
 	ILanguage,
+	type ICreateGroupResponseData,
+	type IGetPoliciesResponseData,
 } from '@exlint-dashboard/common';
 
-import type { IGroupInlinePolicies, IGroupInlinePolicy } from '../interfaces/group-policies';
+import type { IGroupInlinePolicy } from '../interfaces/group-policies';
 import type { IUserGroupInlinePolicy } from '../interfaces/user-group';
 
 class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
@@ -79,12 +81,12 @@ class GroupInlinePolicy implements IGroupInlinePolicy {
 	public language!: ILanguage;
 }
 
-export class CreateGroupResponse {
+export class CreateGroupResponse implements ICreateGroupResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
 	})
-	public groupId!: string;
+	public id!: string;
 }
 
 export class GetAllGroupsResponse implements IGetAllGroupsResponseData {
@@ -110,7 +112,7 @@ export class GetGroupResponse implements IGetGroupResponseData {
 	public label!: string;
 }
 
-export class GetInlinePoliciesResponse implements IGroupInlinePolicies {
+export class GetInlinePoliciesResponse implements IGetPoliciesResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Group Description',

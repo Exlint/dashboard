@@ -15,7 +15,6 @@ import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 import Routes from './groups.routes';
 import { GetInlinePoliciesResponse } from './classes/responses';
 import { GetInlinePoliciesContract } from './queries/contracts/get-inline-policies.contract';
-import type { IGroupInlinePolicies } from './interfaces/group-policies';
 
 @ApiTags('Groups')
 @Controller(Routes.CONTROLLER)
@@ -46,9 +45,10 @@ export class GetInlinePoliciesController {
 			`Will try to fetch all inline policies of a group with an ID: "${groupId}" belong to user with an Id: "${userId}"`,
 		);
 
-		const inlinePolicies = await this.queryBus.execute<GetInlinePoliciesContract, IGroupInlinePolicies>(
-			new GetInlinePoliciesContract(groupId, page),
-		);
+		const inlinePolicies = await this.queryBus.execute<
+			GetInlinePoliciesContract,
+			GetInlinePoliciesResponse
+		>(new GetInlinePoliciesContract(groupId, page));
 
 		this.logger.log(
 			`Successfully got all inline policies of a group with an ID: "${groupId}" belong to user with an Id: "${userId}"`,

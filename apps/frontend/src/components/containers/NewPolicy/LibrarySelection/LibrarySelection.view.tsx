@@ -21,7 +21,7 @@ interface IProps {
 	readonly typeFilter: ITypeFilter;
 	readonly categoryFilter: ICategoryFilter;
 	readonly selectedLibrary: PolicyLibrary | null;
-	readonly libraries: ILibraryData[];
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
 	readonly onLibraryFilterInputChange: (value: string) => void;
 	readonly onSelectSortOption: (index: number) => void;
 	readonly onSetLanguageFilter: (value: ILanguageFilter) => void;

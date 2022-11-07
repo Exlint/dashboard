@@ -51,6 +51,7 @@ export class GetLibrariesController {
 			.map((library) => ({
 				...library,
 				rules: undefined,
+				configuration: undefined,
 			}));
 
 		this.logger.log(`Successfully got libraries with a user ID: "${userId}"`);

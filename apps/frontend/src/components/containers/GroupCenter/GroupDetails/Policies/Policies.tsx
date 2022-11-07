@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import type { IGetPoliciesResponseData } from '@exlint-dashboard/common';
 
 import type { AppState } from '@/store/app';
 import { backendApi } from '@/utils/http';
 
-import type { IGetPolicies, IPolicy } from './interfaces/policy';
+import type { IPolicy } from './policy';
 
 import PoliciesView from './Policies.view';
 
@@ -30,7 +31,7 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	useEffect(() => {
 		backendApi
-			.get<IGetPolicies>(`/user/groups/inline-policies/${props.groupId}?p=${realPage}`)
+			.get<IGetPoliciesResponseData>(`/user/groups/inline-policies/${props.groupId}?p=${realPage}`)
 			.then((response) => {
 				setPoliciesState(() => response.data.inlinePolicies);
 				setDescriptionInputState(() => response.data.description);

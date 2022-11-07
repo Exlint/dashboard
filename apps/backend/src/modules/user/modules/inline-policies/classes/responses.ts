@@ -10,6 +10,7 @@ import {
 	type ILibraryData,
 	type IType,
 	type IGetFileListResponseData,
+	type IGetLibrariesResponseData,
 } from '@exlint-dashboard/common';
 
 class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
@@ -58,11 +59,11 @@ export class AvailableLabelResponse implements IAvailableLabelResponseData {
 	public isAvailable!: boolean;
 }
 
-export class GetLibrariesResponse {
+export class GetLibrariesResponse implements IGetLibrariesResponseData {
 	@ApiResponseProperty({
 		type: [GetLibrary],
 	})
-	public libraries!: Omit<ILibraryData, 'rules'>[];
+	public libraries!: Omit<ILibraryData, 'rules' | 'configuration'>[];
 }
 
 export class CreatePolicyResponse implements ICreatePolicyResponseData {
