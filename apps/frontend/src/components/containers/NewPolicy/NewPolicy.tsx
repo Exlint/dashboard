@@ -1,10 +1,9 @@
 import React, { type FormEvent, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import type { ICreatePolicyResponseData } from '@exlint-dashboard/common';
 
 import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
-
-import type { ICreateResponseData } from './interfaces/responses';
 
 import NewPolicyView from './NewPolicy.view';
 
@@ -35,13 +34,13 @@ const NewPolicy: React.FC<IProps> = () => {
 		e.preventDefault();
 
 		backendApi
-			.post<ICreateResponseData>(`/user/inline-policies/${params.groupId}`, {
+			.post<ICreatePolicyResponseData>(`/user/inline-policies/${params.groupId}`, {
 				label: policyLabelState,
 				description: policyDescriptionState,
 				library: selectedLibraryState,
 			})
 			.then((response) => {
-				navigate(`/group-center/${params.groupId}/policies/${response.data.policyId}`);
+				navigate(`/group-center/${params.groupId}/policies/${response.data.id}`);
 			});
 	};
 

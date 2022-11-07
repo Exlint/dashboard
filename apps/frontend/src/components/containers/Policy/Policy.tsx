@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import type { IGetPolicyResponseData } from '@exlint-dashboard/common';
 
 import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
-
-import type { IGetResponseData } from './interfaces/responses';
 
 import PolicyView from './Policy.view';
 
@@ -22,10 +21,10 @@ const Policy: React.FC<IProps> = () => {
 
 	useEffect(() => {
 		backendApi
-			.get<IGetResponseData>(`/user/inline-policies/${params.policyId}`)
+			.get<IGetPolicyResponseData>(`/user/inline-policies/${params.policyId}`)
 			.then((response) => {
 				setGroupLabelState(() => response.data.groupLabel);
-				setPolicyLabelState(() => response.data.policyLabel);
+				setPolicyLabelState(() => response.data.label);
 				setLibraryState(() => response.data.library);
 			})
 			.catch(() => navigate(`/group-center/${params.groupId}`));

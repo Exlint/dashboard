@@ -13,7 +13,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
 
 import Routes from './secrets.routes';
-import { CreateClientSecretResponse } from './classes/responses';
+import { CreateSecretResponse } from './classes/responses';
 import { CreateSecretContract } from './queries/contracts/create-secret.cotract';
 import { CreateSecretDto } from './classes/create-secret.dto';
 
@@ -28,7 +28,7 @@ export class CreateController {
 	@ApiBearerAuth('access-token')
 	@ApiCreatedResponse({
 		description: 'If successfully created a secret',
-		type: CreateClientSecretResponse,
+		type: CreateSecretResponse,
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is either missing or invalid',
@@ -40,10 +40,10 @@ export class CreateController {
 		@CurrentUserId() userId: string,
 		@CurrentUserEmail() userEmail: string,
 		@Body() createSecretDto: CreateSecretDto,
-	): Promise<CreateClientSecretResponse> {
+	): Promise<CreateSecretResponse> {
 		this.logger.log(`Will try to create a client secret with to user with an Id: "${userId}"`);
 
-		const secret = await this.queryBus.execute<CreateSecretContract, CreateClientSecretResponse>(
+		const secret = await this.queryBus.execute<CreateSecretContract, CreateSecretResponse>(
 			new CreateSecretContract(
 				userId,
 				userEmail,

@@ -4,6 +4,7 @@ import { DBClientSecretService } from '@/modules/database/client-secret.service'
 
 import { SecretsService } from '../../secrets.service';
 import { CreateSecretContract } from '../contracts/create-secret.cotract';
+import type { CreateSecretResponse } from '../../classes/responses';
 
 @QueryHandler(CreateSecretContract)
 export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> {
@@ -12,7 +13,7 @@ export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> 
 		private readonly secretsService: SecretsService,
 	) {}
 
-	async execute(contract: CreateSecretContract) {
+	async execute(contract: CreateSecretContract): Promise<CreateSecretResponse> {
 		const secret = await this.secretsService.generateSecret(
 			contract.userId,
 			contract.email,
@@ -28,6 +29,6 @@ export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> 
 			expirationDate,
 		);
 
-		return { secretId: createdSecret.id, secretValue: secret };
+		return { id: createdSecret.id, secret };
 	}
 }

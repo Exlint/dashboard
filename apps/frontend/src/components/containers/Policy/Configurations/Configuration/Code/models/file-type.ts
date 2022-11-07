@@ -1,4 +1,4 @@
-import { CodeType } from '@/models/code-type';
+import { CodeType } from '@prisma/client';
 
 export const fileTypeOptions = [
 	{

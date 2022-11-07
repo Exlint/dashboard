@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import type { IGetCodeConfigurationResponseData } from '@exlint-dashboard/common';
+import type { CodeType } from '@prisma/client';
 
 import { backendApi } from '@/utils/http';
-import type { CodeType } from '@/models/code-type';
 
-import type { IGetCodeConfigurationResponseData } from './interfaces/responses';
 import { fileTypeOptions } from './models/file-type';
 
 import CodeView from './Code.view';

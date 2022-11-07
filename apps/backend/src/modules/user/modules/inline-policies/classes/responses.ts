@@ -1,6 +1,11 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary, CodeType } from '@prisma/client';
-import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
+import type {
+	IAvailableLabelResponseData,
+	ICreatePolicyResponseData,
+	IGetCodeConfigurationResponseData,
+	IGetPolicyResponseData,
+} from '@exlint-dashboard/common';
 
 import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
 
@@ -57,15 +62,15 @@ export class GetLibrariesResponse {
 	public libraries!: Omit<ILibraryData, 'rules'>[];
 }
 
-export class CreateResponse {
+export class CreatePolicyResponse implements ICreatePolicyResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
 	})
-	public policyId!: string;
+	public id!: string;
 }
 
-export class GetResponse {
+export class GetPolicyResponse implements IGetPolicyResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Group',
@@ -76,7 +81,7 @@ export class GetResponse {
 		type: String,
 		example: 'Yazif Policy',
 	})
-	public policyLabel!: string;
+	public label!: string;
 
 	@ApiResponseProperty({
 		enum: PolicyLibrary,
@@ -93,7 +98,7 @@ export class GetFileListResponse {
 	public fileList!: string[];
 }
 
-export class GetCodeConfigurationResponse {
+export class GetCodeConfigurationResponse implements IGetCodeConfigurationResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'module.exports = { root: true };',

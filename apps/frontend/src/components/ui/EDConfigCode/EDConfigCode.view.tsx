@@ -7,8 +7,7 @@ import { json } from '@codemirror/lang-json';
 import { tags } from '@lezer/highlight';
 import { StreamLanguage, LanguageSupport } from '@codemirror/language';
 import { yaml } from '@codemirror/legacy-modes/mode/yaml';
-
-import { CodeType } from '@/models/code-type';
+import { CodeType } from '@prisma/client';
 
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';

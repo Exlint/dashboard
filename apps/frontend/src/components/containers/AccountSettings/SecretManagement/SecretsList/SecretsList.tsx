@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { IRefreshSecretResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 
 import type { ISecret } from '../interfaces/secret';
-import type { IRefreshSecretResponse } from './interfaces/responses';
 
 import SecretsListView from './SecretsList.view';
 
@@ -18,12 +18,12 @@ const SecretsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 
 	const onRefreshSecret = (secretId: string) => {
 		backendApi
-			.patch<IRefreshSecretResponse>(`/user/secrets/refresh-secret/${secretId}`)
+			.patch<IRefreshSecretResponseData>(`/user/secrets/refresh-secret/${secretId}`)
 			.then((response) => {
 				navigate('/account-settings/secret-management', {
 					state: {
 						secretId,
-						secretValue: response.data.secretValue,
+						secretValue: response.data.secret,
 					},
 				});
 			});

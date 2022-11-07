@@ -1,11 +1,10 @@
 import React, { type FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
+import type { IAvailableLabelResponseData, ICreateSecretResponseData } from '@exlint-dashboard/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
 
-import type { ICreateSecretResponse } from './interfaces/responses';
 import { WEEK_INTERVAL } from './models/time';
 
 import NewSecretView from './NewSecret.view';
@@ -62,7 +61,7 @@ const NewSecret: React.FC<IProps> = () => {
 		e.preventDefault();
 
 		backendApi
-			.post<ICreateSecretResponse>('/user/secrets', {
+			.post<ICreateSecretResponseData>('/user/secrets', {
 				label: secretLabelInputState,
 				expiration: selectedDateState ? selectedDateState.getTime() : null,
 			})

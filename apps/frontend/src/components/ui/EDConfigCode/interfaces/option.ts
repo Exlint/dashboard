@@ -1,4 +1,4 @@
-import type { CodeType } from '@/models/code-type';
+import type { CodeType } from '@prisma/client';
 
 export interface IOption {
 	readonly value: CodeType;
