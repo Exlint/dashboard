@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import type { Secret } from '@prisma/client';
+import type { IGetAllSecretsResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 
-import type { IGetAllSecretsResponse, ISecret, ISecretDetails } from './interfaces/secret';
+import type { ISecretItem } from './interfaces/secrets';
 
 import SecretManagementView from './SecretManagement.view';
 
 interface IProps {}
 
 const SecretManagement: React.FC<IProps> = () => {
-	const [secretsListState, setSecretsListState] = useState<ISecret[]>([]);
+	const [secretsListState, setSecretsListState] = useState<ISecretItem[]>([]);
 
 	const navigate = useNavigate();
 	const location = useLocation();
-	const createdSecretDetails = location.state as ISecretDetails | null;
+	const createdSecretDetails = location.state as Pick<Secret, 'id' | 'secret'> | null;
 
 	useEffect(() => {
 		backendApi
-			.get<IGetAllSecretsResponse>('/user/secrets')
+			.get<IGetAllSecretsResponseData>('/user/secrets')
 			.then((response) => {
 				if (createdSecretDetails) {
 					setSecretsListState(() =>
-						response.data.secrets.filter((secret) => secret.id !== createdSecretDetails.secretId),
+						response.data.secrets.filter((secret) => secret.id !== createdSecretDetails.id),
 					);
 
 					return;

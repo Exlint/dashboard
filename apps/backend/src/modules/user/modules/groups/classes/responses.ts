@@ -1,11 +1,14 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
-import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint-dashboard/common';
-
-import { ILanguage } from '@/interfaces/libraries-data';
+import {
+	type IAvailableLabelResponseData,
+	type IGetAllGroupsResponseData,
+	type IGetGroupResponseData,
+	ILanguage,
+} from '@exlint-dashboard/common';
 
 import type { IGroupInlinePolicies, IGroupInlinePolicy } from '../interfaces/group-policies';
-import type { IUserGroupGetAll, IUserGroupInlinePolicy } from '../interfaces/user-group';
+import type { IUserGroupInlinePolicy } from '../interfaces/user-group';
 
 class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
 	@ApiResponseProperty({
@@ -32,7 +35,7 @@ class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
 	public rulesCount!: number;
 }
 
-class UserGroupGetAll implements IUserGroupGetAll {
+class UserGroupGetAll {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
@@ -84,11 +87,11 @@ export class CreateGroupResponse {
 	public groupId!: string;
 }
 
-export class GetAllGroupsResponse {
+export class GetAllGroupsResponse implements IGetAllGroupsResponseData {
 	@ApiResponseProperty({
 		type: [UserGroupGetAll],
 	})
-	public groups!: IUserGroupGetAll[];
+	public groups!: UserGroupGetAll[];
 }
 
 export class AvailableLabelResponse implements IAvailableLabelResponseData {

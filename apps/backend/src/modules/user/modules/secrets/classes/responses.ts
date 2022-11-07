@@ -1,13 +1,12 @@
 import type {
 	IAvailableLabelResponseData,
 	ICreateSecretResponseData,
+	IGetAllSecretsResponseData,
 	IRefreshSecretResponseData,
 } from '@exlint-dashboard/common';
 import { ApiResponseProperty } from '@nestjs/swagger';
 
-import type { IUserSecretsGetAll } from '../interfaces/user-secrets';
-
-class UserSecretGetAll implements IUserSecretsGetAll {
+class UserSecretGetAll {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
@@ -51,11 +50,11 @@ export class RefreshClientSecretResponse implements IRefreshSecretResponseData {
 	public secret!: string;
 }
 
-export class GetAllSecretsResponse {
+export class GetAllSecretsResponse implements IGetAllSecretsResponseData {
 	@ApiResponseProperty({
 		type: [UserSecretGetAll],
 	})
-	public secrets!: IUserSecretsGetAll[];
+	public secrets!: UserSecretGetAll[];
 }
 
 export class AvailableLabelResponse implements IAvailableLabelResponseData {

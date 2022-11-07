@@ -1,6 +1,5 @@
+import type { ILanguage } from '@exlint-dashboard/common';
 import type { Group, InlinePolicy } from '@prisma/client';
-
-import type { ILanguage } from '@/interfaces/libraries-data';
 
 export type IGroupInlinePolicy = Pick<InlinePolicy, 'id' | 'label' | 'library'> & {
 	readonly language: ILanguage;

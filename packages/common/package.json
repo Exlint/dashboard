@@ -5,6 +5,7 @@
 	"description": "Common package",
 	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
 	"license": "UNLICENSED",
+	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"./dist/index.d.ts"

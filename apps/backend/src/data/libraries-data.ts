@@ -1,4 +1,5 @@
-import type { ILibraryData } from '../interfaces/libraries-data';
+import type { ILibraryData } from '@exlint-dashboard/common';
+
 import { depcheckData } from './depcheck-data';
 import { eslintData } from './eslint-data';
 import { inflintData } from './inflint-data';

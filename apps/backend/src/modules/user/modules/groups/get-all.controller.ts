@@ -14,7 +14,6 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import Routes from './groups.routes';
 import { GetAllGroupsResponse } from './classes/responses';
 import { GetAllGroupsContract } from './queries/contracts/get-all-groups.contract';
-import type { IUserGroupGetAll } from './interfaces/user-group';
 
 @ApiTags('Groups')
 @Controller(Routes.CONTROLLER)
@@ -35,7 +34,7 @@ export class GetAllController {
 	public async getAll(@CurrentUserId() userId: string): Promise<GetAllGroupsResponse> {
 		this.logger.log(`Will try to fetch all groups belong to user with an Id: "${userId}"`);
 
-		const userGroups = await this.queryBus.execute<GetAllGroupsContract, IUserGroupGetAll[]>(
+		const userGroups = await this.queryBus.execute<GetAllGroupsContract, GetAllGroupsResponse['groups']>(
 			new GetAllGroupsContract(userId),
 		);
 

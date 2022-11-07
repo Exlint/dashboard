@@ -1,9 +1,9 @@
-import type { ILibraryName } from '@/interfaces/libraries';
+import type { PolicyLibrary } from '@prisma/client';
 
 export interface IPolicy {
 	readonly id: string;
 	readonly label: string;
-	readonly library: ILibraryName;
+	readonly library: PolicyLibrary;
 	readonly language: string;
 }
 

@@ -1,4 +1,4 @@
-import type { ILibraryData } from '../interfaces/libraries-data';
+import type { ILibraryData } from '@exlint-dashboard/common';
 
 export const inflintData: ILibraryData = {
 	name: 'Inflint',

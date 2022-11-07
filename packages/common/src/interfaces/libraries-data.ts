@@ -1,12 +1,5 @@
 import type { PolicyLibrary } from '@prisma/client';
 
-interface ILibraryRule {
-	readonly description: string;
-	readonly configApi: string;
-	readonly hasAutoFix?: boolean;
-	readonly category?: string;
-}
-
 interface IBaseConfiguration {
 	readonly title: string | null;
 	readonly description: string | null;
@@ -51,6 +44,13 @@ type IConfigurationValue =
 interface IMultiConfiguration extends IBaseConfiguration {
 	readonly type: 'multi-configuration';
 	readonly configuration: Record<string, IConfigurationValue>;
+}
+
+interface ILibraryRule {
+	readonly description: string;
+	readonly configApi: string;
+	readonly hasAutoFix?: boolean;
+	readonly category?: string;
 }
 
 export type IType = 'Linters' | 'Formatters';

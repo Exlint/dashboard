@@ -8,6 +8,7 @@ COPY ./package.json ./pnpm-workspace.yaml ./.npmrc ./
 COPY ./apps/frontend/package.json ./apps/frontend/
 COPY ./apps/frontend/patches ./apps/frontend/patches
 COPY ./packages/common/package.json ./packages/common/
+COPY ./prisma/schema.prisma ./prisma/
 
 RUN pnpm i -w
 RUN pnpm --filter frontend i

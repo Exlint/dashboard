@@ -1,10 +1,6 @@
-import type { ILibraryName } from '@/interfaces/libraries';
+import type { Group, PolicyLibrary } from '@prisma/client';
 
-export interface ISideBarGroup {
-	readonly id: string;
-	readonly label: string;
-	readonly librariesNames: ILibraryName[];
-}
+export type ISideBarGroup = Pick<Group, 'id' | 'label'> & { readonly librariesNames: PolicyLibrary[] };
 
 export type ISelectedSideBarGroup = Pick<ISideBarGroup, 'id' | 'label'>;
 

@@ -1,5 +1,5 @@
-import type { ILibrary } from './library';
+import type { ILibraryData } from '@exlint-dashboard/common';
 
 export interface IGetLibrariesResponse {
-	readonly libraries: ILibrary[];
+	readonly libraries: ILibraryData[];
 }

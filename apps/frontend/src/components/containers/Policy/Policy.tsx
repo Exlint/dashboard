@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { IGetPolicyResponseData } from '@exlint-dashboard/common';
+import type { PolicyLibrary } from '@prisma/client';
 
-import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
 
 import PolicyView from './Policy.view';
@@ -12,7 +12,7 @@ interface IProps {}
 const Policy: React.FC<IProps> = () => {
 	const [groupLabelState, setGroupLabelState] = useState<string | null>(null);
 	const [policyLabelState, setPolicyLabelState] = useState<string | null>(null);
-	const [libraryState, setLibraryState] = useState<ILibraryName | null>(null);
+	const [libraryState, setLibraryState] = useState<PolicyLibrary | null>(null);
 
 	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
 	const navigate = useNavigate();

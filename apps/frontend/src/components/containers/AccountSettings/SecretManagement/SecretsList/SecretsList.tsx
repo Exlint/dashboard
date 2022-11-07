@@ -4,12 +4,12 @@ import type { IRefreshSecretResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 
-import type { ISecret } from '../interfaces/secret';
+import type { ISecretItem } from '../interfaces/secrets';
 
 import SecretsListView from './SecretsList.view';
 
 interface IProps {
-	readonly secretsList: ISecret[];
+	readonly secretsList: ISecretItem[];
 	readonly onDeleteSecret: (secretId: string) => void;
 }
 
@@ -22,8 +22,8 @@ const SecretsList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			.then((response) => {
 				navigate('/account-settings/secret-management', {
 					state: {
-						secretId,
-						secretValue: response.data.secret,
+						id: secretId,
+						secret: response.data.secret,
 					},
 				});
 			});

@@ -1,9 +1,9 @@
 import React, { type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { PolicyLibrary } from '@prisma/client';
 
 import Nav from '@/layout/Nav';
 import EDAcceptButton from '@/ui/EDAcceptButton';
-import type { ILibraryName } from '@/interfaces/libraries';
 
 import Details from './Details';
 import LibrarySelection from './LibrarySelection';
@@ -16,12 +16,12 @@ interface IProps {
 	readonly isPolicyLabelValid: boolean;
 	readonly isPolicyLabelAvailable: boolean | null;
 	readonly isSubmitEnabled: boolean;
-	readonly selectedLibrary: ILibraryName | null;
+	readonly selectedLibrary: PolicyLibrary | null;
 	readonly onPolicyLabelChange: (value: string) => void;
 	readonly onPolicyDescriptionChange: (value: string) => void;
 	readonly onSetPolicyLabelValid: (value: boolean) => void;
 	readonly onSetPolicyLabelAvailable: (value: boolean | null) => void;
-	readonly onLibrarySelect: (library: ILibraryName | null) => void;
+	readonly onLibrarySelect: (library: PolicyLibrary | null) => void;
 	readonly onCreatePolicy: (e: FormEvent<HTMLFormElement>) => void;
 }
 

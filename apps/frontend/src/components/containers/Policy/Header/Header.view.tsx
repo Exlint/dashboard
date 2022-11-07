@@ -1,10 +1,10 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import type { PolicyLibrary } from '@prisma/client';
 
 import EDSvg from '@/ui/EDSvg';
 import { concatClasses } from '@/utils/component';
-import type { ILibraryName } from '@/interfaces/libraries';
 import logosObject from '@/utils/libraries-logos';
 
 import classes from './Header.module.scss';
@@ -13,7 +13,7 @@ import Tabs from './Tabs';
 interface IProps {
 	readonly groupLabel: string | null;
 	readonly policyLabel: string | null;
-	readonly library: ILibraryName | null;
+	readonly library: PolicyLibrary | null;
 	readonly groupId: string;
 }
 

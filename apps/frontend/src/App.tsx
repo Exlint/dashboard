@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import axios, { type AxiosResponse } from 'axios';
+import axios from 'axios';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { IAutoAuthResponseData } from '@exlint-dashboard/common';
 
@@ -65,8 +65,8 @@ const App: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	useEffect(() => {
 		backendApi
-			.get('/user/auth')
-			.then((response: AxiosResponse<IAutoAuthResponseData>) => {
+			.get<IAutoAuthResponseData>('/user/auth')
+			.then((response) => {
 				sessionStorage.setItem('token', response.data.accessToken);
 
 				props.auth({

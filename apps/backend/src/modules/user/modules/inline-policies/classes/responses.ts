@@ -1,13 +1,16 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary, CodeType } from '@prisma/client';
-import type {
-	IAvailableLabelResponseData,
-	ICreatePolicyResponseData,
-	IGetCodeConfigurationResponseData,
-	IGetPolicyResponseData,
+import {
+	type IAvailableLabelResponseData,
+	type ICategory,
+	type ICreatePolicyResponseData,
+	type IGetCodeConfigurationResponseData,
+	type IGetPolicyResponseData,
+	ILanguage,
+	type ILibraryData,
+	type IType,
+	type IGetFileListResponseData,
 } from '@exlint-dashboard/common';
-
-import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
 
 class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
 	@ApiResponseProperty({
@@ -90,7 +93,7 @@ export class GetPolicyResponse implements IGetPolicyResponseData {
 	public library!: PolicyLibrary;
 }
 
-export class GetFileListResponse {
+export class GetFileListResponse implements IGetFileListResponseData {
 	@ApiResponseProperty({
 		type: [String],
 		example: ['**/*.js', '*.ts'],

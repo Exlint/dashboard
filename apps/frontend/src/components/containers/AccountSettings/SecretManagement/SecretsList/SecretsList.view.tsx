@@ -3,12 +3,12 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { concatClasses } from '@/utils/component';
 
-import type { ISecret } from '../interfaces/secret';
+import type { ISecretItem } from '../interfaces/secrets';
 
 import classes from './SecretsList.module.scss';
 
 interface IProps {
-	readonly secretsList: ISecret[];
+	readonly secretsList: ISecretItem[];
 	readonly onRefreshSecret: (secretId: string) => void;
 	readonly onDeleteSecret: (secretId: string) => void;
 }

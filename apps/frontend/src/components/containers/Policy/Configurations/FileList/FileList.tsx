@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import type { IGetFileListResponseData } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 
-import type { IGetFileListResponseData } from '../interfaces/response';
 import type { IFileType } from './interface/file-list';
 
 import FileListView from './FileList.view';
