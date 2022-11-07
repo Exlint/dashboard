@@ -17,6 +17,11 @@ interface IStringConfiguration extends IBaseConfiguration {
 	readonly type: 'string';
 }
 
+interface IArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'array-configuration';
+	readonly configuration: IConfigurationValue[];
+}
+
 interface IMultiFreeConfiguration extends IBaseConfiguration {
 	readonly type: 'multi-free';
 	readonly values: string[];
@@ -36,6 +41,7 @@ type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
 	| IStringConfiguration
+	| IArrayConfiguration
 	| IMultiFreeConfiguration
 	| ISelectConfiguration
 	| IDynamicSelectConfiguration

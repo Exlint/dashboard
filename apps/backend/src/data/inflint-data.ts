@@ -13,6 +13,23 @@ export const inflintData: ILibraryData = {
 			description: 'The path to other config file to extend from',
 			type: 'string',
 		},
+		aliases: {
+			title: 'Aliases',
+			description: 'Inflint aliases to use together with rules.',
+			type: 'array-configuration',
+			configuration: [
+				{
+					title: 'RegEx Matcher',
+					description: 'Inflint will apply the alias name to match the provided RegEx.',
+					type: 'string',
+				},
+				{
+					title: 'RegEx Flags',
+					description: 'Inflint will apply the flags together with the RegEx string.',
+					type: 'string',
+				},
+			],
+		},
 		ignorePath: {
 			title: 'Ignore Path',
 			description: 'Ignore file path Inflint will use to ignore patterns',
