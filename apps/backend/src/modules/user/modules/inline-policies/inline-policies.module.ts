@@ -13,8 +13,8 @@ import { GetController } from './get.controller';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { EditLabelController } from './edit-label.controller';
 import { DeleteController } from './delete.controller';
-import { SetFileListController } from './set-file-list.controller';
-import { GetFileListController } from './get-file-list.controller';
+import { SetFilesListController } from './set-files-list.controller';
+import { GetFilesListController } from './get-files-list.controller';
 import { SetCodeConfigurationController } from './set-code-configuration.controller';
 import { GetCodeConfigurationController } from './get-code-configuration.controller';
 
@@ -27,8 +27,8 @@ import { GetCodeConfigurationController } from './get-code-configuration.control
 		GetController,
 		EditLabelController,
 		DeleteController,
-		SetFileListController,
-		GetFileListController,
+		SetFilesListController,
+		GetFilesListController,
 		GetCodeConfigurationController,
 		SetCodeConfigurationController,
 	],

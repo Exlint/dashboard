@@ -1,7 +1,6 @@
+import type { FilesListType } from '@exlint-dashboard/common';
 import { Injectable } from '@nestjs/common';
 import type { CodeType, PolicyLibrary } from '@prisma/client';
-
-import { FileListType } from '@/models/file-list';
 
 import { PrismaService } from './prisma.service';
 
@@ -67,32 +66,32 @@ export class DBInlinePolicyService {
 		await this.prisma.inlinePolicy.delete({ where: { id: policyId } });
 	}
 
-	public async setFileList(policyId: string, files: string[], type: FileListType) {
-		if (type === FileListType.File) {
-			await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { fileList: files } });
+	public async setFileList(policyId: string, files: string[], type: FilesListType) {
+		if (type === 'linted') {
+			await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { lintedList: files } });
 
 			return;
 		}
 
-		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { ignoreList: files } });
+		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { ignoredList: files } });
 	}
 
-	public async getFileList(policyId: string, type: FileListType) {
-		if (type === FileListType.File) {
+	public async getFilesList(policyId: string, type: FilesListType) {
+		if (type === 'linted') {
 			const policyDocument = await this.prisma.inlinePolicy.findUniqueOrThrow({
 				where: { id: policyId },
-				select: { fileList: true },
+				select: { lintedList: true },
 			});
 
-			return policyDocument.fileList;
+			return policyDocument.lintedList;
 		}
 
 		const policyDocument = await this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: policyId },
-			select: { ignoreList: true },
+			select: { ignoredList: true },
 		});
 
-		return policyDocument.ignoreList;
+		return policyDocument.ignoredList;
 	}
 
 	public getCodeConfiguration(policyId: string) {

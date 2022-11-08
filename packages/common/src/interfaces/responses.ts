@@ -42,7 +42,9 @@ export interface IGetAllSecretsResponseData {
 	readonly secrets: (Pick<Secret, 'id' | 'label'> & { readonly expiration: number | null })[];
 }
 
-export interface IGetFileListResponseData extends Pick<InlinePolicy, 'fileList'> {}
+export interface IGetFilesListResponseData {
+	readonly filesList: string[];
+}
 
 export interface IGetLibrariesResponseData {
 	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];

@@ -1,7 +1,8 @@
+import type { IEditPolicyLabelDto } from '@exlint-dashboard/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
 
-export class EditLabelDto {
+export class EditPolicyLabelDto implements IEditPolicyLabelDto {
 	@ApiProperty({ type: String, description: 'The new label for a policy', example: 'Yazif Policy' })
 	@IsString()
 	@MaxLength(30)

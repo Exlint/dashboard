@@ -1,10 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
 import { IsEnum, IsString, MaxLength, MinLength } from 'class-validator';
+import type { ICreatePolicyDto } from '@exlint-dashboard/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-export class CreateDto {
+export class CreatePolicyDto implements ICreatePolicyDto {
 	@ApiProperty({ type: String, description: 'The label of the new inline policy', example: 'Yazif Policy' })
 	@IsString()
 	@MaxLength(30)

@@ -9,7 +9,7 @@ interface IProps {
 	readonly onSaveChangesClick: VoidFunction;
 }
 
-const FileListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const FilesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<EDTextCode
 			input={props.fileListInput}
@@ -20,7 +20,7 @@ const FileListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	);
 };
 
-FileListView.displayName = 'FileListView';
-FileListView.defaultProps = {};
+FilesListView.displayName = 'FilesListView';
+FilesListView.defaultProps = {};
 
-export default React.memo(FileListView);
+export default React.memo(FilesListView);

@@ -24,7 +24,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './inline-policies.routes';
-import { CreateDto } from './classes/create.dto';
+import { CreatePolicyDto } from './classes/create.dto';
 import { CreateContract } from './queries/contracts/create.contract';
 import { GroupHasLibraryContract } from './queries/contracts/group-has-library.contract';
 import { CreatePolicyResponse } from './classes/responses';
@@ -52,7 +52,7 @@ export class CreateController {
 	public async create(
 		@CurrentUserId() userId: string,
 		@Param('group_id') groupId: string,
-		@Body() createDto: CreateDto,
+		@Body() createDto: CreatePolicyDto,
 		@RealIP() ip: string,
 	): Promise<CreatePolicyResponse> {
 		this.logger.log(

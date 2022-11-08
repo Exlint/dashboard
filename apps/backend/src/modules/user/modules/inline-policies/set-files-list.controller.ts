@@ -12,44 +12,44 @@ import {
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
-import { SetFileListDto } from './classes/set-file-list.dto';
+import { SetFilesListDto } from './classes/set-files-list.dto';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
-import { SetFileListContract } from './commands/contracts/set-file-list.contract';
+import { SetFilesListContract } from './commands/contracts/set-files-list.contract';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
-export class SetFileListController {
-	private readonly logger = new Logger(SetFileListController.name);
+export class SetFilesListController {
+	private readonly logger = new Logger(SetFilesListController.name);
 
 	constructor(private readonly commandBus: CommandBus) {}
 
-	@ApiOperation({ description: 'Set file list of linter/formatter to scan or to ignore' })
+	@ApiOperation({ description: 'Set files list of linter/formatter to scan or to ignore' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
-		description: 'If set the file list successfully',
+		description: 'If set the files list successfully',
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
-	@ApiInternalServerErrorResponse({ description: 'If failed to set the file list' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to set the files list' })
 	@UseGuards(BelongingInlinePolicyGuard)
 	@Patch(Routes.SET_FILE_LIST)
 	@HttpCode(HttpStatus.OK)
-	public async setFileList(
+	public async setFilesList(
 		@CurrentUserId() userId: string,
 		@Param('policy_id') policyId: string,
-		@Body() setFileListDto: SetFileListDto,
+		@Body() setFilesListDto: SetFilesListDto,
 	): Promise<void> {
 		this.logger.log(
-			`Will try to set file list to policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
+			`Will try to set files list to policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
 		);
 
-		await this.commandBus.execute<SetFileListContract, void>(
-			new SetFileListContract(policyId, setFileListDto.fileList, setFileListDto.type),
+		await this.commandBus.execute<SetFilesListContract, void>(
+			new SetFilesListContract(policyId, setFilesListDto.filesList, setFilesListDto.type),
 		);
 
 		this.logger.log(
-			`Successfully set file list to policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
+			`Successfully set files list to policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
 		);
 	}
 }

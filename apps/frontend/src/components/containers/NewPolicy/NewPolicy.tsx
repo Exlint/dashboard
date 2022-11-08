@@ -1,7 +1,8 @@
 import React, { type FormEvent, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { ICreatePolicyResponseData } from '@exlint-dashboard/common';
+import type { ICreatePolicyDto, ICreatePolicyResponseData } from '@exlint-dashboard/common';
 import type { PolicyLibrary } from '@prisma/client';
+import type { AxiosResponse } from 'axios';
 
 import { backendApi } from '@/utils/http';
 
@@ -34,11 +35,14 @@ const NewPolicy: React.FC<IProps> = () => {
 		e.preventDefault();
 
 		backendApi
-			.post<ICreatePolicyResponseData>(`/user/inline-policies/${params.groupId}`, {
-				label: policyLabelState,
-				description: policyDescriptionState,
-				library: selectedLibraryState,
-			})
+			.post<ICreatePolicyResponseData, AxiosResponse<ICreatePolicyResponseData>, ICreatePolicyDto>(
+				`/user/inline-policies/${params.groupId}`,
+				{
+					label: policyLabelState!,
+					description: policyDescriptionState,
+					library: selectedLibraryState!,
+				},
+			)
 			.then((response) => {
 				navigate(`/group-center/${params.groupId}/policies/${response.data.id}`);
 			});

@@ -82,8 +82,8 @@ model InlinePolicy {
   formConfiguration Json?
   codeConfiguration String?
   codeType          CodeType?
-  fileList          String[]      @default([])
-  ignoreList        String[]      @default([])
+  lintedList        String[]      @default([])
+  ignoredList       String[]      @default([])
   rules             Json?
 
   createdAt DateTime @default(now())

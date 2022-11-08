@@ -13,7 +13,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './groups.routes';
-import { EditLabelDto } from './classes/edit-label.dto';
+import { EditGroupLabelDto } from './classes/edit-label.dto';
 import { EditLabelContract } from './commands/contracts/edit-label.contract';
 
 @ApiTags('Groups')
@@ -35,7 +35,7 @@ export class EditLabelController {
 	@HttpCode(HttpStatus.OK)
 	public async editLabel(
 		@CurrentUserId() userId: string,
-		@Body() editLabelDto: EditLabelDto,
+		@Body() editLabelDto: EditGroupLabelDto,
 		@Param('group_id') groupId: string,
 	): Promise<void> {
 		this.logger.log(`Will try to edit a group with an Id ${groupId} for a user with an Id: ${userId}`);

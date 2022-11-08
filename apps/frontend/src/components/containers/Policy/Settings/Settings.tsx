@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import { useOutletContext, useParams } from 'react-router-dom';
+import type { AxiosResponse } from 'axios';
+import type { IEditPolicyLabelDto } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
@@ -41,7 +43,10 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		}
 
 		backendApi
-			.patch(`/user/inline-policies/label/${params.policyId}`, { label: newPolicyLabelInputState! })
+			.patch<void, AxiosResponse<void>, IEditPolicyLabelDto>(
+				`/user/inline-policies/label/${params.policyId}`,
+				{ label: newPolicyLabelInputState! },
+			)
 			.then(() => {
 				onSetPolicyLabel(newPolicyLabelInputState!);
 				props.showNotification({

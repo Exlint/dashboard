@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { IGetCodeConfigurationResponseData } from '@exlint-dashboard/common';
+import type { IGetCodeConfigurationResponseData, ISetCodeConfigurationDto } from '@exlint-dashboard/common';
 import type { CodeType } from '@prisma/client';
+import type { AxiosResponse } from 'axios';
 
 import { backendApi } from '@/utils/http';
 
@@ -59,10 +60,13 @@ const Code: React.FC<IProps> = () => {
 		}
 
 		backendApi
-			.patch(`/user/inline-policies/code-configuration/${params.policyId}`, {
-				code: codeInputState,
-				type: selectedFileTypeValue.value,
-			})
+			.patch<void, AxiosResponse<void>, ISetCodeConfigurationDto>(
+				`/user/inline-policies/code-configuration/${params.policyId}`,
+				{
+					code: codeInputState,
+					type: selectedFileTypeValue.value,
+				},
+			)
 			.then(() => setCodeInServerState(() => codeInputState))
 			.catch(() => {
 				return;

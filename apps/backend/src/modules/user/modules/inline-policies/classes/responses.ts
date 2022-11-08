@@ -9,7 +9,7 @@ import {
 	ILanguage,
 	type ILibraryData,
 	type IType,
-	type IGetFileListResponseData,
+	type IGetFilesListResponseData,
 	type IGetLibrariesResponseData,
 } from '@exlint-dashboard/common';
 
@@ -94,12 +94,12 @@ export class GetPolicyResponse implements IGetPolicyResponseData {
 	public library!: PolicyLibrary;
 }
 
-export class GetFileListResponse implements IGetFileListResponseData {
+export class GetFilesListResponse implements IGetFilesListResponseData {
 	@ApiResponseProperty({
 		type: [String],
 		example: ['**/*.js', '*.ts'],
 	})
-	public fileList!: string[];
+	public filesList!: string[];
 }
 
 export class GetCodeConfigurationResponse implements IGetCodeConfigurationResponseData {

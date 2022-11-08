@@ -15,7 +15,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import Routes from './groups.routes';
 import { CreateGroupResponse } from './classes/responses';
 import { CreateGroupContract } from './queries/contracts/create-group.contact';
-import { CreateDto } from './classes/create.dto';
+import { CreateGroupDto } from './classes/create.dto';
 
 @ApiTags('Groups')
 @Controller(Routes.CONTROLLER)
@@ -34,7 +34,7 @@ export class CreateController {
 	public async create(
 		@CurrentUserId() userId: string,
 		@RealIP() ip: string,
-		@Body() createGroupDto: CreateDto,
+		@Body() createGroupDto: CreateGroupDto,
 	): Promise<CreateGroupResponse> {
 		this.logger.log(
 			`Will try to create a group with label: "${createGroupDto.label}" for a user with an Id: ${userId}`,

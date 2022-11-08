@@ -27,7 +27,11 @@ const EditPolicyLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 
 	useDebounce(
 		() => {
-			if (props.newPolicyLabelInput === '' || props.newPolicyLabelInput === null) {
+			if (
+				props.newPolicyLabelInput === '' ||
+				props.newPolicyLabelInput === null ||
+				props.newPolicyLabelInput.length > 30
+			) {
 				setNewIsPolicyLabelValidState(() => false);
 			} else if (props.newPolicyLabelInput !== props.policyLabel) {
 				backendApi

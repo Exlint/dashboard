@@ -98,7 +98,7 @@
 	},
 	"pnpm": {
 		"patchedDependencies": {
-			"@types/react@18.0.21": "patches/@types__react@18.0.21.patch"
+			"@types/react@18.0.25": "patches/@types__react@18.0.25.patch"
 		}
 	}
 }

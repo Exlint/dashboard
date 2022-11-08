@@ -11,7 +11,7 @@ import Policies from '@/containers/GroupCenter/GroupDetails/Policies';
 import PolicySettings from '@/containers/Policy/Settings';
 import Configurations from '@/containers/Policy/Configurations';
 import Configuration from '@/containers/Policy/Configurations/Configuration';
-import FileList from '@/containers/Policy/Configurations/FileList';
+import FilesList from '@/containers/Policy/Configurations/FilesList';
 import Code from '@/containers/Policy/Configurations/Configuration/Code';
 import Form from '@/containers/Policy/Configurations/Configuration/Form';
 
@@ -69,8 +69,8 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							<Route path="form" element={<Form />} />
 							<Route path="code" element={<Code />} />
 						</Route>
-						<Route path="file-list" element={<FileList key={0} type="0" />} />
-						<Route path="ignore-list" element={<FileList key={1} type="1" />} />
+						<Route path="file-list" element={<FilesList key={0} type="linted" />} />
+						<Route path="ignore-list" element={<FilesList key={1} type="ignored" />} />
 					</Route>
 					<Route path="history" element={null} />
 					<Route path="settings" element={<PolicySettings />} />

@@ -1,18 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { IGetFileListResponseData } from '@exlint-dashboard/common';
+import type { IGetFilesListResponseData, FilesListType, ISetFilesListDto } from '@exlint-dashboard/common';
+import type { AxiosResponse } from 'axios';
 
 import { backendApi } from '@/utils/http';
 
-import type { IFileType } from './interface/file-list';
-
-import FileListView from './FileList.view';
+import FilesListView from './FilesList.view';
 
 interface IProps {
-	readonly type: IFileType;
+	readonly type: FilesListType;
 }
 
-const FileList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const FilesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const params = useParams<{ readonly policyId: string }>();
 
 	const [fileListState, setFileListState] = useState<string | null>(null);
@@ -25,10 +24,12 @@ const FileList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	useEffect(() => {
 		backendApi
-			.get<IGetFileListResponseData>(`/user/inline-policies/file-list/${params.policyId}/${props.type}`)
+			.get<IGetFilesListResponseData>(
+				`/user/inline-policies/file-list/${params.policyId}/${props.type}`,
+			)
 			.then((response) => {
-				setFileListState(() => response.data.fileList.join('\n'));
-				setFileListInputState(() => response.data.fileList.join('\n'));
+				setFileListState(() => response.data.filesList.join('\n'));
+				setFileListInputState(() => response.data.filesList.join('\n'));
 			});
 	}, [backendApi]);
 
@@ -36,10 +37,13 @@ const FileList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const onSaveChangesClick = () => {
 		backendApi
-			.patch(`/user/inline-policies/file-list/${params.policyId}`, {
-				fileList: fileListInputState,
-				type: +props.type,
-			})
+			.patch<void, AxiosResponse<void>, ISetFilesListDto>(
+				`/user/inline-policies/file-list/${params.policyId}`,
+				{
+					filesList: fileListInputState ?? '',
+					type: props.type,
+				},
+			)
 			.then(() => setFileListState(() => fileListInputState))
 			.catch(() => {
 				return;
@@ -47,7 +51,7 @@ const FileList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	};
 
 	return (
-		<FileListView
+		<FilesListView
 			fileListInput={fileListInputState}
 			isSaveChangesDisabled={isSaveChangesDisabled}
 			onFileListInputChange={onFileListInputChange}
@@ -56,7 +60,7 @@ const FileList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	);
 };
 
-FileList.displayName = 'FileList';
-FileList.defaultProps = {};
+FilesList.displayName = 'FilesList';
+FilesList.defaultProps = {};
 
-export default React.memo(FileList);
+export default React.memo(FilesList);

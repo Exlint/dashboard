@@ -13,7 +13,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './groups.routes';
-import { EditDescriptionDto } from './classes/edit-description.dto';
+import { EditGroupDescriptionDto } from './classes/edit-description.dto';
 import { EditDescriptionContract } from './commands/contracts/edit-description.contact';
 
 @ApiTags('Groups')
@@ -35,7 +35,7 @@ export class EditDescriptionController {
 	@HttpCode(HttpStatus.OK)
 	public async editDescription(
 		@CurrentUserId() userId: string,
-		@Body() editDescriptionDto: EditDescriptionDto,
+		@Body() editDescriptionDto: EditGroupDescriptionDto,
 		@Param('group_id') groupId: string,
 	): Promise<void> {
 		this.logger.log(`Will try to edit a group with an Id ${groupId} for a user with an Id: ${userId}`);
