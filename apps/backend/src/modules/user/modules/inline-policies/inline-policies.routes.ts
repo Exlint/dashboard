@@ -11,6 +11,8 @@ const Routes = {
 	GET_CODE_CONFIGURATION: 'code-configuration/:policy_id',
 	SET_CODE_CONFIGURATION: 'code-configuration/:policy_id',
 	GET_FORM_CONFIGURATION: 'form-configuration/:policy_id',
+	GET_FORM_SCHEMA: 'form-schema/:policy_id',
+	SET_IS_FORM_CONFIGURATION: 'is-form-configuration/:policy_id',
 };
 
 export default Routes;

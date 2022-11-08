@@ -1,6 +1,8 @@
 import type { FilesListType } from '@exlint-dashboard/common';
 import { Injectable } from '@nestjs/common';
-import type { CodeType, PolicyLibrary } from '@prisma/client';
+import type { CodeType, PolicyLibrary, Prisma } from '@prisma/client';
+
+import { librariesData } from '@/data/libraries-data';
 
 import { PrismaService } from './prisma.service';
 
@@ -105,6 +107,28 @@ export class DBInlinePolicyService {
 		await this.prisma.inlinePolicy.update({
 			where: { id: policyId },
 			data: { codeConfiguration: input, codeType: type },
+		});
+	}
+
+	public async getFormSchema(policyId: string) {
+		const policyRecord = await this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: policyId },
+			select: { library: true, formConfiguration: true, isFormConfiguration: true },
+		});
+
+		const libraryData = librariesData.find((libraryData) => libraryData.name === policyRecord.library)!;
+
+		return {
+			schema: libraryData.configuration,
+			formConfiguration: policyRecord.formConfiguration as Prisma.JsonObject,
+			isFormConfiguration: policyRecord.isFormConfiguration,
+		};
+	}
+
+	public async setIsFormConfiguration(policyId: string, isFormConfiguration: boolean) {
+		await this.prisma.inlinePolicy.update({
+			where: { id: policyId },
+			data: { isFormConfiguration },
 		});
 	}
 }

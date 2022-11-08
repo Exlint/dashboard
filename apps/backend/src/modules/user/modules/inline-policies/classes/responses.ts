@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary, CodeType } from '@prisma/client';
+import { PolicyLibrary, CodeType, type Prisma } from '@prisma/client';
 import {
 	type IAvailableLabelResponseData,
 	type ICategory,
@@ -11,6 +11,7 @@ import {
 	type IType,
 	type IGetFilesListResponseData,
 	type IGetLibrariesResponseData,
+	type IGetFormSchemaResponseData,
 } from '@exlint-dashboard/common';
 
 class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
@@ -114,4 +115,29 @@ export class GetCodeConfigurationResponse implements IGetCodeConfigurationRespon
 		example: CodeType.JS,
 	})
 	public codeType!: CodeType | null;
+}
+
+export class GetFormSchemaResponse implements IGetFormSchemaResponseData {
+	@ApiResponseProperty({
+		example: {
+			yazif: {
+				title: 'Yazif',
+				description: 'What A Yazif',
+				type: 'string',
+			},
+		},
+	})
+	public schema!: ILibraryData['configuration'];
+
+	@ApiResponseProperty({
+		example: {
+			yazif: true,
+		},
+	})
+	public formConfiguration!: Prisma.JsonObject | null;
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public isFormConfiguration!: boolean;
 }

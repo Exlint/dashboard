@@ -261,6 +261,9 @@ const en = {
 		fileType: 'File Type',
 		submit: 'Save Changes',
 	},
+	formConfiguration: {
+		submit: 'Save Changes',
+	},
 };
 
 export default en;

@@ -17,6 +17,8 @@ import { SetFilesListController } from './set-files-list.controller';
 import { GetFilesListController } from './get-files-list.controller';
 import { SetCodeConfigurationController } from './set-code-configuration.controller';
 import { GetCodeConfigurationController } from './get-code-configuration.controller';
+import { GetFormSchemaController } from './get-form-schema.controller';
+import { SetIsFormConfigurationController } from './set-is-form-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -31,6 +33,8 @@ import { GetCodeConfigurationController } from './get-code-configuration.control
 		GetFilesListController,
 		GetCodeConfigurationController,
 		SetCodeConfigurationController,
+		GetFormSchemaController,
+		SetIsFormConfigurationController,
 	],
 	providers: [
 		BelongingInlinePolicyGuard,
