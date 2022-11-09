@@ -19,6 +19,7 @@
 	border-bottom: 2px solid map.get($colors, greys-platinum);
 
 	&__instruction {
+		margin-inline-start: map.get($sizes, spacing-l);
 		font-size: 1.5rem;
 		font-weight: 500;
 		color: map.get($colors, greys-onyx);

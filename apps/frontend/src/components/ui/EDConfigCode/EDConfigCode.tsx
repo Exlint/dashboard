@@ -9,6 +9,8 @@ interface IProps {
 	readonly selectedOptionIndex: number;
 	readonly isSubmitDisabled: boolean;
 	readonly selectOptions: IOption[];
+	readonly isSwitchChecked: boolean | null;
+	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onInputChange: (value: string) => void;
 	readonly onSelectedOptionSelect: (index: number) => void;
 	readonly onSubmit: VoidFunction;
@@ -27,6 +29,8 @@ const EDConfigCode: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			selectedFileTypeIndex={props.selectedOptionIndex}
 			isSubmitDisabled={props.isSubmitDisabled}
 			selectOptions={props.selectOptions}
+			isSwitchChecked={props.isSwitchChecked}
+			onIsSwitchCheckedChange={props.onIsSwitchCheckedChange}
 			onSelectedFileTypeSelect={props.onSelectedOptionSelect}
 			onInputChange={props.onInputChange}
 			onSubmit={onSubmit}

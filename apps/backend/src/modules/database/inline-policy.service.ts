@@ -99,7 +99,7 @@ export class DBInlinePolicyService {
 	public getCodeConfiguration(policyId: string) {
 		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: policyId },
-			select: { codeConfiguration: true, codeType: true },
+			select: { codeConfiguration: true, codeType: true, isFormConfiguration: true },
 		});
 	}
 

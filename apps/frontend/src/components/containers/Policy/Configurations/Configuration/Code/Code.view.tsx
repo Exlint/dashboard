@@ -9,6 +9,8 @@ interface IProps {
 	readonly isSaveChangesDisabled: boolean;
 	readonly fileTypeOptions: typeof fileTypeOptions;
 	readonly selectedFileTypeIndex: number;
+	readonly isSwitchChecked: boolean | null;
+	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onFileTypeSelect: (index: number) => void;
 	readonly onCodeInputChange: (value: string) => void;
 	readonly onSaveChangesClick: VoidFunction;
@@ -21,6 +23,8 @@ const CodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			isSubmitDisabled={props.isSaveChangesDisabled}
 			selectOptions={props.fileTypeOptions}
 			selectedOptionIndex={props.selectedFileTypeIndex}
+			isSwitchChecked={props.isSwitchChecked}
+			onIsSwitchCheckedChange={props.onIsSwitchCheckedChange}
 			onSelectedOptionSelect={props.onFileTypeSelect}
 			onInputChange={props.onCodeInputChange}
 			onSubmit={props.onSaveChangesClick}

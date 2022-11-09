@@ -8,7 +8,6 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import type { InlinePolicy } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -47,7 +46,7 @@ export class GetCodeConfigurationController {
 
 		const configuration = await this.queryBus.execute<
 			GetCodeConfigurationContract,
-			Pick<InlinePolicy, 'codeConfiguration' | 'codeType'>
+			GetCodeConfigurationResponse
 		>(new GetCodeConfigurationContract(policyId));
 
 		this.logger.log(

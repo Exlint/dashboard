@@ -29,8 +29,8 @@ export interface ICreatePolicyResponseData extends Pick<InlinePolicy, 'id'> {}
 
 export interface ICreateSecretResponseData extends Pick<Secret, 'id' | 'secret'> {}
 
-export interface IGetCodeConfigurationResponseData
-	extends Pick<InlinePolicy, 'codeConfiguration' | 'codeType'> {}
+export type IGetCodeConfigurationResponseData = Pick<InlinePolicy, 'codeConfiguration' | 'codeType'> &
+	Pick<InlinePolicy, 'isFormConfiguration'>;
 
 export interface IRefreshSecretResponseData extends Pick<Secret, 'secret'> {}
 

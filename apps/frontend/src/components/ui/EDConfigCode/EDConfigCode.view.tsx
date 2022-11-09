@@ -11,6 +11,7 @@ import { CodeType } from '@prisma/client';
 
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';
+import EDBooleanButton from '../EDBooleanButton';
 import type { IOption } from './interfaces/option';
 
 import classes from './EDConfigCode.module.scss';
@@ -22,7 +23,9 @@ interface IProps {
 	readonly selectedFileTypeIndex: number;
 	readonly isSubmitDisabled: boolean;
 	readonly selectOptions: IOption[];
+	readonly isSwitchChecked: boolean | null;
 	readonly onInputChange: (value: string) => void;
+	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onSelectedFileTypeSelect: (index: number) => void;
 	readonly onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
@@ -66,6 +69,8 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	return (
 		<form className={classes['container']} onSubmit={props.onSubmit}>
 			<div className={classes['actionContainer']}>
+				<EDBooleanButton checked={props.isSwitchChecked} onChange={props.onIsSwitchCheckedChange} />
+
 				<span className={classes['actionContainer__instruction']}>
 					{t('configCode.fileType')}
 					<Trans>&#58;</Trans>

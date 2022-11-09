@@ -263,6 +263,12 @@ const en = {
 	},
 	formConfiguration: {
 		submit: 'Save Changes',
+		switch: {
+			toFormNotificationTitle: 'Configuration method set to Form-Based',
+			toCodeNotificationTitle: 'Configuration method set to Code-Based',
+			toFormNotificationDescription: 'Code-Based disabled (only one method can be enabled at a time).',
+			toCodeNotificationDescription: 'Form-Based disabled (only one method can be enabled at a time).',
+		},
 	},
 };
 

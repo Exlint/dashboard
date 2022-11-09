@@ -115,6 +115,11 @@ export class GetCodeConfigurationResponse implements IGetCodeConfigurationRespon
 		example: CodeType.JS,
 	})
 	public codeType!: CodeType | null;
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public isFormConfiguration!: boolean;
 }
 
 export class GetFormSchemaResponse implements IGetFormSchemaResponseData {
