@@ -77,7 +77,7 @@
 		"prettier": "2.7.1",
 		"prisma": "4.6.0",
 		"react-scripts": "5.0.1",
-		"sass": "1.56.0",
+		"sass": "1.56.1",
 		"stylelint": "14.14.1",
 		"stylelint-config-prettier-scss": "0.0.1",
 		"stylelint-config-recess-order": "3.0.0",
