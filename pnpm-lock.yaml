@@ -297,7 +297,7 @@ importers:
       react-scripts: 5.0.1
       react-scroll: 1.8.8
       react-textarea-autosize: 8.3.4
-      sass: 1.56.0
+      sass: 1.56.1
       stylelint: 14.14.1
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.0.0
@@ -349,8 +349,8 @@ importers:
       postcss: 8.4.18
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.18
       prettier: 2.7.1
-      react-scripts: 5.0.1_cpmfluojnqx2aatvij5jeafzde
-      sass: 1.56.0
+      react-scripts: 5.0.1_f4ejj37ufskkx6762yyspnwtuy
+      sass: 1.56.1
       stylelint: 14.14.1
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.14.1
       stylelint-config-recess-order: 3.0.0_stylelint@14.14.1
@@ -3111,7 +3111,7 @@ packages:
       cosmiconfig-typescript-loader: 1.0.9_cbe7ovvae6zqfnmtgctpgpys54
       cross-spawn: 7.0.3
       lodash: 4.17.21
-      react-scripts: 5.0.1_cpmfluojnqx2aatvij5jeafzde
+      react-scripts: 5.0.1_f4ejj37ufskkx6762yyspnwtuy
       semver: 7.3.7
       webpack-merge: 4.2.2
     transitivePeerDependencies:
@@ -14161,7 +14161,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-scripts/5.0.1_cpmfluojnqx2aatvij5jeafzde:
+  /react-scripts/5.0.1_f4ejj37ufskkx6762yyspnwtuy:
     resolution: {integrity: sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -14211,7 +14211,7 @@ packages:
       react-refresh: 0.11.0
       resolve: 1.22.1
       resolve-url-loader: 4.0.0
-      sass-loader: 12.6.0_sass@1.56.0+webpack@5.74.0
+      sass-loader: 12.6.0_sass@1.56.1+webpack@5.74.0
       semver: 7.3.7
       source-map-loader: 3.0.1_webpack@5.74.0
       style-loader: 3.3.1_webpack@5.74.0
@@ -14727,7 +14727,7 @@ packages:
     resolution: {integrity: sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==}
     dev: true
 
-  /sass-loader/12.6.0_sass@1.56.0+webpack@5.74.0:
+  /sass-loader/12.6.0_sass@1.56.1+webpack@5.74.0:
     resolution: {integrity: sha512-oLTaH0YCtX4cfnJZxKSLAyglED0naiYfNG1iXfU5w1LNZ+ukoA5DtyDIN5zmKVZwYNJP4KRc5Y3hkWga+7tYfA==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
@@ -14748,7 +14748,7 @@ packages:
     dependencies:
       klona: 2.0.5
       neo-async: 2.6.2
-      sass: 1.56.0
+      sass: 1.56.1
       webpack: 5.74.0
     dev: true
 
@@ -14762,8 +14762,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /sass/1.56.0:
-    resolution: {integrity: sha512-WFJ9XrpkcnqZcYuLRJh5qiV6ibQOR4AezleeEjTjMsCocYW59dEG19U3fwTTXxzi2Ed3yjPBp727hbbj53pHFw==}
+  /sass/1.56.1:
+    resolution: {integrity: sha512-VpEyKpyBPCxE7qGDtOcdJ6fFbcpOM+Emu7uZLxVrkX8KVU/Dp5UF7WLvzqRuUhB6mqqQt1xffLoG+AndxTZrCQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -16286,7 +16286,7 @@ packages:
       postcss-icss-selectors: 2.0.3
       postcss-load-config: 3.1.4_postcss@8.4.18
       reserved-words: 0.1.2
-      sass: 1.56.0
+      sass: 1.56.1
       stylus: 0.54.8
       tsconfig-paths: 3.14.1
       typescript: 4.8.4
