@@ -13,8 +13,8 @@
 		color: map.get($colors, greys-philippine-gray);
 		text-align: center;
 		text-decoration: none;
-		border: 2px solid map.get($colors, greys-platinum);
 		border-radius: 6px;
+		box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
 
 		&:not(:last-child) {
 			margin-inline-end: map.get($sizes, spacing-xxl);
@@ -22,7 +22,7 @@
 
 		&--active {
 			color: map.get($colors, greys-onyx);
-			border-color: map.get($colors, greys-onyx);
+			box-shadow: inset 0 0 0 2px map.get($colors, greys-onyx);
 		}
 	}
 }
