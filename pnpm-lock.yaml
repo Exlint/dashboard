@@ -296,7 +296,7 @@ importers:
       react-router-dom: 6.4.3
       react-scripts: 5.0.1
       react-scroll: 1.8.8
-      react-textarea-autosize: 8.3.4
+      react-textarea-autosize: 8.4.0
       sass: 1.56.1
       stylelint: 14.14.1
       stylelint-config-prettier-scss: 0.0.1
@@ -319,7 +319,7 @@ importers:
       react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
       react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
-      react-textarea-autosize: 8.3.4_fan5qbzahqtxlm5dzefqlqx5ia
+      react-textarea-autosize: 8.4.0_fan5qbzahqtxlm5dzefqlqx5ia
       typescript: 4.8.4
     devDependencies:
       '@babel/core': 7.20.2
@@ -14270,8 +14270,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-textarea-autosize/8.3.4_fan5qbzahqtxlm5dzefqlqx5ia:
-    resolution: {integrity: sha512-CdtmP8Dc19xL8/R6sWvtknD/eCXkQr30dtvC4VmGInhRsfF8X/ihXCq6+9l9qbxmKRiq407/7z5fxE7cVWQNgQ==}
+  /react-textarea-autosize/8.4.0_fan5qbzahqtxlm5dzefqlqx5ia:
+    resolution: {integrity: sha512-YrTFaEHLgJsi8sJVYHBzYn+mkP3prGkmP2DKb/tm0t7CLJY5t1Rxix8070LAKb0wby7bl/lf2EeHkuMihMZMwQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
