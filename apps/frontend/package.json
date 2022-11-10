@@ -31,7 +31,7 @@
 		"@types/react": "18.0.25",
 		"@types/react-dom": "18.0.8",
 		"@uiw/codemirror-themes": "4.13.2",
-		"@uiw/react-codemirror": "4.12.4",
+		"@uiw/react-codemirror": "4.13.2",
 		"axios": "0.27.2",
 		"date-fns": "2.29.3",
 		"i18next": "22.0.4",
