@@ -20,6 +20,12 @@ enum PolicyLibrary {
   Depcheck
 }
 
+enum CodeType {
+  JSON
+  YAML
+  JS
+}
+
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
@@ -69,12 +75,17 @@ model Secret {
 model InlinePolicy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  groupId       String        @db.ObjectId
-  label         String
-  description String?
-  library       PolicyLibrary
-  configuration Json?
-  rules         Json?
+  groupId             String        @db.ObjectId
+  label               String
+  description         String?
+  library             PolicyLibrary
+  formConfiguration   Json?
+  codeConfiguration   String?
+  isFormConfiguration Boolean       @default(true)
+  codeType            CodeType?
+  lintedList          String[]      @default([])
+  ignoredList         String[]      @default([])
+  rules               Json?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

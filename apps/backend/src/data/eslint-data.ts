@@ -1,4 +1,4 @@
-import type { ILibraryData } from '../interfaces/libraries-data';
+import type { ILibraryData } from '@exlint-dashboard/common';
 
 export const eslintData: ILibraryData = {
 	name: 'ESLint',
@@ -1604,6 +1604,278 @@ export const eslintData: ILibraryData = {
 			hasAutoFix: true,
 			category: 'Layout And Formatting',
 			configApi: 'yield-star-spacing',
+		},
+	},
+	configuration: {
+		root: {
+			title: 'Root',
+			description:
+				'By default, ESLint will look for configuration files in all parent folders up to the root directory. This can be useful if you want all of your projects to follow a certain convention, but can sometimes lead to unexpected results. To limit ESLint to a specific project, place "root": true.',
+			type: 'boolean',
+		},
+		extends: {
+			title: 'Extends',
+			description: 'The path to other config files or the package name of shareable configs',
+			type: 'multi-free',
+			values: ['eslint:recommended', 'eslint-all'],
+		},
+		env: {
+			title: 'Env',
+			description: 'An environment provides predefined global variables',
+			type: 'multi-configuration',
+			configuration: {
+				'browser': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'node': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'commonjs': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'shared-node-browser': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es6': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2016': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2017': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2018': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2019': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2020': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2021': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'es2022': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'worker': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'amd': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'mocha': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'jasmine': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'jest': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'phantomjs': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'protractor': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'qunit': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'jquery': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'prototypejs': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'shelljs': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'meteor': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'mongo': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'applescript': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'nashorn': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'serviceworker': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'atomtest': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'embertest': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'webextensions': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+				'greasemonkey': {
+					title: null,
+					description: null,
+					type: 'boolean',
+				},
+			},
+		},
+		parserOptions: {
+			title: 'Parser Options',
+			description: 'ESLint allows you to specify the JavaScript language options you want to support.',
+			type: 'multi-configuration',
+			configuration: {
+				ecmaVersion: {
+					title: 'ECMA Version',
+					description: 'The version of ECMAScript to support.',
+					type: 'select',
+					values: [
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						2015,
+						2016,
+						2017,
+						2018,
+						2019,
+						2020,
+						2021,
+						2022,
+						2023,
+						'latest',
+					],
+				},
+				sourceType: {
+					title: 'Source Type',
+					description: 'The source code type.',
+					type: 'select',
+					values: ['script', 'module'],
+				},
+				allowReserved: {
+					title: 'Allow Reserved',
+					description: 'Allowing the use of reserved words as identifiers in ES3.',
+					type: 'boolean',
+				},
+				ecmaFeatures: {
+					title: 'ECMA Features',
+					description: 'Nn object indicating which additional language features you’d like to use',
+					type: 'multi-configuration',
+					configuration: {
+						globalReturn: {
+							title: null,
+							description: null,
+							type: 'boolean',
+						},
+						jsx: {
+							title: null,
+							description: null,
+							type: 'boolean',
+						},
+						impliedStrict: {
+							title: null,
+							description: null,
+							type: 'boolean',
+						},
+					},
+				},
+			},
+		},
+		globals: {
+			title: 'Globals',
+			description:
+				'An object specifying additional objects that should be added to the global scope during linting.',
+			type: 'dynamic-select',
+			values: [true, false, 'off', 'readable', 'writable', 'writeable'],
+		},
+		ignorePatterns: {
+			title: 'Ignore Patterns',
+			description: 'You can tell ESLint to ignore specific files and directories.',
+			type: 'multi-free',
+			values: [],
+		},
+		noInlineConfig: {
+			title: 'No Inline Config',
+			description: 'If inline configuration is allowed.',
+			type: 'boolean',
+		},
+		reportUnusedDisableDirectives: {
+			title: 'Report Unused Disable Directives',
+			description: 'If unused disable directives should be tracked and reported.',
+			type: 'boolean',
 		},
 	},
 };

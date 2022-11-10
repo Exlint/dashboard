@@ -244,6 +244,31 @@ const en = {
 			},
 			deleteButton: 'Delete ‘{{label}}’',
 		},
+		configurations: {
+			tabs: {
+				form: 'Form-Based Configuration',
+				code: 'Code-Based Configuration',
+				configuration: 'Configuration',
+				fileList: 'File List',
+				ignoreList: 'Ignore List',
+			},
+		},
+	},
+	textCode: {
+		submit: 'Save Changes',
+	},
+	configCode: {
+		fileType: 'File Type',
+		submit: 'Save Changes',
+	},
+	formConfiguration: {
+		submit: 'Save Changes',
+		switch: {
+			toFormNotificationTitle: 'Configuration method set to Form-Based',
+			toCodeNotificationTitle: 'Configuration method set to Code-Based',
+			toFormNotificationDescription: 'Code-Based disabled (only one method can be enabled at a time).',
+			toCodeNotificationDescription: 'Form-Based disabled (only one method can be enabled at a time).',
+		},
 	},
 };
 

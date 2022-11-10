@@ -1,9 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
+import type { ICreateGroupDto } from '@exlint-dashboard/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-export class CreateDto {
+export class CreateGroupDto implements ICreateGroupDto {
 	@ApiProperty({ type: String, description: 'The label for a group', example: 'Yazif Group' })
 	@IsString()
 	@MinLength(1)
@@ -17,5 +18,5 @@ export class CreateDto {
 	})
 	@IsString()
 	@IsNullable()
-	readonly description!: string;
+	readonly description!: string | null;
 }

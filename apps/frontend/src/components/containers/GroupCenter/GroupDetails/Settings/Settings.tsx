@@ -2,6 +2,8 @@ import React, { type FormEvent, useState } from 'react';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
+import type { AxiosResponse } from 'axios';
+import type { IEditGroupLabelDto } from '@exlint-dashboard/common';
 
 import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
@@ -49,7 +51,9 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		}
 
 		backendApi
-			.patch(`/user/groups/label/${props.groupId}`, { label: newGroupLabelInputState! })
+			.patch<void, AxiosResponse<void>, IEditGroupLabelDto>(`/user/groups/label/${props.groupId}`, {
+				label: newGroupLabelInputState!,
+			})
 			.then(() => {
 				props.editSideBarGroup({ id: props.groupId, label: newGroupLabelInputState! });
 				props.showNotification({

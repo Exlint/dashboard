@@ -1,19 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import type { PolicyLibrary } from '@prisma/client';
+import type { ILibraryData } from '@exlint-dashboard/common';
 
 import logosObject from '@/utils/libraries-logos';
-import type { ILibraryName } from '@/interfaces/libraries';
 import { concatClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
-
-import type { ILibrary } from '../interfaces/library';
 
 import classes from './LibrariesList.module.scss';
 
 interface IProps {
-	readonly selectedLibrary: ILibraryName | null;
-	readonly libraries: ILibrary[];
-	readonly onLibrarySelect: (library: ILibraryName) => void;
+	readonly selectedLibrary: PolicyLibrary | null;
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
+	readonly onLibrarySelect: (library: PolicyLibrary) => void;
 	readonly onLibraryDeselect: VoidFunction;
 }
 

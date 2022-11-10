@@ -23,7 +23,13 @@
 			"dependsOn": ["^build"]
 		},
 		"lint": {
-			"inputs": ["jsSource", "{projectRoot}/.eslintrc.cjs", "{projectRoot}/.eslintignore"],
+			"inputs": [
+				"jsSource",
+				"{workspaceRoot}/.eslintrc.cjs",
+				"{workspaceRoot}/.eslintignore",
+				"{projectRoot}/.eslintrc.cjs",
+				"{projectRoot}/.eslintignore"
+			],
 			"outputs": []
 		},
 		"type-check": {

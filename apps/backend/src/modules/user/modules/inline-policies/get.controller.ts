@@ -12,7 +12,7 @@ import {
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
-import { GetResponse } from './classes/responses';
+import { GetPolicyResponse } from './classes/responses';
 import { GetContract } from './queries/contracts/get.contract';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 
@@ -27,7 +27,7 @@ export class GetController {
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: 'Returns data of policy',
-		type: GetResponse,
+		type: GetPolicyResponse,
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is invalid or missing, or provided policy does not belong to user',
@@ -39,12 +39,14 @@ export class GetController {
 	public async get(
 		@CurrentUserId() userId: string,
 		@Param('policy_id') policyId: string,
-	): Promise<GetResponse> {
+	): Promise<GetPolicyResponse> {
 		this.logger.log(
 			`Will try to get data of a policy with an ID: "${policyId}" with a user ID: "${userId}"`,
 		);
 
-		const policyData = await this.queryBus.execute<GetContract, GetResponse>(new GetContract(policyId));
+		const policyData = await this.queryBus.execute<GetContract, GetPolicyResponse>(
+			new GetContract(policyId),
+		);
 
 		this.logger.log(
 			`Successfully got data of a policy with an ID: "${policyId}" with a user ID: "${userId}"`,

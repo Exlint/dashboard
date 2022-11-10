@@ -1,35 +1,17 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
-import { PrismaClient } from '@prisma/client';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
 import { LoggingInterceptor } from './interceptors/logger.interceptor';
-import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from './models/jwt-token';
 import type { IEnvironment } from './config/env.interface';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const module: any;
 
 async function bootstrap() {
-	const prisma = new PrismaClient();
-
-	// * https://github.com/prisma/prisma/issues/5430#issuecomment-1098715558
-	await prisma.$runCommandRaw({
-		createIndexes: 'RefreshToken',
-		indexes: [
-			{
-				key: {
-					createdAt: 1,
-				},
-				name: 'Refresh Token Index',
-				expireAfterSeconds: JWT_REFRESH_TOKEN_DURATION_MINUTES * 60,
-			},
-		],
-	});
-
 	const app = await NestFactory.create(AppModule);
 
 	if (module.hot) {

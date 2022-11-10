@@ -1,0 +1,49 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: map.get($sizes, spacing-xxl-4);
+	border: 2px solid map.get($colors, greys-platinum);
+	border-radius: 6px;
+}
+
+.actionContainer {
+	display: flex;
+	justify-content: flex-end;
+	padding: map.get($sizes, spacing-l);
+	background-color: map.get($colors, whites-ghost-white);
+	border-bottom: 2px solid map.get($colors, greys-platinum);
+}
+
+.codeContainer {
+	padding: map.get($sizes, spacing-l);
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.cm-gutters) {
+	margin-inline-end: map.get($sizes, spacing-l);
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.cm-focused) {
+	outline: none !important;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.cm-line) {
+	font-size: 1.2rem;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.cm-gutterElement) {
+	min-width: 0 !important;
+	font-size: 1.2rem;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+:global(.cm-lineNumbers) {
+	margin-inline-end: map.get($sizes, spacing-l);
+}

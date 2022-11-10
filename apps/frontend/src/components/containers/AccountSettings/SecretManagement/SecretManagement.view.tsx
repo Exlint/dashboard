@@ -1,18 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import type { Secret } from '@prisma/client';
 
 import { concatClasses } from '@/utils/component';
 
-import type { ISecret, ISecretDetails } from './interfaces/secret';
 import SecretsList from './SecretsList';
+import type { ISecretItem } from './interfaces/secrets';
 
 import classes from './SecretManagement.module.scss';
 import PostSecretCreation from './PostSecretCreation';
 
 interface IProps {
-	readonly secretsList: ISecret[];
-	readonly createdSecretDetails: ISecretDetails | null;
+	readonly secretsList: ISecretItem[];
+	readonly createdSecretDetails: Pick<Secret, 'id' | 'secret'> | null;
 	readonly onDeleteSecret: (secretId: string) => void;
 	readonly onRevokeAllSecrets: VoidFunction;
 }

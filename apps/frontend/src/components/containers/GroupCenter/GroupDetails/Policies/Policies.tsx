@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import type { IEditGroupDescriptionDto, IGetPoliciesResponseData } from '@exlint-dashboard/common';
+import type { AxiosResponse } from 'axios';
 
 import type { AppState } from '@/store/app';
 import { backendApi } from '@/utils/http';
 
-import type { IGetPolicies, IPolicy } from './interfaces/policy';
+import type { IPolicy } from './policy';
 
 import PoliciesView from './Policies.view';
 
@@ -30,7 +32,7 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	useEffect(() => {
 		backendApi
-			.get<IGetPolicies>(`/user/groups/inline-policies/${props.groupId}?p=${realPage}`)
+			.get<IGetPoliciesResponseData>(`/user/groups/inline-policies/${props.groupId}?p=${realPage}`)
 			.then((response) => {
 				setPoliciesState(() => response.data.inlinePolicies);
 				setDescriptionInputState(() => response.data.description);
@@ -48,9 +50,12 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 		if (descriptionInputState !== originalDescriptionInputState) {
 			backendApi
-				.patch(`/user/groups/description/${props.groupId}`, {
-					description: descriptionInputState || null,
-				})
+				.patch<void, AxiosResponse<void>, IEditGroupDescriptionDto>(
+					`/user/groups/description/${props.groupId}`,
+					{
+						description: descriptionInputState || null,
+					},
+				)
 				.then(() => {
 					setIsDescriptionOnEditState(() => false);
 					setOriginalDescriptionInputState(() => descriptionInputState);

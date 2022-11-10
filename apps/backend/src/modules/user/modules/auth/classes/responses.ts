@@ -1,8 +1,7 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
+import type { IRefreshTokenResponseData, IAutoAuthResponseData } from '@exlint-dashboard/common';
 
-import type { IAutoAuthLoggedUserResponse } from '../interfaces/user';
-
-export class RefreshTokenResponse {
+export class RefreshTokenResponse implements IRefreshTokenResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example:
@@ -11,7 +10,7 @@ export class RefreshTokenResponse {
 	public accessToken!: string;
 }
 
-export class AutoLoginResponse implements IAutoAuthLoggedUserResponse {
+export class AutoAuthResponse implements IAutoAuthResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example:

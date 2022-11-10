@@ -18,7 +18,7 @@ export class DBGroupService {
 			select: {
 				id: true,
 				inlinePolicies: {
-					select: { id: true, label: true, library: true, configuration: true },
+					select: { id: true, label: true, library: true, formConfiguration: true },
 				},
 			},
 		});

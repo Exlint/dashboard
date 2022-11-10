@@ -12,6 +12,7 @@
 		"is-docker",
 		"@prisma/client",
 		"wait-on",
-		"open"
+		"open",
+		"prettier-plugin-sh"
 	]
 }

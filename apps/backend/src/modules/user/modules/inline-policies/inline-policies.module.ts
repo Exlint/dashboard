@@ -13,6 +13,12 @@ import { GetController } from './get.controller';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { EditLabelController } from './edit-label.controller';
 import { DeleteController } from './delete.controller';
+import { SetFilesListController } from './set-files-list.controller';
+import { GetFilesListController } from './get-files-list.controller';
+import { SetCodeConfigurationController } from './set-code-configuration.controller';
+import { GetCodeConfigurationController } from './get-code-configuration.controller';
+import { GetFormSchemaController } from './get-form-schema.controller';
+import { SetIsFormConfigurationController } from './set-is-form-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -23,6 +29,12 @@ import { DeleteController } from './delete.controller';
 		GetController,
 		EditLabelController,
 		DeleteController,
+		SetFilesListController,
+		GetFilesListController,
+		GetCodeConfigurationController,
+		SetCodeConfigurationController,
+		GetFormSchemaController,
+		SetIsFormConfigurationController,
 	],
 	providers: [
 		BelongingInlinePolicyGuard,

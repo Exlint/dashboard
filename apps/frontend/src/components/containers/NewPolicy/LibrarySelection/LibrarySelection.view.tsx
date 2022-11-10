@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import type { PolicyLibrary } from '@prisma/client';
+import type { ILibraryData } from '@exlint-dashboard/common';
 
 import EDInputField from '@/ui/EDInputField';
 import EDSelect from '@/ui/EDSelect';
 import type { IOption } from '@/ui/EDSelect/interfaces/option';
-import type { ILibraryName } from '@/interfaces/libraries';
 
 import type { ICategoryFilter, ILanguageFilter, ITypeFilter } from './interfaces/type-filters';
 import type { ISortOption } from './interfaces/sort-option';
 import SideFilters from './SideFilters';
 import LibrariesList from './LibrariesList';
-import type { ILibrary } from './interfaces/library';
 
 import classes from './LibrarySelection.module.scss';
 
@@ -20,14 +20,14 @@ interface IProps {
 	readonly languageFilter: ILanguageFilter;
 	readonly typeFilter: ITypeFilter;
 	readonly categoryFilter: ICategoryFilter;
-	readonly selectedLibrary: ILibraryName | null;
-	readonly libraries: ILibrary[];
+	readonly selectedLibrary: PolicyLibrary | null;
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
 	readonly onLibraryFilterInputChange: (value: string) => void;
 	readonly onSelectSortOption: (index: number) => void;
 	readonly onSetLanguageFilter: (value: ILanguageFilter) => void;
 	readonly onSetTypeFilter: (value: ITypeFilter) => void;
 	readonly onSetCategoryFilter: (value: ICategoryFilter) => void;
-	readonly onLibrarySelect: (library: ILibraryName) => void;
+	readonly onLibrarySelect: (library: PolicyLibrary) => void;
 	readonly onLibraryDeselect: VoidFunction;
 }
 

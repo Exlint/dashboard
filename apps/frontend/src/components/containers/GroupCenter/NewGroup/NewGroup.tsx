@@ -3,14 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { scroller } from 'react-scroll';
-import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
+import type {
+	IAvailableLabelResponseData,
+	ICreateGroupDto,
+	ICreateGroupResponseData,
+} from '@exlint-dashboard/common';
+import type { AxiosResponse } from 'axios';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';
 import { groupsActions } from '@/store/reducers/groups';
 import type { IAddSideBarGroupsPayload } from '@/store/interfaces/groups';
-
-import type { ICreateGroupResponse } from './interfaces/response';
 
 import NewGroupView from './NewGroup.view';
 
@@ -29,14 +32,22 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (groupLabelInputState === '' || groupLabelInputState === null) {
+		if (
+			groupLabelInputState === '' ||
+			groupLabelInputState === null ||
+			groupLabelInputState.length > 30
+		) {
 			setIsGroupLabelValidState(() => false);
 		}
 	}, [groupLabelInputState]);
 
 	useDebounce(
 		() => {
-			if (groupLabelInputState === '' || groupLabelInputState === null) {
+			if (
+				groupLabelInputState === '' ||
+				groupLabelInputState === null ||
+				groupLabelInputState.length > 30
+			) {
 				setIsGroupLabelValidState(() => false);
 			} else {
 				backendApi
@@ -65,17 +76,20 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		e.preventDefault();
 
 		backendApi
-			.post<ICreateGroupResponse>('/user/groups', {
-				label: groupLabelInputState,
-				description:
-					groupDescriptionInputState !== null && groupDescriptionInputState !== ''
-						? groupDescriptionInputState
-						: null,
-			})
+			.post<ICreateGroupResponseData, AxiosResponse<ICreateGroupResponseData>, ICreateGroupDto>(
+				'/user/groups',
+				{
+					label: groupLabelInputState!,
+					description:
+						groupDescriptionInputState !== null && groupDescriptionInputState !== ''
+							? groupDescriptionInputState
+							: null,
+				},
+			)
 			.then((response) => {
 				props.addSideBarGroup({
 					sideBarGroup: {
-						id: response.data.groupId,
+						id: response.data.id,
 						label: groupLabelInputState!,
 						librariesNames: [],
 					},
@@ -87,7 +101,7 @@ const NewGroup: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					duration: 500,
 				});
 
-				navigate(`/group-center/${response.data.groupId}`);
+				navigate(`/group-center/${response.data.id}`);
 			});
 	};
 

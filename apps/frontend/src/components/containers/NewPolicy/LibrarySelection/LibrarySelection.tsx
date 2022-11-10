@@ -1,18 +1,17 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import type { PolicyLibrary } from '@prisma/client';
+import type { IGetLibrariesResponseData, ILibraryData } from '@exlint-dashboard/common';
 
-import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
 
 import type { ICategoryFilter, ILanguageFilter, ITypeFilter } from './interfaces/type-filters';
-import type { ILibrary } from './interfaces/library';
-import type { IGetLibrariesResponse } from './interfaces/responses';
 
 import LibrarySelectionView from './LibrarySelection.view';
 
 interface IProps {
-	readonly selectedLibrary: ILibraryName | null;
-	readonly onLibrarySelect: (library: ILibraryName | null) => void;
+	readonly selectedLibrary: PolicyLibrary | null;
+	readonly onLibrarySelect: (library: PolicyLibrary | null) => void;
 }
 
 const LibrarySelection: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -21,14 +20,17 @@ const LibrarySelection: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	const [languageFilterState, setLanguageFilterState] = useState<ILanguageFilter>('All');
 	const [typeFilterState, setTypeFilterState] = useState<ITypeFilter>('All');
 	const [categoryFilterState, setCategoryFilterState] = useState<ICategoryFilter>('All');
-	const [librariesState, setLibrariesState] = useState<ILibrary[]>([]);
-	const [filteredLibrariesState, setFilteredLibrariesState] = useState<ILibrary[]>([]);
+	const [librariesState, setLibrariesState] = useState<Omit<ILibraryData, 'rules' | 'configuration'>[]>([]);
+
+	const [filteredLibrariesState, setFilteredLibrariesState] = useState<
+		Omit<ILibraryData, 'rules' | 'configuration'>[]
+	>([]);
 
 	const params = useParams<{ readonly groupId: string }>();
 
 	useEffect(() => {
 		backendApi
-			.get<IGetLibrariesResponse>(`/user/inline-policies/libraries/${params.groupId}`)
+			.get<IGetLibrariesResponseData>(`/user/inline-policies/libraries/${params.groupId}`)
 			.then((response) => {
 				setLibrariesState(() => response.data.libraries);
 				setFilteredLibrariesState(() => response.data.libraries);

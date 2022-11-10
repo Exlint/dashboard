@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, MinLength } from 'class-validator';
+import { IsString } from 'class-validator';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-export class EditDescriptionDto {
+export class EditGroupDescriptionDto {
 	@ApiProperty({
 		type: String,
 		nullable: true,
@@ -12,6 +12,5 @@ export class EditDescriptionDto {
 	})
 	@IsString()
 	@IsNullable()
-	@MinLength(1)
 	readonly description!: string | null;
 }

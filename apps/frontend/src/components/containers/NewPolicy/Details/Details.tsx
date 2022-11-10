@@ -37,14 +37,14 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	}, [params.groupId, backendApi]);
 
 	useEffect(() => {
-		if (props.policyLabel === '' || props.policyLabel === null) {
+		if (props.policyLabel === '' || props.policyLabel === null || props.policyLabel.length > 30) {
 			props.onSetPolicyLabelValid(false);
 		}
 	}, [props.policyLabel]);
 
 	useDebounce(
 		() => {
-			if (props.policyLabel === '' || props.policyLabel === null) {
+			if (props.policyLabel === '' || props.policyLabel === null || props.policyLabel.length > 30) {
 				props.onSetPolicyLabelValid(false);
 			} else {
 				backendApi

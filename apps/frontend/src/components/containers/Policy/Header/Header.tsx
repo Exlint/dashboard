@@ -1,14 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
-import type { ILibraryName } from '@/interfaces/libraries';
+import type { PolicyLibrary } from '@prisma/client';
 
 import HeaderView from './Header.view';
 
 interface IProps {
 	readonly groupLabel: string | null;
 	readonly policyLabel: string | null;
-	readonly library: ILibraryName | null;
+	readonly library: PolicyLibrary | null;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

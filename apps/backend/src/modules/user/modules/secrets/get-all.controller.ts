@@ -14,7 +14,6 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import Routes from './secrets.routes';
 import { GetAllSecretsResponse } from './classes/responses';
 import { GetAllSecretsContract } from './queries/contracts/get-all-secrets.contract';
-import type { IUserSecretsGetAll } from './interfaces/user-secrets';
 
 @ApiTags('Secrets')
 @Controller(Routes.CONTROLLER)
@@ -38,9 +37,10 @@ export class GetAllController {
 	public async getAll(@CurrentUserId() userId: string): Promise<GetAllSecretsResponse> {
 		this.logger.log(`Will try to fetch all secrets belong to user with an Id: "${userId}"`);
 
-		const userSecrets = await this.queryBus.execute<GetAllSecretsContract, IUserSecretsGetAll[]>(
-			new GetAllSecretsContract(userId),
-		);
+		const userSecrets = await this.queryBus.execute<
+			GetAllSecretsContract,
+			GetAllSecretsResponse['secrets']
+		>(new GetAllSecretsContract(userId));
 
 		this.logger.log(`Successfully got all secrets belong to user with an Id: "${userId}"`);
 

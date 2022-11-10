@@ -5,10 +5,6 @@ import type { IOption } from '../interfaces/option';
 
 import FilterView from './Filter.view';
 
-declare module 'react' {
-	function memo<A, B>(Component: (props: A) => B): (props: A) => React.ReactElement | null;
-}
-
 interface IProps<T = ILanguageFilter | ITypeFilter | ICategoryFilter> {
 	readonly title: string;
 	readonly options: IOption<T>[];

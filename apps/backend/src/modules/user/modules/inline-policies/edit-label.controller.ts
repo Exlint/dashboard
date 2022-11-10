@@ -12,7 +12,7 @@ import {
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
-import { EditLabelDto } from './classes/edit-label.dto';
+import { EditPolicyLabelDto } from './classes/edit-label.dto';
 import { EditLabelContract } from './commands/contracts/edit-label.contract';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 
@@ -35,7 +35,7 @@ export class EditLabelController {
 	@HttpCode(HttpStatus.OK)
 	public async editLabel(
 		@CurrentUserId() userId: string,
-		@Body() editLabelDto: EditLabelDto,
+		@Body() editLabelDto: EditPolicyLabelDto,
 		@Param('policy_id') policyId: string,
 	): Promise<void> {
 		this.logger.log(

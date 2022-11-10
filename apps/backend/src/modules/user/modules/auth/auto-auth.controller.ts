@@ -21,7 +21,7 @@ import { Public } from '@/decorators/public.decorator';
 import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
 
 import { AuthService } from './auth.service';
-import { AutoLoginResponse } from './classes/responses';
+import { AutoAuthResponse } from './classes/responses';
 import { RefreshTokenGuard } from './guards/refresh-token.guard';
 import { JwtTokenType } from './models/jwt-token';
 import Routes from './auth.routes';
@@ -39,7 +39,7 @@ export class AutoAuthController {
 	@ApiOperation({ description: 'Auto authentication if providing refresh token' })
 	@ApiOkResponse({
 		description: 'If successfully fulfill the auto auth request',
-		type: AutoLoginResponse,
+		type: AutoAuthResponse,
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If could not find a logged user, or refresh token is either missing or invalid',
@@ -49,7 +49,7 @@ export class AutoAuthController {
 	@UseGuards(RefreshTokenGuard)
 	@Get(Routes.AUTO_AUTH)
 	@HttpCode(HttpStatus.OK)
-	public async autoAuth(@CurrentUserEmail() userEmail: string): Promise<AutoLoginResponse> {
+	public async autoAuth(@CurrentUserEmail() userEmail: string): Promise<AutoAuthResponse> {
 		this.logger.log(`Will try to auto auth with data email: "${userEmail}"`);
 
 		const loggedUser = await this.queryBus.execute<AutoAuthContract, IAutoAuthLoggedUser | null>(

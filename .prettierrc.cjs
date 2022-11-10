@@ -1,4 +1,5 @@
 module.exports = {
+	plugins: ['prettier-plugin-sh'],
 	tabWidth: 4,
 	printWidth: 110,
 	useTabs: true,
@@ -9,4 +10,5 @@ module.exports = {
 	bracketSpacing: true,
 	arrowParens: 'always',
 	bracketSameLine: false,
+	indent: 4,
 };

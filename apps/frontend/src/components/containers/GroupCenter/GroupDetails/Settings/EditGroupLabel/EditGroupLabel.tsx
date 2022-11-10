@@ -24,14 +24,18 @@ const EditGroupLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 
 	useDebounce(
 		() => {
-			if (props.newGroupLabelInput === '' || props.newGroupLabelInput === null) {
+			if (
+				props.newGroupLabelInput === '' ||
+				props.newGroupLabelInput === null ||
+				props.newGroupLabelInput.length > 30
+			) {
 				setNewIsGroupLabelValidState(() => false);
 			} else if (props.newGroupLabelInput !== props.groupLabel) {
 				backendApi
 					.get<IAvailableLabelResponseData>(`/user/groups/available/${props.newGroupLabelInput}`)
 					.then((response) => {
-						setNewIsGroupLabelValidState(response.data.isAvailable);
-						setNewIsGroupLabelAvailableState(response.data.isAvailable);
+						setNewIsGroupLabelValidState(() => response.data.isAvailable);
+						setNewIsGroupLabelAvailableState(() => response.data.isAvailable);
 					});
 			}
 		},

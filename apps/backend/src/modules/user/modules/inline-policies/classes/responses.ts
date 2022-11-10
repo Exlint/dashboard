@@ -1,10 +1,20 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary } from '@prisma/client';
-import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
+import { PolicyLibrary, CodeType, type Prisma } from '@prisma/client';
+import {
+	type IAvailableLabelResponseData,
+	type ICategory,
+	type ICreatePolicyResponseData,
+	type IGetCodeConfigurationResponseData,
+	type IGetPolicyResponseData,
+	ILanguage,
+	type ILibraryData,
+	type IType,
+	type IGetFilesListResponseData,
+	type IGetLibrariesResponseData,
+	type IGetFormSchemaResponseData,
+} from '@exlint-dashboard/common';
 
-import { type ICategory, ILanguage, type ILibraryData, type IType } from '@/interfaces/libraries-data';
-
-class GetLibrary implements Omit<ILibraryData, 'rules'> {
+class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
 	@ApiResponseProperty({
 		enum: PolicyLibrary,
 		example: PolicyLibrary.ESLint,
@@ -50,22 +60,22 @@ export class AvailableLabelResponse implements IAvailableLabelResponseData {
 	public isAvailable!: boolean;
 }
 
-export class GetLibrariesResponse {
+export class GetLibrariesResponse implements IGetLibrariesResponseData {
 	@ApiResponseProperty({
 		type: [GetLibrary],
 	})
-	public libraries!: Omit<ILibraryData, 'rules'>[];
+	public libraries!: Omit<ILibraryData, 'rules' | 'configuration'>[];
 }
 
-export class CreateResponse {
+export class CreatePolicyResponse implements ICreatePolicyResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
 	})
-	public policyId!: string;
+	public id!: string;
 }
 
-export class GetResponse {
+export class GetPolicyResponse implements IGetPolicyResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Group',
@@ -76,11 +86,63 @@ export class GetResponse {
 		type: String,
 		example: 'Yazif Policy',
 	})
-	public policyLabel!: string;
+	public label!: string;
 
 	@ApiResponseProperty({
 		enum: PolicyLibrary,
 		example: PolicyLibrary.ESLint,
 	})
 	public library!: PolicyLibrary;
+}
+
+export class GetFilesListResponse implements IGetFilesListResponseData {
+	@ApiResponseProperty({
+		type: [String],
+		example: ['**/*.js', '*.ts'],
+	})
+	public filesList!: string[];
+}
+
+export class GetCodeConfigurationResponse implements IGetCodeConfigurationResponseData {
+	@ApiResponseProperty({
+		type: String,
+		example: 'module.exports = { root: true };',
+	})
+	public codeConfiguration!: string | null;
+
+	@ApiResponseProperty({
+		enum: CodeType,
+		example: CodeType.JS,
+	})
+	public codeType!: CodeType | null;
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public isFormConfiguration!: boolean;
+}
+
+export class GetFormSchemaResponse implements IGetFormSchemaResponseData {
+	@ApiResponseProperty({
+		example: {
+			yazif: {
+				title: 'Yazif',
+				description: 'What A Yazif',
+				type: 'string',
+			},
+		},
+	})
+	public schema!: ILibraryData['configuration'];
+
+	@ApiResponseProperty({
+		example: {
+			yazif: true,
+		},
+	})
+	public formConfiguration!: Prisma.JsonObject | null;
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public isFormConfiguration!: boolean;
 }

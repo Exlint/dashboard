@@ -1,10 +1,10 @@
 import React, { type FormEvent, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import type { ICreatePolicyDto, ICreatePolicyResponseData } from '@exlint-dashboard/common';
+import type { PolicyLibrary } from '@prisma/client';
+import type { AxiosResponse } from 'axios';
 
-import type { ILibraryName } from '@/interfaces/libraries';
 import { backendApi } from '@/utils/http';
-
-import type { ICreateResponseData } from './interfaces/responses';
 
 import NewPolicyView from './NewPolicy.view';
 
@@ -19,7 +19,7 @@ const NewPolicy: React.FC<IProps> = () => {
 	const [policyDescriptionState, setPolicyDescriptionState] = useState<string | null>(null);
 	const [isPolicyLabelValidState, setIsPolicyLabelValidState] = useState<boolean>(false);
 	const [isPolicyLabelAvailableState, setIsPolicyLabelAvaiableState] = useState<boolean | null>(null);
-	const [selectedLibraryState, setSelectedLibraryState] = useState<ILibraryName | null>(null);
+	const [selectedLibraryState, setSelectedLibraryState] = useState<PolicyLibrary | null>(null);
 
 	const isSubmitEnabled = useMemo(() => {
 		return isPolicyLabelValidState && selectedLibraryState !== null;
@@ -29,19 +29,22 @@ const NewPolicy: React.FC<IProps> = () => {
 	const onPolicyDescriptionChange = (value: string) => setPolicyDescriptionState(() => value);
 	const onSetPolicyLabelValid = (value: boolean) => setIsPolicyLabelValidState(() => value);
 	const onSetPolicyLabelAvailable = (value: boolean | null) => setIsPolicyLabelAvaiableState(() => value);
-	const onLibrarySelect = (library: ILibraryName | null) => setSelectedLibraryState(() => library);
+	const onLibrarySelect = (library: PolicyLibrary | null) => setSelectedLibraryState(() => library);
 
 	const onCreatePolicy = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		backendApi
-			.post<ICreateResponseData>(`/user/inline-policies/${params.groupId}`, {
-				label: policyLabelState,
-				description: policyDescriptionState,
-				library: selectedLibraryState,
-			})
+			.post<ICreatePolicyResponseData, AxiosResponse<ICreatePolicyResponseData>, ICreatePolicyDto>(
+				`/user/inline-policies/${params.groupId}`,
+				{
+					label: policyLabelState!,
+					description: policyDescriptionState,
+					library: selectedLibraryState!,
+				},
+			)
 			.then((response) => {
-				navigate(`/group-center/${params.groupId}/policies/${response.data.policyId}`);
+				navigate(`/group-center/${params.groupId}/policies/${response.data.id}`);
 			});
 	};
 

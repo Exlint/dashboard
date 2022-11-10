@@ -31,7 +31,7 @@ export class GetLibrariesController {
 		type: GetLibrariesResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is invalid or missing',
+		description: 'If access token is invalid or missing, or group does not belong to user',
 	})
 	@UseGuards(BelongingGroupGuard)
 	@Get(Routes.GET_LIBRARIES)
@@ -51,6 +51,7 @@ export class GetLibrariesController {
 			.map((library) => ({
 				...library,
 				rules: undefined,
+				configuration: undefined,
 			}));
 
 		this.logger.log(`Successfully got libraries with a user ID: "${userId}"`);

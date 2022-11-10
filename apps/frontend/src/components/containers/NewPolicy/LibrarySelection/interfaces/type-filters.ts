@@ -1,8 +1,4 @@
-export type ILanguage = 'JavaScript' | 'CSSHTML' | 'Agnostic';
-
-export type IType = 'Linters' | 'Formatters';
-
-export type ICategory = 'Code' | 'File System' | 'Styles' | 'Dependencies';
+import type { ICategory, ILanguage, IType } from '@exlint-dashboard/common';
 
 export type ILanguageFilter = 'All' | ILanguage;
 

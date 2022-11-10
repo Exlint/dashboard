@@ -24,10 +24,10 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './inline-policies.routes';
-import { CreateDto } from './classes/create.dto';
+import { CreatePolicyDto } from './classes/create.dto';
 import { CreateContract } from './queries/contracts/create.contract';
 import { GroupHasLibraryContract } from './queries/contracts/group-has-library.contract';
-import { CreateResponse } from './classes/responses';
+import { CreatePolicyResponse } from './classes/responses';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
@@ -40,10 +40,10 @@ export class CreateController {
 	@ApiBearerAuth('access-token')
 	@ApiCreatedResponse({
 		description: 'If successfully created the inline policy',
-		type: CreateResponse,
+		type: CreatePolicyResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is missing or invalid',
+		description: 'If access token is missing or invalid, or group does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to create inline policy' })
 	@UseGuards(BelongingGroupGuard)
@@ -52,9 +52,9 @@ export class CreateController {
 	public async create(
 		@CurrentUserId() userId: string,
 		@Param('group_id') groupId: string,
-		@Body() createDto: CreateDto,
+		@Body() createDto: CreatePolicyDto,
 		@RealIP() ip: string,
-	): Promise<CreateResponse> {
+	): Promise<CreatePolicyResponse> {
 		this.logger.log(
 			`Will try to create an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
 		);
@@ -82,6 +82,6 @@ export class CreateController {
 			`Successfully created an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
 		);
 
-		return { policyId: createdPolicyId };
+		return { id: createdPolicyId };
 	}
 }

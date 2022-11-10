@@ -1,0 +1,13 @@
+diff --git a/index.d.ts b/index.d.ts
+index 2876d26565608314d727920495e11e278abcefee..ae8bf78d98af82c5a930c7f050c6f28ede051e58 100755
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -854,7 +854,7 @@ declare namespace React {
+     // based on the code in https://github.com/facebook/react/pull/13968
+ 
+     // Unlike the class component setState, the updates are not allowed to be partial
+-    type SetStateAction<S> = S | ((prevState: S) => S);
++    type SetStateAction<S> = ((prevState: S) => S);
+     // this technically does accept a second argument, but it's already under a deprecation warning
+     // and it's not even released so probably better to not define it.
+     type Dispatch<A> = (value: A) => void;

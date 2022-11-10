@@ -4,6 +4,7 @@
 
 .container {
 	position: fixed;
+	z-index: 1;
 	display: flex;
 	width: 258px;
 	opacity: 0;

@@ -1,15 +1,13 @@
+import type { ILibraryData } from '@exlint-dashboard/common';
+import type { PolicyLibrary } from '@prisma/client';
 import React from 'react';
-
-import type { ILibraryName } from '@/interfaces/libraries';
-
-import type { ILibrary } from '../interfaces/library';
 
 import LibrariesListView from './LibrariesList.view';
 
 interface IProps {
-	readonly selectedLibrary: ILibraryName | null;
-	readonly libraries: ILibrary[];
-	readonly onLibrarySelect: (library: ILibraryName) => void;
+	readonly selectedLibrary: PolicyLibrary | null;
+	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
+	readonly onLibrarySelect: (library: PolicyLibrary) => void;
 	readonly onLibraryDeselect: VoidFunction;
 }
 

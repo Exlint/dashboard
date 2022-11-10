@@ -1,0 +1,43 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 1202px;
+	margin-inline: auto;
+	margin-top: map.get($sizes, spacing-xl);
+}
+
+.configurationsTabs {
+	display: flex;
+	align-items: center;
+	margin-bottom: map.get($sizes, spacing-l);
+	overflow: hidden;
+	background-color: map.get($colors, whites-white);
+	border-radius: 6px;
+	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+
+	&__tab {
+		flex: 1;
+		padding: map.get($sizes, spacing-m);
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: map.get($colors, greys-onyx);
+		text-align: center;
+		text-decoration: none;
+
+		&--active {
+			color: map.get($colors, whites-ghost-white);
+			background-color: map.get($colors, greys-onyx);
+			box-shadow: inset 0 0 0 2px map.get($colors, blacks-yankees-black-blue);
+		}
+	}
+
+	&__divider {
+		width: 2px;
+		height: 20px;
+		background-color: map.get($colors, greys-platinum);
+	}
+}

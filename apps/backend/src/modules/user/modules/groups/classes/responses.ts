@@ -1,11 +1,16 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
-import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint-dashboard/common';
+import {
+	type IAvailableLabelResponseData,
+	type IGetAllGroupsResponseData,
+	type IGetGroupResponseData,
+	ILanguage,
+	type ICreateGroupResponseData,
+	type IGetPoliciesResponseData,
+} from '@exlint-dashboard/common';
 
-import { ILanguage } from '@/interfaces/libraries-data';
-
-import type { IGroupInlinePolicies, IGroupInlinePolicy } from '../interfaces/group-policies';
-import type { IUserGroupGetAll, IUserGroupInlinePolicy } from '../interfaces/user-group';
+import type { IGroupInlinePolicy } from '../interfaces/group-policies';
+import type { IUserGroupInlinePolicy } from '../interfaces/user-group';
 
 class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
 	@ApiResponseProperty({
@@ -32,7 +37,7 @@ class UserGroupInlinePolicyGetAll implements IUserGroupInlinePolicy {
 	public rulesCount!: number;
 }
 
-class UserGroupGetAll implements IUserGroupGetAll {
+class UserGroupGetAll {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
@@ -76,19 +81,19 @@ class GroupInlinePolicy implements IGroupInlinePolicy {
 	public language!: ILanguage;
 }
 
-export class CreateGroupResponse {
+export class CreateGroupResponse implements ICreateGroupResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: '62e5362119bea07115434f4a',
 	})
-	public groupId!: string;
+	public id!: string;
 }
 
-export class GetAllGroupsResponse {
+export class GetAllGroupsResponse implements IGetAllGroupsResponseData {
 	@ApiResponseProperty({
 		type: [UserGroupGetAll],
 	})
-	public groups!: IUserGroupGetAll[];
+	public groups!: UserGroupGetAll[];
 }
 
 export class AvailableLabelResponse implements IAvailableLabelResponseData {
@@ -107,7 +112,7 @@ export class GetGroupResponse implements IGetGroupResponseData {
 	public label!: string;
 }
 
-export class GetInlinePoliciesResponse implements IGroupInlinePolicies {
+export class GetInlinePoliciesResponse implements IGetPoliciesResponseData {
 	@ApiResponseProperty({
 		type: String,
 		example: 'Yazif Group Description',
