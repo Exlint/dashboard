@@ -303,7 +303,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
-      i18next: 21.10.0
+      i18next: 22.0.4
       postcss: 8.4.18
       postcss-flexbugs-fixes: 5.0.2
       prettier: 2.7.1
@@ -341,11 +341,11 @@ importers:
       '@uiw/react-codemirror': 4.12.4_qa3dlloax5zclx7gx2d4lfun2m
       axios: 0.27.2
       date-fns: 2.29.3
-      i18next: 21.10.0
+      i18next: 22.0.4
       react: 18.2.0
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.0.0_vfm63zmruocgezzfl2v26zlzpy
+      react-i18next: 12.0.0_n3kmhq4527torfjiti537juzwy
       react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
       react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
@@ -10316,17 +10316,17 @@ packages:
       - supports-color
     dev: true
 
-  /i18next/21.10.0:
-    resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
-    dependencies:
-      '@babel/runtime': 7.19.0
-    dev: false
-
   /i18next/21.9.2:
     resolution: {integrity: sha512-00fVrLQOwy45nm3OtC9l1WiLK3nJlIYSljgCt0qzTaAy65aciMdRy9GsuW+a2AtKtdg9/njUGfRH30LRupV7ZQ==}
     dependencies:
       '@babel/runtime': 7.19.0
     dev: true
+
+  /i18next/22.0.4:
+    resolution: {integrity: sha512-TOp7BTMKDbUkOHMzDlVsCYWpyaFkKakrrO3HNXfSz4EeJaWwnBScRmgQSTaWHScXVHBUFXTvShrCW8uryBYFcg==}
+    dependencies:
+      '@babel/runtime': 7.19.0
+    dev: false
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -14317,7 +14317,7 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.0.0_vfm63zmruocgezzfl2v26zlzpy:
+  /react-i18next/12.0.0_n3kmhq4527torfjiti537juzwy:
     resolution: {integrity: sha512-/O7N6aIEAl1FaWZBNvhdIo9itvF/MO/nRKr9pYqRc9LhuC1u21SlfwpiYQqvaeNSEW3g3qUXLREOWMt+gxrWbg==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -14332,7 +14332,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       html-parse-stringify: 3.0.1
-      i18next: 21.10.0
+      i18next: 22.0.4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false

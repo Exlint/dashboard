@@ -34,7 +34,7 @@
 		"@uiw/react-codemirror": "4.12.4",
 		"axios": "0.27.2",
 		"date-fns": "2.29.3",
-		"i18next": "21.10.0",
+		"i18next": "22.0.4",
 		"react": "18.2.0",
 		"react-datepicker": "4.8.0",
 		"react-dom": "18.2.0",
