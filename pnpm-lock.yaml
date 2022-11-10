@@ -317,7 +317,7 @@ importers:
       react-scripts: 5.0.1
       react-scroll: 1.8.8
       react-switch: 7.0.0
-      react-textarea-autosize: 8.3.4
+      react-textarea-autosize: 8.4.0
       sass: 1.56.1
       stylelint: 14.14.1
       stylelint-config-prettier-scss: 0.0.1
@@ -350,7 +350,8 @@ importers:
       react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
       react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
-      react-textarea-autosize: 8.3.4_fan5qbzahqtxlm5dzefqlqx5ia
+      react-textarea-autosize: 8.4.0_fan5qbzahqtxlm5dzefqlqx5ia
+      typescript: 4.8.4
     devDependencies:
       '@babel/core': 7.20.2
       '@babel/plugin-syntax-flow': 7.18.6_@babel+core@7.20.2
@@ -388,7 +389,6 @@ importers:
       stylelint-config-standard-scss: 6.1.0_t5qxeji2l54punp3pwjdchi3we
       stylelint-declaration-strict-value: 1.9.1_stylelint@14.14.1
       tsconfig-paths-webpack-plugin: 4.0.0
-      typescript: 4.8.4
       typescript-plugin-css-modules: 3.4.0_typescript@4.8.4
 
   packages/common:
@@ -14551,8 +14551,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-textarea-autosize/8.3.4_fan5qbzahqtxlm5dzefqlqx5ia:
-    resolution: {integrity: sha512-CdtmP8Dc19xL8/R6sWvtknD/eCXkQr30dtvC4VmGInhRsfF8X/ihXCq6+9l9qbxmKRiq407/7z5fxE7cVWQNgQ==}
+  /react-textarea-autosize/8.4.0_fan5qbzahqtxlm5dzefqlqx5ia:
+    resolution: {integrity: sha512-YrTFaEHLgJsi8sJVYHBzYn+mkP3prGkmP2DKb/tm0t7CLJY5t1Rxix8070LAKb0wby7bl/lf2EeHkuMihMZMwQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -16635,7 +16635,6 @@ packages:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /uglify-js/3.17.1:
     resolution: {integrity: sha512-+juFBsLLw7AqMaqJ0GFvlsGZwdQfI2ooKQB39PSBgMnMakcFosi9O8jCwE+2/2nMNcc0z63r9mwjoDG8zr+q0Q==}
