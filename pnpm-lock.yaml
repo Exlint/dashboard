@@ -287,7 +287,7 @@ importers:
       '@types/react-scroll': 1.8.4
       '@typescript-eslint/eslint-plugin': 5.42.1
       '@typescript-eslint/parser': 5.42.1
-      '@uiw/codemirror-themes': 4.12.4
+      '@uiw/codemirror-themes': 4.13.2
       '@uiw/react-codemirror': 4.12.4
       axios: 0.27.2
       cross-env: 7.0.3
@@ -337,7 +337,7 @@ importers:
       '@reduxjs/toolkit': 1.9.0_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.8
-      '@uiw/codemirror-themes': 4.12.4_@codemirror+language@6.3.0
+      '@uiw/codemirror-themes': 4.13.2_@codemirror+language@6.3.0
       '@uiw/react-codemirror': 4.12.4_qa3dlloax5zclx7gx2d4lfun2m
       axios: 0.27.2
       date-fns: 2.29.3
@@ -5540,8 +5540,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/codemirror-themes/4.12.4_@codemirror+language@6.3.0:
-    resolution: {integrity: sha512-ekySMFlXaJ4u0TCz/caHG8HqJPT0+viUA2ZQ4yZ+F1z2Lk9HgMS/1YfRj8vHuEUPNXc9Fsy5qxwTp7I1hEanEg==}
+  /@uiw/codemirror-themes/4.13.2_@codemirror+language@6.3.0:
+    resolution: {integrity: sha512-IPkHzt5SjLjXRPGmFOpRjXzRA9VWomJjWYETq21jXTTnFtZeEjAuhucgKMydt11ALUyGjwTzdReTA9yt9VNskA==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
