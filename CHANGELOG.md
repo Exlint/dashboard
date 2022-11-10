@@ -1,3 +1,11 @@
+# [1.20.0](https://github.com/Exlint/dashboard/compare/v1.19.0...v1.20.0) (2022-11-10)
+
+
+### Features
+
+* 🔥 [EXL-72] support policy configuration in code option ([5da4a64](https://github.com/Exlint/dashboard/commit/5da4a645aa1274ae41edc8c77614cb3eeea59c04))
+* 🔥 [EXL-72] support storing code configuration ([134f689](https://github.com/Exlint/dashboard/commit/134f689faf4d32d775c9ecab302d55fabd9665ad))
+
 # [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-10-08)
 
 
