@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+	&__title {
+		font-size: 1.5rem;
+		color: map.get($colors, greys-onyx);
+	}
+
+	&__description {
+		font-size: 1.5rem;
+		color: map.get($colors, greys-independence-grey);
+	}
+
+	.inputBox {
+		border: 2px solid map.get($colors, greys-platinum);
+	}
+}

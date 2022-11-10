@@ -30,7 +30,7 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
 
 	const [formSchemaState, setFormSchemaState] = useState<ILibraryData['configuration'] | null>(null);
-	const [formConfigurationState] = useState<Record<string, unknown>>({});
+	const [formConfigurationState, setFormConfigurationState] = useState<Record<string, unknown>>({});
 	const [isSubmitDisabledState] = useState<boolean>(true);
 	const [isSwitchCheckedState, setIsSwitchCheckedState] = useState<boolean | null>(null);
 
@@ -58,6 +58,13 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			});
 	};
 
+	const onChangeFormConfiguration = (key: string, value: unknown) => {
+		setFormConfigurationState(() => ({
+			...formConfigurationState,
+			[key]: value,
+		}));
+	};
+
 	useEffect(() => {
 		backendApi
 			.get<IGetFormSchemaResponseData>(`/user/inline-policies/form-schema/${params.policyId}`)
@@ -75,6 +82,7 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			isSubmitDisabled={isSubmitDisabledState}
 			isSwitchChecked={isSwitchCheckedState}
 			onIsSwitchCheckedChange={onIsSwitchCheckedChange}
+			onChangeFormConfiguration={onChangeFormConfiguration}
 		/>
 	);
 };

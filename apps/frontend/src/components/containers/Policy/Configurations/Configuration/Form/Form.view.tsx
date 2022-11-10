@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import EDBooleanButton from '@/ui/EDBooleanButton';
+import EDConfigurationsInputs from '@/ui/EDConfigurationsInputs';
 
 import classes from './Form.module.scss';
 
@@ -13,6 +14,7 @@ interface IProps {
 	readonly isSubmitDisabled: boolean;
 	readonly isSwitchChecked: boolean | null;
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
+	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
 }
 
 const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -33,6 +35,12 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			</div>
 
 			<div>&nbsp;</div>
+			{props.formSchema ? (
+				<EDConfigurationsInputs
+					formSchema={props.formSchema}
+					onChangeFormConfiguration={props.onChangeFormConfiguration}
+				/>
+			) : null}
 		</form>
 	);
 };
