@@ -14,7 +14,7 @@ done
 echo "************ [ Startup completed ] **************" ${MONGODB_REPLICA_1}
 
 mongosh --host ${MONGODB_REPLICA_1}:27017 <<EOF
-var cfg = {
+var configuration = {
     "_id": "dbrs",
     "protocolVersion": 1,
     "version": 1,
@@ -34,11 +34,10 @@ var cfg = {
             "host": "${MONGODB_REPLICA_3}:27019",
             "priority": 1
         }
-    ],settings: {chainingAllowed: true}
+    ],
+    "settings": {chainingAllowed: true}
 };
-rs.initiate(cfg, { force: true });
-rs.reconfig(cfg, { force: true });
+rs.initiate(configuration);
 rs.secondaryOk();
 db.getMongo().setReadPref('nearest');
-db.getMongo().setSecondaryOk(); 
 EOF 
