@@ -35,7 +35,9 @@ var configuration = {
             "priority": 1
         }
     ],
-    "settings": {chainingAllowed: true}
+    "settings": {
+        "chainingAllowed": true
+    }
 };
 rs.initiate(configuration);
 rs.secondaryOk();
