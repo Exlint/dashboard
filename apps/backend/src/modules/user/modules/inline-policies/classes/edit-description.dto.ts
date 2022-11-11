@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
-import type { IEditGroupDescriptionDto } from '@exlint-dashboard/common';
+import type { IEditPolicyDescriptionDto } from '@exlint-dashboard/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-export class EditGroupDescriptionDto implements IEditGroupDescriptionDto {
+export class EditPolicyDescriptionDto implements IEditPolicyDescriptionDto {
 	@ApiProperty({
 		type: String,
 		nullable: true,
-		description: 'The new description for a group',
-		example: 'Yazif Group Description',
+		description: 'The new description for a policy',
+		example: 'Yazif Policy Description',
 	})
 	@IsString()
 	@IsNullable()

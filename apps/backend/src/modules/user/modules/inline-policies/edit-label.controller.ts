@@ -23,7 +23,7 @@ export class EditLabelController {
 
 	constructor(private readonly commandBus: CommandBus) {}
 
-	@ApiOperation({ description: "Edit a policy's label with a new label and its identifier" })
+	@ApiOperation({ description: "Edit a policy's label with a new label" })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({ description: 'If successfully edited the label of the policy' })
 	@ApiUnauthorizedResponse({

@@ -26,7 +26,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					library={props.library}
 				/>
 
-				<Outlet context={[props.policyLabel, props.onSetPolicyLabel]} />
+				<Outlet context={[props.policyLabel, props.onSetPolicyLabel, props.library]} />
 			</main>
 		</div>
 	);

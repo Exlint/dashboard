@@ -1,4 +1,4 @@
-import type { Group, User, InlinePolicy, Secret, PolicyLibrary, Prisma } from '@prisma/client';
+import type { Group, User, InlinePolicy, Secret, PolicyLibrary, Prisma, Rule } from '@prisma/client';
 
 import type { ILibraryData } from './libraries-data';
 
@@ -62,3 +62,9 @@ export interface IGetFormSchemaResponseData extends Pick<InlinePolicy, 'isFormCo
 	readonly schema: ILibraryData['configuration'];
 	readonly formConfiguration: Prisma.JsonValue | null;
 }
+
+export type IGetPolicyRulesResponseData = Pick<InlinePolicy, 'isFormConfiguration' | 'description'> &
+	Pick<ILibraryData, 'types' | 'categories'> & {
+		readonly rules: Pick<Rule, 'id' | 'name'>[];
+		readonly createdAt: number;
+	};

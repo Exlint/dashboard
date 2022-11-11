@@ -10,7 +10,7 @@ import classes from './EDTable.module.scss';
 
 interface IProps {
 	readonly header: string;
-	readonly buttonText: string;
+	readonly buttonText?: string;
 	readonly columnsHeaders: string[];
 	readonly data: ReactNode[][];
 	readonly totalItems: number;
@@ -18,12 +18,19 @@ interface IProps {
 	readonly className?: string;
 	readonly buttonIconName?: keyof typeof icons;
 	readonly noItemsPlaceholder: ReactNode;
-	readonly onButtonClick: VoidFunction;
+	readonly blur?: boolean;
+	readonly onButtonClick?: VoidFunction;
 }
 
 const EDTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
-		<div className={concatDiverseClasses(classes['container'], props.className)}>
+		<div
+			className={concatDiverseClasses(
+				classes['container'],
+				props.className,
+				props.blur ? classes['container--blur'] : undefined,
+			)}
+		>
 			<Header
 				header={props.header}
 				buttonText={props.buttonText}

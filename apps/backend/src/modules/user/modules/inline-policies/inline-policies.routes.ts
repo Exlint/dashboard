@@ -13,6 +13,8 @@ const Routes = {
 	GET_FORM_CONFIGURATION: 'form-configuration/:policy_id',
 	GET_FORM_SCHEMA: 'form-schema/:policy_id',
 	SET_IS_FORM_CONFIGURATION: 'is-form-configuration/:policy_id',
+	GET_POLICY_RULES: 'rules/:policy_id',
+	EDIT_DESCRIPTION: 'description/:policy_id',
 };
 
 export default Routes;

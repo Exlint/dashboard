@@ -1,0 +1,30 @@
+import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
+import type { IGetPolicyRulesResponseData } from '@exlint-dashboard/common';
+
+import { DBInlinePolicyService } from '@/modules/database/inline-policy.service';
+import { librariesData } from '@/data/libraries-data';
+
+import { GetPolicyRulesContract } from '../contracts/get-policy-rules.contract';
+
+@QueryHandler(GetPolicyRulesContract)
+export class GetPolicyRulesHandler implements IQueryHandler<GetPolicyRulesContract> {
+	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
+
+	async execute(contract: GetPolicyRulesContract): Promise<IGetPolicyRulesResponseData> {
+		const isPageANumber = !isNaN(parseInt(contract.page ?? ''));
+		const page = isPageANumber ? parseInt(contract.page!) : 1;
+
+		const policyRecord = await this.dbInlinePolicyService.getPolicyRules(contract.policyId, page);
+
+		const matchingLibraryData = librariesData.find(
+			(libraryItem) => libraryItem.name === policyRecord.library,
+		)!;
+
+		return {
+			...policyRecord,
+			types: matchingLibraryData.types,
+			categories: matchingLibraryData.categories,
+			createdAt: policyRecord.createdAt.getTime(),
+		};
+	}
+}

@@ -7,4 +7,10 @@
 	flex-direction: column;
 	border: 2px solid map.get($colors, greys-platinum);
 	border-radius: 6px;
+	transition: filter 0.3s ease;
+
+	&--blur {
+		user-select: none;
+		filter: blur(8px);
+	}
 }

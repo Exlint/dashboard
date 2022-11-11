@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import { PolicyLibrary, CodeType, type Prisma } from '@prisma/client';
+import { PolicyLibrary, CodeType, type Prisma, type Rule } from '@prisma/client';
 import {
 	type IAvailableLabelResponseData,
 	type ICategory,
@@ -12,6 +12,7 @@ import {
 	type IGetFilesListResponseData,
 	type IGetLibrariesResponseData,
 	type IGetFormSchemaResponseData,
+	type IGetPolicyRulesResponseData,
 } from '@exlint-dashboard/common';
 
 class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
@@ -145,4 +146,26 @@ export class GetFormSchemaResponse implements IGetFormSchemaResponseData {
 		example: true,
 	})
 	public isFormConfiguration!: boolean;
+}
+
+export class GetPolicyRulesResponse implements IGetPolicyRulesResponseData {
+	@ApiResponseProperty({
+		example: [{ myYazifRule: ['error'] }],
+	})
+	public rules!: Pick<Rule, 'id' | 'name'>[];
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public isFormConfiguration!: boolean;
+
+	@ApiResponseProperty({
+		example: true,
+	})
+	public description!: string | null;
+
+	@ApiResponseProperty({
+		example: 435534534534,
+	})
+	public createdAt!: number;
 }

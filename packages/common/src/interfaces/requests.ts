@@ -49,3 +49,7 @@ export interface ISetCodeConfigurationDto {
 }
 
 export interface ISetIsFormConfigurationDto extends Pick<InlinePolicy, 'isFormConfiguration'> {}
+
+export interface IEditPolicyDescriptionDto {
+	readonly description: string | null;
+}

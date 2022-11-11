@@ -131,4 +131,21 @@ export class DBInlinePolicyService {
 			data: { isFormConfiguration },
 		});
 	}
+
+	public getPolicyRules(policyId: string, page: number) {
+		return this.prisma.inlinePolicy.findUniqueOrThrow({
+			where: { id: policyId },
+			select: {
+				isFormConfiguration: true,
+				rules: { select: { id: true, name: true }, take: 10, skip: 10 * (page - 1) },
+				description: true,
+				library: true,
+				createdAt: true,
+			},
+		});
+	}
+
+	public async editPolicyDescription(policyId: string, description: string | null) {
+		await this.prisma.inlinePolicy.update({ where: { id: policyId }, data: { description } });
+	}
 }
