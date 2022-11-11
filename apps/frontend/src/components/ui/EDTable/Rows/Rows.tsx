@@ -5,7 +5,7 @@ import RowsView from './Rows.view';
 
 interface IProps {
 	readonly data: ReactNode[][];
-	readonly dataLinks: string[];
+	readonly dataLinks?: string[];
 	readonly totalItems: number;
 }
 

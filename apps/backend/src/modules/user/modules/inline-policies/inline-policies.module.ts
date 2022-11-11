@@ -19,6 +19,8 @@ import { SetCodeConfigurationController } from './set-code-configuration.control
 import { GetCodeConfigurationController } from './get-code-configuration.controller';
 import { GetFormSchemaController } from './get-form-schema.controller';
 import { SetIsFormConfigurationController } from './set-is-form-configuration.controller';
+import { GetPolicyRulesController } from './get-policy-rules.controller';
+import { EditDescriptionController } from './edit-description.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -35,6 +37,8 @@ import { SetIsFormConfigurationController } from './set-is-form-configuration.co
 		SetCodeConfigurationController,
 		GetFormSchemaController,
 		SetIsFormConfigurationController,
+		GetPolicyRulesController,
+		EditDescriptionController,
 	],
 	providers: [
 		BelongingInlinePolicyGuard,

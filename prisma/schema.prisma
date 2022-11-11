@@ -72,6 +72,18 @@ model Secret {
   @@unique(fields: [userId, secret], name: "unique_user_secrets")
 }
 
+model Rule {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  policyId      String @db.ObjectId
+  name          String
+  configuration Json
+
+  policy InlinePolicy @relation(fields: [policyId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [policyId, name], name: "unique_policy_rules")
+}
+
 model InlinePolicy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
@@ -85,10 +97,11 @@ model InlinePolicy {
   codeType            CodeType?
   lintedList          String[]      @default([])
   ignoredList         String[]      @default([])
-  rules               Json?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  rules Rule[]
 
   group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
 }

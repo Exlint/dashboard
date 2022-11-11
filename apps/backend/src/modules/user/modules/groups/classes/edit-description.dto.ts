@@ -1,9 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
+import type { IEditGroupDescriptionDto } from '@exlint-dashboard/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 
-export class EditGroupDescriptionDto {
+export class EditGroupDescriptionDto implements IEditGroupDescriptionDto {
 	@ApiProperty({
 		type: String,
 		nullable: true,

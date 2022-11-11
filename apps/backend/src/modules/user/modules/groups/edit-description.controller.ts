@@ -14,7 +14,7 @@ import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import Routes from './groups.routes';
 import { EditGroupDescriptionDto } from './classes/edit-description.dto';
-import { EditDescriptionContract } from './commands/contracts/edit-description.contact';
+import { EditDescriptionContract } from './commands/contracts/edit-description.contract';
 
 @ApiTags('Groups')
 @Controller(Routes.CONTROLLER)

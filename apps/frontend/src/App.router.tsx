@@ -14,6 +14,7 @@ import Configuration from '@/containers/Policy/Configurations/Configuration';
 import FilesList from '@/containers/Policy/Configurations/FilesList';
 import Code from '@/containers/Policy/Configurations/Configuration/Code';
 import Form from '@/containers/Policy/Configurations/Configuration/Form';
+import Rules from '@/containers/Policy/Rules';
 
 interface IProps {
 	readonly isAuthenticated: boolean | null;
@@ -61,7 +62,7 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
 				<Route path="group-center/:groupId/policies/:policyId" element={<Policy />}>
 					<Route path="" element={<Navigate to="rules" replace />} />
-					<Route path="rules" element={null} />
+					<Route path="rules" element={<Rules />} />
 					<Route path="configurations" element={<Configurations />}>
 						<Route path="" element={<Navigate to="configuration" replace />} />
 						<Route path="configuration" element={<Configuration />}>

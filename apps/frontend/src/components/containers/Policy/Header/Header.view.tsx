@@ -15,6 +15,7 @@ interface IProps {
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
 	readonly groupId: string;
+	readonly policyId: string;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -24,23 +25,28 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<header className={classes['container']}>
 			<div className={classes['topHeader']}>
 				<div className={classes['labelsContainer']}>
-					<Link className={classes['groupLink']} to={`/group-center/${props.groupId}`}>
+					<Link className={classes['linkContainer']} to={`/group-center/${props.groupId}`}>
 						<EDSvg className={classes['labelsContainer__icon']} name="group" />
 						<span className={classes['labelsContainer__label']}>{props.groupLabel}</span>
 					</Link>
 
 					<span className={classes['labelsContainer__divider']}>&#47;</span>
 
-					<EDSvg className={classes['labelsContainer__icon']} name="policy" />
-					<span
-						className={concatClasses(
-							classes,
-							'labelsContainer__label',
-							'labelsContainer__label--policy',
-						)}
+					<Link
+						className={classes['linkContainer']}
+						to={`/group-center/${props.groupId}/policies/${props.policyId}`}
 					>
-						{props.policyLabel}
-					</span>
+						<EDSvg className={classes['labelsContainer__icon']} name="policy" />
+						<span
+							className={concatClasses(
+								classes,
+								'labelsContainer__label',
+								'labelsContainer__label--policy',
+							)}
+						>
+							{props.policyLabel}
+						</span>
+					</Link>
 				</div>
 
 				<div className={classes['libraryContainer']}>

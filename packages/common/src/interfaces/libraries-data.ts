@@ -52,7 +52,7 @@ interface IMultiConfiguration extends IBaseConfiguration {
 	readonly configuration: Record<string, IConfigurationValue>;
 }
 
-interface ILibraryRule {
+export interface ILibraryRule {
 	readonly description: string;
 	readonly configApi: string;
 	readonly hasAutoFix?: boolean;
