@@ -1,3 +1,11 @@
+# [1.21.0](https://github.com/Exlint/dashboard/compare/v1.20.0...v1.21.0) (2022-11-11)
+
+
+### Features
+
+* 🔥 [EXL-70] support policy rules page ([510fcc0](https://github.com/Exlint/dashboard/commit/510fcc04bc2e93061fe3fe6d63fc49545817cc80))
+* 🔥 [EXL-70] support policy settings page ([7476505](https://github.com/Exlint/dashboard/commit/747650543d11cd4f753a45627da8ade7637b6eeb))
+
 # [1.20.0](https://github.com/Exlint/dashboard/compare/v1.19.0...v1.20.0) (2022-11-10)
 
 
