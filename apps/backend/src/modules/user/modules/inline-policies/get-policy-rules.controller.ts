@@ -13,7 +13,7 @@ import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
 import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
-import { GetPolicyRulesResponse } from './classes/responses';
+import { GetPolicyRulesResponse } from './classes/get-policy-rules.dto';
 import { GetPolicyRulesContract } from './queries/contracts/get-policy-rules.contract';
 
 @ApiTags('Inline Policies')

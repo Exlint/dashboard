@@ -132,17 +132,27 @@ export class DBInlinePolicyService {
 		});
 	}
 
-	public getPolicyRules(policyId: string, page: number) {
-		return this.prisma.inlinePolicy.findUniqueOrThrow({
-			where: { id: policyId },
-			select: {
-				isFormConfiguration: true,
-				rules: { select: { id: true, name: true }, take: 10, skip: 10 * (page - 1) },
-				description: true,
-				library: true,
-				createdAt: true,
-			},
-		});
+	public async getPolicyRules(policyId: string, page: number) {
+		const [count, rulesData] = await this.prisma.$transaction([
+			this.prisma.rule.count({
+				where: { policyId },
+			}),
+			this.prisma.inlinePolicy.findUniqueOrThrow({
+				where: { id: policyId },
+				select: {
+					isFormConfiguration: true,
+					rules: { select: { id: true, name: true }, take: 10, skip: 10 * (page - 1) },
+					description: true,
+					library: true,
+					createdAt: true,
+				},
+			}),
+		]);
+
+		return {
+			...rulesData,
+			count,
+		};
 	}
 
 	public async editPolicyDescription(policyId: string, description: string | null) {

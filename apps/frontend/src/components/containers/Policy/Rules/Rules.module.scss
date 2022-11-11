@@ -52,3 +52,25 @@
 		color: map.get($colors, reds-persian-plum);
 	}
 }
+
+.editIcon {
+	width: auto;
+	height: 17.1px;
+	cursor: pointer;
+	fill: transparent;
+	stroke: map.get($colors, greys-onyx);
+}
+
+.autofixIcon {
+	width: auto;
+	height: 12.4px;
+	fill: transparent;
+	stroke: map.get($colors, greys-independence-grey);
+}
+
+.removeIcon {
+	width: auto;
+	height: 15.9px;
+	cursor: pointer;
+	fill: map.get($colors, reds-persian-plum);
+}

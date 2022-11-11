@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import { Trans } from 'react-i18next';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
@@ -10,7 +10,7 @@ import classes from './Header.module.scss';
 interface IProps {
 	readonly header: string;
 	readonly buttonText?: string;
-	readonly columnsHeaders: string[];
+	readonly columnsHeaders: ReactNode[];
 	readonly buttonIconName?: keyof typeof icons;
 	readonly onButtonClick?: VoidFunction;
 }

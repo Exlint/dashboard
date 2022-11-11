@@ -1,6 +1,6 @@
 import type { Group, User, InlinePolicy, Secret, PolicyLibrary, Prisma, Rule } from '@prisma/client';
 
-import type { ILibraryData } from './libraries-data';
+import type { ILibraryData, ILibraryRule } from './libraries-data';
 
 export interface ICliAuthResponseData extends Pick<User, 'email'> {
 	readonly cliToken: string;
@@ -65,6 +65,7 @@ export interface IGetFormSchemaResponseData extends Pick<InlinePolicy, 'isFormCo
 
 export type IGetPolicyRulesResponseData = Pick<InlinePolicy, 'isFormConfiguration' | 'description'> &
 	Pick<ILibraryData, 'types' | 'categories'> & {
-		readonly rules: Pick<Rule, 'id' | 'name'>[];
+		readonly rules: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutoFix'>)[];
 		readonly createdAt: number;
+		readonly count: number;
 	};

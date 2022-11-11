@@ -12,27 +12,52 @@ interface IProps {
 	readonly data: ReactNode[][];
 	readonly page: number;
 	readonly totalItems: number;
-	readonly dataLinks: string[];
+	readonly dataLinks?: string[];
 }
 
 const RowsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<>
 			<div className={classes['data']}>
-				{props.data.map((row, index) => (
-					<Link key={index} className={classes['dataRow']} to={props.dataLinks[index] || ''}>
-						<span className={concatClasses(classes, 'dataRow__item', 'dataRow__item--fixed')}>
-							{10 * (props.page - 1) + index + 1}
-							<Trans>&#8228;</Trans>
-						</span>
-						{row.map((item, innerIndex) => (
-							<span key={`${index}-${innerIndex}`} className={classes['dataRow__item']}>
-								{item}
+				{props.data.map((row, index) =>
+					props.dataLinks ? (
+						<Link key={index} className={classes['dataRow']} to={props.dataLinks[index] || ''}>
+							<span className={concatClasses(classes, 'dataRow__item', 'dataRow__item--fixed')}>
+								{10 * (props.page - 1) + index + 1}
+								<Trans>&#8228;</Trans>
 							</span>
-						))}
-						<EDSvg className={classes['dataRow__linkItem']} name="strokeTableLinkArrowRight" />
-					</Link>
-				))}
+							{row.map((item, innerIndex) => (
+								<span key={`${index}-${innerIndex}`} className={classes['dataRow__item']}>
+									{item}
+								</span>
+							))}
+							{props.dataLinks && (
+								<EDSvg
+									className={classes['dataRow__linkItem']}
+									name="strokeTableLinkArrowRight"
+								/>
+							)}
+						</Link>
+					) : (
+						<div key={index} className={classes['dataRow']}>
+							<span className={concatClasses(classes, 'dataRow__item', 'dataRow__item--fixed')}>
+								{10 * (props.page - 1) + index + 1}
+								<Trans>&#8228;</Trans>
+							</span>
+							{row.map((item, innerIndex) => (
+								<span key={`${index}-${innerIndex}`} className={classes['dataRow__item']}>
+									{item}
+								</span>
+							))}
+							{props.dataLinks && (
+								<EDSvg
+									className={classes['dataRow__linkItem']}
+									name="strokeTableLinkArrowRight"
+								/>
+							)}
+						</div>
+					),
+				)}
 			</div>
 
 			<Pagination page={props.page} totalItems={props.totalItems} dataLength={props.data.length} />

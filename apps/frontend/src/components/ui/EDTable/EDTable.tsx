@@ -7,9 +7,9 @@ import EDTableView from './EDTable.view';
 interface IProps {
 	readonly header: string;
 	readonly buttonText?: string;
-	readonly columnsHeaders: string[];
+	readonly columnsHeaders: ReactNode[];
 	readonly data: ReactNode[][];
-	readonly dataLinks: string[];
+	readonly dataLinks?: string[];
 	readonly totalItems: number;
 	readonly noItemsPlaceholder: ReactNode;
 	readonly className?: string;

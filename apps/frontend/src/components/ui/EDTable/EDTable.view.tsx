@@ -11,10 +11,10 @@ import classes from './EDTable.module.scss';
 interface IProps {
 	readonly header: string;
 	readonly buttonText?: string;
-	readonly columnsHeaders: string[];
+	readonly columnsHeaders: ReactNode[];
 	readonly data: ReactNode[][];
 	readonly totalItems: number;
-	readonly dataLinks: string[];
+	readonly dataLinks?: string[];
 	readonly className?: string;
 	readonly buttonIconName?: keyof typeof icons;
 	readonly noItemsPlaceholder: ReactNode;

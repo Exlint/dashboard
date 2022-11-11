@@ -246,7 +246,7 @@ const en = {
 		},
 		configurations: {
 			tabs: {
-				form: 'Form-Based Configuration',
+				form: 'Selection-Based Configuration',
 				code: 'Code-Based Configuration',
 				configuration: 'Configuration',
 				fileList: 'File List',
@@ -267,7 +267,6 @@ const en = {
 				columns: {
 					ruleName: 'Rule Name',
 					category: 'Category',
-					alertType: 'Alert Type',
 					configuration: 'Configuration',
 					autofix: 'Autofix',
 					remove: 'Remove',
@@ -292,10 +291,11 @@ const en = {
 	formConfiguration: {
 		submit: 'Save Changes',
 		switch: {
-			toFormNotificationTitle: 'Configuration method set to Form-Based',
+			toFormNotificationTitle: 'Configuration method set to Selection-Based',
 			toCodeNotificationTitle: 'Configuration method set to Code-Based',
 			toFormNotificationDescription: 'Code-Based disabled (only one method can be enabled at a time).',
-			toCodeNotificationDescription: 'Form-Based disabled (only one method can be enabled at a time).',
+			toCodeNotificationDescription:
+				'Selection-Based disabled (only one method can be enabled at a time).',
 		},
 	},
 };
