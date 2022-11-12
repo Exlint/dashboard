@@ -13,6 +13,7 @@ interface IProps<T> {
 	readonly options: IOption<T>[];
 	readonly selectedIndex: number;
 	readonly prefix?: string;
+	readonly disabled?: boolean;
 	readonly onSelect: (index: number) => void;
 }
 
@@ -35,6 +36,7 @@ const EDSelect = <T,>(props: React.PropsWithChildren<IProps<T>>) => {
 			options={optionsLabels}
 			selectedIndex={props.selectedIndex}
 			prefix={props.prefix}
+			disabled={props.disabled}
 			toggleSelectVisibility={toggleSelectVisibility}
 			onSelect={props.onSelect}
 		/>

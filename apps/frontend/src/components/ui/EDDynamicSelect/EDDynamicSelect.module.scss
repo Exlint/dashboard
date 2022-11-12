@@ -6,8 +6,4 @@
 	display: flex;
 	flex-direction: column;
 	width: fit-content;
-
-	.inputBox {
-		margin-top: map.get($sizes, spacing-l);
-	}
 }

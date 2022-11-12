@@ -10,7 +10,12 @@ interface IProps {
 }
 
 const EDConfigurationsInputs: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return <EDConfigurationsInputsView formSchema={props.formSchema} />;
+	return (
+		<EDConfigurationsInputsView
+			formSchema={props.formSchema}
+			onChangeFormConfiguration={props.onChangeFormConfiguration}
+		/>
+	);
 };
 
 EDConfigurationsInputs.displayName = 'EDConfigurationsInputs';

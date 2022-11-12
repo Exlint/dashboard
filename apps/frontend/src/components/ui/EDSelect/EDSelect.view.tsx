@@ -16,18 +16,20 @@ interface IProps {
 	readonly options: string[];
 	readonly selectedIndex: number;
 	readonly prefix?: string;
+	readonly disabled?: boolean;
 	readonly onSelect: (index: number) => void;
 	readonly toggleSelectVisibility: VoidFunction;
 }
 
 const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const selectedOption = props.options[props.selectedIndex]!;
+	const disabled = props.disabled ?? false;
 
 	const selectedOptionClasses = concatDiverseClasses(
 		concatClasses(
 			classes,
 			'selectedOptionContainer',
-			props.isSelectVisible ? 'selectedOptionContainer--open' : null,
+			props.isSelectVisible && !disabled ? 'selectedOptionContainer--open' : null,
 		),
 		props.className,
 	);
@@ -57,7 +59,7 @@ const EDSelectView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				<EDSvg className={classes['selectedOptionContainer__icon']} name="strokeArrowDown" />
 			</div>
 
-			{props.isSelectVisible && (
+			{props.isSelectVisible && !disabled && (
 				<div className={concatDiverseClasses(classes['optionsContainer'], props.optionsClassName)}>
 					{props.options.map((option, index) => (
 						<span

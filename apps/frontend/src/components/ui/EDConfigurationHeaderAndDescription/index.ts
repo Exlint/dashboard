@@ -1,0 +1,3 @@
+import EDConfigurationHeaderAndDescription from './EDConfigurationHeaderAndDescription';
+
+export default EDConfigurationHeaderAndDescription;

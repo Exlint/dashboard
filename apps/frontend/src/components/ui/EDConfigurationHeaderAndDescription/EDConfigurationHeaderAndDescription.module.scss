@@ -1,0 +1,14 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.title {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: map.get($colors, greys-onyx);
+}
+
+.description {
+	font-size: 1.5rem;
+	color: map.get($colors, greys-independence-grey);
+}

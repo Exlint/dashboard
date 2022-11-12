@@ -1,3 +1,24 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
 .container {
-	border: 2px solid #8484bd;
+	display: flex;
+	flex-direction: column;
+
+	.switchContainer {
+		display: flex;
+		align-items: center;
+		margin-top: map.get($sizes, spacing-l);
+
+		&__switch {
+			width: fit-content;
+		}
+
+		&__text {
+			margin-inline-start: map.get($sizes, spacing-m);
+			font-size: 1.5rem;
+			color: map.get($colors, greys-philippine-gray);
+		}
+	}
 }

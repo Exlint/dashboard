@@ -13,6 +13,7 @@ interface IProps {
 	readonly value: string | null;
 	readonly maxLength?: number;
 	readonly placeholder?: string;
+	readonly disabled?: boolean;
 	readonly iconName?: keyof typeof icons;
 	readonly onChange: (value: string) => void;
 }
@@ -27,6 +28,7 @@ const EDInputFieldView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				value={props.value ?? ''}
 				maxLength={props.maxLength}
 				placeholder={props.placeholder}
+				disabled={props.disabled}
 				onChange={({ currentTarget: { value } }) => props.onChange(value)}
 			/>
 		);
@@ -42,6 +44,7 @@ const EDInputFieldView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				value={props.value ?? ''}
 				maxLength={props.maxLength}
 				placeholder={props.placeholder}
+				disabled={props.disabled}
 				onChange={({ currentTarget: { value } }) => props.onChange(value)}
 			/>
 		</div>
