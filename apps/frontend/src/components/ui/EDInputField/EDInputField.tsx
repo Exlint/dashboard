@@ -8,6 +8,7 @@ interface IProps {
 	readonly id?: string;
 	readonly className?: string;
 	readonly value: string | null;
+	readonly type?: 'text' | 'number';
 	readonly maxLength?: number;
 	readonly placeholder?: string;
 	readonly disabled?: boolean;
@@ -21,6 +22,7 @@ const EDInputField: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			id={props.id}
 			className={props.className}
 			value={props.value}
+			type={props.type}
 			maxLength={props.maxLength}
 			placeholder={props.placeholder}
 			disabled={props.disabled}

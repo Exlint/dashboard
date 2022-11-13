@@ -3,21 +3,23 @@ import EDInputField from '../EDInputField';
 
 import EDConfigurationHeaderAndDescription from '../EDConfigurationHeaderAndDescription';
 
-import classes from './EDString.module.scss';
+import classes from './EDStringOrNumber.module.scss';
 
 interface IProps {
+	readonly type: 'text' | 'number';
 	readonly input: string | null;
 	readonly title: string | null;
 	readonly description: string | null;
 	readonly onInputChange: (value: string) => void;
 }
 
-const EDStringView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDStringOrNumberView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<div className={classes['container']}>
 			<EDConfigurationHeaderAndDescription title={props.title} description={props.description} />
 			<EDInputField
 				className={classes['inputBox']}
+				type={props.type}
 				value={props.input}
 				placeholder={`Enter ${props.title}`}
 				onChange={props.onInputChange}
@@ -26,7 +28,7 @@ const EDStringView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	);
 };
 
-EDStringView.displayName = 'EDStringView';
-EDStringView.defaultProps = {};
+EDStringOrNumberView.displayName = 'EDStringOrNumberView';
+EDStringOrNumberView.defaultProps = {};
 
-export default React.memo(EDStringView);
+export default React.memo(EDStringOrNumberView);

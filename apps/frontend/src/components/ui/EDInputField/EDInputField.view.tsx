@@ -11,6 +11,7 @@ interface IProps {
 	readonly id?: string;
 	readonly className?: string;
 	readonly value: string | null;
+	readonly type?: 'text' | 'number';
 	readonly maxLength?: number;
 	readonly placeholder?: string;
 	readonly disabled?: boolean;
@@ -24,7 +25,7 @@ const EDInputFieldView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 			<input
 				className={concatDiverseClasses(classes['container'], props.className)}
 				id={props.id}
-				type="text"
+				type={props.type ? props.type : 'text'}
 				value={props.value ?? ''}
 				maxLength={props.maxLength}
 				placeholder={props.placeholder}
@@ -40,7 +41,7 @@ const EDInputFieldView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 			<input
 				className={classes['inputIconContainer__input']}
-				type="text"
+				type={props.type ? props.type : 'text'}
 				value={props.value ?? ''}
 				maxLength={props.maxLength}
 				placeholder={props.placeholder}
