@@ -8,12 +8,15 @@ import EDMultiFree from '@/ui/EDMultiFree';
 import EDSelectConfiguration from '@/ui/EDSelectConfiguration';
 import EDDynamicSelect from '@/ui/EDDynamicSelect';
 import EDConfigurationHeaderAndDescription from '@/ui/EDConfigurationHeaderAndDescription';
+import EDMultiConfiguration from '@/ui/EDMultiConfiguration';
 
 import classes from './EDConfigurationsInputs.module.scss';
 
 interface IProps {
 	readonly formSchema?: ILibraryData['configuration'] | null;
+	readonly isNestedBodyVisible?: boolean;
 	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
+	readonly onToggleNestedBody?: () => void;
 }
 
 const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -64,21 +67,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 				);
 			}
 
-			if (item[1].type === 'dynamic-select') {
-				return (
-					<div key={i} className={classes['item']}>
-						<EDDynamicSelect
-							configName={item[0]}
-							title={item[1].title}
-							description={item[1].description}
-							values={item[1].values}
-							onChangeFormConfiguration={props.onChangeFormConfiguration}
-						/>
-						<hr className={classes['item__divider']} />
-					</div>
-				);
-			}
-
 			if (item[1].type === 'select') {
 				return (
 					<div key={i} className={classes['item']}>
@@ -111,19 +99,27 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 
 			if (item[1].type === 'multi-configuration') {
 				return (
-					<div key={i} className={classes['multiConfigurations']}>
-						<div className={classes['multiConfigurations__header']}>
-							<EDConfigurationHeaderAndDescription
-								title={item[1].title}
-								description={item[1].description}
-							/>
-						</div>
-						<div className={classes['multiConfigurations__body']}>
-							<EDConfigurationsInputsView
-								formSchema={item[1].configuration}
-								onChangeFormConfiguration={props.onChangeFormConfiguration}
-							/>
-						</div>
+					<EDMultiConfiguration
+						key={i}
+						title={item[1].title}
+						description={item[1].description}
+						configuration={item[1].configuration}
+						onChangeFormConfiguration={props.onChangeFormConfiguration}
+					/>
+				);
+			}
+
+			if (item[1].type === 'dynamic-select') {
+				return (
+					<div key={i} className={classes['item']}>
+						<EDDynamicSelect
+							configName={item[0]}
+							title={item[1].title}
+							description={item[1].description}
+							values={item[1].values}
+							onChangeFormConfiguration={props.onChangeFormConfiguration}
+						/>
+						<hr className={classes['item__divider']} />
 					</div>
 				);
 			}
@@ -140,7 +136,9 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 						<div className={classes['multiConfigurations__body']}>
 							<EDConfigurationsInputsView
 								formSchema={Object.assign(item[1].configuration)}
+								isNestedBodyVisible={props.isNestedBodyVisible}
 								onChangeFormConfiguration={props.onChangeFormConfiguration}
+								onToggleNestedBody={props.onToggleNestedBody}
 							/>
 						</div>
 					</div>

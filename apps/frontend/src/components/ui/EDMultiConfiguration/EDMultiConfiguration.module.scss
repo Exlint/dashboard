@@ -1,0 +1,46 @@
+@use 'sass:map';
+
+@import '../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+	.innerHeader {
+		display: flex;
+		align-items: center;
+
+		&__header {
+			display: flex;
+			flex-direction: column;
+			padding: map.get($sizes, spacing-l) 0;
+		}
+
+		.innerIcon {
+			&__icon {
+				width: 24px;
+				height: 24px;
+				margin-inline-start: map.get($sizes, spacing-m);
+				fill: map.get($colors, greys-independence-grey);
+
+				&--rotate {
+					transform: rotateX(90deg);
+				}
+			}
+		}
+	}
+
+	&__body {
+		height: 100%;
+		max-height: 400px;
+		padding-inline-start: map.get($sizes, spacing-l);
+		overflow-y: scroll;
+		background-color: map.get($colors, whites-ghost-white);
+	}
+
+	&__divider {
+		width: 100%;
+		margin: map.get($sizes, spacing-xl) 0;
+		border: 1px solid map.get($colors, greys-platinum);
+	}
+}
