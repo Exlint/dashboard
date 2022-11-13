@@ -24,7 +24,7 @@
 				fill: map.get($colors, greys-independence-grey);
 
 				&--rotate {
-					transform: rotateX(90deg);
+					transform: rotate(90deg);
 				}
 			}
 		}
@@ -33,7 +33,7 @@
 	&__body {
 		height: 100%;
 		max-height: 400px;
-		padding-inline-start: map.get($sizes, spacing-l);
+		padding: map.get($sizes, spacing-l) 0 0 map.get($sizes, spacing-l);
 		overflow-y: scroll;
 		background-color: map.get($colors, whites-ghost-white);
 	}
