@@ -6,8 +6,8 @@ import EDStringOrNumber from '@/ui/EDStringOrNumber';
 import EDBoolean from '@/ui/EDBoolean';
 import EDMultiFree from '@/ui/EDMultiFree';
 import EDSelectConfiguration from '@/ui/EDSelectConfiguration';
-import EDDynamicSelect from '@/ui/EDDynamicSelect';
 import EDMultiConfiguration from '@/ui/EDMultiConfiguration';
+import EDDynamicArrayConfiguration from '@/ui/EDDynamicArrayConfiguration';
 
 import classes from './EDConfigurationsInputs.module.scss';
 
@@ -108,14 +108,14 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 				);
 			}
 
-			if (item[1].type === 'dynamic-select') {
+			if (item[1].type === 'dynamic-array-configuration') {
 				return (
 					<div key={i} className={classes['item']}>
-						<EDDynamicSelect
+						<EDDynamicArrayConfiguration
 							configName={item[0]}
 							title={item[1].title}
 							description={item[1].description}
-							values={item[1].values}
+							configuration={item[1].configuration}
 							onChangeFormConfiguration={props.onChangeFormConfiguration}
 						/>
 						<hr className={classes['item__divider']} />
