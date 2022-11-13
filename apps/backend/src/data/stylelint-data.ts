@@ -9,1207 +9,1015 @@ export const stylelintData: ILibraryData = {
 	categories: ['Code', 'Styles'],
 	language: 'CSSHTML',
 	rules: {
-		'Color No Invalid Hex': {
+		'color-no-invalid-hex': {
 			description: 'Disallow invalid hex colors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'color-no-invalid-hex',
 		},
-		'Font Family No Duplicate Names': {
+		'font-family-no-duplicate-names': {
 			description: 'Disallow duplicate font family names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'font-family-no-duplicate-names',
 		},
-		'Font Family No Missing Generic Family Keyword': {
+		'font-family-no-missing-generic-family-keyword': {
 			description: 'Disallow missing generic families in lists of font family names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'font-family-no-missing-generic-family-keyword',
 		},
-		'Named Grid Areas No Invalid': {
+		'named-grid-areas-no-invalid': {
 			description: 'Disallow invalid named grid areas.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'named-grid-areas-no-invalid',
 		},
-		'Function Calc No Unspaced Operator': {
+		'function-calc-no-unspaced-operator': {
 			description: 'Disallow an unspaced operator within calc functions.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'function-calc-no-unspaced-operator',
 		},
-		'Function Linear Gradient No Nonstandard Direction': {
+		'function-linear-gradient-no-nonstandard-direction': {
 			description:
 				'Disallow direction values in linear-gradient() calls that are not valid according to the standard syntax.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'function-linear-gradient-no-nonstandard-direction',
 		},
-		'Function No Unknown': {
+		'function-no-unknown': {
 			description: 'Disallow unknown functions.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'function-no-unknown',
 		},
-		'String No Newline': {
+		'string-no-newline': {
 			description: 'Disallow (unescaped) newlines in strings.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'string-no-newline',
 		},
-		'Unit No Unknown': {
+		'unit-no-unknown': {
 			description: 'Disallow unknown units.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'unit-no-unknown',
 		},
-		'Custom Property No Missing Var Function': {
+		'custom-property-no-missing-var-function': {
 			description: 'Disallow missing var function for custom properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'custom-property-no-missing-var-function',
 		},
-		'Property No Unknown': {
+		'property-no-unknown': {
 			description: 'Disallow unknown properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'property-no-unknown',
 		},
-		'Keyframe Declaration No Important': {
+		'keyframe-declaration-no-important': {
 			description: 'Disallow !important within keyframe declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'keyframe-declaration-no-important',
 		},
-		'Keyframe Block No Duplicate Selectors': {
+		'keyframe-block-no-duplicate-selectors': {
 			description: 'Disallow duplicate selectors within keyframe blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'keyframe-block-no-duplicate-selectors',
 		},
-		'Declaration Block No Duplicate Custom Properties': {
+		'declaration-block-no-duplicate-custom-properties': {
 			description: 'Disallow duplicate custom properties within declaration blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'declaration-block-no-duplicate-custom-properties',
 		},
-		'Declaration Block No Duplicate Properties': {
+		'declaration-block-no-duplicate-properties': {
 			description: 'Disallow duplicate properties within declaration blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'declaration-block-no-duplicate-properties',
 		},
-		'Declaration Block No Shorthand Property Overrides': {
+		'declaration-block-no-shorthand-property-overrides': {
 			description: 'Disallow shorthand properties that override related longhand properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'declaration-block-no-shorthand-property-overrides',
 		},
-		'Block No Empty': {
+		'block-no-empty': {
 			description: 'Disallow empty blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'block-no-empty',
 		},
-		'Selector Pseudo Class No Unknown': {
+		'selector-pseudo-class-no-unknown': {
 			description: 'Disallow unknown pseudo-class selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'selector-pseudo-class-no-unknown',
 		},
-		'Selector Pseudo Element No Unknown': {
+		'selector-pseudo-element-no-unknown': {
 			description: 'Disallow unknown pseudo-element selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'selector-pseudo-element-no-unknown',
 		},
-		'Selector Type No Unknown': {
+		'selector-type-no-unknown': {
 			description: 'Disallow unknown type selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'selector-type-no-unknown',
 		},
-		'Media Feature Name No Unknown': {
+		'media-feature-name-no-unknown': {
 			description: 'Disallow unknown media feature names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'media-feature-name-no-unknown',
 		},
-		'At Rule No Unknown': {
+		'at-rule-no-unknown': {
 			description: 'Disallow unknown at-rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'at-rule-no-unknown',
 		},
-		'Comment No Empty': {
+		'comment-no-empty': {
 			description: 'Disallow empty comments.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'comment-no-empty',
 		},
-		'No Descending Specificity': {
+		'no-descending-specificity': {
 			description:
 				'Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-descending-specificity',
 		},
-		'No Duplicate At Import Rules': {
-			description: 'Disallow duplicate @import rules within a stylesheet.',
-			hasAutoFix: false,
+		'no-duplicate-at-import-rules': {
+			description: 'Disallow duplicate @use rules within a stylesheet.',
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-duplicate-at-import-rules',
 		},
-		'No Duplicate Selectors': {
+		'no-duplicate-selectors': {
 			description: 'Disallow duplicate selectors within a stylesheet.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-duplicate-selectors',
 		},
-		'No Empty Source': {
+		'no-empty-source': {
 			description: 'Disallow empty sources.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-empty-source',
 		},
-		'No Invalid Double Slash Comments': {
+		'no-invalid-double-slash-comments': {
 			description: 'Disallow double-slash comments (//...) which are not supported by CSS.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-invalid-double-slash-comments',
 		},
-		'No Invalid Position At Import Rule': {
-			description: 'Disallow invalid position @import rules within a stylesheet.',
-			hasAutoFix: false,
+		'no-invalid-position-at-import-rule': {
+			description: 'Disallow invalid position @use rules within a stylesheet.',
+			hasAutofix: false,
 			category: 'Avoid Errors',
-			configApi: 'no-invalid-position-at-import-rule',
 		},
-		'Alpha Value Notation': {
+		'alpha-value-notation': {
 			description: 'Specify percentage or number notation for alpha-values (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'alpha-value-notation',
 		},
-		'Hue Degree Notation': {
+		'hue-degree-notation': {
 			description: 'Specify number or angle notation for degree hues (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'hue-degree-notation',
 		},
-		'Color Function Notation': {
+		'color-function-notation': {
 			description: 'Specify modern or legacy notation for applicable color-functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'color-function-notation',
 		},
-		'Color Hex Alpha': {
+		'color-hex-alpha': {
 			description: 'Require or disallow alpha channel for hex colors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'color-hex-alpha',
 		},
-		'Color Hex Length': {
+		'color-hex-length': {
 			description: 'Specify short or long notation for hex colors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'color-hex-length',
 		},
-		'Color Named': {
+		'color-named': {
 			description: 'Require (where possible) or disallow named colors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'color-named',
 		},
-		'Color No Hex': {
+		'color-no-hex': {
 			description: 'Disallow hex colors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'color-no-hex',
 		},
-		'Length Zero No Unit': {
+		'length-zero-no-unit': {
 			description: 'Disallow units for zero lengths (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'length-zero-no-unit',
 		},
-		'Font Family Name Quotes': {
+		'font-family-name-quotes': {
 			description:
 				'Specify whether or not quotation marks should be used around font family names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'font-family-name-quotes',
 		},
-		'Font Weight Notation': {
+		'font-weight-notation': {
 			description:
 				'Require numeric or named (where possible) font-weight values. Also, when named values are expected, require only valid names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'font-weight-notation',
 		},
-		'Function Allowed List': {
+		'function-allowed-list': {
 			description: 'Specify a list of allowed functions.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-allowed-list',
 		},
-		'Function Disallowed List': {
+		'function-disallowed-list': {
 			description: 'Specify a list of disallowed functions.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-disallowed-list',
 		},
-		'Function Url No Scheme Relative': {
+		'function-url-no-scheme-relative': {
 			description: 'Disallow scheme-relative urls.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-url-no-scheme-relative',
 		},
-		'Function Url Quotes': {
+		'function-url-quotes': {
 			description: 'Require or disallow quotes for urls.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-url-quotes',
 		},
-		'Function Url Scheme Allowed List': {
+		'function-url-scheme-allowed-list': {
 			description: 'Specify a list of allowed URL schemes.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-url-scheme-allowed-list',
 		},
-		'Function Url Scheme Disallowed List': {
+		'function-url-scheme-disallowed-list': {
 			description: 'Specify a list of disallowed URL schemes.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'function-url-scheme-disallowed-list',
 		},
-		'Import Notation': {
-			description: 'Specify string or URL notation for @import rules (Autofixable).',
-			hasAutoFix: true,
+		'import-notation': {
+			description: 'Specify string or URL notation for @use rules (Autofixable).',
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'import-notation',
 		},
-		'Keyframes Name Pattern': {
+		'keyframes-name-pattern': {
 			description: 'Specify a pattern for keyframe names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'keyframes-name-pattern',
 		},
-		'Number Max Precision': {
+		'number-max-precision': {
 			description: 'Limit the number of decimal places allowed in numbers.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'number-max-precision',
 		},
-		'Time Min Milliseconds': {
+		'time-min-milliseconds': {
 			description: 'Specify the minimum number of milliseconds for time values.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'time-min-milliseconds',
 		},
-		'Unit Allowed List': {
+		'unit-allowed-list': {
 			description: 'Specify a list of allowed units.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'unit-allowed-list',
 		},
-		'Unit Disallowed List': {
+		'unit-disallowed-list': {
 			description: 'Specify a list of disallowed units.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'unit-disallowed-list',
 		},
-		'Shorthand Property No Redundant Values': {
+		'shorthand-property-no-redundant-values': {
 			description: 'Disallow redundant values in shorthand properties (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'shorthand-property-no-redundant-values',
 		},
-		'Value No Vendor Prefix': {
+		'value-no-vendor-prefix': {
 			description: 'Disallow vendor prefixes for values (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'value-no-vendor-prefix',
 		},
-		'Custom Property Pattern': {
+		'custom-property-pattern': {
 			description: 'Specify a pattern for custom properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'custom-property-pattern',
 		},
-		'Property Allowed List': {
+		'property-allowed-list': {
 			description: 'Specify a list of allowed properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'property-allowed-list',
 		},
-		'Property Disallowed List': {
+		'property-disallowed-list': {
 			description: 'Specify a list of disallowed properties.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'property-disallowed-list',
 		},
-		'Property No Vendor Prefix': {
+		'property-no-vendor-prefix': {
 			description: 'Disallow vendor prefixes for properties (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'property-no-vendor-prefix',
 		},
-		'Declaration No Important': {
+		'declaration-no-important': {
 			description: 'Disallow !important within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-no-important',
 		},
-		'Declaration Property Max Values': {
+		'declaration-property-max-values': {
 			description: 'Limit the number of values for a list of properties within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-property-max-values',
 		},
-		'Declaration Property Unit Allowed List': {
+		'declaration-property-unit-allowed-list': {
 			description: 'Specify a list of allowed property and unit pairs within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-property-unit-allowed-list',
 		},
-		'Declaration Property Unit Disallowed List': {
+		'declaration-property-unit-disallowed-list': {
 			description: 'Specify a list of disallowed property and unit pairs within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-property-unit-disallowed-list',
 		},
-		'Declaration Property Value Allowed List': {
+		'declaration-property-value-allowed-list': {
 			description: 'Specify a list of allowed property and value pairs within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-property-value-allowed-list',
 		},
-		'Declaration Property Value Disallowed List': {
+		'declaration-property-value-disallowed-list': {
 			description: 'Specify a list of disallowed property and value pairs within declarations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-property-value-disallowed-list',
 		},
-		'Declaration Block No Redundant Longhand Properties': {
+		'declaration-block-no-redundant-longhand-properties': {
 			description: 'Disallow longhand properties that can be combined into one shorthand property.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-block-no-redundant-longhand-properties',
 		},
-		'Declaration Block Single Line Max Declarations': {
+		'declaration-block-single-line-max-declarations': {
 			description: 'Limit the number of declarations within a single-line declaration block.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'declaration-block-single-line-max-declarations',
 		},
-		'Selector Attribute Name Disallowed List': {
+		'selector-attribute-name-disallowed-list': {
 			description: 'Specify a list of disallowed attribute names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-attribute-name-disallowed-list',
 		},
-		'Selector Attribute Operator Allowed List': {
+		'selector-attribute-operator-allowed-list': {
 			description: 'Specify a list of allowed attribute operators.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-attribute-operator-allowed-list',
 		},
-		'Selector Attribute Operator Disallowed List': {
+		'selector-attribute-operator-disallowed-list': {
 			description: 'Specify a list of disallowed attribute operators.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-attribute-operator-disallowed-list',
 		},
-		'Selector Attribute Quotes': {
+		'selector-attribute-quotes': {
 			description: 'Require or disallow quotes for attribute values.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-attribute-quotes',
 		},
-		'Selector Class Pattern': {
+		'selector-class-pattern': {
 			description: 'Specify a pattern for class selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-class-pattern',
 		},
-		'Selector Combinator Allowed List': {
+		'selector-combinator-allowed-list': {
 			description: 'Specify a list of allowed combinators.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-combinator-allowed-list',
 		},
-		'Selector Combinator Disallowed List': {
+		'selector-combinator-disallowed-list': {
 			description: 'Specify a list of disallowed combinators.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-combinator-disallowed-list',
 		},
-		'Selector Disallowed List': {
+		'selector-disallowed-list': {
 			description: 'Specify a list of disallowed selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-disallowed-list',
 		},
-		'Selector Id Pattern': {
+		'selector-id-pattern': {
 			description: 'Specify a pattern for ID selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-id-pattern',
 		},
-		'Selector Max Attribute': {
+		'selector-max-attribute': {
 			description: 'Limit the number of attribute selectors in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-attribute',
 		},
-		'Selector Max Class': {
+		'selector-max-class': {
 			description: 'Limit the number of classes in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-class',
 		},
-		'Selector Max Combinators': {
+		'selector-max-combinators': {
 			description: 'Limit the number of combinators in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-combinators',
 		},
-		'Selector Max Compound Selectors': {
+		'selector-max-compound-selectors': {
 			description: 'Limit the number of compound selectors in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-compound-selectors',
 		},
-		'Selector Max Id': {
+		'selector-max-id': {
 			description: 'Limit the number of ID selectors in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-id',
 		},
-		'Selector Max Pseudo Class': {
+		'selector-max-pseudo-class': {
 			description: 'Limit the number of pseudo-classes in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-pseudo-class',
 		},
-		'Selector Max Specificity': {
+		'selector-max-specificity': {
 			description: 'Limit the specificity of selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-specificity',
 		},
-		'Selector Max Type': {
+		'selector-max-type': {
 			description: 'Limit the number of type in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-type',
 		},
-		'Selector Max Universal': {
+		'selector-max-universal': {
 			description: 'Limit the number of universal selectors in a selector.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-max-universal',
 		},
-		'Selector Nested Pattern': {
+		'selector-nested-pattern': {
 			description: 'Specify a pattern for the selectors of rules nested within rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-nested-pattern',
 		},
-		'Selector No Qualifying Type': {
+		'selector-no-qualifying-type': {
 			description: 'Disallow qualifying a selector by type.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-no-qualifying-type',
 		},
-		'Selector No Vendor Prefix': {
+		'selector-no-vendor-prefix': {
 			description: 'Disallow vendor prefixes for selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'selector-no-vendor-prefix',
 		},
-		'Selector Not Notation': {
+		'selector-not-notation': {
 			description: 'Specify simple or complex notation for',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-not-notation',
 		},
-		'Selector Pseudo Class Allowed List': {
+		'selector-pseudo-class-allowed-list': {
 			description: 'Specify a list of allowed pseudo-class selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-pseudo-class-allowed-list',
 		},
-		'Selector Pseudo Class Disallowed List': {
+		'selector-pseudo-class-disallowed-list': {
 			description: 'Specify a list of disallowed pseudo-class selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-pseudo-class-disallowed-list',
 		},
-		'Selector Pseudo Element Allowed List': {
+		'selector-pseudo-element-allowed-list': {
 			description: 'Specify a list of allowed pseudo-element selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-pseudo-element-allowed-list',
 		},
-		'Selector Pseudo Element Colon Notation': {
+		'selector-pseudo-element-colon-notation': {
 			description:
 				'Specify single or double colon notation for applicable pseudo-elements (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'selector-pseudo-element-colon-notation',
 		},
-		'Selector Pseudo Element Disallowed List': {
+		'selector-pseudo-element-disallowed-list': {
 			description: 'Specify a list of disallowed pseudo-element selectors.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'selector-pseudo-element-disallowed-list',
 		},
-		'Rule Selector Property Disallowed List': {
+		'rule-selector-property-disallowed-list': {
 			description: 'Specify a list of disallowed properties for selectors within rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'rule-selector-property-disallowed-list',
 		},
-		'Media Feature Name Allowed List': {
+		'media-feature-name-allowed-list': {
 			description: 'Specify a list of allowed media feature names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'media-feature-name-allowed-list',
 		},
-		'Media Feature Name Disallowed List': {
+		'media-feature-name-disallowed-list': {
 			description: 'Specify a list of disallowed media feature names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'media-feature-name-disallowed-list',
 		},
-		'Media Feature Name No Vendor Prefix': {
+		'media-feature-name-no-vendor-prefix': {
 			description: 'Disallow vendor prefixes for media feature names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'media-feature-name-no-vendor-prefix',
 		},
-		'Media Feature Name Value Allowed List': {
+		'media-feature-name-value-allowed-list': {
 			description: 'Specify a list of allowed media feature name and value pairs.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'media-feature-name-value-allowed-list',
 		},
-		'Custom Media Pattern': {
+		'custom-media-pattern': {
 			description: 'Specify a pattern for custom media query names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'custom-media-pattern',
 		},
-		'At Rule Allowed List': {
+		'at-rule-allowed-list': {
 			description: 'Specify a list of allowed at-rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'at-rule-allowed-list',
 		},
-		'At Rule Disallowed List': {
+		'at-rule-disallowed-list': {
 			description: 'Specify a list of disallowed at-rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'at-rule-disallowed-list',
 		},
-		'At Rule No Vendor Prefix': {
+		'at-rule-no-vendor-prefix': {
 			description: 'Disallow vendor prefixes for at-rules (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configApi: 'at-rule-no-vendor-prefix',
 		},
-		'At Rule Property Required List': {
+		'at-rule-property-required-list': {
 			description: 'Specify a list of required properties for an at-rule.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'at-rule-property-required-list',
 		},
-		'Comment Pattern': {
+		'comment-pattern': {
 			description: 'Specify a pattern for comments.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'comment-pattern',
 		},
-		'Comment Word Disallowed List': {
+		'comment-word-disallowed-list': {
 			description: 'Specify a list of disallowed words within comments.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'comment-word-disallowed-list',
 		},
-		'Max Nesting Depth': {
+		'max-nesting-depth': {
 			description: 'Limit the depth of nesting.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'max-nesting-depth',
 		},
-		'No Irregular Whitespace': {
+		'no-irregular-whitespace': {
 			description: 'Disallow irregular whitespace.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'no-irregular-whitespace',
 		},
-		'No Unknown Animations': {
+		'no-unknown-animations': {
 			description: 'Disallow unknown animations.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'no-unknown-animations',
 		},
-		'Unicode Bom': {
+		'unicode-bom': {
 			description: 'Require or disallow Unicode BOM.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configApi: 'unicode-bom',
 		},
-		'Value Keyword Case': {
+		'value-keyword-case': {
 			description: 'Specify lowercase or uppercase for keywords values (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'value-keyword-case',
 		},
-		'Function Name Case': {
+		'function-name-case': {
 			description: 'Specify lowercase or uppercase for function names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-name-case',
 		},
-		'Custom Property Empty Line Before': {
+		'custom-property-empty-line-before': {
 			description: 'Require or disallow an empty line before custom properties (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'custom-property-empty-line-before',
 		},
-		'Selector Type Case': {
+		'selector-type-case': {
 			description: 'Specify lowercase or uppercase for type selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-type-case',
 		},
-		'Rule Empty Line Before': {
+		'rule-empty-line-before': {
 			description: 'Require or disallow an empty line before rules (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'rule-empty-line-before',
 		},
-		'At Rule Empty Line Before': {
+		'at-rule-empty-line-before': {
 			description: 'Require or disallow an empty line before at-rules (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-empty-line-before',
 		},
-		'Comment Empty Line Before': {
+		'comment-empty-line-before': {
 			description: 'Require or disallow an empty line before comments (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'comment-empty-line-before',
 		},
-		'Comment Whitespace Inside': {
+		'comment-whitespace-inside': {
 			description: 'Require or disallow whitespace on the inside of comment markers (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'comment-whitespace-inside',
 		},
-		'Color Hex Case': {
+		'color-hex-case': {
 			description: 'Specify lowercase or uppercase for hex colors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'color-hex-case',
 		},
-		'Function Comma Newline After': {
+		'function-comma-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the commas of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-comma-newline-after',
 		},
-		'Function Comma Newline Before': {
+		'function-comma-newline-before': {
 			description:
 				'Require a newline or disallow whitespace before the commas of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-comma-newline-before',
 		},
-		'Function Comma Space After': {
+		'function-comma-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the commas of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-comma-space-after',
 		},
-		'Function Comma Space Before': {
+		'function-comma-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the commas of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-comma-space-before',
 		},
-		'Function Max Empty Lines': {
+		'function-max-empty-lines': {
 			description: 'Limit the number of adjacent empty lines within functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-max-empty-lines',
 		},
-		'Function Parentheses Newline Inside': {
+		'function-parentheses-newline-inside': {
 			description:
 				'Require a newline or disallow whitespace on the inside of the parentheses of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-parentheses-newline-inside',
 		},
-		'Function Parentheses Space Inside': {
+		'function-parentheses-space-inside': {
 			description:
 				'Require a single space or disallow whitespace on the inside of the parentheses of functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-parentheses-space-inside',
 		},
-		'Function Whitespace After': {
+		'function-whitespace-after': {
 			description: 'Require or disallow whitespace after functions (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'function-whitespace-after',
 		},
-		'Number Leading Zero': {
+		'number-leading-zero': {
 			description:
 				'Require or disallow a leading zero for fractional numbers less than 1 (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'number-leading-zero',
 		},
-		'Number No Trailing Zeros': {
+		'number-no-trailing-zeros': {
 			description: 'Disallow trailing zeros in numbers (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'number-no-trailing-zeros',
 		},
-		'String Quotes': {
+		'string-quotes': {
 			description: 'Specify single or double quotes around strings (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'string-quotes',
 		},
-		'Unit Case': {
+		'unit-case': {
 			description: 'Specify lowercase or uppercase for units (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'unit-case',
 		},
-		'Value List Comma Newline After': {
+		'value-list-comma-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the commas of value lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'value-list-comma-newline-after',
 		},
-		'Value List Comma Newline Before': {
+		'value-list-comma-newline-before': {
 			description: 'Require a newline or disallow whitespace before the commas of value lists.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'value-list-comma-newline-before',
 		},
-		'Value List Comma Space After': {
+		'value-list-comma-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the commas of value lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'value-list-comma-space-after',
 		},
-		'Value List Comma Space Before': {
+		'value-list-comma-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the commas of value lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'value-list-comma-space-before',
 		},
-		'Value List Max Empty Lines': {
+		'value-list-max-empty-lines': {
 			description: 'Limit the number of adjacent empty lines within value lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'value-list-max-empty-lines',
 		},
-		'Property Case': {
+		'property-case': {
 			description: 'Specify lowercase or uppercase for properties (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'property-case',
 		},
-		'Declaration Bang Space After': {
+		'declaration-bang-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the bang of declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-bang-space-after',
 		},
-		'Declaration Bang Space Before': {
+		'declaration-bang-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the bang of declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-bang-space-before',
 		},
-		'Declaration Colon Newline After': {
+		'declaration-colon-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the colon of declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-colon-newline-after',
 		},
-		'Declaration Colon Space After': {
+		'declaration-colon-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the colon of declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-colon-space-after',
 		},
-		'Declaration Colon Space Before': {
+		'declaration-colon-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the colon of declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-colon-space-before',
 		},
-		'Declaration Empty Line Before': {
+		'declaration-empty-line-before': {
 			description: 'Require or disallow an empty line before declarations (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-empty-line-before',
 		},
-		'Declaration Block Semicolon Newline After': {
+		'declaration-block-semicolon-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the semicolons of declaration blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-block-semicolon-newline-after',
 		},
-		'Declaration Block Semicolon Newline Before': {
+		'declaration-block-semicolon-newline-before': {
 			description:
 				'Require a newline or disallow whitespace before the semicolons of declaration blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-block-semicolon-newline-before',
 		},
-		'Declaration Block Semicolon Space After': {
+		'declaration-block-semicolon-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the semicolons of declaration blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-block-semicolon-space-after',
 		},
-		'Declaration Block Semicolon Space Before': {
+		'declaration-block-semicolon-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the semicolons of declaration blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-block-semicolon-space-before',
 		},
-		'Declaration Block Trailing Semicolon': {
+		'declaration-block-trailing-semicolon': {
 			description: 'Require or disallow a trailing semicolon within declaration blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'declaration-block-trailing-semicolon',
 		},
-		'Block Closing Brace Empty Line Before': {
+		'block-closing-brace-empty-line-before': {
 			description:
 				'Require or disallow an empty line before the closing brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-closing-brace-empty-line-before',
 		},
-		'Block Closing Brace Newline After': {
+		'block-closing-brace-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the closing brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-closing-brace-newline-after',
 		},
-		'Block Closing Brace Newline Before': {
+		'block-closing-brace-newline-before': {
 			description:
 				'Require a newline or disallow whitespace before the closing brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-closing-brace-newline-before',
 		},
-		'Block Closing Brace Space After': {
+		'block-closing-brace-space-after': {
 			description: 'Require a single space or disallow whitespace after the closing brace of blocks.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'block-closing-brace-space-after',
 		},
-		'Block Closing Brace Space Before': {
+		'block-closing-brace-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the closing brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-closing-brace-space-before',
 		},
-		'Block Opening Brace Newline After': {
+		'block-opening-brace-newline-after': {
 			description: 'Require a newline after the opening brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-opening-brace-newline-after',
 		},
-		'Block Opening Brace Newline Before': {
+		'block-opening-brace-newline-before': {
 			description:
 				'Require a newline or disallow whitespace before the opening brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-opening-brace-newline-before',
 		},
-		'Block Opening Brace Space After': {
+		'block-opening-brace-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the opening brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-opening-brace-space-after',
 		},
-		'Block Opening Brace Space Before': {
+		'block-opening-brace-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the opening brace of blocks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'block-opening-brace-space-before',
 		},
-		'Selector Attribute Brackets Space Inside': {
+		'selector-attribute-brackets-space-inside': {
 			description:
 				'Require a single space or disallow whitespace on the inside of the brackets within attribute selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-attribute-brackets-space-inside',
 		},
-		'Selector Attribute Operator Space After': {
+		'selector-attribute-operator-space-after': {
 			description:
 				'Require a single space or disallow whitespace after operators within attribute selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-attribute-operator-space-after',
 		},
-		'Selector Attribute Operator Space Before': {
+		'selector-attribute-operator-space-before': {
 			description:
 				'Require a single space or disallow whitespace before operators within attribute selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-attribute-operator-space-before',
 		},
-		'Selector Combinator Space After': {
+		'selector-combinator-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the combinators of selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-combinator-space-after',
 		},
-		'Selector Combinator Space Before': {
+		'selector-combinator-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the combinators of selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-combinator-space-before',
 		},
-		'Selector Descendant Combinator No Non Space': {
+		'selector-descendant-combinator-no-non-space': {
 			description:
 				'Disallow non-space characters for descendant combinators of selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-descendant-combinator-no-non-space',
 		},
-		'Selector Max Empty Lines': {
+		'selector-max-empty-lines': {
 			description: 'Limit the number of adjacent empty lines within selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-max-empty-lines',
 		},
-		'Selector Pseudo Class Case': {
+		'selector-pseudo-class-case': {
 			description: 'Specify lowercase or uppercase for pseudo-class selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-pseudo-class-case',
 		},
-		'Selector Pseudo Class Parentheses Space Inside': {
+		'selector-pseudo-class-parentheses-space-inside': {
 			description:
 				'Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-pseudo-class-parentheses-space-inside',
 		},
-		'Selector Pseudo Element Case': {
+		'selector-pseudo-element-case': {
 			description: 'Specify lowercase or uppercase for pseudo-element selectors (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-pseudo-element-case',
 		},
-		'Selector List Comma Newline After': {
+		'selector-list-comma-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the commas of selector lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-list-comma-newline-after',
 		},
-		'Selector List Comma Newline Before': {
+		'selector-list-comma-newline-before': {
 			description:
 				'Require a newline or disallow whitespace before the commas of selector lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-list-comma-newline-before',
 		},
-		'Selector List Comma Space After': {
+		'selector-list-comma-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the commas of selector lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-list-comma-space-after',
 		},
-		'Selector List Comma Space Before': {
+		'selector-list-comma-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the commas of selector lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'selector-list-comma-space-before',
 		},
-		'Media Feature Colon Space After': {
+		'media-feature-colon-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the colon in media features (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-colon-space-after',
 		},
-		'Media Feature Colon Space Before': {
+		'media-feature-colon-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the colon in media features (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-colon-space-before',
 		},
-		'Media Feature Name Case': {
+		'media-feature-name-case': {
 			description: 'Specify lowercase or uppercase for media feature names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-name-case',
 		},
-		'Media Feature Parentheses Space Inside': {
+		'media-feature-parentheses-space-inside': {
 			description:
 				'Require a single space or disallow whitespace on the inside of the parentheses within media features (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-parentheses-space-inside',
 		},
-		'Media Feature Range Operator Space After': {
+		'media-feature-range-operator-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the range operator in media features (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-range-operator-space-after',
 		},
-		'Media Feature Range Operator Space Before': {
+		'media-feature-range-operator-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the range operator in media features (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-feature-range-operator-space-before',
 		},
-		'Media Query List Comma Newline After': {
+		'media-query-list-comma-newline-after': {
 			description:
 				'Require a newline or disallow whitespace after the commas of media query lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-query-list-comma-newline-after',
 		},
-		'Media Query List Comma Newline Before': {
+		'media-query-list-comma-newline-before': {
 			description: 'Require a newline or disallow whitespace before the commas of media query lists.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'media-query-list-comma-newline-before',
 		},
-		'Media Query List Comma Space After': {
+		'media-query-list-comma-space-after': {
 			description:
 				'Require a single space or disallow whitespace after the commas of media query lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-query-list-comma-space-after',
 		},
-		'Media Query List Comma Space Before': {
+		'media-query-list-comma-space-before': {
 			description:
 				'Require a single space or disallow whitespace before the commas of media query lists (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'media-query-list-comma-space-before',
 		},
-		'At Rule Name Case': {
+		'at-rule-name-case': {
 			description: 'Specify lowercase or uppercase for at-rules names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-name-case',
 		},
-		'At Rule Name Newline After': {
+		'at-rule-name-newline-after': {
 			description: 'Require a newline after at-rule names.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-name-newline-after',
 		},
-		'At Rule Name Space After': {
+		'at-rule-name-space-after': {
 			description: 'Require a single space after at-rule names (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-name-space-after',
 		},
-		'At Rule Semicolon Newline After': {
+		'at-rule-semicolon-newline-after': {
 			description: 'Require a newline after the semicolon of at-rules (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-semicolon-newline-after',
 		},
-		'At Rule Semicolon Space Before': {
+		'at-rule-semicolon-space-before': {
 			description: 'Require a single space or disallow whitespace before the semicolons of at-rules.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'at-rule-semicolon-space-before',
 		},
-		'Indentation': {
+		'indentation': {
 			description: 'Specify indentation (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'indentation',
 		},
-		'Linebreaks': {
+		'linebreaks': {
 			description: 'Specify unix or windows linebreaks (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'linebreaks',
 		},
-		'Max Empty Lines': {
+		'max-empty-lines': {
 			description: 'Limit the number of adjacent empty lines (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'max-empty-lines',
 		},
-		'Max Line Length': {
+		'max-line-length': {
 			description: 'Limit the length of a line.',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configApi: 'max-line-length',
 		},
-		'No Eol Whitespace': {
+		'no-eol-whitespace': {
 			description: 'Disallow end-of-line whitespace (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'no-eol-whitespace',
 		},
-		'No Missing End Of Source Newline': {
+		'no-missing-end-of-source-newline': {
 			description: 'Disallow missing end-of-source newlines (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'no-missing-end-of-source-newline',
 		},
-		'No Empty First Line': {
+		'no-empty-first-line': {
 			description: 'Disallow empty first lines (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'no-empty-first-line',
 		},
-		'No Extra Semicolons': {
+		'no-extra-semicolons': {
 			description: 'Disallow extra semicolons (Autofixable).',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configApi: 'no-extra-semicolons',
 		},
 	},
 	configuration: {

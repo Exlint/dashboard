@@ -1,3 +1,19 @@
+# [1.21.0](https://github.com/Exlint/dashboard/compare/v1.20.0...v1.21.0) (2022-11-11)
+
+
+### Features
+
+* 🔥 [EXL-70] support policy rules page ([510fcc0](https://github.com/Exlint/dashboard/commit/510fcc04bc2e93061fe3fe6d63fc49545817cc80))
+* 🔥 [EXL-70] support policy settings page ([7476505](https://github.com/Exlint/dashboard/commit/747650543d11cd4f753a45627da8ade7637b6eeb))
+
+# [1.20.0](https://github.com/Exlint/dashboard/compare/v1.19.0...v1.20.0) (2022-11-10)
+
+
+### Features
+
+* 🔥 [EXL-72] support policy configuration in code option ([5da4a64](https://github.com/Exlint/dashboard/commit/5da4a645aa1274ae41edc8c77614cb3eeea59c04))
+* 🔥 [EXL-72] support storing code configuration ([134f689](https://github.com/Exlint/dashboard/commit/134f689faf4d32d775c9ecab302d55fabd9665ad))
+
 # [1.19.0](https://github.com/Exlint/dashboard/compare/v1.18.0...v1.19.0) (2022-10-08)
 
 

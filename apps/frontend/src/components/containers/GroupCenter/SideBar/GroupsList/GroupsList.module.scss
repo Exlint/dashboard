@@ -1,11 +1,11 @@
 @use 'sass:map';
 
-@import '../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	padding-block: map.get($sizes, spacing-l);
-	padding-inline-end: map.get($sizes, spacing-xxl);
+	padding-block: map.get(variables.$sizes, spacing-l);
+	padding-inline-end: map.get(variables.$sizes, spacing-xxl);
 	overflow-y: auto;
 }

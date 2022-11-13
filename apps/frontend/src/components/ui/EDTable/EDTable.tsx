@@ -6,15 +6,16 @@ import EDTableView from './EDTable.view';
 
 interface IProps {
 	readonly header: string;
-	readonly buttonText: string;
-	readonly columnsHeaders: string[];
+	readonly buttonText?: string;
+	readonly columnsHeaders: ReactNode[];
 	readonly data: ReactNode[][];
-	readonly dataLinks: string[];
+	readonly dataLinks?: string[];
 	readonly totalItems: number;
 	readonly noItemsPlaceholder: ReactNode;
 	readonly className?: string;
 	readonly buttonIconName?: keyof typeof icons;
-	readonly onButtonClick: VoidFunction;
+	readonly blur?: boolean;
+	readonly onButtonClick?: VoidFunction;
 }
 
 const EDTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -29,6 +30,7 @@ const EDTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			totalItems={props.totalItems}
 			dataLinks={props.dataLinks}
 			noItemsPlaceholder={props.noItemsPlaceholder}
+			blur={props.blur}
 			onButtonClick={props.onButtonClick}
 		/>
 	);

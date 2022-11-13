@@ -1,0 +1,81 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 314px;
+}
+
+.descriptionContainer {
+	display: flex;
+	flex-direction: column;
+	align-self: flex-start;
+	width: 314px;
+	padding-bottom: map.get(variables.$sizes, spacing-l);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
+
+	.descriptionHeader {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: map.get(variables.$sizes, spacing-xl);
+
+		&__text {
+			font-size: 2.1rem;
+			font-weight: 500;
+			color: map.get(variables.$colors, blacks-dark-gunmetal);
+		}
+
+		&__icon {
+			width: auto;
+			height: 12.9px;
+			cursor: pointer;
+			fill: transparent;
+			stroke: map.get(variables.$colors, greys-onyx);
+		}
+	}
+
+	&__textarea {
+		font-size: 1.7rem;
+		color: map.get(variables.$colors, greys-onyx);
+		resize: none;
+
+		&::placeholder {
+			font-style: italic;
+		}
+	}
+}
+
+.libraryValue {
+	display: flex;
+	align-items: center;
+	padding: map.get(variables.$sizes, spacing-s) map.get(variables.$sizes, spacing-m);
+	margin-top: map.get(variables.$sizes, spacing-xl);
+	border-radius: 6px;
+	box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
+
+	&__img {
+		height: 19px;
+		object-fit: contain;
+		margin-inline-end: map.get(variables.$sizes, spacing-m);
+	}
+
+	&__text {
+		font-size: 2.1rem;
+		font-weight: 500;
+		color: map.get(variables.$colors, greys-independence-grey);
+	}
+}
+
+.detailsText {
+	margin-top: map.get(variables.$sizes, spacing-l);
+	font-size: 1.5rem;
+	color: map.get(variables.$colors, greys-independence-grey);
+
+	&__emphasized {
+		font-weight: 500;
+	}
+}

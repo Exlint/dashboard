@@ -17,8 +17,8 @@ interface IStringConfiguration extends IBaseConfiguration {
 	readonly type: 'string';
 }
 
-interface IArrayConfiguration extends IBaseConfiguration {
-	readonly type: 'array-configuration';
+interface IDynamicArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'dynamic-array-configuration';
 	readonly configuration: IConfigurationValue[];
 }
 
@@ -29,22 +29,16 @@ interface IMultiFreeConfiguration extends IBaseConfiguration {
 
 interface ISelectConfiguration extends IBaseConfiguration {
 	readonly type: 'select';
-	readonly values: (number | string)[];
-}
-
-interface IDynamicSelectConfiguration extends IBaseConfiguration {
-	readonly type: 'dynamic-select';
-	readonly values: (boolean | string)[];
+	readonly values: (number | string | boolean)[];
 }
 
 type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
 	| IStringConfiguration
-	| IArrayConfiguration
+	| IDynamicArrayConfiguration
 	| IMultiFreeConfiguration
 	| ISelectConfiguration
-	| IDynamicSelectConfiguration
 	| IMultiConfiguration;
 
 interface IMultiConfiguration extends IBaseConfiguration {
@@ -52,11 +46,10 @@ interface IMultiConfiguration extends IBaseConfiguration {
 	readonly configuration: Record<string, IConfigurationValue>;
 }
 
-interface ILibraryRule {
+export interface ILibraryRule {
 	readonly description: string;
-	readonly configApi: string;
-	readonly hasAutoFix?: boolean;
-	readonly category?: string;
+	readonly hasAutofix: boolean;
+	readonly category: string;
 }
 
 export type IType = 'Linters' | 'Formatters';

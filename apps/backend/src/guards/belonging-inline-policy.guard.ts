@@ -1,7 +1,7 @@
 import { Injectable, type CanActivate, type ExecutionContext } from '@nestjs/common';
 
-import type { IJwtTokenPayload } from '@/interfaces/jwt-token';
-import { DBInlinePolicyService } from '@/modules/database/inline-policy.service';
+import type { IJwtTokenPayload } from '../interfaces/jwt-token';
+import { DBInlinePolicyService } from '../modules/database/inline-policy.service';
 
 @Injectable()
 export class BelongingInlinePolicyGuard implements CanActivate {

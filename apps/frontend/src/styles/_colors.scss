@@ -1,17 +1,3 @@
-$sizes: (
-	root-font-size: 10px,
-	spacing-xxs: 1px,
-	spacing-xs: 2px,
-	spacing-s: 4px,
-	spacing-m: 8px,
-	spacing-l: 16px,
-	spacing-xl: 24px,
-	spacing-xxl: 32px,
-	spacing-xxl-2: 56px,
-	spacing-xxl-3: 64px,
-	spacing-xxl-4: 96px,
-	spacing-xxl-5: 128px,
-);
 $colors: (
 	greens-japanese-laurel: #2f7d2d,
 	greens-slimy-green: #25a023,
@@ -45,4 +31,11 @@ $colors: (
 	yellows-deep-lemon: #f1c21b,
 	yellows-deep-lemon-30-p: #f1c21b4d,
 	yellows-papaya-whip: #fcf4d6,
+	greys-blur-grey: #f4f4f44d,
 );
+
+:export {
+	@each $key, $value in $colors {
+		#{unquote($key)}: $value;
+	}
+}

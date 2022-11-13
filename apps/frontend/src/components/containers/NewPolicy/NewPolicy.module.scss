@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -16,8 +16,8 @@
 
 	.formFooter {
 		width: 100%;
-		padding-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl-5);
-		background-color: map.get($colors, whites-ghost-white);
+		padding-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl-5);
+		background-color: map.get(variables.$colors, whites-ghost-white);
 
 		.formFooterInner {
 			width: 708px;
@@ -25,8 +25,8 @@
 
 			&__divider {
 				height: 2px;
-				margin-block: map.get($sizes, spacing-xl);
-				background-color: map.get($colors, greys-platinum);
+				margin-block: map.get(variables.$sizes, spacing-xl);
+				background-color: map.get(variables.$colors, greys-platinum);
 			}
 		}
 	}

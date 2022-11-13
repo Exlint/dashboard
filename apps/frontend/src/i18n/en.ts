@@ -246,11 +246,47 @@ const en = {
 		},
 		configurations: {
 			tabs: {
-				form: 'Form-Based Configuration',
+				form: 'Selection-Based Configuration',
 				code: 'Code-Based Configuration',
 				configuration: 'Configuration',
 				fileList: 'File List',
 				ignoreList: 'Ignore List',
+			},
+		},
+		rules: {
+			switchInstruction: 'Selection-based configuration',
+			new: 'New',
+			description: {
+				aboutHeader: 'About',
+				libraryType: 'Type:',
+				libraryCategory: 'Category:',
+				creation: 'Created in:',
+			},
+			table: {
+				header: 'Rules',
+				columns: {
+					ruleName: 'Rule Name',
+					category: 'Category',
+					configuration: 'Configuration',
+					autofix: 'Autofix',
+					remove: 'Remove',
+				},
+				placeholderHeader: 'This looks empty...',
+				placeholderBottomText: 'Start enabling & configuring rules<br />using our selection tool.',
+				blurHeader: 'You are currently configuring using <strong>Code Configuration:</strong>',
+				blurFirstTextPrefix: 'To configure rules using <strong>Code</strong>, head to',
+				blurFirstTextPostfix: 'Code Configuration Section',
+				blurSecondTextPrefix: 'To configure rules using <strong>Selection</strong>, toggle',
+				blurSecondTextPostfix: 'the configuration method',
+			},
+		},
+		rulesList: {
+			filters: {
+				allRules: 'All Rules',
+				enabled: 'Enabled',
+				notEnabled: 'Not Enabled',
+				searchPlaceholder: 'Search rules by name, description, category...',
+				ruleCategory: 'Rule Category:',
 			},
 		},
 	},
@@ -264,10 +300,11 @@ const en = {
 	formConfiguration: {
 		submit: 'Save Changes',
 		switch: {
-			toFormNotificationTitle: 'Configuration method set to Form-Based',
+			toFormNotificationTitle: 'Configuration method set to Selection-Based',
 			toCodeNotificationTitle: 'Configuration method set to Code-Based',
 			toFormNotificationDescription: 'Code-Based disabled (only one method can be enabled at a time).',
-			toCodeNotificationDescription: 'Form-Based disabled (only one method can be enabled at a time).',
+			toCodeNotificationDescription:
+				'Selection-Based disabled (only one method can be enabled at a time).',
 		},
 	},
 };

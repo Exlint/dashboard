@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	position: absolute;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: map.get(variables.$colors, greys-blur-grey);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+
+	&--show {
+		z-index: 1;
+		opacity: 1;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+
+		&__header {
+			font-size: 1.7rem;
+			color: map.get(variables.$colors, greys-independence-grey);
+		}
+
+		&__text {
+			display: flex;
+			align-items: center;
+			margin-inline-start: map.get(variables.$sizes, spacing-s);
+			margin-top: map.get(variables.$sizes, spacing-l);
+			font-size: 1.7rem;
+			color: map.get(variables.$colors, greys-independence-grey);
+			white-space: pre-wrap;
+		}
+
+		&__link {
+			color: map.get(variables.$colors, greys-independence-grey);
+		}
+
+		&__icon {
+			margin-inline: map.get(variables.$sizes, spacing-s);
+		}
+	}
+}

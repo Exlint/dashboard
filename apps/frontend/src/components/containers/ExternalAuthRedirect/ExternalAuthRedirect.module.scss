@@ -1,15 +1,15 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
-	padding-block: map.get($sizes, spacing-xxl);
+	padding-block: map.get(variables.$sizes, spacing-xxl);
 }
 
 .header {
-	margin-bottom: map.get($sizes, spacing-xxl);
+	margin-bottom: map.get(variables.$sizes, spacing-xxl);
 	font-size: 3.5rem;
-	color: map.get($colors, greys-onyx);
+	color: map.get(variables.$colors, greys-onyx);
 }
 
 .subTextContainer {
@@ -17,11 +17,11 @@
 
 	&__text {
 		font-size: 2.1rem;
-		color: map.get($colors, greys-onyx);
+		color: map.get(variables.$colors, greys-onyx);
 	}
 
 	&__postfix {
 		font-size: 2.1rem;
-		color: map.get($colors, purples-purple);
+		color: map.get(variables.$colors, purples-purple);
 	}
 }

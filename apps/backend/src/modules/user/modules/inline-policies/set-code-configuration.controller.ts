@@ -10,9 +10,9 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 
 import Routes from './inline-policies.routes';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { SetCodeConfigurationDto } from './classes/set-code-configuration.dto';
 import { SetCodeConfigurationContract } from './commands/contracts/set-code-configuration.contract';
 

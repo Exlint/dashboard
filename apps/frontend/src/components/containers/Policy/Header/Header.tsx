@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const params = useParams<{ readonly groupId: string }>();
+	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
 
 	return (
 		<HeaderView
@@ -19,6 +19,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			policyLabel={props.policyLabel}
 			library={props.library}
 			groupId={params.groupId!}
+			policyId={params.policyId!}
 		/>
 	);
 };

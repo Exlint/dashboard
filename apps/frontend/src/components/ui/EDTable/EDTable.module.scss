@@ -1,10 +1,16 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	border: 2px solid map.get($colors, greys-platinum);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
+	transition: filter 0.3s ease;
+
+	&--blur {
+		user-select: none;
+		filter: blur(8px);
+	}
 }

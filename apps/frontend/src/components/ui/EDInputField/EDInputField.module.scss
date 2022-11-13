@@ -1,14 +1,14 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
-	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+	padding: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);
 	font-size: 1.5rem;
-	color: map.get($colors, greys-philippine-gray);
-	background-color: map.get($colors, whites-ghost-white);
+	color: map.get(variables.$colors, greys-philippine-gray);
+	background-color: map.get(variables.$colors, whites-ghost-white);
 	border-radius: 6px;
-	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+	box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
 	transition: 0.3s ease-in box-shadow;
 
 	&::placeholder {
@@ -17,7 +17,7 @@
 
 	&:hover,
 	&:focus {
-		box-shadow: inset 0 0 0 2px map.get($colors, greys-silver-sand);
+		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-silver-sand);
 	}
 
 	&:disabled {
@@ -33,24 +33,24 @@
 .inputIconContainer {
 	display: flex;
 	align-items: center;
-	padding-inline: map.get($sizes, spacing-l);
-	background-color: map.get($colors, whites-ghost-white);
+	padding-inline: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
 	border-radius: 6px;
-	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+	box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
 	transition: 0.3s ease-in box-shadow;
 
 	&__icon {
 		width: auto;
 		height: 15.4px;
-		margin-inline-end: map.get($sizes, spacing-m);
-		fill: map.get($colors, greys-independence-grey);
+		margin-inline-end: map.get(variables.$sizes, spacing-m);
+		fill: map.get(variables.$colors, greys-independence-grey);
 	}
 
 	&__input {
 		width: 100%;
-		padding-block: map.get($sizes, spacing-m);
+		padding-block: map.get(variables.$sizes, spacing-m);
 		font-size: 1.5rem;
-		color: map.get($colors, greys-philippine-gray);
+		color: map.get(variables.$colors, greys-philippine-gray);
 		background-color: transparent;
 
 		&::placeholder {
@@ -60,6 +60,6 @@
 
 	&:hover,
 	&:focus {
-		box-shadow: inset 0 0 0 2px map.get($colors, greys-silver-sand);
+		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-silver-sand);
 	}
 }

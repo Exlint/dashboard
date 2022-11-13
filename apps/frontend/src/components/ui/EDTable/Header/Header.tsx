@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 
 import type icons from '@/assets/icons';
 
@@ -6,10 +6,10 @@ import HeaderView from './Header.view';
 
 interface IProps {
 	readonly header: string;
-	readonly buttonText: string;
-	readonly columnsHeaders: string[];
+	readonly buttonText?: string;
+	readonly columnsHeaders: ReactNode[];
 	readonly buttonIconName?: keyof typeof icons;
-	readonly onButtonClick: VoidFunction;
+	readonly onButtonClick?: VoidFunction;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

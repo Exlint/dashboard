@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -8,36 +8,36 @@
 
 	&__input {
 		width: 354px;
-		margin-block: map.get($sizes, spacing-s);
+		margin-block: map.get(variables.$sizes, spacing-s);
 	}
 
 	.tooltip {
 		display: flex;
 		align-items: center;
-		padding: map.get($sizes, spacing-s) map.get($sizes, spacing-m);
-		margin-inline-start: map.get($sizes, spacing-m);
-		background-color: map.get($colors, whites-white);
-		border: 2px solid map.get($colors, greys-platinum);
+		padding: map.get(variables.$sizes, spacing-s) map.get(variables.$sizes, spacing-m);
+		margin-inline-start: map.get(variables.$sizes, spacing-m);
+		background-color: map.get(variables.$colors, whites-white);
+		border: 2px solid map.get(variables.$colors, greys-platinum);
 		border-radius: 6px;
 
 		&__icon {
 			width: auto;
 			height: 10px;
-			margin-inline-end: map.get($sizes, spacing-m);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
 
 			&--available {
 				fill: transparent;
-				stroke: map.get($colors, greens-japanese-laurel);
+				stroke: map.get(variables.$colors, greens-japanese-laurel);
 			}
 
 			&--unavailable {
-				fill: map.get($colors, reds-persian-plum);
+				fill: map.get(variables.$colors, reds-persian-plum);
 			}
 		}
 
 		&__text {
 			font-size: 1.5rem;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 			white-space: nowrap;
 		}
 	}
