@@ -13,7 +13,8 @@
 	}
 
 	&__body {
-		height: 400px;
+		height: 100%;
+		max-height: 400px;
 		overflow-y: auto;
 	}
 }

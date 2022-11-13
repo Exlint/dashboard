@@ -58,8 +58,6 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			});
 	};
 
-	console.log(formConfigurationState, 'formConfigurationState');
-
 	const onChangeFormConfiguration = (key: string, value: unknown) => {
 		setFormConfigurationState(() => ({
 			...formConfigurationState,

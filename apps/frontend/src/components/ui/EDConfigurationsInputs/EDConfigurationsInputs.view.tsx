@@ -101,6 +101,7 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 							configName={item[0]}
 							title={item[1].title}
 							description={item[1].description}
+							values={item[1].values}
 							onChangeFormConfiguration={props.onChangeFormConfiguration}
 						/>
 						<hr className={classes['item__divider']} />
@@ -129,11 +130,7 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 
 			if (item[1].type === 'array-configuration') {
 				return (
-					<div
-						key={i}
-						className={classes['multiConfigurations']}
-						style={{ border: '5px solid red' }}
-					>
+					<div key={i} className={classes['multiConfigurations']}>
 						<div className={classes['multiConfigurations__header']}>
 							<EDConfigurationHeaderAndDescription
 								title={item[1].title}
