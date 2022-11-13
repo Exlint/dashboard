@@ -23,7 +23,7 @@ export class GetPolicyRulesHandler implements IQueryHandler<GetPolicyRulesContra
 		const transformedRules = policyRecord.rules.map((ruleItem) => {
 			const ruleData = matchingLibraryData.rules![ruleItem.name]!;
 
-			return { ...ruleItem, category: ruleData.category, hasAutoFix: ruleData.hasAutoFix };
+			return { ...ruleItem, category: ruleData.category, hasAutofix: ruleData.hasAutofix };
 		});
 
 		return {

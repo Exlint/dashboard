@@ -1,21 +1,21 @@
 @use 'sass:map';
 
-@import '../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: map.get($sizes, spacing-l) map.get($sizes, spacing-xxl);
-	border: 1px solid map.get($colors, greys-platinum);
+	padding: map.get(variables.$sizes, spacing-l) map.get(variables.$sizes, spacing-xxl);
+	border: 1px solid map.get(variables.$colors, greys-platinum);
 }
 
 .routeDetails {
 	font-size: 1.5rem;
-	color: map.get($colors, greys-onyx);
+	color: map.get(variables.$colors, greys-onyx);
 
 	&__route {
-		color: map.get($colors, purples-purple);
+		color: map.get(variables.$colors, purples-purple);
 	}
 }
 
@@ -25,10 +25,10 @@
 
 	&__rawText {
 		font-size: 1.5rem;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 	}
 
 	.clientIdContainer {
-		margin-inline: map.get($sizes, spacing-m) map.get($sizes, spacing-xl);
+		margin-inline: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-xl);
 	}
 }

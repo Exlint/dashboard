@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -12,27 +12,27 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding-inline: map.get($sizes, spacing-xxl);
-	padding-top: map.get($sizes, spacing-xl);
-	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	padding-inline: map.get(variables.$sizes, spacing-xxl);
+	padding-top: map.get(variables.$sizes, spacing-xl);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 
 	.headerTitleContainer {
 		display: flex;
 		align-items: center;
-		margin-bottom: map.get($sizes, spacing-xl);
+		margin-bottom: map.get(variables.$sizes, spacing-xl);
 
 		&__icon {
 			width: auto;
 			height: 28px;
-			margin-inline-end: map.get($sizes, spacing-m);
-			fill: map.get($colors, greys-philippine-gray);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
+			fill: map.get(variables.$colors, greys-philippine-gray);
 		}
 
 		&__text {
 			font-size: 2.1rem;
 			font-weight: 500;
-			color: map.get($colors, purples-purple);
+			color: map.get(variables.$colors, purples-purple);
 		}
 	}
 
@@ -40,23 +40,23 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding-bottom: map.get($sizes, spacing-l);
+		padding-bottom: map.get(variables.$sizes, spacing-l);
 
 		&__icon {
 			width: auto;
 			height: 20px;
-			margin-inline-end: map.get($sizes, spacing-m);
-			fill: map.get($colors, greys-philippine-gray);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
+			fill: map.get(variables.$colors, greys-philippine-gray);
 		}
 
 		&__text {
 			font-size: 1.5rem;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 		}
 
 		&__border {
 			position: absolute;
-			bottom: calc(-2 * map.get($sizes, spacing-xxs));
+			bottom: calc(-2 * map.get(variables.$sizes, spacing-xxs));
 			width: 100%;
 			height: 2px;
 			background-image: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
@@ -68,32 +68,32 @@
 	display: flex;
 	flex-direction: column;
 	width: 708px;
-	padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl);
+	padding: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl);
 
 	&__title {
-		margin-bottom: map.get($sizes, map.get($sizes, spacing-s));
+		margin-bottom: map.get(variables.$sizes, map.get(variables.$sizes, spacing-s));
 		font-size: 2.4rem;
 		font-weight: normal;
-		color: map.get($colors, greys-onyx);
+		color: map.get(variables.$colors, greys-onyx);
 	}
 
 	&__subTitle {
 		font-size: 1.7rem;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 		white-space: nowrap;
 	}
 
 	&__divider {
 		height: 2px;
-		margin-block: map.get($sizes, spacing-xl);
-		background-color: map.get($colors, greys-platinum);
+		margin-block: map.get(variables.$sizes, spacing-xl);
+		background-color: map.get(variables.$colors, greys-platinum);
 	}
 
 	&__labelInputLabel {
-		margin-bottom: map.get($sizes, spacing-m);
+		margin-bottom: map.get(variables.$sizes, spacing-m);
 		font-size: 1.7rem;
 		font-weight: 500;
-		color: map.get($colors, greys-onyx);
+		color: map.get(variables.$colors, greys-onyx);
 	}
 
 	&__labelInput {
@@ -103,24 +103,24 @@
 	.createFormDescriptionLabel {
 		display: flex;
 		align-items: center;
-		margin-block: map.get($sizes, spacing-l) map.get($sizes, spacing-m);
+		margin-block: map.get(variables.$sizes, spacing-l) map.get(variables.$sizes, spacing-m);
 
 		&__text {
-			margin-bottom: map.get($sizes, map.get($sizes, m));
+			margin-bottom: map.get(variables.$sizes, map.get(variables.$sizes, m));
 			font-size: 1.7rem;
 			font-weight: 500;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 		}
 
 		&__optional {
 			font-size: 1.5rem;
 			font-weight: 500;
-			color: map.get($colors, greys-independence-grey);
+			color: map.get(variables.$colors, greys-independence-grey);
 		}
 	}
 
 	&__submit {
 		align-self: flex-start;
-		margin-top: map.get($sizes, spacing-xl);
+		margin-top: map.get(variables.$sizes, spacing-xl);
 	}
 }

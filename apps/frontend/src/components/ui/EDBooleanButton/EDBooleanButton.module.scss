@@ -1,7 +1,7 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
-	border: 1px solid map.get($colors, greys-philippine-gray);
+	border: 1px solid map.get(variables.$colors, greys-philippine-gray);
 }

@@ -19,12 +19,13 @@ module.exports = {
 		'selector-pseudo-class-no-unknown': [
 			true,
 			{
-				ignorePseudoClasses: ['global'],
+				ignorePseudoClasses: ['global', 'export'],
 			},
 		],
 
 		'scss/at-import-partial-extension': null,
-
+		'scss/percent-placeholder-pattern':
+			/^_[a-z][a-z0-9]*(([A-Z][a-z0-9]+)*[A-Z]?|([a-z0-9]+[A-Z])*|[A-Z])$/,
 		'scale-unlimited/declaration-strict-value': [
 			['/color/', '/padding/', 'top', 'bottom', '/margin/', 'font-size', 'fill', '/gap/'],
 			{ ignoreVariables: false, ignoreValues: ['transparent', '/rem/', '0', 'auto'] },

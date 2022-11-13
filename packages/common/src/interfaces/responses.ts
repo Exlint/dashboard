@@ -65,7 +65,15 @@ export interface IGetFormSchemaResponseData extends Pick<InlinePolicy, 'isFormCo
 
 export type IGetPolicyRulesResponseData = Pick<InlinePolicy, 'isFormConfiguration' | 'description'> &
 	Pick<ILibraryData, 'types' | 'categories'> & {
-		readonly rules: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutoFix'>)[];
+		readonly rules: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutofix'>)[];
 		readonly createdAt: number;
 		readonly count: number;
 	};
+
+export interface IGetRulesResponseData {
+	readonly rules: ({
+		readonly id: string | null;
+		readonly name: string;
+		readonly configuration: Prisma.JsonArray | null;
+	} & Pick<ILibraryRule, 'description' | 'hasAutofix' | 'category'>)[];
+}

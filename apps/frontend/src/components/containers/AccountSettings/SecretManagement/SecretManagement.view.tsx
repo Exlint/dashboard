@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import type { Secret } from '@prisma/client';
 
-import { concatClasses } from '@/utils/component';
-
 import SecretsList from './SecretsList';
 import type { ISecretItem } from './interfaces/secrets';
 
@@ -29,23 +27,12 @@ const SecretManagementView: React.FC<IProps> = (props: React.PropsWithChildren<I
 						{t('accountSettings.secretManagement.actionHeader')}
 					</h3>
 					<div className={classes['headerActionsContainer']}>
-						<Link
-							className={concatClasses(
-								classes,
-								'headerActionsContainer__button',
-								'headerActionsContainer__button--generate',
-							)}
-							to="new"
-						>
+						<Link className={classes['headerActionsContainer__generate']} to="new">
 							{t('accountSettings.secretManagement.generateNewSecretButton')}
 						</Link>
 						{props.secretsList.length > 0 && (
 							<button
-								className={concatClasses(
-									classes,
-									'headerActionsContainer__button',
-									'headerActionsContainer__button--revokeAll',
-								)}
+								className={classes['headerActionsContainer__revokeAll']}
 								type="button"
 								onClick={props.onRevokeAllSecrets}
 							>

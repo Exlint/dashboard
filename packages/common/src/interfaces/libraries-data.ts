@@ -54,9 +54,8 @@ interface IMultiConfiguration extends IBaseConfiguration {
 
 export interface ILibraryRule {
 	readonly description: string;
-	readonly configApi: string;
-	readonly hasAutoFix?: boolean;
-	readonly category?: string;
+	readonly hasAutofix: boolean;
+	readonly category: string;
 }
 
 export type IType = 'Linters' | 'Formatters';

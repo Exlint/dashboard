@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import EDSvg from '@/ui/EDSvg';
-import { concatClasses } from '@/utils/component';
 
 import classes from './SideBar.module.scss';
 
@@ -15,9 +14,7 @@ const SideBarView: React.FC<IProps> = () => {
 	return (
 		<aside className={classes['container']}>
 			<NavLink
-				className={({ isActive }) =>
-					concatClasses(classes, 'innerLink', isActive ? 'innerLink--active' : null)
-				}
+				className={({ isActive }) => classes[isActive ? 'innerLink--active' : 'innerLink']}
 				to="account"
 			>
 				<div className={classes['innerLink__border']} />
@@ -25,9 +22,7 @@ const SideBarView: React.FC<IProps> = () => {
 				<span className={classes['innerLink__text']}>{t('accountSettings.sideBar.account')}</span>
 			</NavLink>
 			<NavLink
-				className={({ isActive }) =>
-					concatClasses(classes, 'innerLink', isActive ? 'innerLink--active' : null)
-				}
+				className={({ isActive }) => classes[isActive ? 'innerLink--active' : 'innerLink']}
 				to="secret-management"
 			>
 				<div className={classes['innerLink__border']} />

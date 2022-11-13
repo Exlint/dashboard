@@ -1,12 +1,12 @@
 @use 'sass:map';
 
-@import '../../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl-4);
-	border: 2px solid map.get($colors, greys-platinum);
+	margin-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl-4);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 }
 
@@ -14,11 +14,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	padding: map.get($sizes, spacing-l);
-	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 
 	.switch {
-		margin-inline-end: map.get($sizes, spacing-l);
+		margin-inline-end: map.get(variables.$sizes, spacing-l);
 	}
 }

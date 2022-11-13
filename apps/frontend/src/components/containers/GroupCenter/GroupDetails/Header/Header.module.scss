@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -8,17 +8,17 @@
 	justify-content: flex-end;
 	height: 106px;
 	min-height: 106px;
-	padding-inline: map.get($sizes, spacing-xxl);
-	padding-top: map.get($sizes, spacing-l);
-	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	padding-inline: map.get(variables.$sizes, spacing-xxl);
+	padding-top: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 }
 
 .groupDetails {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: map.get($sizes, spacing-l);
+	margin-bottom: map.get(variables.$sizes, spacing-l);
 
 	.groupLabel {
 		display: flex;
@@ -27,14 +27,14 @@
 		&__icon {
 			width: auto;
 			height: 28px;
-			margin-inline-end: map.get($sizes, spacing-m);
-			fill: map.get($colors, greys-philippine-gray);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
+			fill: map.get(variables.$colors, greys-philippine-gray);
 		}
 
 		&__text {
 			font-size: 2.1rem;
 			font-weight: 500;
-			color: map.get($colors, purples-purple);
+			color: map.get(variables.$colors, purples-purple);
 		}
 	}
 
@@ -43,9 +43,9 @@
 		align-items: center;
 
 		&__prefix {
-			margin-inline-end: map.get($sizes, spacing-m);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
 			font-size: 1.5rem;
-			color: map.get($colors, greys-independence-grey);
+			color: map.get(variables.$colors, greys-independence-grey);
 		}
 	}
 }
@@ -57,28 +57,28 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding-bottom: map.get($sizes, spacing-l);
+		padding-bottom: map.get(variables.$sizes, spacing-l);
 		text-decoration: none;
 
 		&:not(:last-child) {
-			margin-inline-end: map.get($sizes, spacing-xxl);
+			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 		}
 
 		&__icon {
 			width: auto;
 			height: 20px;
-			margin-inline-end: map.get($sizes, spacing-m);
-			fill: map.get($colors, greys-philippine-gray);
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
+			fill: map.get(variables.$colors, greys-philippine-gray);
 		}
 
 		&__text {
 			font-size: 1.5rem;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 		}
 
 		&__border {
 			position: absolute;
-			bottom: calc(-2 * map.get($sizes, spacing-xxs));
+			bottom: calc(-2 * map.get(variables.$sizes, spacing-xxs));
 			display: none;
 			width: 100%;
 			height: 2px;

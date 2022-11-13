@@ -1,34 +1,34 @@
 @use 'sass:map';
 
-@import '../../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
 
 	&:not(:last-child) {
-		margin-bottom: map.get($sizes, spacing-xxl);
+		margin-bottom: map.get(variables.$sizes, spacing-xxl);
 	}
 
 	&__title {
-		margin-bottom: map.get($sizes, spacing-l);
+		margin-bottom: map.get(variables.$sizes, spacing-l);
 		font-size: 2.1rem;
 		font-weight: 500;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 	}
 
 	&__option {
 		font-size: 1.7rem;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 		text-align: start;
 
 		&:not(:last-child) {
-			margin-bottom: map.get($sizes, spacing-m);
+			margin-bottom: map.get(variables.$sizes, spacing-m);
 		}
 
 		&--selected {
 			font-weight: 500;
-			color: map.get($colors, purples-purple);
+			color: map.get(variables.$colors, purples-purple);
 		}
 	}
 }

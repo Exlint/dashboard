@@ -1,22 +1,22 @@
 @use 'sass:map';
 
-@import '../../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .title {
 	width: 100%;
-	padding-bottom: map.get($sizes, spacing-l);
-	margin-bottom: map.get($sizes, spacing-l);
+	padding-bottom: map.get(variables.$sizes, spacing-l);
+	margin-bottom: map.get(variables.$sizes, spacing-l);
 	font-size: 2.4rem;
 	font-weight: normal;
-	color: map.get($colors, greys-onyx);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	color: map.get(variables.$colors, greys-onyx);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 }
 
 .instructionText {
 	font-size: 1.5rem;
-	color: map.get($colors, greys-independence-grey);
+	color: map.get(variables.$colors, greys-independence-grey);
 }
 
 .input {
-	margin-block: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+	margin-block: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);
 }

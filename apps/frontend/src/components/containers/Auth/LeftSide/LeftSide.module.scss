@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	position: relative;
@@ -9,7 +9,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 50%;
-	padding-inline: map.get($sizes, spacing-xxl-2);
+	padding-inline: map.get(variables.$sizes, spacing-xxl-2);
 	background-image: url('../../../../assets/images/auth-background.png');
 	background-repeat: no-repeat;
 	background-position: center;
@@ -17,14 +17,14 @@
 
 	&__brandLogo {
 		position: absolute;
-		top: map.get($sizes, spacing-l);
-		inset-inline-start: map.get($sizes, spacing-l);
+		top: map.get(variables.$sizes, spacing-l);
+		inset-inline-start: map.get(variables.$sizes, spacing-l);
 		width: 168px;
 		object-fit: contain;
 	}
 
 	&__header {
-		margin-bottom: map.get($sizes, spacing-xl);
+		margin-bottom: map.get(variables.$sizes, spacing-xl);
 		font-size: 4.5rem;
 		font-weight: 700;
 		line-height: 58.75px;
@@ -37,7 +37,7 @@
 	&__subHeader {
 		font-size: 3.6rem;
 		font-weight: 400;
-		color: map.get($colors, greys-gainsboro);
+		color: map.get(variables.$colors, greys-gainsboro);
 		text-align: center;
 	}
 }

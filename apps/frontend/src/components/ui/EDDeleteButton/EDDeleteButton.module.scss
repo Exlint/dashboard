@@ -1,11 +1,11 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .button {
-	color: map.get($colors, reds-persian-plum);
-	background-color: map.get($colors, whites-ghost-white);
-	box-shadow: inset 0 0 0 2px map.get($colors, greys-platinum);
+	color: map.get(variables.$colors, reds-persian-plum);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
 }
 
 .container {
@@ -15,7 +15,7 @@
 	flex-direction: column;
 	width: 570px;
 	overflow: hidden;
-	border: 2px solid map.get($colors, blacks-yankees-black-blue);
+	border: 2px solid map.get(variables.$colors, blacks-yankees-black-blue);
 	border-radius: 5px;
 	transform: translate(-50%, -50%);
 	inset-block-start: 50%;
@@ -24,8 +24,8 @@
 
 .header {
 	display: flex;
-	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
-	background-color: map.get($colors, blacks-dark-gunmetal);
+	padding: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, blacks-dark-gunmetal);
 
 	.headerButton {
 		display: flex;
@@ -34,14 +34,14 @@
 		&__icon {
 			width: auto;
 			height: 11px;
-			margin-inline-end: map.get($sizes, spacing-s);
-			fill: map.get($colors, whites-white);
+			margin-inline-end: map.get(variables.$sizes, spacing-s);
+			fill: map.get(variables.$colors, whites-white);
 		}
 
 		&__text {
 			font-size: 1.7rem;
 			font-weight: 500;
-			color: map.get($colors, whites-white);
+			color: map.get(variables.$colors, whites-white);
 		}
 	}
 }
@@ -50,8 +50,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: map.get($sizes, spacing-xxl) map.get($sizes, spacing-xxl-3);
-	background-color: map.get($colors, whites-white);
+	padding: map.get(variables.$sizes, spacing-xxl) map.get(variables.$sizes, spacing-xxl-3);
+	background-color: map.get(variables.$colors, whites-white);
 
 	&__logo {
 		width: 64.2px;
@@ -59,37 +59,37 @@
 	}
 
 	&__header {
-		margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-l);
+		margin-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-l);
 		font-size: 2.4rem;
 		font-weight: 500;
-		color: map.get($colors, blacks-dark-gunmetal);
+		color: map.get(variables.$colors, blacks-dark-gunmetal);
 		text-align: center;
 	}
 
 	&__subHeader {
 		font-size: 2.1rem;
-		color: map.get($colors, blacks-dark-gunmetal);
+		color: map.get(variables.$colors, blacks-dark-gunmetal);
 		text-align: center;
 	}
 
 	&__actionText {
-		margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-l);
+		margin-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-l);
 		font-size: 2.1rem;
-		color: map.get($colors, blacks-dark-gunmetal);
+		color: map.get(variables.$colors, blacks-dark-gunmetal);
 
 		&--phraseText {
-			color: map.get($colors, reds-persian-plum);
+			color: map.get(variables.$colors, reds-persian-plum);
 		}
 	}
 
 	&__input {
 		width: 293px;
-		padding: map.get($sizes, spacing-m);
-		margin-bottom: map.get($sizes, spaicng-l);
+		padding: map.get(variables.$sizes, spacing-m);
+		margin-bottom: map.get(variables.$sizes, spaicng-l);
 		font-size: 1.7rem;
 		font-weight: 500;
-		color: map.get($colors, greys-independence-grey);
-		border: 2px solid map.get($colors, greys-platinum);
+		color: map.get(variables.$colors, greys-independence-grey);
+		border: 2px solid map.get(variables.$colors, greys-platinum);
 		border-radius: 10px;
 
 		&::placeholder {
@@ -103,18 +103,18 @@
 		justify-content: center;
 		width: 104px;
 		height: 44px;
-		padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-m);
-		margin-top: map.get($sizes, spacing-l);
+		padding: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-m);
+		margin-top: map.get(variables.$sizes, spacing-l);
 		font-size: 1.7rem;
-		color: map.get($colors, greys-platinum);
-		background-color: map.get($colors, blacks-dark-gunmetal);
-		border: 2px solid map.get($colors, blacks-harsh-black);
+		color: map.get(variables.$colors, greys-platinum);
+		background-color: map.get(variables.$colors, blacks-dark-gunmetal);
+		border: 2px solid map.get(variables.$colors, blacks-harsh-black);
 		border-radius: 10px;
 
 		&:disabled {
-			color: map.get($colors, greys-philippine-gray);
-			background-color: map.get($colors, greys-platinum);
-			border-color: map.get($colors, greys-silver-sand);
+			color: map.get(variables.$colors, greys-philippine-gray);
+			background-color: map.get(variables.$colors, greys-platinum);
+			border-color: map.get(variables.$colors, greys-silver-sand);
 		}
 	}
 }

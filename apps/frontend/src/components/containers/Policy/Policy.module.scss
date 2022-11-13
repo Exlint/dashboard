@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;

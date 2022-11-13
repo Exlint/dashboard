@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .header {
 	display: flex;
@@ -10,9 +10,9 @@
 	background-image: linear-gradient(
 		242.44deg,
 		#ae7dfd -30.7%,
-		map.get($colors, blacks-yankees-black-blue) 36.93%,
-		map.get($colors, blacks-yankees-black-blue) 62.82%,
-		map.get($colors, purples-purple) 129.61%
+		map.get(variables.$colors, blacks-yankees-black-blue) 36.93%,
+		map.get(variables.$colors, blacks-yankees-black-blue) 62.82%,
+		map.get(variables.$colors, purples-purple) 129.61%
 	);
 
 	&__img {
@@ -28,13 +28,13 @@
 }
 
 .footer {
-	padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl);
+	padding: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl);
 	font-size: 2.1rem;
-	color: map.get($colors, grey-text);
-	background-color: map.get($colors, greys-anti-flash-grey-white);
+	color: map.get(variables.$colors, grey-text);
+	background-color: map.get(variables.$colors, greys-anti-flash-grey-white);
 
 	&__contact {
-		color: map.get($colors, purples-purple);
+		color: map.get(variables.$colors, purples-purple);
 		text-decoration: none;
 	}
 }

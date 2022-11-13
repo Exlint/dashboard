@@ -1,8 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { concatClasses } from '@/utils/component';
-
 import type { ISecretItem } from '../interfaces/secrets';
 
 import classes from './SecretsList.module.scss';
@@ -37,22 +35,14 @@ const SecretsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 					</div>
 					<div className={classes['secretActions']}>
 						<button
-							className={concatClasses(
-								classes,
-								'secretActions__button',
-								'secretActions__button--refresh',
-							)}
+							className={classes['secretActions__refresh']}
 							type="button"
 							onClick={() => props.onRefreshSecret(secret.id)}
 						>
 							{t('accountSettings.secretManagement.refreshSecretAction')}
 						</button>
 						<button
-							className={concatClasses(
-								classes,
-								'secretActions__button',
-								'secretActions__button--delete',
-							)}
+							className={classes['secretActions__delete']}
 							type="button"
 							onClick={() => props.onDeleteSecret(secret.id)}
 						>

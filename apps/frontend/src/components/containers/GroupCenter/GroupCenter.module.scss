@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -11,5 +11,5 @@
 .content {
 	display: flex;
 	height: calc(100vh - 80px);
-	background-color: map.get($colors, whites-white);
+	background-color: map.get(variables.$colors, whites-white);
 }

@@ -280,6 +280,15 @@ const en = {
 				blurSecondTextPostfix: 'the configuration method',
 			},
 		},
+		rulesList: {
+			filters: {
+				allRules: 'All Rules',
+				enabled: 'Enabled',
+				notEnabled: 'Not Enabled',
+				searchPlaceholder: 'Search rules by name, description, category...',
+				ruleCategory: 'Rule Category:',
+			},
+		},
 	},
 	textCode: {
 		submit: 'Save Changes',

@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	position: fixed;
@@ -9,8 +9,8 @@
 	width: 258px;
 	opacity: 0;
 	transition: 0.3s ease-in opacity;
-	inset-block-end: map.get($sizes, spacing-xxl);
-	inset-inline-end: map.get($sizes, spacing-xxl);
+	inset-block-end: map.get(variables.$sizes, spacing-xxl);
+	inset-inline-end: map.get(variables.$sizes, spacing-xxl);
 
 	&--fullOpacity {
 		opacity: 1;
@@ -21,60 +21,60 @@
 	width: 3px;
 
 	&--info {
-		background-color: map.get($colors, greys-onyx);
+		background-color: map.get(variables.$colors, greys-onyx);
 	}
 
 	&--checkmark {
-		background-color: map.get($colors, greens-japanese-laurel);
+		background-color: map.get(variables.$colors, greens-japanese-laurel);
 	}
 
 	&--warning {
-		background-color: map.get($colors, yellows-deep-lemon);
+		background-color: map.get(variables.$colors, yellows-deep-lemon);
 	}
 
 	&--error {
-		background-color: map.get($colors, reds-persian-plum);
+		background-color: map.get(variables.$colors, reds-persian-plum);
 	}
 }
 
 .notificationContent {
 	display: flex;
 	width: 100%;
-	padding: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+	padding: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);
 	border: 2px solid;
 	border-inline-start: none;
 
 	&--info {
-		background-color: map.get($colors, whites-white);
-		border-color: map.get($colors, greys-platinum);
+		background-color: map.get(variables.$colors, whites-white);
+		border-color: map.get(variables.$colors, greys-platinum);
 	}
 
 	&--checkmark {
-		background-color: map.get($colors, greens-nyanza);
-		border-color: map.get($colors, greens-sea-green);
+		background-color: map.get(variables.$colors, greens-nyanza);
+		border-color: map.get(variables.$colors, greens-sea-green);
 	}
 
 	&--warning {
-		background-color: map.get($colors, yellows-papaya-whip);
-		border-color: map.get($colors, yellows-deep-lemon-30-p);
+		background-color: map.get(variables.$colors, yellows-papaya-whip);
+		border-color: map.get(variables.$colors, yellows-deep-lemon-30-p);
 	}
 
 	&--error {
-		background-color: map.get($colors, reds-lavender-blush);
-		border-color: map.get($colors, reds-maximum-red);
+		background-color: map.get(variables.$colors, reds-lavender-blush);
+		border-color: map.get(variables.$colors, reds-maximum-red);
 	}
 
 	&__icon {
 		width: auto;
 		height: 17.5px;
-		margin-inline-end: map.get($sizes, spacing-l);
+		margin-inline-end: map.get(variables.$sizes, spacing-l);
 	}
 
 	&__closeIcon {
 		width: auto;
 		height: 8px;
 		cursor: pointer;
-		fill: map.get($colors, greys-onyx);
+		fill: map.get(variables.$colors, greys-onyx);
 	}
 
 	.textContainer {
@@ -85,13 +85,13 @@
 		&__title {
 			font-size: 1.5rem;
 			font-weight: 600;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 		}
 
 		&__message {
-			margin-top: map.get($sizes, spacing-xs);
+			margin-top: map.get(variables.$sizes, spacing-xs);
 			font-size: 1.5rem;
-			color: map.get($colors, greys-onyx);
+			color: map.get(variables.$colors, greys-onyx);
 		}
 	}
 }

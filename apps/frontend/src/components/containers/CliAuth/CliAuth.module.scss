@@ -1,26 +1,26 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
-	padding-block: map.get($sizes, spacing-xxl);
+	padding-block: map.get(variables.$sizes, spacing-xxl);
 }
 
 .header {
 	font-size: 3.5rem;
-	color: map.get($colors, greys-onyx);
+	color: map.get(variables.$colors, greys-onyx);
 }
 
 .commandText {
-	margin-block: map.get($sizes, spacing-xxl);
+	margin-block: map.get(variables.$sizes, spacing-xxl);
 	font-size: 2.1rem;
-	color: map.get($colors, greys-onyx);
+	color: map.get(variables.$colors, greys-onyx);
 	text-align: center;
 
 	&__code {
-		padding-inline: map.get($sizes, spacing-s);
-		margin-inline: map.get($sizes, spacing-m);
-		background-color: map.get($colors, greys-platinum);
+		padding-inline: map.get(variables.$sizes, spacing-s);
+		margin-inline: map.get(variables.$sizes, spacing-m);
+		background-color: map.get(variables.$colors, greys-platinum);
 		border-radius: 6px;
 	}
 }
@@ -28,15 +28,15 @@
 .buttonInstruction {
 	font-size: 2.1rem;
 	line-height: 30px;
-	color: map.get($colors, greys-onyx);
+	color: map.get(variables.$colors, greys-onyx);
 	text-align: center;
 }
 
 .authButton {
-	padding: map.get($sizes, spacing-l);
-	margin-top: map.get($sizes, spacing-xxl);
+	padding: map.get(variables.$sizes, spacing-l);
+	margin-top: map.get(variables.$sizes, spacing-xxl);
 	font-size: 2.1rem;
-	color: map.get($colors, whites-white);
-	background-color: map.get($colors, blues-cyan-cobalt-blue);
+	color: map.get(variables.$colors, whites-white);
+	background-color: map.get(variables.$colors, blues-cyan-cobalt-blue);
 	border-radius: 6px;
 }

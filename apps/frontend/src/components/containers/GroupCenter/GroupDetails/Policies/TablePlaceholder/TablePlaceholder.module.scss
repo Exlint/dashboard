@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -10,10 +10,10 @@
 	height: 100%;
 
 	&__header {
-		margin-bottom: map.get($sizes, spacing-xxl-2);
+		margin-bottom: map.get(variables.$sizes, spacing-xxl-2);
 		font-size: 2.4rem;
 		font-weight: 500;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 	}
 }
 
@@ -23,8 +23,8 @@
 
 	&__icon {
 		width: 35px;
-		margin-inline: map.get($sizes, spacing-xxl-2);
-		fill: map.get($colors, greys-independence-grey);
+		margin-inline: map.get(variables.$sizes, spacing-xxl-2);
+		fill: map.get(variables.$colors, greys-independence-grey);
 	}
 }
 
@@ -34,9 +34,9 @@
 	align-items: center;
 
 	&__text {
-		margin-top: map.get($sizes, spacing-xl);
+		margin-top: map.get(variables.$sizes, spacing-xl);
 		font-size: 1.5rem;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 		text-align: center;
 	}
 

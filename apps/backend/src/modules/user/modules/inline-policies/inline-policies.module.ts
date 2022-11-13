@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
 
 import { QueryHandlers } from './queries/handlers';
@@ -10,7 +11,6 @@ import { AvailableLabelController } from './available-label.controller';
 import { GetLibrariesController } from './get-libraries.controller';
 import { CreateController } from './create.controller';
 import { GetController } from './get.controller';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { EditLabelController } from './edit-label.controller';
 import { DeleteController } from './delete.controller';
 import { SetFilesListController } from './set-files-list.controller';

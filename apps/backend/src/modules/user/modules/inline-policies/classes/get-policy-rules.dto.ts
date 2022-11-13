@@ -6,7 +6,7 @@ export class GetPolicyRulesResponse implements IGetPolicyRulesResponseData {
 	@ApiResponseProperty({
 		example: [{ myYazifRule: ['error'] }],
 	})
-	public rules!: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutoFix'>)[];
+	public rules!: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutofix'>)[];
 
 	@ApiResponseProperty({
 		example: true,
