@@ -16,7 +16,7 @@ export const inflintData: ILibraryData = {
 		aliases: {
 			title: 'Aliases',
 			description: 'Inflint aliases to use together with rules.',
-			type: 'array-configuration',
+			type: 'dynamic-array-configuration',
 			configuration: [
 				{
 					title: 'RegEx Matcher',

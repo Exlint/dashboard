@@ -1594,8 +1594,16 @@ export const eslintData: ILibraryData = {
 			title: 'Globals',
 			description:
 				'An object specifying additional objects that should be added to the global scope during linting.',
-			type: 'dynamic-select',
-			values: [true, false, 'off', 'readable', 'writable', 'writeable'],
+			type: 'dynamic-array-configuration',
+
+			configuration: [
+				{
+					title: 'RegEx Matcher',
+					description: 'Inflint will apply the alias name to match the provided RegEx.',
+					type: 'select',
+					values: [true, false, 'off', 'readable', 'writable', 'writeable'],
+				},
+			],
 		},
 		ignorePatterns: {
 			title: 'Ignore Patterns',

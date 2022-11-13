@@ -17,8 +17,8 @@ interface IStringConfiguration extends IBaseConfiguration {
 	readonly type: 'string';
 }
 
-interface IArrayConfiguration extends IBaseConfiguration {
-	readonly type: 'array-configuration';
+interface IDynamicArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'dynamic-array-configuration';
 	readonly configuration: IConfigurationValue[];
 }
 
@@ -29,22 +29,16 @@ interface IMultiFreeConfiguration extends IBaseConfiguration {
 
 interface ISelectConfiguration extends IBaseConfiguration {
 	readonly type: 'select';
-	readonly values: (number | string)[];
-}
-
-interface IDynamicSelectConfiguration extends IBaseConfiguration {
-	readonly type: 'dynamic-select';
-	readonly values: (boolean | string)[];
+	readonly values: (number | string | boolean)[];
 }
 
 type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
 	| IStringConfiguration
-	| IArrayConfiguration
+	| IDynamicArrayConfiguration
 	| IMultiFreeConfiguration
 	| ISelectConfiguration
-	| IDynamicSelectConfiguration
 	| IMultiConfiguration;
 
 interface IMultiConfiguration extends IBaseConfiguration {
