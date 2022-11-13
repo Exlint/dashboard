@@ -7,7 +7,6 @@ import EDBoolean from '@/ui/EDBoolean';
 import EDMultiFree from '@/ui/EDMultiFree';
 import EDSelectConfiguration from '@/ui/EDSelectConfiguration';
 import EDDynamicSelect from '@/ui/EDDynamicSelect';
-import EDConfigurationHeaderAndDescription from '@/ui/EDConfigurationHeaderAndDescription';
 import EDMultiConfiguration from '@/ui/EDMultiConfiguration';
 
 import classes from './EDConfigurationsInputs.module.scss';
@@ -120,27 +119,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 							onChangeFormConfiguration={props.onChangeFormConfiguration}
 						/>
 						<hr className={classes['item__divider']} />
-					</div>
-				);
-			}
-
-			if (item[1].type === 'array-configuration') {
-				return (
-					<div key={i} className={classes['multiConfigurations']}>
-						<div className={classes['multiConfigurations__header']}>
-							<EDConfigurationHeaderAndDescription
-								title={item[1].title}
-								description={item[1].description}
-							/>
-						</div>
-						<div className={classes['multiConfigurations__body']}>
-							<EDConfigurationsInputsView
-								formSchema={Object.assign(item[1].configuration)}
-								isNestedBodyVisible={props.isNestedBodyVisible}
-								onChangeFormConfiguration={props.onChangeFormConfiguration}
-								onToggleNestedBody={props.onToggleNestedBody}
-							/>
-						</div>
 					</div>
 				);
 			}
