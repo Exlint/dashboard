@@ -8,6 +8,13 @@
 	margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl-4);
 	border: 2px solid map.get($colors, greys-platinum);
 	border-radius: 6px;
+
+	.configurationsInputs {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 0 map.get($sizes, spacing-xl);
+	}
 }
 
 .actionContainer {

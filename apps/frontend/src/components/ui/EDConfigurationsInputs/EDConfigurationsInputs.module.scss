@@ -2,19 +2,26 @@
 
 @import '../../../styles/variables.scss';
 
-.container {
+.multiConfigurations {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	height: 500px;
-	padding: 0 map.get($sizes, spacing-xl);
-	overflow-y: auto;
 
-	.item {
-		&__divider {
-			width: 100%;
-			margin: map.get($sizes, spacing-xl) 0;
-			border: 1px solid map.get($colors, greys-platinum);
-		}
+	&__header {
+		display: flex;
+		flex-direction: column;
+		padding: map.get($sizes, spacing-l) 0;
+	}
+
+	&__body {
+		height: 400px;
+		overflow-y: auto;
+	}
+}
+
+.item {
+	&__divider {
+		width: 100%;
+		margin: map.get($sizes, spacing-xl) 0;
+		border: 1px solid map.get($colors, greys-platinum);
 	}
 }

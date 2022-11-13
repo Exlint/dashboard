@@ -5,8 +5,9 @@ import type { ILibraryData } from '@exlint-dashboard/common';
 import EDBoolean from '@/ui/EDBoolean';
 import EDMultiFree from '@/ui/EDMultiFree';
 import EDString from '@/ui/EDString';
-import EDMultiConfiguration from '@/ui//EDMultiConfiguration';
+import EDSelectConfiguration from '@/ui/EDSelectConfiguration';
 import EDDynamicSelect from '@/ui/EDDynamicSelect';
+import EDConfigurationHeaderAndDescription from '@/ui/EDConfigurationHeaderAndDescription';
 
 import classes from './EDConfigurationsInputs.module.scss';
 
@@ -38,7 +39,7 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 					<div key={i} className={classes['item']}>
 						<EDBoolean
 							configName={item[0]}
-							title={item[1].title}
+							title={item[1].title ?? item[0]}
 							description={item[1].description}
 							onChangeFormConfiguration={props.onChangeFormConfiguration}
 						/>
@@ -51,6 +52,21 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 				return (
 					<div key={i} className={classes['item']}>
 						<EDDynamicSelect
+							configName={item[0]}
+							title={item[1].title}
+							description={item[1].description}
+							values={item[1].values}
+							onChangeFormConfiguration={props.onChangeFormConfiguration}
+						/>
+						<hr className={classes['item__divider']} />
+					</div>
+				);
+			}
+
+			if (item[1].type === 'select') {
+				return (
+					<div key={i} className={classes['item']}>
+						<EDSelectConfiguration
 							configName={item[0]}
 							title={item[1].title}
 							description={item[1].description}
@@ -78,14 +94,19 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 
 			if (item[1].type === 'multi-configuration') {
 				return (
-					<div key={i} className={classes['item']}>
-						<EDMultiConfiguration
-							configName={item[0]}
-							title={item[1].title}
-							description={item[1].description}
-							onChangeFormConfiguration={props.onChangeFormConfiguration}
-						/>
-						<hr className={classes['item__divider']} />
+					<div key={i} className={classes['multiConfigurations']}>
+						<div className={classes['multiConfigurations__header']}>
+							<EDConfigurationHeaderAndDescription
+								title={item[1].title}
+								description={item[1].description}
+							/>
+						</div>
+						<div className={classes['multiConfigurations__body']}>
+							<EDConfigurationsInputsView
+								formSchema={item[1].configuration}
+								onChangeFormConfiguration={props.onChangeFormConfiguration}
+							/>
+						</div>
 					</div>
 				);
 			}
@@ -93,11 +114,7 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 			return null;
 		});
 
-	return (
-		<section className={classes['container']}>
-			<div className={classes['innerConfig']}>{configurationsOption}</div>
-		</section>
-	);
+	return <div>{configurationsOption}</div>;
 };
 
 EDConfigurationsInputsView.displayName = 'EDConfigurationsInputsView';

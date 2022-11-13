@@ -35,12 +35,14 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			</div>
 
 			<div>&nbsp;</div>
-			{props.formSchema ? (
-				<EDConfigurationsInputs
-					formSchema={props.formSchema}
-					onChangeFormConfiguration={props.onChangeFormConfiguration}
-				/>
-			) : null}
+			<div className={classes['configurationsInputs']}>
+				{props.formSchema ? (
+					<EDConfigurationsInputs
+						formSchema={props.formSchema}
+						onChangeFormConfiguration={props.onChangeFormConfiguration}
+					/>
+				) : null}
+			</div>
 		</form>
 	);
 };
