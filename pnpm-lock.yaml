@@ -282,7 +282,7 @@ importers:
       '@types/node': 18.11.9
       '@types/react': 18.0.25
       '@types/react-datepicker': 4.8.0
-      '@types/react-dom': 18.0.8
+      '@types/react-dom': 18.0.9
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.5
       '@typescript-eslint/eslint-plugin': 5.42.1
@@ -336,7 +336,7 @@ importers:
       '@prisma/client': 4.6.1_prisma@4.6.1
       '@reduxjs/toolkit': 1.9.0_k4ae6lp43ej6mezo3ztvx6pykq
       '@types/react': 18.0.25
-      '@types/react-dom': 18.0.8
+      '@types/react-dom': 18.0.9
       '@uiw/codemirror-themes': 4.13.2_@codemirror+language@6.3.1
       '@uiw/react-codemirror': 4.13.2_gxoodfntu7kw5b3kvue64yytsi
       axios: 0.27.2
@@ -346,7 +346,7 @@ importers:
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.0.0_n3kmhq4527torfjiti537juzwy
-      react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
+      react-redux: 8.0.5_cn3ejhfta5lq2dae4xucvtkwvu
       react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
       react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
@@ -4439,7 +4439,7 @@ packages:
     dependencies:
       immer: 9.0.16
       react: 18.2.0
-      react-redux: 8.0.5_gqczyrwmhlwpr6z64d3xh3wv54
+      react-redux: 8.0.5_cn3ejhfta5lq2dae4xucvtkwvu
       redux: 4.2.0
       redux-thunk: 2.4.2_redux@4.2.0
       reselect: 4.1.7
@@ -5053,8 +5053,8 @@ packages:
       - react-dom
     dev: true
 
-  /@types/react-dom/18.0.8:
-    resolution: {integrity: sha512-C3GYO0HLaOkk9dDAz3Dl4sbe4AKUGTCfFIZsz3n/82dPNN8Du533HzKatDxeUYWu24wJgMP1xICqkWk1YOLOIw==}
+  /@types/react-dom/18.0.9:
+    resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
     dependencies:
       '@types/react': 18.0.25
     dev: false
@@ -14370,7 +14370,7 @@ packages:
       react-fast-compare: 3.2.0
       warning: 4.0.3
 
-  /react-redux/8.0.5_gqczyrwmhlwpr6z64d3xh3wv54:
+  /react-redux/8.0.5_cn3ejhfta5lq2dae4xucvtkwvu:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -14394,7 +14394,7 @@ packages:
       '@babel/runtime': 7.19.0
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.25
-      '@types/react-dom': 18.0.8
+      '@types/react-dom': 18.0.9
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
