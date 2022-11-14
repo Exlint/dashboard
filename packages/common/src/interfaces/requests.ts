@@ -1,4 +1,4 @@
-import type { CodeType, InlinePolicy, PolicyLibrary } from '@prisma/client';
+import type { CodeType, InlinePolicy, PolicyLibrary, Rule } from '@prisma/client';
 
 import type { FilesListType } from './files-list-type';
 
@@ -53,3 +53,5 @@ export interface ISetIsFormConfigurationDto extends Pick<InlinePolicy, 'isFormCo
 export interface IEditPolicyDescriptionDto {
 	readonly description: string | null;
 }
+
+export interface IEnableRuleDto extends Pick<Rule, 'name'> {}

@@ -77,7 +77,7 @@ model Rule {
 
   policyId      String @db.ObjectId
   name          String
-  configuration Json
+  configuration Json?
 
   policy InlinePolicy @relation(fields: [policyId], references: [id], onDelete: Cascade)
 

@@ -11,6 +11,7 @@ import classes from './RulesFilters.module.scss';
 interface IProps {
 	readonly enabledFilter: IEnabledRuleFilter;
 	readonly searchFilter: string | null;
+	readonly selectedCount: number;
 	readonly onSearchFilterChange: (value: string) => void;
 	readonly onSelectEnabledFilterClick: (value: IEnabledRuleFilter) => void;
 }
@@ -65,6 +66,12 @@ const RulesFiltersView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				iconName="search"
 				onChange={props.onSearchFilterChange}
 			/>
+
+			<span className={classes['container__selectedCount']}>
+				{t('policy.rulesList.selectedCount')}
+				&nbsp;
+				<b>{props.selectedCount}</b>
+			</span>
 		</div>
 	);
 };

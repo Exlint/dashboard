@@ -1,7 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import type { Prisma } from '@prisma/client';
-
-import { librariesData } from '@/data/libraries-data';
 
 import { PrismaService } from './prisma.service';
 
@@ -21,32 +18,17 @@ export class DBRuleService {
 		await this.prisma.rule.delete({ where: { id: ruleId } });
 	}
 
-	public async getRules(policyId: string) {
-		const [policyRecord, policyEnabledRulesRecords] = await this.prisma.$transaction([
-			this.prisma.inlinePolicy.findUniqueOrThrow({
-				where: { id: policyId },
-				select: { library: true },
-			}),
-			this.prisma.rule.findMany({
-				where: { policyId },
-				select: { id: true, configuration: true, name: true },
-			}),
-		]);
-
-		const libraryData = librariesData.find((library) => library.name === policyRecord.library)!;
-
-		const selectedRules = Object.keys(libraryData.rules!).map((ruleName) => {
-			const ruleData = libraryData.rules![ruleName]!;
-			const ruleRecord = policyEnabledRulesRecords.find((ruleRecord) => ruleRecord.name === ruleName);
-
-			return {
-				...ruleData,
-				id: ruleRecord?.id ?? null,
-				name: ruleName,
-				configuration: (ruleRecord?.configuration ?? null) as Prisma.JsonArray | null,
-			};
+	public getEnabledRules(policyId: string) {
+		return this.prisma.rule.findMany({
+			where: { policyId },
+			select: { id: true, configuration: true, name: true },
 		});
+	}
 
-		return selectedRules;
+	public enableRule(policyId: string, name: string) {
+		return this.prisma.rule.create({
+			data: { policyId, name },
+			select: { id: true },
+		});
 	}
 }

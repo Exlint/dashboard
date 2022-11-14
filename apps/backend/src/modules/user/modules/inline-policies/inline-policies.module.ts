@@ -3,6 +3,7 @@ import { CqrsModule } from '@nestjs/cqrs';
 
 import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
+import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
 
 import { QueryHandlers } from './queries/handlers';
 import { CommandHandlers } from './commands/handlers';
@@ -43,6 +44,7 @@ import { EditDescriptionController } from './edit-description.controller';
 	providers: [
 		BelongingInlinePolicyGuard,
 		BelongingGroupGuard,
+		RuleablePolicyGuard,
 		...QueryHandlers,
 		...CommandHandlers,
 		...EventHandlers,

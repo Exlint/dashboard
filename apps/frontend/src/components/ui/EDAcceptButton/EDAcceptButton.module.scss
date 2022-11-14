@@ -13,16 +13,20 @@
 	border-radius: 6px;
 
 	&__text {
-		margin-inline-end: map.get(variables.$sizes, spacing-s);
 		font-size: 1.5rem;
 		font-weight: 600;
 		color: map.get(variables.$colors, greys-anti-flash-grey-white);
+		white-space: nowrap;
 	}
 
 	&__icon {
 		width: auto;
 		height: 11px;
 		fill: map.get(variables.$colors, greys-anti-flash-grey-white);
+	}
+
+	&__withMargin {
+		margin-inline-end: map.get(variables.$sizes, spacing-s);
 	}
 
 	&:disabled {

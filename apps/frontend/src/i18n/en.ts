@@ -288,6 +288,23 @@ const en = {
 				searchPlaceholder: 'Search rules by name, description, category...',
 				ruleCategory: 'Rule Category:',
 			},
+			selectedCount: 'Selected:',
+			allCategoriesFilter: 'All Rule Categories',
+			autofixFilter: 'Autofix Rules Only',
+			sort: {
+				prefix: 'Sort',
+				default: 'Default',
+				alphabetic: 'A-Z',
+			},
+			configureRule: 'Configure Rule',
+			ruleHasAutofix: 'Autofix',
+			ruleConfigurations: {
+				title: 'Rule Configuration',
+				saveConfiguration: 'Save Configuration',
+				instruction:
+					'Select a rule and start configuring!<br />Choose between different alert types,<br />and much more.',
+				configureRule: 'Configure Rule',
+			},
 		},
 	},
 	textCode: {

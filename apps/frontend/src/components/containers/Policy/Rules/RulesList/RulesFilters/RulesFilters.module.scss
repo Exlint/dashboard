@@ -4,6 +4,7 @@
 
 .container {
 	display: flex;
+	align-items: center;
 
 	.enabledFilters {
 		display: flex;
@@ -36,6 +37,11 @@
 
 	&__search {
 		flex: 1;
-		margin-inline-start: map.get(variables.$sizes, spacing-m);
+		margin-inline: map.get(variables.$sizes, spacing-m);
+	}
+
+	&__selectedCount {
+		font-size: 1.5rem;
+		color: map.get(variables.$colors, greys-onyx);
 	}
 }
