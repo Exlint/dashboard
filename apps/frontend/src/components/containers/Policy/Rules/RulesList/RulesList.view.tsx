@@ -1,3 +1,4 @@
+import type { IGetRulesResponseData } from '@exlint-dashboard/common';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -10,9 +11,11 @@ import classes from './RulesList.module.scss';
 interface IProps {
 	readonly enabledFilter: IEnabledRuleFilter;
 	readonly searchFilter: string | null;
-	readonly rulesContainerRef: (element: HTMLElement | SVGElement | null) => void;
+	readonly autofixFilter: boolean;
+	readonly rules: IGetRulesResponseData['rules'];
 	readonly onSearchFilterChange: (value: string) => void;
 	readonly onSelectEnabledFilterClick: (value: IEnabledRuleFilter) => void;
+	readonly onAutofixClick: (value: boolean) => void;
 }
 
 const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

@@ -44,7 +44,6 @@
 		"react-scroll": "1.8.8",
 		"react-switch": "7.0.0",
 		"react-textarea-autosize": "8.4.0",
-		"react-use-measure": "2.1.1",
 		"typescript": "4.8.4"
 	},
 	"devDependencies": {

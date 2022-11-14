@@ -32,6 +32,15 @@ interface ISelectConfiguration extends IBaseConfiguration {
 	readonly values: (number | string | boolean)[];
 }
 
+interface IObjectConfiguration extends IBaseConfiguration {
+	readonly type: 'object-configuration';
+	readonly configuration: Record<string, IConfigurationValue>;
+}
+
+interface IArrayConfiguration extends IBaseConfiguration {
+	readonly configuration: IConfigurationValue[];
+}
+
 type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
@@ -39,12 +48,8 @@ type IConfigurationValue =
 	| IDynamicArrayConfiguration
 	| IMultiFreeConfiguration
 	| ISelectConfiguration
-	| IMultiConfiguration;
-
-interface IMultiConfiguration extends IBaseConfiguration {
-	readonly type: 'multi-configuration';
-	readonly configuration: Record<string, IConfigurationValue>;
-}
+	| IObjectConfiguration
+	| IArrayConfiguration;
 
 export interface ILibraryRule {
 	readonly description: string;

@@ -318,7 +318,6 @@ importers:
       react-scroll: 1.8.8
       react-switch: 7.0.0
       react-textarea-autosize: 8.4.0
-      react-use-measure: 2.1.1
       sass: 1.56.1
       stylelint: 14.14.1
       stylelint-config-prettier-scss: 0.0.1
@@ -352,7 +351,6 @@ importers:
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
       react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
       react-textarea-autosize: 8.4.0_fan5qbzahqtxlm5dzefqlqx5ia
-      react-use-measure: 2.1.1_biqbaboplfbrettd7655fr4n2y
       typescript: 4.8.4
     devDependencies:
       '@babel/core': 7.20.2
@@ -7731,10 +7729,6 @@ packages:
     resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
     engines: {node: '>=0.11'}
 
-  /debounce/1.2.1:
-    resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
-    dev: false
-
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -14569,17 +14563,6 @@ packages:
       use-latest: 1.2.1_fan5qbzahqtxlm5dzefqlqx5ia
     transitivePeerDependencies:
       - '@types/react'
-    dev: false
-
-  /react-use-measure/2.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig==}
-    peerDependencies:
-      react: '>=16.13'
-      react-dom: '>=16.13'
-    dependencies:
-      debounce: 1.2.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react/18.2.0:

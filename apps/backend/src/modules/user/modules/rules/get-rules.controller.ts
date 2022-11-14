@@ -50,7 +50,7 @@ export class GetRulesController {
 		);
 
 		this.logger.log(
-			`Successfully fetched rulesand related data of policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
+			`Successfully fetched rules and related data of policy with an ID: "${policyId}" for a user with an Id: "${userId}"`,
 		);
 
 		return { rules: rulesData };
