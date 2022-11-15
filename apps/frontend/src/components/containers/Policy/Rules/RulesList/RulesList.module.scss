@@ -15,28 +15,3 @@
 	width: 100%;
 	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }
-
-.rulesTable {
-	display: flex;
-	flex-direction: column;
-	margin-top: map.get(variables.$sizes, spacing-l);
-	border: 2px solid map.get(variables.$colors, greys-platinum);
-	border-radius: 6px;
-
-	.rulesTableHeader {
-		display: flex;
-		align-items: center;
-		padding: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-l);
-		background-color: map.get(variables.$colors, whites-ghost-white);
-
-		.rulesTableFilters {
-			display: flex;
-			align-items: center;
-
-			&__text {
-				font-size: 1.5rem;
-				color: map.get(variables.$colors, greys-onyx);
-			}
-		}
-	}
-}

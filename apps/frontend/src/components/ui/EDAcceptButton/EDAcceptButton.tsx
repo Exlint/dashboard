@@ -8,6 +8,9 @@ const EDAcceptButton: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 	return (
 		<EDAcceptButtonView
 			className={props.className}
+			textClassName={props.textClassName}
+			iconClassName={props.iconClassName}
+			switchElementsOrder={props.switchElementsOrder}
 			type={props.type}
 			disabled={props.disabled}
 			iconName={props.iconName}

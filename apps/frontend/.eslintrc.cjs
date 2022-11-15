@@ -41,7 +41,7 @@ module.exports = {
 		],
 		'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
 		'react/jsx-sort-props': ['error', { callbacksLast: true, noSortAlphabetically: true }],
-		'react/jsx-props-no-spreading': ['error', { exceptions: ['Component'] }],
+		'react/jsx-props-no-spreading': ['error', { exceptions: ['button'] }],
 		'react/jsx-props-no-multi-spaces': 'error',
 		'react/jsx-pascal-case': 'error',
 		'react/jsx-one-expression-per-line': ['error', { allow: 'single-child' }],

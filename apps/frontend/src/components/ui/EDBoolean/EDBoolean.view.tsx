@@ -8,7 +8,7 @@ import classes from './EDBoolean.module.scss';
 interface IProps {
 	readonly title: string | null;
 	readonly description: string | null;
-	readonly isSwitchChecked: boolean | string;
+	readonly isSwitchChecked: boolean;
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 }
 

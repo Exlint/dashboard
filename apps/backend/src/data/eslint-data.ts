@@ -1358,7 +1358,7 @@ export const eslintData: ILibraryData = {
 		env: {
 			title: 'Env',
 			description: 'An environment provides predefined global variables',
-			type: 'multi-configuration',
+			type: 'object-configuration',
 			configuration: {
 				'browser': {
 					title: null,
@@ -1525,7 +1525,7 @@ export const eslintData: ILibraryData = {
 		parserOptions: {
 			title: 'Parser Options',
 			description: 'ESLint allows you to specify the JavaScript language options you want to support.',
-			type: 'multi-configuration',
+			type: 'object-configuration',
 			configuration: {
 				ecmaVersion: {
 					title: 'ECMA Version',
@@ -1569,7 +1569,7 @@ export const eslintData: ILibraryData = {
 				ecmaFeatures: {
 					title: 'ECMA Features',
 					description: 'Nn object indicating which additional language features you’d like to use',
-					type: 'multi-configuration',
+					type: 'object-configuration',
 					configuration: {
 						globalReturn: {
 							title: null,
@@ -1595,7 +1595,6 @@ export const eslintData: ILibraryData = {
 			description:
 				'An object specifying additional objects that should be added to the global scope during linting.',
 			type: 'dynamic-array-configuration',
-
 			configuration: [
 				{
 					title: 'RegEx Matcher',

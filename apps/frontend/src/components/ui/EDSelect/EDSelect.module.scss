@@ -40,6 +40,7 @@
 		&__icon {
 			width: 8px;
 			height: auto;
+			margin-inline-start: map.get(variables.$sizes, spacing-m);
 			fill: transparent;
 			stroke: map.get(variables.$colors, greys-onyx);
 		}

@@ -30,7 +30,7 @@ export class DeleteController {
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to delete the rule' })
 	@UseGuards(BelongingRuleGuard)
-	@Delete(Routes.DELETE)
+	@Delete(Routes.DELETE_RULE)
 	@HttpCode(HttpStatus.OK)
 	public async delete(@CurrentUserId() userId: string, @Param('rule_id') ruleId: string): Promise<void> {
 		this.logger.log(

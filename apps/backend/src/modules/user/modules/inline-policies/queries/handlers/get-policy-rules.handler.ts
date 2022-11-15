@@ -17,7 +17,7 @@ export class GetPolicyRulesHandler implements IQueryHandler<GetPolicyRulesContra
 		const policyRecord = await this.dbInlinePolicyService.getPolicyRules(contract.policyId, page);
 
 		const matchingLibraryData = librariesData.find(
-			(libraryItem) => libraryItem.name === policyRecord.library,
+			(libraryItem) => libraryItem.name === contract.library,
 		)!;
 
 		const transformedRules = policyRecord.rules.map((ruleItem) => {

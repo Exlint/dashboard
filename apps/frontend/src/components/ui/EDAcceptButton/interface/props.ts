@@ -6,6 +6,9 @@ interface IBaseProps<
 	ButtonType = Extract<ButtonHTMLAttributes<HTMLButtonElement>['type'], 'button' | 'submit'>,
 > {
 	readonly className?: string;
+	readonly textClassName?: string;
+	readonly iconClassName?: string;
+	readonly switchElementsOrder?: boolean;
 	readonly type: ButtonType;
 	readonly disabled: boolean;
 	readonly iconName?: keyof typeof icons;

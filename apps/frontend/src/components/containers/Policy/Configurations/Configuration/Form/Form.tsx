@@ -69,8 +69,6 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		}
 	};
 
-	console.log(nestedkeysState, 'nestedkeysState');
-
 	const onChangeFormConfiguration = (key: string, value: unknown) => {
 		setFormConfigurationState((prevState) => ({ ...prevState, [key]: value }));
 	};
