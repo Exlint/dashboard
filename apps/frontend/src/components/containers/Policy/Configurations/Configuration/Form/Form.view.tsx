@@ -11,8 +11,10 @@ import classes from './Form.module.scss';
 interface IProps {
 	readonly formSchema: ILibraryData['configuration'] | null;
 	readonly formConfiguration: Record<string, unknown>;
+	readonly nestedKeys: string[] | null;
 	readonly isSubmitDisabled: boolean;
 	readonly isSwitchChecked: boolean | null;
+	readonly onChangeNestedkeys: (_: string | null) => void;
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
 }
@@ -39,7 +41,9 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				{props.formSchema ? (
 					<EDConfigurationsInputs
 						formSchema={props.formSchema}
+						nestedKeys={props.nestedKeys}
 						onChangeFormConfiguration={props.onChangeFormConfiguration}
+						onChangeNestedkeys={props.onChangeNestedkeys}
 					/>
 				) : null}
 			</div>

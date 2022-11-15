@@ -4,15 +4,18 @@ import type { IOption } from '@/ui/EDSelect/interfaces/option';
 
 import EDSelectConfigurationView from './EDSelectConfiguration.view';
 
-interface IProps<T extends string | number> {
+interface IProps<T extends string | boolean | number> {
+	readonly keyConfig: string | undefined;
 	readonly configName: string;
 	readonly title: string | null;
 	readonly description: string | null;
 	readonly values: T[];
-	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
+	readonly onChangeFormConfiguration: (_: string, __: unknown, subKey?: string) => void;
 }
 
-const EDSelectConfiguration = <T extends string | number>(props: React.PropsWithChildren<IProps<T>>) => {
+const EDSelectConfiguration = <T extends string | boolean | number>(
+	props: React.PropsWithChildren<IProps<T>>,
+) => {
 	const [selectedSortIndexState, setSelectedSortIndexState] = useState<number>(0);
 
 	const options: IOption<T>[] = [];
@@ -27,7 +30,9 @@ const EDSelectConfiguration = <T extends string | number>(props: React.PropsWith
 	const onSelectSortOption = (index: number) => {
 		setSelectedSortIndexState(() => index);
 
-		props.onChangeFormConfiguration(props.configName, options[index]!.value);
+		props.keyConfig
+			? props.onChangeFormConfiguration(props.keyConfig, options[index]!.value, props.configName)
+			: props.onChangeFormConfiguration(props.configName, options[index]!.value);
 	};
 
 	return (

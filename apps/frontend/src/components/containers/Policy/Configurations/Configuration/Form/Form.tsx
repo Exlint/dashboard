@@ -31,6 +31,7 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const [formSchemaState, setFormSchemaState] = useState<ILibraryData['configuration'] | null>(null);
 	const [formConfigurationState, setFormConfigurationState] = useState<Record<string, unknown>>({});
+	const [nestedkeysState, setNestedkeysState] = useState<string[] | null>(null);
 	const [isSubmitDisabledState] = useState<boolean>(true);
 	const [isSwitchCheckedState, setIsSwitchCheckedState] = useState<boolean | null>(null);
 
@@ -58,11 +59,20 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			});
 	};
 
+	const onChangeNestedkeys = (nestedkey: string | null) => {
+		if (nestedkey) {
+			nestedkeysState
+				? setNestedkeysState(() => [...nestedkeysState, nestedkey])
+				: setNestedkeysState(() => [nestedkey]);
+		} else {
+			setNestedkeysState(null);
+		}
+	};
+
+	console.log(nestedkeysState, 'nestedkeysState');
+
 	const onChangeFormConfiguration = (key: string, value: unknown) => {
-		setFormConfigurationState(() => ({
-			...formConfigurationState,
-			[key]: value,
-		}));
+		setFormConfigurationState((prevState) => ({ ...prevState, [key]: value }));
 	};
 
 	useEffect(() => {
@@ -79,8 +89,10 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		<FormView
 			formSchema={formSchemaState}
 			formConfiguration={formConfigurationState}
+			nestedKeys={nestedkeysState}
 			isSubmitDisabled={isSubmitDisabledState}
 			isSwitchChecked={isSwitchCheckedState}
+			onChangeNestedkeys={onChangeNestedkeys}
 			onIsSwitchCheckedChange={onIsSwitchCheckedChange}
 			onChangeFormConfiguration={onChangeFormConfiguration}
 		/>

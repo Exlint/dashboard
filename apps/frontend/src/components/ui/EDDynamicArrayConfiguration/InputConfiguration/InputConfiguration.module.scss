@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	margin-top: map.get($sizes, spacing-l);
+
+	&__inputBox {
+		margin-inline-end: map.get($sizes, spacing-m);
+		background-color: transparent;
+	}
+
+	.innerButtons {
+		display: flex;
+		height: 100%;
+		margin-inline-start: map.get($sizes, spacing-m);
+
+		&__button {
+			fill: map.get($colors, greys-philippine-gray);
+		}
+	}
+}

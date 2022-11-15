@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import EDBooleanView from './EDBoolean.view';
 
 interface IProps {
+	readonly keyConfig: string | undefined;
 	readonly configName: string;
 	readonly title: string | null;
 	readonly description: string | null;
