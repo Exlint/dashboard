@@ -1,6 +1,6 @@
 import type { PolicyLibrary } from '@prisma/client';
 
-export class EnableRuleContract {
+export class EnableMissingContract {
 	constructor(
 		public readonly policyId: string,
 		public readonly name: string,

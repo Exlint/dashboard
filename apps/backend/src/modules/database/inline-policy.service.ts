@@ -148,13 +148,18 @@ export class DBInlinePolicyService {
 	public async getPolicyRules(policyId: string, page: number) {
 		const [count, rulesData] = await this.prisma.$transaction([
 			this.prisma.rule.count({
-				where: { policyId },
+				where: { policyId, isEnabled: true },
 			}),
 			this.prisma.inlinePolicy.findUniqueOrThrow({
 				where: { id: policyId },
 				select: {
 					isFormConfiguration: true,
-					rules: { select: { id: true, name: true }, take: 10, skip: 10 * (page - 1) },
+					rules: {
+						where: { isEnabled: true },
+						select: { id: true, name: true },
+						take: 10,
+						skip: 10 * (page - 1),
+					},
 					description: true,
 					createdAt: true,
 				},

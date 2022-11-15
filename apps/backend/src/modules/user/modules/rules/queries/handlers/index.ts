@@ -1,4 +1,5 @@
-import { EnableRuleHandler } from './enable-rule.handler';
+import { ConfigureMissingHandler } from './configure-missing.handler';
+import { EnableMissingHandler } from './enable-missing.handler';
 import { GetRulesHandler } from './get-rules.handler';
 
-export const QueryHandlers = [GetRulesHandler, EnableRuleHandler];
+export const QueryHandlers = [GetRulesHandler, EnableMissingHandler, ConfigureMissingHandler];

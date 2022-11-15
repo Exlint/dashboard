@@ -75,9 +75,10 @@ model Secret {
 model Rule {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  policyId      String @db.ObjectId
+  policyId      String  @db.ObjectId
   name          String
   configuration Json?
+  isEnabled     Boolean
 
   policy InlinePolicy @relation(fields: [policyId], references: [id], onDelete: Cascade)
 

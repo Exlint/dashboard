@@ -74,8 +74,10 @@ export interface IGetRulesResponseData {
 	readonly rules: ({
 		id: string | null;
 		configuration: Prisma.JsonArray | null;
-	} & Pick<Rule, 'name'> &
+	} & Pick<Rule, 'name' | 'isEnabled'> &
 		Pick<ILibraryRule, 'description' | 'hasAutofix' | 'category'>)[];
 }
 
-export interface IEnableRuleResponseData extends Pick<Rule, 'id'> {}
+export interface IEnableMissingRuleResponseData extends Pick<Rule, 'id'> {}
+
+export interface IConfigureMissingRuleResponseData extends Pick<Rule, 'id'> {}

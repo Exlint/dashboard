@@ -7,7 +7,7 @@ import EDAcceptButton from '@/ui/EDAcceptButton';
 import classes from './RuleConfiguration.module.scss';
 
 interface IProps {
-	readonly selectedRuleConfiguration: Prisma.JsonArray | null;
+	readonly selectedRuleConfiguration?: Prisma.JsonArray | null;
 }
 
 const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -23,7 +23,7 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 				</EDAcceptButton>
 			</div>
 
-			{!props.selectedRuleConfiguration && (
+			{props.selectedRuleConfiguration === undefined && (
 				<div className={classes['instructionContainer']}>
 					<span className={classes['instructionContainer__text']}>
 						<Trans>{t('policy.rulesList.ruleConfigurations.instruction')}</Trans>

@@ -4,7 +4,7 @@ import React from 'react';
 import RuleConfigurationView from './RuleConfiguration.view';
 
 interface IProps {
-	readonly selectedRuleConfiguration: Prisma.JsonArray | null;
+	readonly selectedRuleConfiguration?: Prisma.JsonArray | null;
 }
 
 const RuleConfiguration: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

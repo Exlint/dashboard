@@ -16,43 +16,46 @@ import { Library } from '@/decorators/library.decorator';
 import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
 
 import Routes from './rules.routes';
-import { EnableRuleContract } from './queries/contracts/enable-rule.contract';
-import { EnableRuleDto, EnableRuleResponse } from './classes/enable-rule.dto';
+import { EnableMissingDto, EnableMissingResponse } from './classes/enable-missing.dto';
+import { EnableMissingContract } from './queries/contracts/enable-missing.contract';
 
 @ApiTags('Rules')
 @Controller(Routes.CONTROLLER)
-export class EnableRuleController {
-	private readonly logger = new Logger(EnableRuleController.name);
+export class EnableMissingController {
+	private readonly logger = new Logger(EnableMissingController.name);
 
 	constructor(private readonly queryBus: QueryBus) {}
 
-	@ApiOperation({ description: 'Enable a rule for a policy' })
+	@ApiOperation({ description: 'Enable a missing rule for a policy' })
 	@ApiBearerAuth('access-token')
-	@ApiCreatedResponse({ description: 'If successfully enabled the rule', type: EnableRuleResponse })
+	@ApiCreatedResponse({
+		description: 'If successfully enabled the missing rule',
+		type: EnableMissingResponse,
+	})
 	@ApiBadRequestResponse({ description: "If rule name is invalid or policy's library has no rules" })
 	@ApiUnauthorizedResponse({
 		description: 'If access token is either missing or invalid, or policy does not belong to user',
 	})
-	@ApiInternalServerErrorResponse({ description: 'If failed to enable the rule' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to enable the missing rule' })
 	@UseGuards(RuleablePolicyGuard)
-	@Post(Routes.ENABLE_RULE)
+	@Post(Routes.ENABLE_MISSING_RULE)
 	@HttpCode(HttpStatus.CREATED)
-	public async enableRule(
+	public async enableMissing(
 		@CurrentUserId() userId: string,
 		@Param('policy_id') policyId: string,
-		@Body() enableRuleDto: EnableRuleDto,
+		@Body() enableRuleDto: EnableMissingDto,
 		@Library() policyLibrary: PolicyLibrary,
-	): Promise<EnableRuleResponse> {
+	): Promise<EnableMissingResponse> {
 		this.logger.log(
-			`Will try to enable a rule for a policy with an ID: "${policyId}" for a user with an ID: "${userId}"`,
+			`Will try to enable a missing rule for a policy with an ID: "${policyId}" for a user with an ID: "${userId}"`,
 		);
 
-		const createdRuleId = await this.queryBus.execute<EnableRuleContract, EnableRuleResponse['id']>(
-			new EnableRuleContract(policyId, enableRuleDto.name, policyLibrary),
+		const createdRuleId = await this.queryBus.execute<EnableMissingContract, EnableMissingResponse['id']>(
+			new EnableMissingContract(policyId, enableRuleDto.name, policyLibrary),
 		);
 
 		this.logger.log(
-			`Successfully enabled a rule with an ID: "${createdRuleId}" for a user with an ID: "${userId}"`,
+			`Successfully enabled a missing rule with an ID: "${createdRuleId}" for a user with an ID: "${userId}"`,
 		);
 
 		return { id: createdRuleId };

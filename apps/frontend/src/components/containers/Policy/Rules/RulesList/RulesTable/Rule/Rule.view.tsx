@@ -49,6 +49,7 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					type="button"
 					disabled={false}
 					switchElementsOrder
+					onClick={props.onEnableRule}
 				>
 					{t('policy.rulesList.configureRule')}
 				</EDAcceptButton>
