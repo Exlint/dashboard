@@ -13,7 +13,9 @@ const Rules: React.FC<IProps> = () => {
 
 	useEffect(() => {
 		if (!hasRules) {
-			navigate(`/group-center/${params.groupId}/policies/${params.policyId}/configurations`);
+			navigate(`/group-center/${params.groupId}/policies/${params.policyId}/configurations`, {
+				replace: true,
+			});
 		}
 	}, [hasRules]);
 
