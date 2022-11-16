@@ -57,7 +57,6 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<Route path=":groupId" element={<GroupDetails />}>
 						<Route path="" element={<Navigate to="policies" replace />} />
 						<Route path="policies" element={<Policies />} />
-						<Route path="history" element={null} />
 						<Route path="settings" element={<GroupSettings />} />
 					</Route>
 				</Route>
@@ -79,7 +78,6 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<Route path="file-list" element={<FilesList key={0} type="linted" />} />
 						<Route path="ignore-list" element={<FilesList key={1} type="ignored" />} />
 					</Route>
-					<Route path="history" element={null} />
 					<Route path="settings" element={<PolicySettings />} />
 				</Route>
 			</>

@@ -45,7 +45,7 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 				</EDAcceptButton>
 			</div>
 
-			{isRuleSelected && (
+			{!isRuleSelected && (
 				<div className={classes['instructionContainer']}>
 					<span className={classes['instructionContainer__text']}>
 						<Trans>{t('policy.rulesList.ruleConfigurations.instruction')}</Trans>

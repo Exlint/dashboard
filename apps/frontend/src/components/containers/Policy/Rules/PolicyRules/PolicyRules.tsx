@@ -73,6 +73,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const onRemoveRuleClick = (ruleId: string) => {
 		backendApi.delete(`/user/rules/${ruleId}`).then(() => {
 			setRulesDataState((prev) => prev.filter((ruleItem) => ruleItem.id !== ruleId));
+			setRulestotalCountState((prev) => prev! - 1);
 		});
 	};
 

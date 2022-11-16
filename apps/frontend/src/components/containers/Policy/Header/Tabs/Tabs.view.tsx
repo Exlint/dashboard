@@ -36,14 +36,7 @@ const TabsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				<span className={classes['tab__text']}>{t('policy.header.tabs.configurations')}</span>
 				<div className={classes['tab__border']} />
 			</NavLink>
-			<NavLink
-				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
-				to="history"
-			>
-				<EDSvg className={classes['tab__icon']} name="history" />
-				<span className={classes['tab__text']}>{t('policy.header.tabs.history')}</span>
-				<div className={classes['tab__border']} />
-			</NavLink>
+
 			<NavLink
 				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
 				to="settings"
