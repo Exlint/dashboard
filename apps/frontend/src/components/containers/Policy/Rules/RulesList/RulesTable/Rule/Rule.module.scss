@@ -1,0 +1,86 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-white);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
+	border-radius: 6px;
+
+	&--selected {
+		border-color: map.get(variables.$colors, purples-purple);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: map.get(variables.$sizes, spacing-l);
+	}
+
+	.ruleDetailsContainer {
+		display: flex;
+		width: 100%;
+
+		.ruleDetails {
+			display: flex;
+			flex-direction: column;
+			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
+
+			&--description {
+				width: 377px;
+			}
+
+			%_ruleDetailsText {
+				font-size: 1.5rem;
+				color: map.get(variables.$colors, greys-independence-grey);
+			}
+
+			&__boldText {
+				@extend %_ruleDetailsText;
+
+				margin-bottom: map.get(variables.$sizes, spacing-m);
+				font-weight: 500;
+			}
+
+			&__text {
+				@extend %_ruleDetailsText;
+			}
+		}
+	}
+
+	.ruleActionsContainer {
+		display: flex;
+		align-items: center;
+
+		&__button {
+			margin-inline-end: map.get(variables.$sizes, spacing-l);
+			background-color: map.get(variables.$colors, whites-ghost-white);
+			border: 2px solid map.get(variables.$colors, greys-platinum);
+
+			&--selected {
+				pointer-events: none;
+			}
+		}
+
+		&__buttonText {
+			font-weight: normal;
+			color: map.get(variables.$colors, greys-onyx);
+
+			&--selected {
+				color: map.get(variables.$colors, greys-philippine-gray);
+			}
+		}
+
+		&__buttonIcon {
+			width: 14px;
+			height: auto;
+			fill: map.get(variables.$colors, greys-onyx);
+
+			&--selected {
+				fill: map.get(variables.$colors, greys-philippine-gray);
+			}
+		}
+	}
+}

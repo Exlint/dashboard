@@ -10,11 +10,11 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 
 import Routes from './inline-policies.routes';
 import { GetPolicyResponse } from './classes/responses';
 import { GetContract } from './queries/contracts/get.contract';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)

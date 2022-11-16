@@ -1,20 +1,20 @@
 @use 'sass:map';
 
-@import '../../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	align-items: center;
-	border-top: 2px solid map.get($colors, greys-platinum);
+	border-top: 2px solid map.get(variables.$colors, greys-platinum);
 
 	&__text {
-		padding: map.get($sizes, spacing-l);
+		padding: map.get(variables.$sizes, spacing-l);
 		font-size: 1.5rem;
-		color: map.get($colors, greys-philippine-gray);
+		color: map.get(variables.$colors, greys-philippine-gray);
 
 		&--total {
 			width: 100%;
-			border-inline-end: 2px solid map.get($colors, greys-platinum);
+			border-inline-end: 2px solid map.get(variables.$colors, greys-platinum);
 		}
 	}
 
@@ -22,9 +22,9 @@
 		display: flex;
 		align-items: center;
 		height: 100%;
-		padding-inline: map.get($sizes, spacing-xxl);
+		padding-inline: map.get(variables.$sizes, spacing-xxl);
 		cursor: pointer;
-		border-inline-start: 2px solid map.get($colors, greys-platinum);
+		border-inline-start: 2px solid map.get(variables.$colors, greys-platinum);
 
 		&--disabled {
 			pointer-events: none;
@@ -34,14 +34,14 @@
 		&__icon {
 			width: 7.4px;
 			height: auto;
-			fill: map.get($colors, greys-independence-grey);
+			fill: map.get(variables.$colors, greys-independence-grey);
 
 			&--left {
 				transform: rotate(180deg);
 			}
 
 			&--disabled {
-				fill: map.get($colors, greys-silver-sand);
+				fill: map.get(variables.$colors, greys-silver-sand);
 			}
 		}
 	}

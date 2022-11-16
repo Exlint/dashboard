@@ -10,10 +10,10 @@ import {
 } from '@nestjs/swagger';
 import { FilesListType } from '@exlint-dashboard/common';
 
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
 import Routes from './inline-policies.routes';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { GetFilesListResponse } from './classes/responses';
 import { GetFilesListContract } from './queries/contracts/get-files-list.contract';
 

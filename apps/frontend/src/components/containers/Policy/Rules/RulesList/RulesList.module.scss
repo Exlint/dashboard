@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	height: calc(100vh - 186px);
+	padding-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl);
+	padding-inline: map.get(variables.$sizes, spacing-xxl);
+}
+
+.rulesContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-inline-end: map.get(variables.$sizes, spacing-l);
+}

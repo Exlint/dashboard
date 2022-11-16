@@ -15,6 +15,8 @@ import FilesList from '@/containers/Policy/Configurations/FilesList';
 import Code from '@/containers/Policy/Configurations/Configuration/Code';
 import Form from '@/containers/Policy/Configurations/Configuration/Form';
 import Rules from '@/containers/Policy/Rules';
+import PolicyRules from '@/containers/Policy/Rules/PolicyRules';
+import RulesList from '@/containers/Policy/Rules/RulesList';
 
 interface IProps {
 	readonly isAuthenticated: boolean | null;
@@ -55,14 +57,17 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<Route path=":groupId" element={<GroupDetails />}>
 						<Route path="" element={<Navigate to="policies" replace />} />
 						<Route path="policies" element={<Policies />} />
-						<Route path="history" element={null} />
 						<Route path="settings" element={<GroupSettings />} />
 					</Route>
 				</Route>
 				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
 				<Route path="group-center/:groupId/policies/:policyId" element={<Policy />}>
 					<Route path="" element={<Navigate to="rules" replace />} />
-					<Route path="rules" element={<Rules />} />
+					<Route path="rules" element={<Rules />}>
+						<Route path="" element={<PolicyRules />} />
+						<Route path="rules-list" element={<RulesList />} />
+						<Route path="rules-list/:ruleId" element={<RulesList />} />
+					</Route>
 					<Route path="configurations" element={<Configurations />}>
 						<Route path="" element={<Navigate to="configuration" replace />} />
 						<Route path="configuration" element={<Configuration />}>
@@ -73,7 +78,6 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						<Route path="file-list" element={<FilesList key={0} type="linted" />} />
 						<Route path="ignore-list" element={<FilesList key={1} type="ignored" />} />
 					</Route>
-					<Route path="history" element={null} />
 					<Route path="settings" element={<PolicySettings />} />
 				</Route>
 			</>

@@ -10,10 +10,10 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 
 import Routes from './inline-policies.routes';
 import { SetFilesListDto } from './classes/set-files-list.dto';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { SetFilesListContract } from './commands/contracts/set-files-list.contract';
 
 @ApiTags('Inline Policies')

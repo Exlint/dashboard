@@ -8,6 +8,7 @@ interface IProps {
 	readonly groupLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
+	readonly hasRules: boolean;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -20,6 +21,7 @@ const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			library={props.library}
 			groupId={params.groupId!}
 			policyId={params.policyId!}
+			hasRules={props.hasRules}
 		/>
 	);
 };

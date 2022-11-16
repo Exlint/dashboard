@@ -1,6 +1,7 @@
 import React from 'react';
 import Switch from 'react-switch';
 
+import styles from '@/styles/_variables.scss';
 import { concatDiverseClasses } from '@/utils/component';
 
 import classes from './EDBooleanButton.module.scss';
@@ -23,10 +24,12 @@ const EDBooleanButtonView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			activeBoxShadow=""
 			height={24.1}
 			width={55}
-			offColor="#f6f8fa"
-			offHandleColor={props.checked === null ? '#f6f8fa' : '#727272'}
-			onColor="#f6f8fa"
-			onHandleColor={props.checked === null ? '#f6f8fa' : '#7a4df3'}
+			offColor={styles['whites-ghost-white']}
+			offHandleColor={
+				props.checked === null ? styles['whites-ghost-white'] : styles['greys-philippine-gray']
+			}
+			onColor={styles['whites-ghost-white']}
+			onHandleColor={props.checked === null ? styles['whites-ghost-white'] : styles['purples-purple']}
 			onChange={(checked) => props.onChange(checked)}
 		/>
 	);

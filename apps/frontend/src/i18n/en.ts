@@ -135,7 +135,6 @@ const en = {
 		},
 		tabs: {
 			policies: 'Policies',
-			history: 'History',
 			settings: 'Settings',
 		},
 		settings: {
@@ -223,7 +222,6 @@ const en = {
 			tabs: {
 				rules: 'Rules',
 				configurations: 'Configurations',
-				history: 'History',
 				settings: 'Settings',
 			},
 		},
@@ -278,6 +276,32 @@ const en = {
 				blurFirstTextPostfix: 'Code Configuration Section',
 				blurSecondTextPrefix: 'To configure rules using <strong>Selection</strong>, toggle',
 				blurSecondTextPostfix: 'the configuration method',
+			},
+		},
+		rulesList: {
+			filters: {
+				allRules: 'All Rules',
+				enabled: 'Enabled',
+				notEnabled: 'Not Enabled',
+				searchPlaceholder: 'Search rules by name, description, category...',
+				ruleCategory: 'Rule Category:',
+			},
+			selectedCount: 'Selected:',
+			allCategoriesFilter: 'All Rule Categories',
+			autofixFilter: 'Autofix Rules Only',
+			sort: {
+				prefix: 'Sort',
+				default: 'Default',
+				alphabetic: 'A-Z',
+			},
+			configureRule: 'Configure Rule',
+			ruleHasAutofix: 'Autofix',
+			ruleConfigurations: {
+				title: 'Rule Configuration',
+				saveConfiguration: 'Save Configuration',
+				instruction:
+					'Select a rule and start configuring!<br />Choose between different alert types,<br />and much more.',
+				configureRule: 'Configure Rule',
 			},
 		},
 	},

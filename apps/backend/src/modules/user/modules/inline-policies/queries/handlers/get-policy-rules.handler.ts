@@ -17,13 +17,13 @@ export class GetPolicyRulesHandler implements IQueryHandler<GetPolicyRulesContra
 		const policyRecord = await this.dbInlinePolicyService.getPolicyRules(contract.policyId, page);
 
 		const matchingLibraryData = librariesData.find(
-			(libraryItem) => libraryItem.name === policyRecord.library,
+			(libraryItem) => libraryItem.name === contract.library,
 		)!;
 
 		const transformedRules = policyRecord.rules.map((ruleItem) => {
 			const ruleData = matchingLibraryData.rules![ruleItem.name]!;
 
-			return { ...ruleItem, category: ruleData.category, hasAutoFix: ruleData.hasAutoFix };
+			return { ...ruleItem, category: ruleData.category, hasAutofix: ruleData.hasAutofix };
 		});
 
 		return {

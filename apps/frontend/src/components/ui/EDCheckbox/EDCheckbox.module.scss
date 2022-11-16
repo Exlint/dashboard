@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+%_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15px;
+	height: 15px;
+	background-color: map.get(variables.$colors, purples-purple);
+	border: 1px solid map.get(variables.$sizes, greys-onyx);
+	border-radius: 2px;
+	fill: transparent;
+}
+
+.container {
+	@extend %_container;
+
+	&--unchecked {
+		@extend %_container;
+
+		background-color: transparent;
+	}
+
+	&__icon {
+		width: auto;
+		height: 100%;
+		stroke: map.get(variables.$colors, whites-white);
+	}
+}

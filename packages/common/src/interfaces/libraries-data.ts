@@ -17,8 +17,8 @@ interface IStringConfiguration extends IBaseConfiguration {
 	readonly type: 'string';
 }
 
-interface IArrayConfiguration extends IBaseConfiguration {
-	readonly type: 'array-configuration';
+interface IDynamicArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'dynamic-array-configuration';
 	readonly configuration: IConfigurationValue[];
 }
 
@@ -29,34 +29,33 @@ interface IMultiFreeConfiguration extends IBaseConfiguration {
 
 interface ISelectConfiguration extends IBaseConfiguration {
 	readonly type: 'select';
-	readonly values: (number | string)[];
+	readonly values: (number | string | boolean)[];
 }
 
-interface IDynamicSelectConfiguration extends IBaseConfiguration {
-	readonly type: 'dynamic-select';
-	readonly values: (boolean | string)[];
+interface IObjectConfiguration extends IBaseConfiguration {
+	readonly type: 'object-configuration';
+	readonly configuration: Record<string, IConfigurationValue>;
+}
+
+interface IArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'array-configuration';
+	readonly configuration: IConfigurationValue[];
 }
 
 type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
 	| IStringConfiguration
-	| IArrayConfiguration
+	| IDynamicArrayConfiguration
 	| IMultiFreeConfiguration
 	| ISelectConfiguration
-	| IDynamicSelectConfiguration
-	| IMultiConfiguration;
-
-interface IMultiConfiguration extends IBaseConfiguration {
-	readonly type: 'multi-configuration';
-	readonly configuration: Record<string, IConfigurationValue>;
-}
+	| IObjectConfiguration
+	| IArrayConfiguration;
 
 export interface ILibraryRule {
 	readonly description: string;
-	readonly configApi: string;
-	readonly hasAutoFix?: boolean;
-	readonly category?: string;
+	readonly hasAutofix: boolean;
+	readonly category: string;
 }
 
 export type IType = 'Linters' | 'Formatters';

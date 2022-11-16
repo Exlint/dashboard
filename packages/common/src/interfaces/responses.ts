@@ -23,6 +23,7 @@ export interface IAutoAuthResponseData extends Pick<User, 'id' | 'name'> {
 
 export interface IGetPolicyResponseData extends Pick<InlinePolicy, 'label' | 'library'> {
 	readonly groupLabel: string;
+	readonly hasRules: boolean;
 }
 
 export interface ICreatePolicyResponseData extends Pick<InlinePolicy, 'id'> {}
@@ -65,7 +66,19 @@ export interface IGetFormSchemaResponseData extends Pick<InlinePolicy, 'isFormCo
 
 export type IGetPolicyRulesResponseData = Pick<InlinePolicy, 'isFormConfiguration' | 'description'> &
 	Pick<ILibraryData, 'types' | 'categories'> & {
-		readonly rules: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutoFix'>)[];
+		readonly rules: (Pick<Rule, 'id' | 'name'> & Pick<ILibraryRule, 'category' | 'hasAutofix'>)[];
 		readonly createdAt: number;
 		readonly count: number;
 	};
+
+export interface IGetRulesResponseData {
+	readonly rules: ({
+		id: string | null;
+		configuration: Prisma.JsonArray | null;
+	} & Pick<Rule, 'name' | 'isEnabled'> &
+		Pick<ILibraryRule, 'description' | 'hasAutofix' | 'category'>)[];
+}
+
+export interface IEnableMissingRuleResponseData extends Pick<Rule, 'id'> {}
+
+export interface IConfigureMissingRuleResponseData extends Pick<Rule, 'id'> {}

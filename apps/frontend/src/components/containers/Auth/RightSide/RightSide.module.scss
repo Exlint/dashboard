@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .rightSideContainer {
 	display: flex;
@@ -12,14 +12,14 @@
 	&__header {
 		font-size: 4rem;
 		font-weight: 700;
-		color: map.get($colors, purples-purple);
+		color: map.get(variables.$colors, purples-purple);
 	}
 
 	&__subHeader {
-		margin-bottom: map.get($sizes, spacing-xxl-2);
+		margin-bottom: map.get(variables.$sizes, spacing-xxl-2);
 		font-size: 3.5rem;
 		font-weight: 400;
-		color: map.get($colors, purples-purple);
+		color: map.get(variables.$colors, purples-purple);
 	}
 
 	.rightSideExternalAuthContainer {
@@ -27,27 +27,27 @@
 		align-items: center;
 		width: 357px;
 		height: 67px;
-		padding: map.get($sizes, spacing-m) map.get($sizes, spacing-xl);
+		padding: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-xl);
 		text-decoration: none;
 		border-radius: 10px;
 
 		&:not(:last-child) {
-			margin-bottom: map.get($sizes, spacing-l);
+			margin-bottom: map.get(variables.$sizes, spacing-l);
 		}
 
 		&--github {
-			background-color: map.get($colors, blacks-yankees-black-blue);
+			background-color: map.get(variables.$colors, blacks-yankees-black-blue);
 			border: 1.5px solid transparent;
 		}
 
 		&--google {
-			background-color: map.get($colors, whites-white);
-			border: 1.5px solid map.get($colors, greys-platinum);
+			background-color: map.get(variables.$colors, whites-white);
+			border: 1.5px solid map.get(variables.$colors, greys-platinum);
 		}
 
 		&__brandLogo {
 			height: 43.1px;
-			margin-inline-end: map.get($sizes, spacing-xxl);
+			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 			object-fit: contain;
 		}
 
@@ -56,11 +56,11 @@
 			font-weight: 500;
 
 			&--github {
-				color: map.get($colors, greys-anti-flash-grey-white);
+				color: map.get(variables.$colors, greys-anti-flash-grey-white);
 			}
 
 			&--google {
-				color: map.get($colors, blacks-dark-gunmetal);
+				color: map.get(variables.$colors, blacks-dark-gunmetal);
 			}
 		}
 	}
@@ -68,25 +68,25 @@
 	&__divider {
 		width: 203px;
 		height: 2px;
-		margin-block: map.get($sizes, spacing-xxl-2);
-		background-color: map.get($colors, greys-platinum);
+		margin-block: map.get(variables.$sizes, spacing-xxl-2);
+		background-color: map.get(variables.$colors, greys-platinum);
 	}
 
 	&__permissionsDisclaimer {
-		margin-bottom: map.get($sizes, spacing-m);
+		margin-bottom: map.get(variables.$sizes, spacing-m);
 		font-size: 1.6rem;
 		font-weight: 300;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 	}
 
 	&__policyText {
 		font-size: 1.6rem;
 		font-weight: 300;
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 		text-align: center;
 	}
 
 	&__textLink {
-		color: map.get($colors, greys-independence-grey);
+		color: map.get(variables.$colors, greys-independence-grey);
 	}
 }

@@ -8,1602 +8,1338 @@ export const eslintData: ILibraryData = {
 	categories: ['Code'],
 	language: 'JavaScript',
 	rules: {
-		'Array Callback Return': {
+		'array-callback-return': {
 			description: 'Enforce `return` statements in callbacks of array methods',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'array-callback-return',
 		},
-		'Constructor Super': {
+		'constructor-super': {
 			description: 'Require `super()` calls in constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'constructor-super',
 		},
-		'For Direction': {
+		'for-direction': {
 			description: 'Enforce "for" loop update clause moving the counter in the right direction',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'for-direction',
 		},
-		'Getter Return': {
+		'getter-return': {
 			description: 'Enforce `return` statements in getters',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'getter-return',
 		},
-		'No Async Promise Executor': {
+		'no-async-promise-executor': {
 			description: 'Disallow using an async function as a Promise executor',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-async-promise-executor',
 		},
-		'No Await In Loop': {
+		'no-await-in-loop': {
 			description: 'Disallow `await` inside of loops',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-await-in-loop',
 		},
-		'No Class Assign': {
+		'no-class-assign': {
 			description: 'Disallow reassigning class members',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-class-assign',
 		},
-		'No Compare Neg Zero': {
+		'no-compare-neg-zero': {
 			description: 'Disallow comparing against -0',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-compare-neg-zero',
 		},
-		'No Cond Assign': {
+		'no-cond-assign': {
 			description: 'Disallow assignment operators in conditional expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-cond-assign',
 		},
-		'No Const Assign': {
+		'no-const-assign': {
 			description: 'Disallow reassigning `const` variables',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-const-assign',
 		},
-		'No Constant Binary Expression': {
+		'no-constant-binary-expression': {
 			description: "Disallow expressions where the operation doesn't affect the value",
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-constant-binary-expression',
 		},
-		'No Constant Condition': {
+		'no-constant-condition': {
 			description: 'Disallow constant expressions in conditions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-constant-condition',
 		},
-		'No Constructor Return': {
+		'no-constructor-return': {
 			description: 'Disallow returning value from constructor',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-constructor-return',
 		},
-		'No Control Regex': {
+		'no-control-regex': {
 			description: 'Disallow control characters in regular expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-control-regex',
 		},
-		'No Debugger': {
+		'no-debugger': {
 			description: 'Disallow the use of `debugger`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-debugger',
 		},
-		'No Dupe Args': {
+		'no-dupe-args': {
 			description: 'Disallow duplicate arguments in `function` definitions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-dupe-args',
 		},
-		'No Dupe Class Members': {
+		'no-dupe-class-members': {
 			description: 'Disallow duplicate class members',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-dupe-class-members',
 		},
-		'No Dupe Else If': {
+		'no-dupe-else-if': {
 			description: 'Disallow duplicate conditions in if-else-if chains',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-dupe-else-if',
 		},
-		'No Dupe Keys': {
+		'no-dupe-keys': {
 			description: 'Disallow duplicate keys in object literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-dupe-keys',
 		},
-		'No Duplicate Case': {
+		'no-duplicate-case': {
 			description: 'Disallow duplicate case labels',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-duplicate-case',
 		},
-		'No Duplicate Imports': {
+		'no-duplicate-imports': {
 			description: 'Disallow duplicate module imports',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-duplicate-imports',
 		},
-		'No Empty Character Class': {
+		'no-empty-character-class': {
 			description: 'Disallow empty character classes in regular expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-empty-character-class',
 		},
-		'No Empty Pattern': {
+		'no-empty-pattern': {
 			description: 'Disallow empty destructuring patterns',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-empty-pattern',
 		},
-		'No Ex Assign': {
+		'no-ex-assign': {
 			description: 'Disallow reassigning exceptions in `catch` clauses',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-ex-assign',
 		},
-		'No Fallthrough': {
+		'no-fallthrough': {
 			description: 'Disallow fallthrough of `case` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-fallthrough',
 		},
-		'No Func Assign': {
+		'no-func-assign': {
 			description: 'Disallow reassigning `function` declarations',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-func-assign',
 		},
-		'No Import Assign': {
+		'no-import-assign': {
 			description: 'Disallow assigning to imported bindings',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-import-assign',
 		},
-		'No Inner Declarations': {
+		'no-inner-declarations': {
 			description: 'Disallow variable or `function` declarations in nested blocks',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-inner-declarations',
 		},
-		'No Invalid Regexp': {
+		'no-invalid-regexp': {
 			description: 'Disallow invalid regular expression strings in `RegExp` constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-invalid-regexp',
 		},
-		'No Irregular Whitespace': {
+		'no-irregular-whitespace': {
 			description: 'Disallow irregular whitespace',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-irregular-whitespace',
 		},
-		'No Loss Of Precision': {
+		'no-loss-of-precision': {
 			description: 'Disallow literal numbers that lose precision',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-loss-of-precision',
 		},
-		'No Misleading Character Class': {
+		'no-misleading-character-class': {
 			description:
 				'Disallow characters which are made with multiple code points in character class syntax',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-misleading-character-class',
 		},
-		'No New Symbol': {
+		'no-new-symbol': {
 			description: 'Disallow `new` operators with the `Symbol` object',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-new-symbol',
 		},
-		'No Obj Calls': {
+		'no-obj-calls': {
 			description: 'Disallow calling global object properties as functions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-obj-calls',
 		},
-		'No Promise Executor Return': {
+		'no-promise-executor-return': {
 			description: 'Disallow returning values from Promise executor functions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-promise-executor-return',
 		},
-		'No Prototype Builtins': {
+		'no-prototype-builtins': {
 			description: 'Disallow calling some `Object.prototype` methods directly on objects',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-prototype-builtins',
 		},
-		'No Self Assign': {
+		'no-self-assign': {
 			description: 'Disallow assignments where both sides are exactly the same',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-self-assign',
 		},
-		'No Self Compare': {
+		'no-self-compare': {
 			description: 'Disallow comparisons where both sides are exactly the same',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-self-compare',
 		},
-		'No Setter Return': {
+		'no-setter-return': {
 			description: 'Disallow returning values from setters',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-setter-return',
 		},
-		'No Sparse Arrays': {
+		'no-sparse-arrays': {
 			description: 'Disallow sparse arrays',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-sparse-arrays',
 		},
-		'No Template Curly In String': {
+		'no-template-curly-in-string': {
 			description: 'Disallow template literal placeholder syntax in regular strings',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-template-curly-in-string',
 		},
-		'No This Before Super': {
+		'no-this-before-super': {
 			description: 'Disallow `this`/`super` before calling `super()` in constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-this-before-super',
 		},
-		'No Undef': {
+		'no-undef': {
 			description:
 				'Disallow the use of undeclared variables unless mentioned in `/*global */` comments',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-undef',
 		},
-		'No Unexpected Multiline': {
+		'no-unexpected-multiline': {
 			description: 'Disallow confusing multiline expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unexpected-multiline',
 		},
-		'No Unmodified Loop Condition': {
+		'no-unmodified-loop-condition': {
 			description: 'Disallow unmodified loop conditions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unmodified-loop-condition',
 		},
-		'No Unreachable': {
+		'no-unreachable': {
 			description:
 				'Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unreachable',
 		},
-		'No Unreachable Loop': {
+		'no-unreachable-loop': {
 			description: 'Disallow loops with a body that allows only one iteration',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unreachable-loop',
 		},
-		'No Unsafe Finally': {
+		'no-unsafe-finally': {
 			description: 'Disallow control flow statements in `finally` blocks',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unsafe-finally',
 		},
-		'No Unsafe Negation': {
+		'no-unsafe-negation': {
 			description: 'Disallow negating the left operand of relational operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unsafe-negation',
 		},
-		'No Unsafe Optional Chaining': {
+		'no-unsafe-optional-chaining': {
 			description:
 				'Disallow use of optional chaining in contexts where the `undefined` value is not allowed',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unsafe-optional-chaining',
 		},
-		'No Unused Private Class Members': {
+		'no-unused-private-class-members': {
 			description: 'Disallow unused private class members',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unused-private-class-members',
 		},
-		'No Unused Vars': {
+		'no-unused-vars': {
 			description: 'Disallow unused variables',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-unused-vars',
 		},
-		'No Use Before Define': {
+		'no-use-before-define': {
 			description: 'Disallow the use of variables before they are defined',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-use-before-define',
 		},
-		'No Useless Backreference': {
+		'no-useless-backreference': {
 			description: 'Disallow useless backreferences in regular expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'no-useless-backreference',
 		},
-		'Require Atomic Updates': {
+		'require-atomic-updates': {
 			description:
 				'Disallow assignments that can lead to race conditions due to usage of `await` or `yield`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'require-atomic-updates',
 		},
-		'Use Isnan': {
+		'use-isnan': {
 			description: 'Require calls to `isNaN()` when checking for `NaN`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'use-isnan',
 		},
-		'Valid Typeof': {
+		'valid-typeof': {
 			description: 'Enforce comparing `typeof` expressions against valid strings',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Possible Problems',
-			configApi: 'valid-typeof',
 		},
-		'Accessor Pairs': {
+		'accessor-pairs': {
 			description: 'Enforce getter and setter pairs in objects and classes',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'accessor-pairs',
 		},
-		'Arrow Body Style': {
+		'arrow-body-style': {
 			description: 'Require braces around arrow function bodies',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'arrow-body-style',
 		},
-		'Block Scoped Var': {
+		'block-scoped-var': {
 			description: 'Enforce the use of variables within the scope they are defined',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'block-scoped-var',
 		},
-		'Camelcase': {
+		'camelcase': {
 			description: 'Enforce camelcase naming convention',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'camelcase',
 		},
-		'Capitalized Comments': {
+		'capitalized-comments': {
 			description: 'Enforce or disallow capitalization of the first letter of a comment',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'capitalized-comments',
 		},
-		'Class Methods Use This': {
+		'class-methods-use-this': {
 			description: 'Enforce that class methods utilize `this`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'class-methods-use-this',
 		},
-		'Complexity': {
+		'complexity': {
 			description: 'Enforce a maximum cyclomatic complexity allowed in a program',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'complexity',
 		},
-		'Consistent Return': {
+		'consistent-return': {
 			description: 'Require `return` statements to either always or never specify values',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'consistent-return',
 		},
-		'Consistent This': {
+		'consistent-this': {
 			description: 'Enforce consistent naming when capturing the current execution context',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'consistent-this',
 		},
-		'Curly': {
+		'curly': {
 			description: 'Enforce consistent brace style for all control statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'curly',
 		},
-		'Default Case': {
+		'default-case': {
 			description: 'Require `default` cases in `switch` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'default-case',
 		},
-		'Default Case Last': {
+		'default-case-last': {
 			description: 'Enforce default clauses in switch statements to be last',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'default-case-last',
 		},
-		'Default Param Last': {
+		'default-param-last': {
 			description: 'Enforce default parameters to be last',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'default-param-last',
 		},
-		'Dot Notation': {
+		'dot-notation': {
 			description: 'Enforce dot notation whenever possible',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'dot-notation',
 		},
-		'Eqeqeq': {
+		'eqeqeq': {
 			description: 'Require the use of `===` and `!==`',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'eqeqeq',
 		},
-		'Func Name Matching': {
+		'func-name-matching': {
 			description:
 				'Require function names to match the name of the variable or property to which they are assigned',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'func-name-matching',
 		},
-		'Func Names': {
+		'func-names': {
 			description: 'Require or disallow named `function` expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'func-names',
 		},
-		'Func Style': {
+		'func-style': {
 			description: 'Enforce the consistent use of either `function` declarations or expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'func-style',
 		},
-		'Grouped Accessor Pairs': {
+		'grouped-accessor-pairs': {
 			description: 'Require grouped accessor pairs in object literals and classes',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'grouped-accessor-pairs',
 		},
-		'Guard For In': {
+		'guard-for-in': {
 			description: 'Require `for-in` loops to include an `if` statement',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'guard-for-in',
 		},
-		'Id Denylist': {
+		'id-denylist': {
 			description: 'Disallow specified identifiers',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'id-denylist',
 		},
-		'Id Length': {
+		'id-length': {
 			description: 'Enforce minimum and maximum identifier lengths',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'id-length',
 		},
-		'Id Match': {
+		'id-match': {
 			description: 'Require identifiers to match a specified regular expression',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'id-match',
 		},
-		'Init Declarations': {
+		'init-declarations': {
 			description: 'Require or disallow initialization in variable declarations',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'init-declarations',
 		},
-		'Max Classes Per File': {
+		'max-classes-per-file': {
 			description: 'Enforce a maximum number of classes per file',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-classes-per-file',
 		},
-		'Max Depth': {
+		'max-depth': {
 			description: 'Enforce a maximum depth that blocks can be nested',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-depth',
 		},
-		'Max Lines': {
+		'max-lines': {
 			description: 'Enforce a maximum number of lines per file',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-lines',
 		},
-		'Max Lines Per Function': {
+		'max-lines-per-function': {
 			description: 'Enforce a maximum number of lines of code in a function',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-lines-per-function',
 		},
-		'Max Nested Callbacks': {
+		'max-nested-callbacks': {
 			description: 'Enforce a maximum depth that callbacks can be nested',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-nested-callbacks',
 		},
-		'Max Params': {
+		'max-params': {
 			description: 'Enforce a maximum number of parameters in function definitions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-params',
 		},
-		'Max Statements': {
+		'max-statements': {
 			description: 'Enforce a maximum number of statements allowed in function blocks',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'max-statements',
 		},
-		'Multiline Comment Style': {
+		'multiline-comment-style': {
 			description: 'Enforce a particular style for multiline comments',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'multiline-comment-style',
 		},
-		'New Cap': {
+		'new-cap': {
 			description: 'Require constructor names to begin with a capital letter',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'new-cap',
 		},
-		'No Alert': {
+		'no-alert': {
 			description: 'Disallow the use of `alert`, `confirm`, and `prompt`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-alert',
 		},
-		'No Array Constructor': {
+		'no-array-constructor': {
 			description: 'Disallow `Array` constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-array-constructor',
 		},
-		'No Bitwise': {
+		'no-bitwise': {
 			description: 'Disallow bitwise operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-bitwise',
 		},
-		'No Caller': {
+		'no-caller': {
 			description: 'Disallow the use of `arguments.caller` or `arguments.callee`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-caller',
 		},
-		'No Case Declarations': {
+		'no-case-declarations': {
 			description: 'Disallow lexical declarations in case clauses',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-case-declarations',
 		},
-		'No Confusing Arrow': {
+		'no-confusing-arrow': {
 			description: 'Disallow arrow functions where they could be confused with comparisons',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-confusing-arrow',
 		},
-		'No Console': {
+		'no-console': {
 			description: 'Disallow the use of `console`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-console',
 		},
-		'No Continue': {
+		'no-continue': {
 			description: 'Disallow `continue` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-continue',
 		},
-		'No Delete Var': {
+		'no-delete-var': {
 			description: 'Disallow deleting variables',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-delete-var',
 		},
-		'No Div Regex': {
+		'no-div-regex': {
 			description: 'Disallow division operators explicitly at the beginning of regular expressions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-div-regex',
 		},
-		'No Else Return': {
+		'no-else-return': {
 			description: 'Disallow `else` blocks after `return` statements in `if` statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-else-return',
 		},
-		'No Empty': {
+		'no-empty': {
 			description: 'Disallow empty block statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-empty',
 		},
-		'No Empty Function': {
+		'no-empty-function': {
 			description: 'Disallow empty functions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-empty-function',
 		},
-		'No Eq Null': {
+		'no-eq-null': {
 			description: 'Disallow `null` comparisons without type-checking operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-eq-null',
 		},
-		'No Eval': {
+		'no-eval': {
 			description: 'Disallow the use of `eval()`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-eval',
 		},
-		'No Extend Native': {
+		'no-extend-native': {
 			description: 'Disallow extending native types',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-extend-native',
 		},
-		'No Extra Bind': {
+		'no-extra-bind': {
 			description: 'Disallow unnecessary calls to `.bind()`',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-extra-bind',
 		},
-		'No Extra Boolean Cast': {
+		'no-extra-boolean-cast': {
 			description: 'Disallow unnecessary boolean casts',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-extra-boolean-cast',
 		},
-		'No Extra Label': {
+		'no-extra-label': {
 			description: 'Disallow unnecessary labels',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-extra-label',
 		},
-		'No Extra Semi': {
+		'no-extra-semi': {
 			description: 'Disallow unnecessary semicolons',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-extra-semi',
 		},
-		'No Floating Decimal': {
+		'no-floating-decimal': {
 			description: 'Disallow leading or trailing decimal points in numeric literals',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-floating-decimal',
 		},
-		'No Global Assign': {
+		'no-global-assign': {
 			description: 'Disallow assignments to native objects or read-only global variables',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-global-assign',
 		},
-		'No Implicit Coercion': {
+		'no-implicit-coercion': {
 			description: 'Disallow shorthand type conversions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-implicit-coercion',
 		},
-		'No Implicit Globals': {
+		'no-implicit-globals': {
 			description: 'Disallow declarations in the global scope',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-implicit-globals',
 		},
-		'No Implied Eval': {
+		'no-implied-eval': {
 			description: 'Disallow the use of `eval()`-like methods',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-implied-eval',
 		},
-		'No Inline Comments': {
+		'no-inline-comments': {
 			description: 'Disallow inline comments after code',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-inline-comments',
 		},
-		'No Invalid This': {
+		'no-invalid-this': {
 			description: 'Disallow use of `this` in contexts where the value of `this` is `undefined`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-invalid-this',
 		},
-		'No Iterator': {
+		'no-iterator': {
 			description: 'Disallow the use of the `__iterator__` property',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-iterator',
 		},
-		'No Label Var': {
+		'no-label-var': {
 			description: 'Disallow labels that share a name with a variable',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-label-var',
 		},
-		'No Labels': {
+		'no-labels': {
 			description: 'Disallow labeled statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-labels',
 		},
-		'No Lone Blocks': {
+		'no-lone-blocks': {
 			description: 'Disallow unnecessary nested blocks',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-lone-blocks',
 		},
-		'No Lonely If': {
+		'no-lonely-if': {
 			description: 'Disallow `if` statements as the only statement in `else` blocks',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-lonely-if',
 		},
-		'No Loop Func': {
+		'no-loop-func': {
 			description:
 				'Disallow function declarations that contain unsafe references inside loop statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-loop-func',
 		},
-		'No Magic Numbers': {
+		'no-magic-numbers': {
 			description: 'Disallow magic numbers',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-magic-numbers',
 		},
-		'No Mixed Operators': {
+		'no-mixed-operators': {
 			description: 'Disallow mixed binary operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-mixed-operators',
 		},
-		'No Multi Assign': {
+		'no-multi-assign': {
 			description: 'Disallow use of chained assignment expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-multi-assign',
 		},
-		'No Multi Str': {
+		'no-multi-str': {
 			description: 'Disallow multiline strings',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-multi-str',
 		},
-		'No Negated Condition': {
+		'no-negated-condition': {
 			description: 'Disallow negated conditions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-negated-condition',
 		},
-		'No Nested Ternary': {
+		'no-nested-ternary': {
 			description: 'Disallow nested ternary expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-nested-ternary',
 		},
-		'No New': {
+		'no-new': {
 			description: 'Disallow `new` operators outside of assignments or comparisons',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-new',
 		},
-		'No New Func': {
+		'no-new-func': {
 			description: 'Disallow `new` operators with the `Function` object',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-new-func',
 		},
-		'No New Object': {
+		'no-new-object': {
 			description: 'Disallow `Object` constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-new-object',
 		},
-		'No New Wrappers': {
+		'no-new-wrappers': {
 			description: 'Disallow `new` operators with the `String`, `Number`, and `Boolean` objects',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-new-wrappers',
 		},
-		'No Nonoctal Decimal Escape': {
+		'no-nonoctal-decimal-escape': {
 			description: 'Disallow `\\8` and `\\9` escape sequences in string literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-nonoctal-decimal-escape',
 		},
-		'No Octal': {
+		'no-octal': {
 			description: 'Disallow octal literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-octal',
 		},
-		'No Octal Escape': {
+		'no-octal-escape': {
 			description: 'Disallow octal escape sequences in string literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-octal-escape',
 		},
-		'No Param Reassign': {
+		'no-param-reassign': {
 			description: 'Disallow reassigning `function` parameters',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-param-reassign',
 		},
-		'No Plusplus': {
+		'no-plusplus': {
 			description: 'Disallow the unary operators `++` and `--`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-plusplus',
 		},
-		'No Proto': {
+		'no-proto': {
 			description: 'Disallow the use of the `__proto__` property',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-proto',
 		},
-		'No Redeclare': {
+		'no-redeclare': {
 			description: 'Disallow variable redeclaration',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-redeclare',
 		},
-		'No Regex Spaces': {
+		'no-regex-spaces': {
 			description: 'Disallow multiple spaces in regular expressions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-regex-spaces',
 		},
-		'No Restricted Exports': {
+		'no-restricted-exports': {
 			description: 'Disallow specified names in exports',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-restricted-exports',
 		},
-		'No Restricted Globals': {
+		'no-restricted-globals': {
 			description: 'Disallow specified global variables',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-restricted-globals',
 		},
-		'No Restricted Imports': {
+		'no-restricted-imports': {
 			description: 'Disallow specified modules when loaded by `import`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-restricted-imports',
 		},
-		'No Restricted Properties': {
+		'no-restricted-properties': {
 			description: 'Disallow certain properties on certain objects',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-restricted-properties',
 		},
-		'No Restricted Syntax': {
+		'no-restricted-syntax': {
 			description: 'Disallow specified syntax',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-restricted-syntax',
 		},
-		'No Return Assign': {
+		'no-return-assign': {
 			description: 'Disallow assignment operators in `return` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-return-assign',
 		},
-		'No Return Await': {
+		'no-return-await': {
 			description: 'Disallow unnecessary `return await`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-return-await',
 		},
-		'No Script Url': {
+		'no-script-url': {
 			description: 'Disallow `javascript:` urls',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-script-url',
 		},
-		'No Sequences': {
+		'no-sequences': {
 			description: 'Disallow comma operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-sequences',
 		},
-		'No Shadow': {
+		'no-shadow': {
 			description:
 				'Disallow variable declarations from shadowing variables declared in the outer scope',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-shadow',
 		},
-		'No Shadow Restricted Names': {
+		'no-shadow-restricted-names': {
 			description: 'Disallow identifiers from shadowing restricted names',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-shadow-restricted-names',
 		},
-		'No Ternary': {
+		'no-ternary': {
 			description: 'Disallow ternary operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-ternary',
 		},
-		'No Throw Literal': {
+		'no-throw-literal': {
 			description: 'Disallow throwing literals as exceptions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-throw-literal',
 		},
-		'No Undef Init': {
+		'no-undef-init': {
 			description: 'Disallow initializing variables to `undefined`',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-undef-init',
 		},
-		'No Undefined': {
+		'no-undefined': {
 			description: 'Disallow the use of `undefined` as an identifier',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-undefined',
 		},
-		'No Underscore Dangle': {
+		'no-underscore-dangle': {
 			description: 'Disallow dangling underscores in identifiers',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-underscore-dangle',
 		},
-		'No Unneeded Ternary': {
+		'no-unneeded-ternary': {
 			description: 'Disallow ternary operators when simpler alternatives exist',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-unneeded-ternary',
 		},
-		'No Unused Expressions': {
+		'no-unused-expressions': {
 			description: 'Disallow unused expressions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-unused-expressions',
 		},
-		'No Unused Labels': {
+		'no-unused-labels': {
 			description: 'Disallow unused labels',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-unused-labels',
 		},
-		'No Useless Call': {
+		'no-useless-call': {
 			description: 'Disallow unnecessary calls to `.call()` and `.apply()`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-useless-call',
 		},
-		'No Useless Catch': {
+		'no-useless-catch': {
 			description: 'Disallow unnecessary `catch` clauses',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-useless-catch',
 		},
-		'No Useless Computed Key': {
+		'no-useless-computed-key': {
 			description: 'Disallow unnecessary computed property keys in objects and classes',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-useless-computed-key',
 		},
-		'No Useless Concat': {
+		'no-useless-concat': {
 			description: 'Disallow unnecessary concatenation of literals or template literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-useless-concat',
 		},
-		'No Useless Constructor': {
+		'no-useless-constructor': {
 			description: 'Disallow unnecessary constructors',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-useless-constructor',
 		},
-		'No Useless Escape': {
+		'no-useless-escape': {
 			description: 'Disallow unnecessary escape characters',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-useless-escape',
 		},
-		'No Useless Rename': {
+		'no-useless-rename': {
 			description: 'Disallow renaming import, export, and destructured assignments to the same name',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-useless-rename',
 		},
-		'No Useless Return': {
+		'no-useless-return': {
 			description: 'Disallow redundant return statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-useless-return',
 		},
-		'No Var': {
+		'no-var': {
 			description: 'Require `let` or `const` instead of `var`',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'no-var',
 		},
-		'No Void': {
+		'no-void': {
 			description: 'Disallow `void` operators',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-void',
 		},
-		'No Warning Comments': {
+		'no-warning-comments': {
 			description: 'Disallow specified warning terms in comments',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-warning-comments',
 		},
-		'No With': {
+		'no-with': {
 			description: 'Disallow `with` statements',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'no-with',
 		},
-		'Object Shorthand': {
+		'object-shorthand': {
 			description: 'Require or disallow method and property shorthand syntax for object literals',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'object-shorthand',
 		},
-		'One Var': {
+		'one-var': {
 			description: 'Enforce variables to be declared either together or separately in functions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'one-var',
 		},
-		'One Var Declaration Per Line': {
+		'one-var-declaration-per-line': {
 			description: 'Require or disallow newlines around variable declarations',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'one-var-declaration-per-line',
 		},
-		'Operator Assignment': {
+		'operator-assignment': {
 			description: 'Require or disallow assignment operator shorthand where possible',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'operator-assignment',
 		},
-		'Prefer Arrow Callback': {
+		'prefer-arrow-callback': {
 			description: 'Require using arrow functions for callbacks',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-arrow-callback',
 		},
-		'Prefer Const': {
+		'prefer-const': {
 			description:
 				'Require `const` declarations for variables that are never reassigned after declared',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-const',
 		},
-		'Prefer Destructuring': {
+		'prefer-destructuring': {
 			description: 'Require destructuring from arrays and/or objects',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-destructuring',
 		},
-		'Prefer Exponentiation Operator': {
+		'prefer-exponentiation-operator': {
 			description: 'Disallow the use of `Math.pow` in favor of the `**` operator',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-exponentiation-operator',
 		},
-		'Prefer Named Capture Group': {
+		'prefer-named-capture-group': {
 			description: 'Enforce using named capture group in regular expression',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'prefer-named-capture-group',
 		},
-		'Prefer Numeric Literals': {
+		'prefer-numeric-literals': {
 			description:
 				'Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-numeric-literals',
 		},
-		'Prefer Object Has Own': {
+		'prefer-object-has-own': {
 			description:
 				'Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn()`',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-object-has-own',
 		},
-		'Prefer Object Spread': {
+		'prefer-object-spread': {
 			description:
 				'Disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-object-spread',
 		},
-		'Prefer Promise Reject Errors': {
+		'prefer-promise-reject-errors': {
 			description: 'Require using Error objects as Promise rejection reasons',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'prefer-promise-reject-errors',
 		},
-		'Prefer Regex Literals': {
+		'prefer-regex-literals': {
 			description: 'Disallow use of the `RegExp` constructor in favor of regular expression literals',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'prefer-regex-literals',
 		},
-		'Prefer Rest Params': {
+		'prefer-rest-params': {
 			description: 'Require rest parameters instead of `arguments`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'prefer-rest-params',
 		},
-		'Prefer Spread': {
+		'prefer-spread': {
 			description: 'Require spread operators instead of `.apply()`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'prefer-spread',
 		},
-		'Prefer Template': {
+		'prefer-template': {
 			description: 'Require template literals instead of string concatenation',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'prefer-template',
 		},
-		'Quote Props': {
+		'quote-props': {
 			description: 'Require quotes around object literal property names',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'quote-props',
 		},
-		'Radix': {
+		'radix': {
 			description: 'Enforce the consistent use of the radix argument when using `parseInt()`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'radix',
 		},
-		'Require Await': {
+		'require-await': {
 			description: 'Disallow async functions which have no `await` expression',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'require-await',
 		},
-		'Require Unicode Regexp': {
+		'require-unicode-regexp': {
 			description: 'Enforce the use of `u` flag on RegExp',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'require-unicode-regexp',
 		},
-		'Require Yield': {
+		'require-yield': {
 			description: 'Require generator functions to contain `yield`',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'require-yield',
 		},
-		'Sort Imports': {
+		'sort-imports': {
 			description: 'Enforce sorted import declarations within modules',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'sort-imports',
 		},
-		'Sort Keys': {
+		'sort-keys': {
 			description: 'Require object keys to be sorted',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'sort-keys',
 		},
-		'Sort Vars': {
+		'sort-vars': {
 			description: 'Require variables within the same declaration block to be sorted',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'sort-vars',
 		},
-		'Spaced Comment': {
+		'spaced-comment': {
 			description: 'Enforce consistent spacing after the `//` or `/*` in a comment',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'spaced-comment',
 		},
-		'Strict': {
+		'strict': {
 			description: 'Require or disallow strict mode directives',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'strict',
 		},
-		'Symbol Description': {
+		'symbol-description': {
 			description: 'Require symbol descriptions',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'symbol-description',
 		},
-		'Vars On Top': {
+		'vars-on-top': {
 			description: 'Require `var` declarations be placed at the top of their containing scope',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Suggestions',
-			configApi: 'vars-on-top',
 		},
-		'Yoda': {
+		'yoda': {
 			description: 'Require or disallow "Yoda" conditions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Suggestions',
-			configApi: 'yoda',
 		},
-		'Array Bracket Newline': {
+		'array-bracket-newline': {
 			description: 'Enforce linebreaks after opening and before closing array brackets',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'array-bracket-newline',
 		},
-		'Array Bracket Spacing': {
+		'array-bracket-spacing': {
 			description: 'Enforce consistent spacing inside array brackets',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'array-bracket-spacing',
 		},
-		'Array Element Newline': {
+		'array-element-newline': {
 			description: 'Enforce line breaks after each array element',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'array-element-newline',
 		},
-		'Arrow Parens': {
+		'arrow-parens': {
 			description: 'Require parentheses around arrow function arguments',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'arrow-parens',
 		},
-		'Arrow Spacing': {
+		'arrow-spacing': {
 			description: 'Enforce consistent spacing before and after the arrow in arrow functions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'arrow-spacing',
 		},
-		'Block Spacing': {
+		'block-spacing': {
 			description:
 				'Disallow or enforce spaces inside of blocks after opening block and before closing block',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'block-spacing',
 		},
-		'Brace Style': {
+		'brace-style': {
 			description: 'Enforce consistent brace style for blocks',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'brace-style',
 		},
-		'Comma Dangle': {
+		'comma-dangle': {
 			description: 'Require or disallow trailing commas',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'comma-dangle',
 		},
-		'Comma Spacing': {
+		'comma-spacing': {
 			description: 'Enforce consistent spacing before and after commas',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'comma-spacing',
 		},
-		'Comma Style': {
+		'comma-style': {
 			description: 'Enforce consistent comma style',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'comma-style',
 		},
-		'Computed Property Spacing': {
+		'computed-property-spacing': {
 			description: 'Enforce consistent spacing inside computed property brackets',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'computed-property-spacing',
 		},
-		'Dot Location': {
+		'dot-location': {
 			description: 'Enforce consistent newlines before and after dots',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'dot-location',
 		},
-		'Eol Last': {
+		'eol-last': {
 			description: 'Require or disallow newline at the end of files',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'eol-last',
 		},
-		'Func Call Spacing': {
+		'func-call-spacing': {
 			description: 'Require or disallow spacing between function identifiers and their invocations',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'func-call-spacing',
 		},
-		'Function Call Argument Newline': {
+		'function-call-argument-newline': {
 			description: 'Enforce line breaks between arguments of a function call',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'function-call-argument-newline',
 		},
-		'Function Paren Newline': {
+		'function-paren-newline': {
 			description: 'Enforce consistent line breaks inside function parentheses',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'function-paren-newline',
 		},
-		'Generator Star Spacing': {
+		'generator-star-spacing': {
 			description: 'Enforce consistent spacing around `*` operators in generator functions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'generator-star-spacing',
 		},
-		'Implicit Arrow Linebreak': {
+		'implicit-arrow-linebreak': {
 			description: 'Enforce the location of arrow function bodies',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'implicit-arrow-linebreak',
 		},
-		'Indent': {
+		'indent': {
 			description: 'Enforce consistent indentation',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'indent',
 		},
-		'Jsx Quotes': {
+		'jsx-quotes': {
 			description: 'Enforce the consistent use of either double or single quotes in JSX attributes',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'jsx-quotes',
 		},
-		'Key Spacing': {
+		'key-spacing': {
 			description: 'Enforce consistent spacing between keys and values in object literal properties',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'key-spacing',
 		},
-		'Keyword Spacing': {
+		'keyword-spacing': {
 			description: 'Enforce consistent spacing before and after keywords',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'keyword-spacing',
 		},
-		'Line Comment Position': {
+		'line-comment-position': {
 			description: 'Enforce position of line comments',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configApi: 'line-comment-position',
 		},
-		'Linebreak Style': {
+		'linebreak-style': {
 			description: 'Enforce consistent linebreak style',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'linebreak-style',
 		},
-		'Lines Around Comment': {
+		'lines-around-comment': {
 			description: 'Require empty lines around comments',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'lines-around-comment',
 		},
-		'Lines Between Class Members': {
+		'lines-between-class-members': {
 			description: 'Require or disallow an empty line between class members',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'lines-between-class-members',
 		},
-		'Max Len': {
+		'max-len': {
 			description: 'Enforce a maximum line length',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configApi: 'max-len',
 		},
-		'Max Statements Per Line': {
+		'max-statements-per-line': {
 			description: 'Enforce a maximum number of statements allowed per line',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configApi: 'max-statements-per-line',
 		},
-		'Multiline Ternary': {
+		'multiline-ternary': {
 			description: 'Enforce newlines between operands of ternary expressions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'multiline-ternary',
 		},
-		'New Parens': {
+		'new-parens': {
 			description: 'Enforce or disallow parentheses when invoking a constructor with no arguments',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'new-parens',
 		},
-		'Newline Per Chained Call': {
+		'newline-per-chained-call': {
 			description: 'Require a newline after each call in a method chain',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'newline-per-chained-call',
 		},
-		'No Extra Parens': {
+		'no-extra-parens': {
 			description: 'Disallow unnecessary parentheses',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'no-extra-parens',
 		},
-		'No Mixed Spaces And Tabs': {
+		'no-mixed-spaces-and-tabs': {
 			description: 'Disallow mixed spaces and tabs for indentation',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configApi: 'no-mixed-spaces-and-tabs',
 		},
-		'No Multi Spaces': {
+		'no-multi-spaces': {
 			description: 'Disallow multiple spaces',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'no-multi-spaces',
 		},
-		'No Multiple Empty Lines': {
+		'no-multiple-empty-lines': {
 			description: 'Disallow multiple empty lines',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'no-multiple-empty-lines',
 		},
-		'No Tabs': {
+		'no-tabs': {
 			description: 'Disallow all tabs',
-			hasAutoFix: false,
+			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configApi: 'no-tabs',
 		},
-		'No Trailing Spaces': {
+		'no-trailing-spaces': {
 			description: 'Disallow trailing whitespace at the end of lines',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'no-trailing-spaces',
 		},
-		'No Whitespace Before Property': {
+		'no-whitespace-before-property': {
 			description: 'Disallow whitespace before properties',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'no-whitespace-before-property',
 		},
-		'Nonblock Statement Body Position': {
+		'nonblock-statement-body-position': {
 			description: 'Enforce the location of single-line statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'nonblock-statement-body-position',
 		},
-		'Object Curly Newline': {
+		'object-curly-newline': {
 			description: 'Enforce consistent line breaks after opening and before closing braces',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'object-curly-newline',
 		},
-		'Object Curly Spacing': {
+		'object-curly-spacing': {
 			description: 'Enforce consistent spacing inside braces',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'object-curly-spacing',
 		},
-		'Object Property Newline': {
+		'object-property-newline': {
 			description: 'Enforce placing object properties on separate lines',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'object-property-newline',
 		},
-		'Operator Linebreak': {
+		'operator-linebreak': {
 			description: 'Enforce consistent linebreak style for operators',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'operator-linebreak',
 		},
-		'Padded Blocks': {
+		'padded-blocks': {
 			description: 'Require or disallow padding within blocks',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'padded-blocks',
 		},
-		'Padding Line Between Statements': {
+		'padding-line-between-statements': {
 			description: 'Require or disallow padding lines between statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'padding-line-between-statements',
 		},
-		'Quotes': {
+		'quotes': {
 			description: 'Enforce the consistent use of either backticks, double, or single quotes',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'quotes',
 		},
-		'Rest Spread Spacing': {
+		'rest-spread-spacing': {
 			description: 'Enforce spacing between rest and spread operators and their expressions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'rest-spread-spacing',
 		},
-		'Semi': {
+		'semi': {
 			description: 'Require or disallow semicolons instead of ASI',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'semi',
 		},
-		'Semi Spacing': {
+		'semi-spacing': {
 			description: 'Enforce consistent spacing before and after semicolons',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'semi-spacing',
 		},
-		'Semi Style': {
+		'semi-style': {
 			description: 'Enforce location of semicolons',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'semi-style',
 		},
-		'Space Before Blocks': {
+		'space-before-blocks': {
 			description: 'Enforce consistent spacing before blocks',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'space-before-blocks',
 		},
-		'Space Before Function Paren': {
+		'space-before-function-paren': {
 			description: 'Enforce consistent spacing before `function` definition opening parenthesis',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'space-before-function-paren',
 		},
-		'Space In Parens': {
+		'space-in-parens': {
 			description: 'Enforce consistent spacing inside parentheses',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'space-in-parens',
 		},
-		'Space Infix Ops': {
+		'space-infix-ops': {
 			description: 'Require spacing around infix operators',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'space-infix-ops',
 		},
-		'Space Unary Ops': {
+		'space-unary-ops': {
 			description: 'Enforce consistent spacing before or after unary operators',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'space-unary-ops',
 		},
-		'Switch Colon Spacing': {
+		'switch-colon-spacing': {
 			description: 'Enforce spacing around colons of switch statements',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'switch-colon-spacing',
 		},
-		'Template Curly Spacing': {
+		'template-curly-spacing': {
 			description: 'Require or disallow spacing around embedded expressions of template strings',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'template-curly-spacing',
 		},
-		'Template Tag Spacing': {
+		'template-tag-spacing': {
 			description: 'Require or disallow spacing between template tags and their literals',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'template-tag-spacing',
 		},
-		'Unicode Bom': {
+		'unicode-bom': {
 			description: 'Require or disallow Unicode byte order mark (BOM)',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'unicode-bom',
 		},
-		'Wrap Iife': {
+		'wrap-iife': {
 			description: 'Require parentheses around immediate `function` invocations',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'wrap-iife',
 		},
-		'Wrap Regex': {
+		'wrap-regex': {
 			description: 'Require parenthesis around regex literals',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'wrap-regex',
 		},
-		'Yield Star Spacing': {
+		'yield-star-spacing': {
 			description: 'Require or disallow spacing around the `*` in `yield*` expressions',
-			hasAutoFix: true,
+			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configApi: 'yield-star-spacing',
 		},
 	},
 	configuration: {
@@ -1622,7 +1358,7 @@ export const eslintData: ILibraryData = {
 		env: {
 			title: 'Env',
 			description: 'An environment provides predefined global variables',
-			type: 'multi-configuration',
+			type: 'object-configuration',
 			configuration: {
 				'browser': {
 					title: null,
@@ -1789,7 +1525,7 @@ export const eslintData: ILibraryData = {
 		parserOptions: {
 			title: 'Parser Options',
 			description: 'ESLint allows you to specify the JavaScript language options you want to support.',
-			type: 'multi-configuration',
+			type: 'object-configuration',
 			configuration: {
 				ecmaVersion: {
 					title: 'ECMA Version',
@@ -1833,7 +1569,7 @@ export const eslintData: ILibraryData = {
 				ecmaFeatures: {
 					title: 'ECMA Features',
 					description: 'Nn object indicating which additional language features you’d like to use',
-					type: 'multi-configuration',
+					type: 'object-configuration',
 					configuration: {
 						globalReturn: {
 							title: null,
@@ -1858,8 +1594,15 @@ export const eslintData: ILibraryData = {
 			title: 'Globals',
 			description:
 				'An object specifying additional objects that should be added to the global scope during linting.',
-			type: 'dynamic-select',
-			values: [true, false, 'off', 'readable', 'writable', 'writeable'],
+			type: 'dynamic-array-configuration',
+			configuration: [
+				{
+					title: 'RegEx Matcher',
+					description: 'Inflint will apply the alias name to match the provided RegEx.',
+					type: 'select',
+					values: [true, false, 'off', 'readable', 'writable', 'writeable'],
+				},
+			],
 		},
 		ignorePatterns: {
 			title: 'Ignore Patterns',

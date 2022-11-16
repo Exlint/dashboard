@@ -9,6 +9,8 @@ import { StreamLanguage, LanguageSupport } from '@codemirror/language';
 import { yaml } from '@codemirror/legacy-modes/mode/yaml';
 import { CodeType } from '@prisma/client';
 
+import styles from '@/styles/_variables.scss';
+
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';
 import EDBooleanButton from '../EDBooleanButton';
@@ -36,12 +38,12 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	const editorTheme = createTheme({
 		theme: 'light',
 		settings: {
-			background: '#fefefe',
-			foreground: '#161616',
-			caret: '#161616',
-			gutterBackground: '#fefefe',
-			gutterBorder: '#e7e7e7',
-			gutterForeground: '#161616',
+			background: styles['whites-white']!,
+			foreground: styles['blacks-dark-gunmetal']!,
+			caret: styles['blacks-dark-gunmetal'],
+			gutterBackground: styles['whites-white'],
+			gutterBorder: styles['greys-platinum'],
+			gutterForeground: styles['blacks-dark-gunmetal'],
 		},
 		styles: [
 			{ tag: [tags.comment, tags.bracket], color: '#6a737d' },

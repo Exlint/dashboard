@@ -1,30 +1,30 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: map.get($sizes, spacing-xxl-4);
-	border: 2px solid map.get($colors, greys-platinum);
+	margin-bottom: map.get(variables.$sizes, spacing-xxl-4);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 }
 
 .actionContainer {
 	display: flex;
 	justify-content: flex-end;
-	padding: map.get($sizes, spacing-l);
-	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 }
 
 .codeContainer {
-	padding: map.get($sizes, spacing-l);
+	padding: map.get(variables.$sizes, spacing-l);
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-gutters) {
-	margin-inline-end: map.get($sizes, spacing-l);
+	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -45,5 +45,5 @@
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-lineNumbers) {
-	margin-inline-end: map.get($sizes, spacing-l);
+	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }

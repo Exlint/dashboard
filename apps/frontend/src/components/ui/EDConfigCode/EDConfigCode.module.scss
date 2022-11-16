@@ -1,12 +1,12 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
 	flex-direction: column;
-	margin-block: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl-4);
-	border: 2px solid map.get($colors, greys-platinum);
+	margin-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl-4);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 }
 
@@ -14,38 +14,38 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	padding: map.get($sizes, spacing-l);
-	background-color: map.get($colors, whites-ghost-white);
-	border-bottom: 2px solid map.get($colors, greys-platinum);
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
 
 	&__instruction {
-		margin-inline-start: map.get($sizes, spacing-l);
+		margin-inline-start: map.get(variables.$sizes, spacing-l);
 		font-size: 1.5rem;
 		font-weight: 500;
-		color: map.get($colors, greys-onyx);
+		color: map.get(variables.$colors, greys-onyx);
 	}
 
 	&__fileTypeSelect {
 		width: 87px;
-		margin-inline: map.get($sizes, spacing-m) map.get($sizes, spacing-l);
+		margin-inline: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);
 	}
 
 	&__fileTypeSelectInner {
-		background-color: map.get($colors, whites-ghost-white) !important;
+		background-color: map.get(variables.$colors, whites-ghost-white) !important;
 	}
 
 	&__fileTypeSelectInnerOptions {
-		background-color: map.get($colors, whites-ghost-white) !important;
+		background-color: map.get(variables.$colors, whites-ghost-white) !important;
 	}
 }
 
 .codeContainer {
-	padding: map.get($sizes, spacing-l);
+	padding: map.get(variables.$sizes, spacing-l);
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-gutters) {
-	margin-inline-end: map.get($sizes, spacing-l);
+	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -66,5 +66,5 @@
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-lineNumbers) {
-	margin-inline-end: map.get($sizes, spacing-l);
+	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }

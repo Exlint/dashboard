@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -10,5 +10,5 @@
 
 .content {
 	display: flex;
-	padding: map.get($sizes, spacing-xl) map.get($sizes, spacing-xxl-5);
+	padding: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl-5);
 }

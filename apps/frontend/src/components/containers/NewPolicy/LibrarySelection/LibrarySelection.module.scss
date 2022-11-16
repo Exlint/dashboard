@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import '../../../../styles/variables.scss';
+@use '@/styles/variables.scss';
 
 .container {
 	display: flex;
@@ -9,10 +9,10 @@
 	width: 100%;
 
 	&__header {
-		margin-bottom: map.get($sizes, spacing-m);
+		margin-bottom: map.get(variables.$sizes, spacing-m);
 		font-size: 1.7rem;
 		font-weight: 500;
-		color: map.get($colors, greys-onyx);
+		color: map.get(variables.$colors, greys-onyx);
 	}
 
 	.filtersContainer {
@@ -20,9 +20,9 @@
 
 		&__input {
 			width: 493px;
-			margin-inline-end: map.get($sizes, spacing-l);
-			background-color: map.get($colors, whites-white);
-			border: 2px solid map.get($colors, greys-platinum);
+			margin-inline-end: map.get(variables.$sizes, spacing-l);
+			background-color: map.get(variables.$colors, whites-white);
+			border: 2px solid map.get(variables.$colors, greys-platinum);
 			box-shadow: 0 10px 20px 0 #00000040;
 		}
 
@@ -34,5 +34,5 @@
 
 .filtersAndLibraries {
 	display: flex;
-	margin-top: map.get($sizes, spacing-xxl);
+	margin-top: map.get(variables.$sizes, spacing-xxl);
 }

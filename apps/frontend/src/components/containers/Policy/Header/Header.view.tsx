@@ -16,6 +16,7 @@ interface IProps {
 	readonly library: PolicyLibrary | null;
 	readonly groupId: string;
 	readonly policyId: string;
+	readonly hasRules: boolean;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -68,7 +69,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 				</div>
 			</div>
 
-			<Tabs />
+			<Tabs hasRules={props.hasRules} />
 		</header>
 	);
 };

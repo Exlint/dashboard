@@ -1,0 +1,74 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 477px;
+	min-width: 477px;
+	overflow: hidden;
+	border: 2px solid map.get(variables.$colors, greys-platinum);
+	border-radius: 6px;
+
+	&--selected {
+		border-color: map.get(variables.$colors, purples-purple);
+	}
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
+
+	.headerTextContainer {
+		display: flex;
+		flex-direction: column;
+		margin-inline-end: map.get(variables.$sizes, spacing-l);
+
+		&__name {
+			margin-bottom: map.get(variables.$sizes, spacing-s);
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: map.get(variables.$colors, greys-onyx);
+			word-break: break-all;
+		}
+
+		&__instruction {
+			font-size: 1.5rem;
+			color: map.get(variables.$colors, greys-onyx);
+		}
+	}
+
+	&__text {
+		margin-inline-end: map.get(variables.$sizes, spacing-l);
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: map.get(variables.$colors, greys-onyx);
+		word-break: break-all;
+	}
+}
+
+.instructionContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-block: map.get(variables.$sizes, spacing-xxl);
+	background-color: map.get(variables.$colors, whites-white);
+
+	&__text {
+		margin-bottom: map.get(variables.$sizes, spacing-l);
+		font-size: 1.5rem;
+		color: map.get(variables.$colors, greys-independence-grey);
+		text-align: center;
+	}
+
+	&__icon {
+		width: 14px;
+		height: auto;
+		fill: map.get(variables.$colors, greys-philippine-gray);
+	}
+}

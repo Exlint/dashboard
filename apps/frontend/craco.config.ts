@@ -1,3 +1,5 @@
+import path from 'path';
+
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import type { CracoConfig } from '@craco/craco';
 
@@ -19,6 +21,9 @@ const config: CracoConfig = {
 			},
 		},
 	],
+	webpack: {
+		alias: { '@/styles': path.resolve(__dirname, 'src', 'styles') },
+	},
 };
 
 export default config;

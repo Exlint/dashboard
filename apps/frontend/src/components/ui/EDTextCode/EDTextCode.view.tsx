@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import CodeMirror from '@uiw/react-codemirror';
 import { createTheme } from '@uiw/codemirror-themes';
 
+import styles from '@/styles/_variables.scss';
+
 import EDAcceptButton from '../EDAcceptButton';
 
 import classes from './EDTextCode.module.scss';
@@ -20,12 +22,12 @@ const EDTextCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 	const editorTheme = createTheme({
 		theme: 'light',
 		settings: {
-			background: '#fefefe',
-			foreground: '#161616',
-			caret: '#161616',
-			gutterBackground: '#fefefe',
-			gutterBorder: '#e7e7e7',
-			gutterForeground: '#161616',
+			background: styles['whites-white']!,
+			foreground: styles['blacks-dark-gunmetal']!,
+			caret: styles['blacks-dark-gunmetal'],
+			gutterBackground: styles['whites-white'],
+			gutterBorder: styles['greys-platinum'],
+			gutterForeground: styles['blacks-dark-gunmetal'],
 		},
 		styles: [],
 	});

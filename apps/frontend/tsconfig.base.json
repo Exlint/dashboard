@@ -17,7 +17,8 @@
 			"@/images/*": ["src/assets/images/*"],
 			"@/assets/*": ["src/assets/*"],
 			"@/hooks/*": ["src/hooks/*"],
-			"@/models/*": ["src/models/*"]
+			"@/models/*": ["src/models/*"],
+			"@/styles/*": ["src/styles/*"]
 		},
 		"typeRoots": ["./@types", "./node_modules/@types"],
 		"plugins": [{ "name": "typescript-plugin-css-modules" }]

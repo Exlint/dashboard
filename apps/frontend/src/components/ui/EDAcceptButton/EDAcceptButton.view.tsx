@@ -8,40 +8,56 @@ import type { IProps } from './interface/props';
 import classes from './EDAcceptButton.module.scss';
 
 const EDAcceptButtonView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	if (props.type === 'submit') {
-		return (
-			<button
-				className={concatDiverseClasses(classes['container'], props.className)}
-				type="submit"
-				disabled={props.disabled}
-			>
-				{props.iconName ? (
-					<>
-						<span className={classes['container__text']}>{props.children}</span>
-						<EDSvg className={classes['container__icon']} name={props.iconName} />
-					</>
-				) : (
-					props.children
-				)}
-			</button>
+	const onClickProps = props.type === 'submit' ? {} : { onClick: props.onClick };
+
+	let innerElementsToRender = props.children;
+
+	if (props.iconName && props.switchElementsOrder) {
+		innerElementsToRender = (
+			<>
+				<EDSvg
+					className={concatDiverseClasses(
+						classes['container__icon'],
+						classes['container__withMargin'],
+						props.iconClassName,
+					)}
+					name={props.iconName}
+				/>
+				<span className={concatDiverseClasses(classes['container__text'], props.textClassName)}>
+					{props.children}
+				</span>
+			</>
+		);
+	}
+
+	if (props.iconName && !props.switchElementsOrder) {
+		innerElementsToRender = (
+			<>
+				<span
+					className={concatDiverseClasses(
+						classes['container__text'],
+						classes['container__withMargin'],
+						props.textClassName,
+					)}
+				>
+					{props.children}
+				</span>
+				<EDSvg
+					className={concatDiverseClasses(classes['container__icon'], props.iconClassName)}
+					name={props.iconName}
+				/>
+			</>
 		);
 	}
 
 	return (
 		<button
 			className={concatDiverseClasses(classes['container'], props.className)}
-			type="button"
+			type={props.type === 'submit' ? 'submit' : 'button'}
 			disabled={props.disabled}
-			onClick={props.onClick}
+			{...onClickProps}
 		>
-			{props.iconName ? (
-				<>
-					<span className={classes['container__text']}>{props.children}</span>
-					<EDSvg className={classes['container__icon']} name={props.iconName} />
-				</>
-			) : (
-				props.children
-			)}
+			{innerElementsToRender}
 		</button>
 	);
 };

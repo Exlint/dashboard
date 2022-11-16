@@ -10,9 +10,9 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
+import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 
 import Routes from './inline-policies.routes';
-import { BelongingInlinePolicyGuard } from './guards/belonging-inline-policy.guard';
 import { SetIsFormConfigurationDto } from './classes/set-is-form-configuration.dto';
 import { SetIsFormConfigurationContract } from './commands/contracts/set-is-form-configuration.contract';
 

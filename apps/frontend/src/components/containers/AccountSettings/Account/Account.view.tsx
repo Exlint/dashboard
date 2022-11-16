@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { concatClasses } from '@/utils/component';
 import EDDeleteButton from '@/ui/EDDeleteButton';
 import EDAcceptButton from '@/ui/EDAcceptButton';
 
@@ -36,13 +35,7 @@ const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			</section>
 
 			<section className={classes['actionSection']}>
-				<h3
-					className={concatClasses(
-						classes,
-						'actionSection__header',
-						'actionSection__header--delete',
-					)}
-				>
+				<h3 className={classes['actionSection__header--delete']}>
 					{t('accountSettings.account.deleteAccountHeader')}
 				</h3>
 				<hr className={classes['actionSection__divider']} />

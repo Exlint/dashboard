@@ -7,21 +7,27 @@ import EDSvg from '@/ui/EDSvg';
 
 import classes from './Tabs.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly hasRules: boolean;
+}
 
-const TabsView: React.FC<IProps> = () => {
+const TabsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
 		<div className={classes['container']}>
-			<NavLink
-				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
-				to="rules"
-			>
-				<EDSvg className={classes['tab__icon']} name="rule" />
-				<span className={classes['tab__text']}>{t('policy.header.tabs.rules')}</span>
-				<div className={classes['tab__border']} />
-			</NavLink>
+			{props.hasRules && (
+				<NavLink
+					className={({ isActive }) =>
+						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
+					}
+					to="rules"
+				>
+					<EDSvg className={classes['tab__icon']} name="rule" />
+					<span className={classes['tab__text']}>{t('policy.header.tabs.rules')}</span>
+					<div className={classes['tab__border']} />
+				</NavLink>
+			)}
 			<NavLink
 				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
 				to="configurations"
@@ -30,14 +36,7 @@ const TabsView: React.FC<IProps> = () => {
 				<span className={classes['tab__text']}>{t('policy.header.tabs.configurations')}</span>
 				<div className={classes['tab__border']} />
 			</NavLink>
-			<NavLink
-				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
-				to="history"
-			>
-				<EDSvg className={classes['tab__icon']} name="history" />
-				<span className={classes['tab__text']}>{t('policy.header.tabs.history')}</span>
-				<div className={classes['tab__border']} />
-			</NavLink>
+
 			<NavLink
 				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
 				to="settings"

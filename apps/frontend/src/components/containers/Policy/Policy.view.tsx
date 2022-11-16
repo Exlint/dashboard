@@ -12,6 +12,7 @@ interface IProps {
 	readonly groupLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
+	readonly hasRules: boolean | null;
 	readonly onSetPolicyLabel: (value: string) => void;
 }
 
@@ -20,13 +21,20 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<div className={classes['container']}>
 			<Nav />
 			<main className={classes['content']}>
-				<Header
-					groupLabel={props.groupLabel}
-					policyLabel={props.policyLabel}
-					library={props.library}
-				/>
+				{props.hasRules !== null && (
+					<Header
+						groupLabel={props.groupLabel}
+						policyLabel={props.policyLabel}
+						library={props.library}
+						hasRules={props.hasRules}
+					/>
+				)}
 
-				<Outlet context={[props.policyLabel, props.onSetPolicyLabel, props.library]} />
+				{props.hasRules !== null && (
+					<Outlet
+						context={[props.policyLabel, props.onSetPolicyLabel, props.library, props.hasRules]}
+					/>
+				)}
 			</main>
 		</div>
 	);

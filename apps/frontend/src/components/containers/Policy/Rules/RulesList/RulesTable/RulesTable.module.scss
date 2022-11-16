@@ -1,0 +1,77 @@
+@use 'sass:map';
+
+@use '@/styles/variables.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	height: calc(
+		100vh - 186px - 36px - map.get(variables.$sizes, spacing-l) - map.get(variables.$sizes, spacing-xl) -
+			map.get(variables.$sizes, spacing-xxl)
+	);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
+	border-radius: 6px;
+}
+
+.rulesTableHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: map.get(variables.$sizes, spacing-l);
+	background-color: map.get(variables.$colors, whites-ghost-white);
+	border-bottom: 2px solid map.get(variables.$colors, greys-platinum);
+
+	.rulesTableFilters {
+		display: flex;
+		align-items: center;
+
+		%_rulesTableFiltersText {
+			font-size: 1.5rem;
+			color: map.get(variables.$colors, greys-onyx);
+		}
+
+		&__text {
+			@extend %_rulesTableFiltersText;
+		}
+
+		&__selectWrapper {
+			width: 230px;
+			margin-inline: map.get(variables.$sizes, spacing-xl);
+		}
+
+		&__select {
+			background-color: map.get(variables.$colors, whites-ghost-white);
+		}
+
+		&__selectOptions {
+			background-color: map.get(variables.$colors, whites-ghost-white);
+		}
+
+		&__autofixText {
+			@extend %_rulesTableFiltersText;
+
+			margin-inline-end: map.get(variables.$sizes, spacing-m);
+			font-weight: 500;
+		}
+	}
+
+	&__sortSelectWrapper {
+		width: 150px;
+	}
+
+	&__sortSelect {
+		background-color: map.get(variables.$colors, whites-ghost-white) !important;
+	}
+
+	&__sortSelectOptions {
+		background-color: map.get(variables.$colors, whites-ghost-white) !important;
+	}
+}
+
+.rulesTableRows {
+	display: flex;
+	flex-direction: column;
+	padding: map.get(variables.$sizes, spacing-l);
+	overflow-y: auto;
+	background-color: map.get(variables.$colors, whites-white);
+}

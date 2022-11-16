@@ -1,5 +1,5 @@
 import type { FilesListType } from '@exlint-dashboard/common';
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import type { CodeType, PolicyLibrary, Prisma } from '@prisma/client';
 
 import { librariesData } from '@/data/libraries-data';
@@ -9,6 +9,19 @@ import { PrismaService } from './prisma.service';
 @Injectable()
 export class DBInlinePolicyService {
 	constructor(private prisma: PrismaService) {}
+
+	public async getPolicyLibrary(policyId: string, userId: string) {
+		const policyRecord = await this.prisma.inlinePolicy.findFirst({
+			where: { id: policyId, group: { userId } },
+			select: { library: true },
+		});
+
+		if (!policyRecord) {
+			throw new UnauthorizedException();
+		}
+
+		return policyRecord.library;
+	}
 
 	public async createInlinePolicy(
 		groupId: string,
@@ -23,12 +36,12 @@ export class DBInlinePolicyService {
 		return createdRecord.id;
 	}
 
-	public async doesInlinePolicyBelongUser(inlinePolicyId: string, userId: string) {
-		const inlinePolicyDB = await this.prisma.inlinePolicy.findFirst({
-			where: { id: inlinePolicyId, group: { userId } },
+	public async doesInlinePolicyBelongUser(policyId: string, userId: string) {
+		const policyRecord = await this.prisma.inlinePolicy.findFirst({
+			where: { id: policyId, group: { userId } },
 		});
 
-		return inlinePolicyDB !== null;
+		return policyRecord !== null;
 	}
 
 	public async isLabelAvailable(userId: string, label: string) {
@@ -135,15 +148,19 @@ export class DBInlinePolicyService {
 	public async getPolicyRules(policyId: string, page: number) {
 		const [count, rulesData] = await this.prisma.$transaction([
 			this.prisma.rule.count({
-				where: { policyId },
+				where: { policyId, isEnabled: true },
 			}),
 			this.prisma.inlinePolicy.findUniqueOrThrow({
 				where: { id: policyId },
 				select: {
 					isFormConfiguration: true,
-					rules: { select: { id: true, name: true }, take: 10, skip: 10 * (page - 1) },
+					rules: {
+						where: { isEnabled: true },
+						select: { id: true, name: true },
+						take: 10,
+						skip: 10 * (page - 1),
+					},
 					description: true,
-					library: true,
 					createdAt: true,
 				},
 			}),
