@@ -5,7 +5,7 @@
 .container {
 	display: flex;
 	height: calc(100vh - 186px);
-	padding-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl-3);
+	padding-block: map.get(variables.$sizes, spacing-xl) map.get(variables.$sizes, spacing-xxl);
 	padding-inline: map.get(variables.$sizes, spacing-xxl);
 }
 

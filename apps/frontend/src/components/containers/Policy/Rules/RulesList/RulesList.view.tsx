@@ -3,7 +3,6 @@ import React from 'react';
 import type { Prisma } from '@prisma/client';
 
 import type { IEnabledRuleFilter } from './interfaces/rule-filter';
-import type { ISortOption } from './interfaces/rule-sort';
 import RuleConfiguration from './RuleConfiguration';
 import RulesFilters from './RulesFilters';
 import RulesTable from './RulesTable';
@@ -18,7 +17,6 @@ interface IProps {
 	readonly selectedCount: number;
 	readonly selectedCategoryFilterIndex: number;
 	readonly selectedSortIndex: number;
-	readonly sortOptions: ISortOption[];
 	readonly selectedRuleConfiguration?: Prisma.JsonArray | null;
 	readonly onSearchFilterChange: (value: string) => void;
 	readonly onSelectEnabledFilterClick: (value: IEnabledRuleFilter) => void;
@@ -47,7 +45,6 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					serverRules={props.serverRules}
 					selectedCategoryFilterIndex={props.selectedCategoryFilterIndex}
 					selectedSortIndex={props.selectedSortIndex}
-					sortOptions={props.sortOptions}
 					enabledFilter={props.enabledFilter}
 					searchFilter={props.searchFilter}
 					onAutofixClick={props.onAutofixClick}

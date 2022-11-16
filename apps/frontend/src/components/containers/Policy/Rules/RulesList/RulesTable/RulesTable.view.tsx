@@ -18,6 +18,7 @@ interface IProps {
 	readonly selectedCategoryFilterIndex: number;
 	readonly selectedSortIndex: number;
 	readonly sortOptions: ISortOption[];
+	readonly selectedRuleId?: string;
 	readonly onAutofixClick: VoidFunction;
 	readonly onSelectedCategoryFilterIndexChange: (index: number) => void;
 	readonly onSelectedSortIndexChange: (index: number) => void;
@@ -75,6 +76,7 @@ const RulesTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						category={ruleItem.category}
 						isEnabled={ruleItem.isEnabled}
 						hasAutofix={ruleItem.hasAutofix}
+						isSelected={ruleItem.id === props.selectedRuleId}
 						onDisableRule={() => ruleItem.id && props.onDisableRule(ruleItem.id)}
 						onEnableRule={() =>
 							ruleItem.id

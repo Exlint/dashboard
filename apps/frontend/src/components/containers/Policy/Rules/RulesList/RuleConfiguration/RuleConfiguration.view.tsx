@@ -3,6 +3,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import type { Prisma } from '@prisma/client';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
+import { concatClasses } from '@/utils/component';
 
 import classes from './RuleConfiguration.module.scss';
 
@@ -13,8 +14,14 @@ interface IProps {
 const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
+	const containerClasses = concatClasses(
+		classes,
+		'container',
+		props.selectedRuleConfiguration !== undefined ? 'container--selected' : null,
+	);
+
 	return (
-		<form className={classes['container']}>
+		<form className={containerClasses}>
 			<div className={classes['header']}>
 				<h5 className={classes['header__text']}>{t('policy.rulesList.ruleConfigurations.title')}</h5>
 

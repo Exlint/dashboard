@@ -9,6 +9,7 @@ interface IProps {
 	readonly category: ILibraryRule['category'];
 	readonly isEnabled: boolean;
 	readonly hasAutofix: boolean;
+	readonly isSelected?: boolean;
 	readonly onDisableRule: VoidFunction;
 	readonly onEnableRule: VoidFunction;
 }
@@ -21,6 +22,7 @@ const Rule: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			category={props.category}
 			isEnabled={props.isEnabled}
 			hasAutofix={props.hasAutofix}
+			isSelected={props.isSelected}
 			onDisableRule={props.onDisableRule}
 			onEnableRule={props.onEnableRule}
 		/>
