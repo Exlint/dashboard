@@ -41,14 +41,10 @@ const RulesList: React.FC<IProps> = () => {
 
 	const selectedCount = useMemo(() => rulesState.filter((rule) => rule.isEnabled).length, [rulesState]);
 
-	const selectedRuleConfiguration = useMemo(() => {
-		const matchingRule = rulesState.find((rule) => rule.id === params.ruleId);
+	const selectedRuleIndex = useMemo(() => {
+		const matchingRuleIndex = rulesState.findIndex((rule) => rule.id === params.ruleId);
 
-		if (!matchingRule) {
-			return undefined;
-		}
-
-		return matchingRule.id ? matchingRule.configuration : undefined;
+		return matchingRuleIndex === -1 ? null : matchingRuleIndex;
 	}, [params.ruleId, rulesState]);
 
 	useEffect(() => {
@@ -157,7 +153,7 @@ const RulesList: React.FC<IProps> = () => {
 			selectedCount={selectedCount}
 			selectedCategoryFilterIndex={selectedCategoryFilterIndexState}
 			selectedSortIndex={selectedSortIndexState}
-			selectedRuleConfiguration={selectedRuleConfiguration}
+			selectedRuleIndex={selectedRuleIndex}
 			onSearchFilterChange={onSearchFilterChange}
 			onSelectEnabledFilterClick={onSelectEnabledFilterClick}
 			onAutofixClick={onAutofixClick}

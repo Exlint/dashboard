@@ -5,7 +5,7 @@ import type { IGetRulesResponseData } from '@exlint-dashboard/common';
 import EDSelect from '@/ui/EDSelect';
 import EDCheckbox from '@/ui/EDCheckbox';
 
-import type { ISortOption } from '../interfaces/rule-sort';
+import type { ISortOption } from './interfaces/rule-sort';
 import type { ICategoryOption } from './interfaces/category-option';
 import Rule from './Rule';
 

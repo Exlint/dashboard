@@ -27,6 +27,7 @@ interface IProps {
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onAddNewRuleClick: VoidFunction;
 	readonly onRemoveRuleClick: (ruleId: string) => void;
+	readonly onConfigureRule: (ruleId: string) => void;
 }
 
 const PolicyRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -49,7 +50,12 @@ const PolicyRulesView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 	const rulesData = props.rulesData.map((rule) => [
 		rule.name,
 		rule.category,
-		<EDSvg key={rule.name} className={classes['editIcon']} name="editStroke" />,
+		<EDSvg
+			key={rule.name}
+			className={classes['editIcon']}
+			name="editStroke"
+			onClick={() => props.onConfigureRule(rule.id)}
+		/>,
 		rule.hasAutofix ? <EDSvg key={rule.name} className={classes['autofixIcon']} name="vStroke" /> : null,
 		<EDSvg
 			key={rule.name}

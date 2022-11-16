@@ -13,6 +13,7 @@ const Policy: React.FC<IProps> = () => {
 	const [groupLabelState, setGroupLabelState] = useState<string | null>(null);
 	const [policyLabelState, setPolicyLabelState] = useState<string | null>(null);
 	const [libraryState, setLibraryState] = useState<PolicyLibrary | null>(null);
+	const [hasRulesState, setHasRulesState] = useState<boolean | null>(null);
 
 	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
 	const navigate = useNavigate();
@@ -26,6 +27,7 @@ const Policy: React.FC<IProps> = () => {
 				setGroupLabelState(() => response.data.groupLabel);
 				setPolicyLabelState(() => response.data.label);
 				setLibraryState(() => response.data.library);
+				setHasRulesState(() => response.data.hasRules);
 			})
 			.catch(() => navigate(`/group-center/${params.groupId}`));
 	}, [backendApi, params.groupId, params.policyId]);
@@ -35,6 +37,7 @@ const Policy: React.FC<IProps> = () => {
 			groupLabel={groupLabelState}
 			policyLabel={policyLabelState}
 			library={libraryState}
+			hasRules={hasRulesState}
 			onSetPolicyLabel={onSetPolicyLabel}
 		/>
 	);

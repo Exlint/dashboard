@@ -56,8 +56,8 @@ const RulesTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	const filteredRules = useMemo(() => {
 		const rules = props.serverRules.filter((rule) => {
 			if (
-				(props.enabledFilter === 'enabled' && !rule.id) ||
-				(props.enabledFilter === 'notEnabled' && rule.id)
+				(props.enabledFilter === 'enabled' && !rule.isEnabled) ||
+				(props.enabledFilter === 'notEnabled' && rule.isEnabled)
 			) {
 				return false;
 			}
