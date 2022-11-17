@@ -1,0 +1,38 @@
+name: Deploy STAGING - New
+
+on:
+    push:
+        paths:
+            - './apps/frontend/**/*'
+            - './packages/common/**/*'
+        branches:
+            - PRODUCTION
+
+env:
+    CF-DISTRIBUTION-ID: E2CLWNFUWOUWUL
+
+jobs:
+    deploy:
+        steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.0.4
+              with:
+                  node-version: 18.12.1
+                  package-manager: pnpm
+                  package-manager-version: 7.16.0
+
+            - name: Build frontend
+              run: 'pnpm exec nx build @exlint-dashboard/frontend'
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Deploy S3
+              run: aws s3 sync ./apps/frontend/build s3://dashboard-frontend
+
+            - name: CF create invalidation
+              run: aws cloudfront create-invalidation --distribution-id ${{ env.CF-DISTRIBUTION-ID }} --paths "/"
