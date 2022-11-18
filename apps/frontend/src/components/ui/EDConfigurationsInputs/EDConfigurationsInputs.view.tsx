@@ -6,7 +6,8 @@ import EDStringOrNumber from '@/ui/EDStringOrNumber';
 import EDBoolean from '@/ui/EDBoolean';
 import EDMultiFree from '@/ui/EDMultiFree';
 import EDSelectConfiguration from '@/ui/EDSelectConfiguration';
-import EDMultiConfiguration from '@/ui/EDMultiConfiguration';
+import EDObjectConfiguration from '@/ui/EDObjectConfiguration';
+import EDArrayConfiguration from '@/ui/EDArrayConfiguration';
 import EDDynamicArrayConfiguration from '@/ui/EDDynamicArrayConfiguration';
 
 import classes from './EDConfigurationsInputs.module.scss';
@@ -14,11 +15,9 @@ import classes from './EDConfigurationsInputs.module.scss';
 interface IProps {
 	readonly configName?: string;
 	readonly formSchema?: ILibraryData['configuration'] | null;
-	readonly nestedKeys: string[] | null;
 	readonly isNestedBodyVisible?: boolean;
 	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
 	readonly onToggleNestedBody?: () => void;
-	readonly onChangeNestedkeys: (_: string | null) => void;
 }
 
 const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -26,8 +25,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 		props.formSchema &&
 		Object.entries(props.formSchema).map((item, i) => {
 			if (item[1].type === 'string') {
-				props.onChangeNestedkeys(null);
-
 				return (
 					<div key={i} className={classes['item']}>
 						<EDStringOrNumber
@@ -43,8 +40,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 			}
 
 			if (item[1].type === 'number') {
-				props.onChangeNestedkeys(null);
-
 				return (
 					<div key={i} className={classes['item']}>
 						<EDStringOrNumber
@@ -60,8 +55,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 			}
 
 			if (item[1].type === 'boolean') {
-				props.onChangeNestedkeys(null);
-
 				return (
 					<div key={i} className={classes['item']}>
 						<EDBoolean
@@ -77,8 +70,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 			}
 
 			if (item[1].type === 'select') {
-				props.onChangeNestedkeys(null);
-
 				return (
 					<div key={i} className={classes['item']}>
 						<EDSelectConfiguration
@@ -95,8 +86,6 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 			}
 
 			if (item[1].type === 'multi-free') {
-				props.onChangeNestedkeys(null);
-
 				return (
 					<div key={i} className={classes['item']}>
 						<EDMultiFree
@@ -111,16 +100,27 @@ const EDConfigurationsInputsView: React.FC<IProps> = (props: React.PropsWithChil
 				);
 			}
 
-			if (item[1].type === 'multi-configuration') {
+			if (item[1].type === 'object-configuration') {
 				return (
-					<EDMultiConfiguration
+					<EDObjectConfiguration
 						key={i}
 						configName={item[0]}
-						nestedKeys={props.nestedKeys}
 						title={item[1].title}
 						description={item[1].description}
 						configuration={item[1].configuration}
-						onChangeNestedkeys={props.onChangeNestedkeys}
+						onChangeFormConfiguration={props.onChangeFormConfiguration}
+					/>
+				);
+			}
+
+			if (item[1].type === 'array-configuration') {
+				return (
+					<EDArrayConfiguration
+						key={i}
+						configName={item[0]}
+						title={item[1].title}
+						description={item[1].description}
+						configuration={item[1].configuration}
 						onChangeFormConfiguration={props.onChangeFormConfiguration}
 					/>
 				);

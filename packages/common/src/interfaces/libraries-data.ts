@@ -38,6 +38,7 @@ interface IObjectConfiguration extends IBaseConfiguration {
 }
 
 interface IArrayConfiguration extends IBaseConfiguration {
+	readonly type: 'array-configuration';
 	readonly configuration: IConfigurationValue[];
 }
 

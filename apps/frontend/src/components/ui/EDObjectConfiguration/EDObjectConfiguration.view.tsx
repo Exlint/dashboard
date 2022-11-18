@@ -6,21 +6,19 @@ import EDSvg from '@/ui/EDSvg';
 import EDConfigurationsInputs from '@/ui/EDConfigurationsInputs';
 import { concatClasses } from '@/utils/component';
 
-import classes from './EDMultiConfiguration.module.scss';
+import classes from './EDObjectConfiguration.module.scss';
 
 interface IProps {
 	readonly configName: string;
 	readonly title: string | null;
-	readonly nestedKeys: string[] | null;
 	readonly description: string | null;
 	readonly configuration: Record<string, IConfigurationValue> | null;
 	readonly isNestedBodyVisible: boolean;
 	readonly onToggleNestedBody: () => void;
 	readonly onChangeFormConfiguration: (_: string, __: unknown) => void;
-	readonly onChangeNestedkeys: (_: string | null) => void;
 }
 
-const EDMultiConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const EDObjectConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const arrowIcon = props.isNestedBodyVisible
 		? concatClasses(classes, 'innerIcon__icon', 'innerIcon__icon--rotate')
 		: classes['innerIcon__icon'];
@@ -43,12 +41,10 @@ const EDMultiConfigurationView: React.FC<IProps> = (props: React.PropsWithChildr
 				<div className={classes['container__body']}>
 					<EDConfigurationsInputs
 						configName={props.configName}
-						nestedKeys={props.nestedKeys}
 						formSchema={props.configuration}
 						isNestedBodyVisible={props.isNestedBodyVisible}
 						onChangeFormConfiguration={props.onChangeFormConfiguration}
 						onToggleNestedBody={props.onToggleNestedBody}
-						onChangeNestedkeys={props.onChangeNestedkeys}
 					/>
 				</div>
 			)}
@@ -58,7 +54,7 @@ const EDMultiConfigurationView: React.FC<IProps> = (props: React.PropsWithChildr
 	);
 };
 
-EDMultiConfigurationView.displayName = 'EDMultiConfigurationView';
-EDMultiConfigurationView.defaultProps = {};
+EDObjectConfigurationView.displayName = 'EDObjectConfigurationView';
+EDObjectConfigurationView.defaultProps = {};
 
-export default React.memo(EDMultiConfigurationView);
+export default React.memo(EDObjectConfigurationView);
