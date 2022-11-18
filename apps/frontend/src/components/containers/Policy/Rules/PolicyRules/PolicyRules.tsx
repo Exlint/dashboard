@@ -68,9 +68,12 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 
 	const onAddNewRuleClick = () => navigate('rules-list');
 
+	const onConfigureRule = (ruleId: string) => navigate(`rules-list/${ruleId}`);
+
 	const onRemoveRuleClick = (ruleId: string) => {
 		backendApi.delete(`/user/rules/${ruleId}`).then(() => {
 			setRulesDataState((prev) => prev.filter((ruleItem) => ruleItem.id !== ruleId));
+			setRulestotalCountState((prev) => prev! - 1);
 		});
 	};
 
@@ -102,6 +105,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			onIsSwitchCheckedChange={onIsSwitchCheckedChange}
 			onAddNewRuleClick={onAddNewRuleClick}
 			onRemoveRuleClick={onRemoveRuleClick}
+			onConfigureRule={onConfigureRule}
 		/>
 	);
 };

@@ -47,16 +47,6 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					className={({ isActive }) =>
 						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
 					}
-					to="history"
-				>
-					<EDSvg className={classes['tab__icon']} name="history" />
-					<span className={classes['tab__text']}>{t('groupCenter.tabs.history')}</span>
-					<div className={classes['tab__border']} />
-				</NavLink>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)
-					}
 					to="settings"
 				>
 					<EDSvg className={classes['tab__icon']} name="settings" />

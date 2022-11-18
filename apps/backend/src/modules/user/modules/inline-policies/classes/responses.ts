@@ -93,6 +93,12 @@ export class GetPolicyResponse implements IGetPolicyResponseData {
 		example: PolicyLibrary.ESLint,
 	})
 	public library!: PolicyLibrary;
+
+	@ApiResponseProperty({
+		type: Boolean,
+		example: true,
+	})
+	public hasRules!: boolean;
 }
 
 export class GetFilesListResponse implements IGetFilesListResponseData {

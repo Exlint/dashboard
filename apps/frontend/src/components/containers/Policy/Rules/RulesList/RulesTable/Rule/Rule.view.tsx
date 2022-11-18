@@ -4,6 +4,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import EDBooleanButton from '@/ui/EDBooleanButton';
+import { concatClasses } from '@/utils/component';
 
 import classes from './Rule.module.scss';
 
@@ -13,6 +14,7 @@ interface IProps {
 	readonly category: ILibraryRule['category'];
 	readonly isEnabled: boolean;
 	readonly hasAutofix: boolean;
+	readonly isSelected?: boolean;
 	readonly onDisableRule: VoidFunction;
 	readonly onEnableRule: VoidFunction;
 }
@@ -21,9 +23,9 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={classes['container']}>
+		<div className={concatClasses(classes, 'container', props.isSelected ? 'container--selected' : null)}>
 			<div className={classes['ruleDetailsContainer']}>
-				<div className={classes['ruleDetails']}>
+				<div className={concatClasses(classes, 'ruleDetails', 'ruleDetails--description')}>
 					<span className={classes['ruleDetails__boldText']}>{props.name}</span>
 					<span className={classes['ruleDetails__text']}>{props.description}</span>
 				</div>
@@ -42,9 +44,21 @@ const RuleView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 			<div className={classes['ruleActionsContainer']}>
 				<EDAcceptButton
-					className={classes['ruleActionsContainer__button']}
-					textClassName={classes['ruleActionsContainer__buttonText']}
-					iconClassName={classes['ruleActionsContainer__buttonIcon']}
+					className={concatClasses(
+						classes,
+						'ruleActionsContainer__button',
+						props.isSelected ? 'ruleActionsContainer__button--selected' : null,
+					)}
+					textClassName={concatClasses(
+						classes,
+						'ruleActionsContainer__buttonText',
+						props.isSelected ? 'ruleActionsContainer__buttonText--selected' : null,
+					)}
+					iconClassName={concatClasses(
+						classes,
+						'ruleActionsContainer__buttonIcon',
+						props.isSelected ? 'ruleActionsContainer__buttonIcon--selected' : null,
+					)}
 					iconName="configurations"
 					type="button"
 					disabled={false}

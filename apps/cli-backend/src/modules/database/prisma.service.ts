@@ -2,6 +2,8 @@ import { type INestApplication, type OnModuleInit, Injectable } from '@nestjs/co
 import { PrismaClient } from '@prisma/client';
 import promiseRetry from 'promise-retry';
 
+import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
+
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
 	async onModuleInit() {
@@ -20,7 +22,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 						createdAt: 1,
 					},
 					name: 'Refresh Token Index',
-					expireAfterSeconds: 3 * 60,
+					expireAfterSeconds: JWT_REFRESH_TOKEN_DURATION_MINUTES * 60,
 				},
 			],
 		}).catch(() => {

@@ -10,10 +10,10 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
 
 import Routes from './rules.routes';
 import { EnableExistContract } from './commands/contracts/enable-exist.contract';
+import { BelongingRuleGuard } from './guards/belonging-rule.guard';
 
 @ApiTags('Rules')
 @Controller(Routes.CONTROLLER)
@@ -29,7 +29,7 @@ export class EnableExistController {
 		description: 'If access token is either missing or invalid, or rule does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to enable the rule' })
-	@UseGuards(RuleablePolicyGuard)
+	@UseGuards(BelongingRuleGuard)
 	@Patch(Routes.ENABLE_EXIST_RULE)
 	@HttpCode(HttpStatus.OK)
 	public async enableRule(

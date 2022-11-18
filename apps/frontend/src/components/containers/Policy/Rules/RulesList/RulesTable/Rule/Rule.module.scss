@@ -11,6 +11,10 @@
 	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 
+	&--selected {
+		border-color: map.get(variables.$colors, purples-purple);
+	}
+
 	&:not(:last-child) {
 		margin-bottom: map.get(variables.$sizes, spacing-l);
 	}
@@ -22,9 +26,10 @@
 		.ruleDetails {
 			display: flex;
 			flex-direction: column;
+			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 
-			&:not(:last-child) {
-				margin-inline-end: map.get(variables.$sizes, spacing-xxl);
+			&--description {
+				width: 377px;
 			}
 
 			%_ruleDetailsText {
@@ -53,17 +58,29 @@
 			margin-inline-end: map.get(variables.$sizes, spacing-l);
 			background-color: map.get(variables.$colors, whites-ghost-white);
 			border: 2px solid map.get(variables.$colors, greys-platinum);
+
+			&--selected {
+				pointer-events: none;
+			}
 		}
 
 		&__buttonText {
 			font-weight: normal;
 			color: map.get(variables.$colors, greys-onyx);
+
+			&--selected {
+				color: map.get(variables.$colors, greys-philippine-gray);
+			}
 		}
 
 		&__buttonIcon {
 			width: 14px;
 			height: auto;
 			fill: map.get(variables.$colors, greys-onyx);
+
+			&--selected {
+				fill: map.get(variables.$colors, greys-philippine-gray);
+			}
 		}
 	}
 }

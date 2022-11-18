@@ -1,9 +1,7 @@
 import type { IGetRulesResponseData } from '@exlint-dashboard/common';
 import React from 'react';
-import type { Prisma } from '@prisma/client';
 
 import type { IEnabledRuleFilter } from './interfaces/rule-filter';
-import type { ISortOption } from './interfaces/rule-sort';
 import RuleConfiguration from './RuleConfiguration';
 import RulesFilters from './RulesFilters';
 import RulesTable from './RulesTable';
@@ -18,8 +16,7 @@ interface IProps {
 	readonly selectedCount: number;
 	readonly selectedCategoryFilterIndex: number;
 	readonly selectedSortIndex: number;
-	readonly sortOptions: ISortOption[];
-	readonly selectedRuleConfiguration?: Prisma.JsonArray | null;
+	readonly selectedRuleIndex: number | null;
 	readonly onSearchFilterChange: (value: string) => void;
 	readonly onSelectEnabledFilterClick: (value: IEnabledRuleFilter) => void;
 	readonly onAutofixClick: VoidFunction;
@@ -31,6 +28,17 @@ interface IProps {
 }
 
 const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const selectedRuleId =
+		props.selectedRuleIndex !== null ? props.serverRules[props.selectedRuleIndex]?.id ?? null : null;
+
+	const selectedRuleName =
+		props.selectedRuleIndex !== null ? props.serverRules[props.selectedRuleIndex]?.name ?? null : null;
+
+	const selectedRuleConfiguration =
+		props.selectedRuleIndex !== null
+			? props.serverRules[props.selectedRuleIndex]?.configuration ?? null
+			: null;
+
 	return (
 		<div className={classes['container']}>
 			<div className={classes['rulesContainer']}>
@@ -47,7 +55,6 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					serverRules={props.serverRules}
 					selectedCategoryFilterIndex={props.selectedCategoryFilterIndex}
 					selectedSortIndex={props.selectedSortIndex}
-					sortOptions={props.sortOptions}
 					enabledFilter={props.enabledFilter}
 					searchFilter={props.searchFilter}
 					onAutofixClick={props.onAutofixClick}
@@ -59,7 +66,11 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				/>
 			</div>
 
-			<RuleConfiguration selectedRuleConfiguration={props.selectedRuleConfiguration} />
+			<RuleConfiguration
+				ruleId={selectedRuleId}
+				ruleName={selectedRuleName}
+				ruleConfiguration={selectedRuleConfiguration}
+			/>
 		</div>
 	);
 };

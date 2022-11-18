@@ -5,6 +5,8 @@
 .container {
 	display: flex;
 	align-items: center;
+	height: 36px;
+	margin-bottom: map.get(variables.$sizes, spacing-l);
 
 	.enabledFilters {
 		display: flex;

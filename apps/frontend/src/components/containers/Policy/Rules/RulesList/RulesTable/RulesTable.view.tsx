@@ -5,7 +5,7 @@ import type { IGetRulesResponseData } from '@exlint-dashboard/common';
 import EDSelect from '@/ui/EDSelect';
 import EDCheckbox from '@/ui/EDCheckbox';
 
-import type { ISortOption } from '../interfaces/rule-sort';
+import type { ISortOption } from './interfaces/rule-sort';
 import type { ICategoryOption } from './interfaces/category-option';
 import Rule from './Rule';
 
@@ -18,6 +18,7 @@ interface IProps {
 	readonly selectedCategoryFilterIndex: number;
 	readonly selectedSortIndex: number;
 	readonly sortOptions: ISortOption[];
+	readonly selectedRuleId?: string;
 	readonly onAutofixClick: VoidFunction;
 	readonly onSelectedCategoryFilterIndexChange: (index: number) => void;
 	readonly onSelectedSortIndexChange: (index: number) => void;
@@ -75,6 +76,7 @@ const RulesTableView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						category={ruleItem.category}
 						isEnabled={ruleItem.isEnabled}
 						hasAutofix={ruleItem.hasAutofix}
+						isSelected={ruleItem.id === props.selectedRuleId}
 						onDisableRule={() => ruleItem.id && props.onDisableRule(ruleItem.id)}
 						onEnableRule={() =>
 							ruleItem.id

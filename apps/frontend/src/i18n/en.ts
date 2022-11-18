@@ -135,7 +135,6 @@ const en = {
 		},
 		tabs: {
 			policies: 'Policies',
-			history: 'History',
 			settings: 'Settings',
 		},
 		settings: {
@@ -223,7 +222,6 @@ const en = {
 			tabs: {
 				rules: 'Rules',
 				configurations: 'Configurations',
-				history: 'History',
 				settings: 'Settings',
 			},
 		},

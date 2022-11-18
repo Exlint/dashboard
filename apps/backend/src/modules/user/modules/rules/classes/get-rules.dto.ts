@@ -38,6 +38,12 @@ class RuleItem {
 		example: 'Yazif Category',
 	})
 	public category!: string;
+
+	@ApiResponseProperty({
+		type: Boolean,
+		example: true,
+	})
+	public isEnabled!: boolean;
 }
 
 export class GetRulesResponse implements IGetRulesResponseData {

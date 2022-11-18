@@ -31,6 +31,10 @@
 			font-size: 1.5rem;
 			color: map.get(variables.$colors, greys-philippine-gray);
 
+			&:not(:last-child) {
+				margin-inline-end: map.get(variables.$sizes, spacing-m);
+			}
+
 			&--fixed {
 				width: 52px;
 				min-width: 52px;

@@ -22,11 +22,14 @@
 			align-items: center;
 			width: 100%;
 			height: 100%;
-			overflow-x: hidden;
+			overflow: hidden;
 			font-size: 1.5rem;
 			color: map.get(variables.$colors, greys-independence-grey);
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			word-break: keep-all;
+
+			&:not(:last-child) {
+				margin-inline-end: map.get(variables.$sizes, spacing-m);
+			}
 
 			&--fixed {
 				width: 52px;

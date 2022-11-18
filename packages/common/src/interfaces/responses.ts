@@ -23,6 +23,7 @@ export interface IAutoAuthResponseData extends Pick<User, 'id' | 'name'> {
 
 export interface IGetPolicyResponseData extends Pick<InlinePolicy, 'label' | 'library'> {
 	readonly groupLabel: string;
+	readonly hasRules: boolean;
 }
 
 export interface ICreatePolicyResponseData extends Pick<InlinePolicy, 'id'> {}

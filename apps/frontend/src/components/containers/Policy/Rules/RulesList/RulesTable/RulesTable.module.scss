@@ -5,8 +5,10 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	margin-top: map.get(variables.$sizes, spacing-l);
+	height: calc(
+		100vh - 186px - 36px - map.get(variables.$sizes, spacing-l) - map.get(variables.$sizes, spacing-xl) -
+			map.get(variables.$sizes, spacing-xxl)
+	);
 	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 }
@@ -70,6 +72,6 @@
 	display: flex;
 	flex-direction: column;
 	padding: map.get(variables.$sizes, spacing-l);
-	overflow: auto;
+	overflow-y: auto;
 	background-color: map.get(variables.$colors, whites-white);
 }
