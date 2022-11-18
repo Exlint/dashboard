@@ -3,7 +3,6 @@ import React from 'react';
 import type { IConfigurationValue } from '@exlint-dashboard/common/dist/interfaces/libraries-data';
 import EDConfigurationHeaderAndDescription from '@/ui/EDConfigurationHeaderAndDescription';
 import EDSvg from '@/ui/EDSvg';
-// import EDConfigurationsInputs from '@/ui/EDConfigurationsInputs';
 import { concatClasses } from '@/utils/component';
 
 import classes from './EDArrayConfiguration.module.scss';
@@ -36,18 +35,6 @@ const EDArrayConfigurationView: React.FC<IProps> = (props: React.PropsWithChildr
 					<EDSvg className={arrowIcon} name="arrowRight" />
 				</button>
 			</div>
-
-			{/* {props.isNestedBodyVisible && (
-				<div className={classes['container__body']}>
-					<EDConfigurationsInputs
-						configName={props.configName}
-						formSchema={props.configuration}
-						isNestedBodyVisible={props.isNestedBodyVisible}
-						onChangeFormConfiguration={props.onChangeFormConfiguration}
-						onToggleNestedBody={props.onToggleNestedBody}
-					/>
-				</div>
-			)} */}
 
 			<hr className={classes['container__divider']} />
 		</div>
