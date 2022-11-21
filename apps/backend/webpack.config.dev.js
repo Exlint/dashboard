@@ -3,6 +3,9 @@ const { RunScriptWebpackPlugin } = require('run-script-webpack-plugin');
 
 const { version } = require('../../package.json');
 
+/**
+ * @type { import('webpack').Configuration }
+ */
 const configuration = (options, webpack) => ({
 	...options,
 	entry: ['webpack/hot/poll?100', options.entry],

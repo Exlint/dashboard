@@ -1,5 +1,8 @@
 const { version } = require('../../package.json');
 
+/**
+ * @type { import('webpack').Configuration }
+ */
 const configuration = (options, webpack) => ({
 	...options,
 	plugins: [
