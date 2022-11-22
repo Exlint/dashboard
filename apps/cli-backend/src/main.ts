@@ -2,6 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import helmet from 'helmet';
 
 import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
@@ -27,6 +28,8 @@ async function bootstrap() {
 	);
 
 	app.useGlobalInterceptors(new LoggingInterceptor());
+
+	app.use(helmet());
 
 	// * https://github.com/prisma/prisma/issues/2917#issuecomment-708340112
 	const prismaService = app.get(PrismaService);

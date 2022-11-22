@@ -10,6 +10,7 @@ import {
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
+import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { Library } from '@/decorators/library.decorator';
@@ -37,7 +38,7 @@ export class EnableMissingController {
 		description: 'If access token is either missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to enable the missing rule' })
-	@UseGuards(RuleablePolicyGuard)
+	@UseGuards(RuleablePolicyGuard, ThrottlerGuard)
 	@Post(Routes.ENABLE_MISSING_RULE)
 	@HttpCode(HttpStatus.CREATED)
 	public async enableMissing(

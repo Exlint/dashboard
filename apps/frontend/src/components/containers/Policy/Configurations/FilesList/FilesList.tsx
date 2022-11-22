@@ -25,7 +25,7 @@ const FilesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	useEffect(() => {
 		backendApi
 			.get<IGetFilesListResponseData>(
-				`/user/inline-policies/file-list/${params.policyId}/${props.type}`,
+				`/user/inline-policies/files-list/${params.policyId}/${props.type}`,
 			)
 			.then((response) => {
 				setFileListState(() => response.data.filesList.join('\n'));
@@ -38,7 +38,7 @@ const FilesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	const onSaveChangesClick = () => {
 		backendApi
 			.patch<void, AxiosResponse<void>, ISetFilesListDto>(
-				`/user/inline-policies/file-list/${params.policyId}`,
+				`/user/inline-policies/files-list/${params.policyId}`,
 				{
 					filesList: fileListInputState ?? '',
 					type: props.type,

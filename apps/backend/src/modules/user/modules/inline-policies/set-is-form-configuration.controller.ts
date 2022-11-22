@@ -8,6 +8,7 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
@@ -32,7 +33,7 @@ export class SetIsFormConfigurationController {
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to set the paramater' })
-	@UseGuards(BelongingInlinePolicyGuard)
+	@UseGuards(BelongingInlinePolicyGuard, ThrottlerGuard)
 	@Patch(Routes.SET_IS_FORM_CONFIGURATION)
 	@HttpCode(HttpStatus.OK)
 	public async setIsFormConfiguration(

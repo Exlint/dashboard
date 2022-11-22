@@ -8,6 +8,7 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 
@@ -29,7 +30,7 @@ export class DisableController {
 		description: 'If access token is either missing or invalid, or rule does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to disable the rule' })
-	@UseGuards(BelongingRuleGuard)
+	@UseGuards(BelongingRuleGuard, ThrottlerGuard)
 	@Patch(Routes.DISABLE_RULE)
 	@HttpCode(HttpStatus.OK)
 	public async disable(@CurrentUserId() userId: string, @Param('rule_id') ruleId: string): Promise<void> {
