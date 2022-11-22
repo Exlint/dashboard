@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD, RouterModule } from '@nestjs/core';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 import { validate } from './config/env.validation';
 import { appRoutes } from './app.routes';
@@ -28,6 +29,10 @@ import { VersionController } from './modules/health/version.controller';
 			},
 		}),
 		HealthModule,
+		ThrottlerModule.forRoot({
+			ttl: 60,
+			limit: 15,
+		}),
 	],
 	providers: [
 		{
