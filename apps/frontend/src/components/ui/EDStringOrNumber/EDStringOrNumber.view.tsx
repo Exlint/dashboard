@@ -14,8 +14,6 @@ interface IProps {
 }
 
 const EDStringOrNumberView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	// const inputClasses = props.type === 'number' ? classes['input--number'] : classes['input--text'];
-
 	return (
 		<div className={classes['container']}>
 			<EDConfigurationHeaderAndDescription title={props.title} description={props.description} />
