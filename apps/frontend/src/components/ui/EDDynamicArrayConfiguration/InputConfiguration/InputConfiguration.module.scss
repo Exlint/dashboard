@@ -5,7 +5,7 @@
 .container {
 	display: flex;
 	align-items: center;
-	margin-top: map.get($sizes, spacing-l);
+	margin-inline-start: map.get($sizes, spacing-l);
 
 	&__inputBox {
 		margin-inline-end: map.get($sizes, spacing-m);

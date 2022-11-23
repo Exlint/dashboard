@@ -42,7 +42,7 @@ interface IArrayConfiguration extends IBaseConfiguration {
 	readonly configuration: IConfigurationValue[];
 }
 
-type IConfigurationValue =
+export type IConfigurationValue =
 	| IBooleanConfiguration
 	| INumberConfiguration
 	| IStringConfiguration

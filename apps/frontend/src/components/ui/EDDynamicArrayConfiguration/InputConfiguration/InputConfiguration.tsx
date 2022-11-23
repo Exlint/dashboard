@@ -6,10 +6,9 @@ import InputConfigurationView from './InputConfiguration.view';
 
 interface IProps<T> {
 	readonly title: string | null;
-	readonly options: IOption<T>[];
-	readonly addedConfigurations: string[];
-	readonly onAddConfiguratoin: (_: string | null, __: number) => void;
-	readonly onRemoveConfigurations: (_: string) => void;
+	readonly description: string | null;
+	readonly type: string;
+	readonly options?: IOption<T>[];
 }
 
 const InputConfiguration = <T,>(props: React.PropsWithChildren<IProps<T>>) => {
@@ -20,23 +19,16 @@ const InputConfiguration = <T,>(props: React.PropsWithChildren<IProps<T>>) => {
 
 	const onSelectSortOption = (index: number) => setSelectedSortIndexState(() => index);
 
-	const onRemoveConfigurations = (value: string) => {
-		props.onRemoveConfigurations(value);
-		setInputState(() => null);
-		setSelectedSortIndexState(() => 0);
-	};
-
 	return (
 		<InputConfigurationView
 			title={props.title}
+			description={props.description}
+			type={props.type}
+			options={props.options}
 			input={inputState}
 			selectedSortIndex={selectedSortIndexState}
-			options={props.options}
-			addedConfigurations={props.addedConfigurations}
 			onInputChange={onInputChange}
 			onSelectSortOption={onSelectSortOption}
-			onAddConfiguratoin={props.onAddConfiguratoin}
-			onRemoveConfigurations={onRemoveConfigurations}
 		/>
 	);
 };
