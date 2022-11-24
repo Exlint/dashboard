@@ -15,7 +15,7 @@ jobs:
         with:
             runner: ubuntu-latest
             node-version: 18
-            pnpm-version: 7.16.0
+            pnpm-version: 7.17.0
 
     test_depcheck:
         needs: call_pnpm_caching_workflow
@@ -28,7 +28,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test Depcheck
               run: pnpm depcheck:all
@@ -44,7 +44,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test Inflint
               run: pnpm inflint
@@ -60,7 +60,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test TypeScript
               run: pnpm type-check:all
@@ -76,7 +76,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test Prettier
               run: pnpm prettier
@@ -92,7 +92,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test ESLint
               run: pnpm lint:all
@@ -108,7 +108,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test Stylelint
               run: pnpm nx stylelint @exlint-dashboard/frontend
@@ -124,7 +124,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -140,7 +140,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.16.0
+                  package-manager-version: 7.17.0
 
             - name: Test build
               run: pnpm build:nested
