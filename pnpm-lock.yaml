@@ -294,7 +294,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.43.0
       '@typescript-eslint/parser': 5.43.0
       '@uiw/codemirror-themes': 4.13.2
-      '@uiw/react-codemirror': 4.13.2
+      '@uiw/react-codemirror': 4.15.1
       axios: 0.27.2
       cross-env: 7.0.3
       date-fns: 2.29.3
@@ -344,7 +344,7 @@ importers:
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
       '@uiw/codemirror-themes': 4.13.2_@codemirror+language@6.3.1
-      '@uiw/react-codemirror': 4.13.2_gxoodfntu7kw5b3kvue64yytsi
+      '@uiw/react-codemirror': 4.15.1_gxoodfntu7kw5b3kvue64yytsi
       axios: 0.27.2
       date-fns: 2.29.3
       i18next: 22.0.4
@@ -5551,8 +5551,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uiw/codemirror-extensions-basic-setup/4.13.2_@codemirror+language@6.3.1:
-    resolution: {integrity: sha512-ATJA7WaZ5g7/0teNBQRIalK3RxfU9X7hviwh6BOelaeJrJjkY6x+jVaACYywP1GStsIKcjNCumakpmRPO9w4sQ==}
+  /@uiw/codemirror-extensions-basic-setup/4.15.1_@codemirror+language@6.3.1:
+    resolution: {integrity: sha512-LP2LHyPQm6ikYyXxT+1Odz+kiVLzzUmHSwBapSF4JgUE4b5QaBA7KCiTfwIWJPC528QVP2qWk1DEBNstPMiUdg==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
@@ -5575,8 +5575,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/react-codemirror/4.13.2_gxoodfntu7kw5b3kvue64yytsi:
-    resolution: {integrity: sha512-sMfb8F82yLSqyq1gEUlr14E4KGXDfvsCnkGLLwJZqsq/TvJTRVcy0GX87wn3GXBtGhNp5TvGFUDaCnFzbU4bIQ==}
+  /@uiw/react-codemirror/4.15.1_gxoodfntu7kw5b3kvue64yytsi:
+    resolution: {integrity: sha512-lgtMFS8D2t9ri3ug3kgWoLPPdxDkqkYBWm3dVU9Z7GRs4R1iN2WSr2Z/biQ8KbdyLygRT5isi1k3Ud9ZY6j+YA==}
     peerDependencies:
       '@codemirror/view': '>=6.0.0'
       react: '>=16.8.0'
@@ -5586,7 +5586,7 @@ packages:
       '@codemirror/commands': 6.1.2
       '@codemirror/state': 6.1.2
       '@codemirror/theme-one-dark': 6.1.0
-      '@uiw/codemirror-extensions-basic-setup': 4.13.2_@codemirror+language@6.3.1
+      '@uiw/codemirror-extensions-basic-setup': 4.15.1_@codemirror+language@6.3.1
       codemirror: 6.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
