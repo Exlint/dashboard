@@ -1,3 +1,12 @@
+# [1.22.0](https://github.com/Exlint/dashboard/compare/v1.21.0...v1.22.0) (2022-11-24)
+
+
+### Features
+
+* 🔥 [EXL-74] support configure rule without enabling ([cca4c1d](https://github.com/Exlint/dashboard/commit/cca4c1d9824f5462367bb15f0bbfb0087ace6686))
+* 🔥 [EXL-74] support rules list page ([add4dd9](https://github.com/Exlint/dashboard/commit/add4dd9cbe2a0820dcc73e14e5ff9d22886fc824))
+* 🔥 [EXL-74] support rules page ([5ece944](https://github.com/Exlint/dashboard/commit/5ece944dffbbf9cf6d18f9ef1be5598460a38889))
+
 # [1.21.0](https://github.com/Exlint/dashboard/compare/v1.20.0...v1.21.0) (2022-11-11)
 
 
