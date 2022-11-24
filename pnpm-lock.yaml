@@ -29,7 +29,7 @@ importers:
       nx: 15.2.1
       open: 8.4.0
       pnpm: 7.17.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       prettier-plugin-sh: 0.12.8
       prisma: 4.6.1
       rimraf: 3.0.2
@@ -62,8 +62,8 @@ importers:
       nx: 15.2.1
       open: 8.4.0
       pnpm: 7.17.0
-      prettier: 2.7.1
-      prettier-plugin-sh: 0.12.8_prettier@2.7.1
+      prettier: 2.8.0
+      prettier-plugin-sh: 0.12.8_prettier@2.8.0
       prisma: 4.6.1
       rimraf: 3.0.2
       stylelint: 14.15.0
@@ -312,7 +312,7 @@ importers:
       i18next: 22.0.6
       postcss: 8.4.19
       postcss-flexbugs-fixes: 5.0.2
-      prettier: 2.7.1
+      prettier: 2.8.0
       prisma: 4.6.1
       react: 18.2.0
       react-datepicker: 4.8.0
@@ -385,7 +385,7 @@ importers:
       hygen: 6.2.11
       postcss: 8.4.19
       postcss-flexbugs-fixes: 5.0.2_postcss@8.4.19
-      prettier: 2.7.1
+      prettier: 2.8.0
       prisma: 4.6.1
       react-scripts: 5.0.1_leaw6xbim7nsmifrfdhl4klv74
       sass: 1.56.1
@@ -14176,20 +14176,20 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-sh/0.12.8_prettier@2.7.1:
+  /prettier-plugin-sh/0.12.8_prettier@2.8.0:
     resolution: {integrity: sha512-VOq8h2Gn5UzrCIKm4p/nAScXJbN09HdyFDknAcxt6Qu/tv/juu9bahxSrcnM9XWYA+Spz1F1ANJ4LhfwB7+Q1Q==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     peerDependencies:
       prettier: ^2.0.0
     dependencies:
       mvdan-sh: 0.10.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       sh-syntax: 0.3.7
       synckit: 0.8.4
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
