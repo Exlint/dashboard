@@ -37,7 +37,7 @@ export const prettierData: ILibraryData = {
 			title: 'Quote Props',
 			description: 'Change when properties in objects are quoted.',
 			type: 'select',
-			values: ['as-needed', 'consistent', 'preserve'],
+			enum: ['as-needed', 'consistent', 'preserve'],
 		},
 		jsxSingleQuote: {
 			title: 'JSX Quotes',
@@ -49,7 +49,7 @@ export const prettierData: ILibraryData = {
 			description:
 				'Print trailing commas wherever possible in multi-line comma-separated syntactic structures. (A single-line array, for example, never gets trailing commas.)',
 			type: 'select',
-			values: ['es5', 'none', 'all'],
+			enum: ['es5', 'none', 'all'],
 		},
 		bracketSpacing: {
 			title: 'Bracket Spacing',
@@ -66,7 +66,7 @@ export const prettierData: ILibraryData = {
 			title: 'Arrow Function Parentheses',
 			description: 'Include parentheses around a sole arrow function parameter.',
 			type: 'select',
-			values: ['always', 'avoid'],
+			enum: ['always', 'avoid'],
 		},
 		rangeStart: {
 			title: 'Range Start',
@@ -95,13 +95,13 @@ export const prettierData: ILibraryData = {
 			description:
 				'By default, Prettier will not change wrapping in markdown text since some services use a linebreak-sensitive renderer, e.g. GitHub comments and BitBucket. To have Prettier wrap prose to the print width, change this option to "always". If you want Prettier to force all prose blocks to be on a single line and rely on editor/viewer soft wrapping instead, you can use "never".',
 			type: 'select',
-			values: ['always', 'never', 'preserve'],
+			enum: ['always', 'never', 'preserve'],
 		},
 		htmlWhitespaceSensitivity: {
 			title: 'HTML Whitespace Sensitivity',
 			description: 'Specify the global whitespace sensitivity for HTML, Vue, Angular, and Handlebars.',
 			type: 'select',
-			values: ['css', 'strict', 'ignore'],
+			enum: ['css', 'strict', 'ignore'],
 		},
 		vueIndentScriptAndStyle: {
 			title: 'Vue files script and style tags indentation',
@@ -114,13 +114,13 @@ export const prettierData: ILibraryData = {
 			description:
 				'For historical reasons, there exist two common flavors of line endings in text files. That is \\n (or LF for Line Feed) and \\r\\n (or CRLF for Carriage Return + Line Feed). The former is common on Linux and macOS, while the latter is prevalent on Windows',
 			type: 'select',
-			values: ['lf', 'crlf', 'cr', 'auto'],
+			enum: ['lf', 'crlf', 'cr', 'auto'],
 		},
 		embeddedLanguageFormatting: {
 			title: 'Embedded Language Formatting',
 			description: 'Control whether Prettier formats quoted code embedded in the file.',
 			type: 'select',
-			values: ['auto', 'off'],
+			enum: ['auto', 'off'],
 		},
 		singleAttributePerLine: {
 			title: 'Single Attribute Per Line',

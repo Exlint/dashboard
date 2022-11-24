@@ -33,8 +33,8 @@ export const depcheckData: ILibraryData = {
 			title: 'Ignores',
 			description:
 				'A comma separated array containing package names to ignore. It can be glob expressions.',
-			type: 'multi-free',
-			values: [],
+			type: 'multi',
+			options: [],
 		},
 		ignorePath: {
 			title: 'Ignore Matches',
@@ -44,8 +44,8 @@ export const depcheckData: ILibraryData = {
 		ignorePatterns: {
 			title: 'Ignore Patterns',
 			description: 'Comma separated patterns describing files to ignore.',
-			type: 'multi-free',
-			values: [],
+			type: 'multi',
+			options: [],
 		},
 	},
 };

@@ -16,19 +16,24 @@ export const inflintData: ILibraryData = {
 		aliases: {
 			title: 'Aliases',
 			description: 'Inflint aliases to use together with rules.',
-			type: 'dynamic-array-configuration',
-			configuration: [
-				{
-					title: 'RegEx Matcher',
-					description: 'Inflint will apply the alias name to match the provided RegEx.',
-					type: 'string',
-				},
-				{
-					title: 'RegEx Flags',
-					description: 'Inflint will apply the flags together with the RegEx string.',
-					type: 'string',
-				},
-			],
+			type: 'dynamic-object',
+			propertySchema: {
+				title: null,
+				description: null,
+				type: 'array',
+				items: [
+					{
+						title: 'RegEx Matcher',
+						description: 'Inflint will apply the alias name to match the provided RegEx.',
+						type: 'string',
+					},
+					{
+						title: 'RegEx Flags',
+						description: 'Inflint will apply the flags together with the RegEx string.',
+						type: 'string',
+					},
+				],
+			},
 		},
 		ignorePath: {
 			title: 'Ignore Path',
@@ -43,8 +48,8 @@ export const inflintData: ILibraryData = {
 		ignorePatterns: {
 			title: 'Ignore Patterns',
 			description: 'Patterns of files to ignore (in addition to those in .inflintignore)',
-			type: 'multi-free',
-			values: [],
+			type: 'multi',
+			options: [],
 		},
 		quiet: {
 			title: 'Quiet',

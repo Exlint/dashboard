@@ -1,61 +1,12 @@
 import type { PolicyLibrary } from '@prisma/client';
-
-interface IBaseConfiguration {
-	readonly title: string | null;
-	readonly description: string | null;
-}
-
-interface IBooleanConfiguration extends IBaseConfiguration {
-	readonly type: 'boolean';
-}
-
-interface INumberConfiguration extends IBaseConfiguration {
-	readonly type: 'number';
-}
-
-interface IStringConfiguration extends IBaseConfiguration {
-	readonly type: 'string';
-}
-
-interface IDynamicArrayConfiguration extends IBaseConfiguration {
-	readonly type: 'dynamic-array-configuration';
-	readonly configuration: IConfigurationValue[];
-}
-
-interface IMultiFreeConfiguration extends IBaseConfiguration {
-	readonly type: 'multi-free';
-	readonly values: string[];
-}
-
-interface ISelectConfiguration extends IBaseConfiguration {
-	readonly type: 'select';
-	readonly values: (number | string | boolean)[];
-}
-
-interface IObjectConfiguration extends IBaseConfiguration {
-	readonly type: 'object-configuration';
-	readonly configuration: Record<string, IConfigurationValue>;
-}
-
-interface IArrayConfiguration extends IBaseConfiguration {
-	readonly type: 'array-configuration';
-	readonly configuration: IConfigurationValue[];
-}
-
-type IConfigurationValue =
-	| IBooleanConfiguration
-	| INumberConfiguration
-	| IStringConfiguration
-	| IDynamicArrayConfiguration
-	| IMultiFreeConfiguration
-	| ISelectConfiguration
-	| IObjectConfiguration
-	| IArrayConfiguration;
+import type { ISchema } from './schema';
 
 export interface ILibraryRule {
 	readonly description: string;
 	readonly hasAutofix: boolean;
 	readonly category: string;
+	// Configuration is temporarily optional. Need to revert back to required
+	readonly configuration?: ISchema;
 }
 
 export type IType = 'Linters' | 'Formatters';
@@ -71,6 +22,6 @@ export interface ILibraryData {
 	readonly types: IType[];
 	readonly categories: ICategory[];
 	readonly language: ILanguage;
-	readonly rules?: Record<string, ILibraryRule>;
-	readonly configuration: Record<string, IConfigurationValue>;
+	readonly configuration: Record<string, ISchema>;
+	readonly rules?: Record<string, ILibraryRule> | ISchema;
 }
