@@ -26,7 +26,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
-      nx: 15.1.0
+      nx: 15.2.1
       open: 8.4.0
       pnpm: 7.16.0
       prettier: 2.7.1
@@ -59,7 +59,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.0.3
       npm-run-all: 4.1.5
-      nx: 15.1.0
+      nx: 15.2.1
       open: 8.4.0
       pnpm: 7.16.0
       prettier: 2.7.1
@@ -4137,21 +4137,21 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@nrwl/cli/15.1.0:
-    resolution: {integrity: sha512-07KTYbh0YC3DmOTN1bFOQVlzrUQwsmNDR3IfxxDuhMlsBlpDIN/fFcIPy4tQ16EOQjWSrHxeP/C30KLIBtNYLw==}
+  /@nrwl/cli/15.2.1:
+    resolution: {integrity: sha512-ufBJ5o3WCixdp6/TPkpn4rH3QBFJcqCMG1d14A/SvAkEnXu3vWlj3E+4GXf3CK+sGNjjf3ZGoNm7OFV+/Ml4GA==}
     dependencies:
-      nx: 15.1.0
+      nx: 15.2.1
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
       - debug
     dev: true
 
-  /@nrwl/tao/15.1.0:
-    resolution: {integrity: sha512-uEBmCDf4GMQ33Mkkl43gnVaJvFcIC8J5vhNknio7nQAsrSxUE9LCBEMpN5rHPlbAZ1WL9DRnnQcZrBXBYAlrPw==}
+  /@nrwl/tao/15.2.1:
+    resolution: {integrity: sha512-6ApglWKORasLhtjlJmqo2co/UexSSiD7mWVxT2886oKG2Y/T/5RnPFNhJgGnKJIURCNMxiSKhq7GAA+CE9zRZg==}
     hasBin: true
     dependencies:
-      nx: 15.1.0
+      nx: 15.2.1
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -12684,8 +12684,8 @@ packages:
     resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
     dev: true
 
-  /nx/15.1.0:
-    resolution: {integrity: sha512-iAOFcX27vuvKTPE0JE8VfIZtWqJqZJ0259wmAGKH31J5yCAUfMl1wbzOcfutLaNKKYS25uq3ZOD7pc+J/P9Bvg==}
+  /nx/15.2.1:
+    resolution: {integrity: sha512-vVeT5D02cDDiSmS3P2Bos/waYQa3m0yl/rouzsKpusVSmzAQGQbKXhxPb4WnNIj8Iz/8KjFeBM/RZO021BtGNg==}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -12697,8 +12697,8 @@ packages:
       '@swc/core':
         optional: true
     dependencies:
-      '@nrwl/cli': 15.1.0
-      '@nrwl/tao': 15.1.0
+      '@nrwl/cli': 15.2.1
+      '@nrwl/tao': 15.2.1
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.27
