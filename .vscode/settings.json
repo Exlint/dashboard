@@ -34,5 +34,6 @@
 		"secrets": "keys",
 		"user": "client"
 	},
-	"material-icon-theme.activeIconPack": "nest"
+	"material-icon-theme.activeIconPack": "nest",
+	"task.allowAutomaticTasks": "on"
 }

@@ -5,19 +5,23 @@ interface IBaseSchema {
 
 interface IBooleanSchema extends IBaseSchema {
 	readonly type: 'boolean';
+	readonly default?: boolean;
 }
 
 interface INumberSchema extends IBaseSchema {
 	readonly type: 'number';
+	readonly default?: number;
 }
 
 interface IStringSchema extends IBaseSchema {
 	readonly type: 'string';
+	readonly default?: string;
 }
 
 interface ISelectSchema extends IBaseSchema {
 	readonly type: 'select';
 	readonly enum: (number | string | boolean)[];
+	readonly default?: number | string | boolean;
 }
 
 interface IMultiSchema extends IBaseSchema {
