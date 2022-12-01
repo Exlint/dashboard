@@ -5,7 +5,6 @@ export interface ILibraryRule {
 	readonly description: string;
 	readonly hasAutofix: boolean;
 	readonly category: string;
-	// Configuration is temporarily optional. Need to revert back to required
 	readonly configuration?: ISchema;
 }
 
@@ -23,5 +22,5 @@ export interface ILibraryData {
 	readonly categories: ICategory[];
 	readonly language: ILanguage;
 	readonly configuration: Record<string, ISchema>;
-	readonly rules?: Record<string, ILibraryRule> | ISchema;
+	readonly rules?: Record<string, ILibraryRule>;
 }

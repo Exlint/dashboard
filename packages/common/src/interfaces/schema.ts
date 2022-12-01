@@ -27,6 +27,7 @@ interface ISelectSchema extends IBaseSchema {
 interface IMultiSchema extends IBaseSchema {
 	readonly type: 'multi';
 	readonly options: (number | string | boolean)[];
+	readonly default?: (number | string | boolean)[];
 }
 
 interface IArraySchema extends IBaseSchema {
