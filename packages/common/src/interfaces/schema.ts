@@ -35,15 +35,16 @@ interface IArraySchema extends IBaseSchema {
 	readonly items: ISchema[];
 }
 
-interface IObjectSchema extends IBaseSchema {
+type IObjectSchema = IBaseSchema & {
 	readonly type: 'object';
-	readonly properties: Record<string, ISchema>;
-}
-
-interface IDynamicObjectSchema extends IBaseSchema {
-	readonly type: 'dynamic-object';
-	readonly propertySchema: ISchema;
-}
+} & (
+		| {
+				readonly properties: Record<string, ISchema>;
+				readonly additionalProperties: ISchema;
+		  }
+		| { readonly properties: Record<string, ISchema> }
+		| { readonly additionalProperties: ISchema }
+	);
 
 export type ISchema =
 	| IBooleanSchema
@@ -52,5 +53,4 @@ export type ISchema =
 	| ISelectSchema
 	| IMultiSchema
 	| IArraySchema
-	| IObjectSchema
-	| IDynamicObjectSchema;
+	| IObjectSchema;

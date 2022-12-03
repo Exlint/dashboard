@@ -16,8 +16,8 @@ export const inflintData: ILibraryData = {
 		aliases: {
 			title: 'Aliases',
 			description: 'Inflint aliases to use together with rules.',
-			type: 'dynamic-object',
-			propertySchema: {
+			type: 'object',
+			additionalProperties: {
 				title: null,
 				description: null,
 				type: 'array',

@@ -259,8 +259,8 @@ export const eslintData: ILibraryData = {
 			title: 'Globals',
 			description:
 				'An object specifying additional objects that should be added to the global scope during linting.',
-			type: 'dynamic-object',
-			propertySchema: {
+			type: 'object',
+			additionalProperties: {
 				title: null,
 				description: null,
 				type: 'select',
