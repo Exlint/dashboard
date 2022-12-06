@@ -22,3 +22,7 @@
 		margin-inline-end: map.get(variables.$sizes, spacing-l);
 	}
 }
+
+.configurationContainer {
+	padding: map.get(variables.$sizes, spacing-l);
+}

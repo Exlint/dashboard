@@ -1,6 +1,8 @@
 import type { ILibraryData } from '@exlint-dashboard/common';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import Form from '@rjsf/core';
+import validator from '@rjsf/validator-ajv8';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import EDBooleanButton from '@/ui/EDBooleanButton';
@@ -32,7 +34,13 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				</EDAcceptButton>
 			</div>
 
-			<div>&nbsp;</div>
+			{props.formSchema && (
+				<Form
+					className={classes['configurationContainer']}
+					schema={props.formSchema}
+					validator={validator}
+				/>
+			)}
 		</form>
 	);
 };
