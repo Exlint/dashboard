@@ -322,7 +322,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.8.0
       react-dom: 18.2.0
-      react-i18next: 12.0.0
+      react-i18next: 12.1.0
       react-redux: 8.0.5
       react-router-dom: 6.4.4
       react-scripts: 5.0.1
@@ -361,7 +361,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.0.0_xp3tcnypqfah7nlbdog3oni4pe
+      react-i18next: 12.1.0_xp3tcnypqfah7nlbdog3oni4pe
       react-redux: 8.0.5_yqqa5ithnjtlkxisuaub7c4kpa
       react-router-dom: 6.4.4_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
@@ -2822,14 +2822,14 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       core-js-pure: 3.25.2
-      regenerator-runtime: 0.13.9
+      regenerator-runtime: 0.13.11
     dev: true
 
   /@babel/runtime/7.19.0:
     resolution: {integrity: sha512-eR8Lo9hnDS7tqkO7NsV+mKvCmv5boaXFSZ70DnfhcgiEne8hv9oCEd36Klw74EtizEqLsy4YnW8UWwpBVolHZA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.9
+      regenerator-runtime: 0.13.11
 
   /@babel/runtime/7.20.6:
     resolution: {integrity: sha512-Q+8MqP7TiHMWzSfwiJwXCjyf4GYA4Dgw3emg/7xmwsdLJOZUp+nMqcOwOzzYheuM1rhDu8FSj2l0aoMygEuXuA==}
@@ -14319,8 +14319,8 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.0.0_xp3tcnypqfah7nlbdog3oni4pe:
-    resolution: {integrity: sha512-/O7N6aIEAl1FaWZBNvhdIo9itvF/MO/nRKr9pYqRc9LhuC1u21SlfwpiYQqvaeNSEW3g3qUXLREOWMt+gxrWbg==}
+  /react-i18next/12.1.0_xp3tcnypqfah7nlbdog3oni4pe:
+    resolution: {integrity: sha512-zYSWNCKklqulvXQFAo1TTZxI+DOflD8QQaGUIn58/FDJGiczCVf0X3g5zjY6h86+MLS3fpD5Dwziyi2DWmUD7Q==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
@@ -14332,7 +14332,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.6
       html-parse-stringify: 3.0.1
       i18next: 22.0.8
       react: 18.2.0
@@ -14720,9 +14720,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-
-  /regenerator-runtime/0.13.9:
-    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
 
   /regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==}
