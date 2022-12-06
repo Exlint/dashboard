@@ -8,68 +8,69 @@ export const inflintData: ILibraryData = {
 	categories: ['File System'],
 	language: 'Agnostic',
 	configuration: {
-		extends: {
-			title: 'Extends',
-			description: 'The path to other config file to extend from',
-			type: 'string',
-		},
-		aliases: {
-			title: 'Aliases',
-			description: 'Inflint aliases to use together with rules.',
-			type: 'object',
-			additionalProperties: {
-				title: null,
-				description: null,
-				type: 'array',
-				items: [
-					{
-						title: 'RegEx Matcher',
-						description: 'Inflint will apply the alias name to match the provided RegEx.',
-						type: 'string',
-					},
-					{
-						title: 'RegEx Flags',
-						description: 'Inflint will apply the flags together with the RegEx string.',
-						type: 'string',
-					},
-				],
+		type: 'object',
+		properties: {
+			extends: {
+				title: 'Extends',
+				description: 'The path to other config file to extend from',
+				type: 'string',
 			},
-		},
-		ignorePath: {
-			title: 'Ignore Path',
-			description: 'Ignore file path Inflint will use to ignore patterns',
-			type: 'string',
-		},
-		ignore: {
-			title: 'Ignore',
-			description: 'Disable use of ignore files and patterns',
-			type: 'string',
-		},
-		ignorePatterns: {
-			title: 'Ignore Patterns',
-			description: 'Patterns of files to ignore (in addition to those in .inflintignore)',
-			type: 'multi',
-			options: [],
-		},
-		quiet: {
-			title: 'Quiet',
-			description: 'Whether to report errors only',
-			type: 'boolean',
-		},
-		maxWarnings: {
-			title: 'Max Warnings',
-			description: 'Number of warnings to trigger non-zero exit code',
-			type: 'number',
-		},
-		bail: {
-			title: 'Bail',
-			description: 'Number of failures (errors) to make Inflint to exit',
-			type: 'number',
-		},
-		outputFile: {
-			title: 'Output File',
-			description: 'Specify file to write report to',
-			type: 'string',
+			aliases: {
+				title: 'Aliases',
+				description: 'Inflint aliases to use together with rules.',
+				type: 'object',
+				additionalProperties: {
+					type: 'array',
+					items: [
+						{
+							title: 'RegEx Matcher',
+							description: 'Inflint will apply the alias name to match the provided RegEx.',
+							type: 'string',
+						},
+						{
+							title: 'RegEx Flags',
+							description: 'Inflint will apply the flags together with the RegEx string.',
+							type: 'string',
+						},
+					],
+				},
+			},
+			ignorePath: {
+				title: 'Ignore Path',
+				description: 'Ignore file path Inflint will use to ignore patterns',
+				type: 'string',
+			},
+			ignore: {
+				title: 'Ignore',
+				description: 'Disable use of ignore files and patterns',
+				type: 'string',
+			},
+			ignorePatterns: {
+				title: 'Ignore Patterns',
+				description: 'Patterns of files to ignore (in addition to those in .inflintignore)',
+				type: 'array',
+				items: { type: 'string' },
+			},
+			quiet: {
+				title: 'Quiet',
+				description: 'Whether to report errors only',
+				type: 'boolean',
+			},
+			maxWarnings: {
+				title: 'Max Warnings',
+				description: 'Number of warnings to trigger non-zero exit code',
+				type: 'number',
+			},
+			bail: {
+				title: 'Bail',
+				description: 'Number of failures (errors) to make Inflint to exit',
+				type: 'number',
+			},
+			outputFile: {
+				title: 'Output File',
+				description: 'Specify file to write report to',
+				type: 'string',
+			},
 		},
 	},
 };

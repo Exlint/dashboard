@@ -1,11 +1,11 @@
 import type { PolicyLibrary } from '@prisma/client';
-import type { ISchema } from './schema';
+import type { RJSFSchema } from '@rjsf/utils';
 
 export interface ILibraryRule {
 	readonly description: string;
 	readonly hasAutofix: boolean;
 	readonly category: string;
-	readonly configuration?: ISchema;
+	readonly configuration: RJSFSchema;
 }
 
 export type IType = 'Linters' | 'Formatters';
@@ -21,6 +21,6 @@ export interface ILibraryData {
 	readonly types: IType[];
 	readonly categories: ICategory[];
 	readonly language: ILanguage;
-	readonly configuration: Record<string, ISchema>;
+	readonly configuration: RJSFSchema;
 	readonly rules?: Record<string, ILibraryRule>;
 }
