@@ -297,7 +297,7 @@ importers:
       '@types/react-scroll': 1.8.5
       '@typescript-eslint/eslint-plugin': 5.45.1
       '@typescript-eslint/parser': 5.45.1
-      '@uiw/codemirror-themes': 4.17.1
+      '@uiw/codemirror-themes': 4.19.1
       '@uiw/react-codemirror': 4.19.0
       axios: 1.2.1
       bootstrap: 3.4.1
@@ -352,7 +352,7 @@ importers:
       '@semantic-ui-react/css-patch': 1.1.2
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.9
-      '@uiw/codemirror-themes': 4.17.1_@codemirror+language@6.3.1
+      '@uiw/codemirror-themes': 4.19.1_@codemirror+language@6.3.1
       '@uiw/react-codemirror': 4.19.0_gxoodfntu7kw5b3kvue64yytsi
       axios: 1.2.1
       bootstrap: 3.4.1
@@ -5543,8 +5543,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/codemirror-themes/4.17.1_@codemirror+language@6.3.1:
-    resolution: {integrity: sha512-JogPpSaICPk0/lo+Sg3xZsTjDnE1N5vhSQvMhP4LS50BlJxtYM7Ci0XgNv4Tji+vL0mrT7l1CgBsx9Z5mp9q4Q==}
+  /@uiw/codemirror-themes/4.19.1_@codemirror+language@6.3.1:
+    resolution: {integrity: sha512-PVm0bWbIlA2Y64d6BYkZOl5PoQ7WDPEduNwMmZbHRtpx+xgZteKU4CvK5DR8jwfPiy4vxW55haNDXhrVOUwbtA==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
