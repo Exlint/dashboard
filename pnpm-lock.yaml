@@ -300,7 +300,7 @@ importers:
       '@uiw/codemirror-themes': 4.17.1
       '@uiw/react-codemirror': 4.17.1
       axios: 1.2.1
-      bootstrap: 3.4.1
+      bootstrap: 5.2.3
       cross-env: 7.0.3
       date-fns: 2.29.3
       depcheck: 1.4.3
@@ -355,7 +355,7 @@ importers:
       '@uiw/codemirror-themes': 4.17.1_@codemirror+language@6.3.1
       '@uiw/react-codemirror': 4.17.1_gxoodfntu7kw5b3kvue64yytsi
       axios: 1.2.1
-      bootstrap: 3.4.1
+      bootstrap: 5.2.3
       date-fns: 2.29.3
       i18next: 22.0.8
       react: 18.2.0
@@ -6544,9 +6544,10 @@ packages:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
     dev: true
 
-  /bootstrap/3.4.1:
-    resolution: {integrity: sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA==}
-    engines: {node: '>=6'}
+  /bootstrap/5.2.3:
+    resolution: {integrity: sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.6
     dev: false
 
   /brace-expansion/1.1.11:
