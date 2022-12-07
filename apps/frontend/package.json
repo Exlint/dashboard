@@ -80,7 +80,7 @@
 		"hygen": "6.2.11",
 		"postcss": "8.4.19",
 		"postcss-flexbugs-fixes": "5.0.2",
-		"prettier": "2.8.0",
+		"prettier": "2.8.1",
 		"prisma": "4.7.1",
 		"react-scripts": "5.0.1",
 		"sass": "1.56.1",
@@ -101,7 +101,7 @@
 		"@typescript-eslint/parser": "5.45.1",
 		"eslint": "8.29.0",
 		"postcss": "8.4.19",
-		"prettier": "2.8.0"
+		"prettier": "2.8.1"
 	},
 	"pnpm": {
 		"patchedDependencies": {
