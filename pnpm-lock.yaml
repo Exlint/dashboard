@@ -314,7 +314,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
-      i18next: 22.0.8
+      i18next: 22.1.4
       postcss: 8.4.19
       postcss-flexbugs-fixes: 5.0.2
       prettier: 2.8.0
@@ -357,11 +357,11 @@ importers:
       axios: 1.2.1
       bootstrap: 3.4.1
       date-fns: 2.29.3
-      i18next: 22.0.8
+      i18next: 22.1.4
       react: 18.2.0
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.1.1_xp3tcnypqfah7nlbdog3oni4pe
+      react-i18next: 12.1.1_uedexzmmdjaqapw3mm5hri2poi
       react-redux: 8.0.5_yqqa5ithnjtlkxisuaub7c4kpa
       react-router-dom: 6.4.4_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
@@ -10260,8 +10260,8 @@ packages:
       '@babel/runtime': 7.20.6
     dev: true
 
-  /i18next/22.0.8:
-    resolution: {integrity: sha512-cQUVZ3KUHtua4E9/9naB7oH5ymun0jAYKopXFgmSRXog0nrWFajAErz9eJ/A/dSj69YxmA8xOR4m5dY1OrKG5g==}
+  /i18next/22.1.4:
+    resolution: {integrity: sha512-MCDtNRyovLY22rgLoZdCzg2QIza1V1A/3Hxb99akJzTDjcqCRWEsglTpFUt0vUjOxSxz+WmxmFETLHORRS+n6Q==}
     dependencies:
       '@babel/runtime': 7.20.6
     dev: false
@@ -14324,7 +14324,7 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.1.1_xp3tcnypqfah7nlbdog3oni4pe:
+  /react-i18next/12.1.1_uedexzmmdjaqapw3mm5hri2poi:
     resolution: {integrity: sha512-mFdieOI0LDy84q3JuZU6Aou1DoWW2fhapcTGeBS8+vWSJuViuoCLQAMYSb0QoHhXS8B0WKUOPpx4cffAP7r/aA==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -14339,7 +14339,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.6
       html-parse-stringify: 3.0.1
-      i18next: 22.0.8
+      i18next: 22.1.4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
