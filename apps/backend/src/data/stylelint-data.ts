@@ -4861,7 +4861,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'selector-pseudo-element-disallowed-list': {
-			description: 'Specify a list of disallowed pseudo-element selectors.',
+			description:
+				'Specify a list of disallowed pseudo-element selectors. This rule ignores: CSS2 pseudo-elements i.e. those prefixed with a single colon, selectors that use variable interpolation e.g. ::#{$variable} {}',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -4870,7 +4871,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'array', items: { type: 'string' } },
 							{
 								type: 'object',
 								properties: {
@@ -4917,7 +4918,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'If a selector name is surrounded with "/" (e.g. "/anchor/"), it is interpreted as a regular expression. This allows, for example, easy targeting of all the potential anchors: /anchor/ will match .anchor, [data-anchor], etc. The same goes for properties. Keep in mind that a regular expression value is matched against the entire property name, not specific parts of it. For example, a value like "animation-duration" will not match "/^duration/" (notice beginning of the line boundary) but will match "/duration/".',
+								type: 'object',
+								additionalProperties: { type: 'array', items: { type: 'string' } },
+							},
 							{
 								type: 'object',
 								properties: {
@@ -4964,7 +4970,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'array', items: { type: 'string' } },
 							{
 								type: 'object',
 								properties: {
@@ -5011,7 +5017,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'array', items: { type: 'string' } },
 							{
 								type: 'object',
 								properties: {
@@ -5049,7 +5055,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'media-feature-name-no-vendor-prefix': {
-			description: 'Disallow vendor prefixes for media feature names.',
+			description:
+				"Disallow vendor prefixes for media feature names. This rule ignores non-standard vendor-prefixed media feature names that aren't handled by Autoprefixer. The fix option can automatically fix all of the problems reported by this rule. However, it will not remove duplicate media feature names produced when the prefixes are removed. You can use Autoprefixer itself, with the add option off and the remove option on, in these situations.",
 			hasAutofix: true,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -5105,7 +5112,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'If a media feature name is found in the object, only its allowed-listed values are allowed. If the media feature name is not included in the object, anything goes. If a name or value is surrounded with / (e.g. "/width$/"), it is interpreted as a regular expression. For example, /width$/ will match max-width and min-width.',
+								type: 'object',
+								additionalProperties: { type: 'array', items: { type: 'string' } },
+							},
 							{
 								type: 'object',
 								properties: {
@@ -5152,7 +5164,11 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								description:
+									'A string will be translated into a RegExp like so new RegExp(yourString) — so be sure to escape properly.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -5199,7 +5215,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'array', items: { type: 'string' } },
 							{
 								type: 'object',
 								properties: {
@@ -5246,7 +5262,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'array', items: { type: 'string' } },
 							{
 								type: 'object',
 								properties: {
@@ -5284,7 +5300,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'at-rule-no-vendor-prefix': {
-			description: 'Disallow vendor prefixes for at-rules.',
+			description:
+				"Disallow vendor prefixes for at-rules. This rule ignores non-standard vendor-prefixed at-rules that aren't handled by Autoprefixer. The fix option can automatically fix all of the problems reported by this rule. However, it will not remove duplicate at-rules produced when the prefixes are removed. You can use Autoprefixer itself, with the add option off and the remove option on, in these situations.",
 			hasAutofix: true,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -5340,7 +5357,10 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'object',
+								additionalProperties: { type: 'array', items: { type: 'string' } },
+							},
 							{
 								type: 'object',
 								properties: {
@@ -5387,7 +5407,11 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								description:
+									'A string will be translated into a RegExp like so new RegExp(yourString) — so be sure to escape properly.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -5434,7 +5458,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'If a string is surrounded with "/" (e.g. "/^TODO:/"), it is interpreted as a regular expression.',
+								type: 'array',
+								items: { type: 'string' },
+							},
 							{
 								type: 'object',
 								properties: {
@@ -5472,7 +5501,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'max-nesting-depth': {
-			description: 'Limit the depth of nesting.',
+			description:
+				'Limit the depth of nesting. This rule works by checking rules\' and at-rules\' actual "nesting depth" against your specified max. Note that root-level at-rules will not be included in the nesting depth calculation, because most users would take for granted that root-level at-rules are "free" (because necessary).',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -5481,10 +5511,31 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'integer', description: 'Maximum nesting depth allowed.' },
 							{
 								type: 'object',
 								properties: {
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"blockless-at-rules" - Ignore at-rules that only wrap other rules, and do not themselves have declaration blocks. "pseudo-classes" - Ignore rules where the first selector in each selector list item is a pseudo-class',
+										type: 'array',
+										items: { enum: ['blockless-at-rules', 'pseudo-classes'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
+									ignoreAtRules: {
+										title: 'Ignore at-rules',
+										description: 'Ignore the specified at-rules.',
+										type: 'array',
+										items: { type: 'string' },
+									},
+									ignorePseudoClasses: {
+										title: 'Ignore pseudo classes',
+										description: 'Ignore the specified pseudo-classes.',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5566,7 +5617,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'no-unknown-animations': {
-			description: 'Disallow unknown animations.',
+			description:
+				'Disallow unknown animations. This rule considers the identifiers of @keyframes rules defined within the same source to be known.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -5613,7 +5665,7 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'unicode-bom': {
-			description: 'Require or disallow Unicode BOM.',
+			description: 'equire or disallow the Unicode Byte Order Mark..',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
 			configuration: {
@@ -5622,7 +5674,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['always', 'never'] },
 							{
 								type: 'object',
 								properties: {
@@ -5660,7 +5712,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'value-keyword-case': {
-			description: 'Specify lowercase or uppercase for keywords values.',
+			description:
+				'Specify lowercase or uppercase for keywords values. This rule ignores <custom-idents> of known properties. Keyword values which are paired with non-properties (e.g. $vars and custom properties), and do not conform to the primary option, can be ignored using the ignoreKeywords: [] secondary option.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5669,10 +5722,35 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
+									ignoreKeywords: {
+										title: 'Ignore keywords',
+										description: 'Ignore case of keywords values.',
+										type: 'array',
+										items: { type: 'string' },
+									},
+									ignoreProperties: {
+										title: 'Ignore properties',
+										description: 'Ignore case of the values of the listed properties.',
+										type: 'array',
+										items: { type: 'string' },
+									},
+									ignoreFunctions: {
+										title: 'Ignore functions',
+										description: 'Ignore case of the values inside the listed functions.',
+										type: 'array',
+										items: { type: 'string' },
+									},
+									camelCaseSvgKeywords: {
+										title: 'Camel case SVG keywords',
+										description:
+											'If true, this rule expects SVG keywords to be camel case when the primary option is "lower".',
+										type: 'boolean',
+										default: false,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5707,7 +5785,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'function-name-case': {
-			description: 'Specify lowercase or uppercase for function names.',
+			description:
+				'Specify lowercase or uppercase for function names. Camel case function names, e.g. translateX, are accounted for when the lower option is used.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5716,10 +5795,16 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
+									ignoreFunctions: {
+										title: 'Ignore functions',
+										description: 'Ignore case of function names',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5754,7 +5839,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'custom-property-empty-line-before': {
-			description: 'Require or disallow an empty line before custom properties.',
+			description:
+				'Require or disallow an empty line before custom properties. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5763,10 +5849,36 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['always', 'never'] },
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'"after-comment" - Reverse the primary option for custom properties that follow a comment. Shared-line comments do not trigger this option. "after-custom-property" - Reverse the primary option for custom properties that follow another custom property. Shared-line comments do not affect this option. "first-nested" - Reverse the primary option for custom properties that are nested and the first child of their parent node.',
+										type: 'array',
+										items: {
+											enum: ['after-comment', 'after-custom-property', 'first-nested'],
+										},
+										uniqueItems: true,
+										maxItems: 3,
+									},
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"after-comment" - Ignore custom properties that follow a comment. "first-nested" - Ignore custom properties that are nested and the first child of their parent node. "inside-single-line-block" - Ignore custom properties that are inside single-line blocks.',
+										type: 'array',
+										items: {
+											enum: [
+												'after-comment',
+												'first-nested',
+												'inside-single-line-block',
+											],
+										},
+										uniqueItems: true,
+										maxItems: 3,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5810,10 +5922,15 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
+									ignoreTypes: {
+										title: 'Ignore types',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5848,7 +5965,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'rule-empty-line-before': {
-			description: 'Require or disallow an empty line before rules.',
+			description:
+				'Require or disallow an empty line before rules. This rule ignores rules that are the very first node in a source. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5857,10 +5975,41 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be an empty line before rules. "never" - There must never be an empty line before rules. "always-multi-line" - There must always be an empty line before multi-line rules. "never-multi-line" - There must never be an empty line before multi-line rules.',
+							},
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'"after-rule" - Reverse the primary option for rules that follow another rule. "after-single-line-comment" - Reverse the primary option for rules that follow a single-line comment. "inside-block-and-after-rule" - Reverse the primary option for rules that are inside a block and follow another rule. "inside-block" - Reverse the primary option for rules that are inside a block. "first-nested" - Reverse the primary option for rules that are nested and the first child of their parent node.',
+										type: 'array',
+										items: {
+											enum: [
+												'after-rule',
+												'after-single-line-comment',
+												'inside-block-and-after-rule',
+												'inside-block',
+												'first-nested',
+											],
+										},
+										uniqueItems: true,
+										maxItems: 5,
+									},
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"after-comment" - Ignore rules that follow a comment. "first-nested" - Ignore rules that are nested and the first child of their parent node. "inside-block" - Ignore rules that are inside a block.',
+										type: 'array',
+										items: { enum: ['after-comment', 'first-nested', 'inside-block'] },
+										uniqueItems: true,
+										maxItems: 3,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5895,7 +6044,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'at-rule-empty-line-before': {
-			description: 'Require or disallow an empty line before at-rules.',
+			description:
+				'Require or disallow an empty line before at-rules. This rule ignores: at-rules that are the very first node in the source, @import in Less. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5904,10 +6054,55 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be an empty line before at-rules. "never" - There must never be an empty line before at-rules.',
+							},
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'"after-same-name" - Reverse the primary option for at-rules that follow another at-rule with the same name. This means that you can group your at-rules by name. "inside-block" - Reverse the primary option for at-rules that are inside a block. "blockless-after-same-name-blockless" - Reverse the primary option for blockless at-rules that follow another blockless at-rule with the same name. This means that you can group your blockless at-rules by name. Shared-line comments do not affect this option. "blockless-after-blockless" - Reverse the primary option for blockless at-rules that follow another blockless at-rule. Shared-line comments do not affect this option. "first-nested" - Reverse the primary option for at-rules that are nested and the first child of their parent node.',
+										type: 'array',
+										items: {
+											enum: [
+												'after-same-name',
+												'inside-block',
+												'blockless-after-same-name-blockless',
+												'blockless-after-blockless',
+												'first-nested',
+											],
+										},
+										uniqueItems: true,
+										maxItems: 5,
+									},
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"after-comment" - Ignore at-rules that follow a comment. Shared-line comments do not trigger this option. "first-nested" - Ignore at-rules that are nested and the first child of their parent node. "inside-block" - Ignore at-rules that are inside a block. "blockless-after-same-name-blockless" - Ignore blockless at-rules that follow another blockless at-rule with the same name. This means that you can group your blockless at-rules by name. "blockless-after-blockless" - Ignore blockless at-rules that follow another blockless at-rule.',
+										type: 'array',
+										items: {
+											enum: [
+												'after-comment',
+												'first-nested',
+												'inside-block',
+												'blockless-after-same-name-blockless',
+												'blockless-after-blockless',
+											],
+										},
+										uniqueItems: true,
+										maxItems: 5,
+									},
+									ignoreAtRules: {
+										title: 'Ignore at-rules',
+										description: 'Ignore specified at-rules.',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5942,7 +6137,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'comment-empty-line-before': {
-			description: 'Require or disallow an empty line before comments.',
+			description:
+				"Require or disallow an empty line before comments. This rule ignores: comments that are the very first node in the source, shared-line comments, single-line comments with // (when you're using a custom syntax that supports them), comments within selector and value lists. We recommend to enable indentation rule for better autofixing results with this rule.",
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5951,10 +6147,40 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be an empty line before comments. "never" - There must never be an empty line before comments.',
+							},
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'Reverse the primary option for comments that are nested and the first child of their parent node.',
+										type: 'array',
+										items: { enum: ['first-nested'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"after-comment" - Ignore comments that follow another comment. "stylelint-commands" - Ignore comments that deliver commands to stylelint, e.g. /* stylelint-disable color-no-hex */.',
+										type: 'array',
+										items: { enum: ['after-comment', 'stylelint-commands'] },
+										uniqueItems: true,
+										maxItems: 2,
+									},
+									ignoreComments: {
+										title: 'Ignore comments',
+										description:
+											'Ignore comments matching the given regular expressions or strings.',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -5989,7 +6215,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'comment-whitespace-inside': {
-			description: 'Require or disallow whitespace on the inside of comment markers.',
+			description:
+				'Require or disallow whitespace on the inside of comment markers. Any number of asterisks are allowed at the beginning or end of the comment. So /** comment **/ is treated the same way as /* comment */. Caveat: Comments within selector and value lists are currently ignored.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -5998,7 +6225,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be whitespace inside the markers. "never" - There must never be whitespace on the inside the markers.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6045,7 +6277,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -6092,7 +6324,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the commas. "always-multi-line" - There must always be a newline after the commas in multi-line functions. "never-multi-line" - There must never be whitespace after the commas in multi-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6139,7 +6376,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the commas. "always-multi-line" - There must always be a newline before the commas in multi-line functions. "never-multi-line" - There must never be whitespace before the commas in multi-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6186,7 +6428,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space after the commas. "never" - There must never be whitespace after the commas. "always-single-line" - There must always be a single space after the commas in single-line functions. "never-single-line" - There must never be whitespace after the commas in single-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6233,7 +6480,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space before the commas. "never" - There must never be whitespace before the commas. "always-single-line" - There must always be a single space before the commas in single-line functions. "never-single-line" - There must never be whitespace before the commas in single-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6280,7 +6532,10 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'integer',
+								description: 'Maximum number of adjacent empty lines allowed.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6328,7 +6583,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline inside the parentheses. "always-multi-line" - There must always be a newline inside the parentheses of multi-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6376,7 +6636,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space inside of the parentheses. "never" - There must never be whitespace on the inside of the parentheses. "always-single-line" - There must always be a single space inside the parentheses of single-line functions. "never-single-line" - There must never be whitespace inside the parentheses of single-line functions.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6414,7 +6679,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'function-whitespace-after': {
-			description: 'Require or disallow whitespace after functions.',
+			description:
+				'Require or disallow whitespace after functions. This rule does not check for space immediately after ) if the very next character is ,, ), / or }, allowing some of the patterns exemplified below.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -6423,7 +6689,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be whitespace after the function. "never" - There must never be whitespace after the function.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6461,7 +6732,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'number-leading-zero': {
-			description: 'Require or disallow a leading zero for fractional numbers less than 1.',
+			description:
+				'Require or disallow a leading zero for fractional numbers less than 1. This rule ignores mixin parameters in Less.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -6470,7 +6742,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a leading zero. "never" - There must never be a leading zero.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6564,10 +6841,22 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['single', 'double'],
+								description:
+									'"single" - Strings must always be wrapped with single quotes. "double" - Strings must always be wrapped with double quotes.',
+							},
 							{
 								type: 'object',
 								properties: {
+									avoidEscape: {
+										title: 'Avoid escape',
+										description:
+											'Allows strings to use single-quotes or double-quotes so long as the string contains a quote that would have to be escaped otherwise.',
+										type: 'boolean',
+										default: true,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -6611,7 +6900,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -6658,7 +6947,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the commas. "always-multi-line" - There must always be a newline after the commas in multi-line value lists. "never-multi-line" - There must never be whitespace after the commas in multi-line value lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6705,7 +6999,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the commas. "always-multi-line" - There must always be a newline before the commas in multi-line value lists. "never-multi-line" - There must never be whitespace before the commas in multi-line value lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6752,7 +7051,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space after the commas. "never" - There must never be whitespace after the commas. "always-single-line" - There must always be a single space after the commas in single-line value lists. "never-single-line" - There must never be whitespace after the commas in single-line value lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6799,7 +7103,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space before the commas. "never" - There must never be whitespace before the commas. "always-single-line" - There must always be a single space before the commas in single-line value lists. "never-single-line" - There must never be whitespace before the commas in single-line value lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6846,7 +7155,10 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'integer',
+								description: 'Maximum number of adjacent empty lines allowed.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6893,10 +7205,15 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
+									ignoreSelectors: {
+										title: 'Ignore selectors',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -6940,7 +7257,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space after the bang. "never" - There must never be whitespace after the bang.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -6987,7 +7309,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space before the bang. "never" - There must never be whitespace before the bang.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7034,7 +7361,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line'],
+								description:
+									'"always" - There must always be a newline after the colon. "always-multi-line" - There must always be a newline after the colon if the declaration\'s value is multi-line.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7081,7 +7413,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line'],
+								description:
+									'"always" - There must always be a single space after the colon. "never" - There must never be whitespace after the colon. "always-single-line" - There must always be a single space after the colon if the declaration\'s value is single-line.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7128,7 +7465,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space before the colon. "never" - There must never be whitespace before the colon.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7166,7 +7508,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'declaration-empty-line-before': {
-			description: 'Require or disallow an empty line before declarations.',
+			description:
+				'Require or disallow an empty line before declarations. This rule only applies to standard property declarations. Use the custom-property-empty-line-before rule for custom property declarations. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -7175,10 +7518,37 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['always', 'never'] },
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'"after-comment" - Reverse the primary option for declarations that follow a comment. Shared-line comments do not trigger this option. "after-declaration" - Reverse the primary option for declarations that follow another declaration. Shared-line comments do not affect this option. "first-nested" - Reverse the primary option for declarations that are nested and the first child of their parent node.',
+										type: 'array',
+										items: {
+											enum: ['after-comment', 'after-declaration', 'first-nested'],
+										},
+										uniqueItems: true,
+										maxItems: 3,
+									},
+									ignore: {
+										title: 'Ignore',
+										description:
+											'"after-comment" - Ignore declarations that follow a comment. "after-declaration" - Ignore declarations that follow another declaration. "first-nested" - Ignore declarations that are nested and the first child of their parent node. "inside-single-line-block" - Ignore declarations that are inside single-line blocks.',
+										type: 'array',
+										items: {
+											enum: [
+												'after-comment',
+												'after-declaration',
+												'first-nested',
+												'inside-single-line-block',
+											],
+										},
+										uniqueItems: true,
+										maxItems: 4,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
