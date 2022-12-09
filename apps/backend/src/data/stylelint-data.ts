@@ -7584,7 +7584,7 @@ export const stylelintData: ILibraryData = {
 		},
 		'declaration-block-semicolon-newline-after': {
 			description:
-				'Require a newline or disallow whitespace after the semicolons of declaration blocks.',
+				'Require a newline or disallow whitespace after the semicolons of declaration blocks. This rule ignores: semicolons that are preceded by Less mixins, the last semicolon of declaration blocks. Use the block-closing-brace-*-before rules to control the whitespace between the last semicolon and the closing brace instead.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -7593,7 +7593,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the semicolon. "always-multi-line" - There must always be a newline after the semicolon in multi-line rules. "never-multi-line" - There must never be whitespace after the semicolon in multi-line rules.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7641,7 +7646,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the semicolons. "always-multi-line" - There must always be a newline before the semicolons in multi-line rules. "never-multi-line" - There must never be whitespace before the semicolons in multi-line rules.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7680,7 +7690,7 @@ export const stylelintData: ILibraryData = {
 		},
 		'declaration-block-semicolon-space-after': {
 			description:
-				'Require a single space or disallow whitespace after the semicolons of declaration blocks.',
+				'Require a single space or disallow whitespace after the semicolons of declaration blocks. This rule ignores: semicolons that are preceded by Less mixins, the last semicolon of declaration blocks',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -7689,7 +7699,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space after the semicolon. "never" - There must never be whitespace after the semicolon. "always-single-line" - There must always be a single space after the semicolon in single-line declaration blocks. "never-single-line" - There must never be whitespace after the semicolon in single-line declaration blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7737,7 +7752,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space before the semicolon. "never" - There must never be whitespace before the semicolon. "always-single-line" - There must always be a single space before the semicolon in single-line declaration blocks. "never-single-line" - There must never be whitespace before the semicolon in single-line declaration blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7784,10 +7804,24 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a trailing semicolon. "never" - There must never be a trailing semicolon.',
+							},
 							{
 								type: 'object',
 								properties: {
+									ignore: {
+										title: 'Ignore',
+										description:
+											'Ignore declaration blocks that contain a single declaration.',
+										type: 'array',
+										items: { enum: ['single-declaration'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -7831,10 +7865,19 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['always-multi-line', 'never'] },
 							{
 								type: 'object',
 								properties: {
+									except: {
+										title: 'Except',
+										description:
+											'When a rule is nested, after-closing-brace brace will reverse the primary option.',
+										type: 'array',
+										items: { enum: ['after-closing-brace'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -7869,7 +7912,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'block-closing-brace-newline-after': {
-			description: 'Require a newline or disallow whitespace after the closing brace of blocks.',
+			description:
+				'Require a newline or disallow whitespace after the closing brace of blocks. This rule allows an end-of-line comment separated from the closing brace by spaces, as long as the comment contains no newlines. ',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -7878,10 +7922,27 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a newline after the closing brace. "always-single-line" - There must always be a newline after the closing brace in single-line blocks. "never-single-line" - There must never be whitespace after the closing brace in single-line blocks. "always-multi-line" - There must always be a newline after the closing brace in multi-line blocks. "never-multi-line" - There must never be whitespace after the closing brace in multi-line blocks.',
+								type: 'string',
+								enum: [
+									'always',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+							},
 							{
 								type: 'object',
 								properties: {
+									ignoreAtRules: {
+										title: 'Ignore at-rules',
+										description: 'Ignore specified at-rules.',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -7925,7 +7986,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the closing brace. "always-multi-line" - There must always be a newline before the closing brace in multi-line blocks. "never-multi-line" - There must never be whitespace before the closing brace in multi-line blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -7972,7 +8038,19 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: [
+									'always',
+									'never',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+								description:
+									'"always" - There must always be a single space after the closing brace. "never" - There must never be whitespace after the closing brace. "always-single-line" - There must always be a single space after the closing brace in single-line blocks. "never-single-line" - There must never be whitespace after the closing brace in single-line blocks. "always-multi-line" - There must always be a single space after the closing brace in multi-line blocks. "never-multi-line" - There must never be whitespace after the closing brace in multi-line blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8019,7 +8097,19 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: [
+									'always',
+									'never',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+								description:
+									'"always" - There must always be a single space before the closing brace. "never" - There must never be whitespace before the closing brace. "always-single-line" - There must always be a single space before the closing brace in single-line blocks. "never-single-line" - There must never be whitespace before the closing brace in single-line blocks. "always-multi-line" - There must always be a single space before the closing brace in multi-line blocks. "never-multi-line" - There must never be whitespace before the closing brace in multi-line blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8057,7 +8147,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'block-opening-brace-newline-after': {
-			description: 'Require a newline after the opening brace of blocks.',
+			description:
+				'Require a newline after the opening brace of blocks. This rule allows an end-of-line comment followed by a newline. Refer to combining rules for more information on using this rule with block-opening-brace-newline-before to disallow single-line rules.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8066,10 +8157,23 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the opening brace. "always-multi-line" - There must always be a newline after the opening brace in multi-line blocks. "never-multi-line" - There must never be whitespace after the opening brace in multi-line blocks.',
+							},
 							{
 								type: 'object',
 								properties: {
+									ignore: {
+										title: 'Ignore',
+										description: 'Ignore the opening brace of rules.',
+										type: 'array',
+										items: { enum: ['rules'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -8104,7 +8208,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'block-opening-brace-newline-before': {
-			description: 'Require a newline or disallow whitespace before the opening brace of blocks.',
+			description:
+				'Require a newline or disallow whitespace before the opening brace of blocks. Refer to combining rules for more information on using this rule with block-opening-brace-newline-after to disallow single-line rules.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8113,7 +8218,18 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a newline before the opening brace. "always-single-line" - There must always be a newline before the opening brace in single-line blocks. "never-single-line" - There must never be whitespace before the opening brace in single-line blocks. "always-multi-line" - There must always be a newline before the opening brace in multi-line blocks. "never-multi-line" - There must never be whitespace before the opening brace in multi-line blocks.',
+								type: 'string',
+								enum: [
+									'always',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8160,10 +8276,30 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space after the opening brace. "never" - There must never be whitespace after the opening brace. "always-single-line" - There must always be a single space after the opening brace in single-line blocks. "never-single-line" - There must never be whitespace after the opening brace in single-line blocks. "always-multi-line" - There must always be a single space after the opening brace in multi-line blocks. "never-multi-line" - There must never be whitespace after the opening brace in multi-line blocks.',
+								type: 'string',
+								enum: [
+									'always',
+									'never',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+							},
 							{
 								type: 'object',
 								properties: {
+									ignore: {
+										title: 'Ignore',
+										description: 'Ignore the opening brace of at-rules.',
+										type: 'array',
+										items: { enum: ['at-rules'] },
+										uniqueItems: true,
+										maxItems: 1,
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -8207,10 +8343,32 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space before the opening brace. "never" - There must never be whitespace before the opening brace. "always-single-line" - There must always be a single space before the opening brace in single-line blocks. "never-single-line" - There must never be whitespace before the opening brace in single-line blocks. "always-multi-line" - There must always be a single space before the opening brace in multi-line blocks. "never-multi-line" - There must never be whitespace before the opening brace in multi-line blocks.',
+								type: 'string',
+								enum: [
+									'always',
+									'never',
+									'always-single-line',
+									'never-single-line',
+									'always-multi-line',
+									'never-multi-line',
+								],
+							},
 							{
 								type: 'object',
 								properties: {
+									ignoreAtRules: {
+										title: 'Ignore at-rules',
+										type: 'array',
+										items: { type: 'string' },
+									},
+									ignoreSelectors: {
+										title: 'Ignore selectors',
+										type: 'array',
+										items: { type: 'string' },
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -8255,7 +8413,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space inside the brackets. "never" - There must never be whitespace on the inside the brackets.',
+								type: 'string',
+								enum: ['always', 'never'],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8303,7 +8466,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space after the operator. "never" - There must never be a single space after the operator.',
+								type: 'string',
+								enum: ['always', 'never'],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8351,7 +8519,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space before the operator. "never" - There must never be a single space before the operator.',
+								type: 'string',
+								enum: ['always', 'never'],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8389,7 +8562,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'selector-combinator-space-after': {
-			description: 'Require a single space or disallow whitespace after the combinators of selectors.',
+			description:
+				'Require a single space or disallow whitespace after the combinators of selectors. Combinators are used to combine several different selectors into new and more specific ones. There are several types of combinators, including: child (>), adjacent sibling (+), general sibling (~), and descendant (which is represented by a blank space between two selectors). The descendant combinator is not checked by this rule. Also, + and - signs within :nth-*() arguments are not checked (e.g. a:nth-child(2n+1)).',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8398,7 +8572,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space after the combinators. "never" - There must never be whitespace after the combinators.',
+								type: 'string',
+								enum: ['always', 'never'],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8436,7 +8615,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'selector-combinator-space-before': {
-			description: 'Require a single space or disallow whitespace before the combinators of selectors.',
+			description:
+				'Require a single space or disallow whitespace before the combinators of selectors. Combinators are used to combine several different selectors into new and more specific ones. There are several types of combinators, including: child (>), adjacent sibling (+), general sibling (~), and descendant (which is represented by a blank space between two selectors). The descendant combinator is not checked by this rule. Also, + and - signs within :nth-*() arguments are not checked (e.g. a:nth-child(2n+1)).',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8445,7 +8625,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								description:
+									'"always" - There must always be a single space before the combinators. "never" - There must never be whitespace before the combinators.',
+								type: 'string',
+								enum: ['always', 'never'],
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8483,7 +8668,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'selector-descendant-combinator-no-non-space': {
-			description: 'Disallow non-space characters for descendant combinators of selectors.',
+			description:
+				'Disallow non-space characters for descendant combinators of selectors. This rule ensures that only a single space is used and ensures no tabs, newlines, nor multiple spaces are used for descendant combinators of selectors. This rule currently ignores selectors containing comments.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8539,7 +8725,10 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'integer',
+								description: 'Maximum number of adjacent empty lines allowed.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8586,7 +8775,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -8625,7 +8814,7 @@ export const stylelintData: ILibraryData = {
 		},
 		'selector-pseudo-class-parentheses-space-inside': {
 			description:
-				'Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors.',
+				"Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors. The fix option can automatically fix most of the problems reported by this rule. It won't fix pseudo elements containing comments.",
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -8634,7 +8823,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space inside the parentheses. "never" - There must never be whitespace on the inside the parentheses.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8681,7 +8875,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -8728,7 +8922,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the commas. "always-multi-line" - There must always be a newline after the commas in multi-line selector lists. "never-multi-line" - There must never be whitespace after the commas in multi-line selector lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8775,7 +8974,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the commas. "always-multi-line" - There must always be a newline before the commas in multi-line selector lists. "never-multi-line" - There must never be whitespace before the commas in multi-line selector lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8822,7 +9026,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space after the commas. "never" - There must never be whitespace after the commas. "always-single-line" - There must always be a single space after the commas in single-line selector lists. "never-single-line" - There must never be a single space after the commas in single-line selector lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8869,7 +9078,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space before the commas. "never" - There must never be whitespace before the commas. "always-single-line" - There must always be a single space before the commas in single-line selector lists. "never-single-line" - There must never be a single space after the commas in single-line selector lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8916,7 +9130,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space after the colon. "never" - There must never be whitespace after the colon.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -8963,7 +9182,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single before after the colon. "never" - There must never be whitespace before the colon.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9010,7 +9234,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -9058,7 +9282,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space inside the parentheses. "never" - There must never be whitespace on the inside the parentheses.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9106,7 +9335,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space after the range operator. "never" - There must never be whitespace after the range operator.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9154,7 +9388,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never'],
+								description:
+									'"always" - There must always be a single space before the range operator. "never" - There must never be whitespace before the range operator.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9201,7 +9440,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline after the commas. "always-multi-line" - There must always be a newline after the commas in multi-line media query lists. "never-multi-line" - There must never be whitespace after the commas in multi-line media query lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9248,7 +9492,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line', 'never-multi-line'],
+								description:
+									'"always" - There must always be a newline before the commas. "always-multi-line" - There must always be a newline before the commas in multi-line media query lists. "never-multi-line" - There must never be whitespace before the commas in multi-line media query lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9296,7 +9545,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space after the commas. "never" - There must never be whitespace after the commas. "always-single-line" - There must always be a single space after the commas in single-line media query lists. "never-single-line" - There must never be whitespace after the commas in single-line media query lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9344,7 +9598,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'never', 'always-single-line', 'never-single-line'],
+								description:
+									'"always" - There must always be a single space before the commas. "never" - There must never be whitespace before the commas. "always-single-line" - There must always be a single space before the commas in single-line media query lists. "never-single-line" - There must never be whitespace before the commas in single-line media query lists.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9391,7 +9650,7 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{ type: 'string', enum: ['lower', 'upper'] },
 							{
 								type: 'object',
 								properties: {
@@ -9438,7 +9697,12 @@ export const stylelintData: ILibraryData = {
 					{
 						type: 'array',
 						items: [
-							{ type: 'boolean', readOnly: true, default: true, title: 'Rule is enabled' },
+							{
+								type: 'string',
+								enum: ['always', 'always-multi-line'],
+								description:
+									'"always" - There must always be a newline after at-rule names. "always-multi-line" - There must always be a newline after at-rule names in at-rules with multi-line parameters.',
+							},
 							{
 								type: 'object',
 								properties: {
@@ -9682,15 +9946,19 @@ export const stylelintData: ILibraryData = {
 									except: {
 										title: 'Except',
 										description: 'Do not indent for these things.',
-										type: 'string',
-										enum: ['block', 'param', 'value'],
+										type: 'array',
+										items: { enum: ['block', 'param', 'value'] },
+										uniqueItems: true,
+										maxItems: 3,
 									},
 									ignore: {
 										title: 'Ignore',
 										description:
 											'"inside-parens" - Ignore the indentation inside parentheses. "param" - Ignore the indentation of at-rule params. "value" - Ignore the indentation of values.',
-										type: 'string',
-										enum: ['inside-parens', 'param', 'value'],
+										type: 'array',
+										items: { enum: ['inside-parens', 'param', 'value'] },
+										uniqueItems: true,
+										maxItems: 3,
 									},
 									disableFix: {
 										title: 'Disable fix',
@@ -9790,8 +10058,13 @@ export const stylelintData: ILibraryData = {
 								type: 'object',
 								properties: {
 									ignore: {
-										type: 'string',
-										enum: ['comments'],
+										title: 'Ignore',
+										description:
+											'Only enforce the adjacent empty lines limit for lines that are not comments.',
+										type: 'array',
+										items: { enum: ['comments'] },
+										uniqueItems: true,
+										maxItems: 1,
 									},
 									disableFix: {
 										title: 'Disable fix',
@@ -9827,7 +10100,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'max-line-length': {
-			description: 'Limit the length of a line.',
+			description:
+				'Limit the length of a line. Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored. When evaluating the line length, the arguments of any url(...) functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long url() functions should not contribute to problems.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -9844,10 +10118,20 @@ export const stylelintData: ILibraryData = {
 								type: 'object',
 								properties: {
 									ignore: {
-										type: 'string',
-										enum: ['non-comments', 'comments'],
+										title: 'Ignore',
+										description:
+											'Only enforce the line-length limit for lines within comments. This does not apply to comments that are stuck in between other stuff, only to lines that begin at the beginning or in the middle of a comment.',
+										type: 'array',
+										items: { enum: ['non-comments', 'comments'] },
+										uniqueItems: true,
+										maxItems: 2,
 									},
-									ignorePattern: { type: 'string' },
+									ignorePattern: {
+										title: 'Ignore pattern',
+										type: 'string',
+										description:
+											'Ignore any line that matches the given regex pattern, regardless of whether it is comment or not. The regex may be passed as a string (for JSON configuration) by enclosing in forward-slashes, or an ordinary JavaScript RegExp may be used.',
+									},
 									disableFix: {
 										title: 'Disable fix',
 										description:
@@ -9896,8 +10180,13 @@ export const stylelintData: ILibraryData = {
 								type: 'object',
 								properties: {
 									ignore: {
-										type: 'string',
-										enum: ['empty-lines'],
+										title: 'Ignore',
+										description:
+											'Allow end-of-line whitespace for lines that are only whitespace, "empty" lines.',
+										type: 'array',
+										items: { enum: ['empty-lines'] },
+										uniqueItems: true,
+										maxItems: 1,
 									},
 									disableFix: {
 										title: 'Disable fix',
@@ -9933,7 +10222,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'no-missing-end-of-source-newline': {
-			description: 'Disallow missing end-of-source newlines.',
+			description:
+				'Disallow missing end-of-source newlines. Completely empty files are not considered problems.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -9949,6 +10239,7 @@ export const stylelintData: ILibraryData = {
 								type: 'boolean',
 								readOnly: true,
 								default: true,
+								title: 'Rule is enabled',
 							},
 							{
 								type: 'object',
@@ -9987,7 +10278,8 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'no-empty-first-line': {
-			description: 'Disallow empty first lines.',
+			description:
+				'Disallow empty first lines. This rule ignores empty sources. Use the no-empty-source rule to disallow these.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -10041,7 +10333,7 @@ export const stylelintData: ILibraryData = {
 			},
 		},
 		'no-extra-semicolons': {
-			description: 'Disallow extra semicolons.',
+			description: 'Disallow extra semicolons. This rule ignores semicolons after Less mixins.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
 			configuration: {
@@ -10057,6 +10349,7 @@ export const stylelintData: ILibraryData = {
 								type: 'boolean',
 								readOnly: true,
 								default: true,
+								title: 'Rule is enabled',
 							},
 							{
 								type: 'object',
