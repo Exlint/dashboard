@@ -5,7 +5,7 @@ export interface ILibraryRule {
 	readonly description: string;
 	readonly hasAutofix: boolean;
 	readonly category: string;
-	readonly configuration: RJSFSchema;
+	readonly configuration?: RJSFSchema;
 }
 
 export type IType = 'Linters' | 'Formatters';
