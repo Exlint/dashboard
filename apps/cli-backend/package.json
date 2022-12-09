@@ -27,7 +27,7 @@
 		"@nestjs/platform-express": "9.2.1",
 		"@prisma/client": "4.7.1",
 		"class-transformer": "0.5.1",
-		"class-validator": "0.13.2",
+		"class-validator": "0.14.0",
 		"helmet": "6.0.1",
 		"mixpanel": "0.17.0",
 		"nestjs-real-ip": "2.2.0",
