@@ -79,45 +79,48 @@ export const inflintData: ILibraryData = {
 			hasAutofix: false,
 			category: 'Name Convention',
 			configuration: {
-				anyOf: [
-					{
-						title: 'File Existence',
-						description: 'Set file & directory existence',
-						type: 'array',
-						items: [
-							{ title: 'Rule severity', type: 'string', enum: ['warn', 'error'] },
-							{
-								title: 'Rule options',
-								type: 'object',
-								properties: {
-									onlyDirectories: { type: 'boolean', default: false },
-									onlyFiles: { type: 'boolean', default: false },
-									dot: { type: 'boolean', default: false },
-									caseSensitiveMatch: { type: 'boolean', default: false },
+				type: 'object',
+				additionalProperties: {
+					anyOf: [
+						{
+							title: 'File Existence',
+							description: 'Set file & directory existence',
+							type: 'array',
+							items: [
+								{ title: 'Rule severity', type: 'string', enum: ['warn', 'error'] },
+								{
+									title: 'Rule options',
+									type: 'object',
+									properties: {
+										onlyDirectories: { type: 'boolean', default: false },
+										onlyFiles: { type: 'boolean', default: false },
+										dot: { type: 'boolean', default: false },
+										caseSensitiveMatch: { type: 'boolean', default: false },
+									},
 								},
-							},
-						],
-					},
-					{
-						title: 'Name conventions',
-						description: 'Set file & directory name to match names conventions',
-						type: 'array',
-						items: [
-							{ title: 'Rule severity', type: 'string', enum: ['warn', 'error'] },
-							{ title: 'Convention', type: 'string' },
-							{
-								title: 'Rule options',
-								type: 'object',
-								properties: {
-									onlyDirectories: { type: 'boolean', default: false },
-									onlyFiles: { type: 'boolean', default: false },
-									dot: { type: 'boolean', default: false },
-									caseSensitiveMatch: { type: 'boolean', default: false },
+							],
+						},
+						{
+							title: 'Name conventions',
+							description: 'Set file & directory name to match names conventions',
+							type: 'array',
+							items: [
+								{ title: 'Rule severity', type: 'string', enum: ['warn', 'error'] },
+								{ title: 'Convention', type: 'string' },
+								{
+									title: 'Rule options',
+									type: 'object',
+									properties: {
+										onlyDirectories: { type: 'boolean', default: false },
+										onlyFiles: { type: 'boolean', default: false },
+										dot: { type: 'boolean', default: false },
+										caseSensitiveMatch: { type: 'boolean', default: false },
+									},
 								},
-							},
-						],
-					},
-				],
+							],
+						},
+					],
+				},
 			},
 		},
 	},
