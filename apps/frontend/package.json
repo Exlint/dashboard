@@ -78,7 +78,7 @@
 		"eslint-plugin-react-hooks": "4.6.0",
 		"eslint-plugin-unused-imports": "2.0.0",
 		"hygen": "6.2.11",
-		"postcss": "8.4.19",
+		"postcss": "8.4.20",
 		"postcss-flexbugs-fixes": "5.0.2",
 		"prettier": "2.8.1",
 		"prisma": "4.7.1",
@@ -100,7 +100,7 @@
 		"@types/node": "18.11.13",
 		"@typescript-eslint/parser": "5.46.0",
 		"eslint": "8.29.0",
-		"postcss": "8.4.19",
+		"postcss": "8.4.20",
 		"prettier": "2.8.1"
 	},
 	"pnpm": {
