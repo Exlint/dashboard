@@ -286,7 +286,7 @@ importers:
       '@reduxjs/toolkit': 1.9.1
       '@rjsf/core': 5.0.0-beta.15
       '@rjsf/utils': 5.0.0-beta.15
-      '@rjsf/validator-ajv8': 5.0.0-beta.13
+      '@rjsf/validator-ajv8': 5.0.0-beta.15
       '@semantic-ui-react/css-patch': 1.1.2
       '@types/craco__craco': 6.4.0
       '@types/node': 18.11.13
@@ -348,7 +348,7 @@ importers:
       '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
       '@rjsf/core': 5.0.0-beta.15_3a5qoered4fp7mcfv65f42qunq
       '@rjsf/utils': 5.0.0-beta.15_react@18.2.0
-      '@rjsf/validator-ajv8': 5.0.0-beta.13_@rjsf+utils@5.0.0-beta.15
+      '@rjsf/validator-ajv8': 5.0.0-beta.15_@rjsf+utils@5.0.0-beta.15
       '@semantic-ui-react/css-patch': 1.1.2
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.9
@@ -4542,8 +4542,8 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8/5.0.0-beta.13_@rjsf+utils@5.0.0-beta.15:
-    resolution: {integrity: sha512-/hrYbiwgCvEqw1Z7YZTWvd+ZAiX5vSN0WAI2hJTJTqKuCTcIH0fqNDCaOg3FBR38BL7seZrUmibIUcPU66iJ1w==}
+  /@rjsf/validator-ajv8/5.0.0-beta.15_@rjsf+utils@5.0.0-beta.15:
+    resolution: {integrity: sha512-cBOepLoIFT7F6Pf2bZRndDyviWBXrwsUZROU1pBDGoAFuDTBZeXbMwOli9qLRf8KFaE3Lq5ddTiTGQDP4s3UAA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.0.0-beta.12
