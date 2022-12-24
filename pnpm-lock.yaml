@@ -292,7 +292,7 @@ importers:
       '@types/node': 18.11.17
       '@types/react': 18.0.26
       '@types/react-datepicker': 4.8.0
-      '@types/react-dom': 18.0.9
+      '@types/react-dom': 18.0.10
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.5
       '@typescript-eslint/eslint-plugin': 5.46.0
@@ -351,7 +351,7 @@ importers:
       '@rjsf/validator-ajv8': 5.0.0-beta.15_@rjsf+utils@5.0.0-beta.15
       '@semantic-ui-react/css-patch': 1.1.2
       '@types/react': 18.0.26
-      '@types/react-dom': 18.0.9
+      '@types/react-dom': 18.0.10
       '@uiw/codemirror-themes': 4.19.2_@codemirror+language@6.3.2
       '@uiw/react-codemirror': 4.19.2_2rcfiyjybuki7dxpp3kh4uokiq
       axios: 1.2.1
@@ -362,7 +362,7 @@ importers:
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.1.1_evyinoqeoclachfljiz7p2j67q
-      react-redux: 8.0.5_yqqa5ithnjtlkxisuaub7c4kpa
+      react-redux: 8.0.5_ie75ejlwqy5zh3tldgt7pftwcu
       react-router-dom: 6.4.5_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.8_biqbaboplfbrettd7655fr4n2y
       react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
@@ -4489,7 +4489,7 @@ packages:
     dependencies:
       immer: 9.0.16
       react: 18.2.0
-      react-redux: 8.0.5_yqqa5ithnjtlkxisuaub7c4kpa
+      react-redux: 8.0.5_ie75ejlwqy5zh3tldgt7pftwcu
       redux: 4.2.0
       redux-thunk: 2.4.2_redux@4.2.0
       reselect: 4.1.7
@@ -5167,8 +5167,8 @@ packages:
       - react-dom
     dev: true
 
-  /@types/react-dom/18.0.9:
-    resolution: {integrity: sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==}
+  /@types/react-dom/18.0.10:
+    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
     dependencies:
       '@types/react': 18.0.26
     dev: false
@@ -14348,7 +14348,7 @@ packages:
       react-fast-compare: 3.2.0
       warning: 4.0.3
 
-  /react-redux/8.0.5_yqqa5ithnjtlkxisuaub7c4kpa:
+  /react-redux/8.0.5_ie75ejlwqy5zh3tldgt7pftwcu:
     resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -14372,7 +14372,7 @@ packages:
       '@babel/runtime': 7.19.0
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.26
-      '@types/react-dom': 18.0.9
+      '@types/react-dom': 18.0.10
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
