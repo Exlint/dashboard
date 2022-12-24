@@ -19,7 +19,7 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.18.1
+                  package-manager-version: 7.19.0
 
             - name: Build frontend
               run: 'pnpm exec nx build @exlint-dashboard/frontend'
