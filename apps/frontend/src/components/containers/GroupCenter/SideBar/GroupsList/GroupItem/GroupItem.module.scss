@@ -33,18 +33,26 @@
 	border-radius: 6px;
 	box-shadow: 0 4px 8px 0 #00000026;
 
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+
 	&--selected {
 		cursor: default;
 		box-shadow: unset;
 	}
 
 	&__label {
+		width: 100%;
 		overflow-x: hidden;
 		font-size: 2.1rem;
 		font-weight: 500;
 		color: map.get(variables.$colors, blacks-dark-gunmetal);
 		text-overflow: ellipsis;
-		white-space: nowrap;
 
 		&--selected {
 			color: map.get(variables.$colors, purples-purple);

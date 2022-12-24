@@ -123,6 +123,13 @@ export class DBInlinePolicyService {
 		});
 	}
 
+	public async setFormConfiguration(policyId: string, data: Prisma.JsonValue) {
+		await this.prisma.inlinePolicy.update({
+			where: { id: policyId },
+			data: { formConfiguration: data },
+		});
+	}
+
 	public async getFormSchema(policyId: string) {
 		const policyRecord = await this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: policyId },
@@ -133,7 +140,7 @@ export class DBInlinePolicyService {
 
 		return {
 			schema: libraryData.configuration,
-			formConfiguration: policyRecord.formConfiguration as Prisma.JsonObject,
+			formConfiguration: policyRecord.formConfiguration,
 			isFormConfiguration: policyRecord.isFormConfiguration,
 		};
 	}

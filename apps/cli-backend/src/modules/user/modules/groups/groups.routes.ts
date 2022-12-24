@@ -1,6 +1,6 @@
 const Routes = {
 	CONTROLLER: 'groups',
-	GET_GROUP: 'get-group/:group_id',
+	GET_GROUP: ':group_id',
 };
 
 export default Routes;

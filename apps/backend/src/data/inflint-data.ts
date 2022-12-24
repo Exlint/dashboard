@@ -78,7 +78,7 @@ export const inflintData: ILibraryData = {
 			description: 'Enforce names conventions for files and directories in project',
 			hasAutofix: false,
 			category: 'Name Convention',
-			configuration: {
+			schema: {
 				type: 'object',
 				additionalProperties: {
 					anyOf: [

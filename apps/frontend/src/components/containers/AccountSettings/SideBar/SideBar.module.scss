@@ -16,6 +16,14 @@
 	margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 	text-decoration: none;
 
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+
 	&:not(:last-child) {
 		margin-bottom: map.get(variables.$sizes, spacing-m);
 	}

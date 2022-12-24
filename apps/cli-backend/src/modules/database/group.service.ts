@@ -7,18 +7,32 @@ export class DBGroupService {
 	constructor(private prisma: PrismaService) {}
 
 	public async doesGroupBelongUser(userId: string, groupId: string) {
-		const groupDB = await this.prisma.group.findFirst({ where: { userId, id: groupId } });
+		const groupDB = await this.prisma.group.findFirstOrThrow({ where: { userId, id: groupId } });
 
 		return groupDB !== null;
 	}
 
 	public getGroup(groupId: string) {
-		return this.prisma.group.findFirst({
+		return this.prisma.group.findFirstOrThrow({
 			where: { id: groupId },
 			select: {
-				id: true,
 				inlinePolicies: {
-					select: { id: true, label: true, library: true, formConfiguration: true },
+					select: {
+						library: true,
+						formConfiguration: true,
+						codeConfiguration: true,
+						isFormConfiguration: true,
+						codeType: true,
+						lintedList: true,
+						ignoredList: true,
+						rules: {
+							select: {
+								name: true,
+								configuration: true,
+								isEnabled: true,
+							},
+						},
+					},
 				},
 			},
 		});

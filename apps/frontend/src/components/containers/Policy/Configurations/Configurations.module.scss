@@ -26,10 +26,14 @@
 		font-weight: 500;
 		color: map.get(variables.$colors, greys-onyx);
 		text-align: center;
-		text-decoration: none;
+
+		&:hover {
+			color: map.get(variables.$colors, greys-onyx);
+			text-decoration: none;
+		}
 
 		&--active {
-			color: map.get(variables.$colors, whites-ghost-white);
+			color: map.get(variables.$colors, whites-ghost-white) !important;
 			background-color: map.get(variables.$colors, greys-onyx);
 			box-shadow: inset 0 0 0 2px map.get(variables.$colors, blacks-yankees-black-blue);
 		}

@@ -22,6 +22,7 @@ import { GetFormSchemaController } from './get-form-schema.controller';
 import { SetIsFormConfigurationController } from './set-is-form-configuration.controller';
 import { GetPolicyRulesController } from './get-policy-rules.controller';
 import { EditDescriptionController } from './edit-description.controller';
+import { SetFormConfigurationController } from './set-form-configuration.controller';
 
 @Module({
 	imports: [CqrsModule],
@@ -36,6 +37,7 @@ import { EditDescriptionController } from './edit-description.controller';
 		GetFilesListController,
 		GetCodeConfigurationController,
 		SetCodeConfigurationController,
+		SetFormConfigurationController,
 		GetFormSchemaController,
 		SetIsFormConfigurationController,
 		GetPolicyRulesController,

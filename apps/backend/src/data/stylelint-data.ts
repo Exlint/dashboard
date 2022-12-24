@@ -64,7 +64,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow invalid hex colors.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -111,7 +111,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate font family names.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -163,7 +163,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow missing generic families in lists of font family names.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -215,7 +215,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow invalid named grid areas.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -262,7 +262,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow an unspaced operator within calc functions.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -310,7 +310,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow direction values in linear-gradient() calls that are not valid according to the standard syntax.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -357,7 +357,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown functions.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -410,7 +410,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow (unescaped) newlines in strings.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -457,7 +457,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown units.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -514,7 +514,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow missing var function for custom properties.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -561,7 +561,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown properties.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -633,7 +633,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow !important within keyframe declarations.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -680,7 +680,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate selectors within keyframe blocks.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -727,7 +727,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate custom properties within declaration blocks.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -774,7 +774,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate properties within declaration blocks.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -842,7 +842,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow shorthand properties that override related longhand properties.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -889,7 +889,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow empty blocks.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -947,7 +947,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown pseudo-class selectors.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -999,7 +999,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown pseudo-element selectors.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1051,7 +1051,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown type selectors.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1117,7 +1117,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown media feature names.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1169,7 +1169,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow unknown at-rules.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1221,7 +1221,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow empty comments.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1269,7 +1269,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1324,7 +1324,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate @use rules within a stylesheet.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1371,7 +1371,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow duplicate selectors within a stylesheet.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1425,7 +1425,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow empty sources.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1472,7 +1472,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow double-slash comments (//...) which are not supported by CSS.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1519,7 +1519,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow invalid position @use rules within a stylesheet.',
 			hasAutofix: false,
 			category: 'Avoid Errors',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1571,7 +1571,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify percentage or number notation for alpha-values.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1629,7 +1629,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify number or angle notation for degree hues.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1681,7 +1681,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify modern or legacy notation for applicable color-functions.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1733,7 +1733,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require or disallow alpha channel for hex colors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1783,7 +1783,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify short or long notation for hex colors.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1830,7 +1830,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require (where possible) or disallow named colors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1895,7 +1895,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow hex colors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -1942,7 +1942,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow units for zero lengths.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2004,7 +2004,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify whether or not quotation marks should be used around font family names.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2061,7 +2061,7 @@ export const stylelintData: ILibraryData = {
 				'Require numeric or named (where possible) font-weight values. Also, when named values are expected, require only valid names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2122,7 +2122,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed functions.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2174,7 +2174,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed functions.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2226,7 +2226,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow scheme-relative urls.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2273,7 +2273,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require or disallow quotes for urls.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2336,7 +2336,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed URL schemes.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2386,7 +2386,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed URL schemes.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2436,7 +2436,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify string or URL notation for @use rules.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2488,7 +2488,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for keyframe names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2539,7 +2539,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of decimal places allowed in numbers.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2603,7 +2603,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify the minimum number of milliseconds for time values.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2662,7 +2662,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed units.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2726,7 +2726,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed units.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2789,7 +2789,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow redundant values in shorthand properties.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2836,7 +2836,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow vendor prefixes for values.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2888,7 +2888,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for custom properties.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2939,7 +2939,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed properties.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -2991,7 +2991,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed properties.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3043,7 +3043,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow vendor prefixes for properties.',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3095,7 +3095,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow !important within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3142,7 +3142,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of values for a list of properties within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3194,7 +3194,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed property and unit pairs within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3254,7 +3254,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed property and unit pairs within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3306,7 +3306,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed property and value pairs within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3358,7 +3358,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed property and value pairs within declarations.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3410,7 +3410,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow longhand properties that can be combined into one shorthand property.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3462,7 +3462,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of declarations within a single-line declaration block.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3509,7 +3509,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed attribute names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3556,7 +3556,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed attribute operators.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3603,7 +3603,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed attribute operators.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3650,7 +3650,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require or disallow quotes for attribute values.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3702,7 +3702,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for class selectors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3761,7 +3761,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of allowed combinators. This rule normalizes the whitespace descendant combinator to be a single space.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3809,7 +3809,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of disallowed combinators. This rule normalizes the whitespace descendant combinator to be a single space.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3856,7 +3856,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed selectors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3922,7 +3922,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for ID selectors.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -3973,7 +3973,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of attribute selectors in a selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4026,7 +4026,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of classes in a selector. This rule resolves nested selectors before counting the number of classes in a selector. Each selector in a selector list is evaluated separately. The :not() pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4073,7 +4073,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of combinators in a selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4121,7 +4121,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of compound selectors in a selector. A compound selector is a chain of one or more simple (tag, class, ID, universal, attribute) selectors. If there is more than one compound selector in a complete selector, they will be separated by combinators (e.g. ``, +, `>`). One reason why you might want to limit the number of compound selectors is described in the SMACSS book. This rule resolves nested selectors before counting the depth of a selector. Each selector in a selector list is evaluated separately. :not() is considered one compound selector irrespective to the complexity of the selector inside it. The rule does process that inner selector, but does so separately, independent of the main selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4169,7 +4169,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of ID selectors in a selector. This rule resolves nested selectors before counting the number of ID selectors. Each selector in a selector list is evaluated separately. The :not() pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4224,7 +4224,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of pseudo-classes in a selector. This rule resolves nested selectors before counting the number of pseudo-classes in a selector. Each selector in a selector list is evaluated separately. The content of the :not() pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4272,7 +4272,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the specificity of selectors. This rule ignores selectors with variable interpolation (#{$var}, @{var}, $(var)). This rule resolves nested selectors before counting the specificity of a selector. Each selector in a selector list is evaluated separately.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4329,7 +4329,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of type in a selector.   This rule resolves nested selectors before counting the number of type selectors. Each selector in a selector list is evaluated separately. The :not() pseudo-class is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4389,7 +4389,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the number of universal selectors in a selector. This rule resolves nested selectors before counting the number of universal selectors. Each selector in a selector list is evaluated separately. The logical combinations pseudo-class (e.g. :not, :has) is also evaluated separately. The rule processes the argument as if it were an independent selector, and the result does not count toward the total for the entire selector.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4444,7 +4444,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a pattern for the selectors of rules nested within rules. Non-standard selectors (e.g. selectors with Sass or Less interpolation) and selectors of rules nested within at-rules are ignored.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4496,7 +4496,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow qualifying a selector by type. A type selector is "qualifying" when it is compounded with (chained to) another selector (e.g. a.foo, a#foo). This rule does not regulate type selectors that are combined with other selectors via a combinator (e.g. a > .foo, a #foo).',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4551,7 +4551,7 @@ export const stylelintData: ILibraryData = {
 				"Disallow vendor prefixes for selectors. This rule ignores non-standard vendor-prefixed selectors that aren't handled by Autoprefixer. The fix option can automatically fix all of the problems reported by this rule. However, it will not remove duplicate selectors produced when the prefixes are removed. You can use Autoprefixer itself, with the add option off and the remove option on, in these situations.",
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4605,7 +4605,7 @@ export const stylelintData: ILibraryData = {
 				'Specify simple or complex notation for :not() pseudo-class selectors. In Selectors Level 3, only a single simple selector was allowed as the argument to :not(), whereas Selectors Level 4 allows a selector list.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4658,7 +4658,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of allowed pseudo-class selectors. This rule ignores selectors that use variable interpolation e.g. :#{$variable} {}.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4711,7 +4711,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of disallowed pseudo-class selectors. This rule ignores selectors that use variable interpolation e.g. :#{$variable} {}.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4764,7 +4764,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of allowed pseudo-element selectors. This rule ignores: CSS2 pseudo-elements i.e. those prefixed with a single colon. selectors that use variable interpolation e.g. ::#{$variable} {}',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4812,7 +4812,7 @@ export const stylelintData: ILibraryData = {
 				'Specify single or double colon notation for applicable pseudo-elements. The :: notation was chosen for pseudo-elements to establish a discrimination between pseudo-classes (which subclass existing elements) and pseudo-elements (which are elements not represented in the document tree). However, for compatibility with existing style sheets, user agents also accept the previous one-colon notation for pseudo-elements introduced in CSS levels 1 and 2 (namely, :first-line, :first-letter, :before and :after).',
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4865,7 +4865,7 @@ export const stylelintData: ILibraryData = {
 				'Specify a list of disallowed pseudo-element selectors. This rule ignores: CSS2 pseudo-elements i.e. those prefixed with a single colon, selectors that use variable interpolation e.g. ::#{$variable} {}',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4912,7 +4912,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed properties for selectors within rules.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -4964,7 +4964,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed media feature names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5011,7 +5011,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed media feature names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5059,7 +5059,7 @@ export const stylelintData: ILibraryData = {
 				"Disallow vendor prefixes for media feature names. This rule ignores non-standard vendor-prefixed media feature names that aren't handled by Autoprefixer. The fix option can automatically fix all of the problems reported by this rule. However, it will not remove duplicate media feature names produced when the prefixes are removed. You can use Autoprefixer itself, with the add option off and the remove option on, in these situations.",
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5106,7 +5106,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed media feature name and value pairs.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5158,7 +5158,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for custom media query names.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5209,7 +5209,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of allowed at-rules.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5256,7 +5256,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed at-rules.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5304,7 +5304,7 @@ export const stylelintData: ILibraryData = {
 				"Disallow vendor prefixes for at-rules. This rule ignores non-standard vendor-prefixed at-rules that aren't handled by Autoprefixer. The fix option can automatically fix all of the problems reported by this rule. However, it will not remove duplicate at-rules produced when the prefixes are removed. You can use Autoprefixer itself, with the add option off and the remove option on, in these situations.",
 			hasAutofix: true,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5351,7 +5351,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of required properties for an at-rule.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5401,7 +5401,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a pattern for comments.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5452,7 +5452,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify a list of disallowed words within comments.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5505,7 +5505,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the depth of nesting. This rule works by checking rules\' and at-rules\' actual "nesting depth" against your specified max. Note that root-level at-rules will not be included in the nesting depth calculation, because most users would take for granted that root-level at-rules are "free" (because necessary).',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5573,7 +5573,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow irregular whitespace.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5621,7 +5621,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow unknown animations. This rule considers the identifiers of @keyframes rules defined within the same source to be known.',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5668,7 +5668,7 @@ export const stylelintData: ILibraryData = {
 			description: 'equire or disallow the Unicode Byte Order Mark..',
 			hasAutofix: false,
 			category: 'Enforce Conventions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5716,7 +5716,7 @@ export const stylelintData: ILibraryData = {
 				'Specify lowercase or uppercase for keywords values. This rule ignores <custom-idents> of known properties. Keyword values which are paired with non-properties (e.g. $vars and custom properties), and do not conform to the primary option, can be ignored using the ignoreKeywords: [] secondary option.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5789,7 +5789,7 @@ export const stylelintData: ILibraryData = {
 				'Specify lowercase or uppercase for function names. Camel case function names, e.g. translateX, are accounted for when the lower option is used.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5843,7 +5843,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow an empty line before custom properties. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5916,7 +5916,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for type selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -5969,7 +5969,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow an empty line before rules. This rule ignores rules that are the very first node in a source. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6048,7 +6048,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow an empty line before at-rules. This rule ignores: at-rules that are the very first node in the source, @import in Less. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6141,7 +6141,7 @@ export const stylelintData: ILibraryData = {
 				"Require or disallow an empty line before comments. This rule ignores: comments that are the very first node in the source, shared-line comments, single-line comments with // (when you're using a custom syntax that supports them), comments within selector and value lists. We recommend to enable indentation rule for better autofixing results with this rule.",
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6219,7 +6219,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow whitespace on the inside of comment markers. Any number of asterisks are allowed at the beginning or end of the comment. So /** comment **/ is treated the same way as /* comment */. Caveat: Comments within selector and value lists are currently ignored.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6271,7 +6271,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for hex colors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6318,7 +6318,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace after the commas of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6370,7 +6370,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace before the commas of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6422,7 +6422,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the commas of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6474,7 +6474,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the commas of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6526,7 +6526,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of adjacent empty lines within functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6577,7 +6577,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline or disallow whitespace on the inside of the parentheses of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6630,7 +6630,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace on the inside of the parentheses of functions.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6683,7 +6683,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow whitespace after functions. This rule does not check for space immediately after ) if the very next character is ,, ), / or }, allowing some of the patterns exemplified below.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6736,7 +6736,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow a leading zero for fractional numbers less than 1. This rule ignores mixin parameters in Less.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6788,7 +6788,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow trailing zeros in numbers.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6835,7 +6835,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify single or double quotes around strings.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6894,7 +6894,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for units.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6941,7 +6941,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace after the commas of value lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -6993,7 +6993,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace before the commas of value lists.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7045,7 +7045,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the commas of value lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7097,7 +7097,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the commas of value lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7149,7 +7149,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of adjacent empty lines within value lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7199,7 +7199,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for properties.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7251,7 +7251,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the bang of declarations.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7303,7 +7303,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the bang of declarations.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7355,7 +7355,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace after the colon of declarations.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7407,7 +7407,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the colon of declarations.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7459,7 +7459,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the colon of declarations.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7512,7 +7512,7 @@ export const stylelintData: ILibraryData = {
 				'Require or disallow an empty line before declarations. This rule only applies to standard property declarations. Use the custom-property-empty-line-before rule for custom property declarations. We recommend to enable indentation rule for better autofixing results with this rule.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7587,7 +7587,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline or disallow whitespace after the semicolons of declaration blocks. This rule ignores: semicolons that are preceded by Less mixins, the last semicolon of declaration blocks. Use the block-closing-brace-*-before rules to control the whitespace between the last semicolon and the closing brace instead.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7640,7 +7640,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline or disallow whitespace before the semicolons of declaration blocks.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7693,7 +7693,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace after the semicolons of declaration blocks. This rule ignores: semicolons that are preceded by Less mixins, the last semicolon of declaration blocks',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7746,7 +7746,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace before the semicolons of declaration blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7798,7 +7798,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require or disallow a trailing semicolon within declaration blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7859,7 +7859,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require or disallow an empty line before the closing brace of blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7916,7 +7916,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline or disallow whitespace after the closing brace of blocks. This rule allows an end-of-line comment separated from the closing brace by spaces, as long as the comment contains no newlines. ',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -7980,7 +7980,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace before the closing brace of blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8032,7 +8032,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the closing brace of blocks.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8091,7 +8091,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the closing brace of blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8151,7 +8151,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline after the opening brace of blocks. This rule allows an end-of-line comment followed by a newline. Refer to combining rules for more information on using this rule with block-opening-brace-newline-before to disallow single-line rules.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8212,7 +8212,7 @@ export const stylelintData: ILibraryData = {
 				'Require a newline or disallow whitespace before the opening brace of blocks. Refer to combining rules for more information on using this rule with block-opening-brace-newline-after to disallow single-line rules.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8270,7 +8270,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the opening brace of blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8337,7 +8337,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the opening brace of blocks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8407,7 +8407,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace on the inside of the brackets within attribute selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8460,7 +8460,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace after operators within attribute selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8513,7 +8513,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace before operators within attribute selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8566,7 +8566,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace after the combinators of selectors. Combinators are used to combine several different selectors into new and more specific ones. There are several types of combinators, including: child (>), adjacent sibling (+), general sibling (~), and descendant (which is represented by a blank space between two selectors). The descendant combinator is not checked by this rule. Also, + and - signs within :nth-*() arguments are not checked (e.g. a:nth-child(2n+1)).',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8619,7 +8619,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace before the combinators of selectors. Combinators are used to combine several different selectors into new and more specific ones. There are several types of combinators, including: child (>), adjacent sibling (+), general sibling (~), and descendant (which is represented by a blank space between two selectors). The descendant combinator is not checked by this rule. Also, + and - signs within :nth-*() arguments are not checked (e.g. a:nth-child(2n+1)).',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8672,7 +8672,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow non-space characters for descendant combinators of selectors. This rule ensures that only a single space is used and ensures no tabs, newlines, nor multiple spaces are used for descendant combinators of selectors. This rule currently ignores selectors containing comments.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8719,7 +8719,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of adjacent empty lines within selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8769,7 +8769,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for pseudo-class selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8817,7 +8817,7 @@ export const stylelintData: ILibraryData = {
 				"Require a single space or disallow whitespace on the inside of the parentheses within pseudo-class selectors. The fix option can automatically fix most of the problems reported by this rule. It won't fix pseudo elements containing comments.",
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8869,7 +8869,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for pseudo-element selectors.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8916,7 +8916,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace after the commas of selector lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -8968,7 +8968,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace before the commas of selector lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9020,7 +9020,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the commas of selector lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9072,7 +9072,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the commas of selector lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9124,7 +9124,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace after the colon in media features.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9176,7 +9176,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the colon in media features.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9228,7 +9228,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for media feature names.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9276,7 +9276,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace on the inside of the parentheses within media features.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9329,7 +9329,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace after the range operator in media features.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9382,7 +9382,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace before the range operator in media features.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9434,7 +9434,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace after the commas of media query lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9486,7 +9486,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline or disallow whitespace before the commas of media query lists.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9539,7 +9539,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace after the commas of media query lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9592,7 +9592,7 @@ export const stylelintData: ILibraryData = {
 				'Require a single space or disallow whitespace before the commas of media query lists.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9644,7 +9644,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify lowercase or uppercase for at-rules names.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9691,7 +9691,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline after at-rule names.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9743,7 +9743,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space after at-rule names.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9795,7 +9795,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a newline after the semicolon of at-rules.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9848,7 +9848,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Require a single space or disallow whitespace before the semicolons of at-rules.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9900,7 +9900,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify indentation.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -9997,7 +9997,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Specify unix or windows linebreaks.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -10044,7 +10044,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Limit the number of adjacent empty lines.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -10104,7 +10104,7 @@ export const stylelintData: ILibraryData = {
 				'Limit the length of a line. Lines that exceed the maximum length but contain no whitespace (other than at the beginning of the line) are ignored. When evaluating the line length, the arguments of any url(...) functions are excluded from the calculation, because typically you have no control over the length of these arguments. This means that long url() functions should not contribute to problems.',
 			hasAutofix: false,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -10169,7 +10169,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow end-of-line whitespace.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ title: 'Turn the rule off', type: 'null' },
 					{
@@ -10226,7 +10226,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow missing end-of-source newlines. Completely empty files are not considered problems.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						title: 'Turn the rule off',
@@ -10282,7 +10282,7 @@ export const stylelintData: ILibraryData = {
 				'Disallow empty first lines. This rule ignores empty sources. Use the no-empty-source rule to disallow these.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						title: 'Turn the rule off',
@@ -10336,7 +10336,7 @@ export const stylelintData: ILibraryData = {
 			description: 'Disallow extra semicolons. This rule ignores semicolons after Less mixins.',
 			hasAutofix: true,
 			category: 'Stylistic Issues',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						title: 'Turn the rule off',

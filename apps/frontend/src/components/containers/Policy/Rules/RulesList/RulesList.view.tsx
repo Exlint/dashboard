@@ -39,6 +39,9 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			? props.serverRules[props.selectedRuleIndex]?.configuration ?? null
 			: null;
 
+	const selectedRuleSchema =
+		props.selectedRuleIndex !== null ? props.serverRules[props.selectedRuleIndex]?.schema ?? null : null;
+
 	return (
 		<div className={classes['container']}>
 			<div className={classes['rulesContainer']}>
@@ -70,6 +73,7 @@ const RulesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				ruleId={selectedRuleId}
 				ruleName={selectedRuleName}
 				ruleConfiguration={selectedRuleConfiguration}
+				selectedRuleSchema={selectedRuleSchema}
 			/>
 		</div>
 	);

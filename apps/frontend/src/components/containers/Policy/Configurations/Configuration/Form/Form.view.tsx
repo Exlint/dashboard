@@ -1,8 +1,9 @@
 import type { ILibraryData } from '@exlint-dashboard/common';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Form from '@rjsf/core';
+import Form, { type IChangeEvent } from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
+import type { Prisma } from '@prisma/client';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import EDBooleanButton from '@/ui/EDBooleanButton';
@@ -11,17 +12,19 @@ import classes from './Form.module.scss';
 
 interface IProps {
 	readonly formSchema: ILibraryData['configuration'] | null;
-	readonly formConfiguration: Record<string, unknown>;
-	readonly isSubmitDisabled: boolean;
+	readonly formConfiguration: Prisma.JsonValue;
 	readonly isSwitchChecked: boolean | null;
+	readonly isFormValid: boolean;
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
+	readonly onFormChange: (data: IChangeEvent) => void;
+	readonly onFormSubmit: VoidFunction;
 }
 
 const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
-		<form className={classes['container']}>
+		<div className={classes['container']}>
 			<div className={classes['actionContainer']}>
 				<EDBooleanButton
 					className={classes['switch']}
@@ -29,7 +32,7 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					onChange={props.onIsSwitchCheckedChange}
 				/>
 
-				<EDAcceptButton type="submit" disabled={props.isSubmitDisabled}>
+				<EDAcceptButton type="button" disabled={!props.isFormValid} onClick={props.onFormSubmit}>
 					{t('formConfiguration.submit')}
 				</EDAcceptButton>
 			</div>
@@ -39,9 +42,13 @@ const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					className={classes['configurationContainer']}
 					schema={props.formSchema}
 					validator={validator}
-				/>
+					formData={props.formConfiguration}
+					onChange={props.onFormChange}
+				>
+					<></>
+				</Form>
 			)}
-		</form>
+		</div>
 	);
 };
 
