@@ -33,6 +33,14 @@
 	border-radius: 6px;
 	box-shadow: 0 4px 8px 0 #00000026;
 
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+
 	&--selected {
 		cursor: default;
 		box-shadow: unset;
