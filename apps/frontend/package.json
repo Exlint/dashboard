@@ -86,7 +86,7 @@
 		"sass": "1.57.1",
 		"stylelint": "14.16.0",
 		"stylelint-config-prettier-scss": "0.0.1",
-		"stylelint-config-recess-order": "3.0.0",
+		"stylelint-config-recess-order": "3.1.0",
 		"stylelint-config-standard-scss": "6.1.0",
 		"stylelint-declaration-strict-value": "1.9.1",
 		"tsconfig-paths-webpack-plugin": "4.0.0",
