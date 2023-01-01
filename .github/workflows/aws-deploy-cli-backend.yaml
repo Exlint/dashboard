@@ -20,7 +20,7 @@ env:
 jobs:
     deploy:
         name: Deploy cli-backend service to AWS
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         environment: production
 
         steps:
