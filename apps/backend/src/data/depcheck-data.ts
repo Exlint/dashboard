@@ -39,8 +39,9 @@ export const depcheckData: ILibraryData = {
 				items: { type: 'string' },
 			},
 			ignorePath: {
-				title: 'Ignore Matches',
-				description: 'Ignore dependencies that matches these globs',
+				title: 'Ignore Path',
+				description:
+					'Path to a file with patterns describing files to ignore. Files must match the .gitignore spec. Example, --ignore-path=.eslintignore.',
 				type: 'string',
 			},
 			ignorePatterns: {

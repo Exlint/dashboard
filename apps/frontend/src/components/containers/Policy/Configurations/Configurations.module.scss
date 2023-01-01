@@ -32,6 +32,10 @@
 			text-decoration: none;
 		}
 
+		&:focus {
+			text-decoration: none;
+		}
+
 		&--active {
 			color: map.get(variables.$colors, whites-ghost-white) !important;
 			background-color: map.get(variables.$colors, greys-onyx);
