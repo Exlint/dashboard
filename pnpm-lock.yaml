@@ -35,7 +35,7 @@ importers:
       rimraf: 3.0.2
       stylelint: 14.16.0
       typescript: 4.9.4
-      wait-on: 6.0.1
+      wait-on: 7.0.1
     devDependencies:
       '@commitlint/cli': 17.3.0
       '@exlint.io/inflint': 1.2.9_moeqx3xmzxqxagf2sz6mqkbb7m
@@ -68,7 +68,7 @@ importers:
       rimraf: 3.0.2
       stylelint: 14.16.0
       typescript: 4.9.4
-      wait-on: 6.0.1
+      wait-on: 7.0.1
 
   apps/backend:
     specifiers:
@@ -3122,7 +3122,7 @@ packages:
       '@commitlint/types': 17.0.0
       fs-extra: 10.1.0
       git-raw-commits: 2.0.11
-      minimist: 1.2.6
+      minimist: 1.2.7
     dev: true
 
   /@commitlint/resolve-extends/17.3.0:
@@ -6197,10 +6197,11 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios/0.25.0:
-    resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
       follow-redirects: 1.15.2
+      form-data: 4.0.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -7981,7 +7982,7 @@ packages:
     dependencies:
       acorn-node: 1.8.2
       defined: 1.0.0
-      minimist: 1.2.6
+      minimist: 1.2.7
     dev: true
 
   /dfa/1.2.0:
@@ -9881,7 +9882,7 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.7
       neo-async: 2.6.2
       source-map: 0.6.1
       wordwrap: 1.0.0
@@ -11363,8 +11364,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /joi/17.6.1:
-    resolution: {integrity: sha512-Hl7/iBklIX345OCM1TiFSCZRVaAOLDGlWCp0Df2vWYgBgjkezaR7Kvm3joBciBHQjZj5sxXs859r6eqsRSlG8w==}
+  /joi/17.7.0:
+    resolution: {integrity: sha512-1/ugc8djfn93rTE3WRKdCzGGt/EtiYKxITMO4Wiv6q5JL1gl9ePt4kBsl1S499nbosspfctIQTpYIhSmHA3WAg==}
     dependencies:
       '@hapi/hoek': 9.3.0
       '@hapi/topo': 5.1.0
@@ -11501,7 +11502,7 @@ packages:
     resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
     hasBin: true
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.7
     dev: true
 
   /json5/2.2.1:
@@ -12241,6 +12242,10 @@ packages:
 
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    dev: true
+
+  /minimist/1.2.7:
+    resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
 
   /mixpanel/0.17.0:
     resolution: {integrity: sha512-DY5WeOy/hmkPrNiiZugJpWR0iMuOwuj1a3u0bgwB2eUFRV6oIew/pIahhpawdbNjb+Bye4a8ID3gefeNPvL81g==}
@@ -12255,7 +12260,7 @@ packages:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
     hasBin: true
     dependencies:
-      minimist: 1.2.6
+      minimist: 1.2.7
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
@@ -14180,7 +14185,7 @@ packages:
     hasBin: true
     dependencies:
       buffer-equal: 0.0.1
-      minimist: 1.2.6
+      minimist: 1.2.7
       through2: 2.0.5
     dev: true
 
@@ -15712,7 +15717,7 @@ packages:
     hasBin: true
     dependencies:
       duplexer: 0.1.2
-      minimist: 1.2.6
+      minimist: 1.2.7
       through: 2.3.8
     dev: true
 
@@ -16443,7 +16448,7 @@ packages:
     dependencies:
       '@types/json5': 0.0.29
       json5: 1.0.1
-      minimist: 1.2.6
+      minimist: 1.2.7
       strip-bom: 3.0.0
     dev: true
 
@@ -16452,7 +16457,7 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       json5: 2.2.1
-      minimist: 1.2.6
+      minimist: 1.2.7
       strip-bom: 3.0.0
     dev: true
 
@@ -16461,7 +16466,7 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       json5: 2.2.1
-      minimist: 1.2.6
+      minimist: 1.2.7
       strip-bom: 3.0.0
     dev: true
 
@@ -16891,15 +16896,15 @@ packages:
       xml-name-validator: 3.0.0
     dev: true
 
-  /wait-on/6.0.1:
-    resolution: {integrity: sha512-zht+KASY3usTY5u2LgaNqn/Cd8MukxLGjdcZxT2ns5QzDmTFc4XoWBgC+C/na+sMRZTuVygQoMYwdcVjHnYIVw==}
-    engines: {node: '>=10.0.0'}
+  /wait-on/7.0.1:
+    resolution: {integrity: sha512-9AnJE9qTjRQOlTZIldAaf/da2eW0eSRSgcqq85mXQja/DW3MriHxkpODDSUEg+Gri/rKEcXUZHe+cevvYItaog==}
+    engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
-      axios: 0.25.0
-      joi: 17.6.1
+      axios: 0.27.2
+      joi: 17.7.0
       lodash: 4.17.21
-      minimist: 1.2.6
+      minimist: 1.2.7
       rxjs: 7.8.0
     transitivePeerDependencies:
       - debug
