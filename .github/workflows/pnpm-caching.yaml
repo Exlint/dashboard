@@ -20,4 +20,4 @@ jobs:
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0

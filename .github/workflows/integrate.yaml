@@ -13,20 +13,20 @@ jobs:
 
         uses: ./.github/workflows/pnpm-caching.yaml
         with:
-            runner: ubuntu-latest
+            runner: self-hosted
 
     test_depcheck:
         needs: call_pnpm_caching_workflow
         name: Testing Depcheck
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test Depcheck
               run: pnpm depcheck:all
@@ -35,14 +35,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Inflint
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test Inflint
               run: pnpm inflint
@@ -51,14 +51,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing TypeScript
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test TypeScript
               run: pnpm type-check:all
@@ -67,14 +67,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prettier
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test Prettier
               run: pnpm prettier
@@ -83,14 +83,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing ESLint
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test ESLint
               run: pnpm lint:all
@@ -99,14 +99,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Stylelint
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test Stylelint
               run: pnpm nx stylelint @exlint-dashboard/frontend
@@ -115,14 +115,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prisma
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -131,14 +131,14 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing build
 
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.0.4
               with:
                   node-version: 18.12.1
                   package-manager: pnpm
-                  package-manager-version: 7.19.0
+                  package-manager-version: 7.20.0
 
             - name: Test build
               run: pnpm build:nested

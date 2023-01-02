@@ -37,8 +37,8 @@
 		"@exlint.io/inflint": "1.2.9",
 		"@prisma/client": "4.7.1",
 		"@types/node": "18.11.17",
-		"@typescript-eslint/eslint-plugin": "5.46.0",
-		"@typescript-eslint/parser": "5.46.0",
+		"@typescript-eslint/eslint-plugin": "5.47.0",
+		"@typescript-eslint/parser": "5.47.0",
 		"chalk": "4.1.2",
 		"commitizen": "4.2.6",
 		"cz-vinyl": "1.6.2",
@@ -57,13 +57,13 @@
 		"npm-run-all": "4.1.5",
 		"nx": "15.4.1",
 		"open": "8.4.0",
-		"pnpm": "7.19.0",
+		"pnpm": "7.20.0",
 		"prettier": "2.8.1",
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.7.1",
 		"rimraf": "3.0.2",
 		"stylelint": "14.16.0",
 		"typescript": "4.9.4",
-		"wait-on": "6.0.1"
+		"wait-on": "7.0.1"
 	}
 }
