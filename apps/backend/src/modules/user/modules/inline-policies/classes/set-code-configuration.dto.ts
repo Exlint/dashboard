@@ -9,7 +9,7 @@ export class SetCodeConfigurationDto implements ISetCodeConfigurationDto {
 	@ApiProperty({ type: String, description: 'Code configuration', example: '{ root: true }' })
 	@IsString()
 	@IsNullable()
-	@MaxLength(1000)
+	@MaxLength(20000)
 	readonly code!: string | null;
 
 	@ApiProperty({ enum: CodeType, description: 'The code type', example: CodeType.JSON })
