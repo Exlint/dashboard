@@ -1,13 +1,14 @@
 module "cdn" {
-  source          = "terraform-aws-modules/cloudfront/aws"
-  comment         = "Frontend CloudFront for serving dashboard application"
-  is_ipv6_enabled = true
-  price_class     = "PriceClass_100"
-
+  source                        = "terraform-aws-modules/cloudfront/aws"
+  comment                       = "CloudFront for caching S3 private and static website"
+  is_ipv6_enabled               = true
+  price_class                   = "PriceClass_100"
   create_origin_access_identity = true
+
   origin_access_identities = {
-    s3_identity = "S3 dedicated for hosting the dashboard frontend"
+    s3_identity = "S3 dedicated for hosting the frontend"
   }
+
   origin = {
     s3_identity = {
       domain_name = module.s3_bucket.s3_bucket_bucket_regional_domain_name
@@ -20,15 +21,13 @@ module "cdn" {
   default_cache_behavior = {
     target_origin_id       = "s3_identity"
     viewer_protocol_policy = "redirect-to-https"
-
-    default_ttl = 5400
-    min_ttl     = 3600
-    max_ttl     = 7200
-
-    allowed_methods = ["GET", "HEAD"]
-    cached_methods  = ["GET", "HEAD"]
-    compress        = true
-    query_string    = true
+    default_ttl            = 5400
+    min_ttl                = 3600
+    max_ttl                = 7200
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    compress               = true
+    query_string           = true
   }
 
   default_root_object = "index.html"
@@ -45,4 +44,12 @@ module "cdn" {
       response_page_path = "/index.html"
     }
   }
+
+  tags = merge(
+    var.tags,
+    {
+      Name  = "${var.project}-cloudfront",
+      Stack = "frontend"
+    }
+  )
 }

@@ -1,20 +1,28 @@
-resource "aws_iam_role" "node" {
-  name = "exlint-Worker-Role"
+data "aws_iam_policy_document" "eks_node_policy" {
+  version = "2012-10-17"
 
-  assume_role_policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
+  statement {
+    actions = ["sts:AssumeRole"]
+    effect  = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
     }
-  ]
+  }
 }
-POLICY
+
+resource "aws_iam_role" "node" {
+  name               = "${var.project}-Worker-Role"
+  assume_role_policy = data.aws_iam_policy_document.eks_node_policy.json
+
+  tags = merge(
+    var.tags,
+    {
+      Stack = "backend"
+      Name  = "${var.project}-eks-node-iam-role",
+    }
+  )
 }
 
 resource "aws_iam_role_policy_attachment" "node_AmazonEKSWorkerNodePolicy" {
@@ -34,12 +42,12 @@ resource "aws_iam_role_policy_attachment" "node_AmazonEC2ContainerRegistryReadOn
 
 resource "aws_eks_node_group" "main" {
   cluster_name    = aws_eks_cluster.main.name
-  node_group_name = "exlint-dashboard"
+  node_group_name = var.project
   node_role_arn   = aws_iam_role.node.arn
-  subnet_ids      = aws_subnet.public[*].id
+  subnet_ids      = aws_subnet.private[*].id
 
   scaling_config {
-    desired_size = 2
+    desired_size = 1
     max_size     = 2
     min_size     = 1
   }
@@ -49,9 +57,13 @@ resource "aws_eks_node_group" "main" {
   disk_size      = 20
   instance_types = ["t3.small"]
 
-  tags = {
-    Name = "exlint-dashboard"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Stack = "backend"
+      Name  = "${var.project}-eks-node-group",
+    }
+  )
 
   depends_on = [
     aws_iam_role_policy_attachment.node_AmazonEKSWorkerNodePolicy,
@@ -61,7 +73,7 @@ resource "aws_eks_node_group" "main" {
 }
 
 resource "aws_security_group" "eks_nodes" {
-  name        = "exlint-node-sg"
+  name        = "${var.project}-node-sg"
   description = "Security group for all nodes in the cluster"
   vpc_id      = aws_vpc.main.id
 
@@ -72,9 +84,15 @@ resource "aws_security_group" "eks_nodes" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "exlint-node-sg"
-  }
+
+  tags = merge(
+    var.tags,
+    {
+      Stack                                          = "backend"
+      Name                                           = "${var.project}-node-sg"
+      "kubernetes.io/cluster/${var.project}-cluster" = "owned"
+    }
+  )
 }
 
 resource "aws_security_group_rule" "nodes_internal" {

@@ -3,6 +3,14 @@ module "s3_bucket" {
   bucket        = var.frontend_s3_bucket_name
   acl           = "private"
   force_destroy = true
+
+  tags = merge(
+    var.tags,
+    {
+      Name  = "${var.project}-s3-bucket",
+      Stack = "frontend"
+    }
+  )
 }
 
 data "aws_iam_policy_document" "s3_policy" {

@@ -45,3 +45,18 @@ variable "subnet_cidr_bits" {
   type        = number
   default     = 8
 }
+
+variable "project" {
+  description = "Name to be used on all the resources as identifier. e.g. Project name, Application name"
+  type        = string
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default = {
+    "Project"     = "TerraformExlintDashboard"
+    "Environment" = "Production"
+    "Owner"       = "Tal Rofe"
+  }
+}

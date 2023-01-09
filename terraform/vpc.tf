@@ -3,9 +3,13 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  tags = {
-    Name = "exlint-vpc",
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name                                           = "${var.project}-vpc",
+      "kubernetes.io/cluster/${var.project}-cluster" = "shared"
+    }
+  )
 }
 
 resource "aws_subnet" "public" {
@@ -14,17 +18,43 @@ resource "aws_subnet" "public" {
   cidr_block        = cidrsubnet(var.vpc_cidr, var.subnet_cidr_bits, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = {
-    Name = "exlint-public-subnet-${count.index}"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name                                           = "${var.project}-public-subnet",
+      "kubernetes.io/cluster/${var.project}-cluster" = "shared"
+      "kubernetes.io/role/elb"                       = 1
+    }
+  )
+
+  map_public_ip_on_launch = true
+}
+
+resource "aws_subnet" "private" {
+  count             = var.availability_zones_count
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, var.subnet_cidr_bits, count.index + var.availability_zones_count)
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = merge(
+    var.tags,
+    {
+      Name                                           = "${var.project}-private-sg"
+      "kubernetes.io/cluster/${var.project}-cluster" = "shared"
+      "kubernetes.io/role/internal-elb"              = 1
+    }
+  )
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    "Name" = "exlint-igw"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-igw",
+    }
+  )
 
   depends_on = [aws_vpc.main]
 }
@@ -37,9 +67,12 @@ resource "aws_route_table" "primary" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  tags = {
-    Name = "exlint-second-route-table"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-primary-route-table",
+    }
+  )
 }
 
 resource "aws_route_table_association" "internet_access" {
@@ -48,13 +81,47 @@ resource "aws_route_table_association" "internet_access" {
   route_table_id = aws_route_table.primary.id
 }
 
+resource "aws_eip" "main" {
+  vpc = true
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-ngw-ip"
+    }
+  )
+}
+
+resource "aws_nat_gateway" "main" {
+  allocation_id = aws_eip.main.id
+  subnet_id     = aws_subnet.public[0].id
+
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-ngw"
+    }
+  )
+}
+
+resource "aws_route" "main" {
+  route_table_id         = aws_vpc.main.default_route_table_id
+  nat_gateway_id         = aws_nat_gateway.main.id
+  destination_cidr_block = "0.0.0.0/0"
+}
+
 resource "aws_security_group" "public_sg" {
-  name   = "exlint-public-sg"
+  name   = "${var.project}-Public-sg"
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "exlint-subnet-public-sg"
-  }
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-Public-sg",
+    }
+  )
 }
 
 resource "aws_security_group_rule" "sg_ingress_public_443" {
@@ -85,12 +152,15 @@ resource "aws_security_group_rule" "sg_egress_public" {
 }
 
 resource "aws_security_group" "data_plane_sg" {
-  name   = "exlint-worker-sg"
+  name   = "${var.project}-Worker-sg"
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "exlint-worker-sg"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-Worker-sg",
+    }
+  )
 }
 
 resource "aws_security_group_rule" "nodes" {
@@ -123,12 +193,15 @@ resource "aws_security_group_rule" "node_outbound" {
 }
 
 resource "aws_security_group" "control_plane_sg" {
-  name   = "exlint-ControlPlane-sg"
+  name   = "${var.project}-ControlPlane-sg"
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "exlint-ControlPlane-sg"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.project}-ControlPlane-sg",
+    }
+  )
 }
 
 resource "aws_security_group_rule" "control_plane_inbound" {

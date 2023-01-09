@@ -1,20 +1,28 @@
-resource "aws_iam_role" "cluster" {
-  name = "exlint-Cluster-Role"
+data "aws_iam_policy_document" "eks_cluster_policy" {
+  version = "2012-10-17"
 
-  assume_role_policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "eks.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
+  statement {
+    actions = ["sts:AssumeRole"]
+    effect  = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["eks.amazonaws.com"]
     }
-  ]
+  }
 }
-POLICY
+
+resource "aws_iam_role" "cluster" {
+  name               = "${var.project}-Cluster-Role"
+  assume_role_policy = data.aws_iam_policy_document.eks_cluster_policy.json
+
+  tags = merge(
+    var.tags,
+    {
+      Stack = "backend"
+      Name  = "${var.project}-eks-cluster-iam-role",
+    }
+  )
 }
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
@@ -23,20 +31,24 @@ resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
 }
 
 resource "aws_eks_cluster" "main" {
-  name     = "exlint-dashboard-cluster"
+  name     = "${var.project}-cluster"
   role_arn = aws_iam_role.cluster.arn
-  version  = "1.26"
+  version  = "1.24"
 
   vpc_config {
-    subnet_ids              = flatten([aws_subnet.public[*].id])
+    subnet_ids              = flatten([aws_subnet.public[*].id, aws_subnet.private[*].id])
     endpoint_private_access = true
     endpoint_public_access  = true
     public_access_cidrs     = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "exlint-cluster-eks"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Stack = "backend"
+      Name  = "${var.project}-eks-cluster",
+    }
+  )
 
   depends_on = [
     aws_iam_role_policy_attachment.cluster_AmazonEKSClusterPolicy
@@ -44,13 +56,17 @@ resource "aws_eks_cluster" "main" {
 }
 
 resource "aws_security_group" "eks_cluster" {
-  name        = "exlint-cluster-sg"
+  name        = "${var.project}-cluster-sg"
   description = "Cluster communication with worker nodes"
   vpc_id      = aws_vpc.main.id
 
-  tags = {
-    Name = "exlint-cluster-sg"
-  }
+  tags = merge(
+    var.tags,
+    {
+      Stack = "backend"
+      Name  = "${var.project}-cluster-sg"
+    }
+  )
 }
 
 resource "aws_security_group_rule" "cluster_inbound" {
