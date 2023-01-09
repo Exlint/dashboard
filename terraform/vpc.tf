@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "igw" {
     "Name" = "exlint-igw"
   }
 
-  depends_on = [aws_vpc.this]
+  depends_on = [aws_vpc.main]
 }
 
 resource "aws_route_table" "primary" {

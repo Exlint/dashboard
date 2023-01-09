@@ -7,3 +7,4 @@ apps/frontend/dist
 apps/cli-backend/dist
 packages/common/dist
 packages/common/node_modules
+terraform

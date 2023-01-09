@@ -35,5 +35,17 @@
 		"user": "client"
 	},
 	"material-icon-theme.activeIconPack": "nest",
-	"task.allowAutomaticTasks": "on"
+	"task.allowAutomaticTasks": "on",
+	"[terraform]": {
+		"editor.defaultFormatter": "hashicorp.terraform",
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "file"
+	},
+	"[terraform-vars]": {
+		"editor.defaultFormatter": "hashicorp.terraform",
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "file"
+	},
+	"terraform.experimentalFeatures.validateOnSave": true,
+	"terraform.languageServer.rootModules": ["/terraform"]
 }
