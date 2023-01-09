@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .container {
 	position: absolute;

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { Prisma } from '@prisma/client';

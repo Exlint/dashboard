@@ -20,7 +20,6 @@
 			"@/models/*": ["src/models/*"],
 			"@/styles/*": ["src/styles/*"]
 		},
-		"typeRoots": ["./@types", "./node_modules/@types"],
-		"plugins": [{ "name": "typescript-plugin-css-modules" }]
+		"typeRoots": ["./@types", "./node_modules/@types"]
 	}
 }

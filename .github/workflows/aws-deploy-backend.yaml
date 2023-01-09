@@ -1,4 +1,4 @@
-name: Deploy to backend service AWS Fargate with major version
+name: Deploy to backend service AWS Fargate
 
 on:
     push:
@@ -14,13 +14,12 @@ env:
     ECS_SERVICE: dashboard-backend
     ECS_CLUSTER: dashboard-backend
     ECS_TASK_DEFINITION: dashboard-backend
-
     CONTAINER_NAME: dashboard-backend
 
 jobs:
     deploy:
         name: Deploy backend service to AWS
-        runs-on: self-hosted
+        runs-on: [self-hosted, linux, x64, deploy]
         environment: production
 
         steps:
@@ -50,7 +49,7 @@ jobs:
               run: |
                   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . -f ./docker/Dockerfile.backend-prod
                   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-                  echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+                  echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
             - name: Download task definition
               run: |
                   aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION }} --query taskDefinition > task-definition.json

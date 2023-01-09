@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import type { ILibraryData } from '@exlint-dashboard/common';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

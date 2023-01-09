@@ -62,6 +62,7 @@ apps/frontend/stylelint.config.cjs
 apps/frontend/dist
 apps/frontend/tsconfig.eslint.json
 apps/frontend/.depcheckrc.json
+apps/frontend/_templates
 
 packages/common/tsconfig.tsbuildinfo
 packages/common/.gitignore

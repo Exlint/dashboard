@@ -1,4 +1,4 @@
-name: Deploy to cli-backend service AWS Fargate with major version
+name: Deploy to cli-backend service AWS Fargate
 
 on:
     push:
@@ -20,7 +20,7 @@ env:
 jobs:
     deploy:
         name: Deploy cli-backend service to AWS
-        runs-on: self-hosted
+        runs-on: [self-hosted, linux, x64, deploy]
         environment: production
 
         steps:
@@ -50,7 +50,7 @@ jobs:
               run: |
                   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG . -f ./docker/Dockerfile.cli-backend-prod
                   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-                  echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+                  echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
             - name: Download task definition
               run: |
                   aws ecs describe-task-definition --task-definition ${{ env.ECS_TASK_DEFINITION }} --query taskDefinition > task-definition.json

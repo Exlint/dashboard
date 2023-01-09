@@ -9,7 +9,7 @@ import { StreamLanguage, LanguageSupport } from '@codemirror/language';
 import { yaml } from '@codemirror/legacy-modes/mode/yaml';
 import { CodeType } from '@prisma/client';
 
-import styles from '@/styles/_variables.scss';
+import styles from '@/styles/variables.module.scss';
 
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';

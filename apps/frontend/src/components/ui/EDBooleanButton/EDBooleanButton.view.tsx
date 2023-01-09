@@ -1,7 +1,7 @@
 import React from 'react';
 import Switch from 'react-switch';
 
-import styles from '@/styles/_variables.scss';
+import styles from '@/styles/variables.module.scss';
 import { concatDiverseClasses } from '@/utils/component';
 
 import classes from './EDBooleanButton.module.scss';
