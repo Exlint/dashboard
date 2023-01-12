@@ -9,7 +9,7 @@ permissions:
 
 jobs:
     call_pnpm_caching_workflow:
-        name: Set pnpm caching
+        name: Set PNPM environment
 
         uses: ./.github/workflows/pnpm-caching.yaml
         with:
@@ -153,6 +153,9 @@ jobs:
 
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
+
+            - name: Terraform init
+              run: terraform -chdir="./terraform" init
 
             - name: Terraform validate
               run: terraform -chdir="./terraform" validate -no-color
