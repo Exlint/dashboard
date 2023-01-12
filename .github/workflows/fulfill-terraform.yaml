@@ -3,19 +3,17 @@ name: Fulfill Terrafrom
 on:
   workflow_dispatch:
 
-env:
-    TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
-    TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-    TF_VAR_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    TF_VAR_terraform_backend_s3_bucket: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
-    TF_VAR_terraform_backend_dynamodb_table: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
-    TF_VAR_frontend_s3_bucket_name: ${{ secrets.FRONTEND_S3_BUCKET_NAME }}
-  
 jobs:
     fulfill_terraform:
         name: Fulfill Terraform 
         runs-on: [self-hosted, linux, x64, deploy]
         env:
+            TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
+            TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+            TF_VAR_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            TF_VAR_terraform_backend_s3_bucket: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
+            TF_VAR_terraform_backend_dynamodb_table: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
+            TF_VAR_frontend_s3_bucket_name: ${{ secrets.FRONTEND_S3_BUCKET_NAME }}
             BACKEND_ECR_REPOSITORY: dashboard-backend
             CLI_BACKEND_ECR_REPOSITORY: dashboard-cli-backend
 
