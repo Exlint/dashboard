@@ -144,7 +144,6 @@ jobs:
               run: pnpm build:nested
 
     test_terraform:
-        needs: call_pnpm_caching_workflow
         name: Testing Terraform
 
         runs-on: self-hosted
@@ -152,7 +151,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-        - name: terraform validate
-            uses: dflook/terraform-validate@v1
-            with:
-                path: terraform
+            - name: Terraform setup
+              uses: hashicorp/setup-terraform@v2
+
+            - name: Terraform validate
+              run: terraform -chdir="./terraform" validate -no-color

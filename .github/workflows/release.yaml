@@ -24,4 +24,4 @@ jobs:
                       @semantic-release/git
                       @semantic-release/npm
               env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GH_TOKEN }}
