@@ -32,3 +32,5 @@ spec:
                         value: '$REFRESH_TOKEN_JWT_KEY'
                       - name: MIXPANEL_TOKEN
                         value: '$MIXPANEL_TOKEN'
+                      - name: DATABASE_URL
+                        value: '$DATABASE_URL'

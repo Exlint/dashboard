@@ -13,9 +13,10 @@ jobs:
             TF_VAR_aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             TF_VAR_terraform_backend_s3_bucket: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
             TF_VAR_terraform_backend_dynamodb_table: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
-            TF_VAR_frontend_s3_bucket_name: ${{ secrets.FRONTEND_S3_BUCKET_NAME }}
+            TF_VAR_frontend_s3_bucket_name: ${{ secrets.AWS_S3_BUCKET }}
             BACKEND_ECR_REPOSITORY: dashboard-backend
             CLI_BACKEND_ECR_REPOSITORY: dashboard-cli-backend
+            DATABASE_URL: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/?retryWrites=true&w=majority
 
         steps:
             - name: Setup Node environment
@@ -88,12 +89,13 @@ jobs:
                   GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
                   GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
                   GOOGLE_OAUTH_REDIRECT_URI: "https://www.api.exlint.io:3000/user/auth/google-redirect"
-                  GITHUB_OAUTH_CLIENT_ID: ${{ secrets.GITHUB_OAUTH_CLIENT_ID }}
-                  GITHUB_OAUTH_CLIENT_SECRET: ${{ secrets.GITHUB_OAUTH_CLIENT_SECRET }}
-                  GITHUB_OAUTH_REDIRECT_URI: "http://www.api.exlint.io:3000/user/auth/github-redirect"
+                  GH_OAUTH_CLIENT_ID: ${{ secrets.GH_OAUTH_CLIENT_ID }}
+                  GH_OAUTH_CLIENT_SECRET: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
+                  GITHUB_OAUTH_REDIRECT_URI: "https://www.api.exlint.io:3000/user/auth/github-redirect"
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
                   FRONTEND_URL: "https://wwww.app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
+                  DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
                   input: ./k8s/backend-deployment.template.yaml
                   output: ./k8s/backend-deployment.yaml
@@ -116,6 +118,7 @@ jobs:
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
                   FRONTEND_URL: "https://wwww.app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
+                  DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
                 input: ./k8s/cli-backend-deployment.template.yaml
                 output: ./k8s/cli-backend-deployment.yaml

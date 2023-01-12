@@ -10,8 +10,8 @@ declare global {
 			readonly GOOGLE_OAUTH_CLIENT_ID: string;
 			readonly GOOGLE_OAUTH_CLIENT_SECRET: string;
 			readonly GOOGLE_OAUTH_REDIRECT_URI: string;
-			readonly GITHUB_OAUTH_CLIENT_ID: string;
-			readonly GITHUB_OAUTH_CLIENT_SECRET: string;
+			readonly GH_OAUTH_CLIENT_ID: string;
+			readonly GH_OAUTH_CLIENT_SECRET: string;
 			readonly GITHUB_OAUTH_REDIRECT_URI: string;
 			readonly MIXPANEL_TOKEN: string;
 			readonly FRONTEND_URL: string;

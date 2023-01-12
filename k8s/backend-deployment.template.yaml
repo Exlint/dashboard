@@ -34,10 +34,10 @@ spec:
                         value: '$GOOGLE_OAUTH_CLIENT_SECRET'
                       - name: GOOGLE_OAUTH_REDIRECT_URI
                         value: '$GOOGLE_OAUTH_REDIRECT_URI'
-                      - name: GITHUB_OAUTH_CLIENT_ID
-                        value: '$GITHUB_OAUTH_CLIENT_ID'
-                      - name: GITHUB_OAUTH_CLIENT_SECRET
-                        value: '$GITHUB_OAUTH_CLIENT_SECRET'
+                      - name: GH_OAUTH_CLIENT_ID
+                        value: '$GH_OAUTH_CLIENT_ID'
+                      - name: GH_OAUTH_CLIENT_SECRET
+                        value: '$GH_OAUTH_CLIENT_SECRET'
                       - name: GITHUB_OAUTH_REDIRECT_URI
                         value: '$GITHUB_OAUTH_REDIRECT_URI'
                       - name: MIXPANEL_TOKEN
@@ -46,3 +46,5 @@ spec:
                         value: '$FRONTEND_URL'
                       - name: CLI_TOKEN_JWT_KEY
                         value: '$CLI_TOKEN_JWT_KEY'
+                      - name: DATABASE_URL
+                        value: '$DATABASE_URL'

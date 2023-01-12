@@ -30,10 +30,10 @@ class EnvironmentVariables {
 	public GOOGLE_OAUTH_REDIRECT_URI!: string;
 
 	@IsString()
-	public GITHUB_OAUTH_CLIENT_ID!: string;
+	public GH_OAUTH_CLIENT_ID!: string;
 
 	@IsString()
-	public GITHUB_OAUTH_CLIENT_SECRET!: string;
+	public GH_OAUTH_CLIENT_SECRET!: string;
 
 	@IsString()
 	public GITHUB_OAUTH_REDIRECT_URI!: string;
