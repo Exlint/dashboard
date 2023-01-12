@@ -13,16 +13,6 @@ variable "aws_secret_access_key" {
   sensitive = true
 }
 
-variable "terraform_backend_s3_bucket" {
-  description = "Name of the S3 bucket dedicated for Terraform backend"
-  type        = string
-}
-
-variable "terraform_backend_dynamodb_table" {
-  description = "Name of the DynamoDB dedicated for Terraform backend"
-  type        = string
-}
-
 variable "frontend_s3_bucket_name" {
   description = "Name of the S3 bucket dedicated for the dashboard frontend"
   type        = string
