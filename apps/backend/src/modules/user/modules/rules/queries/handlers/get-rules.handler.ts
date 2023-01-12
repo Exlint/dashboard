@@ -1,6 +1,5 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 import type { IGetRulesResponseData } from '@exlint-dashboard/common';
-import type { Prisma } from '@prisma/client';
 
 import { DBRuleService } from '@/modules/database/rule.service';
 import { librariesData } from '@/data/libraries-data';
@@ -27,7 +26,7 @@ export class GetRulesHandler implements IQueryHandler<GetRulesContract> {
 				...ruleData,
 				id: ruleRecord?.id ?? null,
 				name: ruleName,
-				configuration: (ruleRecord?.configuration ?? null) as Prisma.JsonArray | null,
+				configuration: ruleRecord?.configuration ?? null,
 				isEnabled: ruleRecord?.isEnabled ?? false,
 			};
 		});

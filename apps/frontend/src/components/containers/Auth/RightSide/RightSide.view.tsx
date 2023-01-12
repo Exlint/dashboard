@@ -14,8 +14,8 @@ interface IProps {
 const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
-	let githubAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/github-auth`;
-	let googleAuthUrl = `${process.env.REACT_APP_BACKEND_URL}/user/auth/google-auth`;
+	let githubAuthUrl = `${import.meta.env.VITE_BACKEND_URL}/user/auth/github-auth`;
+	let googleAuthUrl = `${import.meta.env.VITE_BACKEND_URL}/user/auth/google-auth`;
 
 	if (props.port) {
 		githubAuthUrl += `?port=${props.port}`;

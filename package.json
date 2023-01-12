@@ -19,7 +19,7 @@
 		"cluster:stop": "pnpm exec ./docker/scripts/stop-cluster.sh",
 		"cluster:restart": "pnpm exec ./docker/scripts/restart-cluster.sh",
 		"db:clean": "rimraf ./.volumes/mongo",
-		"lint:root": "eslint -c ./.eslintrc.cjs --ignore-pattern 'apps' --ignore-pattern 'packages' \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
+		"lint:root": "eslint -c ./.eslintrc.cjs --ignore-pattern \"apps\" --ignore-pattern \"packages\" \"**/*.{ts,js,cjs}\" --resolve-plugins-relative-to .",
 		"lint:nested": "nx run-many --target=lint --nx-bail",
 		"lint:all": "run-p lint:root lint:nested",
 		"type-check:root": "tsc --project ./tsconfig.json",

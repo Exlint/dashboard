@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .container {
 	padding: map.get(variables.$sizes, spacing-m) map.get(variables.$sizes, spacing-l);

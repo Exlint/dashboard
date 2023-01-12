@@ -3,3 +3,5 @@ build
 pnpm-worksapce.yaml
 dist
 pnpm-lock.yaml
+terraform
+.github

@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .button {
 	color: map.get(variables.$colors, reds-persian-plum);

@@ -14,8 +14,6 @@ jobs:
         uses: ./.github/workflows/pnpm-caching.yaml
         with:
             runner: self-hosted
-            node-version: 18
-            pnpm-version: 7.20.0
 
     test_depcheck:
         needs: call_pnpm_caching_workflow
@@ -144,3 +142,17 @@ jobs:
 
             - name: Test build
               run: pnpm build:nested
+
+    test_terraform:
+        name: Testing Terraform
+
+        runs-on: self-hosted
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Terraform setup
+              uses: hashicorp/setup-terraform@v2
+
+            - name: Terraform validate
+              run: terraform -chdir="./terraform" validate -no-color

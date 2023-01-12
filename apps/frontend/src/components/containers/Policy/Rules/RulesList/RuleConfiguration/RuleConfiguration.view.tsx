@@ -1,6 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { Prisma } from '@prisma/client';
+import type { ILibraryRule } from '@exlint-dashboard/common';
+import Form, { type IChangeEvent } from '@rjsf/core';
+import validator from '@rjsf/validator-ajv8';
 
 import EDAcceptButton from '@/ui/EDAcceptButton';
 import { concatClasses } from '@/utils/component';
@@ -10,7 +14,11 @@ import classes from './RuleConfiguration.module.scss';
 interface IProps {
 	readonly ruleId: string | null;
 	readonly ruleName: string | null;
-	readonly ruleConfiguration: Prisma.JsonArray | null;
+	readonly isFormValid: boolean;
+	readonly ruleConfiguration: Prisma.JsonValue;
+	readonly selectedRuleSchema: ILibraryRule['schema'] | null;
+	readonly formData: Prisma.JsonValue;
+	readonly onFormChange: (data: IChangeEvent) => void;
 }
 
 const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -25,7 +33,7 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 	);
 
 	return (
-		<form className={containerClasses}>
+		<div className={containerClasses}>
 			<div className={classes['header']}>
 				{isRuleSelected ? (
 					<div className={classes['headerTextContainer']}>
@@ -40,7 +48,13 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 					</h5>
 				)}
 
-				<EDAcceptButton disabled type="submit">
+				<EDAcceptButton
+					className={
+						props.isFormValid && isRuleSelected ? classes['saveConfigValidButton'] : undefined
+					}
+					type="submit"
+					disabled={!props.isFormValid || !isRuleSelected}
+				>
 					{t('policy.rulesList.ruleConfigurations.saveConfiguration')}
 				</EDAcceptButton>
 			</div>
@@ -62,7 +76,19 @@ const RuleConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<
 					</EDAcceptButton>
 				</div>
 			)}
-		</form>
+
+			{isRuleSelected && props.selectedRuleSchema && (
+				<Form
+					className={classes['container__form']}
+					schema={props.selectedRuleSchema}
+					validator={validator}
+					formData={props.formData}
+					onChange={props.onFormChange}
+				>
+					<></>
+				</Form>
+			)}
+		</div>
 	);
 };
 

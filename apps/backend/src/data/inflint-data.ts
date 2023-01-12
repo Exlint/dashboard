@@ -20,17 +20,39 @@ export const inflintData: ILibraryData = {
 				description: 'Inflint aliases to use together with rules.',
 				type: 'object',
 				additionalProperties: {
-					type: 'array',
-					items: [
+					type: 'object',
+					anyOf: [
 						{
 							title: 'RegEx Matcher',
-							description: 'Inflint will apply the alias name to match the provided RegEx.',
-							type: 'string',
+							description: 'Set file & directory name to match names conventions',
+							type: 'array',
+							items: [
+								{
+									title: 'RegEx Matcher',
+									description:
+										'Inflint will apply the alias name to match the provided RegEx.',
+									type: 'string',
+								},
+							],
 						},
 						{
-							title: 'RegEx Flags',
-							description: 'Inflint will apply the flags together with the RegEx string.',
-							type: 'string',
+							title: 'RegEx Matcher with flags',
+							description: 'Set file & directory name to match names conventions',
+							type: 'array',
+							items: [
+								{
+									title: 'RegEx Matcher',
+									description:
+										'Inflint will apply the alias name to match the provided RegEx.',
+									type: 'string',
+								},
+								{
+									title: 'RegEx Flags',
+									description:
+										'Inflint will apply the flags together with the RegEx string.',
+									type: 'string',
+								},
+							],
 						},
 					],
 				},
@@ -78,16 +100,21 @@ export const inflintData: ILibraryData = {
 			description: 'Enforce names conventions for files and directories in project',
 			hasAutofix: false,
 			category: 'Name Convention',
-			configuration: {
+			schema: {
 				type: 'object',
 				additionalProperties: {
+					type: 'object',
 					anyOf: [
 						{
 							title: 'File Existence',
 							description: 'Set file & directory existence',
 							type: 'array',
 							items: [
-								{ title: 'Rule severity', type: 'string', enum: ['warn', 'error'] },
+								{
+									title: 'Rule severity',
+									type: 'string',
+									enum: ['warn', 'error'],
+								},
 								{
 									title: 'Rule options',
 									type: 'object',

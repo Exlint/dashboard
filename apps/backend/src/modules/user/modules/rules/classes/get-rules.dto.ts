@@ -1,6 +1,6 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import type { IGetRulesResponseData } from '@exlint-dashboard/common';
-import type { Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 class RuleItem {
 	@ApiResponseProperty({
@@ -19,7 +19,7 @@ class RuleItem {
 		type: Object,
 		example: ['error'],
 	})
-	public configuration!: Prisma.JsonArray | null;
+	public configuration!: Prisma.JsonValue;
 
 	@ApiResponseProperty({
 		type: String,

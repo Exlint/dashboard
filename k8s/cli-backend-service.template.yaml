@@ -1,0 +1,15 @@
+# This is a template file for k8s service for a cli-backend service
+# Variables should be injected (and will be using "envsubst" GH Action) using GH Action
+# This file won't be used explicitly with "kubectl"
+apiVersion: v1
+kind: Service
+metadata:
+    name: cli-backend-service
+spec:
+    selector:
+        app: dashboard-cli-backend
+    type: LoadBalancer
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: '$PORT'

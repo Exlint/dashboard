@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .configurationTabs {
 	display: flex;
@@ -16,6 +16,11 @@
 		border-radius: 6px;
 		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
 
+		&:hover {
+			color: map.get(variables.$colors, greys-philippine-gray);
+			text-decoration: none;
+		}
+
 		&:not(:last-child) {
 			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 		}
@@ -23,6 +28,11 @@
 		&--active {
 			color: map.get(variables.$colors, greys-onyx);
 			box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-onyx);
+
+			&:hover {
+				color: map.get(variables.$colors, greys-onyx);
+				text-decoration: none;
+			}
 		}
 	}
 }

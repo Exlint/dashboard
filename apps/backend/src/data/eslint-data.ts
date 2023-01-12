@@ -153,7 +153,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce `return` statements in callbacks of array methods',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -181,7 +181,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce `return` statements in getters',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -216,7 +216,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow assignment operators in conditional expressions',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: { type: 'array', items: [{ enum: ['except-parens', 'always'] }] },
+			schema: { type: 'array', items: [{ enum: ['except-parens', 'always'] }] },
 		},
 		'no-const-assign': {
 			description: 'Disallow reassigning `const` variables',
@@ -232,7 +232,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow constant expressions in conditions',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -247,7 +247,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow returning value from constructor',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {},
+			schema: {},
 		},
 		'no-control-regex': {
 			description: 'Disallow control characters in regular expressions',
@@ -288,7 +288,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow duplicate module imports',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -318,7 +318,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow fallthrough of `case` statements',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -346,13 +346,13 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow variable or `function` declarations in nested blocks',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: { type: 'array', items: [{ enum: ['functions', 'both'] }] },
+			schema: { type: 'array', items: [{ enum: ['functions', 'both'] }] },
 		},
 		'no-invalid-regexp': {
 			description: 'Disallow invalid regular expression strings in `RegExp` constructors',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -367,7 +367,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow irregular whitespace',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -418,7 +418,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow assignments where both sides are exactly the same',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -459,7 +459,7 @@ export const eslintData: ILibraryData = {
 				'Disallow the use of undeclared variables unless mentioned in `/*global */` comments',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -490,7 +490,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow loops with a body that allows only one iteration',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -524,7 +524,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow negating the left operand of relational operators',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -540,7 +540,7 @@ export const eslintData: ILibraryData = {
 				'Disallow use of optional chaining in contexts where the `undefined` value is not allowed',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -560,7 +560,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow unused variables',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -589,7 +589,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow the use of variables before they are defined',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -620,7 +620,7 @@ export const eslintData: ILibraryData = {
 				'Disallow assignments that can lead to race conditions due to usage of `await` or `yield`',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -635,7 +635,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require calls to `isNaN()` when checking for `NaN`',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -653,7 +653,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce comparing `typeof` expressions against valid strings',
 			hasAutofix: false,
 			category: 'Possible Problems',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -668,7 +668,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce getter and setter pairs in objects and classes',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -687,7 +687,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require braces around arrow function bodies',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ type: 'array', items: [{ enum: ['always', 'never'] }], minItems: 0, maxItems: 1 },
 					{
@@ -715,7 +715,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce camelcase naming convention',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -741,7 +741,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce or disallow capitalization of the first letter of a comment',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -789,7 +789,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce that class methods utilize `this`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -807,7 +807,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum cyclomatic complexity allowed in a program',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -830,7 +830,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require `return` statements to either always or never specify values',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -845,13 +845,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent naming when capturing the current execution context',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: { type: 'string', minLength: 1 }, uniqueItems: true },
+			schema: { type: 'array', items: { type: 'string', minLength: 1 }, uniqueItems: true },
 		},
 		'curly': {
 			description: 'Enforce consistent brace style for all control statements',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ type: 'array', items: [{ enum: ['all'] }], minItems: 0, maxItems: 1 },
 					{
@@ -867,7 +867,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require `default` cases in `switch` statements',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -892,7 +892,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce dot notation whenever possible',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -910,7 +910,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require the use of `===` and `!==`',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -933,7 +933,7 @@ export const eslintData: ILibraryData = {
 				'Require function names to match the name of the variable or property to which they are assigned',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -971,7 +971,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow named `function` expressions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				definitions: { value: { enum: ['always', 'as-needed', 'never'] } },
 				items: [
 					{ $ref: '#/definitions/value' },
@@ -987,7 +987,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the consistent use of either `function` declarations or expressions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['declaration', 'expression'] },
@@ -1003,7 +1003,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require grouped accessor pairs in object literals and classes',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['anyOrder', 'getBeforeSet', 'setBeforeGet'] }] },
+			schema: { type: 'array', items: [{ enum: ['anyOrder', 'getBeforeSet', 'setBeforeGet'] }] },
 		},
 		'guard-for-in': {
 			description: 'Require `for-in` loops to include an `if` statement',
@@ -1014,13 +1014,13 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified identifiers',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: { type: 'string' }, uniqueItems: true },
+			schema: { type: 'array', items: { type: 'string' }, uniqueItems: true },
 		},
 		'id-length': {
 			description: 'Enforce minimum and maximum identifier lengths',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1045,7 +1045,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require identifiers to match a specified regular expression',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ type: 'string' },
@@ -1066,7 +1066,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow initialization in variable declarations',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ type: 'array', items: [{ enum: ['always'] }], minItems: 0, maxItems: 1 },
 					{
@@ -1089,7 +1089,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of classes per file',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1112,7 +1112,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum depth that blocks can be nested',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1135,7 +1135,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of lines per file',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1159,7 +1159,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of lines of code in a function',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1184,7 +1184,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum depth that callbacks can be nested',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1207,7 +1207,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of parameters in function definitions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1230,7 +1230,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of statements allowed in function blocks',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1258,7 +1258,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a particular style for multiline comments',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [{ enum: ['starred-block', 'separate-lines', 'bare-block'] }],
 			},
@@ -1267,7 +1267,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require constructor names to begin with a capital letter',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1300,7 +1300,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow bitwise operators',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1348,7 +1348,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow arrow functions where they could be confused with comparisons',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1366,7 +1366,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow the use of `console`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1403,7 +1403,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow `else` blocks after `return` statements in `if` statements',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1418,7 +1418,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow empty block statements',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1433,7 +1433,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow empty functions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1472,7 +1472,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow the use of `eval()`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1487,7 +1487,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow extending native types',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1509,7 +1509,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow unnecessary boolean casts',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1539,7 +1539,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow assignments to native objects or read-only global variables',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1556,7 +1556,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow shorthand type conversions',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1581,7 +1581,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow declarations in the global scope',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1601,7 +1601,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow inline comments after code',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1616,7 +1616,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow use of `this` in contexts where the value of `this` is `undefined`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1641,7 +1641,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow labeled statements',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1675,7 +1675,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow magic numbers',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1706,7 +1706,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow mixed binary operators',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1763,7 +1763,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow use of chained assignment expressions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1824,7 +1824,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow reassigning `function` parameters',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1860,7 +1860,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow the unary operators `++` and `--`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1880,7 +1880,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow variable redeclaration',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1900,7 +1900,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified names in exports',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -1921,7 +1921,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified global variables',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: {
 					oneOf: [
@@ -1942,7 +1942,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified modules when loaded by `import`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -2034,7 +2034,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow certain properties on certain objects',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: {
 					anyOf: [
@@ -2067,7 +2067,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified syntax',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: {
 					oneOf: [
@@ -2088,7 +2088,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow assignment operators in `return` statements',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['except-parens', 'always'] }] },
+			schema: { type: 'array', items: [{ enum: ['except-parens', 'always'] }] },
 		},
 		'no-return-await': {
 			description: 'Disallow unnecessary `return await`',
@@ -2104,7 +2104,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow comma operators',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2119,7 +2119,7 @@ export const eslintData: ILibraryData = {
 				'Disallow variable declarations from shadowing variables declared in the outer scope',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2164,7 +2164,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow dangling underscores in identifiers',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2187,7 +2187,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow ternary operators when simpler alternatives exist',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2202,7 +2202,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow unused expressions',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2237,7 +2237,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow unnecessary computed property keys in objects and classes',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2267,7 +2267,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow renaming import, export, and destructured assignments to the same name',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2296,7 +2296,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow `void` operators',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2311,7 +2311,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow specified warning terms in comments',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2336,7 +2336,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow method and property shorthand syntax for object literals',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -2393,7 +2393,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce variables to be declared either together or separately in functions',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2426,19 +2426,19 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow newlines around variable declarations',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['always', 'initializations'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'initializations'] }] },
 		},
 		'operator-assignment': {
 			description: 'Require or disallow assignment operator shorthand where possible',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'prefer-arrow-callback': {
 			description: 'Require using arrow functions for callbacks',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2457,7 +2457,7 @@ export const eslintData: ILibraryData = {
 				'Require `const` declarations for variables that are never reassigned after declared',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2475,7 +2475,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require destructuring from arrays and/or objects',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2549,7 +2549,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require using Error objects as Promise rejection reasons',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2564,7 +2564,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow use of the `RegExp` constructor in favor of regular expression literals',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2594,7 +2594,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require quotes around object literal property names',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -2626,7 +2626,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the consistent use of the radix argument when using `parseInt()`',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['always', 'as-needed'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'as-needed'] }] },
 		},
 		'require-await': {
 			description: 'Disallow async functions which have no `await` expression',
@@ -2647,7 +2647,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce sorted import declarations within modules',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2674,7 +2674,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require object keys to be sorted',
 			hasAutofix: false,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['asc', 'desc'] },
@@ -2695,7 +2695,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require variables within the same declaration block to be sorted',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2710,7 +2710,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing after the `//` or `/*` in a comment',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -2746,7 +2746,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow strict mode directives',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: { type: 'array', items: [{ enum: ['never', 'global', 'function', 'safe'] }] },
+			schema: { type: 'array', items: [{ enum: ['never', 'global', 'function', 'safe'] }] },
 		},
 		'symbol-description': {
 			description: 'Require symbol descriptions',
@@ -2762,7 +2762,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow "Yoda" conditions',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -2781,7 +2781,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce linebreaks after opening and before closing array brackets',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2804,7 +2804,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing inside array brackets',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -2824,7 +2824,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce line breaks after each array element',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				definitions: {
 					basicConfig: {
 						oneOf: [
@@ -2862,7 +2862,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require parentheses around arrow function arguments',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'as-needed'] },
@@ -2878,7 +2878,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before and after the arrow in arrow functions',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2897,13 +2897,13 @@ export const eslintData: ILibraryData = {
 				'Disallow or enforce spaces inside of blocks after opening block and before closing block',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'brace-style': {
 			description: 'Enforce consistent brace style for blocks',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['1tbs', 'stroustrup', 'allman'] },
@@ -2919,7 +2919,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow trailing commas',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				definitions: {
 					value: { enum: ['always-multiline', 'always', 'never', 'only-multiline'] },
 					valueWithIgnore: {
@@ -2952,7 +2952,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before and after commas',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -2970,7 +2970,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent comma style',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['first', 'last'] },
@@ -2988,7 +2988,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing inside computed property brackets',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -3004,19 +3004,19 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent newlines before and after dots',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['object', 'property'] }] },
+			schema: { type: 'array', items: [{ enum: ['object', 'property'] }] },
 		},
 		'eol-last': {
 			description: 'Require or disallow newline at the end of files',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never', 'unix', 'windows'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never', 'unix', 'windows'] }] },
 		},
 		'func-call-spacing': {
 			description: 'Require or disallow spacing between function identifiers and their invocations',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ type: 'array', items: [{ enum: ['never'] }], minItems: 0, maxItems: 1 },
 					{
@@ -3039,13 +3039,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce line breaks between arguments of a function call',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never', 'consistent'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never', 'consistent'] }] },
 		},
 		'function-paren-newline': {
 			description: 'Enforce consistent line breaks inside function parentheses',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3065,7 +3065,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing around `*` operators in generator functions',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3127,13 +3127,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the location of arrow function bodies',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['beside', 'below'] }] },
+			schema: { type: 'array', items: [{ enum: ['beside', 'below'] }] },
 		},
 		'indent': {
 			description: 'Enforce consistent indentation',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ oneOf: [{ enum: ['tab'] }, { type: 'integer', minimum: 0 }] },
@@ -3232,13 +3232,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the consistent use of either double or single quotes in JSX attributes',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['prefer-single', 'prefer-double'] }] },
+			schema: { type: 'array', items: [{ enum: ['prefer-single', 'prefer-double'] }] },
 		},
 		'key-spacing': {
 			description: 'Enforce consistent spacing between keys and values in object literal properties',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3349,7 +3349,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before and after keywords',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3917,7 +3917,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce position of line comments',
 			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3942,13 +3942,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent linebreak style',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['unix', 'windows'] }] },
+			schema: { type: 'array', items: [{ enum: ['unix', 'windows'] }] },
 		},
 		'lines-around-comment': {
 			description: 'Require empty lines around comments',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -3978,7 +3978,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow an empty line between class members',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -3994,7 +3994,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum line length',
 			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4062,7 +4062,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce a maximum number of statements allowed per line',
 			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4077,13 +4077,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce newlines between operands of ternary expressions',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'always-multiline', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'always-multiline', 'never'] }] },
 		},
 		'new-parens': {
 			description: 'Enforce or disallow parentheses when invoking a constructor with no arguments',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				anyOf: [{ type: 'array', items: [{ enum: ['always', 'never'] }], minItems: 0, maxItems: 1 }],
 			},
 		},
@@ -4091,7 +4091,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require a newline after each call in a method chain',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4108,7 +4108,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow unnecessary parentheses',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				anyOf: [
 					{ type: 'array', items: [{ enum: ['functions'] }], minItems: 0, maxItems: 1 },
 					{
@@ -4141,13 +4141,13 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow mixed spaces and tabs for indentation',
 			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['smart-tabs', true, false] }] },
+			schema: { type: 'array', items: [{ enum: ['smart-tabs', true, false] }] },
 		},
 		'no-multi-spaces': {
 			description: 'Disallow multiple spaces',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4169,7 +4169,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow multiple empty lines',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4189,7 +4189,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow all tabs',
 			hasAutofix: false,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4204,7 +4204,7 @@ export const eslintData: ILibraryData = {
 			description: 'Disallow trailing whitespace at the end of lines',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4227,7 +4227,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the location of single-line statements',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['beside', 'below', 'any'] },
@@ -4253,7 +4253,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent line breaks after opening and before closing braces',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4349,7 +4349,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing inside braces',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -4368,7 +4368,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce placing object properties on separate lines',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4386,7 +4386,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent linebreak style for operators',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['after', 'before', 'none', null] },
@@ -4407,7 +4407,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow padding within blocks',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4437,7 +4437,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow padding lines between statements',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				definitions: {
 					paddingType: { enum: ['any', 'never', 'always'] },
 					statementType: {
@@ -4551,7 +4551,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce the consistent use of either backticks, double, or single quotes',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['single', 'double', 'backtick'] },
@@ -4575,13 +4575,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce spacing between rest and spread operators and their expressions',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'semi': {
 			description: 'Require or disallow semicolons instead of ASI',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				anyOf: [
 					{
 						type: 'array',
@@ -4618,7 +4618,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before and after semicolons',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4636,13 +4636,13 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce location of semicolons',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['last', 'first'] }] },
+			schema: { type: 'array', items: [{ enum: ['last', 'first'] }] },
 		},
 		'space-before-blocks': {
 			description: 'Enforce consistent spacing before blocks',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4666,7 +4666,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before `function` definition opening parenthesis',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4690,7 +4690,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing inside parentheses',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['always', 'never'] },
@@ -4712,7 +4712,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require spacing around infix operators',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4727,7 +4727,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce consistent spacing before or after unary operators',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4746,7 +4746,7 @@ export const eslintData: ILibraryData = {
 			description: 'Enforce spacing around colons of switch statements',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4764,25 +4764,25 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow spacing around embedded expressions of template strings',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'template-tag-spacing': {
 			description: 'Require or disallow spacing between template tags and their literals',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'unicode-bom': {
 			description: 'Require or disallow Unicode byte order mark (BOM)',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: { type: 'array', items: [{ enum: ['always', 'never'] }] },
+			schema: { type: 'array', items: [{ enum: ['always', 'never'] }] },
 		},
 		'wrap-iife': {
 			description: 'Require parentheses around immediate `function` invocations',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{ enum: ['outside', 'inside', 'any'] },
@@ -4803,7 +4803,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow spacing around the `*` in `yield*` expressions',
 			hasAutofix: true,
 			category: 'Layout And Formatting',
-			configuration: {
+			schema: {
 				type: 'array',
 				items: [
 					{
@@ -4823,7 +4823,7 @@ export const eslintData: ILibraryData = {
 			description: 'Require or disallow logical assignment logical operator shorthand',
 			hasAutofix: true,
 			category: 'Suggestions',
-			configuration: {
+			schema: {
 				type: 'array',
 				oneOf: [
 					{

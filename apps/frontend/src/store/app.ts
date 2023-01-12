@@ -14,7 +14,7 @@ const store = configureStore({
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(authListenMiddleware.middleware, uiListenMiddleware.middleware),
-	devTools: process.env.REACT_APP_NODE_ENV === 'development',
+	devTools: import.meta.env.DEV,
 });
 
 export type AppState = ReturnType<typeof store.getState>;

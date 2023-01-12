@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import CodeMirror from '@uiw/react-codemirror';
 import { createTheme } from '@uiw/codemirror-themes';
 
-import styles from '@/styles/_variables.scss';
+import styles from '@/styles/variables.module.scss';
 
 import EDAcceptButton from '../EDAcceptButton';
 

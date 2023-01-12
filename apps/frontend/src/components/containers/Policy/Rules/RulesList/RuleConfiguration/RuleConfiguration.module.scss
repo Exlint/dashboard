@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .container {
 	display: flex;
@@ -13,6 +13,11 @@
 
 	&--selected {
 		border-color: map.get(variables.$colors, purples-purple);
+	}
+
+	&__form {
+		padding: map.get(variables.$sizes, spacing-l);
+		overflow-y: auto;
 	}
 }
 
@@ -49,6 +54,16 @@
 		font-weight: 500;
 		color: map.get(variables.$colors, greys-onyx);
 		word-break: break-all;
+	}
+
+	.saveConfigValidButton {
+		background: linear-gradient(
+			242.44deg,
+			#ae7dfd -30.7%,
+			#242337 36.93%,
+			#242337 62.82%,
+			#7a4df3 129.61%
+		);
 	}
 }
 

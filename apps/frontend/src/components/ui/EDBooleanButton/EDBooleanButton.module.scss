@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use '@/styles/variables.scss';
+@use '@/styles/variables.module.scss';
 
 .container {
 	border: 1px solid map.get(variables.$colors, greys-philippine-gray);

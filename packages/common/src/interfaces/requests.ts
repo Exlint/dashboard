@@ -48,6 +48,10 @@ export interface ISetCodeConfigurationDto {
 	readonly type: CodeType;
 }
 
+export interface ISetFormConfigurationDto {
+	readonly data: Prisma.JsonValue;
+}
+
 export interface ISetIsFormConfigurationDto extends Pick<InlinePolicy, 'isFormConfiguration'> {}
 
 export interface IEditPolicyDescriptionDto {

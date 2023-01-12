@@ -1,0 +1,50 @@
+# This is a template file for k8s deployment for a backend deyployment
+# Variables should be injected (and will be using "envsubst" GH Action) using GH Action
+# This file won't be used explicitly with "kubectl"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: dashboard-backend-deployment
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: dashboard-backend
+    template:
+        metadata:
+            labels:
+                app: dashboard-backend
+        spec:
+            containers:
+                - name: dashboard-backend
+                  image: '$BACKEND_IMAGE'
+                  imagePullPolicy: Always
+                  env:
+                      - name: NODE_ENV
+                        value: '$NODE_ENV'
+                      - name: PORT
+                        value: '$PORT'
+                      - name: ACCESS_TOKEN_JWT_KEY
+                        value: '$ACCESS_TOKEN_JWT_KEY'
+                      - name: REFRESH_TOKEN_JWT_KEY
+                        value: '$REFRESH_TOKEN_JWT_KEY'
+                      - name: GOOGLE_OAUTH_CLIENT_ID
+                        value: '$GOOGLE_OAUTH_CLIENT_ID'
+                      - name: GOOGLE_OAUTH_CLIENT_SECRET
+                        value: '$GOOGLE_OAUTH_CLIENT_SECRET'
+                      - name: GOOGLE_OAUTH_REDIRECT_URI
+                        value: '$GOOGLE_OAUTH_REDIRECT_URI'
+                      - name: GH_OAUTH_CLIENT_ID
+                        value: '$GH_OAUTH_CLIENT_ID'
+                      - name: GH_OAUTH_CLIENT_SECRET
+                        value: '$GH_OAUTH_CLIENT_SECRET'
+                      - name: GITHUB_OAUTH_REDIRECT_URI
+                        value: '$GITHUB_OAUTH_REDIRECT_URI'
+                      - name: MIXPANEL_TOKEN
+                        value: '$MIXPANEL_TOKEN'
+                      - name: FRONTEND_URL
+                        value: '$FRONTEND_URL'
+                      - name: CLI_TOKEN_JWT_KEY
+                        value: '$CLI_TOKEN_JWT_KEY'
+                      - name: DATABASE_URL
+                        value: '$DATABASE_URL'

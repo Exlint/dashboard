@@ -1,13 +1,9 @@
 {
 	"ignores": [
-		"sass",
+		"bootstrap",
 		"stylelint-config-prettier-scss",
 		"stylelint-config-recess-order",
 		"stylelint-config-standard-scss",
-		"react-scripts",
-		"postcss-flexbugs-fixes",
-		"typescript-plugin-css-modules",
-		"stylelint-declaration-strict-value",
-		"bootstrap"
+		"stylelint-declaration-strict-value"
 	]
 }

@@ -13,6 +13,9 @@ const waitOnOptions = {
 	],
 	timeout: 30 * MINUTE,
 	validateStatus: (status) => status === 200,
+	headers: {
+		accept: 'text/html',
+	},
 };
 
 (async () => {

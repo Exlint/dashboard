@@ -8,6 +8,7 @@ import { AppModule } from './app.module';
 import { PrismaService } from './modules/database/prisma.service';
 import { LoggingInterceptor } from './interceptors/logger.interceptor';
 import type { IEnvironment } from './config/env.interface';
+import { DatabaseNotFoundExceptionFilter } from './filters/database-not-found.filter';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare const module: any;
@@ -27,6 +28,7 @@ async function bootstrap() {
 		}),
 	);
 
+	app.useGlobalFilters(new DatabaseNotFoundExceptionFilter());
 	app.useGlobalInterceptors(new LoggingInterceptor());
 
 	app.use(helmet());

@@ -74,9 +74,8 @@ export type IGetPolicyRulesResponseData = Pick<InlinePolicy, 'isFormConfiguratio
 export interface IGetRulesResponseData {
 	readonly rules: ({
 		id: string | null;
-		configuration: Prisma.JsonArray | null;
-	} & Pick<Rule, 'name' | 'isEnabled'> &
-		Pick<ILibraryRule, 'description' | 'hasAutofix' | 'category'>)[];
+	} & Pick<Rule, 'name' | 'isEnabled' | 'configuration'> &
+		Pick<ILibraryRule, 'description' | 'hasAutofix' | 'category' | 'schema'>)[];
 }
 
 export interface IEnableMissingRuleResponseData extends Pick<Rule, 'id'> {}
