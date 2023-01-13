@@ -18,7 +18,7 @@ jobs:
 
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.0.4
+              uses: Exlint/node-environment@v1.1.0
               with:
                   should-cache: false
                   node-version: 18.12.1
