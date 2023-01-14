@@ -31,7 +31,7 @@ jobs:
                   package-manager-version: 7.20.0
 
             - name: Build frontend
-              run: 'pnpm exec nx build @exlint-dashboard/frontend'
+              run: pnpm exec nx build @exlint-dashboard/frontend
 
             - name: Deploy to S3 and invalidate Cloudfront
               uses: reggionick/s3-deploy@v3
@@ -40,7 +40,7 @@ jobs:
                   bucket: ${{ secrets.AWS_S3_BUCKET }}
                   bucket-region: ${{ secrets.AWS_REGION }}
                   dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-                  invalidation: /*
+                  invalidation: /
                   delete-removed: true
                   private: true
                   filesToInclude: '**/*'

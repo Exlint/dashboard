@@ -7,6 +7,7 @@ jobs:
     fulfill_terraform:
         name: Fulfill Terraform 
         runs-on: [self-hosted, linux, x64, deploy]
+        if: github.actor == 'tal-rofe'
         env:
             TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
             TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
@@ -25,6 +26,13 @@ jobs:
                   package-manager: pnpm
                   package-manager-version: 7.20.0
 
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.AWS_REGION }}
+
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
 
@@ -34,9 +42,9 @@ jobs:
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
                 terraform -chdir="./terraform" init \
-                -backend-config="bucket=${TERRAFORM_BACKEND_S3_BUCKET}" \
-                -backend-config="dynamodb_table=${TERRAFORM_BACKEND_DYNAMODB_TABLE}" \
-                -backend-config="region=${TF_VAR_aws_region}" 
+                -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
+                -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
+                -backend-config="region=$TF_VAR_aws_region" 
 
             - name: Terraform plan
               run: terraform -chdir="./terraform" plan -no-color -out state.tfplan
@@ -53,27 +61,20 @@ jobs:
                 echo "KUBE_CONFIG_B64=$kube_config_b64" >> $GITHUB_OUTPUT
 
             - name: Set Cloudfront distribution ID secret
-              uses: hmanzur/actions-set-secret@v2
+              uses: hmanzur/actions-set-secret@v2.0.0
               with:
                 name: AWS_CLOUDFRONT_DISTRIBUTION_ID
                 value: ${{ steps.terraform-outputs.outputs.DISTRIBUTION_ID }}
-                repository: exlint/dashboard
+                repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
 
             - name: Set k8s kube config secret
-              uses: hmanzur/actions-set-secret@v2
+              uses: hmanzur/actions-set-secret@v2.0.0
               with:
                 name: KUBE_CONFIG_DATA
                 value: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
-                repository: exlint/dashboard
+                repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-
-            - name: Configure AWS credentials
-              uses: aws-actions/configure-aws-credentials@v1
-              with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: ${{ secrets.AWS_REGION }}
 
             - name: Login to Amazon ECR
               id: login-ecr
@@ -86,7 +87,7 @@ jobs:
             - name: Create backend deployment based on template
               uses: danielr1996/envsubst-action@1.0.0
               env:
-                  BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/$BACKEND_ECR_REPOSITORY:${{ steps.package-version.outputs.current-version }}
+                  BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
                   NODE_ENV: production
                   PORT: 3000
                   ACCESS_TOKEN_JWT_KEY: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
@@ -98,7 +99,7 @@ jobs:
                   GH_OAUTH_CLIENT_SECRET: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
                   GITHUB_OAUTH_REDIRECT_URI: "https://www.api.exlint.io:3000/user/auth/github-redirect"
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://wwww.app.exlint.io"
+                  FRONTEND_URL: "https://www.app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
                   DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
@@ -116,12 +117,12 @@ jobs:
             - name: Create cli-backend deployment based on template
               uses: danielr1996/envsubst-action@1.0.0
               env:
-                  CLI_BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/$CLI_BACKEND_ECR_REPOSITORY:${{ steps.package-version.outputs.current-version }}
+                  CLI_BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.CLI_BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
                   NODE_ENV: production
                   PORT: 3000
                   REFRESH_TOKEN_JWT_KEY: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://wwww.app.exlint.io"
+                  FRONTEND_URL: "https://www.app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
                   DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
@@ -137,7 +138,7 @@ jobs:
                 output: ./k8s/cli-backend-service.yaml
 
             - name: Set up Docker Buildx
-              uses: docker/setup-buildx-action@v2
+              uses: docker/setup-buildx-action@v2.2.1
 
             - name: Docker cache layers
               uses: actions/cache@v3
@@ -166,7 +167,7 @@ jobs:
                 rm -rf /tmp/.buildx-cache
                 mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-            - name: Build & Push Cli-Backend Image
+            - name: Build & Push CLI-Backend Image
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
                 IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
@@ -193,7 +194,7 @@ jobs:
                 args: apply -f=./k8s/backend-deployment.yaml -f=./k8s/backend-service.yaml -f=./k8s/cli-backend-deployment.yaml -f=./k8s/cli-backend-service.yaml
 
             - name: Build frontend
-              run: 'pnpm exec nx build @exlint-dashboard/frontend'
+              run: pnpm exec nx build @exlint-dashboard/frontend
 
             - name: Deploy to S3 and invalidate Cloudfront
               uses: reggionick/s3-deploy@v3
@@ -202,7 +203,7 @@ jobs:
                   bucket: ${{ secrets.AWS_S3_BUCKET }}
                   bucket-region: ${{ secrets.AWS_REGION }}
                   dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-                  invalidation: /*
+                  invalidation: /
                   delete-removed: true
                   private: true
                   filesToInclude: '**/*'
