@@ -6,7 +6,7 @@ on:
 jobs:
     fulfill_terraform:
         name: Fulfill Terraform 
-        runs-on: [self-hosted, Linux, X64, deploy]
+        runs-on: [self-hosted, Linux, X64, integration]
         if: github.actor == 'tal-rofe'
         env:
             TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
