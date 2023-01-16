@@ -1,18 +1,3 @@
-variable "aws_region" {
-  description = "The AWS region to deploy the resources in"
-  type        = string
-}
-
-variable "aws_access_key" {
-  type      = string
-  sensitive = true
-}
-
-variable "aws_secret_access_key" {
-  type      = string
-  sensitive = true
-}
-
 variable "frontend_s3_bucket_name" {
   description = "Name of the S3 bucket dedicated for the dashboard frontend"
   type        = string
