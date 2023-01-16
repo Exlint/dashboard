@@ -292,7 +292,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.47.1
       '@typescript-eslint/parser': 5.47.1
       '@uiw/codemirror-themes': 4.19.5
-      '@uiw/react-codemirror': 4.19.4
+      '@uiw/react-codemirror': 4.19.5
       '@vitejs/plugin-react': 3.0.1
       axios: 1.2.1
       bootstrap: 3.4.1
@@ -344,7 +344,7 @@ importers:
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
       '@uiw/codemirror-themes': 4.19.5_@codemirror+language@6.3.2
-      '@uiw/react-codemirror': 4.19.4_2rcfiyjybuki7dxpp3kh4uokiq
+      '@uiw/react-codemirror': 4.19.5_2rcfiyjybuki7dxpp3kh4uokiq
       axios: 1.2.1
       bootstrap: 3.4.1
       date-fns: 2.29.3
@@ -3660,8 +3660,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uiw/codemirror-extensions-basic-setup/4.19.4_@codemirror+language@6.3.2:
-    resolution: {integrity: sha512-iUni1tTpuSO6j1NShEo01eYGtED+9OYKyQ4Y54fBxluhZCT1Z/25sP05Im2rpt/VHE1fReRaC28FEBR5phBAfA==}
+  /@uiw/codemirror-extensions-basic-setup/4.19.5_@codemirror+language@6.3.2:
+    resolution: {integrity: sha512-1zt7ZPJ01xKkSW/KDy0FZNga0bngN1fC594wCVG7FBi60ehfcAucpooQ+JSPScKXopxcb+ugPKZvVLzr9/OfzA==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
@@ -3684,8 +3684,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/react-codemirror/4.19.4_2rcfiyjybuki7dxpp3kh4uokiq:
-    resolution: {integrity: sha512-FGzrxLrY7t+u7ei7BJ3xlhUuRnSVg5N3mnFHXJzGlk6d1faHyoEv/2W2pLl/7BJPK2hL/tTGSieSNM9O1FxWEQ==}
+  /@uiw/react-codemirror/4.19.5_2rcfiyjybuki7dxpp3kh4uokiq:
+    resolution: {integrity: sha512-ZCHh8d7beXbF8/t7F1+yHht6A9Y6CdKeOkZq4A09lxJEnyTQrj1FMf2zvfaqc7K23KNjkTCtSlbqKKbVDgrWaw==}
     peerDependencies:
       '@codemirror/view': '>=6.0.0'
       react: '>=16.8.0'
@@ -3695,7 +3695,7 @@ packages:
       '@codemirror/commands': 6.1.2
       '@codemirror/state': 6.1.2
       '@codemirror/theme-one-dark': 6.1.0
-      '@uiw/codemirror-extensions-basic-setup': 4.19.4_@codemirror+language@6.3.2
+      '@uiw/codemirror-extensions-basic-setup': 4.19.5_@codemirror+language@6.3.2
       codemirror: 6.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
