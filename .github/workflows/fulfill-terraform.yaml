@@ -22,9 +22,9 @@ jobs:
               uses: Exlint/node-environment@v1.1.0
               with:
                   should-cache: false
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1
@@ -95,7 +95,7 @@ jobs:
               uses: martinbeentjes/npm-get-version-action@master
 
             - name: Create backend deployment based on template
-              uses: danielr1996/envsubst-action@1.0.0
+              uses: danielr1996/envsubst-action@1.1.0
               env:
                   BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
                   NODE_ENV: production
@@ -117,7 +117,7 @@ jobs:
                   output: ./k8s/backend-deployment.yaml
 
             - name: Create backend service based on template
-              uses: danielr1996/envsubst-action@1.0.0
+              uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
               with:
@@ -125,7 +125,7 @@ jobs:
                 output: ./k8s/backend-service.yaml
 
             - name: Create cli-backend deployment based on template
-              uses: danielr1996/envsubst-action@1.0.0
+              uses: danielr1996/envsubst-action@1.1.0
               env:
                   CLI_BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.CLI_BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
                   NODE_ENV: production
@@ -140,7 +140,7 @@ jobs:
                 output: ./k8s/cli-backend-deployment.yaml
 
             - name: Create cli-backend service based on template
-              uses: danielr1996/envsubst-action@1.0.0
+              uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
               with:

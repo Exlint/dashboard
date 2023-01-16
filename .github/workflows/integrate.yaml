@@ -24,9 +24,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Depcheck
               run: pnpm depcheck:all
@@ -40,9 +40,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Inflint
               run: pnpm inflint
@@ -56,9 +56,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test TypeScript
               run: pnpm type-check:all
@@ -72,9 +72,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Prettier
               run: pnpm prettier
@@ -88,9 +88,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test ESLint
               run: pnpm lint:all
@@ -104,9 +104,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Stylelint
               run: pnpm nx stylelint @exlint-dashboard/frontend
@@ -120,9 +120,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -136,9 +136,9 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
               with:
-                  node-version: 18.12.1
+                  node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test build
               run: pnpm build:nested
