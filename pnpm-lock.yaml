@@ -16,7 +16,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-import: 2.26.0
       eslint-plugin-unused-imports: 2.0.0
@@ -49,7 +49,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-config-prettier: 8.6.0_eslint@8.30.0
       eslint-plugin-deprecation: 1.3.3_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
       eslint-plugin-unused-imports: 2.0.0_v3kogikzp3mnlhb6332hlnu56i
@@ -99,7 +99,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-import: 2.26.0
       eslint-plugin-node: 11.1.0
@@ -163,7 +163,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-config-prettier: 8.6.0_eslint@8.30.0
       eslint-plugin-deprecation: 1.3.3_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
       eslint-plugin-node: 11.1.0_eslint@8.30.0
@@ -202,7 +202,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-import: 2.26.0
       eslint-plugin-node: 11.1.0
@@ -255,7 +255,7 @@ importers:
       depcheck: 1.4.3
       dotenv-cli: 6.0.0
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-config-prettier: 8.6.0_eslint@8.30.0
       eslint-plugin-deprecation: 1.3.3_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
       eslint-plugin-node: 11.1.0_eslint@8.30.0
@@ -300,7 +300,7 @@ importers:
       date-fns: 2.29.3
       depcheck: 1.4.3
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-i18next: 6.0.0-6
       eslint-plugin-import: 2.26.0
@@ -371,7 +371,7 @@ importers:
       cross-env: 7.0.3
       depcheck: 1.4.3
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-config-prettier: 8.6.0_eslint@8.30.0
       eslint-plugin-deprecation: 1.3.3_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-plugin-i18next: 6.0.0-6
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
@@ -398,7 +398,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.47.1
       '@typescript-eslint/parser': 5.47.1
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0
+      eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-import: 2.26.0
       eslint-plugin-unused-imports: 2.0.0
@@ -411,7 +411,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.47.1_txmweb6yn7coi7nfrp22gpyqmy
       '@typescript-eslint/parser': 5.47.1_lzzuuodtsqwxnvqeq4g4likcqa
       eslint: 8.30.0
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-config-prettier: 8.6.0_eslint@8.30.0
       eslint-plugin-deprecation: 1.3.3_lzzuuodtsqwxnvqeq4g4likcqa
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
       eslint-plugin-unused-imports: 2.0.0_v3kogikzp3mnlhb6332hlnu56i
@@ -5798,8 +5798,8 @@ packages:
       source-map: 0.1.43
     dev: true
 
-  /eslint-config-prettier/8.5.0_eslint@8.30.0:
-    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+  /eslint-config-prettier/8.6.0_eslint@8.30.0:
+    resolution: {integrity: sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
