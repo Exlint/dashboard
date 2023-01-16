@@ -8,7 +8,7 @@ jobs:
             contents: read
             pull-requests: read
 
-        runs-on: [self-hosted, linux, x64, integration]
+        runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - uses: actions/checkout@v3
               with:

@@ -11,7 +11,7 @@ on:
 jobs:
     deploy:
         name: Deploy frontend to S3 & Cloudfront
-        runs-on: [self-hosted, linux, x64, deploy]
+        runs-on: [self-hosted, Linux, X64, deploy]
         env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

@@ -41,6 +41,16 @@ variable "project" {
   type        = string
 }
 
+variable "domain_name" {
+  description = "Domain name of application"
+  type        = string
+}
+
+variable "frontend_domain_name" {
+  description = "Domain name of frontend application"
+  type        = string
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
