@@ -38,7 +38,7 @@
 		"axios": "1.2.1",
 		"bootstrap": "3.4.1",
 		"date-fns": "2.29.3",
-		"i18next": "22.4.6",
+		"i18next": "22.4.9",
 		"react": "18.2.0",
 		"react-datepicker": "4.8.0",
 		"react-dom": "18.2.0",
