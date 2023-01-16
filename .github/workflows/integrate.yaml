@@ -26,7 +26,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Depcheck
               run: pnpm depcheck:all
@@ -42,7 +42,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Inflint
               run: pnpm inflint
@@ -58,7 +58,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test TypeScript
               run: pnpm type-check:all
@@ -74,7 +74,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Prettier
               run: pnpm prettier
@@ -90,7 +90,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test ESLint
               run: pnpm lint:all
@@ -106,7 +106,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Stylelint
               run: pnpm nx stylelint @exlint-dashboard/frontend
@@ -122,7 +122,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test Prisma
               run: pnpm prisma-format
@@ -138,7 +138,7 @@ jobs:
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.20.0
+                  package-manager-version: 7.23.0
 
             - name: Test build
               run: pnpm build:nested
