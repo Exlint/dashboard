@@ -315,7 +315,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.8.0
       react-dom: 18.2.0
-      react-i18next: 12.1.1
+      react-i18next: 12.1.4
       react-redux: 8.0.5
       react-router-dom: 6.6.1
       react-scroll: 1.8.9
@@ -352,7 +352,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.8.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.1.1_6vygckh2jgtx4nucc3no6lnm3y
+      react-i18next: 12.1.4_6vygckh2jgtx4nucc3no6lnm3y
       react-redux: 8.0.5_ie75ejlwqy5zh3tldgt7pftwcu
       react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.9_biqbaboplfbrettd7655fr4n2y
@@ -9346,8 +9346,8 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.1.1_6vygckh2jgtx4nucc3no6lnm3y:
-    resolution: {integrity: sha512-mFdieOI0LDy84q3JuZU6Aou1DoWW2fhapcTGeBS8+vWSJuViuoCLQAMYSb0QoHhXS8B0WKUOPpx4cffAP7r/aA==}
+  /react-i18next/12.1.4_6vygckh2jgtx4nucc3no6lnm3y:
+    resolution: {integrity: sha512-XQND7jYtgM7ht5PH3yIZljCRpAMTlH/zmngM9ZjToqa+0BR6xuu8c7QF0WIIOEjcMTB2S3iOfpN/xG/ZrAnO6g==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
