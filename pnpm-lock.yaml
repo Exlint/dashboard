@@ -21,7 +21,7 @@ importers:
       eslint-plugin-import: 2.26.0
       eslint-plugin-unused-imports: 2.0.0
       figlet: 1.5.2
-      husky: 8.0.2
+      husky: 8.0.3
       is-ci: 3.0.1
       is-docker: 3.0.0
       lint-staged: 13.1.0
@@ -54,7 +54,7 @@ importers:
       eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
       eslint-plugin-unused-imports: 2.0.0_v3kogikzp3mnlhb6332hlnu56i
       figlet: 1.5.2
-      husky: 8.0.2
+      husky: 8.0.3
       is-ci: 3.0.1
       is-docker: 3.0.0
       lint-staged: 13.1.0
@@ -7135,8 +7135,8 @@ packages:
     engines: {node: '>=12.20.0'}
     dev: true
 
-  /husky/8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
