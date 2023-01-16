@@ -44,7 +44,7 @@ jobs:
                 terraform -chdir="./terraform" init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
-                -backend-config="region=$TF_VAR_aws_region" 
+                -backend-config="region=$AWS_REGION" 
 
             - name: Terraform plan
               run: terraform -chdir="./terraform" plan -no-color -out state.tfplan
