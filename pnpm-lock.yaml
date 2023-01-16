@@ -26,7 +26,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.1.0
       npm-run-all: 4.1.5
-      nx: 15.4.2
+      nx: 15.4.5
       open: 8.4.0
       pnpm: 7.20.0
       prettier: 2.8.1
@@ -59,7 +59,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.1.0
       npm-run-all: 4.1.5
-      nx: 15.4.2
+      nx: 15.4.5
       open: 8.4.0
       pnpm: 7.20.0
       prettier: 2.8.1
@@ -566,7 +566,7 @@ packages:
       convert-source-map: 1.8.0
       debug: 4.3.4
       gensync: 1.0.0-beta.2
-      json5: 2.2.1
+      json5: 2.2.3
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -2801,21 +2801,21 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@nrwl/cli/15.4.2:
-    resolution: {integrity: sha512-k/sGhqHhXsZakJxaWLmbyDJkQd/klqBEBChax3IHXAgIO9kG0lVwXHzENRqbfw3Z8TdKEZQ4IFwBJt9Dao6bCg==}
+  /@nrwl/cli/15.4.5:
+    resolution: {integrity: sha512-f13s0/hzS9jsV1+QPr1Lp3Um+3dOHD8gEP2h7uw17rEPrtJ5ggRKMj/HcZ9dkT9zDM9EmPtVTb6k38ON+NWcUw==}
     dependencies:
-      nx: 15.4.2
+      nx: 15.4.5
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
       - debug
     dev: true
 
-  /@nrwl/tao/15.4.2:
-    resolution: {integrity: sha512-c/hYhWMjEBvucO9cGL2h2lqH7f+4gb8DJJiuNRPwfvF+sQITLXpl9wASHlpG2unDrtnLjGFo73u5XUUqGiSKvA==}
+  /@nrwl/tao/15.4.5:
+    resolution: {integrity: sha512-UMtxXxTWqbyZOdyD9Zt2IsDY/JVXIFZtY6pO4jPha7+UIHWf2Zi8Dszs6UoUTS4mqpNMIkKymwpZGtkDTfiAJA==}
     hasBin: true
     dependencies:
-      nx: 15.4.2
+      nx: 15.4.5
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -7726,6 +7726,12 @@ packages:
     hasBin: true
     dev: true
 
+  /json5/2.2.3:
+    resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
+    engines: {node: '>=6'}
+    hasBin: true
+    dev: true
+
   /jsonc-parser/3.0.0:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
     dev: true
@@ -8559,8 +8565,8 @@ packages:
       boolbase: 1.0.0
     dev: true
 
-  /nx/15.4.2:
-    resolution: {integrity: sha512-np8eJfiBy2I8RZOWCKHr1oeUMHdqLQc7V6ihrzEQe2ZYUl9CSibtKvx0v8YGToHj/vYCiolRPhliFV5sFxgWlg==}
+  /nx/15.4.5:
+    resolution: {integrity: sha512-1spZL6sgOV8JJJuN8W5CLtJYwTOnlyaV32jPXfidavU0QMS8MP+rW3+NUQ9Uzc1UYhOu8llZWtnen93neVGQRw==}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -8572,8 +8578,8 @@ packages:
       '@swc/core':
         optional: true
     dependencies:
-      '@nrwl/cli': 15.4.2
-      '@nrwl/tao': 15.4.2
+      '@nrwl/cli': 15.4.5
+      '@nrwl/tao': 15.4.5
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.27
@@ -8602,7 +8608,7 @@ packages:
       strong-log-transformer: 2.1.0
       tar-stream: 2.2.0
       tmp: 0.2.1
-      tsconfig-paths: 3.14.1
+      tsconfig-paths: 4.1.2
       tslib: 2.4.1
       v8-compile-cache: 2.3.0
       yargs: 17.6.2
@@ -10901,7 +10907,7 @@ packages:
     dependencies:
       chalk: 4.1.2
       enhanced-resolve: 5.10.0
-      tsconfig-paths: 4.1.1
+      tsconfig-paths: 4.1.2
     dev: true
 
   /tsconfig-paths/3.14.1:
@@ -10917,7 +10923,16 @@ packages:
     resolution: {integrity: sha512-VgPrtLKpRgEAJsMj5Q/I/mXouC6A/7eJ/X4Nuk6o0cRPwBtznYxTCU4FodbexbzH9somBPEXYi0ZkUViUpJ21Q==}
     engines: {node: '>=6'}
     dependencies:
-      json5: 2.2.1
+      json5: 2.2.3
+      minimist: 1.2.7
+      strip-bom: 3.0.0
+    dev: true
+
+  /tsconfig-paths/4.1.2:
+    resolution: {integrity: sha512-uhxiMgnXQp1IR622dUXI+9Ehnws7i/y6xvpZB9IbUVOPy0muvdvgXeZOn88UcGPiT98Vp3rJPTa8bFoalZ3Qhw==}
+    engines: {node: '>=6'}
+    dependencies:
+      json5: 2.2.3
       minimist: 1.2.7
       strip-bom: 3.0.0
     dev: true
