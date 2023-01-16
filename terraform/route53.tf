@@ -23,12 +23,10 @@ data "kubernetes_service" "cli-backend" {
 
 data "aws_elb_hosted_zone_id" "services_hosted_zone" {}
 
-
 resource "aws_route53_record" "backend_record" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.api"
   type    = "A"
-  ttl     = "300"
 
   alias {
     name                   = data.kubernetes_service.backend.status.0.load_balancer.0.ingress.0.hostname
@@ -41,7 +39,6 @@ resource "aws_route53_record" "cli_backend_record" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.cli-api"
   type    = "A"
-  ttl     = "300"
 
   alias {
     name                   = data.kubernetes_service.cli-backend.status.0.load_balancer.0.ingress.0.hostname
@@ -54,7 +51,6 @@ resource "aws_route53_record" "frontend_record" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "www.app"
   type    = "A"
-  ttl     = "300"
 
   alias {
     name                   = module.cdn.cloudfront_distribution_domain_name
