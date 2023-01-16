@@ -57,8 +57,10 @@ jobs:
               run: |
                 distribution_id=$(terraform -chdir="./terraform" output cloudfront_distribution_domain_name)
                 kube_config_b64=$(terraform -chdir="./terraform" output cluster_kubeconfig | base64)
+                domain_certificate_arn=$(terraform -chdir="./terraform" output domain_certificate_arn)
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64=$kube_config_b64" >> $GITHUB_OUTPUT
+                echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
 
             - name: Set Cloudfront distribution ID secret
               uses: hmanzur/actions-set-secret@v2.0.0
@@ -73,6 +75,14 @@ jobs:
               with:
                 name: KUBE_CONFIG_DATA
                 value: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
+                repository: Exlint/dashboard
+                token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
+
+            - name: Set domain certificate ARN secret
+              uses: hmanzur/actions-set-secret@v2.0.0
+              with:
+                name: SSL_CERTIFICATE_ARN
+                value: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
 
