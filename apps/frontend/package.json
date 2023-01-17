@@ -59,8 +59,8 @@
 		"@types/react-router-dom": "5.3.3",
 		"@types/react-scroll": "1.8.5",
 		"@vitejs/plugin-react": "3.0.1",
-		"@typescript-eslint/eslint-plugin": "5.47.1",
-		"@typescript-eslint/parser": "5.47.1",
+		"@typescript-eslint/eslint-plugin": "5.48.1",
+		"@typescript-eslint/parser": "5.48.1",
 		"cross-env": "7.0.3",
 		"depcheck": "1.4.3",
 		"eslint": "8.31.0",
@@ -87,7 +87,7 @@
 	},
 	"peerDependencies": {
 		"@types/node": "18.11.18",
-		"@typescript-eslint/parser": "5.47.0",
+		"@typescript-eslint/parser": "5.48.1",
 		"eslint": "8.31.0",
 		"prettier": "2.8.2"
 	},
