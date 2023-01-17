@@ -39,7 +39,7 @@ jobs:
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
               with:
-                terraform_wrapper: true
+                terraform_wrapper: false
 
             - name: Terraform init
               env:
