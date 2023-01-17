@@ -5,7 +5,7 @@
 		"module": "esnext",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "./",
-		"jsx": "react-jsx",
+		"jsx": "preserve",
 		"paths": {
 			"@/interfaces/*": ["src/interfaces/*"],
 			"@/ui/*": ["src/components/ui/*"],
