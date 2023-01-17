@@ -33,8 +33,6 @@ module "cdn" {
 
   default_root_object = "index.html"
 
-
-
   custom_error_response = [
     {
       error_code         = 403
@@ -47,8 +45,6 @@ module "cdn" {
       response_page_path = "/index.html"
     }
   ]
-
-
 
   viewer_certificate = {
     acm_certificate_arn = aws_acm_certificate.primary.arn
