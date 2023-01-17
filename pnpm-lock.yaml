@@ -282,7 +282,7 @@ importers:
       '@reduxjs/toolkit': 1.9.1
       '@rjsf/core': 5.0.0-beta.16
       '@rjsf/utils': 5.0.0-beta.16
-      '@rjsf/validator-ajv8': 5.0.0-beta.15
+      '@rjsf/validator-ajv8': 5.0.0-beta.16
       '@types/node': 18.11.18
       '@types/react': 18.0.26
       '@types/react-datepicker': 4.8.0
@@ -340,7 +340,7 @@ importers:
       '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
       '@rjsf/core': 5.0.0-beta.16_bttnrc2likjjnpypmooproiqmu
       '@rjsf/utils': 5.0.0-beta.16_react@18.2.0
-      '@rjsf/validator-ajv8': 5.0.0-beta.15_@rjsf+utils@5.0.0-beta.16
+      '@rjsf/validator-ajv8': 5.0.0-beta.16_@rjsf+utils@5.0.0-beta.16
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
       '@uiw/codemirror-themes': 4.19.5_@codemirror+language@6.3.2
@@ -3141,8 +3141,8 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8/5.0.0-beta.15_@rjsf+utils@5.0.0-beta.16:
-    resolution: {integrity: sha512-cBOepLoIFT7F6Pf2bZRndDyviWBXrwsUZROU1pBDGoAFuDTBZeXbMwOli9qLRf8KFaE3Lq5ddTiTGQDP4s3UAA==}
+  /@rjsf/validator-ajv8/5.0.0-beta.16_@rjsf+utils@5.0.0-beta.16:
+    resolution: {integrity: sha512-VrQzR9HEH/1BF2TW/lRJuV+kILzR4geS+iW5Th1OlPeNp1NNWZuSO1kCU9O0JA17t2WHOEl/SFZXZBnN1/zwzQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.0.0-beta.12
