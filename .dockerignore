@@ -37,7 +37,6 @@ apps/backend/.eslintrc.cjs
 apps/backend/.eslintignore
 apps/backend/node_modules
 apps/backend/dist
-apps/backend/tsconfig.json
 apps/backend/tsconfig.doc.json
 apps/backend/tsconfig.eslint.json
 apps/backend/.depcheckrc.json
@@ -48,7 +47,6 @@ apps/cli-backend/.eslintrc.cjs
 apps/cli-backend/.eslintignore
 apps/cli-backend/node_modules
 apps/cli-backend/dist
-apps/cli-backend/tsconfig.json
 apps/cli-backend/tsconfig.doc.json
 apps/cli-backend/tsconfig.eslint.json
 apps/cli-backend/.depcheckrc.json
