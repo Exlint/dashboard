@@ -31,6 +31,7 @@ resource "aws_route53_record" "certificate_validator_record" {
 }
 
 resource "aws_acm_certificate_validation" "certificate_validator" {
+  provider                = aws.virginia
   certificate_arn         = aws_acm_certificate.primary.arn
   validation_record_fqdns = [aws_route53_record.certificate_validator_record.fqdn]
 }
