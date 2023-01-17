@@ -33,18 +33,21 @@ module "cdn" {
 
   default_root_object = "index.html"
 
-  custom_error_response = {
-    error403 = {
+
+
+  custom_error_response = [
+    {
       error_code         = 403
       response_code      = 404
       response_page_path = "/index.html"
-    }
-    error404 = {
+    },
+    {
       error_code         = 404
       response_code      = 404
       response_page_path = "/index.html"
     }
-  }
+  ]
+
 
 
   viewer_certificate = {
@@ -55,7 +58,7 @@ module "cdn" {
   tags = merge(
     var.tags,
     {
-      Name  = "${var.project}-cloudfront",
+      Name  = "${var.project}-Cloudfront",
       Stack = "frontend"
     }
   )

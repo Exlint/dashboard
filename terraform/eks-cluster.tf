@@ -92,5 +92,5 @@ resource "aws_security_group_rule" "cluster_outbound" {
 module "eks-kubeconfig" {
   source       = "hyperbadger/eks-kubeconfig/aws"
   version      = "2.0.0"
-  cluster_name = "${var.project}-cluster"
+  cluster_name = aws_eks_cluster.main.name
 }
