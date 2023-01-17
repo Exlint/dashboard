@@ -58,6 +58,7 @@ jobs:
             - name: Get Terraform outputs
               id: terraform-outputs
               run: |
+                cd ./terraform
                 distribution_id=$(terraform output -raw cloudfront_distribution_domain_name)
                 domain_certificate_arn=$(terraform output -raw domain_certificate_arn)
                 eks_cluster_name=$(terraform output -raw eks_cluster_name)
