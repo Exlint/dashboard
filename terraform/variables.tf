@@ -36,11 +36,6 @@ variable "frontend_domain_name" {
   type        = string
 }
 
-variable "forntend_sub_domain_name" {
-  description = "Frontend sub domain name"
-  type        = string
-}
-
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
