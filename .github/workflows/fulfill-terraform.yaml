@@ -62,6 +62,8 @@ jobs:
                 distribution_id=$(terraform output -raw cloudfront_distribution_domain_name)
                 domain_certificate_arn=$(terraform output -raw domain_certificate_arn)
                 eks_cluster_name=$(terraform output -raw eks_cluster_name)
+                echo $eks_cluster_name
+                echo YAZIF
                 aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
                 kube_config_bs64=$(cat $HOME/.kube | base64)
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
