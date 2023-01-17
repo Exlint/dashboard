@@ -27,7 +27,7 @@ jobs:
                   package-manager-version: 7.24.0
 
             - name: Configure AWS credentials
-              uses: aws-actions/configure-aws-credentials@v1
+              uses: aws-actions/configure-aws-credentials@v1-node16
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -55,12 +55,14 @@ jobs:
             - name: Get Terraform outputs
               id: terraform-outputs
               run: |
-                distribution_id=$(terraform -chdir="./terraform" output cloudfront_distribution_domain_name)
-                kube_config_b64=$(terraform -chdir="./terraform" output cluster_kubeconfig | base64)
-                domain_certificate_arn=$(terraform -chdir="./terraform" output domain_certificate_arn)
+                distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_domain_name)
+                domain_certificate_arn=$(terraform -chdir="./terraform" output -raw domain_certificate_arn)
+                eks_cluster_name=$(terraform -chdir="./terraform" output -raw eks_cluster_name)
+                aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
+                kube_config_bs64=$(cat $HOME/.kube | base64)
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
-                echo "KUBE_CONFIG_B64=$kube_config_b64" >> $GITHUB_OUTPUT
                 echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
+                echo "KUBE_CONFIG_B64=$kube_config_b64" >> $GITHUB_OUTPUT
 
             - name: Set Cloudfront distribution ID secret
               uses: hmanzur/actions-set-secret@v2.0.0

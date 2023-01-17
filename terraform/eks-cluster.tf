@@ -88,9 +88,3 @@ resource "aws_security_group_rule" "cluster_outbound" {
   to_port                  = 65535
   type                     = "egress"
 }
-
-module "eks-kubeconfig" {
-  source       = "hyperbadger/eks-kubeconfig/aws"
-  version      = "2.0.0"
-  cluster_name = aws_eks_cluster.main.name
-}
