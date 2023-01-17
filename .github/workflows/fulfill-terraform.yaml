@@ -154,6 +154,11 @@ jobs:
                 input: ./k8s/cli-backend-service.template.yaml
                 output: ./k8s/cli-backend-service.yaml
 
+            - name: Create backend and cli-backend repositories
+              run: |
+                aws ecr create-repository --repository-name $BACKEND_ECR_REPOSITORY --region $AWS_REGION
+                aws ecr create-repository --repository-name $CLI_BACKEND_ECR_REPOSITORY --region $AWS_REGION
+
             - name: Build, tag, and push image of backend to Amazon ECR
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
