@@ -16,5 +16,5 @@ spec:
     ports:
         - name: https
           protocol: TCP
-          port: $PORT
-          targetPort: $PORT
+          port: '$PORT'
+          targetPort: '$PORT'

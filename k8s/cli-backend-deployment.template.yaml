@@ -23,7 +23,7 @@ spec:
                       - name: NODE_ENV
                         value: $NODE_ENV
                       - name: PORT
-                        value: $PORT
+                        value: '$PORT'
                       - name: FRONTEND_URL
                         value: $FRONTEND_URL
                       - name: CLI_TOKEN_JWT_KEY
