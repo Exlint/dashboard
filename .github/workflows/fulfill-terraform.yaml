@@ -178,17 +178,15 @@ jobs:
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend
 
-            - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
-              with:
-                  folder: ./apps/frontend/dist
-                  bucket: ${{ secrets.AWS_S3_BUCKET }}
-                  bucket-region: ${{ secrets.AWS_REGION }}
-                  dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-                  invalidation: /
-                  delete-removed: true
-                  private: true
-                  filesToInclude: '**/*'
+            - name: Deploy S3
+              env:
+                AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+              run: aws s3 sync ./apps/frontend/dist s3://$AWS_S3_BUCKET
+
+            - name: CF create invalidation
+              env:
+                AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+              run: aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/"
 
             - name: Slack notification                                
               uses: rtCamp/action-slack-notify@v2             
