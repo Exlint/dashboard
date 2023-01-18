@@ -184,7 +184,7 @@ jobs:
                   folder: ./apps/frontend/dist
                   bucket: ${{ secrets.AWS_S3_BUCKET }}
                   bucket-region: ${{ secrets.AWS_REGION }}
-                  dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+                  dist-id: ${{ steps.terraform-outputs.outputs.DISTRIBUTION_ID }}
                   invalidation: /
                   delete-removed: true
                   private: true
