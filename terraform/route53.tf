@@ -21,11 +21,16 @@ resource "aws_route53_record" "frontend_record" {
   }
 }
 
-resource "aws_s3_bucket" "redirecter" {
+resource "aws_s3_bucket" "redirecter_bucket" {
   bucket = "www.${var.frontend_domain_name}"
+}
 
-  website {
-    redirect_all_requests_to = "https://${var.frontend_domain_name}"
+resource "aws_s3_bucket_website_configuration" "redirecter_config" {
+  bucket = aws_s3_bucket.redirecter.bucket
+
+  redirect_all_requests_to {
+    host_name = var.frontend_domain_name
+    protocol  = "https"
   }
 }
 
@@ -35,8 +40,8 @@ resource "aws_route53_record" "this" {
   type    = "A"
 
   alias {
-    name                   = aws_s3_bucket.redirecter.website_domain
-    zone_id                = aws_s3_bucket.redirecter.hosted_zone_id
+    name                   = aws_s3_bucket_website_configuration.redirecter_config.website_domain
+    zone_id                = aws_s3_bucket.redirecter_bucket.hosted_zone_id
     evaluate_target_health = true
   }
 }
