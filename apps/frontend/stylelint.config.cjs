@@ -10,6 +10,7 @@ module.exports = {
 			'^[a-z][A-Za-z0-9]*((--([a-z][A-Za-z0-9]*)(__([a-z][A-Za-z0-9]*))?)|(__([a-z][A-Za-z0-9]*)(--([a-z][A-Za-z0-9]*))?))?$',
 			{ resolveNestedSelectors: true, message: 'Expected class selector to be camel case' },
 		],
+		'property-no-vendor-prefix': null,
 		'value-no-vendor-prefix': null,
 		'selector-id-pattern': null,
 		'color-named': ['never'],
