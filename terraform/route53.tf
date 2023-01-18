@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "redirecter_bucket" {
 }
 
 resource "aws_s3_bucket_website_configuration" "redirecter_config" {
-  bucket = aws_s3_bucket.redirecter.bucket
+  bucket = aws_s3_bucket.redirecter_bucket.bucket
 
   redirect_all_requests_to {
     host_name = var.frontend_domain_name
