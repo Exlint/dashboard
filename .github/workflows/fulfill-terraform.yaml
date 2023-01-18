@@ -172,6 +172,11 @@ jobs:
                 docker build -t $ECR_REGISTRY/$CLI_BACKEND_ECR_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
                 docker push $ECR_REGISTRY/$CLI_BACKEND_ECR_REPOSITORY:$IMAGE_TAG
 
+            - name: TEST OUTPUT
+              env:
+                YAZIF: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
+              run: echo YAZIF && echo $YAZIF
+
             - name: Deploy k8s APIs to EKS
               uses: kodermax/kubectl-aws-eks@master
               env:
