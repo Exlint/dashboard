@@ -28,7 +28,7 @@ resource "aws_route53_record" "www_frontend_record" {
 
   alias {
     name                   = "app"
-    zone_id                = module.cdn.cloudfront_distribution_hosted_zone_id
+    zone_id                = aws_route53_zone.primary.zone_id
     evaluate_target_health = true
   }
 }
