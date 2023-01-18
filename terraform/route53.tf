@@ -23,6 +23,14 @@ resource "aws_route53_record" "frontend_record" {
 
 resource "aws_s3_bucket" "redirecter_bucket" {
   bucket = "www.${var.frontend_domain_name}"
+
+  tags = merge(
+    var.tags,
+    {
+      Name  = "${var.project}-www-to-non-www-redirect-bucket",
+      Stack = "Frontend"
+    }
+  )
 }
 
 resource "aws_s3_bucket_website_configuration" "redirecter_config" {
@@ -34,8 +42,8 @@ resource "aws_s3_bucket_website_configuration" "redirecter_config" {
   }
 }
 
-resource "aws_route53_record" "this" {
-  zone_id = aws_route53_zone.this.zone_id
+resource "aws_route53_record" "redirecter_route" {
+  zone_id = aws_route53_zone.primary.zone_id
   name    = "www.${var.frontend_domain_name}"
   type    = "A"
 
