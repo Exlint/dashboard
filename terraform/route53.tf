@@ -21,14 +21,22 @@ resource "aws_route53_record" "frontend_record" {
   }
 }
 
-resource "aws_route53_record" "www_frontend_record" {
-  zone_id = aws_route53_zone.primary.zone_id
-  name    = "www.app"
+resource "aws_s3_bucket" "redirecter" {
+  bucket = "www.${var.frontend_domain_name}"
+
+  website {
+    redirect_all_requests_to = "https://${var.frontend_domain_name}"
+  }
+}
+
+resource "aws_route53_record" "this" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = "www.${var.frontend_domain_name}"
   type    = "A"
 
   alias {
-    name                   = "app"
-    zone_id                = aws_route53_zone.primary.zone_id
+    name                   = aws_s3_bucket.redirecter.website_domain
+    zone_id                = aws_s3_bucket.redirecter.hosted_zone_id
     evaluate_target_health = true
   }
 }
