@@ -62,10 +62,11 @@ jobs:
                 eks_cluster_name=$(terraform -chdir="./terraform" output -raw eks_cluster_name)
                 aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
                 kube_config_b64=$(cat $HOME/.kube/config | base64)
-                echo JAZIF && echo $kube_config_b64
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
-                echo "KUBE_CONFIG_B64=$kube_config_b64" >> $GITHUB_OUTPUT
+                echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
+                echo "$kube_config_b64" >> $GITHUB_OUTPUT
+                echo "EOF" >> $GITHUB_OUTPUT
 
             - name: Set Cloudfront distribution ID secret
               uses: hmanzur/actions-set-secret@v2.0.0
