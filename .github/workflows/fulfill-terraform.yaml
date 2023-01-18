@@ -57,14 +57,11 @@ jobs:
             - name: Get Terraform outputs
               id: terraform-outputs
               run: |
-                distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_domain_name)
+                distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_id)
                 domain_certificate_arn=$(terraform -chdir="./terraform" output -raw domain_certificate_arn)
                 eks_cluster_name=$(terraform -chdir="./terraform" output -raw eks_cluster_name)
                 aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
                 kube_config_b64=$(cat $HOME/.kube/config | base64)
-                echo YAZIF
-                echo $distribution_id
-                echo FIZAY
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
@@ -181,15 +178,17 @@ jobs:
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend
 
-            - name: Deploy S3
-              env:
-                AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-              run: aws s3 sync ./apps/frontend/dist s3://$AWS_S3_BUCKET
-
-            - name: CF create invalidation
-              env:
-                AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-              run: aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/"
+            - name: Deploy to S3 and invalidate Cloudfront
+              uses: reggionick/s3-deploy@v3
+              with:
+                  folder: ./apps/frontend/dist
+                  bucket: ${{ secrets.AWS_S3_BUCKET }}
+                  bucket-region: ${{ secrets.AWS_REGION }}
+                  dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+                  invalidation: /
+                  delete-removed: true
+                  private: true
+                  filesToInclude: '**/*'
 
             - name: Slack notification                                
               uses: rtCamp/action-slack-notify@v2             
