@@ -84,14 +84,6 @@ jobs:
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
 
-            - name: Set domain certificate ARN secret
-              uses: hmanzur/actions-set-secret@v2.0.0
-              with:
-                name: SSL_CERTIFICATE_ARN
-                value: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
-                repository: Exlint/dashboard
-                token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-
             - name: Login to Amazon ECR
               id: login-ecr
               uses: aws-actions/amazon-ecr-login@v1
@@ -126,6 +118,7 @@ jobs:
               uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
+                  SSL_CERTIFICATE_ARN: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
               with:
                 input: ./k8s/backend-service.template.yaml
                 output: ./k8s/backend-service.yaml
@@ -149,6 +142,7 @@ jobs:
               uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
+                  SSL_CERTIFICATE_ARN: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
               with:
                 input: ./k8s/cli-backend-service.template.yaml
                 output: ./k8s/cli-backend-service.yaml
