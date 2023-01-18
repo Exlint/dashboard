@@ -153,8 +153,8 @@ jobs:
 
             - name: Create backend and cli-backend repositories
               run: |
-                aws ecr create-repository --repository-name $BACKEND_ECR_REPOSITORY --region $AWS_REGION
-                aws ecr create-repository --repository-name $CLI_BACKEND_ECR_REPOSITORY --region $AWS_REGION
+                aws ecr describe-repositories --repository-names $BACKEND_ECR_REPOSITORY --region $AWS_REGION || aws ecr create-repository --repository-name $BACKEND_ECR_REPOSITORY --region $AWS_REGION
+                aws ecr describe-repositories --repository-names $CLI_BACKEND_ECR_REPOSITORY --region $AWS_REGION || aws ecr create-repository --repository-name $CLI_BACKEND_ECR_REPOSITORY --region $AWS_REGION
 
             - name: Build, tag, and push image of backend to Amazon ECR
               env:
