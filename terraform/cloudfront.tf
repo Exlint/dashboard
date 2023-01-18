@@ -4,7 +4,7 @@ module "cdn" {
   is_ipv6_enabled               = true
   price_class                   = "PriceClass_100"
   create_origin_access_identity = true
-  aliases                       = [var.frontend_domain_name]
+  aliases                       = [var.frontend_domain_name, "www.${var.frontend_domain_name}"]
 
   origin_access_identities = {
     s3_identity = "S3 dedicated for hosting the frontend"
