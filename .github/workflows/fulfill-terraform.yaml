@@ -63,6 +63,7 @@ jobs:
                 aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
                 kube_config_b64=$(cat $HOME/.kube/config | base64)
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
+                echo $domain_certificate_arn
                 echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
                 echo "$kube_config_b64" >> $GITHUB_OUTPUT
