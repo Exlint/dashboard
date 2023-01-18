@@ -1,8 +1,25 @@
 import path from 'node:path';
+import { createRequire } from 'node:module';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+
+const prismaPlugin = () => {
+	const require = createRequire(import.meta.url);
+	const pathName = require.resolve('@prisma/client').replace('@prisma/client/index.js', '');
+
+	return {
+		name: 'prisma-vite-plugin',
+		config: () => ({
+			resolve: {
+				alias: {
+					'.prisma/client/index-browser': `${pathName}.prisma/client/index-browser.js`,
+				},
+			},
+		}),
+	};
+};
 
 export default defineConfig(() => ({
 	server: {
@@ -11,6 +28,6 @@ export default defineConfig(() => ({
 	},
 	base: './',
 	build: { outDir: './dist' },
-	plugins: [react(), tsconfigPaths()],
+	plugins: [react(), tsconfigPaths(), prismaPlugin()],
 	resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },
 }));
