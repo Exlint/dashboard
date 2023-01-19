@@ -1,0 +1,32 @@
+# This is a template file for k8s ingress for a deyployment
+# Variables should be injected (and will be using "envsubst" GH Action) using GH Action
+# This file wont be used explicitly with "kubectl"
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: api-ingress
+    annotations:
+        alb.ingress.kubernetes.io/scheme: internet-facing
+        kubernetes.io/ingress.class: alb
+spec:
+    rules:
+        - host: $BACKEND_API_HOST
+          http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: backend-service
+                            port:
+                                number: $PORT
+        - host: $CLI_BACKEND_API_HOST
+          http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: cli-backend-service
+                            port:
+                                number: $PORT

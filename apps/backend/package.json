@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"description": "Backend app",
-	"author": "Exlint <dev@exlint.io> (https://www.exlint.io)",
+	"author": "Exlint <dev@exlint.io> (https://exlint.io)",
 	"license": "UNLICENSED",
 	"scripts": {
 		"postinstall": "pnpm prisma-gen",

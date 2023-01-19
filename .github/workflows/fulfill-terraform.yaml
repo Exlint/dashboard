@@ -59,10 +59,8 @@ jobs:
               run: |
                 distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_id)
                 domain_certificate_arn=$(terraform -chdir="./terraform" output -raw domain_certificate_arn)
-                eks_cluster_name=$(terraform -chdir="./terraform" output -raw eks_cluster_name)
-                aws eks --region $AWS_REGION update-kubeconfig --name $eks_cluster_name
-                kube_config_b64=$(cat $HOME/.kube/config | base64)
-                echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
+                kube_config_b64=$(terraform -chdir="./terraform" output -raw eks_kubeconfig | base64)
+7                echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
                 echo "$kube_config_b64" >> $GITHUB_OUTPUT
@@ -102,12 +100,12 @@ jobs:
                   REFRESH_TOKEN_JWT_KEY: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
                   GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
                   GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
-                  GOOGLE_OAUTH_REDIRECT_URI: "https://www.api.exlint.io:3000/user/auth/google-redirect"
+                  GOOGLE_OAUTH_REDIRECT_URI: "https://api.exlint.io:3000/user/auth/google-redirect"
                   GH_OAUTH_CLIENT_ID: ${{ secrets.GH_OAUTH_CLIENT_ID }}
                   GH_OAUTH_CLIENT_SECRET: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
-                  GITHUB_OAUTH_REDIRECT_URI: "https://www.api.exlint.io:3000/user/auth/github-redirect"
+                  GITHUB_OAUTH_REDIRECT_URI: "https://api.exlint.io:3000/user/auth/github-redirect"
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://www.app.exlint.io"
+                  FRONTEND_URL: "https://app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
                   DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
@@ -131,7 +129,7 @@ jobs:
                   PORT: 3000
                   REFRESH_TOKEN_JWT_KEY: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
                   MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://www.app.exlint.io"
+                  FRONTEND_URL: "https://app.exlint.io"
                   CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
                   DATABASE_URL: ${{ env.DATABASE_URL }}
               with:
