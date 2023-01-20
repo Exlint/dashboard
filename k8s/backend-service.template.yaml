@@ -8,7 +8,7 @@ metadata:
 spec:
     selector:
         app: dashboard-backend
-    type: LoadBalancer
+    type: NodePort
     ports:
         - name: https
           protocol: TCP
