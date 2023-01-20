@@ -6,4 +6,5 @@ output "cloudfront_distribution_id" {
 output "eks_kubeconfig" {
   description = "EKS Kubeconfig content"
   value       = module.eks-kubeconfig.kubeconfig
+  sensitive   = true
 }
