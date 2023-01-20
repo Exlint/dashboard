@@ -48,11 +48,6 @@ jobs:
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
-            - name: Terraform unlock
-              run: |
-                cd terraform
-                terraform force-unlock -force terraform-backend-exlint-dashboard/terraform-aws-dashboard.tfstate
-
             - name: Terraform plan
               run: terraform -chdir="./terraform" plan -no-color -out state.tfplan
 
