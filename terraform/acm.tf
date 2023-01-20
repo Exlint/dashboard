@@ -1,37 +1,45 @@
+# CloudFront supports US East (N. Virginia) Region only.
 provider "aws" {
-  alias  = "virginia"
+  alias  = "us-east-1"
   region = "us-east-1"
 }
 
-resource "aws_acm_certificate" "primary" {
-  domain_name               = var.domain_name
-  validation_method         = "DNS"
-  subject_alternative_names = ["*.${var.domain_name}"]
-  provider                  = aws.virginia
+module "acm_cloudfront" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> 4.3.1"
 
-  lifecycle {
-    create_before_destroy = true
+  providers = {
+    aws = aws.us-east-1
   }
+
+  domain_name               = var.domain_name
+  zone_id                   = aws_route53_zone.primary.zone_id
+  wait_for_validation       = true
+  subject_alternative_names = ["*.${var.domain_name}"]
 
   tags = merge(
     var.tags,
     {
-      Name = "${var.project}-ACM-certificate",
+      Name  = "${var.project}-ACM-Cloudfront-certificate"
+      Stack = "frontend"
     }
   )
 }
 
-resource "aws_route53_record" "certificate_validator_record" {
-  allow_overwrite = true
-  name            = tolist(aws_acm_certificate.primary.domain_validation_options)[0].resource_record_name
-  records         = [tolist(aws_acm_certificate.primary.domain_validation_options)[0].resource_record_value]
-  type            = tolist(aws_acm_certificate.primary.domain_validation_options)[0].resource_record_type
-  zone_id         = aws_route53_zone.primary.zone_id
-  ttl             = 60
-}
+module "acm_ingress" {
+  source  = "terraform-aws-modules/acm/aws"
+  version = "~> 4.3.1"
 
-resource "aws_acm_certificate_validation" "certificate_validator" {
-  provider                = aws.virginia
-  certificate_arn         = aws_acm_certificate.primary.arn
-  validation_record_fqdns = [aws_route53_record.certificate_validator_record.fqdn]
+  domain_name               = var.domain_name
+  zone_id                   = aws_route53_zone.primary.zone_id
+  wait_for_validation       = true
+  subject_alternative_names = ["*.${var.domain_name}"]
+
+  tags = merge(
+    var.tags,
+    {
+      Name  = "${var.project}-ACM-Ingress-certificate"
+      Stack = "backend"
+    }
+  )
 }

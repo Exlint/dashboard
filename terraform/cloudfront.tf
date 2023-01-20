@@ -47,7 +47,7 @@ module "cdn" {
   ]
 
   viewer_certificate = {
-    acm_certificate_arn = aws_acm_certificate.primary.arn
+    acm_certificate_arn = module.acm_cloudfront.acm_certificate_arn
     ssl_support_method  = "sni-only"
   }
 

@@ -58,12 +58,10 @@ jobs:
               id: terraform-outputs
               run: |
                 distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_id)
-                domain_certificate_arn=$(terraform -chdir="./terraform" output -raw domain_certificate_arn)
-                kube_config_b64=$(terraform -chdir="./terraform" output -raw eks_kubeconfig | base64)
-7                echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
-                echo "SSL_CERTIFICATE_ARN=$domain_certificate_arn" >> $GITHUB_OUTPUT
+                eks_kubeconfig=$(terraform -chdir="./terraform" output -raw eks_kubeconfig | base64)
+                echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
-                echo "$kube_config_b64" >> $GITHUB_OUTPUT
+                echo "$eks_kubeconfig" >> $GITHUB_OUTPUT
                 echo "EOF" >> $GITHUB_OUTPUT
 
             - name: Set Cloudfront distribution ID secret
@@ -116,7 +114,6 @@ jobs:
               uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
-                  SSL_CERTIFICATE_ARN: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
               with:
                 input: ./k8s/backend-service.template.yaml
                 output: ./k8s/backend-service.yaml
@@ -140,10 +137,19 @@ jobs:
               uses: danielr1996/envsubst-action@1.1.0
               env:
                   PORT: 3000
-                  SSL_CERTIFICATE_ARN: ${{ steps.terraform-outputs.outputs.SSL_CERTIFICATE_ARN }}
               with:
                 input: ./k8s/cli-backend-service.template.yaml
                 output: ./k8s/cli-backend-service.yaml
+
+            - name: Create api ingress based on template
+              uses: danielr1996/envsubst-action@1.1.0
+              env:
+                  PORT: 3000
+                  BACKEND_API_HOST: api.exlint.io
+                  CLI_BACKEND_API_HOST: cli-api.exlint.io
+              with:
+                input: ./k8s/api-ingress.template.yaml
+                output: ./k8s/api-ingress.yaml
 
             - name: Create backend and cli-backend repositories
               run: |
@@ -171,7 +177,7 @@ jobs:
               env:
                 KUBE_CONFIG_DATA: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
               with:
-                args: apply -f=./k8s/backend-deployment.yaml -f=./k8s/backend-service.yaml -f=./k8s/cli-backend-deployment.yaml -f=./k8s/cli-backend-service.yaml
+                args: apply -f=./k8s/backend-deployment.yaml -f=./k8s/backend-service.yaml -f=./k8s/cli-backend-deployment.yaml -f=./k8s/cli-backend-service.yaml -f=./k8s/api-ingress.yaml
 
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend

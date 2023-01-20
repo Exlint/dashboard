@@ -40,6 +40,7 @@ module "eks" {
   )
 }
 
+# Since the Ingress controller runs as Pod in one of your Nodes, all the Nodes should have permissions to describe, modify, etc. the Application Load Balancer.
 resource "aws_iam_policy" "worker_policy" {
   name        = "worker-policy"
   description = "Worker policy for the ALB Ingress"

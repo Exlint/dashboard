@@ -8,6 +8,8 @@ metadata:
     annotations:
         alb.ingress.kubernetes.io/scheme: internet-facing
         kubernetes.io/ingress.class: alb
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": $PORT}]'
+        # No need to declare certificate: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/cert_discovery/
 spec:
     rules:
         - host: $BACKEND_API_HOST
