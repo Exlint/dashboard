@@ -54,7 +54,7 @@ jobs:
             - name: Terraform apply
               run: |
                 terraform -chdir="./terraform" refresh -target=data.aws_eks_cluster_auth.main
-                terraform -chdir="./terraform" apply -target=helm_release.ingress -refresh=false
+                terraform -chdir="./terraform" apply -target=helm_release.ingress -refresh=false -auto-approve
 
             - name: Get Terraform outputs
               id: terraform-outputs
