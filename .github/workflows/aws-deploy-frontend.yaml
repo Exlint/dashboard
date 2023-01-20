@@ -28,7 +28,7 @@ jobs:
                   should-cache: false
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.24.2
+                  package-manager-version: 7.24.3
 
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend
