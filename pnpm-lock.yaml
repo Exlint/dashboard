@@ -288,7 +288,7 @@ importers:
       '@types/react-datepicker': 4.8.0
       '@types/react-dom': 18.0.10
       '@types/react-router-dom': 5.3.3
-      '@types/react-scroll': 1.8.5
+      '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.48.1
       '@typescript-eslint/parser': 5.48.1
       '@uiw/codemirror-themes': 4.19.5
@@ -364,7 +364,7 @@ importers:
       '@types/node': 18.11.18
       '@types/react-datepicker': 4.8.0_biqbaboplfbrettd7655fr4n2y
       '@types/react-router-dom': 5.3.3
-      '@types/react-scroll': 1.8.5
+      '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.48.1_3jon24igvnqaqexgwtxk6nkpse
       '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
       '@vitejs/plugin-react': 3.0.1_vite@4.0.4
@@ -3414,8 +3414,8 @@ packages:
       '@types/react': 18.0.26
     dev: true
 
-  /@types/react-scroll/1.8.5:
-    resolution: {integrity: sha512-+adEt41hQHMX4aoBOD9Y336QzQzAtlFXTrsFWToS+efgqsYXUOo0JKLeI0O5GLE50Peap6DsbUQRK6gnv8t6wQ==}
+  /@types/react-scroll/1.8.6:
+    resolution: {integrity: sha512-aMTiNgcmA7dwn1yjoHsiL78RfRnKCXzFyMbv63VrZTXloSfNePBdKtVObC3/My6irwDf0Oz0U4VjEC/vrv6/9w==}
     dependencies:
       '@types/react': 18.0.26
     dev: true
