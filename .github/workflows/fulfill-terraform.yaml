@@ -52,7 +52,9 @@ jobs:
               run: terraform -chdir="./terraform" plan -no-color -out state.tfplan
 
             - name: Terraform apply
-              run: terraform -chdir="./terraform" apply state.tfplan
+              run: |
+                terraform -chdir="./terraform" refresh -target=data.aws_eks_cluster_auth.main
+                terraform -chdir="./terraform" apply -target=helm_release.ingress -refresh=false
 
             - name: Get Terraform outputs
               id: terraform-outputs
