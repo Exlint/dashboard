@@ -304,7 +304,7 @@ importers:
       eslint-plugin-deprecation: 1.3.3
       eslint-plugin-i18next: 6.0.0-6
       eslint-plugin-import: 2.26.0
-      eslint-plugin-jsx-a11y: 6.7.0
+      eslint-plugin-jsx-a11y: 6.7.1
       eslint-plugin-react: 7.31.11
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
@@ -375,7 +375,7 @@ importers:
       eslint-plugin-deprecation: 1.3.3_iukboom6ndih5an6iafl45j2fe
       eslint-plugin-i18next: 6.0.0-6
       eslint-plugin-import: 2.26.0_qdjeohovcytra7xto5vgmxssaq
-      eslint-plugin-jsx-a11y: 6.7.0_eslint@8.31.0
+      eslint-plugin-jsx-a11y: 6.7.1_eslint@8.31.0
       eslint-plugin-react: 7.31.11_eslint@8.31.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.31.0
       eslint-plugin-unused-imports: 2.0.0_uf7m4ztohkds2teixkkgz7tcvi
@@ -5663,7 +5663,7 @@ packages:
       has: 1.0.3
       has-property-descriptors: 1.0.0
       has-symbols: 1.0.3
-      internal-slot: 1.0.3
+      internal-slot: 1.0.4
       is-callable: 1.2.7
       is-negative-zero: 2.0.2
       is-regex: 1.1.4
@@ -5946,8 +5946,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jsx-a11y/6.7.0_eslint@8.31.0:
-    resolution: {integrity: sha512-EGGRKhzejSzXKtjmEjWNtr4SK/DkMkSzkBH7g7e7moBDXZXrqaUIxkmD7uF93upMysc4dKYEJwupu7Dff+ShwA==}
+  /eslint-plugin-jsx-a11y/6.7.1_eslint@8.31.0:
+    resolution: {integrity: sha512-63Bog4iIethyo8smBklORknVjB0T2dwB8Mr/hIC+fBS0uyHdYYpzM/Ed+YC8VxTjlXHEWFOdmgwcDn1U2L9VCA==}
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
