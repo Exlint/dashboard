@@ -45,3 +45,13 @@ variable "tags" {
     "Owner"       = "Tal Rofe"
   }
 }
+
+variable "backend_repository" {
+  description = "Repository name in ECR for backend"
+  type        = string
+}
+
+variable "cli_backend_repository" {
+  description = "Repository name in ECR for CLI backend"
+  type        = string
+}
