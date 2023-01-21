@@ -28,7 +28,7 @@ importers:
       npm-run-all: 4.1.5
       nx: 15.5.1
       open: 8.4.0
-      pnpm: 7.24.3
+      pnpm: 7.25.0
       prettier: 2.8.3
       prettier-plugin-sh: 0.12.8
       prisma: 4.8.1
@@ -61,7 +61,7 @@ importers:
       npm-run-all: 4.1.5
       nx: 15.5.1
       open: 8.4.0
-      pnpm: 7.24.3
+      pnpm: 7.25.0
       prettier: 2.8.3
       prettier-plugin-sh: 0.12.8_prettier@2.8.3
       prisma: 4.8.1
@@ -9154,8 +9154,8 @@ packages:
     resolution: {integrity: sha512-k+YsbhpA9e+EFfKjTCH3VW6aoKlyNYI6NYdTfDL4CIvFnvsuO84ttonmZE7rc+v23SLTH8XX+5w/Ak9v0xGY4g==}
     dev: true
 
-  /pnpm/7.24.3:
-    resolution: {integrity: sha512-0fpP1l16xOY8YwsATSLodNNBa7bitV1cNY475fioVLR7Thx5tkCtdp3xIlvZYX8ZoPtedLhGn3fICC409HQSNQ==}
+  /pnpm/7.25.0:
+    resolution: {integrity: sha512-FGFQUON8kJ6ma39elJ8lyD8wPIfgp3opGJD9sX0TgIJk4zSr556qCgC8AN+3BFHe4yuRkEauf4JVLW2RKyyEcA==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
