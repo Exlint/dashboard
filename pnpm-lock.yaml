@@ -292,7 +292,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.1
       '@typescript-eslint/parser': 5.48.1
       '@uiw/codemirror-themes': 4.19.6
-      '@uiw/react-codemirror': 4.19.5
+      '@uiw/react-codemirror': 4.19.6
       '@vitejs/plugin-react': 3.0.1
       axios: 1.2.2
       bootstrap: 3.4.1
@@ -344,7 +344,7 @@ importers:
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
       '@uiw/codemirror-themes': 4.19.6_@codemirror+language@6.3.2
-      '@uiw/react-codemirror': 4.19.5_2rcfiyjybuki7dxpp3kh4uokiq
+      '@uiw/react-codemirror': 4.19.6_2rcfiyjybuki7dxpp3kh4uokiq
       axios: 1.2.2
       bootstrap: 3.4.1
       date-fns: 2.29.3
@@ -1719,7 +1719,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -3654,8 +3653,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uiw/codemirror-extensions-basic-setup/4.19.5_@codemirror+language@6.3.2:
-    resolution: {integrity: sha512-1zt7ZPJ01xKkSW/KDy0FZNga0bngN1fC594wCVG7FBi60ehfcAucpooQ+JSPScKXopxcb+ugPKZvVLzr9/OfzA==}
+  /@uiw/codemirror-extensions-basic-setup/4.19.6_@codemirror+language@6.3.2:
+    resolution: {integrity: sha512-VGBHdvBSu8K4t+XpbK+1DPMV0eCzfaccfueu7OnOpGs/zVdSf4MBbZ5/B+UvFyj2tUrPV0m/FGgDv5l1Y7oAvg==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
@@ -3678,18 +3677,18 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/react-codemirror/4.19.5_2rcfiyjybuki7dxpp3kh4uokiq:
-    resolution: {integrity: sha512-ZCHh8d7beXbF8/t7F1+yHht6A9Y6CdKeOkZq4A09lxJEnyTQrj1FMf2zvfaqc7K23KNjkTCtSlbqKKbVDgrWaw==}
+  /@uiw/react-codemirror/4.19.6_2rcfiyjybuki7dxpp3kh4uokiq:
+    resolution: {integrity: sha512-Y5c0Pu2apfpfzzfFMPYKVb1L7jxqVZlTgIeilT5dOF0J8JhdBZo3oV5WWCdPA1N5NG9uY9iPO2/0JuNNtq+Q0Q==}
     peerDependencies:
       '@codemirror/view': '>=6.0.0'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@babel/runtime': 7.20.6
+      '@babel/runtime': 7.20.7
       '@codemirror/commands': 6.1.2
       '@codemirror/state': 6.1.2
       '@codemirror/theme-one-dark': 6.1.0
-      '@uiw/codemirror-extensions-basic-setup': 4.19.5_@codemirror+language@6.3.2
+      '@uiw/codemirror-extensions-basic-setup': 4.19.6_@codemirror+language@6.3.2
       codemirror: 6.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -9663,7 +9662,7 @@ packages:
   /redux/4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
-      '@babel/runtime': 7.20.6
+      '@babel/runtime': 7.20.7
     dev: false
 
   /reflect-metadata/0.1.13:
