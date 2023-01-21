@@ -1,5 +1,5 @@
 variable "frontend_s3_bucket_name" {
-  description = "Name of the S3 bucket dedicated for the dashboard frontend"
+  description = "Name of the S3 bucket dedicated for the frontend application"
   type        = string
 }
 
@@ -36,8 +36,8 @@ variable "frontend_domain_name" {
   type        = string
 }
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
+variable "common_tags" {
+  description = "A map of common tags to add to all resources"
   type        = map(string)
   default = {
     "Project"     = "TerraformExlintDashboard"

@@ -1,11 +1,13 @@
 module "s3_bucket" {
-  source        = "terraform-aws-modules/s3-bucket/aws"
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "3.6.0"
+
   bucket        = var.frontend_s3_bucket_name
   acl           = "private"
   force_destroy = true
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Name  = "${var.project}-s3-bucket",
       Stack = "frontend"

@@ -1,33 +1,26 @@
 terraform {
-  required_version = "~> 1.3.7"
+  required_version = "1.3.7"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.50.0"
+      version = "4.50.0"
     }
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.16.1"
+      version = "2.16.1"
     }
 
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.8.0"
+      version = "2.8.0"
     }
   }
 }
 
+# Required environment variables: "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_REGION"
 provider "aws" {}
-
-data "aws_eks_cluster" "main" {
-  name = module.eks.cluster_name
-}
-
-data "aws_eks_cluster_auth" "main" {
-  name = module.eks.cluster_name
-}
 
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.main.endpoint

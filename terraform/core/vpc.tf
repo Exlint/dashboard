@@ -1,11 +1,10 @@
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 3.19.0"
+  version = "3.19.0"
 
   name = "main"
   cidr = var.vpc_cidr
-
-  azs = slice(data.aws_availability_zones.available.names, 0, var.availability_zones_count)
+  azs  = slice(data.aws_availability_zones.available.names, 0, var.availability_zones_count)
 
   # https://aws.github.io/aws-eks-best-practices/networking/subnets/#using-private-and-public-subnets
   private_subnets = [cidrsubnet(var.vpc_cidr, var.subnet_cidr_bits, 0), cidrsubnet(var.vpc_cidr, var.subnet_cidr_bits, 1)]
@@ -18,7 +17,7 @@ module "vpc" {
   # https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support
   enable_dns_hostnames = true
 
-  tags = var.tags
+  tags = var.common_tags
 
   vpc_tags = {
     Name                                           = "${var.project}-vpc",

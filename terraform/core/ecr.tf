@@ -11,7 +11,7 @@ resource "aws_ecr_repository" "backend" {
   }
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-ecr-backend",
@@ -32,7 +32,7 @@ resource "aws_ecr_repository" "cli-backend" {
   }
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-ecr-cli-backend",

@@ -2,7 +2,7 @@ resource "aws_route53_zone" "primary" {
   name = var.domain_name
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Name = "${var.project}-Route53-zone",
     }
@@ -21,11 +21,12 @@ resource "aws_route53_record" "frontend_record" {
   }
 }
 
+# This bucket redirects www to non-www domains for frontend application
 resource "aws_s3_bucket" "redirecter_bucket" {
   bucket = "www.${var.frontend_domain_name}"
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Name  = "${var.project}-www-to-non-www-redirect-bucket",
       Stack = "Frontend"

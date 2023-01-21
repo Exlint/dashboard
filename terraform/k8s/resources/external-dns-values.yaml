@@ -1,0 +1,4 @@
+serviceAccount:
+  create: false
+policy: sync
+domainFilters: ["exlint.io"]
