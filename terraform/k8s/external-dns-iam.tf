@@ -23,7 +23,7 @@ resource "aws_iam_policy" "external_dns" {
   path        = "/"
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-external-dns-policy",
@@ -38,19 +38,19 @@ data "aws_iam_policy_document" "irsa_external_dns_trust_policy_doc" {
     principals {
       type = "Federated"
       identifiers = [
-        module.eks.oidc_provider_arn
+        data.aws_iam_openid_connect_provider.main.arn
       ]
     }
     condition {
       test     = "StringEquals"
-      variable = "${module.eks.cluster_oidc_issuer_url}:sub"
+      variable = "${data.aws_iam_openid_connect_provider.main.url}:sub"
       values = [
         "system:serviceaccount:default:external-dns"
       ]
     }
     condition {
       test     = "StringEquals"
-      variable = "${module.eks.cluster_oidc_issuer_url}:aud"
+      variable = "${data.aws_iam_openid_connect_provider.main.url}:aud"
       values = [
         "sts.amazonaws.com"
       ]
@@ -64,7 +64,7 @@ resource "aws_iam_role" "external_dns" {
   assume_role_policy = data.aws_iam_policy_document.irsa_external_dns_trust_policy_doc.json
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-external-dns-role",

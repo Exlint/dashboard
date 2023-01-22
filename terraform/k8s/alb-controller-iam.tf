@@ -1,4 +1,5 @@
-# ALB Policy JSON
+# https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+# https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.4.4/docs/install/iam_policy.json
 resource "aws_iam_policy" "alb_controller_policy" {
   name        = "alb-controller-policy"
   description = "Policy for ALB controller"
@@ -6,7 +7,7 @@ resource "aws_iam_policy" "alb_controller_policy" {
   path        = "/"
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-alb-controller-policy",
@@ -20,20 +21,18 @@ data "aws_iam_policy_document" "irsa_alb_controller_trust_policy_doc" {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     principals {
       type        = "Federated"
-      identifiers = [module.eks.oidc_provider_arn]
+      identifiers = [data.aws_iam_openid_connect_provider.main.arn]
     }
     condition {
-      test = "StringEquals"
-      # this needs to be obtained automatically
-      variable = "${module.eks.cluster_oidc_issuer_url}:sub"
+      test     = "StringEquals"
+      variable = "${data.aws_iam_openid_connect_provider.main.url}:sub"
       values = [
         "system:serviceaccount:kube-system:aws-load-balancer-controller"
       ]
     }
     condition {
-      test = "StringEquals"
-      # this needs to be obtained automatically
-      variable = "${module.eks.cluster_oidc_issuer_url}:aud"
+      test     = "StringEquals"
+      variable = "${data.aws_iam_openid_connect_provider.main.url}:aud"
       values = [
         "sts.amazonaws.com"
       ]
@@ -47,7 +46,7 @@ resource "aws_iam_role" "alb_controller_role" {
   path               = "/"
 
   tags = merge(
-    var.tags,
+    var.common_tags,
     {
       Stack = "backend"
       Name  = "${var.project}-alb-controller-role",

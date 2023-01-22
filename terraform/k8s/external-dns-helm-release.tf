@@ -12,15 +12,15 @@ resource "helm_release" "external_dns" {
 
   set {
     name  = "region"
-    value = var.aws_region
+    value = data.aws_region.current.name
   }
+
   set {
     name  = "serviceAccount.name"
     value = kubernetes_service_account.external_dns.metadata.0.name
   }
 
   depends_on = [
-    aws_route53_zone.primary,
     aws_iam_role_policy_attachment.external_dns,
     aws_iam_policy.external_dns
   ]

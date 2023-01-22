@@ -15,7 +15,18 @@ jobs:
             TF_VAR_frontend_s3_bucket_name: ${{ secrets.AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
-            DATABASE_URL: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/?retryWrites=true&w=majority
+            TF_VAR_database_url: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/?retryWrites=true&w=majority
+            TF_VAR_access_token_jwt_key: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
+            TF_VAR_refresh_token_jwt_key: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
+            TF_VAR_google_oauth_client_id: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
+            TF_VAR_google_oauth_client_secret: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
+            TF_VAR_google_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/google-redirect"
+            TF_VAR_gh_oauth_client_id: ${{ secrets.GH_OAUTH_CLIENT_ID }}
+            TF_VAR_gh_oauth_client_secret: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
+            TF_VAR_gh_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/github-redirect"
+            TF_VAR_mixpanel_token: ${{ secrets.MIXPANEL_TOKEN }}
+            TF_VAR_frontend_url: "https://app.exlint.io"
+            TF_VAR_cli_token_jwt_key: ${{ secrets.CLI_TOKEN_JWT_KEY }}
 
         steps:
             - name: Setup Node environment
@@ -79,6 +90,46 @@ jobs:
                 value: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Get package.json version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@master
+
+            - name: Build, tag, and push image of backend to Amazon ECR
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+              run: |
+                docker build -t $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
+                docker push $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG
+
+            - name: Build, tag, and push image of cli-backend to Amazon ECR
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+              run: |
+                docker build -t $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
+                docker push $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG
+
+            - name: Terraform k8s init
+              env:
+                  TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
+                  TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
+              run: |
+                terraform -chdir="./terraform/k8s" init \
+                -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
+                -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
+                -backend-config="region=$AWS_REGION"
+
+            - name: Terraform k8s plan
+              run: terraform -chdir="./terraform/k8s" plan -no-color -out state.tfplan
+
+            - name: Terraform k8s apply
+              run: terraform -chdir="./terraform/k8s" apply state.tfplan
 
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend
