@@ -41,7 +41,7 @@ jobs:
               run: terraform -chdir="./terraform/core" destroy -auto-approve
 
             - name: kkk
-              run: terraform -chdir="./terraform/k8s" force-unlock -force 7dd3a06e-a328-a008-21cb-1241ccea164a
+              run: terraform -chdir="./terraform/k8s" force-unlock -force 264d8610-d259-6069-bdb6-b55d4791e212
             - name: Terraform k8s init
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
