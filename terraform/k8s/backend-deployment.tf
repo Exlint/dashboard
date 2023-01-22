@@ -34,6 +34,17 @@ resource "kubernetes_deployment_v1" "backend" {
             name           = "backend"
           }
 
+          resources {
+            limits = {
+              cpu    = "0.5"
+              memory = "512Mi"
+            }
+            requests = {
+              cpu    = "250m"
+              memory = "50Mi"
+            }
+          }
+
           env {
             name  = "NODE_ENV"
             value = var.node_env
