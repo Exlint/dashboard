@@ -3,7 +3,7 @@ resource "kubernetes_deployment_v1" "cli_backend" {
     name      = "dashboard-cli-backend-deployment"
     namespace = "default"
     labels = {
-      app = "dashboard-cli-backend"
+      app = "cli-backend"
     }
   }
 
@@ -12,26 +12,26 @@ resource "kubernetes_deployment_v1" "cli_backend" {
 
     selector {
       match_labels = {
-        app = "dashboard-cli-backend"
+        app = "cli-backend"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "dashboard-cli-backend"
+          app = "cli-backend"
         }
       }
 
       spec {
         container {
           image             = data.aws_ecr_repository.cli-backend.repository_url
-          name              = "dashboard-cli-backend"
+          name              = "cli-backend"
           image_pull_policy = "Always"
 
           port {
             container_port = 80
-            name           = "dashboard-cli-backend"
+            name           = "cli-backend"
           }
 
           env {

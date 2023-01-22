@@ -3,7 +3,7 @@ resource "kubernetes_deployment_v1" "backend" {
     name      = "dashboard-backend-deployment"
     namespace = "default"
     labels = {
-      app = "dashboard-backend"
+      app = "backend"
     }
   }
 
@@ -12,26 +12,26 @@ resource "kubernetes_deployment_v1" "backend" {
 
     selector {
       match_labels = {
-        app = "dashboard-backend"
+        app = "backend"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "dashboard-backend"
+          app = "backend"
         }
       }
 
       spec {
         container {
           image             = data.aws_ecr_repository.backend.repository_url
-          name              = "dashboard-backend"
+          name              = "backend"
           image_pull_policy = "Always"
 
           port {
             container_port = 80
-            name           = "dashboard-backend"
+            name           = "backend"
           }
 
           env {
