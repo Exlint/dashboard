@@ -38,4 +38,4 @@ jobs:
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform destroy
-              run: terraform -chdir="./terraform/core" destroy -auto-approve -lock=false
+              run: terraform -chdir="./terraform/core" destroy -auto-approve
