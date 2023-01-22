@@ -52,4 +52,4 @@ jobs:
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform k8s destroy
-              run: terraform -chdir="./terraform/k8s" destroy -auto-approve
+              run: terraform -chdir="./terraform/k8s" destroy -auto-approve force-unlock -force 7dd3a06e-a328-a008-21cb-1241ccea164a
