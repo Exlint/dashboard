@@ -46,7 +46,10 @@ jobs:
                 terraform -chdir="./terraform/core" init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
-                -backend-config="region=$AWS_REGION" 
+                -backend-config="region=$AWS_REGION"
+            
+            - name: releaseeee lock
+              run: terraform -chdir="./terraform/core" force-unlock -force ef525878-4928-74f4-e7a3-7a1568560ac6
 
             - name: Terraform core plan
               run: terraform -chdir="./terraform/core" plan -no-color -out state.tfplan
