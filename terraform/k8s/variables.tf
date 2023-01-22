@@ -97,3 +97,7 @@ variable "cli_backend_api_host" {
   description = "The CLI backend API host"
   type        = string
 }
+
+variable "api_image_tag" {
+  description = "The image tag of the API build"
+}

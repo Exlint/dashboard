@@ -25,7 +25,7 @@ resource "kubernetes_deployment_v1" "cli_backend" {
 
       spec {
         container {
-          image             = data.aws_ecr_repository.cli-backend.repository_url
+          image             = "${data.aws_ecr_repository.cli-backend.repository_url}:${var.api_image_tag}"
           name              = "cli-backend"
           image_pull_policy = "Always"
 

@@ -126,6 +126,8 @@ jobs:
                 -backend-config="region=$AWS_REGION"
 
             - name: Terraform k8s plan
+              env:
+                TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}
               run: terraform -chdir="./terraform/k8s" plan -no-color -out state.tfplan
 
             - name: Terraform k8s apply
