@@ -14,7 +14,7 @@ module "eks" {
       max_capacity     = 2
       min_capacity     = 0
 
-      instance_type = "t3.medium"
+      instance_type = "t3.small"
       capacity_type = "ON_DEMAND"
       disk_size     = 20
       ami_type      = "AL2_x86_64"

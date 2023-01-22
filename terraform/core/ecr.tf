@@ -1,6 +1,7 @@
 resource "aws_ecr_repository" "backend" {
   name                 = var.backend_repository
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
 
   encryption_configuration {
     encryption_type = "KMS"
@@ -22,6 +23,7 @@ resource "aws_ecr_repository" "backend" {
 resource "aws_ecr_repository" "cli-backend" {
   name                 = var.cli_backend_repository
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
 
   encryption_configuration {
     encryption_type = "KMS"
