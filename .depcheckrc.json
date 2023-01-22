@@ -13,6 +13,7 @@
 		"@prisma/client",
 		"wait-on",
 		"open",
-		"prettier-plugin-sh"
+		"prettier-plugin-sh",
+		"rimraf"
 	]
 }
