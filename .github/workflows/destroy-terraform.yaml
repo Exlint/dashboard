@@ -30,10 +30,10 @@ jobs:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform" init \
+                terraform -chdir="./terraform/core" init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform destroy
-              run: terraform -chdir="./terraform" destroy -auto-approve
+              run: terraform -chdir="./terraform/core" destroy -auto-approve

@@ -15,10 +15,7 @@ module "acm_cloudfront" {
   domain_name               = var.domain_name
   zone_id                   = aws_route53_zone.primary.zone_id
   subject_alternative_names = ["${var.frontend_domain_name}"]
-
-  # Currently, domain is registered in GoDaddy, manual step is requied
-  # Therefore - won't wait for certificate validation
-  wait_for_validation = false
+  wait_for_validation       = true
 
   tags = merge(
     var.common_tags,
@@ -36,10 +33,7 @@ module "acm_alb" {
   domain_name               = var.domain_name
   zone_id                   = aws_route53_zone.primary.zone_id
   subject_alternative_names = ["*.${var.domain_name}"]
-
-  # Currently, domain is registered in GoDaddy, manual step is requied
-  # Therefore - won't wait for certificate validation
-  wait_for_validation = false
+  wait_for_validation       = true
 
   tags = merge(
     var.common_tags,
