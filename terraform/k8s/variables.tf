@@ -73,6 +73,11 @@ variable "mixpanel_token" {
   type        = string
 }
 
+variable "frontend_url" {
+  description = "The frontend URL"
+  type        = string
+}
+
 variable "cli_token_jwt_key" {
   description = "The CLI token JWT key"
   type        = string
