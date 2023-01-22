@@ -1,0 +1,114 @@
+name: jibril backend
+
+on:
+  workflow_dispatch:
+
+jobs:
+    fulfill_terraform:
+        name: Fulfill Terraform 
+        runs-on: [self-hosted, Linux, X64, deploy]
+        if: github.actor == 'tal-rofe'
+        env:
+            AWS_REGION: ${{ secrets.AWS_REGION }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            BACKEND_REPOSITORY: dashboard-backend
+            CLI_BACKEND_REPOSITORY: dashboard-cli-backend
+
+            BACKEND_ECS_SERVICE: backend-service
+            CLI_BACKEND_ECS_SERVICE: cli-backend-service
+            ECS_CLUSTER: dashboard
+            BACKEND_ECS_TASK_DEFINITION: backend-td
+            CLI_BACKEND_ECS_TASK_DEFINITION: cli-backend-td
+            BACKEND_CONTAINER_NAME: backend
+            CLI_BACKEND_CONTAINER_NAME: cli-backend
+
+        steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.1.0
+              with:
+                  should-cache: false
+                  node-version: 18.13.0
+                  package-manager: pnpm
+                  package-manager-version: 7.25.0
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1-node16
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.AWS_REGION }}
+                  
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Get package.json version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@master
+
+            - name: Build, tag, and push image of backend to Amazon ECR
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+              run: |
+                docker build -t $ECR_REGISTRY/$BACKEND_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
+                docker push $ECR_REGISTRY/$BACKEND_REPOSITORY:$IMAGE_TAG
+
+            - name: Build, tag, and push image of cli-backend to Amazon ECR
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+              run: |
+                docker build -t $ECR_REGISTRY/$CLI_BACKEND_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
+                docker push $ECR_REGISTRY/$CLI_BACKEND_REPOSITORY:$IMAGE_TAG
+
+            - name: Download task definition
+              run: |
+                aws ecs describe-task-definition --task-definition ${{ env.BACKEND_ECS_TASK_DEFINITION }} --query taskDefinition > backend-task-definition.json
+
+            - name: Fill in the new image ID in the Amazon ECS task definition
+              id: backend-task-def
+              uses: aws-actions/amazon-ecs-render-task-definition@v1
+              with:
+                task-definition: backend-task-definition.json
+                container-name: ${{ env.BACKEND_CONTAINER_NAME }}
+                image: ${{ steps.login-ecr.outputs.registry }}/${{ env.BACKEND_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
+
+            - name: Deploy Amazon ECS task definition with service
+              uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+              with:
+                task-definition: ${{ steps.backend-task-def.outputs.task-definition }}
+                service: ${{ env.BACKEND_ECS_SERVICE }}
+                cluster: ${{ env.ECS_CLUSTER }}
+                wait-for-service-stability: true
+
+            - name: Download task definition
+              run: |
+                aws ecs describe-task-definition --task-definition ${{ env.CLI_BACKEND_ECS_TASK_DEFINITION }} --query taskDefinition > cli-backend-task-definition.json
+
+            - name: Fill in the new image ID in the Amazon ECS task definition
+              id: cli-backend-task-def
+              uses: aws-actions/amazon-ecs-render-task-definition@v1
+              with:
+                task-definition: cli-backend-task-definition.json
+                container-name: ${{ env.CLI_BACKEND_CONTAINER_NAME }}
+                image: ${{ steps.login-ecr.outputs.registry }}/${{ env.CLI_BACKEND_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
+
+            - name: Deploy Amazon ECS task definition with service
+              uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+              with:
+                task-definition: ${{ steps.cli-backend-task-def.outputs.task-definition }}
+                service: ${{ env.CLI_BACKEND_ECS_SERVICE }}
+                cluster: ${{ env.ECS_CLUSTER }}
+                wait-for-service-stability: true
+
+            - name: Slack notification                                
+              uses: rtCamp/action-slack-notify@v2             
+              env:                                                    
+                SLACK_CHANNEL: dashboard-deployment       
+                SLACK_MESSAGE: 'Just fdeployed ECS backend (both)'
+                SLACK_TITLE: 'Deployment'                         
+                SLACK_USERNAME: 'Yazif Deployer'                           
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL_DASHBOARD_DEPLOYMENT }}       
+                MSG_MINIMAL: true  
