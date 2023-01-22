@@ -15,6 +15,18 @@ jobs:
             TF_VAR_frontend_s3_bucket_name: ${{ secrets.AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
+            TF_VAR_database_url: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/?retryWrites=true&w=majority
+            TF_VAR_access_token_jwt_key: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
+            TF_VAR_refresh_token_jwt_key: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
+            TF_VAR_google_oauth_client_id: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
+            TF_VAR_google_oauth_client_secret: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
+            TF_VAR_google_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/google-redirect"
+            TF_VAR_gh_oauth_client_id: ${{ secrets.GH_OAUTH_CLIENT_ID }}
+            TF_VAR_gh_oauth_client_secret: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
+            TF_VAR_gh_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/github-redirect"
+            TF_VAR_mixpanel_token: ${{ secrets.MIXPANEL_TOKEN }}
+            TF_VAR_frontend_url: "https://app.exlint.io"
+            TF_VAR_cli_token_jwt_key: ${{ secrets.CLI_TOKEN_JWT_KEY }}
 
         steps:
             - name: Configure AWS credentials
@@ -41,7 +53,7 @@ jobs:
               run: terraform -chdir="./terraform/core" destroy -auto-approve
 
             - name: kkk
-              run: terraform -chdir="./terraform/k8s" force-unlock -force 264d8610-d259-6069-bdb6-b55d4791e212
+              run: terraform -chdir="./terraform/k8s" force-unlock -force 0086a2d7-4fa1-c5e0-a425-24f20c6cb38d
             - name: Terraform k8s init
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
