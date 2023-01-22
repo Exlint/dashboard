@@ -36,8 +36,15 @@ jobs:
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   aws-region: ${{ secrets.AWS_REGION }}
 
+            - name: Get package.json version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@master
+
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
+
+              - name: dest
+                run: terraform -chdir="./terraform/k8s" force-unlock -force 275a4b42-73bf-0088-69aa-df976bbaefee
 
             - name: Terraform k8s init
               env:
@@ -50,6 +57,8 @@ jobs:
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform k8s destroy
+              env:
+                TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}
               run: terraform -chdir="./terraform/k8s" destroy -auto-approve
 
             - name: Terraform core init
