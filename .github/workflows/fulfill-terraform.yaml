@@ -38,27 +38,27 @@ jobs:
               with:
                 terraform_wrapper: false
 
-            - name: Terraform init
+            - name: Terraform core init
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform" init \
+                terraform -chdir="./terraform/core" init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
-            - name: Terraform plan
-              run: terraform -chdir="./terraform" plan -no-color -out state.tfplan
+            - name: Terraform core plan
+              run: terraform -chdir="./terraform/core" plan -no-color -out state.tfplan
 
-            - name: Terraform apply
-              run: terraform -chdir="./terraform" apply state.tfplan
+            - name: Terraform core apply
+              run: terraform -chdir="./terraform/core" apply state.tfplan
 
-            - name: Get Terraform outputs
+            - name: Get Terraform core outputs
               id: terraform-outputs
               run: |
-                distribution_id=$(terraform -chdir="./terraform" output -raw cloudfront_distribution_id)
-                eks_kubeconfig=$(terraform -chdir="./terraform" output -raw eks_kubeconfig | base64)
+                distribution_id=$(terraform -chdir="./terraform/core" output -raw cloudfront_distribution_id)
+                eks_kubeconfig=$(terraform -chdir="./terraform/core" output -raw eks_kubeconfig | base64)
                 echo "DISTRIBUTION_ID=$distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
                 echo "$eks_kubeconfig" >> $GITHUB_OUTPUT
@@ -79,100 +79,6 @@ jobs:
                 value: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-
-            - name: Login to Amazon ECR
-              id: login-ecr
-              uses: aws-actions/amazon-ecr-login@v1
-
-            - name: Get package.json version
-              id: package-version
-              uses: martinbeentjes/npm-get-version-action@master
-
-            - name: Create backend deployment based on template
-              uses: danielr1996/envsubst-action@1.1.0
-              env:
-                  BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
-                  NODE_ENV: production
-                  PORT: 3000
-                  ACCESS_TOKEN_JWT_KEY: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
-                  REFRESH_TOKEN_JWT_KEY: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
-                  GOOGLE_OAUTH_CLIENT_ID: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
-                  GOOGLE_OAUTH_CLIENT_SECRET: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
-                  GOOGLE_OAUTH_REDIRECT_URI: "https://api.exlint.io:3000/user/auth/google-redirect"
-                  GH_OAUTH_CLIENT_ID: ${{ secrets.GH_OAUTH_CLIENT_ID }}
-                  GH_OAUTH_CLIENT_SECRET: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
-                  GITHUB_OAUTH_REDIRECT_URI: "https://api.exlint.io:3000/user/auth/github-redirect"
-                  MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://app.exlint.io"
-                  CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
-                  DATABASE_URL: ${{ env.DATABASE_URL }}
-              with:
-                  input: ./k8s/backend-deployment.template.yaml
-                  output: ./k8s/backend-deployment.yaml
-
-            - name: Create backend service based on template
-              uses: danielr1996/envsubst-action@1.1.0
-              env:
-                  PORT: 3000
-              with:
-                input: ./k8s/backend-service.template.yaml
-                output: ./k8s/backend-service.yaml
-
-            - name: Create cli-backend deployment based on template
-              uses: danielr1996/envsubst-action@1.1.0
-              env:
-                  CLI_BACKEND_IMAGE: ${{ steps.login-ecr.outputs.registry }}/${{ env.CLI_BACKEND_ECR_REPOSITORY }}:${{ steps.package-version.outputs.current-version }}
-                  NODE_ENV: production
-                  PORT: 3000
-                  REFRESH_TOKEN_JWT_KEY: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
-                  MIXPANEL_TOKEN: ${{ secrets.MIXPANEL_TOKEN }}
-                  FRONTEND_URL: "https://app.exlint.io"
-                  CLI_TOKEN_JWT_KEY: ${{ secrets.CLI_TOKEN_JWT_KEY }}
-                  DATABASE_URL: ${{ env.DATABASE_URL }}
-              with:
-                input: ./k8s/cli-backend-deployment.template.yaml
-                output: ./k8s/cli-backend-deployment.yaml
-
-            - name: Create cli-backend service based on template
-              uses: danielr1996/envsubst-action@1.1.0
-              env:
-                  PORT: 3000
-              with:
-                input: ./k8s/cli-backend-service.template.yaml
-                output: ./k8s/cli-backend-service.yaml
-
-            - name: Create api ingress based on template
-              uses: danielr1996/envsubst-action@1.1.0
-              env:
-                  PORT: 3000
-                  BACKEND_API_HOST: api.exlint.io
-                  CLI_BACKEND_API_HOST: cli-api.exlint.io
-              with:
-                input: ./k8s/api-ingress.template.yaml
-                output: ./k8s/api-ingress.yaml
-
-            - name: Build, tag, and push image of backend to Amazon ECR
-              env:
-                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
-              run: |
-                docker build -t $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
-                docker push $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG
-
-            - name: Build, tag, and push image of cli-backend to Amazon ECR
-              env:
-                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
-              run: |
-                docker build -t $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
-                docker push $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG
-
-            - name: Deploy k8s APIs to EKS
-              uses: kodermax/kubectl-aws-eks@master
-              env:
-                KUBE_CONFIG_DATA: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
-              with:
-                args: apply -f=./k8s/backend-deployment.yaml -f=./k8s/backend-service.yaml -f=./k8s/cli-backend-deployment.yaml -f=./k8s/cli-backend-service.yaml -f=./k8s/api-ingress.yaml
 
             - name: Build frontend
               run: pnpm exec nx build @exlint-dashboard/frontend
