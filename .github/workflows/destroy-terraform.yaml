@@ -40,7 +40,8 @@ jobs:
             - name: Terraform core destroy
               run: terraform -chdir="./terraform/core" destroy -auto-approve
 
-
+            - name: kkk
+              run: terraform -chdir="./terraform/k8s" force-unlock -force 7dd3a06e-a328-a008-21cb-1241ccea164a
             - name: Terraform k8s init
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
@@ -52,4 +53,4 @@ jobs:
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform k8s destroy
-              run: terraform -chdir="./terraform/k8s" destroy -auto-approve force-unlock -force 7dd3a06e-a328-a008-21cb-1241ccea164a
+              run: terraform -chdir="./terraform/k8s" destroy -auto-approve
