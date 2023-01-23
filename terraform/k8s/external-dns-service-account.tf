@@ -6,7 +6,7 @@ resource "kubernetes_service_account" "external_dns" {
     name      = "external-dns"
     namespace = "default"
     annotations = {
-      "eks.amazonaws.com/role-arn" : aws_iam_role.external_dns.arn
+      "eks.amazonaws.com/role-arn" = aws_iam_role.external_dns.arn
     }
   }
 }
