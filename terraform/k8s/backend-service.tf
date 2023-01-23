@@ -14,6 +14,6 @@ resource "kubernetes_service_v1" "backend_service" {
     }
 
     # Why NodePort - https://stackoverflow.com/a/73582930/9105207
-    type = "NodePort"
+    type = "ClusterIP"
   }
 }
