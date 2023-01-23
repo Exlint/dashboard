@@ -1,5 +1,5 @@
 import { plainToClass } from 'class-transformer';
-import { IsEnum, IsPositive, IsInt, IsString, validateSync } from 'class-validator';
+import { IsPositive, IsInt, IsString, validateSync } from 'class-validator';
 
 enum Environment {
 	Development = 'development',
@@ -7,7 +7,7 @@ enum Environment {
 }
 
 class EnvironmentVariables {
-	@IsEnum(Environment)
+	@IsString()
 	public NODE_ENV!: Environment;
 
 	@IsInt()
