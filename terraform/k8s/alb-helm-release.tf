@@ -12,13 +12,13 @@ resource "helm_release" "ingress" {
   ]
 
   set {
-    name  = "autoDiscoverAwsRegion"
-    value = "true"
+    name  = "region"
+    value = data.aws_region.current.name
   }
 
   set {
-    name  = "autoDiscoverAwsVpcID"
-    value = "true"
+    name  = "serviceAccount.name"
+    value = kubernetes_service_account.aws_load_balancer_controller.metadata.0.name
   }
 
   set {
