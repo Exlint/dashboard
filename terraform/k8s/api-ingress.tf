@@ -11,6 +11,8 @@ resource "kubernetes_ingress_v1" "ingress" {
     namespace = "default"
 
     annotations = {
+      "alb.ingress.kubernetes.io/listen-ports" : "[{\"HTTP\": 80}, {\"HTTPS\": 443}]"
+      "alb.ingress.kubernetes.io/target-type" : "ip"
       "alb.ingress.kubernetes.io/scheme"       = "internet-facing"
       "alb.ingress.kubernetes.io/ssl-redirect" = "443"
       # No need to declare certificate: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/cert_discovery/
