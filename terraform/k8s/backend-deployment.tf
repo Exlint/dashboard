@@ -29,6 +29,16 @@ resource "kubernetes_deployment_v1" "backend" {
           name              = "backend"
           image_pull_policy = "Always"
 
+          liveness_probe {
+            http_get {
+              path = "/health/version"
+              port = 80
+            }
+
+            period_seconds        = 5
+            initial_delay_seconds = 10
+          }
+
           port {
             container_port = 80
             name           = "backend"
