@@ -15,7 +15,7 @@ declare const module: any;
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule, {
-		logger: process.env.NODE_ENV === 'production' ? false : undefined,
+		logger: process.env.NODE_ENV === 'development' ? false : undefined,
 	});
 
 	if (module.hot) {
