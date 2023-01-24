@@ -2,9 +2,6 @@ name: Deploy to backend service AWS EKS
 
 on:
     push:
-        paths:
-            - './apps/backend/**/*'
-            - './packages/common/**/*'
         branches:
             - PRODUCTION
 
