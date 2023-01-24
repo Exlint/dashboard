@@ -14,9 +14,7 @@ import { DatabaseNotFoundExceptionFilter } from './filters/database-not-found.fi
 declare const module: any;
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule, {
-		logger: process.env.NODE_ENV === 'development' ? false : undefined,
-	});
+	const app = await NestFactory.create(AppModule);
 
 	if (module.hot) {
 		module.hot.accept();
