@@ -42,10 +42,10 @@ class EnvironmentVariables {
 	public MIXPANEL_TOKEN!: string;
 
 	@IsString()
-	public FRONTEND_URL!: string;
+	public CLI_TOKEN_JWT_KEY!: string;
 
 	@IsString()
-	public CLI_TOKEN_JWT_KEY!: string;
+	public FRONTEND_URL!: string;
 }
 
 export const validate = (config: Record<string, unknown>) => {
