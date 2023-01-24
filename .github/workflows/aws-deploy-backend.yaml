@@ -13,8 +13,9 @@ jobs:
         name: Deploy backend service to AWS
         runs-on: [self-hosted, Linux, X64, deploy]
         env:
-            ECR_REPOSITORY: dashboard-backend
+            BACKEND_ECR_REPOSITORY: dashboard-backend
             DEPLOYMENT_NAME: dashboard-backend-deployment
+            BACKEND_CONTAINER_NAME: backend
 
         steps:
             - name: Cancel previous runs
@@ -40,35 +41,13 @@ jobs:
               id: package-version
               uses: martinbeentjes/npm-get-version-action@master
 
-            - name: Set up Docker Buildx
-              uses: docker/setup-buildx-action@v2.2.1
-
-            - name: Docker cache layers
-              uses: actions/cache@v3
-              with:
-                path: /tmp/.buildx-cache
-                key: ${{ runner.os }}-single-buildx-${{ github.sha }}
-                restore-keys: |
-                  ${{ runner.os }}-single-buildx
-
-            - name: Build & Push Image
+            - name: Build, tag, and push image of backend to Amazon ECR
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
                 IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
               run: |
-                docker buildx create --use
-
-                docker buildx build \
-                  --cache-from=type=local,src=/tmp/.buildx-cache \
-                  --cache-to=type=local,dest=/tmp/.buildx-cache-new \
-                  --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
-                  --target release \
-                  --push \
-                  -f ./docker/Dockerfile.backend-prod                                     
-                  .
-
-                rm -rf /tmp/.buildx-cache
-                mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+                docker build -t $ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
+                docker push $ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG
 
             - name: Deploy to EKS cluster
               uses: kodermax/kubectl-aws-eks@master
@@ -76,9 +55,9 @@ jobs:
                 KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
                 IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
-                CONTAINER_NAME: ${{ env.ECR_REPOSITORY }}
+                CONTAINER_NAME: ${{ env.BACKEND_CONTAINER_NAME }}
               with:
-                args: set image deployment/$DEPLOYMENT_NAME $CONTAINER_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+                args: set image deployment/$DEPLOYMENT_NAME $CONTAINER_NAME=$ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG
                 
             - name: Verify Deployment
               uses: kodermax/kubectl-aws-eks@master
