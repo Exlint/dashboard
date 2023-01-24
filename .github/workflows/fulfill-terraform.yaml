@@ -20,10 +20,10 @@ jobs:
             TF_VAR_refresh_token_jwt_key: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
             TF_VAR_google_oauth_client_id: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
             TF_VAR_google_oauth_client_secret: ${{ secrets.GOOGLE_OAUTH_CLIENT_SECRET }}
-            TF_VAR_google_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/google-redirect"
+            TF_VAR_google_oauth_redirect_uri: "https://api.exlint.io/user/auth/google-redirect"
             TF_VAR_gh_oauth_client_id: ${{ secrets.GH_OAUTH_CLIENT_ID }}
             TF_VAR_gh_oauth_client_secret: ${{ secrets.GH_OAUTH_CLIENT_SECRET }}
-            TF_VAR_gh_oauth_redirect_uri: "https://api.exlint.io:3000/user/auth/github-redirect"
+            TF_VAR_gh_oauth_redirect_uri: "https://api.exlint.io/user/auth/github-redirect"
             TF_VAR_mixpanel_token: ${{ secrets.MIXPANEL_TOKEN }}
             TF_VAR_frontend_url: "https://app.exlint.io"
             TF_VAR_cli_token_jwt_key: ${{ secrets.CLI_TOKEN_JWT_KEY }}
