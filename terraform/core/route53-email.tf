@@ -52,7 +52,7 @@ resource "aws_route53_record" "email_cname_msoid" {
 
 resource "aws_route53_record" "email_mx" {
   zone_id = aws_route53_zone.primary.zone_id
-  name    = "@"
+  name    = ""
   type    = "MX"
   ttl     = 300
   records = ["0 exlint-io.mail.protection.outlook.com"]
