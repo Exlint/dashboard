@@ -1,13 +1,19 @@
-resource "aws_route53_record" "email_txt" {
+resource "aws_route53_record" "email_txt_microsoft" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "@"
   type    = "TXT"
   ttl     = 300
 
-  records = [
-    "NETORGFT10830933.onmicrosoft.com",
-    "v=spf1 include:secureserver.net -all"
-  ]
+  records = ["NETORGFT10830933.onmicrosoft.com"]
+}
+
+resource "aws_route53_record" "email_txt_spf1" {
+  zone_id = aws_route53_zone.primary.zone_id
+  name    = "@"
+  type    = "TXT"
+  ttl     = 300
+
+  records = ["v=spf1 include:secureserver.net -all"]
 }
 
 resource "aws_route53_record" "email_cname_autodiscover" {
@@ -58,10 +64,18 @@ resource "aws_route53_record" "email_mx" {
   records = ["0 exlint-io.mail.protection.outlook.com"]
 }
 
-resource "aws_route53_record" "email_srv" {
+resource "aws_route53_record" "email_srv_sipdir" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "@"
   type    = "SRV"
   ttl     = 300
-  records = ["100 1 443 sipdir.online.lync.com", "100 1 5061 sipfed.online.lync.com"]
+  records = ["100 1 443 sipdir.online.lync.com"]
+}
+
+resource "aws_route53_record" "email_srv_sipfed" {
+  zone_id = aws_route53_zone.primary.zone_id
+  name    = "@"
+  type    = "SRV"
+  ttl     = 300
+  records = ["100 1 5061 sipfed.online.lync.com"]
 }
