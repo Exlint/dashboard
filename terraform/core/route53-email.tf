@@ -50,6 +50,14 @@ resource "aws_route53_record" "email_cname_msoid" {
   records = ["clientconfig.microsoftonline-p.net"]
 }
 
+resource "aws_route53_record" "email_mx" {
+  zone_id = aws_route53_zone.primary.zone_id
+  name    = ""
+  type    = "MX"
+  ttl     = 300
+  records = ["0 exlint-io.mail.protection.outlook.com"]
+}
+
 resource "aws_route53_record" "email_srv" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "@"
