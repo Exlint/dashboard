@@ -26,7 +26,7 @@ export default defineConfig(() => ({
 		port: 8080,
 		open: true,
 	},
-	base: './',
+	base: '/',
 	build: { outDir: './dist' },
 	plugins: [react(), tsconfigPaths(), prismaPlugin()],
 	resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },

@@ -15,7 +15,7 @@ jobs:
             TF_VAR_frontend_s3_bucket_name: ${{ secrets.AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
-            TF_VAR_database_url: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/dashboard?retryWrites=true&w=majority
+            TF_VAR_database_url: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@dashboard.elge3qb.mongodb.net/dashboard?retryWrites=true&w=majority
             TF_VAR_access_token_jwt_key: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
             TF_VAR_refresh_token_jwt_key: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
             TF_VAR_google_oauth_client_id: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}

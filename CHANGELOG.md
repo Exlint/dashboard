@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/Exlint/dashboard/compare/v1.22.0...v1.22.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* 🐞 update version for logs ([57abb0c](https://github.com/Exlint/dashboard/commit/57abb0c2364962f5df907f47c54590d1af0c4ac2))
+
 # [1.22.0](https://github.com/Exlint/dashboard/compare/v1.21.0...v1.22.0) (2022-11-24)
 
 

@@ -15,7 +15,7 @@ jobs:
             TF_VAR_frontend_s3_bucket_name: ${{ secrets.AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
-            TF_VAR_database_url: mongodb+srv://${{ secrets.DATABASE_USERNAME }}:${{ secrets.DATABASE_PASSWORD }}@exlint-dashboard.gzy04y8.mongodb.net/dashboard?retryWrites=true&w=majority
+            TF_VAR_database_url: mongodb+srv://${{ secrets.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@dashboard.elge3qb.mongodb.net/dashboard?retryWrites=true&w=majority
             TF_VAR_access_token_jwt_key: ${{ secrets.ACCESS_TOKEN_JWT_KEY }}
             TF_VAR_refresh_token_jwt_key: ${{ secrets.REFRESH_TOKEN_JWT_KEY }}
             TF_VAR_google_oauth_client_id: ${{ secrets.GOOGLE_OAUTH_CLIENT_ID }}
@@ -35,7 +35,7 @@ jobs:
                   should-cache: false
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.25.0
+                  package-manager-version: 7.25.1
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
@@ -102,7 +102,7 @@ jobs:
             - name: Build, tag, and push image of backend to Amazon ECR
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
               run: |
                 docker build -t $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
                 docker push $ECR_REGISTRY/$TF_VAR_backend_repository:$IMAGE_TAG
@@ -110,7 +110,7 @@ jobs:
             - name: Build, tag, and push image of cli-backend to Amazon ECR
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
               run: |
                 docker build -t $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
                 docker push $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG
@@ -127,7 +127,7 @@ jobs:
 
             - name: Terraform k8s plan
               env:
-                TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}
+                TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
               run: terraform -chdir="./terraform/k8s" plan -no-color -out state.tfplan
 
             - name: Terraform k8s apply

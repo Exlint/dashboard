@@ -1,0 +1,55 @@
+name: Deploy frontend application
+
+on:
+  push:
+    branches:
+      - PRODUCTION
+    paths:
+      - apps/frontend/**
+      - packages/common/**
+
+jobs:
+    deploy:
+        name: Deploy frontend to AWS
+        runs-on: [self-hosted, Linux, X64, deploy]
+
+        steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.1.0
+              with:
+                  should-cache: false
+                  node-version: 18.13.0
+                  package-manager: pnpm
+                  package-manager-version: 7.25.1
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1-node16
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.AWS_REGION }}
+
+            - name: Build frontend
+              run: pnpm exec nx build @exlint-dashboard/frontend
+
+            - name: Deploy to S3 and invalidate Cloudfront
+              uses: reggionick/s3-deploy@v3
+              with:
+                  folder: ./apps/frontend/dist
+                  bucket: ${{ secrets.AWS_S3_BUCKET }}
+                  bucket-region: ${{ secrets.AWS_REGION }}
+                  dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+                  invalidation: /
+                  delete-removed: true
+                  private: true
+                  filesToInclude: '**/*'
+
+            - name: Slack notification                                
+              uses: rtCamp/action-slack-notify@v2             
+              env:                                                    
+                SLACK_CHANNEL: dashboard-deployment       
+                SLACK_MESSAGE: 'Just deployed frontend'
+                SLACK_TITLE: 'Deployment'                         
+                SLACK_USERNAME: 'Yazif Deployer'                           
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL_DASHBOARD_DEPLOYMENT }}       
+                MSG_MINIMAL: true  
