@@ -180,7 +180,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
+              run: pnpx playwright install --with-deps
 
             - name: Run Playwright tests
               run: pnpm test

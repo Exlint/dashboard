@@ -65,7 +65,9 @@ const globalSetup = async () => {
 
 		console.log(chalk.magenta('Ready to go!'));
 	} catch (e) {
-		console.log(chalk.red.bold(`\n\nFailed to start test cluster with an error:\n${e}`));
+		console.log(
+			chalk.red.bold(`\n\nFailed to start test cluster with an error:\n${JSON.stringify(e, null, 2)}`),
+		);
 
 		process.exit(1);
 	}
