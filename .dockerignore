@@ -30,6 +30,7 @@ renovate.json
 tsconfig.eslint.json
 tsconfig.json
 tsconfig.tsbuildinfo
+playwright.config.ts
 
 apps/backend/tsconfig.tsbuildinfo
 apps/backend/.gitignore
