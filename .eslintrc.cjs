@@ -172,7 +172,13 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./scripts/onboarding.cjs', './docker/scripts/open-dashboard.cjs'],
+			files: [
+				'./scripts/onboarding.cjs',
+				'./docker/scripts/open-dashboard.cjs',
+				'./tests/scripts/setup-environment.ts',
+				'./tests/scripts/global-setup.ts',
+				'./tests/scripts/global-teardown.ts',
+			],
 			rules: {
 				'no-console': 'off',
 			},

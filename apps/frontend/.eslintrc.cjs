@@ -16,8 +16,8 @@ module.exports = {
 	},
 	plugins: ['jsx-a11y', 'react', 'react-hooks', 'i18next'],
 	rules: {
+		'no-process-env': ['error'],
 		'jsx-quotes': ['error', 'prefer-double'],
-		'curly': ['error', 'all'],
 
 		'jsx-a11y/alt-text': 'error',
 		'jsx-a11y/html-has-lang': 'error',
@@ -90,6 +90,12 @@ module.exports = {
 			files: ['./src/assets/icons.ts', './src/data/**/*.ts', './src/i18n/en.ts'],
 			rules: {
 				'max-lines': 'off',
+			},
+		},
+		{
+			files: ['./vite.config.ts'],
+			rules: {
+				'no-process-env': 'off',
 			},
 		},
 	],
