@@ -1,0 +1,125 @@
+version: '3.8'
+
+services:
+    mongo_launcher:
+        container_name: mongo_launcher
+        image: mongo:5.0.14
+        restart: on-failure
+        networks:
+            - dashboard_network
+        volumes:
+            - ./docker/scripts/mongo-setup.sh:/scripts/mongo-setup.sh
+        entrypoint: ['sh', '/scripts/mongo-setup.sh']
+    mongo_replica_1:
+        container_name: mongo_replica_1
+        image: mongo:5.0.14
+        ports:
+            - 27017:27017
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27017',
+            ]
+        networks:
+            - dashboard_network
+    mongo_replica_2:
+        container_name: mongo_replica_2
+        image: mongo:5.0.14
+        ports:
+            - 27018:27018
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27018',
+            ]
+        networks:
+            - dashboard_network
+    mongo_replica_3:
+        container_name: mongo_replica_3
+        image: mongo:5.0.14
+        ports:
+            - 27019:27019
+        restart: always
+        entrypoint:
+            [
+                '/usr/bin/mongod',
+                '--bind_ip_all',
+                '--replSet',
+                'dbrs',
+                '--dbpath',
+                '/data/db',
+                '--port',
+                '27019',
+            ]
+        networks:
+            - dashboard_network
+
+    backend:
+        container_name: backend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.backend-test
+        env_file:
+            - ./apps/backend/envs/.env.test
+            - ./docker/envs/.env.test
+        ports:
+            - 3000:3000
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - dashboard_network
+    cli-backend:
+        container_name: cli-backend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.cli-backend-test
+        env_file:
+            - ./apps/cli-backend/envs/.env.test
+            - ./docker/envs/.env.test
+        ports:
+            - 4000:4000
+        restart: always
+        depends_on:
+            - mongo_replica_1
+            - mongo_replica_2
+            - mongo_replica_3
+        networks:
+            - dashboard_network
+    frontend:
+        container_name: frontend
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.frontend-test
+        environment:
+            - NODE_ENV=test
+        env_file:
+            - ./apps/frontend/.env.test
+        ports:
+            - 8080:8080
+        restart: always
+        depends_on:
+            - backend
+            - cli-backend
+        networks:
+            - dashboard_network
+
+networks:
+    dashboard_network:
+        driver: bridge

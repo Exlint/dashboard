@@ -6,14 +6,17 @@ importers:
     specifiers:
       '@commitlint/cli': 17.4.2
       '@exlint.io/inflint': 1.2.9
+      '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0
       '@types/node': 18.11.18
+      '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.48.2
       '@typescript-eslint/parser': 5.48.2
       chalk: 4.1.2
       commitizen: 4.3.0
       cz-vinyl: 1.6.2
       depcheck: 1.4.3
+      docker-compose: 0.23.18
       dotenv-cli: 6.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0
@@ -28,6 +31,7 @@ importers:
       npm-run-all: 4.1.5
       nx: 15.5.2
       open: 8.4.0
+      playwright: 1.30.0
       pnpm: 7.25.1
       prettier: 2.8.3
       prettier-plugin-sh: 0.12.8
@@ -39,14 +43,17 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.4.2
       '@exlint.io/inflint': 1.2.9_awa2wsr5thmg3i7jqycphctjfq
+      '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0_prisma@4.9.0
       '@types/node': 18.11.18
+      '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       chalk: 4.1.2
       commitizen: 4.3.0
       cz-vinyl: 1.6.2_awa2wsr5thmg3i7jqycphctjfq
       depcheck: 1.4.3
+      docker-compose: 0.23.18
       dotenv-cli: 6.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
@@ -61,6 +68,7 @@ importers:
       npm-run-all: 4.1.5
       nx: 15.5.2
       open: 8.4.0
+      playwright: 1.30.0
       pnpm: 7.25.1
       prettier: 2.8.3
       prettier-plugin-sh: 0.12.8_prettier@2.8.3
@@ -296,7 +304,6 @@ importers:
       '@vitejs/plugin-react': 3.0.1
       axios: 1.2.3
       bootstrap: 3.4.1
-      cross-env: 7.0.3
       date-fns: 2.29.3
       depcheck: 1.4.3
       eslint: 8.32.0
@@ -368,7 +375,6 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       '@vitejs/plugin-react': 3.0.1_vite@4.0.4
-      cross-env: 7.0.3
       depcheck: 1.4.3
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
@@ -3052,6 +3058,15 @@ packages:
       tslib: 2.4.1
     dev: true
 
+  /@playwright/test/1.30.0:
+    resolution: {integrity: sha512-SVxkQw1xvn/Wk/EvBnqWIq6NLo1AppwbYOjNLmyU0R1RoQ3rLEBtmjTnElcnz8VEtn11fptj1ECxK0tgURhajw==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.11.18
+      playwright-core: 1.30.0
+    dev: true
+
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
 
@@ -3450,6 +3465,12 @@ packages:
 
   /@types/validator/13.7.10:
     resolution: {integrity: sha512-t1yxFAR2n0+VO6hd/FJ9F2uezAZVWHLmpmlJzm1eX03+H7+HsuTAp7L8QJs+2pQCfWkP1+EXsGK9Z9v7o/qPVQ==}
+
+  /@types/wait-on/5.3.1:
+    resolution: {integrity: sha512-2FFOKCF/YydrMUaqg+fkk49qf0e5rDgwt6aQsMzFQzbS419h2gNOXyiwp/o2yYy27bi/C1z+HgfncryjGzlvgQ==}
+    dependencies:
+      '@types/node': 18.11.18
+    dev: true
 
   /@typescript-eslint/eslint-plugin/5.48.2_caon6io6stgpr7lz2rtbhekxqy:
     resolution: {integrity: sha512-sR0Gja9Ky1teIq4qJOl0nC+Tk64/uYdX+mi+5iB//MH8gwyx8e3SOyhEzeLZEFEEfCaLf8KJq+Bd/6je1t+CAg==}
@@ -5058,14 +5079,6 @@ packages:
     resolution: {integrity: sha512-+BO9wPPi+DWTDcNYhr/W90myha8ptzftZT+LwcmUbbok0rcP/fequmFYCw8NMoH7pkAZQzU78b3kYrlua5a9eA==}
     dev: false
 
-  /cross-env/7.0.3:
-    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
-    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
-    hasBin: true
-    dependencies:
-      cross-spawn: 7.0.3
-    dev: true
-
   /cross-spawn/6.0.5:
     resolution: {integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==}
     engines: {node: '>=4.8'}
@@ -5417,6 +5430,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-type: 4.0.0
+    dev: true
+
+  /docker-compose/0.23.18:
+    resolution: {integrity: sha512-OF+mNV07oUer5QCfvpi39zjQAvFjVmy9H3MfSuwQ417vj8DNMOzvvSTGgajyOZ/rn/afkrJcKltVlQv4UzXQqw==}
+    engines: {node: '>= 6.0.0'}
+    dependencies:
+      yaml: 1.10.2
     dev: true
 
   /doctrine/2.1.0:
@@ -9150,6 +9170,21 @@ packages:
   /pify/3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /playwright-core/1.30.0:
+    resolution: {integrity: sha512-7AnRmTCf+GVYhHbLJsGUtskWTE33SwMZkybJ0v6rqR1boxq2x36U7p1vDRV7HO2IwTZgmycracLxPEJI49wu4g==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  /playwright/1.30.0:
+    resolution: {integrity: sha512-ENbW5o75HYB3YhnMTKJLTErIBExrSlX2ZZ1C/FzmHjUYIfxj/UnI+DWpQr992m+OQVSg0rCExAOlRwB+x+yyIg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.30.0
     dev: true
 
   /please-upgrade-node/3.2.0:

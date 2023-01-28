@@ -3,7 +3,7 @@ declare global {
 
 	namespace NodeJS {
 		interface ProcessEnv {
-			readonly NODE_ENV: 'development' | 'production';
+			readonly NODE_ENV: 'development' | 'test' | 'production';
 			readonly PORT: string;
 			readonly FRONTEND_URL: string;
 			readonly CLI_TOKEN_JWT_KEY: string;
