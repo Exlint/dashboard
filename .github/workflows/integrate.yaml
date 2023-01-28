@@ -8,12 +8,7 @@ permissions:
     contents: read
 
 jobs:
-    call_pnpm_caching_workflow:
-        name: Set PNPM environment
-        uses: ./.github/workflows/pnpm-caching.yaml
-
     depcheck:
-        needs: call_pnpm_caching_workflow
         name: Testing Depcheck
 
         runs-on: ubuntu-latest
@@ -29,7 +24,6 @@ jobs:
               run: pnpm depcheck:all
 
     inflint:
-        needs: call_pnpm_caching_workflow
         name: Testing Inflint
 
         runs-on: ubuntu-latest
@@ -45,7 +39,6 @@ jobs:
               run: pnpm inflint
 
     typescript:
-        needs: call_pnpm_caching_workflow
         name: Testing TypeScript
 
         runs-on: ubuntu-latest
@@ -61,7 +54,6 @@ jobs:
               run: pnpm type-check:all
 
     prettier:
-        needs: call_pnpm_caching_workflow
         name: Testing Prettier
 
         runs-on: ubuntu-latest
@@ -77,7 +69,6 @@ jobs:
               run: pnpm prettier
 
     eslint:
-        needs: call_pnpm_caching_workflow
         name: Testing ESLint
 
         runs-on: ubuntu-latest
@@ -93,7 +84,6 @@ jobs:
               run: pnpm lint:all
 
     stylelint:
-        needs: call_pnpm_caching_workflow
         name: Testing Stylelint
 
         runs-on: ubuntu-latest
@@ -109,7 +99,6 @@ jobs:
               run: pnpm nx stylelint @exlint-dashboard/frontend
 
     prisma:
-        needs: call_pnpm_caching_workflow
         name: Testing Prisma
 
         runs-on: ubuntu-latest
@@ -125,7 +114,6 @@ jobs:
               run: pnpm prisma-format
 
     build:
-        needs: call_pnpm_caching_workflow
         name: Testing build
 
         runs-on: ubuntu-latest
@@ -174,11 +162,17 @@ jobs:
 
     automation:
         timeout-minutes: 60
-        needs: call_pnpm_caching_workflow
         name: Automation Tests
 
         runs-on: ubuntu-latest
         steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.1.0
+              with:
+                  node-version: 18.13.0
+                  package-manager: pnpm
+                  package-manager-version: 7.25.1
+
             - name: Install Playwright Browsers
               run: pnpx playwright install --with-deps
 
