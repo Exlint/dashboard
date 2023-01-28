@@ -26,7 +26,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.1.0
       npm-run-all: 4.1.5
-      nx: 15.5.2
+      nx: 15.5.3
       open: 8.4.0
       pnpm: 7.25.1
       prettier: 2.8.3
@@ -59,7 +59,7 @@ importers:
       is-docker: 3.0.0
       lint-staged: 13.1.0
       npm-run-all: 4.1.5
-      nx: 15.5.2
+      nx: 15.5.3
       open: 8.4.0
       pnpm: 7.25.1
       prettier: 2.8.3
@@ -2801,21 +2801,21 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@nrwl/cli/15.5.2:
-    resolution: {integrity: sha512-T0nN2hYDtkY9SsbtZqFwRSYC8Td2zPqQ7dj6FrwvjFGbHLAxN6rknVPPKN4S7Dt6feXX1Woe8XYwWouk9Cg6nw==}
+  /@nrwl/cli/15.5.3:
+    resolution: {integrity: sha512-NWf9CWswvdYM6YzXuweaZPAZ2erMtQrrHZdgFbUGeojZBZ+b4TCGzLWNodZj4yQOa/eTwlyPMYO2LEw9CoapDQ==}
     dependencies:
-      nx: 15.5.2
+      nx: 15.5.3
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
       - debug
     dev: true
 
-  /@nrwl/tao/15.5.2:
-    resolution: {integrity: sha512-1thpCNcdpHfTf+o3p+VB6v8TEj6to3YVhA9d+3VhDKN9mq/RVcoMQQRIAgNOKbYWYNo8eC8MvuNqxgRPz2ESyg==}
+  /@nrwl/tao/15.5.3:
+    resolution: {integrity: sha512-vgPLIW9IoBfQ4IkHRT5RC4LqNwFBK5jmHYmFIRgbIeFRudFBbnpmOaKRME0OwN7qJ6964PVVbzahAPvYVD02xw==}
     hasBin: true
     dependencies:
-      nx: 15.5.2
+      nx: 15.5.3
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -8634,8 +8634,8 @@ packages:
       boolbase: 1.0.0
     dev: true
 
-  /nx/15.5.2:
-    resolution: {integrity: sha512-jo8DG7zt0EorKL6AihkoshaeiFkK25NOeGUEnF05BFCaqsIoS9s3uctrOumh2G9DhaGMEWzakc3kF4/LeLB9pg==}
+  /nx/15.5.3:
+    resolution: {integrity: sha512-PHB8VbiBLP108xb+yR8IGEsYWr7OcmDDOjHL+73oP4lVjyPgT8wdTMe6tI5LdBgv+KZ+0kiThK3ckvcPsfgvLQ==}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -8647,8 +8647,8 @@ packages:
       '@swc/core':
         optional: true
     dependencies:
-      '@nrwl/cli': 15.5.2
-      '@nrwl/tao': 15.5.2
+      '@nrwl/cli': 15.5.3
+      '@nrwl/tao': 15.5.3
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.27
