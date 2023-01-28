@@ -15,7 +15,6 @@ RUN pnpm --filter backend --filter common i
 COPY ./apps/backend/ ./apps/backend/
 COPY ./packages/common/ ./packages/common/
 
-RUN pnpm exec nx build @exlint-dashboard/common
 RUN pnpm exec nx build @exlint-dashboard/backend
 
 CMD ["node", "./apps/backend/dist/main.js"]

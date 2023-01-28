@@ -1,5 +1,5 @@
 export interface IEnvironment {
-	readonly nodeEnv: 'development' | 'production';
+	readonly nodeEnv: 'development' | 'test' | 'production';
 	readonly port: string;
 	readonly frontendUrl: string;
 	readonly cliTokenJwtKey: string;
