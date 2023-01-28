@@ -10,10 +10,7 @@ permissions:
 jobs:
     call_pnpm_caching_workflow:
         name: Set PNPM environment
-
         uses: ./.github/workflows/pnpm-caching.yaml
-        with:
-            runner: [self-hosted, Linux, X64, integration]
 
     depcheck:
         needs: call_pnpm_caching_workflow
