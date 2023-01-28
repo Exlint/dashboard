@@ -16,7 +16,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Depcheck
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -32,7 +32,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Inflint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -48,7 +48,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing TypeScript
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -64,7 +64,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prettier
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -80,7 +80,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing ESLint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -96,7 +96,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Stylelint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -112,7 +112,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing Prisma
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -128,7 +128,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Testing build
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -143,7 +143,7 @@ jobs:
     terraform:
         name: Testing Terraform
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -177,7 +177,7 @@ jobs:
         needs: call_pnpm_caching_workflow
         name: Automation Tests
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Install Playwright Browsers
               run: pnpx playwright install --with-deps
