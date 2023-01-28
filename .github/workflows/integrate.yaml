@@ -176,12 +176,12 @@ jobs:
               run: terraform -chdir="./terraform" validate -no-color
 
     automation:
-      timeout-minutes: 60
-      needs: call_pnpm_caching_workflow
-      name: Automation Tests
+        timeout-minutes: 60
+        needs: call_pnpm_caching_workflow
+        name: Automation Tests
 
-      runs-on: [self-hosted, Linux, X64, integration]
-      steps:
+        runs-on: [self-hosted, Linux, X64, integration]
+        steps:
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
 
@@ -191,6 +191,6 @@ jobs:
         - uses: actions/upload-artifact@v3
           if: always()
           with:
-            name: playwright-report
-            path: playwright-report/
-            retention-days: 30
+              name: playwright-report
+              path: playwright-report/
+              retention-days: 30
