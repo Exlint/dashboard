@@ -164,7 +164,7 @@ jobs:
         timeout-minutes: 60
         name: Automation Tests
 
-        runs-on: ubuntu-latest
+        runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
