@@ -28,9 +28,7 @@ test.describe('Auth page @auth-page', () => {
 	test('auth page should GitHub authentication button', async ({ page }) => {
 		await page.goto('http://localhost:8080/');
 
-		const gitHubAuthenticationButtonElement = await page.locator(
-			"[data-test-id='auth-github-auth-button']",
-		);
+		const gitHubAuthenticationButtonElement = page.locator("[data-test-id='auth-github-auth-button']");
 
 		await expect(gitHubAuthenticationButtonElement).toBeVisible();
 	});
@@ -38,9 +36,23 @@ test.describe('Auth page @auth-page', () => {
 	test('auth page should have Google authentication button', async ({ page }) => {
 		await page.goto('http://localhost:8080/');
 
-		const googleAuthenticationButtonElement = await page.locator(
-			"[data-test-id='auth-google-auth-button']",
-		);
+		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-google-auth-button']");
+
+		await expect(googleAuthenticationButtonElement).toBeVisible();
+	});
+
+	test('auth page should have terms of service link', async ({ page }) => {
+		await page.goto('http://localhost:8080/');
+
+		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-terms-of-service-link']");
+
+		await expect(googleAuthenticationButtonElement).toBeVisible();
+	});
+
+	test('auth page should have privacy policy link', async ({ page }) => {
+		await page.goto('http://localhost:8080/');
+
+		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-privacy-policy-link']");
 
 		await expect(googleAuthenticationButtonElement).toBeVisible();
 	});
