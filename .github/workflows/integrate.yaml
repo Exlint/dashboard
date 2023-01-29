@@ -174,9 +174,7 @@ jobs:
                   package-manager-version: 7.25.1
 
             - name: Install Playwright Browsers
-              env:
-                SELF_HOST_SUDO_PASSWORD: ${{ secrets.SELF_HOST_SUDO_PASSWORD }}
-              run: echo "$SELF_HOST_SUDO_PASSWORD" | sudo -S npx playwright install --with-deps
+              run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install --with-deps
 
             - name: Run Playwright tests
               run: pnpm test
