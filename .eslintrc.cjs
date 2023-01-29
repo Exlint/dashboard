@@ -125,6 +125,7 @@ module.exports = {
 		'@typescript-eslint/no-non-null-assertion': 'off',
 		'@typescript-eslint/no-use-before-define': ['error'],
 		'@typescript-eslint/consistent-type-imports': ['error'],
+		'@typescript-eslint/await-thenable': 'error',
 
 		'unused-imports/no-unused-imports': 'error',
 
