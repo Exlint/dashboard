@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import VitePluginReactRemoveAttributes from 'vite-plugin-react-remove-attributes';
 
 const hasDockerCGroup = () => {
 	try {
@@ -42,6 +43,12 @@ const prismaPlugin = () => {
 
 const isDocker = hasDockerEnv() || hasDockerCGroup();
 
+const removeDataTestIdsForProduction = [
+	VitePluginReactRemoveAttributes({
+		attributes: ['data-test-id'],
+	}),
+];
+
 export default defineConfig(() => ({
 	server: {
 		port: 8080,
@@ -50,7 +57,14 @@ export default defineConfig(() => ({
 	},
 	base: '/',
 	build: { outDir: './dist' },
-	plugins: [react(), tsconfigPaths(), prismaPlugin()],
+	plugins: [
+		react(),
+		tsconfigPaths(),
+		prismaPlugin(),
+		...(process.env.NODE_ENV === 'production' && process.env.AUTOMATION !== 'true'
+			? removeDataTestIdsForProduction
+			: []),
+	],
 	resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },
 	preview: {
 		port: 8080,

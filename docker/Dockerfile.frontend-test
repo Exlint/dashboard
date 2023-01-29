@@ -15,6 +15,6 @@ RUN pnpm --filter frontend --filter common i
 COPY ./apps/frontend/ ./apps/frontend/
 COPY ./packages/common/ ./packages/common/
 
-RUN pnpm exec nx build @exlint-dashboard/frontend
+RUN pnpm exec nx build:automation @exlint-dashboard/frontend
 
 CMD ["pnpm", "--filter", "frontend", "preview"]

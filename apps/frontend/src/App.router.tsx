@@ -1,23 +1,6 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
-import Account from '@/containers/AccountSettings/Account';
-import SecretManagement from '@/containers/AccountSettings/SecretManagement';
-import NewSecret from '@/containers/AccountSettings/NewSecret';
-import NewGroup from '@/containers/GroupCenter/NewGroup';
-import GroupDetails from '@/containers/GroupCenter/GroupDetails';
-import GroupSettings from '@/containers/GroupCenter/GroupDetails/Settings';
-import Policies from '@/containers/GroupCenter/GroupDetails/Policies';
-import PolicySettings from '@/containers/Policy/Settings';
-import Configurations from '@/containers/Policy/Configurations';
-import Configuration from '@/containers/Policy/Configurations/Configuration';
-import FilesList from '@/containers/Policy/Configurations/FilesList';
-import Code from '@/containers/Policy/Configurations/Configuration/Code';
-import Form from '@/containers/Policy/Configurations/Configuration/Form';
-import Rules from '@/containers/Policy/Rules';
-import PolicyRules from '@/containers/Policy/Rules/PolicyRules';
-import RulesList from '@/containers/Policy/Rules/RulesList';
-
 interface IProps {
 	readonly isAuthenticated: boolean | null;
 }
@@ -31,6 +14,22 @@ const NotFound = React.lazy(() => import('./pages/NotFound'));
 const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
 const NewPolicy = React.lazy(() => import('./pages/NewPolicy'));
 const Policy = React.lazy(() => import('./pages/Policy'));
+const Account = React.lazy(() => import('@/containers/AccountSettings/Account'));
+const SecretManagement = React.lazy(() => import('@/containers/AccountSettings/SecretManagement'));
+const NewSecret = React.lazy(() => import('@/containers/AccountSettings/NewSecret'));
+const NewGroup = React.lazy(() => import('@/containers/GroupCenter/NewGroup'));
+const GroupDetails = React.lazy(() => import('@/containers/GroupCenter/GroupDetails'));
+const GroupSettings = React.lazy(() => import('@/containers/GroupCenter/GroupDetails/Settings'));
+const Policies = React.lazy(() => import('@/containers/GroupCenter/GroupDetails/Policies'));
+const PolicySettings = React.lazy(() => import('@/containers/Policy/Settings'));
+const Configurations = React.lazy(() => import('@/containers/Policy/Configurations'));
+const Configuration = React.lazy(() => import('@/containers/Policy/Configurations/Configuration'));
+const FilesList = React.lazy(() => import('@/containers/Policy/Configurations/FilesList'));
+const Code = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Code'));
+const Form = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Form'));
+const Rules = React.lazy(() => import('@/containers/Policy/Rules'));
+const PolicyRules = React.lazy(() => import('@/containers/Policy/Rules/PolicyRules'));
+const RulesList = React.lazy(() => import('@/containers/Policy/Rules/RulesList'));
 
 const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 	<Routes>

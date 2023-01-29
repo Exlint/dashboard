@@ -70,6 +70,7 @@ services:
 
     backend:
         container_name: backend
+        pull_policy: build
         build:
             context: .
             dockerfile: ./docker/Dockerfile.backend-test
@@ -87,6 +88,7 @@ services:
             - dashboard_network
     cli-backend:
         container_name: cli-backend
+        pull_policy: build
         build:
             context: .
             dockerfile: ./docker/Dockerfile.cli-backend-test
@@ -104,11 +106,10 @@ services:
             - dashboard_network
     frontend:
         container_name: frontend
+        pull_policy: build
         build:
             context: .
             dockerfile: ./docker/Dockerfile.frontend-test
-        environment:
-            - NODE_ENV=test
         env_file:
             - ./apps/frontend/.env.test
         ports:

@@ -34,6 +34,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					'rightSideExternalAuthContainer--github',
 				)}
 				href={githubAuthUrl}
+				data-test-id="auth-github-auth-button"
 			>
 				<img
 					className={classes['rightSideExternalAuthContainer__brandLogo']}
@@ -57,6 +58,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					'rightSideExternalAuthContainer--google',
 				)}
 				href={googleAuthUrl}
+				data-test-id="auth-google-auth-button"
 			>
 				<img
 					className={classes['rightSideExternalAuthContainer__brandLogo']}

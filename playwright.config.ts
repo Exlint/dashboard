@@ -5,7 +5,7 @@ const configuration = defineConfig({
 	testIgnore: 'scripts',
 	globalSetup: './tests/scripts/global-setup.ts',
 	globalTeardown: './tests/scripts/global-teardown.ts',
-	reporter: 'html',
+	reporter: [['html', { open: 'never' }]],
 });
 
 export default configuration;
