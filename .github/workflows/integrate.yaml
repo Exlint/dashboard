@@ -146,19 +146,37 @@ jobs:
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
 
-            - name: Terraform init
+            - name: Terraform core init
+              working-directory: terraform/core
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
                   AWS_REGION: ${{ secrets.AWS_REGION }}
               run: |
-                terraform -chdir="./terraform" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
-            - name: Terraform validate
-              run: terraform -chdir="./terraform" validate -no-color
+            - name: Terraform core validate
+              working-directory: terraform/core
+              run: terraform validate -no-color
+
+            - name: Terraform k8s init
+              working-directory: terraform/k8s
+              env:
+                  TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
+                  TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
+              run: |
+                terraform init \
+                -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
+                -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
+                -backend-config="region=$AWS_REGION" 
+
+            - name: Terraform k8s validate
+              working-directory: terraform/k8s
+              run: terraform validate -no-color
 
     automation:
         timeout-minutes: 60

@@ -45,29 +45,33 @@ jobs:
               uses: hashicorp/setup-terraform@v2
 
             - name: Terraform k8s init
+              working-directory: terraform/k8s
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform/k8s" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform k8s destroy
+              working-directory: terraform/k8s
               env:
                 TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}
-              run: terraform -chdir="./terraform/k8s" destroy -auto-approve
+              run: terraform destroy -auto-approve
 
             - name: Terraform core init
+              working-directory: terraform/core
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform/core" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
             - name: Terraform core destroy
-              run: terraform -chdir="./terraform/core" destroy -auto-approve
+              working-directory: terraform/core
+              run: terraform destroy -auto-approve

@@ -51,27 +51,31 @@ jobs:
                 terraform_wrapper: false
 
             - name: Terraform core init
+              working-directory: terraform/core
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform/core" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION"
 
             - name: Terraform core plan
-              run: terraform -chdir="./terraform/core" plan -no-color -out state.tfplan
+              working-directory: terraform/core
+              run: terraform plan -no-color -out state.tfplan
 
             - name: Terraform core apply
-              run: terraform -chdir="./terraform/core" apply state.tfplan
+              working-directory: terraform/k8s
+              run: terraform apply state.tfplan
 
             - name: Get Terraform core outputs
               id: terraform-outputs
+              working-directory: terraform/core
               run: |
-                frontend_cloudfront_distribution_id=$(terraform -chdir="./terraform/core" output -raw frontend_cloudfront_distribution_id)
-                docs_cloudfront_distribution_id=$(terraform -chdir="./terraform/core" output -raw docs_cloudfront_distribution_id)
-                eks_kubeconfig=$(terraform -chdir="./terraform/core" output -raw eks_kubeconfig | base64)
+                frontend_cloudfront_distribution_id=$(terraform output -raw frontend_cloudfront_distribution_id)
+                docs_cloudfront_distribution_id=$(terraform output -raw docs_cloudfront_distribution_id)
+                eks_kubeconfig=$(terraform output -raw eks_kubeconfig | base64)
                 echo "FRONTEND_CLOUDFRONT_DISTRIBUTION_ID=$frontend_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "DOCS_CLOUDFRONT_DISTRIBUTION_ID=$docs_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
@@ -127,22 +131,25 @@ jobs:
                 docker push $ECR_REGISTRY/$TF_VAR_cli_backend_repository:$IMAGE_TAG
 
             - name: Terraform k8s init
+              working-directory: terraform/k8s
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="./terraform/k8s" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION"
 
             - name: Terraform k8s plan
+              working-directory: terraform/k8s
               env:
                 TF_VAR_api_image_tag: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
-              run: terraform -chdir="./terraform/k8s" plan -no-color -out state.tfplan
+              run: terraform plan -no-color -out state.tfplan
 
             - name: Terraform k8s apply
-              run: terraform -chdir="./terraform/k8s" apply state.tfplan
+              working-directory: terraform/k8s
+              run: terraform apply state.tfplan
 
             - name: Build frontend
               run: pnpm exec nx build @exlint.io/frontend
