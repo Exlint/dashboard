@@ -1,5 +1,5 @@
 module "frontend-static" {
-  source = "./modules/static-app"
+  source = "../modules/static-app"
 
   domain_name         = "app.exlint.io"
   zone_id             = aws_route53_zone.primary.zone_id

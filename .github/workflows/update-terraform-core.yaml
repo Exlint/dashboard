@@ -16,7 +16,6 @@ jobs:
             TF_VAR_docs_s3_bucket_name: ${{ secrets.DOCS_AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
-            TERRAFORM_ROOT_FOLDER: terraform
 
         steps:
             - name: Configure AWS credentials
@@ -25,47 +24,38 @@ jobs:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   aws-region: ${{ secrets.AWS_REGION }}
-                  working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
                   
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
               with:
                 terraform_wrapper: false
-                working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
 
             - name: Terraform core init
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
               run: |
-                terraform -chdir="core" init \
+                terraform -chdir="./terraform/core" init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION"
-                terraform -chdir="core" refresh
-              working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
-
             - name: Terraform core plan
-              run: terraform -chdir="core" plan -no-color -out state.tfplan
-              working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
+              run: terraform -chdir="./terraform/core" plan -no-color -out state.tfplan
 
             - name: Terraform core apply
-              run: terraform -chdir="core" apply state.tfplan
-              working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
+              run: terraform -chdir="./terraform/core" apply state.tfplan
 
             - name: Get Terraform core outputs
               id: terraform-outputs
               run: |
-                frontend_cloudfront_distribution_id=$(terraform -chdir="core" output -raw frontend_cloudfront_distribution_id)
-                docs_cloudfront_distribution_id=$(terraform -chdir="core" output -raw docs_cloudfront_distribution_id)
-                eks_kubeconfig=$(terraform -chdir="core" output -raw eks_kubeconfig | base64)
+                frontend_cloudfront_distribution_id=$(terraform -chdir="./terraform/core" output -raw frontend_cloudfront_distribution_id)
+                docs_cloudfront_distribution_id=$(terraform -chdir="./terraform/core" output -raw docs_cloudfront_distribution_id)
+                eks_kubeconfig=$(terraform -chdir="./terraform/core" output -raw eks_kubeconfig | base64)
                 echo "FRONTEND_CLOUDFRONT_DISTRIBUTION_ID=$frontend_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "DOCS_CLOUDFRONT_DISTRIBUTION_ID=$docs_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
                 echo "$eks_kubeconfig" >> $GITHUB_OUTPUT
                 echo "EOF" >> $GITHUB_OUTPUT
-              working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
-
             - name: Set frontend Cloudfront distribution ID secret
               uses: hmanzur/actions-set-secret@v2.0.0
               with:
@@ -73,7 +63,6 @@ jobs:
                 value: ${{ steps.terraform-outputs.outputs.FRONTEND_CLOUDFRONT_DISTRIBUTION_ID }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-                working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
 
             - name: Set docs Cloudfront distribution ID secret
               uses: hmanzur/actions-set-secret@v2.0.0
@@ -82,7 +71,6 @@ jobs:
                 value: ${{ steps.terraform-outputs.outputs.DOCS_CLOUDFRONT_DISTRIBUTION_ID }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-                working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
 
             - name: Set k8s kube config secret
               uses: hmanzur/actions-set-secret@v2.0.0
@@ -91,7 +79,6 @@ jobs:
                 value: ${{ steps.terraform-outputs.outputs.KUBE_CONFIG_B64 }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
-                working-directory: ${{ env.TERRAFORM_ROOT_FOLDER }}
 
             - name: Slack notification                                
               uses: rtCamp/action-slack-notify@v2             
