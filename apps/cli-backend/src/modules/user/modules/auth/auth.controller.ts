@@ -8,7 +8,7 @@ import {
 	Query,
 	UseGuards,
 } from '@nestjs/common';
-import type { ICliAuthResponseData } from '@exlint-dashboard/common';
+import type { ICliAuthResponseData } from '@exlint.io/common';
 
 import { Public } from '@/decorators/public.decorator';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';

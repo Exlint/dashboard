@@ -2,14 +2,14 @@ module "cdn" {
   source  = "terraform-aws-modules/cloudfront/aws"
   version = "3.1.0"
 
-  comment                       = "CloudFront for caching S3 private and static website"
+  comment                       = "Cloudfront for caching S3 private and static website"
   is_ipv6_enabled               = true
   price_class                   = "PriceClass_100"
   create_origin_access_identity = true
-  aliases                       = [var.frontend_domain_name]
+  aliases                       = [var.domain_name]
 
   origin_access_identities = {
-    s3_identity = "S3 dedicated for hosting the frontend"
+    s3_identity = "S3 dedicated for hosting the application"
   }
 
   origin = {
@@ -38,26 +38,20 @@ module "cdn" {
   custom_error_response = [
     {
       error_code         = 403
-      response_code      = 404
+      response_code      = 200
       response_page_path = "/index.html"
     },
     {
       error_code         = 404
-      response_code      = 404
+      response_code      = 200
       response_page_path = "/index.html"
     }
   ]
 
   viewer_certificate = {
-    acm_certificate_arn = module.acm_cloudfront.acm_certificate_arn
+    acm_certificate_arn = var.acm_certificate_arn
     ssl_support_method  = "sni-only"
   }
 
-  tags = merge(
-    var.common_tags,
-    {
-      Name  = "${var.project}-Cloudfront",
-      Stack = "frontend"
-    }
-  )
+  tags = merge(var.common_tags, var.cloudfront_tags)
 }

@@ -96,7 +96,7 @@ jobs:
                   package-manager-version: 7.25.1
 
             - name: Test Stylelint
-              run: pnpm nx stylelint @exlint-dashboard/frontend
+              run: pnpm exec nx stylelint @exlint.io/frontend
 
     prisma:
         name: Testing Prisma

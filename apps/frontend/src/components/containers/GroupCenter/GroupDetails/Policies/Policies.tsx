@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import type { IEditGroupDescriptionDto, IGetPoliciesResponseData } from '@exlint-dashboard/common';
+import type { IEditGroupDescriptionDto, IGetPoliciesResponseData } from '@exlint.io/common';
 import type { AxiosResponse } from 'axios';
 
 import type { AppState } from '@/store/app';

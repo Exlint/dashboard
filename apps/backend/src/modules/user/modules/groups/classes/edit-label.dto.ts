@@ -1,4 +1,4 @@
-import type { IEditGroupLabelDto } from '@exlint-dashboard/common';
+import type { IEditGroupLabelDto } from '@exlint.io/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
 

@@ -5,7 +5,7 @@ import type {
 	IGetPolicyRulesResponseData,
 	ILibraryData,
 	ISetIsFormConfigurationDto,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import type { PolicyLibrary } from '@prisma/client';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';

@@ -1,5 +1,5 @@
 {
-	"name": "@exlint-dashboard/common",
+	"name": "@exlint.io/common",
 	"version": "1.0.0",
 	"private": true,
 	"description": "Common package",

@@ -1,7 +1,7 @@
 import { IsString, MaxLength, MinLength } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { ApiProperty } from '@nestjs/swagger';
-import type { ICreateSecretDto } from '@exlint-dashboard/common';
+import type { ICreateSecretDto } from '@exlint.io/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 

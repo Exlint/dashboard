@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { IGetFilesListResponseData, FilesListType, ISetFilesListDto } from '@exlint-dashboard/common';
+import type { IGetFilesListResponseData, FilesListType, ISetFilesListDto } from '@exlint.io/common';
 import type { AxiosResponse } from 'axios';
 
 import { backendApi } from '@/utils/http';

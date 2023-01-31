@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { PolicyLibrary } from '@prisma/client';
 import { IsEnum, IsString, MaxLength, MinLength } from 'class-validator';
-import type { ICreatePolicyDto } from '@exlint-dashboard/common';
+import type { ICreatePolicyDto } from '@exlint.io/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 

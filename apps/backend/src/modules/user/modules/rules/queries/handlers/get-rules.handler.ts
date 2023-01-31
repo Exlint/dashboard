@@ -1,5 +1,5 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 
 import { DBRuleService } from '@/modules/database/rule.service';
 import { librariesData } from '@/data/libraries-data';

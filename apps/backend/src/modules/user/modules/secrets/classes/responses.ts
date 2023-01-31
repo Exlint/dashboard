@@ -3,7 +3,7 @@ import type {
 	ICreateSecretResponseData,
 	IGetAllSecretsResponseData,
 	IRefreshSecretResponseData,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import { ApiResponseProperty } from '@nestjs/swagger';
 
 class UserSecretGetAll {

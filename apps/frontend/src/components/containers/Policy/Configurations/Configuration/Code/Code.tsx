@@ -4,7 +4,7 @@ import type {
 	IGetCodeConfigurationResponseData,
 	ISetCodeConfigurationDto,
 	ISetIsFormConfigurationDto,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import type { CodeType } from '@prisma/client';
 import type { AxiosResponse } from 'axios';
 import { connect } from 'react-redux';

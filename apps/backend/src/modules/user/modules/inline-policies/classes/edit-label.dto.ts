@@ -1,4 +1,4 @@
-import type { IEditPolicyLabelDto } from '@exlint-dashboard/common';
+import type { IEditPolicyLabelDto } from '@exlint.io/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
 

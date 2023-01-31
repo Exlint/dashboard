@@ -8,7 +8,7 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { FilesListType } from '@exlint-dashboard/common';
+import { FilesListType } from '@exlint.io/common';
 
 import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';

@@ -3,7 +3,7 @@ import type {
 	ILibraryData,
 	ISetFormConfigurationDto,
 	ISetIsFormConfigurationDto,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { AxiosResponse } from 'axios';

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { IAutoAuthResponseData } from '@exlint-dashboard/common';
+import type { IAutoAuthResponseData } from '@exlint.io/common';
 
 import { backendApi, cliBackendApi } from './utils/http';
 import type { IAuthPayload } from './store/interfaces/auth';

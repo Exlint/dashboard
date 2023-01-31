@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import type { IEditPolicyDescriptionDto, ILibraryData } from '@exlint-dashboard/common';
+import type { IEditPolicyDescriptionDto, ILibraryData } from '@exlint.io/common';
 import { useParams } from 'react-router-dom';
 import type { PolicyLibrary } from '@prisma/client';
 

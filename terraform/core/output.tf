@@ -1,6 +1,11 @@
-output "cloudfront_distribution_id" {
-  description = "The distribution ID of deployed Cloudfront"
-  value       = module.cdn.cloudfront_distribution_id
+output "frontend_cloudfront_distribution_id" {
+  description = "The distribution ID of deployed Cloudfront frontend"
+  value       = module.frontend-static.cloudfront_distribution_id
+}
+
+output "docs_cloudfront_distribution_id" {
+  description = "The distribution ID of deployed Cloudfront docs"
+  value       = module.docs-static.cloudfront_distribution_id
 }
 
 output "eks_kubeconfig" {
