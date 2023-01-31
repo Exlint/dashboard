@@ -1,5 +1,5 @@
 {
-	"name": "@exlint-dashboard/cli-backend",
+	"name": "@exlint.io/cli-backend",
 	"version": "1.0.0",
 	"private": true,
 	"description": "CLI Backend package",
@@ -17,7 +17,7 @@
 		"depcheck": "depcheck --config ./.depcheckrc.json"
 	},
 	"dependencies": {
-		"@exlint-dashboard/common": "workspace:*",
+		"@exlint.io/common": "workspace:*",
 		"@nestjs/common": "9.2.1",
 		"@nestjs/config": "2.2.0",
 		"@nestjs/core": "9.2.1",

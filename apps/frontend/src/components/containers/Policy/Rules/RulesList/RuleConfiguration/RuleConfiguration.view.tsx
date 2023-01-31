@@ -2,7 +2,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { Prisma } from '@prisma/client';
-import type { ILibraryRule } from '@exlint-dashboard/common';
+import type { ILibraryRule } from '@exlint.io/common';
 import Form, { type IChangeEvent } from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 

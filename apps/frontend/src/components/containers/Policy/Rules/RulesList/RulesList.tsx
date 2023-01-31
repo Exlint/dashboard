@@ -2,7 +2,7 @@ import type {
 	IEnableMissingRuleDto,
 	IEnableMissingRuleResponseData,
 	IGetRulesResponseData,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { AxiosResponse } from 'axios';

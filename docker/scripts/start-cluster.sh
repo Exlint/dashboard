@@ -2,7 +2,7 @@
 
 RED='\033[0;31m'
 
-docker-compose up -d
+docker-compose -f ./docker-compose.dev.yaml up -d
 
 if [ $? = 1 ]; then
     echo -e "\n${RED}Failed to start Docker services"

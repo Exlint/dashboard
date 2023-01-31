@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { IGetGroupResponseData } from '@exlint-dashboard/common';
+import type { IGetGroupResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 import type {

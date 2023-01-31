@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import type { PolicyLibrary } from '@prisma/client';
-import type { IGetPolicyRulesResponseData, ILibraryData } from '@exlint-dashboard/common';
+import type { IGetPolicyRulesResponseData, ILibraryData } from '@exlint.io/common';
 
 import EDBooleanButton from '@/ui/EDBooleanButton';
 import EDAcceptButton from '@/ui/EDAcceptButton';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { Secret } from '@prisma/client';
-import type { IGetAllSecretsResponseData } from '@exlint-dashboard/common';
+import type { IGetAllSecretsResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 

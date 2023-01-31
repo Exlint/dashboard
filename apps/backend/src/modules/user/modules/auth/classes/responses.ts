@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import type { IRefreshTokenResponseData, IAutoAuthResponseData } from '@exlint-dashboard/common';
+import type { IRefreshTokenResponseData, IAutoAuthResponseData } from '@exlint.io/common';
 
 export class RefreshTokenResponse implements IRefreshTokenResponseData {
 	@ApiResponseProperty({

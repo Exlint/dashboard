@@ -2,3 +2,4 @@ node_modules
 tsconfig.tsbuildinfo
 .volumes
 .terraform
+playwright-report

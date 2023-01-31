@@ -1,4 +1,4 @@
-import type { ICategory, ILanguage, IType } from '@exlint-dashboard/common';
+import type { ICategory, ILanguage, IType } from '@exlint.io/common';
 
 export type ILanguageFilter = 'All' | ILanguage;
 

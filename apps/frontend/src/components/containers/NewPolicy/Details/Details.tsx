@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint-dashboard/common';
+import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 import { useDebounce } from '@/hooks/use-debounce';

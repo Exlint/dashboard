@@ -8,15 +8,7 @@ permissions:
     contents: read
 
 jobs:
-    call_pnpm_caching_workflow:
-        name: Set PNPM environment
-
-        uses: ./.github/workflows/pnpm-caching.yaml
-        with:
-            runner: [self-hosted, Linux, X64, integration]
-
-    test_depcheck:
-        needs: call_pnpm_caching_workflow
+    depcheck:
         name: Testing Depcheck
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -31,8 +23,7 @@ jobs:
             - name: Test Depcheck
               run: pnpm depcheck:all
 
-    test_inflint:
-        needs: call_pnpm_caching_workflow
+    inflint:
         name: Testing Inflint
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -47,8 +38,7 @@ jobs:
             - name: Test Inflint
               run: pnpm inflint
 
-    test_typescript:
-        needs: call_pnpm_caching_workflow
+    typescript:
         name: Testing TypeScript
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -63,8 +53,7 @@ jobs:
             - name: Test TypeScript
               run: pnpm type-check:all
 
-    test_prettier:
-        needs: call_pnpm_caching_workflow
+    prettier:
         name: Testing Prettier
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -79,8 +68,7 @@ jobs:
             - name: Test Prettier
               run: pnpm prettier
 
-    test_eslint:
-        needs: call_pnpm_caching_workflow
+    eslint:
         name: Testing ESLint
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -95,8 +83,7 @@ jobs:
             - name: Test ESLint
               run: pnpm lint:all
 
-    test_stylelint:
-        needs: call_pnpm_caching_workflow
+    stylelint:
         name: Testing Stylelint
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -109,10 +96,9 @@ jobs:
                   package-manager-version: 7.25.1
 
             - name: Test Stylelint
-              run: pnpm nx stylelint @exlint-dashboard/frontend
+              run: pnpm exec nx stylelint @exlint.io/frontend
 
-    test_prisma:
-        needs: call_pnpm_caching_workflow
+    prisma:
         name: Testing Prisma
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -127,8 +113,7 @@ jobs:
             - name: Test Prisma
               run: pnpm prisma-format
 
-    test_build:
-        needs: call_pnpm_caching_workflow
+    build:
         name: Testing build
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -143,7 +128,7 @@ jobs:
             - name: Test build
               run: pnpm build:nested
 
-    test_terraform:
+    terraform:
         name: Testing Terraform
 
         runs-on: [self-hosted, Linux, X64, integration]
@@ -161,16 +146,60 @@ jobs:
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
 
-            - name: Terraform init
+            - name: Terraform core init
+              working-directory: terraform/core
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
                   AWS_REGION: ${{ secrets.AWS_REGION }}
               run: |
-                terraform -chdir="./terraform" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
-            - name: Terraform validate
-              run: terraform -chdir="./terraform" validate -no-color
+            - name: Terraform core validate
+              working-directory: terraform/core
+              run: terraform validate -no-color
+
+            - name: Terraform k8s init
+              working-directory: terraform/k8s
+              env:
+                  TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
+                  TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
+              run: |
+                terraform init \
+                -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
+                -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
+                -backend-config="region=$AWS_REGION" 
+
+            - name: Terraform k8s validate
+              working-directory: terraform/k8s
+              run: terraform validate -no-color
+
+    automation:
+        timeout-minutes: 60
+        name: Automation Tests
+
+        runs-on: [self-hosted, Linux, X64, integration]
+        steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.1.0
+              with:
+                  node-version: 18.13.0
+                  package-manager: pnpm
+                  package-manager-version: 7.25.1
+
+            - name: Install Playwright Browsers
+              run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install --with-deps
+
+            - name: Run Playwright tests
+              run: pnpm test
+
+            - uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                  name: playwright-report
+                  path: playwright-report/
+                  retention-days: 30

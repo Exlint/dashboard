@@ -1,4 +1,4 @@
-import type { ILibraryRule } from '@exlint-dashboard/common';
+import type { ILibraryRule } from '@exlint.io/common';
 import type { Prisma } from '@prisma/client';
 import type { IChangeEvent } from '@rjsf/core';
 import React, { useState } from 'react';

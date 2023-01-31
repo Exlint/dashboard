@@ -1,4 +1,4 @@
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';

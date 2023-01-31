@@ -125,6 +125,7 @@ module.exports = {
 		'@typescript-eslint/no-non-null-assertion': 'off',
 		'@typescript-eslint/no-use-before-define': ['error'],
 		'@typescript-eslint/consistent-type-imports': ['error'],
+		'@typescript-eslint/await-thenable': 'error',
 
 		'unused-imports/no-unused-imports': 'error',
 
@@ -172,7 +173,13 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./scripts/onboarding.cjs', './docker/scripts/open-dashboard.cjs'],
+			files: [
+				'./scripts/onboarding.cjs',
+				'./docker/scripts/open-dashboard.cjs',
+				'./tests/scripts/setup-environment.ts',
+				'./tests/scripts/global-setup.ts',
+				'./tests/scripts/global-teardown.ts',
+			],
 			rules: {
 				'no-console': 'off',
 			},

@@ -1,9 +1,12 @@
 name: Deploy to backend service AWS EKS
 
 on:
-    push:
-        branches:
-            - PRODUCTION
+  push:
+    branches:
+      - PRODUCTION
+    paths:
+      - apps/backend/**
+      - packages/common/**
 
 jobs:
     deploy:
@@ -31,32 +34,26 @@ jobs:
 
             - name: Get package.json version
               id: package-version
-              uses: martinbeentjes/npm-get-version-action@master
+              uses: martinbeentjes/npm-get-version-action@main
 
             - name: Build, tag, and push image of backend to Amazon ECR
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
               run: |
                 docker build -t $ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.backend-prod .
                 docker push $ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG
 
-            - name: Deploy to EKS cluster
-              uses: kodermax/kubectl-aws-eks@master
+            - name: Update Kubeconfig file
               env:
-                KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+                AWS_REGION: ${{ secrets.AWS_REGION }}
+              run: aws eks update-kubeconfig --region $AWS_REGION --name ExlintDashboard-cluster
+
+            - name: Update backend deployment with new image
+              env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}
-                CONTAINER_NAME: ${{ env.BACKEND_CONTAINER_NAME }}
-              with:
-                args: set image deployment/$DEPLOYMENT_NAME $CONTAINER_NAME=$ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG
-                
-            - name: Verify Deployment
-              uses: kodermax/kubectl-aws-eks@master
-              env:
-                KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-              with:
-                args: rollout status deployment/$DEPLOYMENT_NAME
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
+              run: kubectl set image deployment/$DEPLOYMENT_NAME $BACKEND_CONTAINER_NAME=$ECR_REGISTRY/$BACKEND_ECR_REPOSITORY:$IMAGE_TAG
 
             - name: Slack Notification
               uses: rtCamp/action-slack-notify@v2             

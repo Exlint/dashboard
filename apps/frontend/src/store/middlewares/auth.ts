@@ -4,7 +4,7 @@ import {
 	type ListenerEffectAPI,
 	type ThunkDispatch,
 } from '@reduxjs/toolkit';
-import type { IRefreshTokenResponseData } from '@exlint-dashboard/common';
+import type { IRefreshTokenResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 

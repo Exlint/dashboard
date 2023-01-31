@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray } from 'class-validator';
-import type { IUpdateRuleConfiguratinoDto } from '@exlint-dashboard/common';
+import type { IUpdateRuleConfiguratinoDto } from '@exlint.io/common';
 
 export class UpdateRuleConfigurationDto implements IUpdateRuleConfiguratinoDto {
 	@ApiProperty({

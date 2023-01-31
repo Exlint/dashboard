@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, IsString, MaxLength } from 'class-validator';
 import { CodeType } from '@prisma/client';
-import type { ISetCodeConfigurationDto } from '@exlint-dashboard/common';
+import type { ISetCodeConfigurationDto } from '@exlint.io/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 

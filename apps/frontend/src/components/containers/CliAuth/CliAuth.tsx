@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import type { ICliAuthResponseData } from '@exlint-dashboard/common';
+import type { ICliAuthResponseData } from '@exlint.io/common';
 
 import { cliBackendApi, temporaryCliServerApi } from '@/utils/http';
 

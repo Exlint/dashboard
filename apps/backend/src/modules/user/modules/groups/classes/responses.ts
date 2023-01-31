@@ -7,7 +7,7 @@ import {
 	ILanguage,
 	type ICreateGroupResponseData,
 	type IGetPoliciesResponseData,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 
 import type { IGroupInlinePolicy } from '../interfaces/group-policies';
 import type { IUserGroupInlinePolicy } from '../interfaces/user-group';

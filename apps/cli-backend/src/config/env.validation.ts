@@ -3,6 +3,7 @@ import { IsPositive, IsInt, IsString, validateSync } from 'class-validator';
 
 enum Environment {
 	Development = 'development',
+	Test = 'test',
 	Production = 'production',
 }
 

@@ -12,11 +12,18 @@ const AuthView: React.FC<IProps> = () => {
 
 	return (
 		<section className={classes['container']}>
-			<img className={classes['container__brandLogo']} src={authBrandLogo} alt="Exlint" />
-			<h2 className={classes['container__header']}>
+			<img
+				className={classes['container__brandLogo']}
+				src={authBrandLogo}
+				alt="Exlint"
+				data-test-id="auth-brand-logo"
+			/>
+			<h2 className={classes['container__header']} data-test-id="auth-main-header">
 				<Trans i18nKey="auth.backgroundHeader" />
 			</h2>
-			<h4 className={classes['container__subHeader']}>{t('auth.backgroundSubHeader')}</h4>
+			<h4 className={classes['container__subHeader']} data-test-id="auth-sub-header">
+				{t('auth.backgroundSubHeader')}
+			</h4>
 		</section>
 	);
 };

@@ -8,7 +8,7 @@ import {
 	ApiTags,
 	ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 import { PolicyLibrary } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';

@@ -22,6 +22,10 @@
 			"inputs": ["source", "^source"],
 			"dependsOn": ["^build"]
 		},
+		"build:automation": {
+			"inputs": ["source", "^source"],
+			"dependsOn": ["^build"]
+		},
 		"lint": {
 			"inputs": [
 				"jsSource",

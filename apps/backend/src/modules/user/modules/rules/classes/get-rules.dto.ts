@@ -1,5 +1,5 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 import { Prisma } from '@prisma/client';
 
 class RuleItem {

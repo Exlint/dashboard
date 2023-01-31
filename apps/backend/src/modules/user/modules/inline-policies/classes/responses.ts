@@ -12,7 +12,7 @@ import {
 	type IGetFilesListResponseData,
 	type IGetLibrariesResponseData,
 	type IGetFormSchemaResponseData,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 
 class GetLibrary implements Omit<ILibraryData, 'rules' | 'configuration'> {
 	@ApiResponseProperty({

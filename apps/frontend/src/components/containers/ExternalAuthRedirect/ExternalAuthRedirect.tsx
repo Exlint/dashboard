@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { IAutoAuthResponseData, ICliAuthResponseData } from '@exlint-dashboard/common';
+import type { IAutoAuthResponseData, ICliAuthResponseData } from '@exlint.io/common';
 
 import { backendApi, cliBackendApi, temporaryCliServerApi } from '@/utils/http';
 import { authActions } from '@/store/reducers/auth';

@@ -30,15 +30,15 @@ jobs:
                   aws-region: ${{ secrets.AWS_REGION }}
 
             - name: Build frontend
-              run: pnpm exec nx build @exlint-dashboard/frontend
+              run: pnpm exec nx build @exlint.io/frontend
 
             - name: Deploy to S3 and invalidate Cloudfront
               uses: reggionick/s3-deploy@v3
               with:
                   folder: ./apps/frontend/dist
-                  bucket: ${{ secrets.AWS_S3_BUCKET }}
+                  bucket: ${{ secrets.FRONTEND_AWS_S3_BUCKET }}
                   bucket-region: ${{ secrets.AWS_REGION }}
-                  dist-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+                  dist-id: ${{ secrets.FRONTEND_AWS_CLOUDFRONT_DISTRIBUTION_ID }}
                   invalidation: /
                   delete-removed: true
                   private: true

@@ -1,6 +1,6 @@
 import { ApiResponseProperty } from '@nestjs/swagger';
 import type { Rule } from '@prisma/client';
-import type { ILibraryData, IGetPolicyRulesResponseData, ILibraryRule } from '@exlint-dashboard/common';
+import type { ILibraryData, IGetPolicyRulesResponseData, ILibraryRule } from '@exlint.io/common';
 
 export class GetPolicyRulesResponse implements IGetPolicyRulesResponseData {
 	@ApiResponseProperty({

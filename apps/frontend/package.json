@@ -1,5 +1,5 @@
 {
-	"name": "@exlint-dashboard/frontend",
+	"name": "@exlint.io/frontend",
 	"version": "1.0.0",
 	"private": true,
 	"description": "Backend package",
@@ -8,8 +8,10 @@
 	"scripts": {
 		"postinstall": "pnpm prisma-gen",
 		"start:dev": "vite -c ./vite.config.ts",
-		"start:dev:docker": "cross-env BROWSER=none vite -c ./vite.config.ts --host 0.0.0.0",
+		"start:dev:docker": "vite -c ./vite.config.ts",
 		"build": "vite build -c ./vite.config.ts",
+		"build:automation": "AUTOMATION=true vite build -c ./vite.config.ts",
+		"preview": "vite preview -c ./vite.config.ts",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.{ts,tsx,cjs}\"",
 		"type-check": "tsc --project ./tsconfig.json",
@@ -51,17 +53,16 @@
 		"typescript": "4.9.4"
 	},
 	"devDependencies": {
-		"@exlint-dashboard/common": "workspace:*",
+		"@exlint.io/common": "workspace:*",
 		"@types/node": "18.11.18",
 		"@types/react": "18.0.27",
 		"@types/react-datepicker": "4.8.0",
 		"@types/react-dom": "18.0.10",
 		"@types/react-router-dom": "5.3.3",
 		"@types/react-scroll": "1.8.6",
-		"@vitejs/plugin-react": "3.0.1",
 		"@typescript-eslint/eslint-plugin": "5.48.2",
 		"@typescript-eslint/parser": "5.48.2",
-		"cross-env": "7.0.3",
+		"@vitejs/plugin-react": "3.0.1",
 		"depcheck": "1.4.3",
 		"eslint": "8.32.0",
 		"eslint-config-prettier": "8.6.0",
@@ -83,6 +84,7 @@
 		"stylelint-declaration-strict-value": "1.9.1",
 		"typescript": "4.9.4",
 		"vite": "4.0.4",
+		"vite-plugin-react-remove-attributes": "1.0.3",
 		"vite-tsconfig-paths": "4.0.5"
 	},
 	"peerDependencies": {

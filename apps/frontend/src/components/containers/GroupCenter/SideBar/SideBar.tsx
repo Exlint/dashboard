@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { IGetAllGroupsResponseData } from '@exlint-dashboard/common';
+import type { IGetAllGroupsResponseData } from '@exlint.io/common';
 
 import type { AppState } from '@/store/app';
 import type {

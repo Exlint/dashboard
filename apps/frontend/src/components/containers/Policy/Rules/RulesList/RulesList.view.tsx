@@ -1,4 +1,4 @@
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 import React from 'react';
 
 import type { IEnabledRuleFilter } from './interfaces/rule-filter';

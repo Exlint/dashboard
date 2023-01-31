@@ -15,4 +15,4 @@ RUN pnpm --filter cli-backend i
 COPY ./tsconfig.base.json ./nx.json ./
 COPY ./apps/cli-backend/ ./apps/cli-backend/
 
-CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/cli-backend"]
+CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint.io/cli-backend"]

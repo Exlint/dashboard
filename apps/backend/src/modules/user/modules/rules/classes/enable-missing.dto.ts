@@ -1,5 +1,5 @@
 import { ApiProperty, ApiResponseProperty } from '@nestjs/swagger';
-import type { IEnableMissingRuleDto, IEnableMissingRuleResponseData } from '@exlint-dashboard/common';
+import type { IEnableMissingRuleDto, IEnableMissingRuleResponseData } from '@exlint.io/common';
 import { IsString } from 'class-validator';
 import type { Rule } from '@prisma/client';
 

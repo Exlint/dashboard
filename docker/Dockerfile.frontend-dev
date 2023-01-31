@@ -16,4 +16,4 @@ RUN pnpm --filter frontend i
 COPY ./tsconfig.base.json ./nx.json ./
 COPY ./apps/frontend/ ./apps/frontend/
 
-CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint-dashboard/frontend"]
+CMD ["pnpm", "exec", "nx", "start:dev:docker", "@exlint.io/frontend"]

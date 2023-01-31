@@ -1,4 +1,4 @@
-import type { ILibraryRule } from '@exlint-dashboard/common';
+import type { ILibraryRule } from '@exlint.io/common';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 

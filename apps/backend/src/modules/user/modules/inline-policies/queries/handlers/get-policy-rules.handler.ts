@@ -1,5 +1,5 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
-import type { IGetPolicyRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetPolicyRulesResponseData } from '@exlint.io/common';
 
 import { DBInlinePolicyService } from '@/modules/database/inline-policy.service';
 import { librariesData } from '@/data/libraries-data';
