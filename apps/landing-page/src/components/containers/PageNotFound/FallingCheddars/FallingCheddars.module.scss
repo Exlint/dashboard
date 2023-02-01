@@ -1,0 +1,133 @@
+@keyframes tail {
+	0% {
+		width: 0;
+	}
+	30% {
+		width: 200px;
+	}
+	100% {
+		width: 0;
+	}
+}
+
+@keyframes falling {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(3800px);
+	}
+}
+
+@keyframes shining {
+	0% {
+		width: 0;
+	}
+	50% {
+		width: 30px;
+	}
+	100% {
+		width: 0;
+	}
+}
+
+.container {
+	position: absolute;
+	transform: rotateZ(35deg);
+	width: 100%;
+	height: 100%;
+
+	&__cheddar {
+		position: absolute;
+		left: 50%;
+		height: 10px;
+		width: 100%;
+		border-radius: 999px;
+		filter: drop-shadow(0 0 6px #fefefe);
+		animation: tail 8s ease-in-out infinite, falling 8s ease-in-out infinite;
+		font-size: 4rem;
+	}
+
+	&__cheddar::before,
+	&__cheddar::after {
+		content: '';
+		position: absolute;
+		top: calc(50% - 2px);
+		right: 0;
+		height: 4px;
+		background: linear-gradient(-45deg, #0000ff00, #ffff1f, #0000ff00);
+		border-radius: 100%;
+		transform: translateX(50%) rotateZ(45deg);
+	}
+
+	&__cheddar::after {
+		transform: translateX(50%) rotateZ(-45deg);
+	}
+
+	&__cheddar:nth-child(1) {
+		top: calc(85% - 0px);
+		left: calc(20% - 2250px);
+		animation-delay: -2.4s;
+	}
+
+	&__cheddar:nth-child(1)::before,
+	&__cheddar:nth-child(1)::after {
+		animation-delay: -2.4s;
+	}
+
+	&__cheddar:nth-child(2) {
+		top: calc(10% - 50px);
+		left: calc(70% - 2200px);
+		animation-delay: -0.3s;
+	}
+
+	&__cheddar:nth-child(2)::before,
+	&__cheddar:nth-child(2)::after {
+		animation-delay: -0.3s;
+	}
+
+	&__cheddar:nth-child(3) {
+		top: calc(0% - 0px);
+		left: calc(55% - 2150px);
+		animation-delay: 0s;
+	}
+
+	&__cheddar:nth-child(3)::before,
+	&__cheddar:nth-child(3)::after {
+		animation-delay: 0s;
+	}
+
+	&__cheddar:nth-child(4) {
+		top: calc(90% - -50px);
+		left: calc(10% - 2200px);
+		animation-delay: -2.1s;
+	}
+
+	&__cheddar:nth-child(4)::before,
+	&__cheddar:nth-child(4)::after {
+		animation-delay: 0s;
+	}
+
+	&__cheddar:nth-child(5) {
+		top: calc(45% - -160px);
+		left: calc(0% - 2440px);
+		animation-delay: 0s;
+	}
+
+	&__cheddar:nth-child(5)::before,
+	&__cheddar:nth-child(5)::after {
+		animation-delay: 0s;
+	}
+
+	&__cheddar:nth-child(6) {
+		top: calc(90% - -160px);
+		left: calc(5% + 2200px);
+		animation-delay: -1.1s;
+	}
+
+	&__cheddar:nth-child(6)::before,
+	&__cheddar:nth-child(6)::after {
+		animation-delay: -1.1s;
+	}
+}

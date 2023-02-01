@@ -1,0 +1,41 @@
+{
+	"compilerOptions": {
+		"target": "ES2018",
+		"module": "CommonJS",
+		"noEmit": true,
+		"baseUrl": "./",
+		"allowJs": false,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"removeComments": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"alwaysStrict": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": false,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"typeRoots": ["./node_modules/@types", "./@types"],
+		"jsx": "react",
+		"paths": {
+			"@/containers/*": ["src/components/containers/*"],
+			"@/ui/*": ["src/components/ui/*"],
+			"@/utils/*": ["src/utils/*"],
+			"@/hooks/*": ["src/hooks/*"],
+			"@/layout/*": ["src/components/layout/*"],
+			"@/images/*": ["public/images/*"]
+		}
+	}
+}

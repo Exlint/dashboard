@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background: linear-gradient(180deg, #242337 0%, rgba(36, 35, 55, 0) 100%);
+	padding: 100px 0 95px 0;
+
+	&__text {
+		visibility: hidden;
+		font-size: 3.6rem;
+		font-weight: 700;
+		text-align: center;
+		background: linear-gradient(270deg, #9747ff 26.96%, #fcfcfc 93.64%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+
+		&--fadeIn {
+			visibility: visible;
+			animation: fadeIn 3s;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		max-width: map.get($sizes, main-ipad-width);
+
+		&__text {
+			display: none;
+		}
+	}
+}

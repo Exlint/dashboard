@@ -1,0 +1,46 @@
+.container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: middle;
+	margin: 85px 0;
+
+	.card {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		height: 121px;
+		width: 392px;
+		border: 5px solid #7a4df3;
+		background: #242337;
+		border-radius: 5px;
+		box-shadow: 0 1px 11px 0 #7a4df3cc;
+		background-color: #1e1d30;
+		color: #fff;
+		font-size: 1.2rem;
+		padding-inline-start: 24px;
+
+		&__title {
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: #9b9b9b;
+			white-space: noWrap;
+			font-family: IBM Plex Mono, sans-serif;
+		}
+
+		&__rule {
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: #e7e7e7;
+			white-space: noWrap;
+			font-family: IBM Plex Mono, sans-serif;
+		}
+
+		&__rowContainer {
+			display: flex;
+			align-items: center;
+		}
+	}
+}

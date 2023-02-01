@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "material-icon-theme.files.associations": {
+    "czvinyl.config.js": "ocaml",
+    ".depcheckrc.json": "parcel",
+    ".cz.json": "jinja"
+  }
+}

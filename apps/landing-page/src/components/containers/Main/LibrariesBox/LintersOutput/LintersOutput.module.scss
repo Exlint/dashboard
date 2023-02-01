@@ -1,0 +1,70 @@
+.textContainer {
+  margin: 18px 38px 68px 38px;
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    font-size: 1.8rem;
+    white-space: nowrap;
+    font-family: IBM Plex Mono, sans-serif;
+  }
+
+  &__firstRow {
+    color: #ff5b5b;
+    margin-bottom: 10px;
+  }
+
+  &__secondRow {
+    color: #e7e7e7;
+  }
+
+  &__thirdRow {
+  }
+
+  .rowsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .rowsContainerWithoutMargin {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lastRow {
+    margin-top: 15px;
+  }
+
+  .rowContainer {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      margin: 0 7px 0 10px;
+      height: 10px;
+      width: 10px;
+    }
+
+    &__marginLeft {
+      margin-inline-start: 10px;
+    }
+
+    &__gray {
+      color: #9b9b9b;
+    }
+
+    &__yellow {
+      color: #fff500;
+    }
+
+    &__red {
+      color: #ff5b5b;
+      margin: 0 7px;
+    }
+
+    &__white {
+      color: #e7e7e7;
+    }
+  }
+}

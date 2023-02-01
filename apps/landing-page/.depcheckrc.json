@@ -1,0 +1,19 @@
+{
+	"ignores": [
+		"pnpm",
+		"lint-staged",
+		"prettier",
+		"stylelint",
+		"prettier-plugin-sh",
+		"@commitlint/cli",
+		"commitizen",
+		"lint-staged",
+		"cz-vinyl",
+		"figlet",
+		"chalk",
+		"prettier",
+		"@mdx-js/react",
+		"@docusaurus/plugin-content-docs",
+		"@docusaurus/preset-classic"
+	]
+}

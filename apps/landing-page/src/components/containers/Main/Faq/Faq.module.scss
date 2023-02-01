@@ -1,0 +1,60 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.qustions {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 200px 0 231px 0;
+
+	.qustionsInner {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		background-color: #14131b;
+		border-radius: 30px;
+		padding: 70px 112px;
+		width: 1100px;
+
+		&__title {
+			font-size: 4rem;
+			font-weight: 700;
+			background: linear-gradient(270deg, #e7e7e7 -1.81%, #8247ff 84.22%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 50px;
+
+			&--mobile {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.qustions {
+		max-width: map.get($sizes, main-ipad-width);
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		margin: 40px 0 100px 0;
+
+		.qustionsInner {
+			padding: 0;
+
+			&__title {
+				display: none;
+
+				&--mobile {
+					display: block;
+					font-size: 2.8rem;
+					margin-bottom: 24px;
+					background: linear-gradient(270deg, #9747ff 26.96%, #fcfcfc 93.64%);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+				}
+			}
+		}
+	}
+}

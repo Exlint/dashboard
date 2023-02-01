@@ -1,0 +1,211 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 1122px;
+	background-image: url('../../../../../public/images/empower-bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	.innerBox {
+		display: flex;
+		flex-direction: column;
+		padding: 55px 85px;
+		border-radius: 10px;
+		background: linear-gradient(
+			242.44deg,
+			#ae7dfd33 -30.7%,
+			#24233733 36.93%,
+			#24233733 62.82%,
+			#7a4df333 129.61%
+		);
+		backdrop-filter: blur(8px);
+		border: 2.5px solid #7a4df3;
+
+		.top {
+			display: flex;
+			align-items: center;
+
+			.leftSide {
+				display: flex;
+				flex-direction: column;
+				margin-inline-end: 230px;
+
+				&__title {
+					font-size: 3.2rem;
+					font-weight: 600;
+					color: #e7e7e7;
+				}
+
+				&__description {
+					font-size: 2rem;
+					font-weight: 400;
+					color: #e7e7e7;
+					margin: 9px 0 50px 0;
+				}
+
+				.innerDocs {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+
+					.brandsContainer {
+						display: flex;
+
+						.element {
+							display: flex;
+							align-items: center;
+
+							&__text {
+								font-size: 2rem;
+								font-weight: 400;
+								color: #e7e7e7;
+								margin-inline-start: 10px;
+							}
+
+							.githubIcon {
+								height: auto;
+								width: 31px;
+							}
+
+							.docsIcon {
+								height: auto;
+								width: 23px;
+								margin-inline-start: 34px;
+								fill: #e7e7e7;
+							}
+
+							.discordIcon {
+								height: auto;
+								width: 42px;
+								margin-inline-start: 34px;
+								fill: #e7e7e7;
+							}
+						}
+					}
+
+					&__divider {
+						width: 100%;
+						border: 1px solid #bbb8ca;
+						margin: 50px 0;
+					}
+				}
+			}
+
+			&__img {
+				width: 208px;
+				height: 214px;
+				margin-inline-start: 293px;
+			}
+		}
+
+		.bottom {
+			display: flex;
+			flex-direction: column;
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 600;
+				color: #e7e7e7;
+			}
+
+			.commandBox {
+				position: relative;
+				display: flex;
+				width: 68%;
+				margin: 23px 0 12px 0;
+				background-color: #0e0d14b3;
+				border: 1px solid #4b4a65;
+				border-radius: 10px;
+
+				&__hoverText {
+					position: absolute;
+					right: 0;
+					top: -40px;
+					display: flex;
+					background-color: #202428;
+					border-radius: 5px;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+				}
+
+				&__clickedText {
+					position: absolute;
+					right: 0;
+					top: -40px;
+					display: flex;
+					background-color: #202428;
+					border-radius: 5px;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+				}
+
+				.commandButton {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					width: 100%;
+					padding: 17px 30px;
+
+					&__text {
+						font-size: 2rem;
+						font-weight: 400;
+						color: #e7e7e7;
+						font-family: IBM Plex Mono, sans-serif;
+					}
+
+					&__copyIcon {
+						width: 20px;
+						height: auto;
+						fill: #e7e7e7;
+					}
+
+					&__copiedIcon {
+						width: 20px;
+						height: auto;
+						fill: transparent;
+						stroke: #e7e7e7;
+						stroke-width: 1.5px;
+					}
+				}
+			}
+
+			.docs {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					font-size: 2rem;
+					font-weight: 400;
+					color: #bbb8ca;
+
+					&--underline {
+						margin-inline-start: 3px;
+						cursor: pointer;
+						text-decoration: underline;
+					}
+				}
+
+				&__text:not(:first-child) {
+					margin-inline-start: 4px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		display: none;
+	}
+}

@@ -1,0 +1,251 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 1170px;
+	background: linear-gradient(180deg, #0e0d14 0%, #242337 100%) !important;
+
+	.innerIntro {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-image: url('../../../../../public/images/stars-into-background.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+
+		.textContainer {
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			margin-top: 130px;
+
+			&__mainHeader {
+				font-size: 7rem;
+				font-weight: 700;
+				color: #fefefe;
+
+				&--mobile {
+					display: none;
+				}
+			}
+
+			&__subHeader {
+				font-size: 7rem;
+				font-weight: 700;
+				background: linear-gradient(270deg, #dc6794 6.97%, #9747ff 93.64%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+
+				&--mobile {
+					display: none;
+				}
+			}
+
+			.commandBox {
+				z-index: 1;
+				position: relative;
+				display: flex;
+				width: 646px;
+				margin-top: 50px;
+				border-radius: 10px;
+				box-shadow: 0px 1px 37px #9747ffb3;
+				border: 2.5px solid #7a4df3;
+
+				&__hoverText {
+					position: absolute;
+					right: 0;
+					top: -40px;
+					display: flex;
+					background-color: #202428;
+					border-radius: 5px;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+				}
+
+				&__clickedText {
+					position: absolute;
+					right: 0;
+					top: -40px;
+					display: flex;
+					background-color: #202428;
+					border-radius: 5px;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+				}
+
+				.commandButton {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 17px 30px;
+					width: 100%;
+					border-radius: 5px;
+
+					&__text {
+						font-size: 2rem;
+						font-weight: 400;
+						color: #e7e7e7;
+						font-family: IBM Plex Mono, sans-serif;
+					}
+
+					&__copyIcon {
+						width: 20px;
+						height: auto;
+						fill: #e7e7e7;
+					}
+
+					&__copiedIcon {
+						width: 20px;
+						height: auto;
+						fill: transparent;
+						stroke: #e7e7e7;
+						stroke-width: 1.5px;
+					}
+				}
+			}
+
+			.quickStartContainer {
+				display: flex;
+				align-items: center;
+				margin-top: 63px;
+
+				&__button {
+					position: relative;
+					display: inline-block;
+					padding: 13px 33px;
+					margin-inline-end: 18px;
+					font-size: 1.6rem;
+					font-weight: 500;
+					color: #fefefe;
+					border-radius: 3em;
+					background-color: #7a4df3;
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+					z-index: 1;
+
+					&--text {
+						position: relative;
+						z-index: 3;
+					}
+				}
+
+				&__button:after {
+					position: absolute;
+					content: '';
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border-radius: 3em;
+					background-image: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
+					transition: opacity 1s ease-out;
+					z-index: 2;
+					opacity: 0;
+				}
+
+				&__button:hover:after {
+					opacity: 1;
+				}
+
+				&__text {
+					font-size: 2rem;
+					font-weight: 400;
+					color: #dcdae7;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.intro {
+		max-width: map.get($sizes, main-ipad-width);
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		height: 930px;
+
+		.innerIntro {
+			background-image: url('../../../../../public/images/stars-into-mobile-background.png');
+
+			.textContainer {
+				margin-top: 71px;
+
+				&__mainHeader {
+					display: none;
+
+					&--mobile {
+						display: block;
+						font-size: 4.4rem;
+						font-weight: 700;
+						color: #fefefe;
+					}
+				}
+
+				&__subHeader {
+					display: none;
+
+					&--mobile {
+						display: block;
+						font-size: 4.4rem;
+						font-weight: 700;
+						background: linear-gradient(270deg, #dc6794 6.97%, #9747ff 93.64%);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						background-clip: text;
+					}
+				}
+
+				.commandBox {
+					width: 361px;
+					margin-top: 64px;
+
+					&__hoverText {
+						display: none;
+					}
+
+					&__clickedText {
+						display: none;
+					}
+
+					.commandButton {
+						padding-right: 16px;
+
+						&__text {
+							font-size: 1.4rem;
+						}
+
+						&__copyIcon {
+							display: none;
+							width: 0;
+						}
+
+						&__copiedIcon {
+							display: none;
+							width: 0;
+						}
+					}
+				}
+
+				.quickStartContainer {
+					display: none;
+				}
+			}
+		}
+	}
+}

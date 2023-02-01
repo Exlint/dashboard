@@ -1,0 +1,72 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.questionsContainer {
+	display: flex;
+	flex-direction: column;
+
+	&__devidorLine {
+		border: 1.5px solid #4b4a65;
+		width: 100%;
+		margin: 25px 0;
+	}
+
+	.questionInner {
+		display: flex;
+		justify-content: space-between;
+
+		&__question {
+			font-size: 2.4rem;
+			font-weight: 500;
+			color: #bbb8ca;
+		}
+
+		.showMoreOrLessButton {
+			&__icon {
+				fill: #bbb8ca;
+				stroke-width: 4px;
+			}
+		}
+	}
+
+	.answerInner {
+		display: flex;
+		align-items: center;
+
+		&__answer {
+			margin-top: 45px;
+			font-size: 2rem;
+			font-weight: 400;
+			color: #dcdae7;
+			overflow-wrap: break-word;
+		}
+
+		&__button {
+			margin-inline-start: 5px;
+			margin-top: 45px;
+			font-size: 2rem;
+			font-weight: 400;
+			color: #dcdae7;
+			text-decoration: underline;
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.questionsContainer {
+		.questionInner {
+			&__question {
+				width: calc(100% - 25px);
+				font-size: 2rem;
+			}
+
+			.showMoreOrLessButton {
+				&__icon {
+					fill: #bbb8ca;
+					stroke-width: 4px;
+				}
+			}
+		}
+	}
+}

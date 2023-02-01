@@ -1,0 +1,124 @@
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+	from {
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotating {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	padding: 5px 20px;
+	background: linear-gradient(180deg, #0e0d14 0%, #242337 75.69%);
+
+	.innerPage {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-image: url('../../../../public/images/stars-into-background.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+
+		&__image {
+			margin-top: 10%;
+			width: 371px;
+			height: 328px;
+			-webkit-animation: rotating 2s linear infinite;
+			-moz-animation: rotating 2s linear infinite;
+			-ms-animation: rotating 2s linear infinite;
+			-o-animation: rotating 2s linear infinite;
+			animation: rotating 2s linear infinite;
+		}
+
+		&__header {
+			font-size: 4.8rem;
+			font-weight: 800;
+			color: #9747ff;
+			text-align: center;
+			z-index: 1;
+		}
+
+		.pageNotFoundSubText {
+			margin-top: 20px;
+			text-align: center;
+			z-index: 1;
+
+			&__text {
+				font-size: 1.9rem;
+				font-weight: 700;
+				color: #9747ff;
+			}
+
+			&__link {
+				font-size: 1.9rem;
+				font-weight: 700;
+				color: #9747ff;
+			}
+		}
+	}
+}
+
+@media (max-width: 850px) {
+	.container {
+		&__header {
+			font-size: 2.7rem;
+		}
+
+		.pageNotFoundSubText {
+			&__text {
+				font-size: 1.7rem !important;
+			}
+
+			&__link {
+				font-size: 1.7rem !important;
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.container {
+		&__header {
+			font-size: 2.5rem;
+		}
+
+		.pageNotFoundSubText {
+			&__text {
+				font-size: 1.3rem !important;
+			}
+
+			&__link {
+				font-size: 1.3rem !important;
+			}
+		}
+	}
+}
