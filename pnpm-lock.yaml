@@ -8,6 +8,7 @@ importers:
       '@exlint.io/inflint': 1.2.9
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0
+      '@types/is-ci': 3.0.0
       '@types/node': 18.11.18
       '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.48.2
@@ -45,6 +46,7 @@ importers:
       '@exlint.io/inflint': 1.2.9_awa2wsr5thmg3i7jqycphctjfq
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0_prisma@4.9.0
+      '@types/is-ci': 3.0.0
       '@types/node': 18.11.18
       '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
@@ -5568,6 +5570,12 @@ packages:
     resolution: {integrity: sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==}
     dependencies:
       '@types/node': 18.11.18
+
+  /@types/is-ci/3.0.0:
+    resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
+    dependencies:
+      ci-info: 3.4.0
+    dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}

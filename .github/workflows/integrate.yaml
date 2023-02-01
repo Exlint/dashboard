@@ -190,6 +190,9 @@ jobs:
                   node-version: 18.13.0
                   package-manager: pnpm
                   package-manager-version: 7.25.1
+              
+            - name: Append hosts
+              run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" >> /etc/hosts
 
             - name: Install Playwright Browsers
               run: npx playwright install --with-deps
