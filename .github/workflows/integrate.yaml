@@ -182,7 +182,7 @@ jobs:
         timeout-minutes: 60
         name: Automation Tests
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -191,9 +191,12 @@ jobs:
                   package-manager: pnpm
                   package-manager-version: 7.25.1
 
-            - name: Run Playwright tests
-              run: PLAYWRIGHT_BROWSERS_PATH=$HOME/pw-browsers pnpm test
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
 
+            - name: Run Playwright tests
+              run: pnpm test
+              
             - uses: actions/upload-artifact@v3
               if: always()
               with:
