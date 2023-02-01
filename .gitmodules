@@ -1,3 +1,6 @@
 [submodule "apps/docs"]
 	path = apps/docs
 	url = git@github.com:Exlint/docs.git
+[submodule "apps/landing-page"]
+	path = apps/landing-page
+	url = https://github.com/Exlint/landing-page
