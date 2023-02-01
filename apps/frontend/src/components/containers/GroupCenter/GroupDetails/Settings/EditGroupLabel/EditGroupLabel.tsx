@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type { IAvailableLabelResponseData } from '@exlint-dashboard/common';
+import type { IAvailableLabelResponseData } from '@exlint.io/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
 import { backendApi } from '@/utils/http';

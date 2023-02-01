@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import type { IGetRulesResponseData } from '@exlint-dashboard/common';
+import type { IGetRulesResponseData } from '@exlint.io/common';
 
 import EDSelect from '@/ui/EDSelect';
 import EDCheckbox from '@/ui/EDCheckbox';

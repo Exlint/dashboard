@@ -1,5 +1,5 @@
 import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
-import type { IEnableMissingRuleResponseData } from '@exlint-dashboard/common';
+import type { IEnableMissingRuleResponseData } from '@exlint.io/common';
 import { BadRequestException } from '@nestjs/common';
 
 import { DBRuleService } from '@/modules/database/rule.service';

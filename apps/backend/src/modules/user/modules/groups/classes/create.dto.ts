@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
-import type { ICreateGroupDto } from '@exlint-dashboard/common';
+import type { ICreateGroupDto } from '@exlint.io/common';
 
 import { IsNullable } from '@/decorators/is-nullable.decorator';
 

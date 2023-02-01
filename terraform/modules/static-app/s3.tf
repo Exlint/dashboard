@@ -2,17 +2,11 @@ module "s3_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "3.6.0"
 
-  bucket        = var.frontend_s3_bucket_name
+  bucket        = var.s3_bucket_name
   acl           = "private"
   force_destroy = true
 
-  tags = merge(
-    var.common_tags,
-    {
-      Name  = "${var.project}-s3-bucket",
-      Stack = "frontend"
-    }
-  )
+  tags = merge(var.common_tags, var.s3_bucket_tags)
 }
 
 data "aws_iam_policy_document" "s3_policy" {

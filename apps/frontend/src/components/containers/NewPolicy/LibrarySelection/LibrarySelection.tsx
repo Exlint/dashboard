@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import type { PolicyLibrary } from '@prisma/client';
-import type { IGetLibrariesResponseData, ILibraryData } from '@exlint-dashboard/common';
+import type { IGetLibrariesResponseData, ILibraryData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 

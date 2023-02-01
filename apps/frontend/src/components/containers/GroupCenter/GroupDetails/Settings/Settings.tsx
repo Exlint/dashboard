@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import type { AxiosResponse } from 'axios';
-import type { IEditGroupLabelDto } from '@exlint-dashboard/common';
+import type { IEditGroupLabelDto } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';

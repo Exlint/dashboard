@@ -7,7 +7,7 @@ import type {
 	IAvailableLabelResponseData,
 	ICreateGroupDto,
 	ICreateGroupResponseData,
-} from '@exlint-dashboard/common';
+} from '@exlint.io/common';
 import type { AxiosResponse } from 'axios';
 
 import { useDebounce } from '@/hooks/use-debounce';

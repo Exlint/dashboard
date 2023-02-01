@@ -1,4 +1,4 @@
-import type { IEditSecretLabelDto } from '@exlint-dashboard/common';
+import type { IEditSecretLabelDto } from '@exlint.io/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MaxLength, MinLength } from 'class-validator';
 

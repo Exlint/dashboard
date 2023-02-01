@@ -1,4 +1,4 @@
-import { FilesListType, type ISetFilesListDto } from '@exlint-dashboard/common';
+import { FilesListType, type ISetFilesListDto } from '@exlint.io/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsIn, IsString, MaxLength } from 'class-validator';
 

@@ -1,4 +1,4 @@
-import type { ILibraryData } from '@exlint-dashboard/common';
+import type { ILibraryData } from '@exlint.io/common';
 
 export const prettierData: ILibraryData = {
 	name: 'Prettier',

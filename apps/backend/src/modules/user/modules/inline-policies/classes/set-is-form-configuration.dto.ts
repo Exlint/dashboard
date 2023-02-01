@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean } from 'class-validator';
-import type { ISetIsFormConfigurationDto } from '@exlint-dashboard/common';
+import type { ISetIsFormConfigurationDto } from '@exlint.io/common';
 
 export class SetIsFormConfigurationDto implements ISetIsFormConfigurationDto {
 	@ApiProperty({

@@ -14,4 +14,4 @@ RUN pnpm --filter common i
 COPY ./tsconfig.base.json ./nx.json ./
 COPY ./packages/common/ ./packages/common/
 
-CMD ["pnpm", "exec", "nx", "start:dev", "@exlint-dashboard/common"]
+CMD ["pnpm", "exec", "nx", "start:dev", "@exlint.io/common"]

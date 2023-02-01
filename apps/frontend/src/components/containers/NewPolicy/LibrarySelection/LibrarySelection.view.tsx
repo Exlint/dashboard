@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import type { PolicyLibrary } from '@prisma/client';
-import type { ILibraryData } from '@exlint-dashboard/common';
+import type { ILibraryData } from '@exlint.io/common';
 
 import EDInputField from '@/ui/EDInputField';
 import EDSelect from '@/ui/EDSelect';

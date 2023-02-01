@@ -4,7 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import { useOutletContext, useParams } from 'react-router-dom';
 import type { AxiosResponse } from 'axios';
-import type { IEditPolicyLabelDto } from '@exlint-dashboard/common';
+import type { IEditPolicyLabelDto } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';

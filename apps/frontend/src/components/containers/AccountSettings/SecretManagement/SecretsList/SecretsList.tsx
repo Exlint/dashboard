@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { IRefreshSecretResponseData } from '@exlint-dashboard/common';
+import type { IRefreshSecretResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 

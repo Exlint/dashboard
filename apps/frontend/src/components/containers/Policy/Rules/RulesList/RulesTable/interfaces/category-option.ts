@@ -1,4 +1,4 @@
-import type { ILibraryRule } from '@exlint-dashboard/common';
+import type { ILibraryRule } from '@exlint.io/common';
 
 export interface ICategoryOption {
 	readonly value: ILibraryRule['category'] | 'all';

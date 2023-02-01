@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import type { PolicyLibrary } from '@prisma/client';
-import type { ILibraryData } from '@exlint-dashboard/common';
+import type { ILibraryData } from '@exlint.io/common';
 
 import EDSvg from '@/ui/EDSvg';
 import logosObject from '@/utils/libraries-logos';

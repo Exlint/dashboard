@@ -96,7 +96,7 @@ jobs:
                   package-manager-version: 7.25.1
 
             - name: Test Stylelint
-              run: pnpm nx stylelint @exlint-dashboard/frontend
+              run: pnpm exec nx stylelint @exlint.io/frontend
 
     prisma:
         name: Testing Prisma
@@ -146,25 +146,43 @@ jobs:
             - name: Terraform setup
               uses: hashicorp/setup-terraform@v2
 
-            - name: Terraform init
+            - name: Terraform core init
+              working-directory: terraform/core
               env:
                   TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
                   TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
                   AWS_REGION: ${{ secrets.AWS_REGION }}
               run: |
-                terraform -chdir="./terraform" init \
+                terraform init \
                 -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
                 -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
                 -backend-config="region=$AWS_REGION" 
 
-            - name: Terraform validate
-              run: terraform -chdir="./terraform" validate -no-color
+            - name: Terraform core validate
+              working-directory: terraform/core
+              run: terraform validate -no-color
+
+            - name: Terraform k8s init
+              working-directory: terraform/k8s
+              env:
+                  TERRAFORM_BACKEND_S3_BUCKET: ${{ secrets.TERRAFORM_BACKEND_S3_BUCKET }}
+                  TERRAFORM_BACKEND_DYNAMODB_TABLE: ${{ secrets.TERRAFORM_BACKEND_DYNAMODB_TABLE }}
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
+              run: |
+                terraform init \
+                -backend-config="bucket=$TERRAFORM_BACKEND_S3_BUCKET" \
+                -backend-config="dynamodb_table=$TERRAFORM_BACKEND_DYNAMODB_TABLE" \
+                -backend-config="region=$AWS_REGION" 
+
+            - name: Terraform k8s validate
+              working-directory: terraform/k8s
+              run: terraform validate -no-color
 
     automation:
         timeout-minutes: 60
         name: Automation Tests
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.1.0
@@ -172,13 +190,16 @@ jobs:
                   node-version: 18.13.0
                   package-manager: pnpm
                   package-manager-version: 7.25.1
+              
+            - name: Append hosts
+              run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
 
             - name: Install Playwright Browsers
-              run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install --with-deps
+              run: npx playwright install
 
             - name: Run Playwright tests
               run: pnpm test
-
+              
             - uses: actions/upload-artifact@v3
               if: always()
               with:

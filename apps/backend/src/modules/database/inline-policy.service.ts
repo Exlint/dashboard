@@ -1,4 +1,4 @@
-import type { FilesListType } from '@exlint-dashboard/common';
+import type { FilesListType } from '@exlint.io/common';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import type { CodeType, PolicyLibrary, Prisma } from '@prisma/client';
 
