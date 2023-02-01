@@ -195,7 +195,7 @@ jobs:
               run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
 
             - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
+              run: npx playwright install
 
             - name: Run Playwright tests
               run: pnpm test
