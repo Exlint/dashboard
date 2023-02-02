@@ -15,7 +15,6 @@ module.exports = {
 		'pnpm --filter common exec eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore --fix',
 		() => 'tsc --noEmit',
 	],
-	'!apps/landing-page/**/*.{ts,js,cjs}': () => '',
 	'!({apps,packages})**/*.{ts,js,cjs}': ['eslint -c ./.eslintrc.cjs --fix', () => 'tsc --noEmit'],
 	'apps/frontend/src/**/*.scss': 'stylelint --config ./apps/frontend/stylelint.config.cjs --fix',
 	'**/*.{ts,js,cjs,json,yaml}': 'prettier --write',

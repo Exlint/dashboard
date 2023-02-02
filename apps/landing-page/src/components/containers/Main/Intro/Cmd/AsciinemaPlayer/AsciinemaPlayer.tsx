@@ -15,7 +15,7 @@ interface IProps {
 	readonly theme?: string;
 	readonly poster?: string;
 	readonly fit?: string;
-	readonly fontSize?: string;
+	readonly terminalFontSize?: string;
 }
 
 const AsciinemaPlayer: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -33,7 +33,7 @@ const AsciinemaPlayer: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			theme={props.theme}
 			poster={props.poster}
 			fit={props.fit}
-			fontSize={props.fontSize}
+			terminalFontSize={props.terminalFontSize}
 		/>
 	);
 };

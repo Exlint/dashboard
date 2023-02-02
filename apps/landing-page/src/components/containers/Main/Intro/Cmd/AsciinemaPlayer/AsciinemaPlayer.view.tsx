@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+import classes from './AsciinemaPlayer.module.scss';
+
 interface IProps {
 	readonly src: string;
 	readonly cols?: string;
@@ -13,7 +15,7 @@ interface IProps {
 	readonly theme?: string;
 	readonly poster?: string;
 	readonly fit?: string;
-	readonly fontSize?: string;
+	readonly terminalFontSize?: string;
 }
 
 const AsciinemaPlayerView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -30,7 +32,7 @@ const AsciinemaPlayerView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 		setupAsciinema();
 	}, [props.src]);
 
-	return <div ref={ref} />;
+	return <div ref={ref} className={classes['container']} />;
 };
 
 AsciinemaPlayerView.displayName = 'AsciinemaPlayerView';
