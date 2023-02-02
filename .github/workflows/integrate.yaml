@@ -14,7 +14,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -29,7 +29,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -44,7 +44,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -59,7 +59,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -74,7 +74,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -89,7 +89,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -104,7 +104,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
@@ -119,7 +119,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, integration]
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v.1.2.1
               with:
                   node-version: 18.13.0
                   package-manager: pnpm
