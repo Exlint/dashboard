@@ -1,14 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const configuration = {
 	reactStrictMode: true,
-	images: {
-		loader: 'akamai',
-		path: '',
-	},
 	eslint: {
-		dirs: ['./'],
+		dirs: ['./src'],
+		ignoreDuringBuilds: true,
 	},
-	crossOrigin: false,
 };
 
-module.exports = nextConfig;
+module.exports = configuration;

@@ -6,6 +6,7 @@
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -13,21 +14,21 @@
 
 .container {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	width: 100%;
-	background: linear-gradient(180deg, #242337 0%, rgba(36, 35, 55, 0) 100%);
-	padding: 100px 0 95px 0;
+	padding: 100px 0 95px;
+	background: linear-gradient(180deg, #242337 0%, rgb(36 35 55 / 0%) 100%);
 
 	&__text {
-		visibility: hidden;
 		font-size: 3.6rem;
 		font-weight: 700;
 		text-align: center;
+		visibility: hidden;
 		background: linear-gradient(270deg, #9747ff 26.96%, #fcfcfc 93.64%);
 		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		-webkit-text-fill-color: transparent;
 
 		&--fadeIn {
 			visibility: visible;

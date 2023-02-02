@@ -10,21 +10,21 @@
 
 	.leftSide {
 		position: relative;
-		display: inline-block;
 		z-index: 0;
-		overflow: hidden;
+		display: inline-block;
 		width: 611px;
 		height: 339px;
-		margin-inline-end: 113px;
-		background-color: #242337;
-		box-shadow: -4px 22px 56px #9747ff80;
-		border-radius: 5px;
-		border: 2.5px solid #7a4df3;
 		padding: 12px;
+		margin-inline-end: 113px;
+		overflow: hidden;
+		background-color: #242337;
+		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		box-shadow: -4px 22px 56px #9747ff80;
 
 		&__code {
-			height: 100%;
 			width: 100%;
+			height: 100%;
 		}
 	}
 
@@ -42,10 +42,10 @@
 		}
 
 		&__description {
+			margin: 16px 0;
 			font-size: 2.8rem;
 			font-weight: 700;
 			color: #e7e7e7;
-			margin: 16px 0;
 
 			&--mobile {
 				display: none;
@@ -61,17 +61,17 @@
 				align-items: center;
 
 				&__dot {
-					height: 5px;
 					width: 5px;
-					border-radius: 50%;
+					height: 5px;
 					background-color: #bbb8ca;
+					border-radius: 50%;
 				}
 
 				&__text {
 					margin-inline-start: 20px;
-					color: #bbb8ca;
 					font-size: 2rem;
 					font-weight: 400;
+					color: #bbb8ca;
 				}
 			}
 		}
@@ -81,13 +81,12 @@
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		flex-direction: column-reverse;
-		margin-top: 46px;
-		padding: 16px 0;
-		border-radius: 5px;
-		border: 2.5px solid #7a4df3;
-		backdrop-filter: blur(2.5px);
 		max-width: map.get($sizes, main-mobile-width);
 		padding: map.get($sizes, minimal-mobile-padding);
+		margin-top: 46px;
+		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		backdrop-filter: blur(2.5px);
 
 		.leftSide {
 			width: 100%;
@@ -109,10 +108,10 @@
 
 				&--mobile {
 					display: block;
-					font-weight: 700;
-					font-size: 2.1rem;
-					color: #e7e7e7;
 					margin: 16px 0;
+					font-size: 2.1rem;
+					font-weight: 700;
+					color: #e7e7e7;
 				}
 			}
 

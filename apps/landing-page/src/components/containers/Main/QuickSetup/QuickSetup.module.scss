@@ -12,9 +12,9 @@
 		flex-direction: column;
 		align-items: center;
 		max-width: map.get($sizes, main-ipad-width);
-		padding: 0 map.get($sizes, minimal-mobile-padding);
-		margin-top: 0px;
 		height: 1324px;
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		margin-top: 0;
 		background-image: url('../../../../../public/images/quick-setup-mobile-bg.png');
 		background-repeat: no-repeat;
 		background-position: center;

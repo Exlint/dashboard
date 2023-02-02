@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { libraries } from 'src/data/libraries';
+import { libraries } from '@/data/libraries';
 import ELPSvg from '@/ui/ELPSvg';
 import { concatClasses } from '@/utils/component';
+
 import classes from './LintersOutput.module.scss';
 
 interface IProps {

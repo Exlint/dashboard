@@ -6,14 +6,14 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"baseUrl": "./",
 		"jsx": "preserve",
-		"noImplicitAny": false,
 		"paths": {
 			"@/containers/*": ["src/components/containers/*"],
 			"@/ui/*": ["src/components/ui/*"],
 			"@/utils/*": ["src/utils/*"],
 			"@/hooks/*": ["src/hooks/*"],
 			"@/layout/*": ["src/components/layout/*"],
-			"@/images/*": ["public/images/*"]
+			"@/images/*": ["public/images/*"],
+			"@/data/*": ["src/data/*"]
 		},
 		"typeRoots": ["./@types", "./node_modules/@types"]
 	}

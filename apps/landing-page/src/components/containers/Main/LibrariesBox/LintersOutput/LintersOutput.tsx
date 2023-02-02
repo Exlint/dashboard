@@ -1,7 +1,8 @@
 /* eslint-disable indent */
 import React, { useEffect, useState } from 'react';
 
-import { libraries } from 'src/data/libraries';
+import { libraries } from '@/data/libraries';
+
 import LintersOutputView from './LintersOutput.view';
 
 interface IProps {

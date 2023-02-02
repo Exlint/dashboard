@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import { faq } from 'src/data/faq';
+import { faq } from '@/data/faq';
+
 import Question from './Question';
 
 import classes from './Faq.module.scss';

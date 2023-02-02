@@ -5,15 +5,15 @@
 .container {
 	position: relative;
 	display: flex;
-	width: 100%;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
+	width: 100%;
 	margin-top: 100px;
 
 	.background {
-		height: 593px;
 		width: 100%;
+		height: 593px;
 		fill: transparent;
 	}
 
@@ -26,8 +26,8 @@
 		top: -85px;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
+		justify-content: center;
 		margin-bottom: 59px;
 
 		&__top {
@@ -58,12 +58,11 @@
 		position: absolute;
 		top: 180px;
 		display: flex;
-		background: #1b1a29;
-		border-radius: 30px;
-		box-shadow: 0px 0 43px 0 #9747ff80;
 		padding: 30px;
+		background: #1b1a29;
+		border: 2.5px solid rgb(83 58 185 / 50%);
 		border-radius: 30px;
-		border: 2.5px solid rgba(83, 58, 185, 0.5);
+		box-shadow: 0 0 43px 0 #9747ff80;
 
 		.leftSide {
 			display: flex;
@@ -76,10 +75,10 @@
 				margin-bottom: 22px;
 
 				&__title {
+					margin-inline-end: 12px;
 					font-size: 3.2rem;
 					font-weight: 600;
 					color: #e7e7e7;
-					margin-inline-end: 12px;
 				}
 
 				.freeBox {
@@ -102,13 +101,13 @@
 			}
 
 			.viewDocsButton {
-				margin-top: 131px;
 				padding: 15px 75.5px;
-				background: #7a4df3;
-				border-radius: 20px;
+				margin-top: 131px;
 				font-size: 2.4rem;
 				font-weight: 600;
 				color: #e7e7e7;
+				background: #7a4df3;
+				border-radius: 20px;
 			}
 		}
 
@@ -122,11 +121,11 @@
 				align-items: center;
 
 				&__icon {
+					margin-inline-end: 12px;
 					fill: transparent;
 					stroke: #7a4df3;
-					stroke-width: 2;
 					stroke-linecap: round;
-					margin-inline-end: 12px;
+					stroke-width: 2;
 				}
 
 				&__text {
@@ -158,8 +157,8 @@
 
 		.backgroundMobile {
 			display: block;
-			height: 770px;
 			width: 100%;
+			height: 770px;
 			fill: transparent;
 		}
 
@@ -173,9 +172,9 @@
 				&--mobile {
 					display: block;
 					font-size: 4.4rem;
-					text-align: center;
 					font-weight: 700;
 					color: #dcdae7;
+					text-align: center;
 				}
 			}
 
@@ -185,12 +184,12 @@
 				&--mobile {
 					display: block;
 					font-size: 4.4rem;
-					text-align: center;
 					font-weight: 700;
+					text-align: center;
 					background: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
 					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
 					background-clip: text;
+					-webkit-text-fill-color: transparent;
 				}
 			}
 		}
@@ -225,11 +224,11 @@
 					align-items: center;
 
 					&__icon {
+						margin-inline-end: 12px;
 						fill: transparent;
 						stroke: #7a4df3;
-						stroke-width: 2;
 						stroke-linecap: round;
-						margin-inline-end: 12px;
+						stroke-width: 2;
 					}
 
 					&__text {
@@ -245,13 +244,13 @@
 
 				.viewDocsButtonMobile {
 					display: block;
-					margin-top: 44px;
 					padding: 15px 75.5px;
-					background: #7a4df3;
-					border-radius: 20px;
+					margin-top: 44px;
 					font-size: 2rem;
 					font-weight: 600;
 					color: #e7e7e7;
+					background: #7a4df3;
+					border-radius: 20px;
 				}
 			}
 		}

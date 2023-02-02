@@ -1,3 +1,3 @@
-import CardCarousel from './CardCarousel.jsx';
+import CardCarousel from './CardCarousel';
 
 export default CardCarousel;
