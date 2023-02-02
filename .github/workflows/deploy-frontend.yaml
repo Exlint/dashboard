@@ -20,7 +20,7 @@ jobs:
                   should-cache: false
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.25.1
+                  package-manager-version: 7.26.3
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
