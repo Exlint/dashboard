@@ -1,4 +1,4 @@
-name: Deploy frontend application
+name: Deploy docs application
 
 on:
   repository_dispatch:
