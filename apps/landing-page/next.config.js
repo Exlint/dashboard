@@ -8,7 +8,7 @@ const nextConfig = {
 	eslint: {
 		dirs: ['./'],
 	},
-	crossOrigin: false
+	crossOrigin: false,
 };
 
 module.exports = nextConfig;

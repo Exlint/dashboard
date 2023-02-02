@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 import ELPSvg from '@/ui/ELPSvg';
 import blurBackground from '@/images/carousel-bg.png';
@@ -20,6 +21,7 @@ interface IProps {
 const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	let cmdClass;
 	let codeClass;
+	const { t } = useTranslation();
 
 	if (props.isStylintVisible) {
 		cmdClass = concatClasses(classes, 'cmd', 'moveLeft');
@@ -79,7 +81,7 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				<span className={classes['lineDot']} />
 			</div>
 			<div className={classes['exlintRun']}>
-				<span className={classes['exlintRun__text']}>$ exlint run</span>
+				<span className={classes['exlintRun__text']}>{t('main.librariesBox.command')}</span>
 			</div>
 
 			{props.isPrettierVisible || props.isDepcheckVisible ? (

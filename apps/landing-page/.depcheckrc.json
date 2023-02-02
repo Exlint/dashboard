@@ -11,9 +11,7 @@
 		"cz-vinyl",
 		"figlet",
 		"chalk",
-		"prettier",
-		"@mdx-js/react",
-		"@docusaurus/plugin-content-docs",
-		"@docusaurus/preset-classic"
-	]
+		"prettier"
+	],
+	"skip-missing": true
 }

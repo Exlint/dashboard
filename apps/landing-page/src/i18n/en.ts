@@ -14,6 +14,7 @@ const en = {
 			description: 'Keep your code clean with Exlint.',
 		},
 		librariesBox: {
+			command: '$ exlint run',
 			cardCarousel: {},
 		},
 		transition: {

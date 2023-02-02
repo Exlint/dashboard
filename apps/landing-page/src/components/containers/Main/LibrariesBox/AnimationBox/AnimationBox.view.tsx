@@ -83,7 +83,12 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				</div>
 			</div>
 			<div className={classes['rightSide']}>
-				<CardCarousel onHighlightIcons={props.onHighlightIcons} />
+				<CardCarousel
+					autoplay
+					autoplay_speed={10000}
+					alignment="vertical"
+					onHighlightIcons={props.onHighlightIcons}
+				/>
 			</div>
 		</div>
 	);

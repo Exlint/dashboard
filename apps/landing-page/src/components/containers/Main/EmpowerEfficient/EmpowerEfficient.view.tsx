@@ -49,7 +49,9 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 									onClick={props.onDocsNavigate}
 								>
 									<ELPSvg className={classes['docsIcon']} name="docs" />
-									<span className={classes['element__text']}>Docs</span>
+									<span className={classes['element__text']}>
+										{t('main.empowerEfficient.docs')}
+									</span>
 								</button>
 								{/* <div className={classes['element']}>
 									<ELPSvg className={classes['discordIcon']} name="discordWhiteLogo" />

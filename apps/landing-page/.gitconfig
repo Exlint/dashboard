@@ -1,4 +1,0 @@
-[init]
-	defaultBranch = main
-[alias]
-    cmt = "!npx cz"

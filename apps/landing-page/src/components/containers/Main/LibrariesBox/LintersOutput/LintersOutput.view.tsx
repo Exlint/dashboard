@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import React from 'react';
 
 import { libraries } from 'src/data/libraries';
@@ -41,7 +40,7 @@ const LintersOutputView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					</span>
 					<ELPSvg className={classes['rowContainer__icon']} name="showLess" />
 					<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__white')}>
-						Unexpected named color "black"
+						Unexpected named color &quot;black&quot;
 					</span>
 				</div>
 				<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__gray')}>
@@ -128,7 +127,7 @@ const LintersOutputView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					</span>
 					<ELPSvg className={classes['rowContainer__icon']} name="showLess" />
 					<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__white')}>
-						Unexpected named color "white"
+						Unexpected named color &quot;white&quot;
 					</span>
 				</div>
 				<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__gray')}>
@@ -175,7 +174,7 @@ const LintersOutputView: React.FC<IProps> = (props: React.PropsWithChildren<IPro
 					</span>
 					<ELPSvg className={classes['rowContainer__icon']} name="showLess" />
 					<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__white')}>
-						Unexpected named color "black"
+						Unexpected named color &quot;black&quot;
 					</span>
 				</div>
 				<span className={concatClasses(classes, 'textContainer__text', 'rowContainer__gray')}>

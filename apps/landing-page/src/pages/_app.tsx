@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 /* eslint-disable react/display-name */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/destructuring-assignment */
