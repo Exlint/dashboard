@@ -69,10 +69,10 @@
 			&__name {
 				font-size: 1.7rem;
 				font-weight: 600;
+				color: transparent;
 				background: -webkit-linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
 				-webkit-background-clip: text;
+				background-clip: text;
 			}
 
 			.libraryNameAction {
