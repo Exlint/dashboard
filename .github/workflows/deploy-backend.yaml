@@ -1,4 +1,4 @@
-name: Deploy to backend service AWS EKS
+name: Deploy backend API
 
 on:
   push:
