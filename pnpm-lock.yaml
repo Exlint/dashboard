@@ -18,7 +18,7 @@ importers:
       cz-vinyl: 1.6.2
       depcheck: 1.4.3
       docker-compose: 0.23.18
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
@@ -56,7 +56,7 @@ importers:
       cz-vinyl: 1.6.2_awa2wsr5thmg3i7jqycphctjfq
       depcheck: 1.4.3
       docker-compose: 0.23.18
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
       eslint-plugin-deprecation: 1.3.3_7uibuqfxkfaozanbtbziikiqje
@@ -107,7 +107,7 @@ importers:
       class-transformer: 0.5.1
       class-validator: 0.14.0
       depcheck: 1.4.3
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
@@ -171,7 +171,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       depcheck: 1.4.3
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
       eslint-plugin-deprecation: 1.3.3_7uibuqfxkfaozanbtbziikiqje
@@ -210,7 +210,7 @@ importers:
       class-transformer: 0.5.1
       class-validator: 0.14.0
       depcheck: 1.4.3
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0
       eslint-plugin-deprecation: 1.3.3
@@ -263,7 +263,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
       '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
       depcheck: 1.4.3
-      dotenv-cli: 6.0.0
+      dotenv-cli: 7.0.0
       eslint: 8.32.0
       eslint-config-prettier: 8.6.0_eslint@8.32.0
       eslint-plugin-deprecation: 1.3.3_7uibuqfxkfaozanbtbziikiqje
@@ -5495,19 +5495,25 @@ packages:
     hasBin: true
     dev: true
 
-  /dotenv-cli/6.0.0:
-    resolution: {integrity: sha512-qXlCOi3UMDhCWFKe0yq5sg3X+pJAz+RQDiFN38AMSbUrnY3uZshSfDJUAge951OS7J9gwLZGfsBlWRSOYz/TRg==}
+  /dotenv-cli/7.0.0:
+    resolution: {integrity: sha512-XfMzVdpdDTRnlcgvFLg3lSyiLXqFxS4tH7RbK5IxkC4XIUuxPyrGoDufkfLjy/dA28EILzEu+mros6h8aQmyGg==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
       dotenv: 16.0.2
-      dotenv-expand: 8.0.3
-      minimist: 1.2.6
+      dotenv-expand: 10.0.0
+      minimist: 1.2.7
+    dev: true
+
+  /dotenv-expand/10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
+    engines: {node: '>=12'}
     dev: true
 
   /dotenv-expand/8.0.3:
     resolution: {integrity: sha512-SErOMvge0ZUyWd5B0NXMQlDkN+8r+HhVUsxgOO7IoPDOdDRD2JjExpN6y3KnFR66jsJMwSn1pqIivhU5rcJiNg==}
     engines: {node: '>=12'}
+    dev: false
 
   /dotenv/10.0.0:
     resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
