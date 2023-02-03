@@ -6,26 +6,23 @@ import { concatClasses } from '@/utils/component';
 
 import classes from './Configuration.module.scss';
 
-interface IProps {}
+interface IProps {
+	readonly onSelectionBasedConfigurationTabClick: VoidFunction;
+}
 
-const ConfigurationView: React.FC<IProps> = () => {
+const ConfigurationView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
 
 	return (
 		<div className={classes['container']}>
 			<div className={classes['configurationTabs']}>
-				<NavLink
-					className={({ isActive }) =>
-						concatClasses(
-							classes,
-							'configurationTabs__tab',
-							isActive ? 'configurationTabs__tab--active' : null,
-						)
-					}
-					to="form"
+				<button
+					className={classes['configurationTabs__tab']}
+					type="button"
+					onClick={props.onSelectionBasedConfigurationTabClick}
 				>
 					{t('policy.configurations.tabs.form')}
-				</NavLink>
+				</button>
 				<NavLink
 					className={({ isActive }) =>
 						concatClasses(
