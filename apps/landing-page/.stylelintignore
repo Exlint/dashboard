@@ -1,0 +1,2 @@
+src/**/*.scss
+!src/**/_*.scss

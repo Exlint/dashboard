@@ -6,8 +6,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 103px;
 	width: 100%;
+	margin-top: 103px;
 
 	.leftSide {
 		display: flex;
@@ -24,10 +24,10 @@
 		}
 
 		&__description {
+			margin: 16px 0;
 			font-size: 2.8rem;
 			font-weight: 700;
 			color: #e7e7e7;
-			margin: 16px 0;
 
 			&--mobile {
 				display: none;
@@ -43,17 +43,17 @@
 				align-items: center;
 
 				&__dot {
-					height: 5px;
 					width: 5px;
-					border-radius: 50%;
+					height: 5px;
 					background-color: #bbb8ca;
+					border-radius: 50%;
 				}
 
 				&__text {
-					color: #bbb8ca;
+					margin-inline-start: 20px;
 					font-size: 2rem;
 					font-weight: 400;
-					margin-inline-start: 20px;
+					color: #bbb8ca;
 				}
 			}
 		}
@@ -66,29 +66,29 @@
 		margin-inline-end: 18px;
 
 		.commandBox {
-			z-index: 1;
 			position: absolute;
 			top: -35px;
 			right: -25px;
-			background-color: #202428;
+			z-index: 1;
 			padding: 17px 27px;
-			box-shadow: 0 6px 71px 0 #9747ff80;
-			border-radius: 5px;
+			background-color: #202428;
 			border: 2.5px solid #dc6794;
+			border-radius: 5px;
+			box-shadow: 0 6px 71px 0 #9747ff80;
 
 			&__text {
+				margin: 0 3px;
+				font-family: "IBM Plex Mono", sans-serif;
 				font-size: 2.1rem;
 				font-weight: 400;
 				color: #fefefe;
-				font-family: IBM Plex Mono, sans-serif;
-				margin: 0 3px;
 			}
 
 			&__chevron {
-				color: rgba(122, 77, 243, 1);
+				font-family: "IBM Plex Mono", sans-serif;
 				font-size: 2.1rem;
 				font-weight: 400;
-				font-family: IBM Plex Mono, sans-serif;
+				color: rgb(122 77 243 / 100%);
 			}
 		}
 
@@ -103,13 +103,12 @@
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		flex-direction: column;
-		margin-top: 48px;
-		border-radius: 5px;
-		border: 2.5px solid #dc6794;
-		padding: 16px 0;
-		backdrop-filter: blur(2.5px);
 		max-width: map.get($sizes, main-mobile-width);
 		padding: map.get($sizes, minimal-mobile-padding);
+		margin-top: 48px;
+		border: 2.5px solid #dc6794;
+		border-radius: 5px;
+		backdrop-filter: blur(2.5px);
 
 		.leftSide {
 			margin-inline-end: 0;
@@ -127,8 +126,8 @@
 
 				&--mobile {
 					display: block;
-					font-size: 2.1rem;
 					margin: 24px 0;
+					font-size: 2.1rem;
 					font-weight: 700;
 					color: #e7e7e7;
 				}
@@ -142,6 +141,7 @@
 						position: absolute;
 						top: 10px;
 					}
+
 					&__text {
 						font-size: 1.8rem;
 					}
@@ -151,7 +151,7 @@
 
 		.rightSide {
 			width: 100%;
-			margin: 43px 0 0 0;
+			margin: 43px 0 0;
 
 			.commandBox {
 				top: -25px;
@@ -160,11 +160,11 @@
 				border-width: 1px;
 
 				&__text {
+					margin: 0 3px;
+					font-family: "IBM Plex Mono", sans-serif;
 					font-size: 1rem;
 					font-weight: 400;
 					color: #fefefe;
-					font-family: IBM Plex Mono, sans-serif;
-					margin: 0 3px;
 				}
 
 				&__chevron {

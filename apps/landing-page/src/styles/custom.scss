@@ -3,13 +3,11 @@
 }
 
 html {
-	width: 100%;
 	width: -webkit-fill-available;
-	height: 100%;
 	height: -webkit-fill-available;
 	overflow-x: hidden;
-	font-size: 10px;
 	overscroll-behavior-y: none;
+	font-size: 10px;
 }
 
 body {
@@ -73,11 +71,11 @@ ul {
 
 button {
 	padding: 0;
+	font-family: Poppins, sans-serif;
 	user-select: none;
 	background-color: transparent;
 	border: none;
 	outline: none;
-	font-family: Poppins, sans-serif;
 
 	&:enabled {
 		cursor: pointer;

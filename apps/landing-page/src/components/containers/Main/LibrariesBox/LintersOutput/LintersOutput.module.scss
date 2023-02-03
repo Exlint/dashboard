@@ -1,17 +1,17 @@
 .textContainer {
-  margin: 18px 38px 68px 38px;
   display: flex;
   flex-direction: column;
+  margin: 18px 38px 68px;
 
   &__text {
+    font-family: "IBM Plex Mono", sans-serif;
     font-size: 1.8rem;
     white-space: nowrap;
-    font-family: IBM Plex Mono, sans-serif;
   }
 
   &__firstRow {
-    color: #ff5b5b;
     margin-bottom: 10px;
+    color: #ff5b5b;
   }
 
   &__secondRow {
@@ -41,9 +41,9 @@
     align-items: center;
 
     &__icon {
-      margin: 0 7px 0 10px;
-      height: 10px;
       width: 10px;
+      height: 10px;
+      margin: 0 7px 0 10px;
     }
 
     &__marginLeft {
@@ -59,8 +59,8 @@
     }
 
     &__red {
-      color: #ff5b5b;
       margin: 0 7px;
+      color: #ff5b5b;
     }
 
     &__white {

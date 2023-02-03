@@ -5,8 +5,8 @@
 .container {
 	display: flex;
 	justify-content: center;
-	margin-top: 780px;
 	padding: 0 map.get($sizes, minimal-web-padding);
+	margin-top: 780px;
 
 	.innerContainer {
 		display: flex;
@@ -20,9 +20,9 @@
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		display: flex;
-		padding: 0 map.get($sizes, minimal-mobile-padding);
-		margin-top: 0px;
 		height: 1324px;
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		margin-top: 0;
 		background-image: url('../../../../../public/images/quick-setup-mobile-bg.png');
 		background-repeat: no-repeat;
 		background-position: center;

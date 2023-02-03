@@ -6,9 +6,11 @@
 	0% {
 		width: 0;
 	}
+
 	30% {
 		width: 200px;
 	}
+
 	100% {
 		width: 0;
 	}
@@ -18,9 +20,11 @@
 	0% {
 		height: 0;
 	}
+
 	30% {
 		height: 120px;
 	}
+
 	100% {
 		height: 0;
 	}
@@ -30,9 +34,11 @@
 	0% {
 		width: 0;
 	}
+
 	25% {
 		width: 70px;
 	}
+
 	100% {
 		width: 0;
 	}
@@ -42,6 +48,7 @@
 	0% {
 		transform: translateX(0);
 	}
+
 	100% {
 		transform: translateX(500px);
 	}
@@ -49,28 +56,29 @@
 
 @keyframes fallingVerticalBreakLine {
 	0% {
-		transform: translateX(0);
 		opacity: 1;
+		transform: translateX(0);
 	}
 
 	100% {
-		transform: translateX(240px);
 		opacity: 0;
+		transform: translateX(240px);
 	}
 }
 
 @keyframes fallingHorizontalBreakLine {
 	0% {
-		transform: translateY(0);
 		opacity: 0;
+		transform: translateY(0);
 	}
+
 	15% {
 		opacity: 1;
 	}
 
 	100% {
-		transform: translateY(300px);
 		opacity: 1;
+		transform: translateY(300px);
 	}
 }
 
@@ -78,9 +86,11 @@
 	0% {
 		width: 0;
 	}
+
 	50% {
 		width: 30px;
 	}
+
 	100% {
 		width: 0;
 	}
@@ -90,6 +100,7 @@
 	0% {
 		left: 31%;
 	}
+
 	100% {
 		left: 11%;
 	}
@@ -99,6 +110,7 @@
 	0% {
 		left: 11%;
 	}
+
 	100% {
 		left: 31%;
 	}
@@ -108,6 +120,7 @@
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
@@ -117,6 +130,7 @@
 	0% {
 		opacity: 1;
 	}
+
 	100% {
 		opacity: 0;
 	}
@@ -127,23 +141,23 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	margin: 0 auto;
 	padding: 0 map.get($sizes, minimal-web-padding);
+	margin: 0 auto;
 
 	.backgroundContainer {
 		position: absolute;
+		top: -300px;
+		z-index: 2;
 		display: flex;
 		justify-content: center;
-		top: -300px;
 		width: 970px;
 		height: 1205px;
-		z-index: 2;
 
 		&__img {
 			top: 0;
+			z-index: -2;
 			width: 970px;
 			height: 1205px;
-			z-index: -2;
 		}
 	}
 
@@ -156,52 +170,52 @@
 
 		&__star {
 			position: absolute;
-			left: -25px;
 			top: 3px;
-			height: 5px;
+			left: -25px;
 			width: 100%;
-			background: linear-gradient(-45deg, #755db5, #0000ff00);
-			border-radius: 50%;
+			height: 5px;
+			background: linear-gradient(-45deg, #755db5, #00f0);
 			filter: drop-shadow(0 0 6px #fefefe);
+			border-radius: 50%;
 			animation: tail 10s linear infinite, falling 10s linear infinite;
 		}
 
 		&__firstVerticalStarBreakLine {
 			position: absolute;
-			left: -25px;
 			top: 3px;
-			height: 5px;
+			left: -25px;
 			width: 100%;
-			background: linear-gradient(-45deg, #755db5, #0000ff00);
-			border-radius: 50%;
+			height: 5px;
+			background: linear-gradient(-45deg, #755db5, #00f0);
 			filter: drop-shadow(0 0 6px #fefefe);
+			border-radius: 50%;
 			opacity: 0;
 			animation: tailVertical 4s, fallingVerticalBreakLine 4s;
 		}
 
 		&__firstHorizontalStarBreakLine {
 			position: absolute;
-			left: 263px;
 			top: 3px;
-			height: 100%;
+			left: 263px;
 			width: 5px;
-			background: linear-gradient(-45deg, #755db5, #0000ff00);
+			height: 100%;
+			background: linear-gradient(-45deg, #755db5, #00f0);
+			filter: drop-shadow(0 0 6px #fefefe);
 			border-radius: 50%;
 			opacity: 0;
-			filter: drop-shadow(0 0 6px #fefefe);
 			animation: tailHorizontal 5s, fallingHorizontalBreakLine 5s;
 			animation-delay: 1.5s;
 		}
 
 		&__secondVerticalStarBreakLine {
 			position: absolute;
-			left: -25px;
 			top: 3px;
-			height: 5px;
+			left: -25px;
 			width: 100%;
-			background: linear-gradient(-45deg, #755db5, #0000ff00);
-			border-radius: 50%;
+			height: 5px;
+			background: linear-gradient(-45deg, #755db5, #00f0);
 			filter: drop-shadow(0 0 6px #fefefe);
+			border-radius: 50%;
 			opacity: 0;
 			animation: tailVertical 4s, fallingVerticalBreakLine 4s;
 			animation-delay: 10s;
@@ -209,18 +223,19 @@
 
 		&__secondHorizontalStarBreakLine {
 			position: absolute;
-			left: 263px;
 			top: 3px;
-			height: 100%;
+			left: 263px;
 			width: 5px;
-			background: linear-gradient(-45deg, #755db5, #0000ff00);
+			height: 100%;
+			background: linear-gradient(-45deg, #755db5, #00f0);
+			filter: drop-shadow(0 0 6px #fefefe);
 			border-radius: 50%;
 			opacity: 0;
-			filter: drop-shadow(0 0 6px #fefefe);
 			animation: tailHorizontal 5s, fallingHorizontalBreakLine 5s;
 			animation-delay: 11s;
 		}
 	}
+
 	.innerSecondLine {
 		position: absolute;
 		bottom: -260px;
@@ -239,63 +254,64 @@
 			position: relative;
 
 			&__firstLineDot {
-				content: '';
 				position: absolute;
 				bottom: 59px;
 				left: -5px;
-				height: 10px;
 				width: 10px;
-				border-radius: 50%;
-				background-color: rgba(144, 114, 167, 1);
-			}
-			&__secondLineDot {
+				height: 10px;
 				content: '';
-				position: absolute;
-				bottom: -63px;
-				right: 300px;
-				height: 10px;
-				width: 10px;
+				background-color: rgb(144 114 167 / 100%);
 				border-radius: 50%;
-				background-color: rgba(144, 114, 167, 1);
+			}
+
+			&__secondLineDot {
+				position: absolute;
+				right: 300px;
+				bottom: -63px;
+				width: 10px;
+				height: 10px;
+				content: '';
+				background-color: rgb(144 114 167 / 100%);
+				border-radius: 50%;
 			}
 
 			&__vertical {
 				position: absolute;
-				border: 2px dashed rgba(144, 114, 167, 1);
 				width: 70px;
+				border: 2px dashed rgb(144 114 167 / 100%);
 				transform: rotateZ(90deg);
 
 				&--right {
-					left: -35px;
 					bottom: 30px;
+					left: -35px;
 				}
 
 				&--left {
-					right: 270px;
 					top: 33px;
+					right: 270px;
 				}
 			}
 
 			&__horizontal {
 				position: absolute;
-				border: 2px dashed rgba(144, 114, 167, 1);
+				right: 0;
 				width: 300px;
-				right: 0px;
+				border: 2px dashed rgb(144 114 167 / 100%);
 			}
 		}
 	}
 
 	.lineDot {
-		content: '';
-		height: 10px;
 		width: 10px;
+		height: 10px;
+		content: '';
+		background-color: rgb(144 114 167 / 100%);
 		border-radius: 50%;
-		background-color: rgba(144, 114, 167, 1);
 	}
 
 	.innerLine {
-		border: 2px dashed rgba(144, 114, 167, 1);
 		width: 113px;
+		border: 2px dashed rgb(144 114 167 / 100%);
 	}
 
 	.exlintRun {
@@ -305,19 +321,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 17px 0;
 		width: 320px;
+		padding: 17px 0;
 		background: #202428;
-		box-shadow: 0px -2px 28px rgba(151, 71, 255, 0.3);
-		border-radius: 5px;
-		transition: box-shadow 0.9s ease-in-out;
 		border: 2.5px solid #dc6794;
+		border-radius: 5px;
+		box-shadow: 0 -2px 28px rgb(151 71 255 / 30%);
+		transition: box-shadow 0.9s ease-in-out;
 
 		&__text {
+			font-family: "IBM Plex Mono", sans-serif;
 			font-size: 2.1rem;
 			font-weight: 400;
 			color: #fefefe;
-			font-family: IBM Plex Mono, sans-serif;
 		}
 	}
 
@@ -325,21 +341,21 @@
 		position: absolute;
 		bottom: -609px;
 		z-index: 20;
-		overflow: hidden;
 		display: flex;
-		background: #242337;
-		box-shadow: 0px 0px 43px rgba(151, 71, 255, 0.5);
-		border-radius: 5px;
-		height: 291px;
 		width: 540px;
+		height: 291px;
+		overflow: hidden;
+		background: #242337;
 		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		box-shadow: 0 0 43px rgb(151 71 255 / 50%);
 	}
 
 	.moveLeft {
+		left: 11%;
 		animation-name: moveLeft;
 		animation-duration: 3s;
 		animation-iteration-count: 1;
-		left: 11%;
 	}
 
 	.positionLeft {
@@ -351,25 +367,25 @@
 	}
 
 	.returnMiddle {
+		left: 31%;
 		animation-name: returnMiddle;
 		animation-duration: 3s;
 		animation-iteration-count: 1;
-		left: 31%;
 	}
 
 	.code {
 		position: absolute;
-		bottom: -609px;
 		right: 11%;
+		bottom: -609px;
 		z-index: 0;
-		overflow: hidden;
 		display: flex;
-		background: #242337;
-		box-shadow: 0px 0px 43px rgba(151, 71, 255, 0.5);
-		border-radius: 5px;
-		height: 291px;
 		width: 540px;
+		height: 291px;
+		overflow: hidden;
+		background: #242337;
 		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		box-shadow: 0 0 43px rgb(151 71 255 / 50%);
 
 		&--visible {
 			opacity: 1;
@@ -384,23 +400,24 @@
 		.innerCode {
 			display: flex;
 			justify-content: flex-start;
-			padding: 20px;
 			width: 100%;
 			height: 100%;
+			padding: 20px;
 
 			&__lines {
-				height: auto;
 				width: 22px;
+				height: auto;
 				margin-inline-end: 20px;
 			}
 
 			&__stylint {
-				height: 100%;
 				width: auto;
+				height: 100%;
 			}
+
 			&__eslint {
-				height: 100%;
 				width: auto;
+				height: 100%;
 				opacity: 1;
 				animation: fadeIn 3s linear;
 			}
