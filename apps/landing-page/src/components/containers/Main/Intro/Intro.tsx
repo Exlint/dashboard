@@ -17,7 +17,7 @@ const Intro: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => false);
 		mixpanel.track('Copied command button CLICKED / Intro');
 
-		await navigator.clipboard.writeText(t('main.intro.command.text'));
+		await navigator.clipboard.writeText(t('main.intro.command.textCopy'));
 
 		setTimeout(() => seIsCommandCopiedState(() => false), 2000);
 	};

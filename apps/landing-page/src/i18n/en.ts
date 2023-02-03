@@ -6,7 +6,8 @@ const en = {
 			subTitle: 'Hassle Free, In No Time.',
 			subTitleMobile: 'Hassle Free,<br />In No Time.',
 			command: {
-				text: 'npm install --global @exlint.io/cli',
+				text: '$ npm install --global @exlint.io/cli',
+				textCopy: 'npm install --global @exlint.io/cli',
 				hover: 'Click to copy',
 				clicked: 'Copied!',
 			},
@@ -28,7 +29,8 @@ const en = {
 			getStarted: 'Get started for free today.',
 			shortDocs: 'Docs',
 			command: {
-				text: 'npm install --global @exlint.io/cli',
+				text: '$ npm install --global @exlint.io/cli',
+				textCopy: 'npm install --global @exlint.io/cli',
 				hover: 'Click to copy',
 				clicked: 'Copied!',
 			},
