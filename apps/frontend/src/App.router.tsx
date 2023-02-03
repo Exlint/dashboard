@@ -26,10 +26,6 @@ const Configurations = React.lazy(() => import('@/containers/Policy/Configuratio
 const Configuration = React.lazy(() => import('@/containers/Policy/Configurations/Configuration'));
 const FilesList = React.lazy(() => import('@/containers/Policy/Configurations/FilesList'));
 const Code = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Code'));
-const Form = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Form'));
-const Rules = React.lazy(() => import('@/containers/Policy/Rules'));
-const PolicyRules = React.lazy(() => import('@/containers/Policy/Rules/PolicyRules'));
-const RulesList = React.lazy(() => import('@/containers/Policy/Rules/RulesList'));
 
 const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
 	<Routes>
@@ -61,17 +57,11 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 				</Route>
 				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
 				<Route path="group-center/:groupId/policies/:policyId" element={<Policy />}>
-					<Route path="" element={<Navigate to="rules" replace />} />
-					<Route path="rules" element={<Rules />}>
-						<Route path="" element={<PolicyRules />} />
-						<Route path="rules-list" element={<RulesList />} />
-						<Route path="rules-list/:ruleId" element={<RulesList />} />
-					</Route>
+					<Route path="" element={<Navigate to="configurations" replace />} />
 					<Route path="configurations" element={<Configurations />}>
 						<Route path="" element={<Navigate to="configuration" replace />} />
 						<Route path="configuration" element={<Configuration />}>
-							<Route path="" element={<Navigate to="form" replace />} />
-							<Route path="form" element={<Form />} />
+							<Route path="" element={<Navigate to="code" replace />} />
 							<Route path="code" element={<Code />} />
 						</Route>
 						<Route path="file-list" element={<FilesList key={0} type="linted" />} />

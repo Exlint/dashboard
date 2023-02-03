@@ -13,7 +13,6 @@ import styles from '@/styles/variables.module.scss';
 
 import EDAcceptButton from '../EDAcceptButton';
 import EDSelect from '../EDSelect';
-import EDBooleanButton from '../EDBooleanButton';
 import type { IOption } from './interfaces/option';
 
 import classes from './EDConfigCode.module.scss';
@@ -71,8 +70,6 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	return (
 		<form className={classes['container']} onSubmit={props.onSubmit}>
 			<div className={classes['actionContainer']}>
-				<EDBooleanButton checked={props.isSwitchChecked} onChange={props.onIsSwitchCheckedChange} />
-
 				<span className={classes['actionContainer__instruction']}>
 					{t('configCode.fileType')}
 					<Trans>&#58;</Trans>

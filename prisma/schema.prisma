@@ -94,7 +94,7 @@ model InlinePolicy {
   library             PolicyLibrary
   formConfiguration   Json?
   codeConfiguration   String?
-  isFormConfiguration Boolean       @default(true)
+  isFormConfiguration Boolean       @default(false)
   codeType            CodeType?
   lintedList          String[]      @default([])
   ignoredList         String[]      @default([])

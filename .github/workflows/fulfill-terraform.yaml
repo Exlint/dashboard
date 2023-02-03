@@ -31,12 +31,12 @@ jobs:
 
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v1.2.4
               with:
                   should-cache: false
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.25.1
+                  package-manager-version: 7.26.3
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16

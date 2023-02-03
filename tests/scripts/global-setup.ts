@@ -2,6 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 
+import isCI from 'is-ci';
 import chalk from 'chalk';
 import dCompose from 'docker-compose';
 import waitOn from 'wait-on';
@@ -31,26 +32,28 @@ const waitOnOptions = {
 
 const globalSetup = async () => {
 	try {
-		const etcHostsFileData = await fs.readFile(ETC_HOSTS_FILE_PATH, { encoding: 'utf-8' });
+		if (!isCI) {
+			const etcHostsFileData = await fs.readFile(ETC_HOSTS_FILE_PATH, { encoding: 'utf-8' });
 
-		const mongoReplicaStringsToAppend: string[] = [];
+			const mongoReplicaStringsToAppend: string[] = [];
 
-		if (!etcHostsFileData.includes(MONGO_REPLICA_1_STRING)) {
-			mongoReplicaStringsToAppend.push(MONGO_REPLICA_1_STRING);
-		}
+			if (!etcHostsFileData.includes(MONGO_REPLICA_1_STRING)) {
+				mongoReplicaStringsToAppend.push(MONGO_REPLICA_1_STRING);
+			}
 
-		if (!etcHostsFileData.includes(MONGO_REPLICA_2_STRING)) {
-			mongoReplicaStringsToAppend.push(MONGO_REPLICA_2_STRING);
-		}
+			if (!etcHostsFileData.includes(MONGO_REPLICA_2_STRING)) {
+				mongoReplicaStringsToAppend.push(MONGO_REPLICA_2_STRING);
+			}
 
-		if (!etcHostsFileData.includes(MONGO_REPLICA_3_STRING)) {
-			mongoReplicaStringsToAppend.push(MONGO_REPLICA_3_STRING);
-		}
+			if (!etcHostsFileData.includes(MONGO_REPLICA_3_STRING)) {
+				mongoReplicaStringsToAppend.push(MONGO_REPLICA_3_STRING);
+			}
 
-		if (mongoReplicaStringsToAppend.length > 0) {
-			const stringToAppend = os.EOL + mongoReplicaStringsToAppend.join(os.EOL);
+			if (mongoReplicaStringsToAppend.length > 0) {
+				const stringToAppend = os.EOL + mongoReplicaStringsToAppend.join(os.EOL);
 
-			await fs.appendFile(ETC_HOSTS_FILE_PATH, stringToAppend, { encoding: 'utf-8' });
+				await fs.appendFile(ETC_HOSTS_FILE_PATH, stringToAppend, { encoding: 'utf-8' });
+			}
 		}
 
 		await dCompose.upAll({
