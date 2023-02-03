@@ -94,7 +94,7 @@ importers:
       '@nestjs/platform-express': 9.2.1
       '@nestjs/schematics': 9.0.4
       '@nestjs/swagger': 6.1.4
-      '@nestjs/throttler': 3.1.0
+      '@nestjs/throttler': 4.0.0
       '@octokit/oauth-app': 4.2.0
       '@prisma/client': 4.9.0
       '@types/express': 4.17.16
@@ -142,7 +142,7 @@ importers:
       '@nestjs/jwt': 10.0.1_@nestjs+common@9.2.1
       '@nestjs/passport': 9.0.0_6o47igfla2pj7yzh7agpvpttka
       '@nestjs/platform-express': 9.2.1_hjcqpoaebdr7gdo5hgc22hthbe
-      '@nestjs/throttler': 3.1.0_dntc3uqqknzoduyjojusds5kla
+      '@nestjs/throttler': 4.0.0_dntc3uqqknzoduyjojusds5kla
       '@octokit/oauth-app': 4.2.0
       '@prisma/client': 4.9.0_prisma@4.9.0
       class-transformer: 0.5.1
@@ -2759,8 +2759,8 @@ packages:
       swagger-ui-dist: 4.15.5
     dev: true
 
-  /@nestjs/throttler/3.1.0_dntc3uqqknzoduyjojusds5kla:
-    resolution: {integrity: sha512-u9a5+rci6ybYtJ2is6gZWxE2dMZEpnK0qJ0C1OnchuNCvM21Bg6qym1TB6Uihhci+JfTv6E15WuASLXcIclsbA==}
+  /@nestjs/throttler/4.0.0_dntc3uqqknzoduyjojusds5kla:
+    resolution: {integrity: sha512-2T2S/hFhxROa/PZRZhHWFkrukxg3T8Db32Y04m6U6j6N2XqFGSKXhjfIbORO8kk/S2jswa9oTX/K12E120tgaQ==}
     peerDependencies:
       '@nestjs/common': ^7.0.0 || ^8.0.0 || ^9.0.0
       '@nestjs/core': ^7.0.0 || ^8.0.0 || ^9.0.0
