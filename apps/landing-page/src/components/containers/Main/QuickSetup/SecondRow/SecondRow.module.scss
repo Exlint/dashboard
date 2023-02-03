@@ -5,13 +5,14 @@
 .container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	margin-top: 103px;
+	width: 100%;
 
 	.leftSide {
 		display: flex;
 		flex-direction: column;
-		margin-inline-end: 90px;
+		margin-inline-end: 35px;
 
 		&__title {
 			font-size: 2.4rem;
@@ -27,6 +28,10 @@
 			font-weight: 700;
 			color: #e7e7e7;
 			margin: 16px 0;
+
+			&--mobile {
+				display: none;
+			}
 		}
 
 		.innerDots {
@@ -45,10 +50,10 @@
 				}
 
 				&__text {
-					margin-inline-start: 20px;
 					color: #bbb8ca;
 					font-size: 2rem;
 					font-weight: 400;
+					margin-inline-start: 20px;
 				}
 			}
 		}
@@ -58,6 +63,7 @@
 		position: relative;
 		display: flex;
 		width: 662px;
+		margin-inline-end: 18px;
 
 		.commandBox {
 			z-index: 1;
@@ -94,7 +100,6 @@
 		}
 	}
 }
-
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		flex-direction: column;
@@ -103,7 +108,7 @@
 		border: 2.5px solid #dc6794;
 		padding: 16px 0;
 		backdrop-filter: blur(2.5px);
-		max-width: 400px;
+		max-width: map.get($sizes, main-mobile-width);
 		padding: map.get($sizes, minimal-mobile-padding);
 
 		.leftSide {
@@ -118,8 +123,15 @@
 			}
 
 			&__description {
-				font-size: 2.1rem;
-				margin: 24px 0;
+				display: none;
+
+				&--mobile {
+					display: block;
+					font-size: 2.1rem;
+					margin: 24px 0;
+					font-weight: 700;
+					color: #e7e7e7;
+				}
 			}
 
 			.innerDots {
@@ -138,8 +150,8 @@
 		}
 
 		.rightSide {
-			width: 322px;
-			margin-top: 43px;
+			width: 100%;
+			margin: 43px 0 0 0;
 
 			.commandBox {
 				top: -25px;

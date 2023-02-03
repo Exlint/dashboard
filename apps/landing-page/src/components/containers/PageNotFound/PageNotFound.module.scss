@@ -35,10 +35,10 @@
 	height: 100vh;
 	padding: 5px 20px;
 	background: linear-gradient(180deg, #0e0d14 0%, #242337 75.69%);
+	overflow: hidden;
 
 	.innerPage {
 		display: flex;
-		position: relative;
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
@@ -89,35 +89,46 @@
 
 @media (max-width: 850px) {
 	.container {
-		&__header {
-			font-size: 2.7rem;
-		}
-
-		.pageNotFoundSubText {
-			&__text {
-				font-size: 1.7rem !important;
+		.innerPage {
+			&__header {
+				font-size: 2.7rem;
 			}
 
-			&__link {
-				font-size: 1.7rem !important;
+			.pageNotFoundSubText {
+				&__text {
+					font-size: 1.7rem;
+				}
+
+				&__link {
+					font-size: 1.7rem;
+				}
 			}
 		}
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: 850px) {
 	.container {
-		&__header {
-			font-size: 2.5rem;
-		}
+		.innerPage {
+			margin-top: 50px;
 
-		.pageNotFoundSubText {
-			&__text {
-				font-size: 1.3rem !important;
+			&__image {
+				width: 271px;
+				height: 228px;
+			}
+			&__header {
+				margin-top: 50px;
+				font-size: 2.5rem;
 			}
 
-			&__link {
-				font-size: 1.3rem !important;
+			.pageNotFoundSubText {
+				&__text {
+					font-size: 1.7rem;
+				}
+
+				&__link {
+					font-size: 1.7rem;
+				}
 			}
 		}
 	}

@@ -50,7 +50,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 								>
 									<ELPSvg className={classes['docsIcon']} name="docs" />
 									<span className={classes['element__text']}>
-										{t('main.empowerEfficient.docs')}
+										{t('main.empowerEfficient.shortDocs')}
 									</span>
 								</button>
 								{/* <div className={classes['element']}>

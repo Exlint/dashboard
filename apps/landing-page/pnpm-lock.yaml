@@ -25,7 +25,6 @@ importers:
       eslint-plugin-react-hooks: ^4.3.0
       eslint-plugin-unused-imports: ^2.0.0
       figlet: ^1.5.2
-      husky: 8.0.1
       i18next: ^21.6.10
       is-ci: ^3.0.1
       lint-staged: 12.4.1
@@ -74,7 +73,6 @@ importers:
       eslint-plugin-react-hooks: 4.3.0_eslint@8.8.0
       eslint-plugin-unused-imports: 2.0.0_e4ibow4oc44lr447a3h2tktrle
       figlet: 1.5.2
-      husky: 8.0.1
       is-ci: 3.0.1
       lint-staged: 12.4.1
       prettier: 2.5.1
@@ -2496,12 +2494,6 @@ packages:
   /human-signals/2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
-
-  /husky/8.0.1:
-    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
-    engines: {node: '>=14'}
-    hasBin: true
-    dev: true
 
   /i18next/21.6.10:
     resolution: {integrity: sha512-Xw+tEGQ61BF6SXtBlFffhM/YhJKHZf2cyDrcNK/l2dE6yVbkPkSasC3VhkAsHXX30vUJ0yG04WIUtf7UvwjOxg==}

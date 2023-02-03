@@ -6,6 +6,7 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { useRouter } from 'next/router';
 import mixpanel from 'mixpanel-browser';
 
 import Footer from '@/layout/Footer';
@@ -20,6 +21,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 		'source': "Pat's affiliate site",
 		'Opted out of email': true,
 	});
+
+	const router = useRouter();
 
 	return (
 		<>
@@ -51,7 +54,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<Main>
 				<Component {...pageProps} />
 			</Main>
-			<Footer />
+			{router.pathname !== '/404' && <Footer />}
 		</>
 	);
 }

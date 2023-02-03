@@ -86,25 +86,6 @@
 	}
 }
 
-@keyframes typing {
-	from {
-		width: 0;
-	}
-	to {
-		width: 100%;
-	}
-}
-
-@keyframes blink-caret {
-	from,
-	to {
-		border-color: transparent;
-	}
-	50% {
-		border-color: orange;
-	}
-}
-
 @keyframes moveLeft {
 	0% {
 		left: 31%;
@@ -146,8 +127,8 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	max-width: 1440px;
 	margin: 0 auto;
+	padding: 0 map.get($sizes, minimal-web-padding);
 
 	.backgroundContainer {
 		position: absolute;
@@ -429,7 +410,6 @@
 
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
-		max-width: map.get($sizes, main-ipad-width);
 		display: none;
 	}
 }

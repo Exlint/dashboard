@@ -18,6 +18,9 @@ const SecondRowView: React.FC<IProps> = () => {
 				<span className={classes['leftSide__description']}>
 					<Trans i18nKey="main.quickSetup.secondRow.description" />
 				</span>
+				<span className={classes['leftSide__description--mobile']}>
+					<Trans i18nKey="main.quickSetup.secondRow.descriptionMobile" />
+				</span>
 				<div className={classes['innerDots']}>
 					<div className={classes['lineContainer']}>
 						<span className={classes['lineContainer__dot']} />

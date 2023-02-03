@@ -12,10 +12,12 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	padding: 0 map.get($sizes, minimal-web-width);
 
 	.innerBox {
 		display: flex;
 		flex-direction: column;
+		max-width: map.get($sizes, sub-web-width);
 		padding: 55px 85px;
 		border-radius: 10px;
 		background: linear-gradient(
@@ -100,7 +102,7 @@
 
 			&__img {
 				width: 208px;
-				height: 214px;
+				height: 21 4px;
 				margin-inline-start: 293px;
 			}
 		}

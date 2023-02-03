@@ -149,6 +149,7 @@
 
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
+		width: 100%;
 		max-width: map.get($sizes, main-ipad-width);
 		margin-top: 236px;
 

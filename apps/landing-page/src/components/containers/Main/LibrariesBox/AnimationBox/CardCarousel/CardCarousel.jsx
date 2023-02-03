@@ -1,9 +1,12 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import ReactCardCarousel from 'react-card-carousel';
 
 import classes from './CardCarousel.module.scss';
 
-const CardCarouselView = (onHighlightIcons) => {
+const CardCarouselView = (props) => {
+	const { onHighlightIcons } = props;
+
 	return (
 		<div className={classes['container']}>
 			<ReactCardCarousel

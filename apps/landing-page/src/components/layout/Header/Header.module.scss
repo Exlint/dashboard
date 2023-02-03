@@ -39,7 +39,7 @@
 	display: flex;
 	width: 100%;
 	background: transparent;
-	padding: 0 24px;
+	padding: 0 map.get($sizes, minimal-web-padding);
 	margin-top: 30px;
 
 	.innerHeader {
@@ -150,6 +150,7 @@
 				&__text {
 					position: relative;
 					z-index: 3;
+					white-space: nowrap;
 				}
 			}
 
@@ -176,7 +177,6 @@
 
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.header {
-		max-width: map.get($sizes, main-ipad-width);
 		margin-top: 23px;
 		padding: 0 map.get($sizes, minimal-mobile-padding);
 
