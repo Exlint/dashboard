@@ -8,6 +8,11 @@ variable "docs_s3_bucket_name" {
   type        = string
 }
 
+variable "landing_page_s3_bucket_name" {
+  description = "Name of the S3 bucket dedicated for the landing-page application"
+  type        = string
+}
+
 variable "vpc_cidr" {
   description = "The CIDR block for the VPC"
   type        = string
@@ -33,16 +38,6 @@ variable "project" {
 
 variable "domain_name" {
   description = "Domain name of application"
-  type        = string
-}
-
-variable "frontend_domain_name" {
-  description = "Domain name of frontend application"
-  type        = string
-}
-
-variable "docs_domain_name" {
-  description = "Domain name of docs application"
   type        = string
 }
 
