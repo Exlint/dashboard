@@ -5,6 +5,10 @@ const configuration = {
 		dirs: ['./src'],
 		ignoreDuringBuilds: true,
 	},
+	images: {
+		loader: 'akamai',
+		path: '',
+	},
 };
 
 module.exports = configuration;
