@@ -8,11 +8,11 @@ const PreTestsAuthentication = async () => {
 	await page.goto('/');
 	await page.getByTestId('auth-github-auth-button').click();
 
-	await page.getByLabel('Username or email address').fill('automations@exlint.io');
-	await page.getByLabel('Password').fill('H2!2j!p8pu8K6TA8KmmgBAJ@vun^qsNV9ugMCRz9');
+	await page.getByLabel('Username or email address').fill(process.env.AUTOMATION_GITHUB_EMAIL);
+	await page.getByLabel('Password').fill(process.env.AUTOMATION_GITHUB_PASSWORD);
 	await page.getByRole('button', { name: 'Sign in' }).click();
 
-	const totpToken = totp('V3OQBXCDHSXTD3IC');
+	const totpToken = totp(process.env.AUTOMATION_GITHUB_TOTP_KEY);
 
 	await page.getByPlaceholder('XXXXXX').fill(totpToken);
 
@@ -35,7 +35,7 @@ const PreTestsAuthentication = async () => {
 	const shuoldVerifyAgain = await errorElement.isVisible().catch(() => false);
 
 	if (shuoldVerifyAgain) {
-		const totpToken = totp('V3OQBXCDHSXTD3IC');
+		const totpToken = totp(process.env.AUTOMATION_GITHUB_TOTP_KEY);
 
 		await page.getByPlaceholder('XXXXXX').fill(totpToken);
 

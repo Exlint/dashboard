@@ -30,7 +30,9 @@
 		"depcheck:nested": "nx run-many --target=depcheck --nx-bail",
 		"depcheck:all": "run-p depcheck:root depcheck:nested",
 		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}",
-		"test": "playwright test -c ./playwright.config.ts",
+		"test:ci": "playwright test -c ./playwright.config.ts",
+		"test:local": "dotenv -e ./tests/.env playwright test -c ./playwright.config.ts",
+		"test:debug": "dotenv -e ./tests/.env playwright test -c ./playwright.config.ts --debug",
 		"build:nested": "nx run-many --target=build --nx-bail"
 	},
 	"devDependencies": {

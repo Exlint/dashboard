@@ -4,3 +4,4 @@ tsconfig.tsbuildinfo
 .terraform
 playwright-report
 auth-state.json
+tests/.env
