@@ -10,8 +10,8 @@
 			"@/config/*": ["src/config/*"],
 			"@/decorators/*": ["src/decorators/*"],
 			"@/models/*": ["src/models/*"],
-			"@/interfaces/*": ["src/interfaces/*"],
 			"@/guards/*": ["src/guards/*"],
+			"@/interfaces/*": ["src/interfaces/*"],
 			"@/data/*": ["src/data/*"]
 		},
 		"typeRoots": ["./node_modules/@types", "./@types"]
