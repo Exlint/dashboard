@@ -31,18 +31,9 @@
 		text-decoration: none;
 		border-radius: 10px;
 
-		&:not(:last-child) {
-			margin-bottom: map.get(variables.$sizes, spacing-l);
-		}
-
 		&--github {
 			background-color: map.get(variables.$colors, blacks-yankees-black-blue);
 			border: 1.5px solid transparent;
-		}
-
-		&--google {
-			background-color: map.get(variables.$colors, whites-white);
-			border: 1.5px solid map.get(variables.$colors, greys-platinum);
 		}
 
 		&__brandLogo {

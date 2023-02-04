@@ -33,27 +33,19 @@ test.describe('Auth page @auth-page', () => {
 		await expect(gitHubAuthenticationButtonElement).toBeVisible();
 	});
 
-	test('auth page should have Google authentication button', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
-
-		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-google-auth-button']");
-
-		await expect(googleAuthenticationButtonElement).toBeVisible();
-	});
-
 	test('auth page should have terms of service link', async ({ page }) => {
 		await page.goto('http://localhost:8080/');
 
-		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-terms-of-service-link']");
+		const authTermsOfServiceLinkElement = page.locator("[data-test-id='auth-terms-of-service-link']");
 
-		await expect(googleAuthenticationButtonElement).toBeVisible();
+		await expect(authTermsOfServiceLinkElement).toBeVisible();
 	});
 
 	test('auth page should have privacy policy link', async ({ page }) => {
 		await page.goto('http://localhost:8080/');
 
-		const googleAuthenticationButtonElement = page.locator("[data-test-id='auth-privacy-policy-link']");
+		const authPrivacyPolicyLinkElement = page.locator("[data-test-id='auth-privacy-policy-link']");
 
-		await expect(googleAuthenticationButtonElement).toBeVisible();
+		await expect(authPrivacyPolicyLinkElement).toBeVisible();
 	});
 });

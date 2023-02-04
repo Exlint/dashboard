@@ -1,6 +1,6 @@
 module "cdn" {
   source  = "terraform-aws-modules/cloudfront/aws"
-  version = "3.1.0"
+  version = "3.2.0"
 
   comment                       = "Cloudfront for caching S3 private and static website"
   is_ipv6_enabled               = true
