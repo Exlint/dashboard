@@ -45,30 +45,33 @@ const isDocker = hasDockerEnv() || hasDockerCGroup();
 
 const removeDataTestIdsForProduction = [
 	VitePluginReactRemoveAttributes({
-		attributes: ['data-test-id'],
+		attributes: ['data-testid'],
 	}),
 ];
 
-export default defineConfig(() => ({
-	server: {
-		port: 8080,
-		open: !isDocker,
-		host: isDocker ? '0.0.0.0' : 'localhost',
-	},
-	base: '/',
-	build: { outDir: './dist' },
-	plugins: [
-		react(),
-		tsconfigPaths(),
-		prismaPlugin(),
-		...(process.env.NODE_ENV === 'production' && process.env.AUTOMATION !== 'true'
-			? removeDataTestIdsForProduction
-			: []),
-	],
-	resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },
-	preview: {
-		port: 8080,
-		open: process.env.NODE_ENV !== 'test',
-		host: isDocker ? '0.0.0.0' : 'localhost',
-	},
-}));
+export default defineConfig(({ mode }) => {
+	const appMode = process.env.AUTOMATION === 'true' ? 'test' : mode;
+
+	return {
+		server: {
+			port: 8080,
+			open: !isDocker,
+			host: isDocker ? '0.0.0.0' : 'localhost',
+		},
+		base: '/',
+		build: { outDir: './dist' },
+		plugins: [
+			react(),
+			tsconfigPaths(),
+			prismaPlugin(),
+			...(appMode !== 'test' ? removeDataTestIdsForProduction : []),
+		],
+		resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },
+		preview: {
+			port: 8080,
+			open: appMode !== 'test',
+			host: isDocker ? '0.0.0.0' : 'localhost',
+		},
+		mode: appMode,
+	};
+});

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { concatClasses } from '@/utils/component';
 import githubBrandLogo from '@/images/github-brand-logo.png';
-import googleBrandLogo from '@/images/google-brand-logo.png';
 
 import classes from './RightSide.module.scss';
 
@@ -15,11 +14,9 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	const { t } = useTranslation();
 
 	let githubAuthUrl = `${import.meta.env.VITE_BACKEND_URL}/user/auth/github-auth`;
-	let googleAuthUrl = `${import.meta.env.VITE_BACKEND_URL}/user/auth/google-auth`;
 
 	if (props.port) {
 		githubAuthUrl += `?port=${props.port}`;
-		googleAuthUrl += `?port=${props.port}`;
 	}
 
 	return (
@@ -34,7 +31,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					'rightSideExternalAuthContainer--github',
 				)}
 				href={githubAuthUrl}
-				data-test-id="auth-github-auth-button"
+				data-testid="auth-github-auth-button"
 			>
 				<img
 					className={classes['rightSideExternalAuthContainer__brandLogo']}
@@ -51,30 +48,6 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					{t('auth.githubAuth')}
 				</span>
 			</a>
-			<a
-				className={concatClasses(
-					classes,
-					'rightSideExternalAuthContainer',
-					'rightSideExternalAuthContainer--google',
-				)}
-				href={googleAuthUrl}
-				data-test-id="auth-google-auth-button"
-			>
-				<img
-					className={classes['rightSideExternalAuthContainer__brandLogo']}
-					src={googleBrandLogo}
-					alt={t('auth.googleAuth')}
-				/>
-				<span
-					className={concatClasses(
-						classes,
-						'rightSideExternalAuthContainer__text',
-						'rightSideExternalAuthContainer__text--google',
-					)}
-				>
-					{t('auth.googleAuth')}
-				</span>
-			</a>
 
 			<hr className={classes['rightSideContainer__divider']} />
 
@@ -89,7 +62,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					className={classes['rightSideContainer__textLink']}
 					href="https://github.com/Exlint/public-exlint-usage-policies/blob/main/terms-of-service"
 					target="_blank"
-					data-test-id="auth-terms-of-service-link"
+					data-testid="auth-terms-of-service-link"
 				>
 					{t('auth.policiesDiscalimer.termsOfService')}
 				</a>
@@ -100,7 +73,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					className={classes['rightSideContainer__textLink']}
 					href="https://github.com/Exlint/public-exlint-usage-policies/blob/main/privacy-policy"
 					target="_blank"
-					data-test-id="auth-privacy-policy-link"
+					data-testid="auth-privacy-policy-link"
 				>
 					{t('auth.policiesDiscalimer.privacyPolicy')}
 				</a>

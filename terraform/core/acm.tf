@@ -6,7 +6,7 @@ provider "aws" {
 
 module "acm_cloudfront" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "4.3.1"
+  version = "4.3.2"
 
   providers = {
     aws = aws.cloudfront_certificates_region
@@ -14,7 +14,7 @@ module "acm_cloudfront" {
 
   domain_name               = var.domain_name
   zone_id                   = aws_route53_zone.primary.zone_id
-  subject_alternative_names = [var.frontend_domain_name, var.docs_domain_name]
+  subject_alternative_names = ["*.${var.domain_name}"]
   wait_for_validation       = true
 
   tags = merge(
@@ -28,7 +28,7 @@ module "acm_cloudfront" {
 
 module "acm_alb" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "4.3.1"
+  version = "4.3.2"
 
   domain_name               = var.domain_name
   zone_id                   = aws_route53_zone.primary.zone_id

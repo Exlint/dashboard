@@ -15,7 +15,7 @@ const NavView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<nav className={classes['container']}>
+		<nav className={classes['container']} data-testid="nav">
 			<div className={classes['linksContainer']}>
 				<Link className={classes['logoLink']} to="/">
 					<img className={classes['logoLink__logo']} src={whiteBrandLogo} alt="Exlint" />

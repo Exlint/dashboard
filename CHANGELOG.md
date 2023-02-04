@@ -1,3 +1,10 @@
+## [1.22.2](https://github.com/Exlint/dashboard/compare/v1.22.1...v1.22.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* 🐞 [EXL-127] remove scroll from side bar group title ([1afc433](https://github.com/Exlint/dashboard/commit/1afc4336aaf38772b597b79f30750ac948041f89))
+
 ## [1.22.1](https://github.com/Exlint/dashboard/compare/v1.22.0...v1.22.1) (2023-01-24)
 
 

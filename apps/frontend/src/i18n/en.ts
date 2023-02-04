@@ -250,6 +250,7 @@ const en = {
 				fileList: 'File List',
 				ignoreList: 'Ignore List',
 			},
+			comingSoonNotificationTitle: 'Feature coming soon!',
 		},
 		rules: {
 			switchInstruction: 'Selection-based configuration',

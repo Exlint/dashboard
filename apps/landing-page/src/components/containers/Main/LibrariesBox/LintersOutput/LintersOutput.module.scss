@@ -1,0 +1,70 @@
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 18px 38px 68px;
+
+  &__text {
+    font-family: "IBM Plex Mono", sans-serif;
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+
+  &__firstRow {
+    margin-bottom: 10px;
+    color: #ff5b5b;
+  }
+
+  &__secondRow {
+    color: #e7e7e7;
+  }
+
+  &__thirdRow {
+  }
+
+  .rowsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+
+  .rowsContainerWithoutMargin {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lastRow {
+    margin-top: 15px;
+  }
+
+  .rowContainer {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      width: 10px;
+      height: 10px;
+      margin: 0 7px 0 10px;
+    }
+
+    &__marginLeft {
+      margin-inline-start: 10px;
+    }
+
+    &__gray {
+      color: #9b9b9b;
+    }
+
+    &__yellow {
+      color: #fff500;
+    }
+
+    &__red {
+      margin: 0 7px;
+      color: #ff5b5b;
+    }
+
+    &__white {
+      color: #e7e7e7;
+    }
+  }
+}

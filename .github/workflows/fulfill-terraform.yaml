@@ -14,6 +14,7 @@ jobs:
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             TF_VAR_frontend_s3_bucket_name: ${{ secrets.FRONTEND_AWS_S3_BUCKET }}
             TF_VAR_docs_s3_bucket_name: ${{ secrets.DOCS_AWS_S3_BUCKET }}
+            TF_VAR_landing_page_s3_bucket_name: ${{ secrets.LANDING_PAGE_AWS_S3_BUCKET }}
             TF_VAR_backend_repository: dashboard-backend
             TF_VAR_cli_backend_repository: dashboard-cli-backend
             TF_VAR_database_url: mongodb+srv://${{ secrets.MONGODB_USERNAME }}:${{ secrets.MONGODB_PASSWORD }}@dashboard.elge3qb.mongodb.net/dashboard?retryWrites=true&w=majority
@@ -31,12 +32,12 @@ jobs:
 
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.1.0
+              uses: Exlint/node-environment@v1.2.4
               with:
                   should-cache: false
                   node-version: 18.13.0
                   package-manager: pnpm
-                  package-manager-version: 7.25.1
+                  package-manager-version: 7.26.3
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
@@ -75,9 +76,11 @@ jobs:
               run: |
                 frontend_cloudfront_distribution_id=$(terraform output -raw frontend_cloudfront_distribution_id)
                 docs_cloudfront_distribution_id=$(terraform output -raw docs_cloudfront_distribution_id)
+                landing_page_cloudfront_distribution_id=$(terraform output -raw landing_page_cloudfront_distribution_id)
                 eks_kubeconfig=$(terraform output -raw eks_kubeconfig | base64)
                 echo "FRONTEND_CLOUDFRONT_DISTRIBUTION_ID=$frontend_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "DOCS_CLOUDFRONT_DISTRIBUTION_ID=$docs_cloudfront_distribution_id" >> $GITHUB_OUTPUT
+                echo "LANDING_PAGE_CLOUDFRONT_DISTRIBUTION_ID=$landing_page_cloudfront_distribution_id" >> $GITHUB_OUTPUT
                 echo "KUBE_CONFIG_B64<<EOF" >> $GITHUB_OUTPUT
                 echo "$eks_kubeconfig" >> $GITHUB_OUTPUT
                 echo "EOF" >> $GITHUB_OUTPUT
@@ -95,6 +98,14 @@ jobs:
               with:
                 name: DOCS_AWS_CLOUDFRONT_DISTRIBUTION_ID
                 value: ${{ steps.terraform-outputs.outputs.DOCS_CLOUDFRONT_DISTRIBUTION_ID }}
+                repository: Exlint/dashboard
+                token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
+
+            - name: Set landing-page Cloudfront distribution ID secret
+              uses: hmanzur/actions-set-secret@v2.0.0
+              with:
+                name: LANDING_PAGE_AWS_CLOUDFRONT_DISTRIBUTION_ID
+                value: ${{ steps.terraform-outputs.outputs.LANDING_PAGE_CLOUDFRONT_DISTRIBUTION_ID }}
                 repository: Exlint/dashboard
                 token: ${{ secrets.SET_SECRETS_GH_TOKEN }}
 
@@ -176,6 +187,21 @@ jobs:
                   bucket: ${{ secrets.DOCS_AWS_S3_BUCKET }}
                   bucket-region: ${{ secrets.AWS_REGION }}
                   dist-id: ${{ steps.terraform-outputs.outputs.DOCS_CLOUDFRONT_DISTRIBUTION_ID }}
+                  invalidation: /
+                  delete-removed: true
+                  private: true
+                  filesToInclude: '**/*'
+
+            - name: Build landing-page
+              run: pnpm exec nx build @exlint.io/landing-page
+
+            - name: Deploy to S3 and invalidate Cloudfront
+              uses: reggionick/s3-deploy@v3
+              with:
+                  folder: ./apps/landing-page/out
+                  bucket: ${{ secrets.LANDING_PAGE_AWS_S3_BUCKET }}
+                  bucket-region: ${{ secrets.AWS_REGION }}
+                  dist-id: ${{ steps.terraform-outputs.outputs.LANDING_PAGE_CLOUDFRONT_DISTRIBUTION_ID }}
                   invalidation: /
                   delete-removed: true
                   private: true
