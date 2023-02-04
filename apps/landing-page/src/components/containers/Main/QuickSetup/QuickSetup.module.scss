@@ -1,0 +1,38 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	justify-content: center;
+	padding: 0 map.get($sizes, minimal-web-padding);
+	margin-top: 780px;
+
+	.innerContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		max-width: map.get($sizes, sub-web-width);
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		display: flex;
+		height: 1324px;
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		margin-top: 0;
+		background-image: url('../../../../../public/images/quick-setup-mobile-bg.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		.innerContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: map.get($sizes, main-ipad-width);
+		}
+	}
+}

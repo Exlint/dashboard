@@ -1,0 +1,31 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.cmd {
+	display: flex;
+	justify-content: center;
+	margin-top: 24px;
+
+	.innerCmd {
+		width: 850px;
+		height: 509px;
+		overflow-y: hidden;
+		background-color: #23241f;
+		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.cmd {
+		max-width: map.get($sizes, main-ipad-width);
+		padding: 0 map.get($sizes, minimal-mobile-padding);
+		margin-top: 64px;
+
+		.innerCmd {
+			width: 361px;
+			height: 225px;
+		}
+	}
+}
