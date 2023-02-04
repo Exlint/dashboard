@@ -1,50 +1,52 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Auth page @auth-page', () => {
-	test('auth page should have brand logo', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+test.use({ storageState: { cookies: [], origins: [] } });
 
-		const brandLogoElement = page.locator("[data-test-id='auth-brand-logo']");
+test.describe('Auth page @auth-page-basic', () => {
+	test('auth page should have brand logo', async ({ page }) => {
+		await page.goto('/');
+
+		const brandLogoElement = page.getByTestId('auth-brand-logo');
 
 		await expect(brandLogoElement).toBeVisible();
 	});
 
 	test('auth page should have main header', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+		await page.goto('/');
 
-		const mainHeaderElement = page.locator("[data-test-id='auth-main-header']");
+		const mainHeaderElement = page.getByTestId('auth-main-header');
 
 		await expect(mainHeaderElement).toBeVisible();
 	});
 
 	test('auth page should have sub header', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+		await page.goto('/');
 
-		const subHeaderElement = page.locator("[data-test-id='auth-sub-header']");
+		const subHeaderElement = page.getByTestId('auth-sub-header');
 
 		await expect(subHeaderElement).toBeVisible();
 	});
 
 	test('auth page should GitHub authentication button', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+		await page.goto('/');
 
-		const gitHubAuthenticationButtonElement = page.locator("[data-test-id='auth-github-auth-button']");
+		const gitHubAuthenticationButtonElement = page.getByTestId('auth-github-auth-button');
 
 		await expect(gitHubAuthenticationButtonElement).toBeVisible();
 	});
 
 	test('auth page should have terms of service link', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+		await page.goto('/');
 
-		const authTermsOfServiceLinkElement = page.locator("[data-test-id='auth-terms-of-service-link']");
+		const authTermsOfServiceLinkElement = page.getByTestId('auth-terms-of-service-link');
 
 		await expect(authTermsOfServiceLinkElement).toBeVisible();
 	});
 
 	test('auth page should have privacy policy link', async ({ page }) => {
-		await page.goto('http://localhost:8080/');
+		await page.goto('/');
 
-		const authPrivacyPolicyLinkElement = page.locator("[data-test-id='auth-privacy-policy-link']");
+		const authPrivacyPolicyLinkElement = page.getByTestId('auth-privacy-policy-link');
 
 		await expect(authPrivacyPolicyLinkElement).toBeVisible();
 	});

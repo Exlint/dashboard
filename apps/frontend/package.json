@@ -2,7 +2,7 @@
 	"name": "@exlint.io/frontend",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Backend package",
+	"description": "Frontend package",
 	"author": "Exlint <dev@exlint.io> (https://exlint.io)",
 	"license": "UNLICENSED",
 	"scripts": {
@@ -11,7 +11,7 @@
 		"start:dev:docker": "vite -c ./vite.config.ts",
 		"build": "vite build -c ./vite.config.ts",
 		"build:automation": "AUTOMATION=true vite build -c ./vite.config.ts",
-		"preview": "vite preview -c ./vite.config.ts",
+		"preview:automation": "AUTOMATION=true vite preview -c ./vite.config.ts",
 		"prisma-gen": "prisma generate --schema ../../prisma/schema.prisma",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.{ts,tsx,cjs}\"",
 		"type-check": "tsc --project ./tsconfig.json",

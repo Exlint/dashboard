@@ -16,12 +16,12 @@ const AuthView: React.FC<IProps> = () => {
 				className={classes['container__brandLogo']}
 				src={authBrandLogo}
 				alt="Exlint"
-				data-test-id="auth-brand-logo"
+				data-testid="auth-brand-logo"
 			/>
-			<h2 className={classes['container__header']} data-test-id="auth-main-header">
+			<h2 className={classes['container__header']} data-testid="auth-main-header">
 				<Trans i18nKey="auth.backgroundHeader" />
 			</h2>
-			<h4 className={classes['container__subHeader']} data-test-id="auth-sub-header">
+			<h4 className={classes['container__subHeader']} data-testid="auth-sub-header">
 				{t('auth.backgroundSubHeader')}
 			</h4>
 		</section>
