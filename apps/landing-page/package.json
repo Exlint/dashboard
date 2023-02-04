@@ -7,9 +7,9 @@
 	"license": "UNLICENSED",
 	"scripts": {
 		"start:dev": "next dev -p 80",
-		"build": "next build",
+		"dist": "next build",
 		"export": "next export",
-		"dist": "run-s build export",
+		"build": "run-s dist export",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
