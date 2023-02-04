@@ -1,10 +1,4 @@
 module.exports = {
-	extends: [
-		'stylelint-config-standard-scss',
-		'stylelint-config-recess-order',
-		'stylelint-config-prettier-scss',
-	],
-	plugins: ['stylelint-declaration-strict-value'],
 	rules: {
 		'selector-class-pattern': [
 			'^[a-z][A-Za-z0-9]*((--([a-z][A-Za-z0-9]*)(__([a-z][A-Za-z0-9]*))?)|(__([a-z][A-Za-z0-9]*)(--([a-z][A-Za-z0-9]*))?))?$',

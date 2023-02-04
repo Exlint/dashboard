@@ -5,13 +5,14 @@
 .container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+	width: 100%;
 	margin-top: 103px;
 
 	.leftSide {
 		display: flex;
 		flex-direction: column;
-		margin-inline-end: 90px;
+		margin-inline-end: 35px;
 
 		&__title {
 			font-size: 2.4rem;
@@ -27,6 +28,10 @@
 			font-size: 2.8rem;
 			font-weight: 700;
 			color: #e7e7e7;
+
+			&--mobile {
+				display: none;
+			}
 		}
 
 		.innerDots {
@@ -58,6 +63,7 @@
 		position: relative;
 		display: flex;
 		width: 662px;
+		margin-inline-end: 18px;
 
 		.commandBox {
 			position: absolute;
@@ -94,11 +100,10 @@
 		}
 	}
 }
-
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		flex-direction: column;
-		max-width: 400px;
+		max-width: map.get($sizes, main-mobile-width);
 		padding: map.get($sizes, minimal-mobile-padding);
 		margin-top: 48px;
 		border: 2.5px solid #dc6794;
@@ -117,8 +122,15 @@
 			}
 
 			&__description {
-				margin: 24px 0;
-				font-size: 2.1rem;
+				display: none;
+
+				&--mobile {
+					display: block;
+					margin: 24px 0;
+					font-size: 2.1rem;
+					font-weight: 700;
+					color: #e7e7e7;
+				}
 			}
 
 			.innerDots {
@@ -138,8 +150,8 @@
 		}
 
 		.rightSide {
-			width: 322px;
-			margin-top: 43px;
+			width: 100%;
+			margin: 43px 0 0;
 
 			.commandBox {
 				top: -25px;

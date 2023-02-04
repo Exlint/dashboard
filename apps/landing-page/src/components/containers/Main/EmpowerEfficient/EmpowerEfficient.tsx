@@ -16,7 +16,7 @@ const EmpowerEfficient: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => false);
 		mixpanel.track('Copied command button CLICKED / EmpowerEfficient');
 
-		await navigator.clipboard.writeText(t('main.empowerEfficient.command.text'));
+		await navigator.clipboard.writeText(t('main.empowerEfficient.command.textCopy'));
 
 		setTimeout(() => seIsCommandCopiedState(() => false), 2000);
 	};

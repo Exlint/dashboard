@@ -11,10 +11,11 @@ interface IProps {}
 const QuickSetupView: React.FC<IProps> = () => {
 	return (
 		<section className={classes['container']}>
-			<Intro />
-			<FirstRow />
-
-			<SecondRow />
+			<div className={classes['innerContainer']}>
+				<Intro />
+				<FirstRow />
+				<SecondRow />
+			</div>
 		</section>
 	);
 };

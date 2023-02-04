@@ -6,7 +6,8 @@ const en = {
 			subTitle: 'Hassle Free, In No Time.',
 			subTitleMobile: 'Hassle Free,<br />In No Time.',
 			command: {
-				text: 'npm install --global @exlint.io/cli',
+				text: '$ npm install --global @exlint.io/cli',
+				textCopy: 'npm install --global @exlint.io/cli',
 				hover: 'Click to copy',
 				clicked: 'Copied!',
 			},
@@ -26,8 +27,10 @@ const en = {
 			github: 'GitHub Project',
 			discord: 'Discord Server',
 			getStarted: 'Get started for free today.',
+			shortDocs: 'Docs',
 			command: {
-				text: 'npm install --global @exlint.io/cli',
+				text: '$ npm install --global @exlint.io/cli',
+				textCopy: 'npm install --global @exlint.io/cli',
 				hover: 'Click to copy',
 				clicked: 'Copied!',
 			},
@@ -54,7 +57,8 @@ const en = {
 			},
 			secondRow: {
 				title: 'Developers',
-				description: 'Create coding policies in minutes with 0 manual files',
+				description: 'Create coding policies in minutes<br />with 0 manual files',
+				descriptionMobile: 'Create coding policies in minutes with 0 manual files',
 				ruleCreation: 'Easy configuration within our web app',
 				integrate: 'Integrate multiple policies as groups',
 				updating: 'Effortless extension updates',

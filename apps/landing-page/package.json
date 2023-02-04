@@ -12,7 +12,7 @@
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
-		"stylelint": "stylelint --config ./stylelint.config.cjs  \"./src/**/*.scss\" --fix",
+		"stylelint": "stylelint --config ./stylelint.config.cjs --allow-empty-input  \"./src/**/*.scss\"",
 		"template:page": "hygen component new-page",
 		"template:container": "hygen component new-container",
 		"template:layout": "hygen component new-layout",

@@ -96,44 +96,23 @@
 	}
 }
 
-@keyframes typing {
-	from {
-		width: 0;
-	}
-
-	to {
-		width: 100%;
-	}
-}
-
-@keyframes blink-caret {
-	0%,
-	100% {
-		border-color: transparent;
-	}
-
-	50% {
-		border-color: orange;
-	}
-}
-
 @keyframes moveLeft {
 	0% {
-		left: 31%;
+		left: 32%;
 	}
 
 	100% {
-		left: 11%;
+		left: 12%;
 	}
 }
 
 @keyframes returnMiddle {
 	0% {
-		left: 11%;
+		left: 12%;
 	}
 
 	100% {
-		left: 31%;
+		left: 32%;
 	}
 }
 
@@ -162,7 +141,7 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	max-width: 1440px;
+	padding: 0 map.get($sizes, minimal-web-padding);
 	margin: 0 auto;
 
 	.backgroundContainer {
@@ -337,7 +316,7 @@
 
 	.exlintRun {
 		position: absolute;
-		bottom: -190px;
+		bottom: -193px;
 		z-index: 1;
 		display: flex;
 		align-items: center;
@@ -351,7 +330,7 @@
 		transition: box-shadow 0.9s ease-in-out;
 
 		&__text {
-			font-family: "IBM Plex Mono", sans-serif;
+			font-family: 'IBM Plex Mono', sans-serif;
 			font-size: 2.1rem;
 			font-weight: 400;
 			color: #fefefe;
@@ -373,22 +352,22 @@
 	}
 
 	.moveLeft {
-		left: 11%;
+		left: 12%;
 		animation-name: moveLeft;
 		animation-duration: 3s;
 		animation-iteration-count: 1;
 	}
 
 	.positionLeft {
-		left: 11%;
+		left: 12%;
 	}
 
 	.positionMiddle {
-		left: 31%;
+		left: 32%;
 	}
 
 	.returnMiddle {
-		left: 31%;
+		left: 32%;
 		animation-name: returnMiddle;
 		animation-duration: 3s;
 		animation-iteration-count: 1;

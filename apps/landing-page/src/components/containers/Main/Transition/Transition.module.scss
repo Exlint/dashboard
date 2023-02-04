@@ -40,6 +40,7 @@
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		max-width: map.get($sizes, main-ipad-width);
+		padding-top: 0;
 
 		&__text {
 			display: none;
