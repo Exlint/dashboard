@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import ELPSvg from '@/ui/ELPSvg';
 
@@ -10,13 +9,11 @@ interface IProps {
 	readonly onShowMoreButton: () => void;
 	readonly question: string;
 	readonly answer: string;
-	readonly isClickAble: boolean;
-	readonly onNavigate: () => void;
+	readonly clickableText?: string;
+	readonly link?: string;
 }
 
 const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const { t } = useTranslation();
-
 	let showMoreOrLessButton: JSX.Element | undefined;
 
 	if (props.isShowMoreClicked) {
@@ -39,22 +36,17 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 				</button>
 			</div>
 			<div className={classes['answerInner']}>
-				<span
+				<p
 					className={classes['answerInner__answer']}
 					style={{ display: props.isShowMoreClicked ? 'none' : 'block' }}
 				>
 					{props.answer}
-				</span>
-				{props.isClickAble && (
-					<button
-						type="button"
-						className={classes['answerInner__button']}
-						style={{ display: props.isShowMoreClicked ? 'none' : 'block' }}
-						onClick={props.onNavigate}
-					>
-						{t('main.questions.here')}
-					</button>
-				)}
+					{props.clickableText && props.link && (
+						<a className={classes['answerInner__answer--link']} href={props.link} target="_blank">
+							{props.clickableText}
+						</a>
+					)}
+				</p>
 			</div>
 		</div>
 	);

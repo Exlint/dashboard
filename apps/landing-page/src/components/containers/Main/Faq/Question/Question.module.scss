@@ -31,24 +31,22 @@
 	}
 
 	.answerInner {
-		display: flex;
-		align-items: center;
+		margin-top: 45px;
 
 		&__answer {
-			margin-top: 45px;
 			font-size: 2rem;
 			font-weight: 400;
 			color: #dcdae7;
-			overflow-wrap: break-word;
-		}
 
-		&__button {
-			margin-inline-start: 5px;
-			margin-top: 45px;
-			font-size: 2rem;
-			font-weight: 400;
-			color: #dcdae7;
-			text-decoration: underline;
+			&--link {
+				margin-inline-start: 5px;
+				font-size: 2rem;
+				font-weight: 400;
+				color: #dcdae7;
+				text-decoration: underline;
+				white-space: nowrap;
+				width: min-content;
+			}
 		}
 	}
 }

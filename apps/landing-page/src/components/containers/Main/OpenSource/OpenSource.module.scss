@@ -149,7 +149,6 @@
 @media (max-width: map.get($sizes, main-ipad-width)) {
 	.container {
 		width: 100%;
-		max-width: map.get($sizes, main-ipad-width);
 		margin-top: 236px;
 
 		.background {
@@ -198,6 +197,8 @@
 		.boxContainer {
 			top: 190px;
 			flex-direction: column;
+			width: 100%;
+			max-width: map.get($sizes, main-mobile-width);
 
 			.leftSide {
 				.top {

@@ -24,8 +24,8 @@ const FaqView: React.FC<IProps> = () => {
 						key={index}
 						question={question.question}
 						answer={question.answer}
-						isClickAble={question.isClickable}
-						url={question.url}
+						clickableText={question.clickableText}
+						link={question.link}
 					/>
 				))}
 			</div>
