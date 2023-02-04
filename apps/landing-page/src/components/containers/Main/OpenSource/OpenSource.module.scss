@@ -1,0 +1,260 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 100px;
+
+	.background {
+		width: 100%;
+		height: 593px;
+		fill: transparent;
+	}
+
+	.backgroundMobile {
+		display: none;
+	}
+
+	.innerTitle {
+		position: absolute;
+		top: -85px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 59px;
+
+		&__top {
+			font-size: 7rem;
+			font-weight: 700;
+			color: #dcdae7;
+
+			&--mobile {
+				display: none;
+			}
+		}
+
+		&__bottom {
+			font-size: 7rem;
+			font-weight: 700;
+			background: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+
+			&--mobile {
+				display: none;
+			}
+		}
+	}
+
+	.boxContainer {
+		position: absolute;
+		top: 180px;
+		display: flex;
+		padding: 30px;
+		background: #1b1a29;
+		border: 2.5px solid rgb(83 58 185 / 50%);
+		border-radius: 30px;
+		box-shadow: 0 0 43px 0 #9747ff80;
+
+		.leftSide {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 20px;
+
+			.top {
+				display: flex;
+				align-items: center;
+				margin-bottom: 22px;
+
+				&__title {
+					margin-inline-end: 12px;
+					font-size: 3.2rem;
+					font-weight: 600;
+					color: #e7e7e7;
+				}
+
+				.freeBox {
+					padding: 8px 11.5px;
+					background: #7a4df3;
+					border-radius: 10px;
+
+					&__text {
+						font-size: 2.4rem;
+						font-weight: 500;
+						color: #fefefe;
+					}
+				}
+			}
+
+			.middleText {
+				font-size: 2rem;
+				font-weight: 400;
+				color: #bbb8ca;
+			}
+
+			.viewDocsButton {
+				padding: 15px 75.5px;
+				margin-top: 131px;
+				font-size: 2.4rem;
+				font-weight: 600;
+				color: #e7e7e7;
+				background: #7a4df3;
+				border-radius: 20px;
+			}
+		}
+
+		.rightSide {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.incloudsBox {
+				display: flex;
+				align-items: center;
+
+				&__icon {
+					margin-inline-end: 12px;
+					fill: transparent;
+					stroke: #7a4df3;
+					stroke-linecap: round;
+					stroke-width: 2;
+				}
+
+				&__text {
+					font-size: 2rem;
+					font-weight: 400;
+					color: #bbb8ca;
+				}
+			}
+
+			.incloudsBox:not(:last-child) {
+				margin-bottom: 20px;
+			}
+
+			.viewDocsButtonMobile {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		width: 100%;
+		margin-top: 236px;
+
+		.background {
+			display: none;
+		}
+
+		.backgroundMobile {
+			display: block;
+			width: 100%;
+			height: 770px;
+			fill: transparent;
+		}
+
+		.innerTitle {
+			top: -115px;
+			margin-bottom: 59px;
+
+			&__top {
+				display: none;
+
+				&--mobile {
+					display: block;
+					font-size: 4.4rem;
+					font-weight: 700;
+					color: #dcdae7;
+					text-align: center;
+				}
+			}
+
+			&__bottom {
+				display: none;
+
+				&--mobile {
+					display: block;
+					font-size: 4.4rem;
+					font-weight: 700;
+					text-align: center;
+					background: linear-gradient(270deg, #dc6794 -28.49%, #9747ff 83.02%);
+					-webkit-background-clip: text;
+					background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+		}
+
+		.boxContainer {
+			top: 190px;
+			flex-direction: column;
+			width: 100%;
+			max-width: map.get($sizes, main-mobile-width);
+
+			.leftSide {
+				.top {
+					&__title {
+						font-size: 2.1rem;
+					}
+
+					.freeBox {
+						padding: 9px 13px;
+
+						&__text {
+							font-size: 2.1rem;
+						}
+					}
+				}
+
+				.viewDocsButton {
+					display: none;
+				}
+			}
+
+			.rightSide {
+				.incloudsBox {
+					display: flex;
+					align-items: center;
+
+					&__icon {
+						margin-inline-end: 12px;
+						fill: transparent;
+						stroke: #7a4df3;
+						stroke-linecap: round;
+						stroke-width: 2;
+					}
+
+					&__text {
+						font-size: 1.8rem;
+						font-weight: 400;
+						color: #bbb8ca;
+					}
+				}
+
+				.incloudsBox:not(:last-child) {
+					margin-bottom: 20px;
+				}
+
+				.viewDocsButtonMobile {
+					display: block;
+					padding: 15px 75.5px;
+					margin-top: 44px;
+					font-size: 2rem;
+					font-weight: 600;
+					color: #e7e7e7;
+					background: #7a4df3;
+					border-radius: 20px;
+				}
+			}
+		}
+	}
+}

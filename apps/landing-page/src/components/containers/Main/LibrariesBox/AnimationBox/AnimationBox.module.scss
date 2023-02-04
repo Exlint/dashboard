@@ -1,0 +1,74 @@
+@keyframes fadeIn {
+	0% {
+		opacity: 0.1;
+	}
+
+	30% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 65%;
+	padding: 45px 58px;
+	overflow: hidden;
+	background: #00000026;
+	border: 2.5px solid rgb(83 58 185 / 50%);
+	border-radius: 30px;
+	backdrop-filter: blur(5px);
+
+	.leftSide {
+		display: flex;
+		justify-content: space-between;
+		width: 50%;
+		padding: 35px 0;
+
+		.library {
+			position: relative;
+			width: 64px;
+			height: 65px;
+
+			&__img {
+				width: 100%;
+				height: 100%;
+				opacity: 0.1;
+
+				&--fadeIn {
+					animation: fadeIn 10s;
+				}
+			}
+
+			&__underline {
+				position: absolute;
+				bottom: -30px;
+				width: 100%;
+				height: 5px;
+				visibility: hidden;
+				background: #7a4df3;
+				border-radius: 10px;
+				box-shadow: 0 0 11px 1px #9747ffe6;
+
+				&--visible {
+					visibility: visible;
+				}
+			}
+		}
+
+		.library:not(:last-child) {
+			margin-inline-end: 20px;
+		}
+	}
+
+	.rightSide {
+		width: 38%;
+	}
+}

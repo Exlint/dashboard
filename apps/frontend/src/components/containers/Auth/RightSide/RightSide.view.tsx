@@ -31,7 +31,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					'rightSideExternalAuthContainer--github',
 				)}
 				href={githubAuthUrl}
-				data-test-id="auth-github-auth-button"
+				data-testid="auth-github-auth-button"
 			>
 				<img
 					className={classes['rightSideExternalAuthContainer__brandLogo']}
@@ -62,7 +62,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					className={classes['rightSideContainer__textLink']}
 					href="https://github.com/Exlint/public-exlint-usage-policies/blob/main/terms-of-service"
 					target="_blank"
-					data-test-id="auth-terms-of-service-link"
+					data-testid="auth-terms-of-service-link"
 				>
 					{t('auth.policiesDiscalimer.termsOfService')}
 				</a>
@@ -73,7 +73,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					className={classes['rightSideContainer__textLink']}
 					href="https://github.com/Exlint/public-exlint-usage-policies/blob/main/privacy-policy"
 					target="_blank"
-					data-test-id="auth-privacy-policy-link"
+					data-testid="auth-privacy-policy-link"
 				>
 					{t('auth.policiesDiscalimer.privacyPolicy')}
 				</a>

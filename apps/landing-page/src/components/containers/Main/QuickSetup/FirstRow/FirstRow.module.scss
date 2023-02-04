@@ -1,0 +1,135 @@
+@use 'sass:map';
+
+@import '../../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 70px;
+
+	.leftSide {
+		position: relative;
+		z-index: 0;
+		display: inline-block;
+		width: 611px;
+		height: 339px;
+		padding: 12px;
+		margin-inline-end: 113px;
+		overflow: hidden;
+		background-color: #242337;
+		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		box-shadow: -4px 22px 56px #9747ff80;
+
+		&__code {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.rightSide {
+		display: flex;
+		flex-direction: column;
+
+		&__title {
+			font-size: 2.4rem;
+			font-weight: 600;
+			background: linear-gradient(270deg, #ae72ff 46.97%, #f2f2f2 93.64%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		&__description {
+			margin: 16px 0;
+			font-size: 2.8rem;
+			font-weight: 700;
+			color: #e7e7e7;
+
+			&--mobile {
+				display: none;
+			}
+		}
+
+		.innerDots {
+			display: flex;
+			flex-direction: column;
+
+			.lineContainer {
+				display: flex;
+				align-items: center;
+
+				&__dot {
+					width: 5px;
+					height: 5px;
+					background-color: #bbb8ca;
+					border-radius: 50%;
+				}
+
+				&__text {
+					margin-inline-start: 20px;
+					font-size: 2rem;
+					font-weight: 400;
+					color: #bbb8ca;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		flex-direction: column-reverse;
+		max-width: map.get($sizes, main-mobile-width);
+		padding: map.get($sizes, minimal-mobile-padding);
+		margin-top: 46px;
+		border: 2.5px solid #7a4df3;
+		border-radius: 5px;
+		backdrop-filter: blur(2.5px);
+
+		.leftSide {
+			width: 100%;
+			height: 100%;
+			margin-inline-end: 0;
+			margin-top: 24px;
+		}
+
+		.rightSide {
+			align-items: flex-start;
+
+			&__title {
+				font-size: 2.1rem;
+				text-align: left;
+			}
+
+			&__description {
+				display: none;
+
+				&--mobile {
+					display: block;
+					margin: 16px 0;
+					font-size: 2.1rem;
+					font-weight: 700;
+					color: #e7e7e7;
+				}
+			}
+
+			.innerDots {
+				.lineContainer {
+					position: relative;
+					align-items: flex-start;
+
+					&__dot {
+						position: absolute;
+						top: 10px;
+					}
+
+					&__text {
+						font-size: 1.8rem;
+					}
+				}
+			}
+		}
+	}
+}

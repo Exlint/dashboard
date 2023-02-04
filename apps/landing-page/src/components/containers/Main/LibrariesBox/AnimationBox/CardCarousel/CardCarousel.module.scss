@@ -1,0 +1,46 @@
+.container {
+	position: relative;
+	display: flex;
+	flex: 1;
+	align-items: middle;
+	justify-content: center;
+	width: 100%;
+	margin: 85px 0;
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 392px;
+		height: 121px;
+		padding-inline-start: 24px;
+		font-size: 1.2rem;
+		color: #fff;
+		background: #242337;
+		background-color: #1e1d30;
+		border: 5px solid #7a4df3;
+		border-radius: 5px;
+		box-shadow: 0 1px 11px 0 #7a4df3cc;
+
+		&__title {
+			font-family: "IBM Plex Mono", sans-serif;
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: #9b9b9b;
+			white-space: nowrap;
+		}
+
+		&__rule {
+			font-family: "IBM Plex Mono", sans-serif;
+			font-size: 1.8rem;
+			font-weight: 400;
+			color: #e7e7e7;
+			white-space: nowrap;
+		}
+
+		&__rowContainer {
+			display: flex;
+			align-items: center;
+		}
+	}
+}

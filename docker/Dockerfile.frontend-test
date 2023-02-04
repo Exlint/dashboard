@@ -1,6 +1,6 @@
-FROM node:18
+FROM node:18.13.0
 
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+RUN npm i -g pnpm@7.26.3
 
 WORKDIR /dashboard
 
@@ -9,7 +9,7 @@ COPY ./apps/frontend/package.json ./apps/frontend/tsconfig.json ./apps/frontend/
 COPY ./packages/common/package.json ./packages/common/tsconfig.base.json ./packages/common/tsconfig.build.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
-RUN pnpm i -w
+RUN PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm i -w
 RUN pnpm --filter frontend --filter common i
 
 COPY ./apps/frontend/ ./apps/frontend/
@@ -17,4 +17,4 @@ COPY ./packages/common/ ./packages/common/
 
 RUN pnpm exec nx build:automation @exlint.io/frontend
 
-CMD ["pnpm", "--filter", "frontend", "preview"]
+CMD ["pnpm", "--filter", "frontend", "preview:automation"]

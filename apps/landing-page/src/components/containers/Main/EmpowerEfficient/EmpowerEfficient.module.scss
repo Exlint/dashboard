@@ -1,0 +1,213 @@
+@use 'sass:map';
+
+@import '../../../../styles/variables.scss';
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 1122px;
+	padding: 0 map.get($sizes, minimal-web-width);
+	background-image: url('../../../../../public/images/empower-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	.innerBox {
+		display: flex;
+		flex-direction: column;
+		max-width: map.get($sizes, sub-web-width);
+		padding: 55px 85px;
+		background: linear-gradient(
+			242.44deg,
+			#ae7dfd33 -30.7%,
+			#24233733 36.93%,
+			#24233733 62.82%,
+			#7a4df333 129.61%
+		);
+		border: 2.5px solid #7a4df3;
+		border-radius: 10px;
+		backdrop-filter: blur(8px);
+
+		.top {
+			display: flex;
+			align-items: center;
+
+			.leftSide {
+				display: flex;
+				flex-direction: column;
+				margin-inline-end: 230px;
+
+				&__title {
+					font-size: 3.2rem;
+					font-weight: 600;
+					color: #e7e7e7;
+				}
+
+				&__description {
+					margin: 9px 0 50px;
+					font-size: 2rem;
+					font-weight: 400;
+					color: #e7e7e7;
+				}
+
+				.innerDocs {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+
+					.brandsContainer {
+						display: flex;
+
+						.element {
+							display: flex;
+							align-items: center;
+
+							&__text {
+								margin-inline-start: 10px;
+								font-size: 2rem;
+								font-weight: 400;
+								color: #e7e7e7;
+							}
+
+							.githubIcon {
+								width: 31px;
+								height: auto;
+							}
+
+							.docsIcon {
+								width: 23px;
+								height: auto;
+								margin-inline-start: 34px;
+								fill: #e7e7e7;
+							}
+
+							.discordIcon {
+								width: 42px;
+								height: auto;
+								margin-inline-start: 34px;
+								fill: #e7e7e7;
+							}
+						}
+					}
+
+					&__divider {
+						width: 100%;
+						margin: 50px 0;
+						border: 1px solid #bbb8ca;
+					}
+				}
+			}
+
+			&__img {
+				width: 208px;
+				height: 21 4px;
+				margin-inline-start: 293px;
+			}
+		}
+
+		.bottom {
+			display: flex;
+			flex-direction: column;
+
+			&__title {
+				font-size: 2.4rem;
+				font-weight: 600;
+				color: #e7e7e7;
+			}
+
+			.commandBox {
+				position: relative;
+				display: flex;
+				width: 68%;
+				margin: 23px 0 12px;
+				background-color: #0e0d14b3;
+				border: 1px solid #4b4a65;
+				border-radius: 10px;
+
+				&__hoverText {
+					position: absolute;
+					top: -40px;
+					right: 0;
+					display: flex;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+					background-color: #202428;
+					border-radius: 5px;
+				}
+
+				&__clickedText {
+					position: absolute;
+					top: -40px;
+					right: 0;
+					display: flex;
+					padding: 5px 9px;
+					font-size: 1.5rem;
+					font-weight: 400;
+					color: #fefefe;
+					background-color: #202428;
+					border-radius: 5px;
+				}
+
+				.commandButton {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					width: 100%;
+					padding: 17px 30px;
+
+					&__text {
+						font-family: "IBM Plex Mono", sans-serif;
+						font-size: 2rem;
+						font-weight: 400;
+						color: #e7e7e7;
+					}
+
+					&__copyIcon {
+						width: 20px;
+						height: auto;
+						fill: #e7e7e7;
+					}
+
+					&__copiedIcon {
+						width: 20px;
+						height: auto;
+						fill: transparent;
+						stroke: #e7e7e7;
+						stroke-width: 1.5px;
+					}
+				}
+			}
+
+			.docs {
+				display: flex;
+				align-items: center;
+
+				&__text {
+					font-size: 2rem;
+					font-weight: 400;
+					color: #bbb8ca;
+
+					&--underline {
+						margin-inline-start: 3px;
+						text-decoration: underline;
+						cursor: pointer;
+					}
+				}
+
+				&__text:not(:first-child) {
+					margin-inline-start: 4px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: map.get($sizes, main-ipad-width)) {
+	.container {
+		display: none;
+	}
+}
