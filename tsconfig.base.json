@@ -27,6 +27,6 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"typeRoots": ["./node_modules/@types", "./@types"]
+		"typeRoots": ["./node_modules/@types"]
 	}
 }

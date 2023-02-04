@@ -183,6 +183,10 @@ jobs:
         name: Automation Tests
 
         runs-on: ubuntu-latest
+        env:
+            AUTOMATION_GITHUB_EMAIL: ${{ secrets.AUTOMATION_GITHUB_EMAIL }}
+            AUTOMATION_GITHUB_PASSWORD: ${{ secrets.AUTOMATION_GITHUB_PASSWORD }}
+            AUTOMATION_GITHUB_TOTP_KEY: ${{ secrets.AUTOMATION_GITHUB_TOTP_KEY }}
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.4
@@ -199,7 +203,7 @@ jobs:
               run: npx playwright install
 
             - name: Run Playwright tests
-              run: pnpm test
+              run: pnpm test:ci
               
             - uses: actions/upload-artifact@v3
               if: always()
