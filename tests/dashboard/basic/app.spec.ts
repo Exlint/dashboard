@@ -7,7 +7,7 @@ test.describe('Application @app-basic', () => {
 		await expect(page).toHaveTitle(/Exlint/);
 	});
 
-	test.only('group center page loads after successful authentication', async ({ page }) => {
+	test('group center page loads after successful authentication', async ({ page }) => {
 		await page.goto('/');
 
 		const navElement = page.getByTestId('nav');

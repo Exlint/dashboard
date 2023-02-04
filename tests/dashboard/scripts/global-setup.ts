@@ -9,7 +9,7 @@ import waitOn from 'wait-on';
 
 import PreTestsAuthentication from './authenticate';
 
-const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(__dirname));
+const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(path.dirname(__dirname)));
 const ETC_HOSTS_FILE_PATH = path.join(path.sep, 'etc', 'hosts');
 
 const MONGO_REPLICA_1_STRING = '127.0.0.1 mongo_replica_1';

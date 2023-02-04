@@ -1,16 +1,21 @@
 import { defineConfig } from '@playwright/test';
 
 const configuration = defineConfig({
-	testDir: './tests',
-	testIgnore: 'scripts',
-	globalSetup: './tests/scripts/global-setup.ts',
-	globalTeardown: './tests/scripts/global-teardown.ts',
+	globalSetup: './tests/dashboard/scripts/global-setup.ts',
+	globalTeardown: './tests/dashboard/scripts/global-teardown.ts',
 	reporter: [['html', { open: 'never' }]],
-	use: {
-		testIdAttribute: 'data-testid',
-		baseURL: 'http://localhost:8080',
-		storageState: './tests/storage/storage-state.json',
-	},
+	projects: [
+		{
+			name: 'Dashboard',
+			use: {
+				testIdAttribute: 'data-testid',
+				baseURL: 'http://localhost:8080',
+				storageState: './tests/dashboard/storage/auth-state.json',
+			},
+			testDir: './tests/dashboard',
+			testIgnore: 'scripts',
+		},
+	],
 });
 
 export default configuration;

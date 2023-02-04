@@ -3,4 +3,4 @@ tsconfig.tsbuildinfo
 .volumes
 .terraform
 playwright-report
-storage-state.json
+auth-state.json
