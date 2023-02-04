@@ -3,7 +3,7 @@ import path from 'node:path';
 import chalk from 'chalk';
 import dCompose from 'docker-compose';
 
-const rootDirectoryPath = path.dirname(path.dirname(__dirname));
+const rootDirectoryPath = path.dirname(path.dirname(path.dirname(__dirname)));
 
 const globalTeardown = async () => {
 	try {

@@ -7,7 +7,9 @@ import chalk from 'chalk';
 import dCompose from 'docker-compose';
 import waitOn from 'wait-on';
 
-const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(__dirname));
+import PreTestsAuthentication from './authenticate';
+
+const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(path.dirname(__dirname)));
 const ETC_HOSTS_FILE_PATH = path.join(path.sep, 'etc', 'hosts');
 
 const MONGO_REPLICA_1_STRING = '127.0.0.1 mongo_replica_1';
@@ -66,11 +68,24 @@ const globalSetup = async () => {
 
 		await waitOn(waitOnOptions);
 
-		console.log(chalk.magenta('Ready to go!'));
+		console.log(chalk.magenta('Ready to go! Let me authenticate for you..'));
+		console.log(
+			chalk.grey.bold('(Note: authentication will be revoked upon "authentication flows" tests)'),
+		);
+
+		await PreTestsAuthentication();
+
+		console.log(chalk.magenta('Authenticated successfully!'));
 	} catch (e) {
 		console.log(
 			chalk.red.bold(`\n\nFailed to start test cluster with an error:\n${JSON.stringify(e, null, 2)}`),
 		);
+
+		await dCompose.down({
+			cwd: ROOT_DIRECTORY_PATH,
+			config: './docker-compose.test.yaml',
+			log: true,
+		});
 
 		process.exit(1);
 	}
