@@ -32,7 +32,7 @@
 		"prettier": "prettier --check **/*.{ts,js,cjs,json,yaml}",
 		"test:ci": "playwright test -c ./playwright.config.ts",
 		"test:local": "dotenv -e ./tests/.env playwright test -c ./playwright.config.ts",
-		"test:debug": "dotenv -e ./tests/.env playwright test -c ./playwright.config.ts --debug",
+		"test:debug": "dotenv -e ./tests/.env -- playwright test -c ./playwright.config.ts --debug",
 		"build:nested": "nx run-many --target=build --nx-bail"
 	},
 	"devDependencies": {
