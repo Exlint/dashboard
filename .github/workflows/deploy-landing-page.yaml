@@ -9,7 +9,7 @@ on:
 
 jobs:
     deploy:
-        name: Deploy docs to AWS
+        name: Deploy landing-page to AWS
         runs-on: [self-hosted, Linux, X64, deploy]
 
         steps:
