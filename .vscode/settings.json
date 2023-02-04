@@ -47,5 +47,14 @@
 		"editor.formatOnSaveMode": "file"
 	},
 	"terraform.experimentalFeatures.validateOnSave": true,
-	"terraform.languageServer.rootModules": ["/terraform"]
+	"terraform.languageServer.rootModules": ["/terraform"],
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[dockerfile]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	}
 }
