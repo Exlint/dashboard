@@ -203,7 +203,7 @@ jobs:
               run: npx playwright install
 
             - name: Run Playwright tests
-              run: pnpm test
+              run: pnpm test:ci
               
             - uses: actions/upload-artifact@v3
               if: always()
