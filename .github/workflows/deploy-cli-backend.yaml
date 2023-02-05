@@ -14,7 +14,7 @@ jobs:
         runs-on: [self-hosted, Linux, X64, deploy]
         env:
             CLI_BACKEND_ECR_REPOSITORY: dashboard-cli-backend
-            DEPLOYMENT_NAME: dashboard-backend-deployment
+            DEPLOYMENT_NAME: dashboard-cli-backend-deployment
             CLI_BACKEND_CONTAINER_NAME: cli-backend
 
         steps:
