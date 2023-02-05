@@ -3,8 +3,8 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
-import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import type { AppProps } from 'next/app';
 import React from 'react';
 import { useRouter } from 'next/router';
 import mixpanel from 'mixpanel-browser';
