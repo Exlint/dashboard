@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 				<meta property="og:title" content="Exlint.io" />
 				<meta property="og:type" content="website" />
-				<meta property="og:image" content="../../public/images/meta-image.png" />
+				<meta property="og:image" content="/images/meta-image.png" />
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:width" content="685" />
 				<meta property="og:image:height" content="685" />
