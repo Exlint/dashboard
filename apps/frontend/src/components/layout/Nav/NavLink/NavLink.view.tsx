@@ -12,6 +12,7 @@ interface IProps {
 	readonly iconName: keyof typeof icons;
 	readonly text: string;
 	readonly activePathName: string;
+	readonly testId: string;
 }
 
 const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -27,6 +28,7 @@ const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				)
 			}
 			to={props.route}
+			data-testid={props.testId}
 		>
 			<EDSvg className={classes['container__icon']} name={props.iconName} />
 			<span className={classes['container__text']}>{props.text}</span>
