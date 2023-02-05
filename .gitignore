@@ -5,3 +5,4 @@ tsconfig.tsbuildinfo
 playwright-report
 auth-state.json
 tests/.env
+apps/docs

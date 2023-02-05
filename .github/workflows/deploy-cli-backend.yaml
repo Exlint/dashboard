@@ -1,0 +1,66 @@
+name: Deploy cli-backend API
+
+on:
+  push:
+    branches:
+      - PRODUCTION
+    paths:
+      - apps/cli-backend/**
+      - packages/common/**
+
+jobs:
+    deploy:
+        name: Deploy cli-backend service to AWS
+        runs-on: [self-hosted, Linux, X64, deploy]
+        env:
+            CLI_BACKEND_ECR_REPOSITORY: dashboard-cli-backend
+            DEPLOYMENT_NAME: dashboard-backend-deployment
+            CLI_BACKEND_CONTAINER_NAME: cli-backend
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1-node16
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.AWS_REGION }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Get package.json version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@main
+
+            - name: Build, tag, and push image of cli-backend to Amazon ECR
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
+              run: |
+                docker build -t $ECR_REGISTRY/$CLI_BACKEND_ECR_REPOSITORY:$IMAGE_TAG -f ./docker/Dockerfile.cli-backend-prod .
+                docker push $ECR_REGISTRY/$CLI_BACKEND_ECR_REPOSITORY:$IMAGE_TAG
+
+            - name: Update Kubeconfig file
+              env:
+                AWS_REGION: ${{ secrets.AWS_REGION }}
+              run: aws eks update-kubeconfig --region $AWS_REGION --name ExlintDashboard-cluster
+
+            - name: Update cli-backend deployment with new image
+              env:
+                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                IMAGE_TAG: ${{ steps.package-version.outputs.current-version }}-${{ github.sha }}
+              run: kubectl set image deployment/$DEPLOYMENT_NAME $CLI_BACKEND_CONTAINER_NAME=$ECR_REGISTRY/$CLI_BACKEND_ECR_REPOSITORY:$IMAGE_TAG
+
+            - name: Slack Notification
+              uses: rtCamp/action-slack-notify@v2             
+              env:                                                    
+                SLACK_CHANNEL: dashboard-deployment                   
+                SLACK_MESSAGE: 'Just deployed cli-backend'
+                SLACK_TITLE: 'Deployment'                         
+                SLACK_USERNAME: 'Yazif Deployer'                           
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL_DASHBOARD_DEPLOYMENT }}
+                MSG_MINIMAL: true

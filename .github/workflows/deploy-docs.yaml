@@ -10,14 +10,29 @@ jobs:
         runs-on: [self-hosted, Linux, X64, deploy]
 
         steps:
-            - name: Setup Node environment
-              uses: Exlint/node-environment@v1.2.4
+            - name: Checkout
+              uses: actions/checkout@v3
               with:
-                  should-cache: false
+                submodules: true
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
                   node-version: 18.13.0
-                  package-manager: pnpm
-                  package-manager-version: 7.26.3
-                  sub-modules: true
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7.26.3
+
+            - name: Remove root pnpm files
+              run: rm ./pnpm-lock.yaml ./package.json ./pnpm-workspace.yaml
+              shell: bash
+              
+            - name: Installing dependencies
+              working-directory: apps/docs
+              run: pnpm i --frozen-lockfile --prefer-offline
+              shell: bash
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
@@ -27,7 +42,8 @@ jobs:
                   aws-region: ${{ secrets.AWS_REGION }}
 
             - name: Build docs
-              run: pnpm exec nx build @exlint.io/docs
+              working-directory: apps/docs
+              run: pnpm build
 
             - name: Deploy to S3 and invalidate Cloudfront
               uses: reggionick/s3-deploy@v3
