@@ -96,7 +96,7 @@ const en = {
 	},
 	notFound: {
 		header: {
-			documentationLink: 'Documentation',
+			documentationLink: 'Documentations',
 		},
 		message: "As far as we know,<br />This page doesn't exist!",
 		actions: {
@@ -107,7 +107,7 @@ const en = {
 	nav: {
 		groupCenter: 'Group Center',
 		accountSettings: 'Account Settings',
-		documentation: 'Documentation',
+		documentation: 'Documentations',
 	},
 	groupCenter: {
 		uniqueId: 'Unique ID',

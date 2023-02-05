@@ -143,6 +143,7 @@
 	width: 100%;
 	padding: 0 map.get($sizes, minimal-web-padding);
 	margin: 0 auto;
+	max-width: 1500px;
 
 	.backgroundContainer {
 		position: absolute;
