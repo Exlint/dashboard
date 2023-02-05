@@ -6,8 +6,7 @@ const configuration = {
 		ignoreDuringBuilds: true,
 	},
 	images: {
-		loader: 'akamai',
-		path: '',
+		unoptimized: true,
 	},
 };
 
