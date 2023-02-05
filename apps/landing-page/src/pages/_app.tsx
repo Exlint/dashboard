@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta property="og:url" content="https://exlint.io/" />
 				<meta
 					name="description"
-					content="Exlint.io 📦️ Centralize coding standards across repositories in seconds."
+					content="Exlint.io - Centralize coding standards across repositories in seconds."
 				/>
 
 				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
