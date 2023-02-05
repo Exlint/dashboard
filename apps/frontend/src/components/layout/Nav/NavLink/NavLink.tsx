@@ -9,6 +9,7 @@ interface IProps {
 	readonly route: string;
 	readonly iconName: keyof typeof icons;
 	readonly text: string;
+	readonly testId: string;
 }
 
 const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -20,6 +21,7 @@ const NavLink: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			iconName={props.iconName}
 			text={props.text}
 			activePathName={pathname}
+			testId={props.testId}
 		/>
 	);
 };

@@ -10,9 +10,26 @@ test.describe('Application @app-basic', () => {
 	test('group center page loads after successful authentication', async ({ page }) => {
 		await page.goto('/');
 
-		const navElement = page.getByTestId('nav');
+		const navGroupCenterLinkElement = page.getByTestId('nav-group-center-link');
 
-		await expect(navElement).toBeVisible();
-		await expect(page).toHaveURL('/');
+		await expect(navGroupCenterLinkElement).toBeVisible();
+		await expect(navGroupCenterLinkElement).toHaveClass(/container--active/);
+	});
+
+	test('nav documentation link should open new tab upon click event', async ({ page, context }) => {
+		await page.goto('/');
+
+		const navDocumentationsLinkElement = page.getByTestId('nav-documentations-link');
+
+		await expect(navDocumentationsLinkElement).toBeVisible();
+
+		const tabPromise = context.waitForEvent('page');
+
+		await navDocumentationsLinkElement.click();
+
+		const newTab = await tabPromise;
+
+		await newTab.waitForLoadState();
+		await expect(newTab).toHaveURL('https://docs.exlint.io');
 	});
 });

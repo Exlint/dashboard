@@ -21,7 +21,12 @@ const NotFoundView: React.FC<IProps> = () => {
 					<img className={classes['header__img']} src={whiteBrandLogo} alt="Exlint" />
 				</Link>
 
-				<a className={classes['documentationLink']} href="https://docs.exlint.io" target="_blank">
+				<a
+					className={classes['documentationLink']}
+					href="https://docs.exlint.io"
+					target="_blank"
+					data-testid="not-found-nav-documentations-link"
+				>
 					<span className={classes['documentationLink__text']}>
 						{t('notFound.header.documentationLink')}
 					</span>

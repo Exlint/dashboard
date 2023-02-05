@@ -21,11 +21,26 @@ const NavView: React.FC<IProps> = () => {
 					<img className={classes['logoLink__logo']} src={whiteBrandLogo} alt="Exlint" />
 				</Link>
 
-				<NavLink route="/group-center" iconName="groupCenterRoute" text={t('nav.groupCenter')} />
-				<NavLink route="/account-settings" iconName="greyUser" text={t('nav.accountSettings')} />
+				<NavLink
+					route="/group-center"
+					iconName="groupCenterRoute"
+					text={t('nav.groupCenter')}
+					testId="nav-group-center-link"
+				/>
+				<NavLink
+					route="/account-settings"
+					iconName="greyUser"
+					text={t('nav.accountSettings')}
+					testId="nav-account-settings-link"
+				/>
 			</div>
 
-			<a className={classes['documentationLink']} href="https://docs.exlint.io" target="_blank">
+			<a
+				className={classes['documentationLink']}
+				href="https://docs.exlint.io"
+				target="_blank"
+				data-testid="nav-documentations-link"
+			>
 				<span className={classes['documentationLink__text']}>{t('nav.documentation')}</span>
 				<EDSvg className={classes['documentationLink__icon']} name="enterLink" />
 			</a>
