@@ -32,12 +32,12 @@
 
 		.top {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
+			justify-content: space-between;
 
 			.leftSide {
 				display: flex;
 				flex-direction: column;
-				margin-inline-end: 230px;
 
 				&__title {
 					font-size: 3.2rem;
@@ -103,7 +103,7 @@
 			&__img {
 				width: 208px;
 				height: 21 4px;
-				margin-inline-start: 293px;
+				margin-inline-start: 285px;
 			}
 		}
 
@@ -160,7 +160,7 @@
 					padding: 17px 30px;
 
 					&__text {
-						font-family: "IBM Plex Mono", sans-serif;
+						font-family: 'IBM Plex Mono', sans-serif;
 						font-size: 2rem;
 						font-weight: 400;
 						color: #e7e7e7;

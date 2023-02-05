@@ -28,7 +28,7 @@ const Intro: React.FC<IProps> = () => {
 
 	const onGetStartedNavigate = () => {
 		mixpanel.track('Get Statred button CLICKED / Intro');
-		window.open('https://docs.exlint.io', '_blank');
+		window.open('https://docs.exlint.io', '_self');
 	};
 
 	useEffect(() => {
