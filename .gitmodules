@@ -1,0 +1,4 @@
+[submodule "apps/docs"]
+	path = apps/docs
+	url = git@github.com:Exlint/docs.git
+	branch = main
