@@ -25,7 +25,7 @@ const NavView: React.FC<IProps> = () => {
 				<NavLink route="/account-settings" iconName="greyUser" text={t('nav.accountSettings')} />
 			</div>
 
-			<a className={classes['documentationLink']} href="https://docs.exlint.io">
+			<a className={classes['documentationLink']} href="https://docs.exlint.io" target="_blank">
 				<span className={classes['documentationLink__text']}>{t('nav.documentation')}</span>
 				<EDSvg className={classes['documentationLink__icon']} name="enterLink" />
 			</a>
