@@ -24,6 +24,10 @@ jobs:
               uses: pnpm/action-setup@v2
               with:
                   version: 7.26.3
+
+            - name: Remove root pnpm-lock.yaml file
+              run: rm ./pnpm-lock.yaml
+              shell: bash
               
             - name: Installing dependencies
               working-directory: apps/docs
