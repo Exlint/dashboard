@@ -25,7 +25,7 @@ jobs:
               with:
                   version: 7.26.3
 
-            - name: Remove root pnpm-lock.yaml file
+            - name: Remove root pnpm files
               run: rm ./pnpm-lock.yaml ./package.json ./pnpm-workspace.yaml
               shell: bash
               
@@ -42,7 +42,8 @@ jobs:
                   aws-region: ${{ secrets.AWS_REGION }}
 
             - name: Build docs
-              run: pnpm exec nx build @exlint.io/docs
+              working-directory: apps/docs
+              run: pnpm build
 
             - name: Deploy to S3 and invalidate Cloudfront
               uses: reggionick/s3-deploy@v3
