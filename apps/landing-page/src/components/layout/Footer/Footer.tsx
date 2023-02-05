@@ -22,12 +22,12 @@ const Footer: React.FC<IProps> = () => {
 
 	const onDocsNavigate = () => {
 		mixpanel.track('Docs button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_blank');
+		window.open('https://docs.exlint.io', '_self');
 	};
 
 	const onGetStartedNavigate = () => {
 		mixpanel.track('Get Statred button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_blank');
+		window.open('https://docs.exlint.io', '_self');
 	};
 
 	const onTermsOfUseNavigate = () => {

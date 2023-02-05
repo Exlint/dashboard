@@ -14,7 +14,7 @@ const Header: React.FC<IProps> = () => {
 
 	const onDocsNavigate = () => {
 		mixpanel.track('Navigate to docs button CLICKED / Header');
-		window.open('https://docs.exlint.io', '_blank');
+		window.open('https://docs.exlint.io', '_self');
 	};
 
 	const onGithubNavigate = () => {

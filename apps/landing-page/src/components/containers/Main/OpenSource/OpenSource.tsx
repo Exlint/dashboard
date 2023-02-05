@@ -8,7 +8,7 @@ interface IProps {}
 const OpenSource: React.FC<IProps> = () => {
 	const onGetStartedNavigate = () => {
 		mixpanel.track('Navigate to docs button CLICKED / OpenSource');
-		window.open('https://docs.exlint.io', '_blank');
+		window.open('https://docs.exlint.io', '_self');
 	};
 
 	return <OpenSourceView onGetStartedNavigate={onGetStartedNavigate} />;
