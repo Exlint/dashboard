@@ -31,15 +31,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 				<meta name="theme-color" content="#000000" />
 
-				<meta property="og:title" content="Exlint" />
+				<meta property="og:title" content="Exlint.io" />
 				<meta property="og:type" content="website" />
-				<meta property="og:image" content="/images/meta-image.png" />
+				<meta property="og:image" content="../../public/images/meta-image.png" />
 				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:width" content="685" />
 				<meta property="og:image:height" content="685" />
 				<meta property="og:image:alt" content="Exlint" />
 				<meta property="og:url" content="https://exlint.io/" />
-				<meta name="description" content="Empower Best Practices Hassle Free, In No Time." />
+				<meta
+					name="description"
+					content="Exlint.io 📦️ Centralize coding standards across repositories in seconds."
+				/>
 
 				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 				<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
