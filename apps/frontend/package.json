@@ -50,7 +50,7 @@
 		"react-scroll": "1.8.9",
 		"react-switch": "7.0.0",
 		"react-textarea-autosize": "8.4.0",
-		"typescript": "4.9.4"
+		"typescript": "4.9.5"
 	},
 	"devDependencies": {
 		"@exlint.io/common": "workspace:*",
@@ -82,7 +82,7 @@
 		"stylelint-config-recess-order": "3.1.0",
 		"stylelint-config-standard-scss": "6.1.0",
 		"stylelint-declaration-strict-value": "1.9.1",
-		"typescript": "4.9.4",
+		"typescript": "4.9.5",
 		"vite": "4.0.4",
 		"vite-plugin-react-remove-attributes": "1.0.3",
 		"vite-tsconfig-paths": "4.0.5"
