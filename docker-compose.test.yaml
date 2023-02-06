@@ -120,6 +120,17 @@ services:
             - cli-backend
         networks:
             - dashboard_network
+    landing-page:
+        container_name: landing-page
+        pull_policy: build
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile.landing-page-test
+        ports:
+            - 8000:8000
+        restart: always
+        networks:
+            - dashboard_network
 
 networks:
     dashboard_network:

@@ -15,6 +15,14 @@ const configuration = defineConfig({
 			testDir: './tests/dashboard',
 			testIgnore: 'scripts',
 		},
+		{
+			name: 'Landing Page',
+			use: {
+				testIdAttribute: 'data-testid',
+				baseURL: 'http://localhost:8000',
+			},
+			testDir: './tests/landing-page',
+		},
 	],
 });
 
