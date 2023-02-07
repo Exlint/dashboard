@@ -36,7 +36,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						<div className={classes['linksContainer']}>
 							<Link
 								className={classes['linkItem']}
-								href="https://github.com/Exlint"
+								href="https://github.com/Exlint/cli"
 								target="_blank"
 								data-testid="footer-github-link"
 								onClick={props.onGithubClickTrack}
