@@ -38,3 +38,9 @@ variable "s3_bucket_tags" {
   description = "The tags for a bucket to redirect www to non-www"
   type        = map(string)
 }
+
+variable "not_found_file_path" {
+  description = "The file to load when requests resource (page) not found"
+  type        = string
+  default     = "/index.html"
+}

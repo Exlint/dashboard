@@ -5,6 +5,7 @@ module "landing-page-static" {
   zone_id             = aws_route53_zone.primary.zone_id
   acm_certificate_arn = module.acm_cloudfront.acm_certificate_arn
   s3_bucket_name      = var.landing_page_s3_bucket_name
+  not_found_file_path = "/404.html"
 
   common_tags = var.common_tags
 
