@@ -10,34 +10,28 @@ const Footer: React.FC<IProps> = () => {
 		isVisible && mixpanel.track('Scroll 100%');
 	};
 
-	const onGithubNavigate = () => {
+	const onGithubClickTrack = () => {
 		mixpanel.track('Github button CLICKED / Footer');
-		window.open('https://github.com/Exlint', '_blank');
 	};
 
-	const onLoginNavigate = () => {
+	const onLoginClickTrack = () => {
 		mixpanel.track('Login button CLICKED / Footer');
-		window.open('https://app.exlint.io', '_blank');
 	};
 
-	const onDocsNavigate = () => {
+	const onDocsClickTrack = () => {
 		mixpanel.track('Docs button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	const onGetStartedNavigate = () => {
+	const onGetStartedClickTrack = () => {
 		mixpanel.track('Get Statred button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	const onTermsOfUseNavigate = () => {
+	const onTermsOfUseClickTrack = () => {
 		mixpanel.track('Terms of use button CLICKED / Footer');
-		window.open('https://github.com/Exlint/usage-policies/blob/main/terms-of-service.mdx', '_blank');
 	};
 
-	const onPrivacyNavigate = () => {
+	const onPrivacyClickTrack = () => {
 		mixpanel.track('Privacy button CLICKED / Footer');
-		window.open('https://github.com/Exlint/usage-policies/blob/main/privacy-policy.mdx', '_blank');
 	};
 
 	const onHomeClicked = () => {
@@ -50,13 +44,13 @@ const Footer: React.FC<IProps> = () => {
 	return (
 		<FooterView
 			onViewPort={onViewPort}
-			onGithubNavigate={onGithubNavigate}
-			onLoginNavigate={onLoginNavigate}
-			onDocsNavigate={onDocsNavigate}
-			onGetStartedNavigate={onGetStartedNavigate}
+			onGithubClickTrack={onGithubClickTrack}
+			onLoginClickTrack={onLoginClickTrack}
+			onDocsClickTrack={onDocsClickTrack}
+			onGetStartedClickTrack={onGetStartedClickTrack}
 			onHomeClicked={onHomeClicked}
-			onTermsOfUseNavigate={onTermsOfUseNavigate}
-			onPrivacyNavigate={onPrivacyNavigate}
+			onTermsOfUseClickTrack={onTermsOfUseClickTrack}
+			onPrivacyClickTrack={onPrivacyClickTrack}
 		/>
 	);
 };

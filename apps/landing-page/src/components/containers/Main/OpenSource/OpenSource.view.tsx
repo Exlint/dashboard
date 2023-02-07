@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Trans, useTranslation } from 'react-i18next';
 
 import ELPSvg from '@/ui/ELPSvg';
@@ -6,7 +7,7 @@ import ELPSvg from '@/ui/ELPSvg';
 import classes from './OpenSource.module.scss';
 
 interface IProps {
-	readonly onGetStartedNavigate: () => void;
+	readonly onGetStartedClickTrack: VoidFunction;
 }
 
 const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -37,13 +38,14 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 					<span className={classes['middleText']}>
 						<Trans i18nKey="main.openSource.description" />
 					</span>
-					<button
+					<Link
 						className={classes['viewDocsButton']}
-						type="button"
-						onClick={props.onGetStartedNavigate}
+						href="https://docs.exlint.io"
+						target="_self"
+						onClick={props.onGetStartedClickTrack}
 					>
 						{t('main.openSource.viewDocs')}
-					</button>
+					</Link>
 				</div>
 				<div className={classes['rightSide']}>
 					<div className={classes['incloudsBox']}>
@@ -60,13 +62,14 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						<ELPSvg className={classes['incloudsBox__icon']} name="vConfirm" />
 						<span className={classes['incloudsBox__text']}>{t('main.openSource.github')}</span>
 					</div>
-					<button
+					<Link
 						className={classes['viewDocsButtonMobile']}
-						type="button"
-						onClick={props.onGetStartedNavigate}
+						href="https://docs.exlint.io"
+						target="_self"
+						onClick={props.onGetStartedClickTrack}
 					>
 						{t('main.openSource.viewDocs')}
-					</button>
+					</Link>
 				</div>
 			</div>
 		</section>

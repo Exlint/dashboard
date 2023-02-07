@@ -25,14 +25,12 @@ const EmpowerEfficient: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => isHover);
 	};
 
-	const onDocsNavigate = () => {
-		mixpanel.track('Navigate to docs button CLICKED / EmpowerEfficient');
-		window.open('https://docs.exlint.io', '_self');
+	const onGithubClickTrack = () => {
+		mixpanel.track('Github button CLICKED / Header');
 	};
 
-	const onGithubNavigate = () => {
-		mixpanel.track('Github button CLICKED / Header');
-		window.open('https://github.com/Exlint/cli', '_blank');
+	const onDocsClickTrack = () => {
+		mixpanel.track('Navigate to docs button CLICKED / EmpowerEfficient');
 	};
 
 	return (
@@ -41,8 +39,8 @@ const EmpowerEfficient: React.FC<IProps> = () => {
 			isCommandOnHover={isCommandOnHoverState}
 			onCopyCommand={onCopyCommand}
 			onHoverCommand={onHoverCommand}
-			onDocsNavigate={onDocsNavigate}
-			onGithubNavigate={onGithubNavigate}
+			onGithubClickTrack={onGithubClickTrack}
+			onDocsClickTrack={onDocsClickTrack}
 		/>
 	);
 };

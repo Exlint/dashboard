@@ -6,12 +6,11 @@ import OpenSourceView from './OpenSource.view';
 interface IProps {}
 
 const OpenSource: React.FC<IProps> = () => {
-	const onGetStartedNavigate = () => {
+	const onGetStartedClickTrack = () => {
 		mixpanel.track('Navigate to docs button CLICKED / OpenSource');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	return <OpenSourceView onGetStartedNavigate={onGetStartedNavigate} />;
+	return <OpenSourceView onGetStartedClickTrack={onGetStartedClickTrack} />;
 };
 
 OpenSource.displayName = 'OpenSource';
