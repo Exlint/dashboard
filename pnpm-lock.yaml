@@ -8,7 +8,6 @@ importers:
       '@exlint.io/inflint': 1.2.9
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0
-      '@types/is-ci': 3.0.0
       '@types/node': 18.11.18
       '@types/totp-generator': 0.0.4
       '@types/wait-on': 5.3.1
@@ -48,7 +47,6 @@ importers:
       '@exlint.io/inflint': 1.2.9_bdgp3l2zgaopogaavxusmetvge
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0_prisma@4.9.0
-      '@types/is-ci': 3.0.0
       '@types/node': 18.11.18
       '@types/totp-generator': 0.0.4
       '@types/wait-on': 5.3.1
@@ -3455,12 +3453,6 @@ packages:
       '@types/react': 18.0.27
       hoist-non-react-statics: 3.3.2
     dev: false
-
-  /@types/is-ci/3.0.0:
-    resolution: {integrity: sha512-Q0Op0hdWbYd1iahB+IFNQcWXFq4O0Q5MwQP7uN0souuQ4rPg1vEYcnIOfr1gY+M+6rc8FGoRaBO1mOOvL29sEQ==}
-    dependencies:
-      ci-info: 3.4.0
-    dev: true
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}

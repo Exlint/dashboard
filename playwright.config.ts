@@ -1,8 +1,8 @@
 import { defineConfig } from '@playwright/test';
 
 const configuration = defineConfig({
-	globalSetup: './tests/dashboard/scripts/global-setup.ts',
-	globalTeardown: './tests/dashboard/scripts/global-teardown.ts',
+	globalSetup: './tests/scripts/global-setup.ts',
+	globalTeardown: './tests/scripts/global-teardown.ts',
 	reporter: [['html', { open: 'never' }]],
 	projects: [
 		{

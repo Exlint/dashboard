@@ -182,7 +182,7 @@ jobs:
         timeout-minutes: 60
         name: Automation Tests
 
-        runs-on: ubuntu-latest
+        runs-on: [self-hosted, Linux, X64, integration]
         env:
             AUTOMATION_GITHUB_EMAIL: ${{ secrets.AUTOMATION_GITHUB_EMAIL }}
             AUTOMATION_GITHUB_PASSWORD: ${{ secrets.AUTOMATION_GITHUB_PASSWORD }}
@@ -196,9 +196,6 @@ jobs:
                   package-manager: pnpm
                   package-manager-version: 7.26.3
               
-            - name: Append hosts
-              run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
-
             - name: Install Playwright Browsers
               run: npx playwright install
 
