@@ -22,6 +22,7 @@ const MINUTE = 60 * SECOND;
 const waitOnOptions = {
 	resources: [
 		'http-get://localhost:8080',
+		'http-get://localhost:8000',
 		'http-get://localhost:3000/health/version',
 		'http-get://localhost:4000/health/version',
 	],

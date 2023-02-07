@@ -5,7 +5,7 @@ RUN npm i -g pnpm@7.26.3
 WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./tsconfig.base.json ./.npmrc ./
-COPY ./apps/cli-backend/package.json ./apps/cli-backend/tsconfig.json ./apps/cli-backend/tsconfig.base.json ./apps/cli-backend/tsconfig.json ./apps/cli-backend/
+COPY ./apps/cli-backend/package.json ./apps/cli-backend/tsconfig.json ./apps/cli-backend/tsconfig.base.json ./apps/cli-backend/
 COPY ./packages/common/package.json ./packages/common/tsconfig.base.json ./packages/common/tsconfig.build.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
