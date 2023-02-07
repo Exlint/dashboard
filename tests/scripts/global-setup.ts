@@ -6,7 +6,7 @@ import waitOn from 'wait-on';
 
 import PreTestsAuthentication from './authenticate';
 
-const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(path.dirname(__dirname)));
+const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(__dirname));
 
 const SECOND = 1 * 1000;
 const MINUTE = 60 * SECOND;
