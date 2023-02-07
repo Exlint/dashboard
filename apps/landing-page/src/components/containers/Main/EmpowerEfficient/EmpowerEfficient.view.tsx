@@ -38,6 +38,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 									className={classes['element']}
 									href="https://github.com/Exlint/cli"
 									target="_blank"
+									data-testid="empower-efficient-github-link"
 									onClick={props.onGithubClickTrack}
 								>
 									<ELPSvg className={classes['githubIcon']} name="githubIcon" />
@@ -49,6 +50,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 									className={classes['element']}
 									href="https://docs.exlint.io"
 									target="_self"
+									data-testid="empower-efficient-top-documentations-link"
 									onClick={props.onDocsClickTrack}
 								>
 									<ELPSvg className={classes['docsIcon']} name="docs" />
@@ -104,6 +106,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 							className={classes['docs__link']}
 							href="https://docs.exlint.io"
 							target="_self"
+							data-testid="empower-efficient-bottom-documentations-link"
 							onClick={props.onDocsClickTrack}
 						>
 							<span className={concatClasses(classes, 'docs__text', 'docs__text--underline')}>

@@ -42,6 +42,7 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						className={classes['viewDocsButton']}
 						href="https://docs.exlint.io"
 						target="_self"
+						data-testid="open-source-documentations-link"
 						onClick={props.onGetStartedClickTrack}
 					>
 						{t('main.openSource.viewDocs')}

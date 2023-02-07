@@ -35,6 +35,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						className={classes['headerMenuItem']}
 						href="https://docs.exlint.io"
 						target="_self"
+						data-testid="header-first-documentations-link"
 						onClick={props.onDocsClickTrack}
 					>
 						<span className={classes['headerMenuItem__text']}>{t('layout.header.docs')}</span>
@@ -43,6 +44,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						className={classes['headerMenuItem']}
 						href="https://github.com/Exlint/cli"
 						target="_blank"
+						data-testid="header-github-link"
 						onClick={props.onGithubClickTrack}
 					>
 						<ELPSvg className={classes['headerMenuItem__githubIcon']} name="githubIcon" />
@@ -54,6 +56,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						className={classes['loginButton']}
 						href="https://app.exlint.io"
 						target="_blank"
+						data-testid="header-login-link"
 						onClick={props.onLogInClickTrack}
 					>
 						{t('layout.header.login')}
@@ -62,6 +65,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						className={classes['getStartedButton']}
 						href="https://docs.exlint.io"
 						target="_self"
+						data-testid="header-second-documentations-link"
 						onClick={props.onDocsClickTrack}
 					>
 						<span className={classes['getStartedButton__text']}>

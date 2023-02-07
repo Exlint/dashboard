@@ -109,7 +109,7 @@ const en = {
 			login: 'Login',
 			exlint: '© 2022 Exlint',
 			termOfUse: 'Term Of Use',
-			privicy: 'Privicy Policy',
+			privacy: 'Privacy Policy',
 		},
 	},
 	pageNotFound: {

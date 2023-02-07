@@ -71,6 +71,7 @@ const IntroView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							className={classes['quickStartContainer__button']}
 							href="https://docs.exlint.io"
 							target="_self"
+							data-testid="intro-quick-start-link"
 							onClick={props.onGetStartedClickTrack}
 						>
 							<span className={classes['quickStartContainer__button--text']}>

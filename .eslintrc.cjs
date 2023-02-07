@@ -190,5 +190,11 @@ module.exports = {
 				'no-useless-escape': 'off',
 			},
 		},
+		{
+			files: ['./tests/landing-page/basic/app.spec.ts'],
+			rules: {
+				'max-lines': 'off',
+			},
+		},
 	],
 };
