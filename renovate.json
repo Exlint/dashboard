@@ -19,6 +19,12 @@
 			"versioningTemplate": "node"
 		},
 		{
+			"fileMatch": ["^docker\\/Dockerfile\\..*$"],
+			"matchStrings": ["pnpm@(?<currentValue>.*)"],
+			"depNameTemplate": "pnpm",
+			"datasourceTemplate": "npm"
+		},
+		{
 			"fileMatch": ["package.json"],
 			"matchStrings": ["\"node\": \"(?<currentValue>.*)\""],
 			"depNameTemplate": "node",
