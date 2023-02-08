@@ -1,20 +1,12 @@
 import path from 'node:path';
-import fs from 'node:fs/promises';
-import os from 'node:os';
 
-import isCI from 'is-ci';
 import chalk from 'chalk';
 import dCompose from 'docker-compose';
 import waitOn from 'wait-on';
 
 import PreTestsAuthentication from './authenticate';
 
-const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(path.dirname(__dirname)));
-const ETC_HOSTS_FILE_PATH = path.join(path.sep, 'etc', 'hosts');
-
-const MONGO_REPLICA_1_STRING = '127.0.0.1 mongo_replica_1';
-const MONGO_REPLICA_2_STRING = '127.0.0.1 mongo_replica_2';
-const MONGO_REPLICA_3_STRING = '127.0.0.1 mongo_replica_3';
+const ROOT_DIRECTORY_PATH = path.dirname(path.dirname(__dirname));
 
 const SECOND = 1 * 1000;
 const MINUTE = 60 * SECOND;
@@ -35,30 +27,6 @@ const waitOnOptions = {
 
 const globalSetup = async () => {
 	try {
-		if (!isCI) {
-			const etcHostsFileData = await fs.readFile(ETC_HOSTS_FILE_PATH, { encoding: 'utf-8' });
-
-			const mongoReplicaStringsToAppend: string[] = [];
-
-			if (!etcHostsFileData.includes(MONGO_REPLICA_1_STRING)) {
-				mongoReplicaStringsToAppend.push(MONGO_REPLICA_1_STRING);
-			}
-
-			if (!etcHostsFileData.includes(MONGO_REPLICA_2_STRING)) {
-				mongoReplicaStringsToAppend.push(MONGO_REPLICA_2_STRING);
-			}
-
-			if (!etcHostsFileData.includes(MONGO_REPLICA_3_STRING)) {
-				mongoReplicaStringsToAppend.push(MONGO_REPLICA_3_STRING);
-			}
-
-			if (mongoReplicaStringsToAppend.length > 0) {
-				const stringToAppend = os.EOL + mongoReplicaStringsToAppend.join(os.EOL);
-
-				await fs.appendFile(ETC_HOSTS_FILE_PATH, stringToAppend, { encoding: 'utf-8' });
-			}
-		}
-
 		await dCompose.upAll({
 			cwd: ROOT_DIRECTORY_PATH,
 			config: './docker-compose.test.yaml',
