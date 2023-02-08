@@ -8,14 +8,13 @@ import ELPSvg from '@/ui/ELPSvg';
 import classes from './Footer.module.scss';
 
 interface IProps {
-	readonly onViewPort: (_: boolean) => void;
-	readonly onGithubClickTrack: VoidFunction;
-	readonly onLoginClickTrack: VoidFunction;
-	readonly onDocsClickTrack: VoidFunction;
-	readonly onGetStartedClickTrack: VoidFunction;
-	readonly onHomeClicked: VoidFunction;
-	readonly onTermsOfUseClickTrack: VoidFunction;
-	readonly onPrivacyClickTrack: VoidFunction;
+	readonly onViewPort: (isVisible: boolean) => void;
+	readonly onGithubClick: VoidFunction;
+	readonly onLoginClick: VoidFunction;
+	readonly onDocsClick: VoidFunction;
+	readonly onGetStartedClick: VoidFunction;
+	readonly onTermsOfUseClick: VoidFunction;
+	readonly onPrivacyClick: VoidFunction;
 }
 
 const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -30,16 +29,14 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			<div className={classes['innerFooter']}>
 				<div className={classes['firstLineContainer']}>
 					<div className={classes['mobileLogoContainer']}>
-						<Link href="/" passHref>
-							<ELPSvg className={classes['brandLogo']} name="brandLogoWhite" />
-						</Link>
+						<ELPSvg className={classes['brandLogo']} name="brandLogoWhite" />
 						<div className={classes['linksContainer']}>
 							<Link
 								className={classes['linkItem']}
 								href="https://github.com/Exlint/cli"
 								target="_blank"
 								data-testid="footer-github-link"
-								onClick={props.onGithubClickTrack}
+								onClick={props.onGithubClick}
 							>
 								<ELPSvg className={classes['linkItem__githubIcon']} name="githubIcon" />
 							</Link>
@@ -50,7 +47,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://docs.exlint.io"
 						target="_self"
 						data-testid="footer-get-started-link"
-						onClick={props.onGetStartedClickTrack}
+						onClick={props.onGetStartedClick}
 					>
 						{t('layout.footer.getStarted')}
 					</Link>
@@ -61,7 +58,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 							href="https://docs.exlint.io"
 							target="_self"
 							data-testid="footer-documentations-link"
-							onClick={props.onDocsClickTrack}
+							onClick={props.onDocsClick}
 						>
 							{t('layout.footer.docs')}
 						</Link>
@@ -70,7 +67,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 							href="https://app.exlint.io"
 							target="_blank"
 							data-testid="footer-login-link"
-							onClick={props.onLoginClickTrack}
+							onClick={props.onLoginClick}
 						>
 							{t('layout.footer.login')}
 						</Link>
@@ -83,7 +80,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://github.com/Exlint/usage-policies/blob/main/terms-of-service.mdx"
 						target="_blank"
 						data-testid="footer-terms-of-use-link"
-						onClick={props.onTermsOfUseClickTrack}
+						onClick={props.onTermsOfUseClick}
 					>
 						{t('layout.footer.termOfUse')}
 					</Link>
@@ -92,7 +89,7 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://github.com/Exlint/usage-policies/blob/main/privacy-policy.mdx"
 						target="_blank"
 						data-testid="footer-privacy-link"
-						onClick={props.onPrivacyClickTrack}
+						onClick={props.onPrivacyClick}
 					>
 						{t('layout.footer.privacy')}
 					</Link>

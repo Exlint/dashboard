@@ -10,47 +10,39 @@ const Footer: React.FC<IProps> = () => {
 		isVisible && mixpanel.track('Scroll 100%');
 	};
 
-	const onGithubClickTrack = () => {
+	const onGithubClick = () => {
 		mixpanel.track('Github button CLICKED / Footer');
 	};
 
-	const onLoginClickTrack = () => {
+	const onLoginClick = () => {
 		mixpanel.track('Login button CLICKED / Footer');
 	};
 
-	const onDocsClickTrack = () => {
+	const onDocsClick = () => {
 		mixpanel.track('Docs button CLICKED / Footer');
 	};
 
-	const onGetStartedClickTrack = () => {
+	const onGetStartedClick = () => {
 		mixpanel.track('Get Statred button CLICKED / Footer');
 	};
 
-	const onTermsOfUseClickTrack = () => {
+	const onTermsOfUseClick = () => {
 		mixpanel.track('Terms of use button CLICKED / Footer');
 	};
 
-	const onPrivacyClickTrack = () => {
+	const onPrivacyClick = () => {
 		mixpanel.track('Privacy button CLICKED / Footer');
-	};
-
-	const onHomeClicked = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
 	};
 
 	return (
 		<FooterView
 			onViewPort={onViewPort}
-			onGithubClickTrack={onGithubClickTrack}
-			onLoginClickTrack={onLoginClickTrack}
-			onDocsClickTrack={onDocsClickTrack}
-			onGetStartedClickTrack={onGetStartedClickTrack}
-			onHomeClicked={onHomeClicked}
-			onTermsOfUseClickTrack={onTermsOfUseClickTrack}
-			onPrivacyClickTrack={onPrivacyClickTrack}
+			onGithubClick={onGithubClick}
+			onLoginClick={onLoginClick}
+			onDocsClick={onDocsClick}
+			onGetStartedClick={onGetStartedClick}
+			onTermsOfUseClick={onTermsOfUseClick}
+			onPrivacyClick={onPrivacyClick}
 		/>
 	);
 };

@@ -8,10 +8,10 @@ import classes from './Header.module.scss';
 
 interface IProps {
 	readonly isLogoOnHover: boolean;
-	readonly onHoverLogo: (_: boolean) => void;
-	readonly onDocsClickTrack: VoidFunction;
-	readonly onGithubClickTrack: VoidFunction;
-	readonly onLogInClickTrack: VoidFunction;
+	readonly onHoverLogo: (isHover: boolean) => void;
+	readonly onDocsClick: VoidFunction;
+	readonly onGithubClick: VoidFunction;
+	readonly onLoginClick: VoidFunction;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -36,7 +36,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://docs.exlint.io"
 						target="_self"
 						data-testid="header-first-documentations-link"
-						onClick={props.onDocsClickTrack}
+						onClick={props.onDocsClick}
 					>
 						<span className={classes['headerMenuItem__text']}>{t('layout.header.docs')}</span>
 					</Link>
@@ -45,7 +45,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://github.com/Exlint/cli"
 						target="_blank"
 						data-testid="header-github-link"
-						onClick={props.onGithubClickTrack}
+						onClick={props.onGithubClick}
 					>
 						<ELPSvg className={classes['headerMenuItem__githubIcon']} name="githubIcon" />
 						<span className={classes['headerMenuItem__text']}>{t('layout.header.github')}</span>
@@ -57,7 +57,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://app.exlint.io"
 						target="_blank"
 						data-testid="header-login-link"
-						onClick={props.onLogInClickTrack}
+						onClick={props.onLoginClick}
 					>
 						{t('layout.header.login')}
 					</Link>
@@ -66,7 +66,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						href="https://docs.exlint.io"
 						target="_self"
 						data-testid="header-second-documentations-link"
-						onClick={props.onDocsClickTrack}
+						onClick={props.onDocsClick}
 					>
 						<span className={classes['getStartedButton__text']}>
 							{t('layout.header.getStarted')}

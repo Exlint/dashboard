@@ -8,6 +8,9 @@ const configuration = {
 	images: {
 		unoptimized: true,
 	},
+	compiler: {
+		reactRemoveProperties: true,
+	},
 };
 
 module.exports = configuration;

@@ -6,11 +6,11 @@ import OpenSourceView from './OpenSource.view';
 interface IProps {}
 
 const OpenSource: React.FC<IProps> = () => {
-	const onGetStartedClickTrack = () => {
+	const onGetStartedClick = () => {
 		mixpanel.track('Navigate to docs button CLICKED / OpenSource');
 	};
 
-	return <OpenSourceView onGetStartedClickTrack={onGetStartedClickTrack} />;
+	return <OpenSourceView onGetStartedClick={onGetStartedClick} />;
 };
 
 OpenSource.displayName = 'OpenSource';

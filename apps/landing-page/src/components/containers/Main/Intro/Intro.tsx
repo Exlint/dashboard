@@ -26,7 +26,7 @@ const Intro: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => isHover);
 	};
 
-	const onGetStartedClickTrack = () => {
+	const onGetStartedClick = () => {
 		mixpanel.track('Get Statred button CLICKED / Intro');
 	};
 
@@ -44,7 +44,7 @@ const Intro: React.FC<IProps> = () => {
 			viewWidth={viewWidthState}
 			onCopyCommand={onCopyCommand}
 			onHoverCommand={onHoverCommand}
-			onGetStartedClickTrack={onGetStartedClickTrack}
+			onGetStartedClick={onGetStartedClick}
 		/>
 	);
 };

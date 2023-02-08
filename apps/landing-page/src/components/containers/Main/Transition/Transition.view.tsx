@@ -8,7 +8,7 @@ import classes from './Transition.module.scss';
 
 interface IProps {
 	readonly isVisible: boolean;
-	readonly onViewPort: (_: boolean) => void;
+	readonly onViewPort: (isVisible: boolean) => void;
 }
 
 const TransitionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

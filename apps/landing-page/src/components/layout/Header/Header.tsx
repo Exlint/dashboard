@@ -12,15 +12,15 @@ const Header: React.FC<IProps> = () => {
 		setIsLogoOnHoverState(() => isHover);
 	};
 
-	const onDocsClickTrack = () => {
+	const onDocsClick = () => {
 		mixpanel.track('Navigate to docs button CLICKED / Header');
 	};
 
-	const onGithubClickTrack = () => {
+	const onGithubClick = () => {
 		mixpanel.track('Github button CLICKED / Header');
 	};
 
-	const onLogInClickTrack = () => {
+	const onLoginClick = () => {
 		mixpanel.track('Log in button CLICKED / Header');
 	};
 
@@ -28,9 +28,9 @@ const Header: React.FC<IProps> = () => {
 		<HeaderView
 			isLogoOnHover={isLogoOnHoverState}
 			onHoverLogo={onHoverLogo}
-			onDocsClickTrack={onDocsClickTrack}
-			onGithubClickTrack={onGithubClickTrack}
-			onLogInClickTrack={onLogInClickTrack}
+			onDocsClick={onDocsClick}
+			onGithubClick={onGithubClick}
+			onLoginClick={onLoginClick}
 		/>
 	);
 };

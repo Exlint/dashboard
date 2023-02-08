@@ -25,11 +25,11 @@ const EmpowerEfficient: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => isHover);
 	};
 
-	const onGithubClickTrack = () => {
+	const onGithubClick = () => {
 		mixpanel.track('Github button CLICKED / Header');
 	};
 
-	const onDocsClickTrack = () => {
+	const onDocsClick = () => {
 		mixpanel.track('Navigate to docs button CLICKED / EmpowerEfficient');
 	};
 
@@ -39,8 +39,8 @@ const EmpowerEfficient: React.FC<IProps> = () => {
 			isCommandOnHover={isCommandOnHoverState}
 			onCopyCommand={onCopyCommand}
 			onHoverCommand={onHoverCommand}
-			onGithubClickTrack={onGithubClickTrack}
-			onDocsClickTrack={onDocsClickTrack}
+			onGithubClick={onGithubClick}
+			onDocsClick={onDocsClick}
 		/>
 	);
 };

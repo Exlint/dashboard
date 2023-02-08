@@ -14,8 +14,8 @@ interface IProps {
 	readonly isCommandOnHover: boolean;
 	readonly viewWidth: number | null;
 	readonly onCopyCommand: VoidFunction;
-	readonly onHoverCommand: (_: boolean) => void;
-	readonly onGetStartedClickTrack: VoidFunction;
+	readonly onHoverCommand: (isHover: boolean) => void;
+	readonly onGetStartedClick: VoidFunction;
 }
 
 const IntroView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -72,7 +72,7 @@ const IntroView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 							href="https://docs.exlint.io"
 							target="_self"
 							data-testid="intro-quick-start-link"
-							onClick={props.onGetStartedClickTrack}
+							onClick={props.onGetStartedClick}
 						>
 							<span className={classes['quickStartContainer__button--text']}>
 								{t('main.intro.quickStart')}

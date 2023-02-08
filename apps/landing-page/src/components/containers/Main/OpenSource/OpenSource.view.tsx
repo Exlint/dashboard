@@ -7,7 +7,7 @@ import ELPSvg from '@/ui/ELPSvg';
 import classes from './OpenSource.module.scss';
 
 interface IProps {
-	readonly onGetStartedClickTrack: VoidFunction;
+	readonly onGetStartedClick: VoidFunction;
 }
 
 const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -43,7 +43,7 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						href="https://docs.exlint.io"
 						target="_self"
 						data-testid="open-source-documentations-link"
-						onClick={props.onGetStartedClickTrack}
+						onClick={props.onGetStartedClick}
 					>
 						{t('main.openSource.viewDocs')}
 					</Link>
@@ -67,7 +67,7 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						className={classes['viewDocsButtonMobile']}
 						href="https://docs.exlint.io"
 						target="_self"
-						onClick={props.onGetStartedClickTrack}
+						onClick={props.onGetStartedClick}
 					>
 						{t('main.openSource.viewDocs')}
 					</Link>

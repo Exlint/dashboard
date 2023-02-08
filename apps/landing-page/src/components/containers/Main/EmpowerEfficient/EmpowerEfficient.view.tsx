@@ -13,9 +13,9 @@ interface IProps {
 	readonly isCommandCopied: boolean;
 	readonly isCommandOnHover: boolean;
 	readonly onCopyCommand: VoidFunction;
-	readonly onHoverCommand: (_: boolean) => void;
-	readonly onGithubClickTrack: VoidFunction;
-	readonly onDocsClickTrack: VoidFunction;
+	readonly onHoverCommand: (isHover: boolean) => void;
+	readonly onGithubClick: VoidFunction;
+	readonly onDocsClick: VoidFunction;
 }
 
 const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -39,7 +39,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 									href="https://github.com/Exlint/cli"
 									target="_blank"
 									data-testid="empower-efficient-github-link"
-									onClick={props.onGithubClickTrack}
+									onClick={props.onGithubClick}
 								>
 									<ELPSvg className={classes['githubIcon']} name="githubIcon" />
 									<span className={classes['element__text']}>
@@ -51,7 +51,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 									href="https://docs.exlint.io"
 									target="_self"
 									data-testid="empower-efficient-top-documentations-link"
-									onClick={props.onDocsClickTrack}
+									onClick={props.onDocsClick}
 								>
 									<ELPSvg className={classes['docsIcon']} name="docs" />
 									<span className={classes['element__text']}>
@@ -107,7 +107,7 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 							href="https://docs.exlint.io"
 							target="_self"
 							data-testid="empower-efficient-bottom-documentations-link"
-							onClick={props.onDocsClickTrack}
+							onClick={props.onDocsClick}
 						>
 							<span className={concatClasses(classes, 'docs__text', 'docs__text--underline')}>
 								{t('main.empowerEfficient.docs.docs')}

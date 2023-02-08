@@ -191,7 +191,7 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./tests/landing-page/basic/app.spec.ts'],
+			files: ['./tests/**/*'],
 			rules: {
 				'max-lines': 'off',
 			},
