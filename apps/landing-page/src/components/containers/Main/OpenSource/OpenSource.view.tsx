@@ -42,7 +42,7 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						className={classes['viewDocsButton']}
 						href="https://docs.exlint.io"
 						target="_self"
-						data-testid="open-source-documentations-link"
+						data-testid="open-source-web-documentations-link"
 						onClick={props.onGetStartedClick}
 					>
 						{t('main.openSource.viewDocs')}
@@ -67,6 +67,7 @@ const OpenSourceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 						className={classes['viewDocsButtonMobile']}
 						href="https://docs.exlint.io"
 						target="_self"
+						data-testid="open-source-mobile-documentations-link"
 						onClick={props.onGetStartedClick}
 					>
 						{t('main.openSource.viewDocs')}

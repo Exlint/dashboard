@@ -137,7 +137,7 @@ test.describe('Application @app-basic', () => {
 	}) => {
 		await page.goto('/');
 
-		const openSourceDocumentationsLinkElement = page.getByTestId('open-source-documentations-link');
+		const openSourceDocumentationsLinkElement = page.getByTestId('open-source-web-documentations-link');
 
 		await expect(openSourceDocumentationsLinkElement).toBeVisible();
 
