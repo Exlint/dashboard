@@ -32,7 +32,7 @@ jobs:
 
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.2.5
+              uses: Exlint/node-environment@v1.2.6
               with:
                   should-cache: false
                   node-version: 18.13.0
