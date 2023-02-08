@@ -17,6 +17,13 @@
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node",
 			"versioningTemplate": "node"
+		},
+		{
+			"fileMatch": ["package.json"],
+			"matchStrings": ["\"node\": \"(?<currentValue>.*)\""],
+			"depNameTemplate": "node",
+			"datasourceTemplate": "node",
+			"versioningTemplate": "node"
 		}
 	],
 	"packageRules": [
