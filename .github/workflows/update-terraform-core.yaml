@@ -6,7 +6,7 @@ on:
 jobs:
     update_terraform_core:
         name: Update Terraform Core
-        runs-on: [self-hosted, Linux, X64, deploy]
+        runs-on: ubuntu-latest
         if: github.actor == 'tal-rofe'
         env:
             AWS_REGION: ${{ secrets.AWS_REGION }}

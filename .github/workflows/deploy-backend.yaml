@@ -11,7 +11,7 @@ on:
 jobs:
     deploy:
         name: Deploy backend service to AWS
-        runs-on: [self-hosted, Linux, X64, deploy]
+        runs-on: ubuntu-latest
         env:
             BACKEND_ECR_REPOSITORY: dashboard-backend
             DEPLOYMENT_NAME: dashboard-backend-deployment
