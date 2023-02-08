@@ -332,7 +332,7 @@ importers:
       react-scroll: 1.8.9
       react-switch: 7.0.0
       react-textarea-autosize: 8.4.0
-      sass: 1.57.1
+      sass: 1.58.0
       stylelint: 14.16.1
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.1.0
@@ -393,13 +393,13 @@ importers:
       hygen: 6.2.11
       prettier: 2.8.3
       prisma: 4.9.0
-      sass: 1.57.1
+      sass: 1.58.0
       stylelint: 14.16.1
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.16.1
       stylelint-config-recess-order: 3.1.0_stylelint@14.16.1
       stylelint-config-standard-scss: 6.1.0_stylelint@14.16.1
       stylelint-declaration-strict-value: 1.9.1_stylelint@14.16.1
-      vite: 4.0.4_ovmyjmuuyckt3r3gpaexj2onji
+      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
       vite-plugin-react-remove-attributes: 1.0.3_vite@4.0.4
       vite-tsconfig-paths: 4.0.5_typescript@4.9.5
 
@@ -3904,7 +3904,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.7
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.0.4_ovmyjmuuyckt3r3gpaexj2onji
+      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10166,16 +10166,6 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass/1.57.1:
-    resolution: {integrity: sha512-O2+LwLS79op7GI0xZ8fqzF7X2m/m8WFfI02dHOdsK5R2ECeS5F62zrwg/relM1rjSLy7Vd/DiMNIvPrQGsA0jw==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    dependencies:
-      chokidar: 3.5.3
-      immutable: 4.1.0
-      source-map-js: 1.0.2
-    dev: true
-
   /sass/1.58.0:
     resolution: {integrity: sha512-PiMJcP33DdKtZ/1jSjjqVIKihoDc6yWmYr9K/4r3fVVIEDAluD0q7XZiRKrNJcPK3qkLRF/79DND1H5q1LBjgg==}
     engines: {node: '>=12.0.0'}
@@ -11590,7 +11580,7 @@ packages:
     peerDependencies:
       vite: ^2.4.4
     dependencies:
-      vite: 4.0.4_ovmyjmuuyckt3r3gpaexj2onji
+      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
     dev: true
 
   /vite-tsconfig-paths/4.0.5_typescript@4.9.5:
@@ -11604,7 +11594,7 @@ packages:
       - typescript
     dev: true
 
-  /vite/4.0.4_ovmyjmuuyckt3r3gpaexj2onji:
+  /vite/4.0.4_f5vcjb3akvjdur4ffzogu2hewu:
     resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -11634,7 +11624,7 @@ packages:
       postcss: 8.4.20
       resolve: 1.22.1
       rollup: 3.9.1
-      sass: 1.57.1
+      sass: 1.58.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
