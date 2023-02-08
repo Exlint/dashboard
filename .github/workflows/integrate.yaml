@@ -11,7 +11,7 @@ jobs:
     depcheck:
         name: Testing Depcheck
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -26,7 +26,7 @@ jobs:
     inflint:
         name: Testing Inflint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -41,7 +41,7 @@ jobs:
     typescript:
         name: Testing TypeScript
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -56,7 +56,7 @@ jobs:
     prettier:
         name: Testing Prettier
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -71,7 +71,7 @@ jobs:
     eslint:
         name: Testing ESLint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -86,7 +86,7 @@ jobs:
     stylelint:
         name: Testing Stylelint
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -101,7 +101,7 @@ jobs:
     prisma:
         name: Testing Prisma
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -116,7 +116,7 @@ jobs:
     build:
         name: Testing build
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.5
@@ -131,7 +131,7 @@ jobs:
     terraform:
         name: Testing Terraform
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -182,7 +182,7 @@ jobs:
         timeout-minutes: 60
         name: Automation Tests
 
-        runs-on: [self-hosted, Linux, X64, integration]
+        runs-on: ubuntu-latest
         env:
             AUTOMATION_GITHUB_EMAIL: ${{ secrets.AUTOMATION_GITHUB_EMAIL }}
             AUTOMATION_GITHUB_PASSWORD: ${{ secrets.AUTOMATION_GITHUB_PASSWORD }}
