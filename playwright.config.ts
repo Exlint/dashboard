@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 const configuration = defineConfig({
 	globalSetup: './tests/scripts/global-setup.ts',
@@ -14,6 +14,24 @@ const configuration = defineConfig({
 			},
 			testDir: './tests/dashboard',
 			testIgnore: 'scripts',
+		},
+		{
+			name: 'Landing Page Web',
+			use: {
+				testIdAttribute: 'data-testid',
+				baseURL: 'http://localhost:8000',
+				...devices['Desktop Chrome'],
+			},
+			testDir: './tests/landing-page-desktop',
+		},
+		{
+			name: 'Landing Page Mobile',
+			use: {
+				testIdAttribute: 'data-testid',
+				baseURL: 'http://localhost:8000',
+				...devices['iPhone 12'],
+			},
+			testDir: './tests/landing-page-mobile',
 		},
 	],
 });

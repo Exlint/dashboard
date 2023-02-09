@@ -12,40 +12,25 @@ const Header: React.FC<IProps> = () => {
 		setIsLogoOnHoverState(() => isHover);
 	};
 
-	const onDocsNavigate = () => {
+	const onDocsClick = () => {
 		mixpanel.track('Navigate to docs button CLICKED / Header');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	const onGithubNavigate = () => {
+	const onGithubClick = () => {
 		mixpanel.track('Github button CLICKED / Header');
-		window.open('https://github.com/Exlint/cli', '_blank');
 	};
 
-	const onDiscordNavigate = () => {
-		mixpanel.track('Discord button CLICKED / Header');
-		window.open('https://discord.com', '_blank');
-	};
-
-	const onGetStartedNavigate = () => {
-		mixpanel.track('Get Statred button CLICKED / Header');
-		window.open('https://discord.com', '_blank');
-	};
-
-	const onLogInNavigate = () => {
+	const onLoginClick = () => {
 		mixpanel.track('Log in button CLICKED / Header');
-		window.open('https://app.exlint.io', '_blank');
 	};
 
 	return (
 		<HeaderView
 			isLogoOnHover={isLogoOnHoverState}
 			onHoverLogo={onHoverLogo}
-			onDocsNavigate={onDocsNavigate}
-			onGithubNavigate={onGithubNavigate}
-			onDiscordNavigate={onDiscordNavigate}
-			onGetStartedNavigate={onGetStartedNavigate}
-			onLogInNavigate={onLogInNavigate}
+			onDocsClick={onDocsClick}
+			onGithubClick={onGithubClick}
+			onLoginClick={onLoginClick}
 		/>
 	);
 };

@@ -63,6 +63,7 @@
 						.element {
 							display: flex;
 							align-items: center;
+							text-decoration: none;
 
 							&__text {
 								margin-inline-start: 10px;
@@ -185,6 +186,10 @@
 			.docs {
 				display: flex;
 				align-items: center;
+
+				&__link {
+					text-decoration: none;
+				}
 
 				&__text {
 					font-size: 2rem;

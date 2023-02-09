@@ -1,0 +1,18 @@
+FROM node:18.14.0
+
+RUN npm i -g pnpm@7.26.3
+RUN npm i -g http-server@14.1.1
+
+WORKDIR /dashboard
+
+COPY ./package.json ./pnpm-workspace.yaml ./tsconfig.base.json ./.npmrc ./
+COPY ./apps/landing-page/package.json ./apps/landing-page/tsconfig.json ./apps/landing-page/tsconfig.base.json ./apps/landing-page/
+
+RUN PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm i -w
+RUN pnpm --filter landing-page i
+
+COPY ./apps/landing-page/ ./apps/landing-page/
+
+RUN pnpm exec nx build:automation @exlint.io/landing-page
+
+CMD ["http-server", "-c-1", "-p", "8000", "./apps/landing-page/out"]

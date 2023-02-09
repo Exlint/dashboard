@@ -10,53 +10,39 @@ const Footer: React.FC<IProps> = () => {
 		isVisible && mixpanel.track('Scroll 100%');
 	};
 
-	const onGithubNavigate = () => {
+	const onGithubClick = () => {
 		mixpanel.track('Github button CLICKED / Footer');
-		window.open('https://github.com/Exlint', '_blank');
 	};
 
-	const onLoginNavigate = () => {
+	const onLoginClick = () => {
 		mixpanel.track('Login button CLICKED / Footer');
-		window.open('https://app.exlint.io', '_blank');
 	};
 
-	const onDocsNavigate = () => {
+	const onDocsClick = () => {
 		mixpanel.track('Docs button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	const onGetStartedNavigate = () => {
+	const onGetStartedClick = () => {
 		mixpanel.track('Get Statred button CLICKED / Footer');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
-	const onTermsOfUseNavigate = () => {
+	const onTermsOfUseClick = () => {
 		mixpanel.track('Terms of use button CLICKED / Footer');
-		window.open('https://github.com/Exlint/usage-policies/blob/main/terms-of-service.mdx', '_blank');
 	};
 
-	const onPrivacyNavigate = () => {
+	const onPrivacyClick = () => {
 		mixpanel.track('Privacy button CLICKED / Footer');
-		window.open('https://github.com/Exlint/usage-policies/blob/main/privacy-policy.mdx', '_blank');
-	};
-
-	const onHomeClicked = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
 	};
 
 	return (
 		<FooterView
 			onViewPort={onViewPort}
-			onGithubNavigate={onGithubNavigate}
-			onLoginNavigate={onLoginNavigate}
-			onDocsNavigate={onDocsNavigate}
-			onGetStartedNavigate={onGetStartedNavigate}
-			onHomeClicked={onHomeClicked}
-			onTermsOfUseNavigate={onTermsOfUseNavigate}
-			onPrivacyNavigate={onPrivacyNavigate}
+			onGithubClick={onGithubClick}
+			onLoginClick={onLoginClick}
+			onDocsClick={onDocsClick}
+			onGetStartedClick={onGetStartedClick}
+			onTermsOfUseClick={onTermsOfUseClick}
+			onPrivacyClick={onPrivacyClick}
 		/>
 	);
 };

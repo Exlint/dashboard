@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Trans, useTranslation } from 'react-i18next';
 
 import ELPSvg from '@/ui/ELPSvg';
@@ -12,9 +13,9 @@ interface IProps {
 	readonly isCommandCopied: boolean;
 	readonly isCommandOnHover: boolean;
 	readonly viewWidth: number | null;
-	readonly onCopyCommand: () => void;
-	readonly onHoverCommand: (_: boolean) => void;
-	readonly onGetStartedNavigate: () => void;
+	readonly onCopyCommand: VoidFunction;
+	readonly onHoverCommand: (isHover: boolean) => void;
+	readonly onGetStartedClick: VoidFunction;
 }
 
 const IntroView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -66,15 +67,17 @@ const IntroView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 						</button>
 					</div>
 					<div className={classes['quickStartContainer']}>
-						<button
+						<Link
 							className={classes['quickStartContainer__button']}
-							type="button"
-							onClick={props.onGetStartedNavigate}
+							href="https://docs.exlint.io"
+							target="_self"
+							data-testid="intro-quick-start-link"
+							onClick={props.onGetStartedClick}
 						>
 							<span className={classes['quickStartContainer__button--text']}>
 								{t('main.intro.quickStart')}
 							</span>
-						</button>
+						</Link>
 						<span className={classes['quickStartContainer__text']}>
 							{t('main.intro.description')}
 						</span>

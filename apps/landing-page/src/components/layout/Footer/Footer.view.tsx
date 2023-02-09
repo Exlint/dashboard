@@ -8,14 +8,13 @@ import ELPSvg from '@/ui/ELPSvg';
 import classes from './Footer.module.scss';
 
 interface IProps {
-	readonly onViewPort: (_: boolean) => void;
-	readonly onGithubNavigate: () => void;
-	readonly onLoginNavigate: () => void;
-	readonly onDocsNavigate: () => void;
-	readonly onGetStartedNavigate: () => void;
-	readonly onHomeClicked: () => void;
-	readonly onTermsOfUseNavigate: () => void;
-	readonly onPrivacyNavigate: () => void;
+	readonly onViewPort: (isVisible: boolean) => void;
+	readonly onGithubClick: VoidFunction;
+	readonly onLoginClick: VoidFunction;
+	readonly onDocsClick: VoidFunction;
+	readonly onGetStartedClick: VoidFunction;
+	readonly onTermsOfUseClick: VoidFunction;
+	readonly onPrivacyClick: VoidFunction;
 }
 
 const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -30,79 +29,70 @@ const FooterView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			<div className={classes['innerFooter']}>
 				<div className={classes['firstLineContainer']}>
 					<div className={classes['mobileLogoContainer']}>
-						<Link href="/" passHref>
-							<ELPSvg className={classes['brandLogo']} name="brandLogoWhite" />
-						</Link>
+						<ELPSvg className={classes['brandLogo']} name="brandLogoWhite" />
 						<div className={classes['linksContainer']}>
-							<button
+							<Link
 								className={classes['linkItem']}
-								type="button"
-								onClick={props.onGithubNavigate}
+								href="https://github.com/Exlint/cli"
+								target="_blank"
+								data-testid="footer-github-link"
+								onClick={props.onGithubClick}
 							>
 								<ELPSvg className={classes['linkItem__githubIcon']} name="githubIcon" />
-							</button>
-							{/* <button
-								className={classes['linkItem']}
-								type="button"
-								onClick={props.onDiscordNavigate}
-							>
-								<ELPSvg
-									className={classes['linkItem__discordIcon']}
-									name="discordWhiteLogo"
-								/>
-							</button> */}
+							</Link>
 						</div>
 					</div>
-
-					<button
+					<Link
 						className={classes['firstLineContainer__getStarted']}
-						type="button"
-						onClick={props.onGetStartedNavigate}
+						href="https://docs.exlint.io"
+						target="_self"
+						data-testid="footer-get-started-link"
+						onClick={props.onGetStartedClick}
 					>
 						{t('layout.footer.getStarted')}
-					</button>
+					</Link>
 
 					<div className={classes['leftLinksContainer']}>
-						<button
+						<Link
 							className={classes['leftLinksContainer__link']}
-							type="button"
-							onClick={props.onDocsNavigate}
+							href="https://docs.exlint.io"
+							target="_self"
+							data-testid="footer-documentations-link"
+							onClick={props.onDocsClick}
 						>
 							{t('layout.footer.docs')}
-						</button>
-						<button
+						</Link>
+						<Link
 							className={classes['leftLinksContainer__link']}
-							type="button"
-							onClick={props.onLoginNavigate}
+							href="https://app.exlint.io"
+							target="_blank"
+							data-testid="footer-login-link"
+							onClick={props.onLoginClick}
 						>
 							{t('layout.footer.login')}
-						</button>
+						</Link>
 					</div>
-					{/* <div className={classes['rightLinksContainer']}>
-							<button className={classes['rightLinksContainer__link']} type="button">
-								{t('layout.footer.pricing')}
-							</button>
-							<button className={classes['rightLinksContainer__link']} type="button">
-								{t('layout.footer.login')}
-							</button>
-						</div> */}
 				</div>
 				<div className={classes['secondLineContainer']}>
 					<span className={classes['secondLineContainer__link']}>{t('layout.footer.exlint')}</span>
-					<button
+					<Link
 						className={classes['secondLineContainer__link']}
-						type="button"
-						onClick={props.onTermsOfUseNavigate}
+						href="https://github.com/Exlint/usage-policies/blob/main/terms-of-service.mdx"
+						target="_blank"
+						data-testid="footer-terms-of-use-link"
+						onClick={props.onTermsOfUseClick}
 					>
 						{t('layout.footer.termOfUse')}
-					</button>
-					<button
+					</Link>
+					<Link
 						className={classes['secondLineContainer__link']}
-						type="button"
-						onClick={props.onPrivacyNavigate}
+						href="https://github.com/Exlint/usage-policies/blob/main/privacy-policy.mdx"
+						target="_blank"
+						data-testid="footer-privacy-link"
+						onClick={props.onPrivacyClick}
 					>
-						{t('layout.footer.privicy')}
-					</button>
+						{t('layout.footer.privacy')}
+					</Link>
 				</div>
 			</div>
 		</footer>

@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Trans, useTranslation } from 'react-i18next';
-import { concatClasses } from '@/utils/component';
 
+import { concatClasses } from '@/utils/component';
 import ELPSvg from '@/ui/ELPSvg';
 import exlintLogo from '@/images/exlint-white-logo.png';
 
@@ -11,10 +12,10 @@ import classes from './EmpowerEfficient.module.scss';
 interface IProps {
 	readonly isCommandCopied: boolean;
 	readonly isCommandOnHover: boolean;
-	readonly onCopyCommand: () => void;
-	readonly onHoverCommand: (_: boolean) => void;
-	readonly onDocsNavigate: () => void;
-	readonly onGithubNavigate: () => void;
+	readonly onCopyCommand: VoidFunction;
+	readonly onHoverCommand: (isHover: boolean) => void;
+	readonly onGithubClick: VoidFunction;
+	readonly onDocsClick: VoidFunction;
 }
 
 const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -33,32 +34,30 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 						</span>
 						<div className={classes['innerDocs']}>
 							<div className={classes['brandsContainer']}>
-								<button
+								<Link
 									className={classes['element']}
-									type="button"
-									onClick={props.onGithubNavigate}
+									href="https://github.com/Exlint/cli"
+									target="_blank"
+									data-testid="empower-efficient-github-link"
+									onClick={props.onGithubClick}
 								>
 									<ELPSvg className={classes['githubIcon']} name="githubIcon" />
 									<span className={classes['element__text']}>
 										{t('main.empowerEfficient.github')}
 									</span>
-								</button>
-								<button
+								</Link>
+								<Link
 									className={classes['element']}
-									type="button"
-									onClick={props.onDocsNavigate}
+									href="https://docs.exlint.io"
+									target="_self"
+									data-testid="empower-efficient-top-documentations-link"
+									onClick={props.onDocsClick}
 								>
 									<ELPSvg className={classes['docsIcon']} name="docs" />
 									<span className={classes['element__text']}>
 										{t('main.empowerEfficient.shortDocs')}
 									</span>
-								</button>
-								{/* <div className={classes['element']}>
-									<ELPSvg className={classes['discordIcon']} name="discordWhiteLogo" />
-									<span className={classes['element__text']}>
-										{t('main.empowerEfficient.discord')}
-									</span>
-								</div> */}
+								</Link>
 							</div>
 
 							<hr className={classes['innerDocs__divider']} />
@@ -103,14 +102,20 @@ const EmpowerEfficientView: React.FC<IProps> = (props: React.PropsWithChildren<I
 						</button>
 					</div>
 					<div className={classes['docs']}>
-						<button type="button" onClick={props.onDocsNavigate}>
+						<Link
+							className={classes['docs__link']}
+							href="https://docs.exlint.io"
+							target="_self"
+							data-testid="empower-efficient-bottom-documentations-link"
+							onClick={props.onDocsClick}
+						>
 							<span className={concatClasses(classes, 'docs__text', 'docs__text--underline')}>
 								{t('main.empowerEfficient.docs.docs')}
 							</span>
 							<span className={classes['docs__text']}>
 								{t('main.empowerEfficient.docs.arrow')}
 							</span>
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>

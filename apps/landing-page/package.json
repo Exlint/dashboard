@@ -10,6 +10,7 @@
 		"dist": "next build",
 		"export": "next export",
 		"build": "run-s dist export",
+		"build:automation": "AUTOMATION=true run-s dist export",
 		"lint": "eslint -c ./.eslintrc.cjs --ignore-path ./.eslintignore \"./**/*.ts\"",
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",

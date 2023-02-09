@@ -26,9 +26,8 @@ const Intro: React.FC<IProps> = () => {
 		seIsCommandOnOverState(() => isHover);
 	};
 
-	const onGetStartedNavigate = () => {
+	const onGetStartedClick = () => {
 		mixpanel.track('Get Statred button CLICKED / Intro');
-		window.open('https://docs.exlint.io', '_self');
 	};
 
 	useEffect(() => {
@@ -45,7 +44,7 @@ const Intro: React.FC<IProps> = () => {
 			viewWidth={viewWidthState}
 			onCopyCommand={onCopyCommand}
 			onHoverCommand={onHoverCommand}
-			onGetStartedNavigate={onGetStartedNavigate}
+			onGetStartedClick={onGetStartedClick}
 		/>
 	);
 };

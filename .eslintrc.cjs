@@ -190,5 +190,11 @@ module.exports = {
 				'no-useless-escape': 'off',
 			},
 		},
+		{
+			files: ['./tests/**/*'],
+			rules: {
+				'max-lines': 'off',
+			},
+		},
 	],
 };

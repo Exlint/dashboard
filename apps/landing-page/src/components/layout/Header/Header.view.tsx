@@ -8,12 +8,10 @@ import classes from './Header.module.scss';
 
 interface IProps {
 	readonly isLogoOnHover: boolean;
-	readonly onHoverLogo: (_: boolean) => void;
-	readonly onDocsNavigate: () => void;
-	readonly onGithubNavigate: () => void;
-	readonly onDiscordNavigate: () => void;
-	readonly onGetStartedNavigate: () => void;
-	readonly onLogInNavigate: () => void;
+	readonly onHoverLogo: (isHover: boolean) => void;
+	readonly onDocsClick: VoidFunction;
+	readonly onGithubClick: VoidFunction;
+	readonly onLoginClick: VoidFunction;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -33,43 +31,47 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					{props.isLogoOnHover && <span className={classes['leftSideContainer__bouncingDot']} />}
 				</div>
 				<div className={classes['middleSideContainer']}>
-					<button
+					<Link
 						className={classes['headerMenuItem']}
-						type="button"
-						onClick={props.onDocsNavigate}
+						href="https://docs.exlint.io"
+						target="_self"
+						data-testid="header-first-documentations-link"
+						onClick={props.onDocsClick}
 					>
 						<span className={classes['headerMenuItem__text']}>{t('layout.header.docs')}</span>
-					</button>
-					<button
+					</Link>
+					<Link
 						className={classes['headerMenuItem']}
-						type="button"
-						onClick={props.onGithubNavigate}
+						href="https://github.com/Exlint/cli"
+						target="_blank"
+						data-testid="header-github-link"
+						onClick={props.onGithubClick}
 					>
 						<ELPSvg className={classes['headerMenuItem__githubIcon']} name="githubIcon" />
 						<span className={classes['headerMenuItem__text']}>{t('layout.header.github')}</span>
-					</button>
-					{/* <button
-						className={classes['headerMenuItem']}
-						type="button"
-						onClick={props.onDiscordNavigate}
-					>
-						<ELPSvg className={classes['headerMenuItem__discordIcon']} name="discordLogo" />
-						<span className={classes['headerMenuItem__text']}>{t('layout.header.discord')}</span>
-					</button> */}
+					</Link>
 				</div>
 				<div className={classes['rightSideContainer']}>
-					<button className={classes['loginButton']} type="button" onClick={props.onLogInNavigate}>
+					<Link
+						className={classes['loginButton']}
+						href="https://app.exlint.io"
+						target="_blank"
+						data-testid="header-login-link"
+						onClick={props.onLoginClick}
+					>
 						{t('layout.header.login')}
-					</button>
-					<button
+					</Link>
+					<Link
 						className={classes['getStartedButton']}
-						type="button"
-						onClick={props.onDocsNavigate}
+						href="https://docs.exlint.io"
+						target="_self"
+						data-testid="header-second-documentations-link"
+						onClick={props.onDocsClick}
 					>
 						<span className={classes['getStartedButton__text']}>
 							{t('layout.header.getStarted')}
 						</span>
-					</button>
+					</Link>
 				</div>
 			</div>
 		</header>
