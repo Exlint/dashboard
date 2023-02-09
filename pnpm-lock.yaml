@@ -306,7 +306,7 @@ importers:
       '@uiw/codemirror-themes': 4.19.7
       '@uiw/react-codemirror': 4.19.7
       '@vitejs/plugin-react': 3.0.1
-      axios: 1.3.0
+      axios: 1.3.1
       bootstrap: 3.4.1
       date-fns: 2.29.3
       depcheck: 1.4.3
@@ -357,7 +357,7 @@ importers:
       '@types/react-dom': 18.0.10
       '@uiw/codemirror-themes': 4.19.7_@codemirror+language@6.4.0
       '@uiw/react-codemirror': 4.19.7_kjftqwr52m2dq7wkpq3exsmxhu
-      axios: 1.3.0
+      axios: 1.3.1
       bootstrap: 3.4.1
       date-fns: 2.29.3
       i18next: 22.4.9
@@ -4468,8 +4468,8 @@ packages:
       - debug
     dev: true
 
-  /axios/1.3.0:
-    resolution: {integrity: sha512-oCye5nHhTypzkdLIvF9SaHfr8UAquqCn1KY3j8vsrjeol8yohAdGxIpRPbF1bOLsx33HOAatdfMX1yzsj2cHwg==}
+  /axios/1.3.1:
+    resolution: {integrity: sha512-78pWJsQTceInlyaeBQeYZ/QgZeWS8hGeKiIJiDKQe3hEyBb7sEMq0K4gjx+Va6WHTYO4zI/RRl8qGRzn0YMadA==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -8867,7 +8867,7 @@ packages:
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.27
       '@zkochan/js-yaml': 0.0.6
-      axios: 1.3.0
+      axios: 1.3.1
       chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
