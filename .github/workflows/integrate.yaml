@@ -16,7 +16,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -31,7 +31,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -46,7 +46,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -61,7 +61,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -76,7 +76,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -91,7 +91,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -106,7 +106,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -121,7 +121,7 @@ jobs:
             - name: Setup Node environment
               uses: Exlint/node-environment@v1.2.6
               with:
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -192,7 +192,7 @@ jobs:
               uses: Exlint/node-environment@v1.2.6
               with:
                   should-cache: false
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
                   package-manager-version: 7.26.3
 
@@ -200,7 +200,7 @@ jobs:
               run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
               
             - name: Install Playwright Browsers
-              run: npx playwright install
+              run: npx playwright install --with-deps
 
             - name: Run Playwright tests
               run: pnpm test:ci
