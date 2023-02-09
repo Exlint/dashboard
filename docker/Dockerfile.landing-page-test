@@ -13,6 +13,6 @@ RUN pnpm --filter landing-page i
 
 COPY ./apps/landing-page/ ./apps/landing-page/
 
-RUN pnpm exec nx build @exlint.io/landing-page
+RUN pnpm exec nx build:automation @exlint.io/landing-page
 
 CMD ["http-server", "-c-1", "-p", "8000", "./apps/landing-page/out"]

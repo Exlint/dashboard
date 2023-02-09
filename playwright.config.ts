@@ -22,7 +22,7 @@ const configuration = defineConfig({
 				baseURL: 'http://localhost:8000',
 				...devices['Desktop Chrome'],
 			},
-			testDir: './tests/landing-page-web',
+			testDir: './tests/landing-page-desktop',
 		},
 		{
 			name: 'Landing Page Mobile',
