@@ -1,0 +1,31 @@
+import { Body, Controller, HttpCode, HttpStatus, Logger, Post } from '@nestjs/common';
+import { QueryBus } from '@nestjs/cqrs';
+
+import { Public } from '@/decorators/public.decorator';
+
+import Routes from './groups.routes';
+import type { IRecommendedResponseData } from './interfaces/responses';
+import { RecommendedDto } from './classes/create.dto';
+import { RecommendedContract } from './queries/contracts/recommended.contract';
+
+@Controller(Routes.CONTROLLER)
+export class RecommendedController {
+	private readonly logger = new Logger(RecommendedController.name);
+
+	constructor(private readonly queryBus: QueryBus) {}
+
+	@Public()
+	@Post(Routes.RECOMMENDED)
+	@HttpCode(HttpStatus.OK)
+	public async recommended(@Body() recommendedDto: RecommendedDto): Promise<IRecommendedResponseData> {
+		this.logger.log(`Will try to get recommeded group for languages: "${recommendedDto.languages}"`);
+
+		const groupData = await this.queryBus.execute<RecommendedContract, IRecommendedResponseData>(
+			new RecommendedContract(recommendedDto.languages),
+		);
+
+		this.logger.log('Successfully got a recommended group');
+
+		return groupData;
+	}
+}

@@ -204,6 +204,7 @@ importers:
       '@nestjs/schematics': 9.0.4
       '@nestjs/swagger': 6.1.4
       '@prisma/client': 4.9.0
+      '@types/deepmerge': 2.2.0
       '@types/express': 4.17.16
       '@types/passport-jwt': 3.0.8
       '@types/promise-retry': 1.1.3
@@ -211,6 +212,7 @@ importers:
       '@typescript-eslint/parser': 5.50.0
       class-transformer: 0.5.1
       class-validator: 0.14.0
+      deepmerge: 4.3.0
       depcheck: 1.4.3
       dotenv-cli: 7.0.0
       eslint: 8.33.0
@@ -247,6 +249,7 @@ importers:
       '@prisma/client': 4.9.0_prisma@4.9.0
       class-transformer: 0.5.1
       class-validator: 0.14.0
+      deepmerge: 4.3.0
       helmet: 6.0.1
       mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0_@nestjs+common@9.3.1
@@ -259,6 +262,7 @@ importers:
       '@nestjs/cli': 9.1.9
       '@nestjs/schematics': 9.0.4_typescript@4.9.5
       '@nestjs/swagger': 6.1.4_25mb2iazsxw3kxf3c5hxmogl5q
+      '@types/deepmerge': 2.2.0
       '@types/express': 4.17.16
       '@types/passport-jwt': 3.0.8
       '@types/promise-retry': 1.1.3
@@ -3408,6 +3412,13 @@ packages:
       '@types/node': 18.11.18
     dev: true
 
+  /@types/deepmerge/2.2.0:
+    resolution: {integrity: sha512-FEQYDHh6+Q+QXKSrIY46m+/lAmAj/bk4KpLaam+hArmzaVpMBHLcfwOH2Q2UOkWM7XsdY9PmZpGyPAjh/JRGhQ==}
+    deprecated: This is a stub types definition. deepmerge provides its own type definitions, so you do not need this installed.
+    dependencies:
+      deepmerge: 4.3.0
+    dev: true
+
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
@@ -5505,10 +5516,9 @@ packages:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
 
-  /deepmerge/4.2.2:
-    resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==}
+  /deepmerge/4.3.0:
+    resolution: {integrity: sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /defaults/1.0.3:
     resolution: {integrity: sha512-s82itHOnYrN0Ib8r+z7laQz3sdE+4FP3d9Q7VLO7U+KRT+CR0GsWuyHxzdAY82I7cXv0G/twrqomTJLOssO5HA==}
@@ -6759,7 +6769,7 @@ packages:
       chalk: 4.1.2
       chokidar: 3.5.3
       cosmiconfig: 7.1.0
-      deepmerge: 4.2.2
+      deepmerge: 4.3.0
       fs-extra: 10.1.0
       memfs: 3.4.7
       minimatch: 3.1.2
