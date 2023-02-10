@@ -326,7 +326,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.10.0
       react-dom: 18.2.0
-      react-i18next: 12.1.4
+      react-i18next: 12.1.5
       react-redux: 8.0.5
       react-router-dom: 6.8.0
       react-scroll: 1.8.9
@@ -364,7 +364,7 @@ importers:
       react: 18.2.0
       react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
+      react-i18next: 12.1.5_iakk3dtjhjpukdoa4oua5khgci
       react-redux: 8.0.5_fxtgt6bjwd6p4cwoordejim2zi
       react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.9_biqbaboplfbrettd7655fr4n2y
@@ -427,7 +427,7 @@ importers:
       react: 18.2.0
       react-card-carousel: 1.1.3
       react-dom: 18.2.0
-      react-i18next: 12.1.4
+      react-i18next: 12.1.5
       react-intersection-observer: 9.4.1
       sass: 1.58.0
       stylelint: 14.16.1
@@ -439,7 +439,7 @@ importers:
       react: 18.2.0
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
+      react-i18next: 12.1.5_iakk3dtjhjpukdoa4oua5khgci
       react-intersection-observer: 9.4.1_react@18.2.0
     devDependencies:
       '@types/mixpanel-browser': 2.38.1
@@ -9653,8 +9653,8 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.1.4_iakk3dtjhjpukdoa4oua5khgci:
-    resolution: {integrity: sha512-XQND7jYtgM7ht5PH3yIZljCRpAMTlH/zmngM9ZjToqa+0BR6xuu8c7QF0WIIOEjcMTB2S3iOfpN/xG/ZrAnO6g==}
+  /react-i18next/12.1.5_iakk3dtjhjpukdoa4oua5khgci:
+    resolution: {integrity: sha512-7PQAv6DA0TcStG96fle+8RfTwxVbHVlZZJPoEszwUNvDuWpGldJmNWa3ZPesEsZQZGF6GkzwvEh6p57qpFD2gQ==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
@@ -11634,7 +11634,7 @@ packages:
     dev: true
 
   /void-elements/3.1.0:
-    resolution: {integrity: sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=}
+    resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
     engines: {node: '>=0.10.0'}
     dev: false
 
