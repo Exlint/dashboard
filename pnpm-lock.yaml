@@ -5,7 +5,7 @@ importers:
   .:
     specifiers:
       '@commitlint/cli': 17.4.2
-      '@exlint.io/inflint': 1.2.9
+      '@exlint.io/inflint': 1.2.10
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0
       '@types/node': 18.11.18
@@ -44,7 +44,7 @@ importers:
       wait-on: 7.0.1
     devDependencies:
       '@commitlint/cli': 17.4.2
-      '@exlint.io/inflint': 1.2.9_bdgp3l2zgaopogaavxusmetvge
+      '@exlint.io/inflint': 1.2.10_bdgp3l2zgaopogaavxusmetvge
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0_prisma@4.9.0
       '@types/node': 18.11.18
@@ -2458,8 +2458,8 @@ packages:
       - supports-color
     dev: true
 
-  /@exlint.io/inflint/1.2.9_bdgp3l2zgaopogaavxusmetvge:
-    resolution: {integrity: sha512-jvRQ/sJhNZHK+Ir+7zFWiQieWoSgS79zOmPZidCrS9o8NajjkTQ9+fAxIIQF5rUTNZOSzjTYr0Q12Q/qpzJTTQ==}
+  /@exlint.io/inflint/1.2.10_bdgp3l2zgaopogaavxusmetvge:
+    resolution: {integrity: sha512-w/WF8km72qi6PqRCoyr4w7tFmE2RLSD1+0rq2joZKSubFAepcg52mqvQzdln/E4j4nADBNCKMlPxl8IRnV6asA==}
     hasBin: true
     dependencies:
       '@expo/spawn-async': 1.6.0
