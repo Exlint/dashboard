@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.4.2",
-		"@exlint.io/inflint": "1.2.9",
+		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.30.0",
 		"@prisma/client": "4.9.0",
 		"@types/node": "18.11.18",
