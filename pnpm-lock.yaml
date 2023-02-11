@@ -339,7 +339,7 @@ importers:
       stylelint-config-standard-scss: 6.1.0
       stylelint-declaration-strict-value: 1.9.1
       typescript: 4.9.5
-      vite: 4.0.4
+      vite: 4.1.1
       vite-plugin-react-remove-attributes: 1.0.3
       vite-tsconfig-paths: 4.0.5
     dependencies:
@@ -379,7 +379,7 @@ importers:
       '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
       '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
-      '@vitejs/plugin-react': 3.1.0_vite@4.0.4
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.1
       depcheck: 1.4.3
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0_eslint@8.33.0
@@ -399,8 +399,8 @@ importers:
       stylelint-config-recess-order: 3.1.0_stylelint@14.16.1
       stylelint-config-standard-scss: 6.1.0_stylelint@14.16.1
       stylelint-declaration-strict-value: 1.9.1_stylelint@14.16.1
-      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
-      vite-plugin-react-remove-attributes: 1.0.3_vite@4.0.4
+      vite: 4.1.1_f5vcjb3akvjdur4ffzogu2hewu
+      vite-plugin-react-remove-attributes: 1.0.3_vite@4.1.1
       vite-tsconfig-paths: 4.0.5_typescript@4.9.5
 
   apps/landing-page:
@@ -3953,7 +3953,7 @@ packages:
       - '@codemirror/language'
     dev: false
 
-  /@vitejs/plugin-react/3.1.0_vite@4.0.4:
+  /@vitejs/plugin-react/3.1.0_vite@4.1.1:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -3964,7 +3964,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
+      vite: 4.1.1_f5vcjb3akvjdur4ffzogu2hewu
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3996,7 +3996,7 @@ packages:
       '@vue/shared': 3.2.39
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.20
+      postcss: 8.4.21
       source-map: 0.6.1
     dev: true
 
@@ -9505,12 +9505,12 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-sorting/7.0.1_postcss@8.4.20:
+  /postcss-sorting/7.0.1_postcss@8.4.21:
     resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
     peerDependencies:
       postcss: ^8.3.9
     dependencies:
-      postcss: 8.4.20
+      postcss: 8.4.21
     dev: true
 
   /postcss-value-parser/3.3.1:
@@ -9532,6 +9532,15 @@ packages:
 
   /postcss/8.4.20:
     resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.4
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
+
+  /postcss/8.4.21:
+    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
@@ -10169,8 +10178,8 @@ packages:
     hasBin: true
     dev: true
 
-  /rollup/3.9.1:
-    resolution: {integrity: sha512-GswCYHXftN8ZKGVgQhTFUJB/NBXxrRGgO2NCy6E8s1rwEJ4Q9/VttNqcYfEvx4dTo4j58YqdC3OVztPzlKSX8w==}
+  /rollup/3.15.0:
+    resolution: {integrity: sha512-F9hrCAhnp5/zx/7HYmftvsNBkMfLfk/dXUh73hPSM2E3CRgap65orDNJbLetoiUFwSAk6iHPLvBrZ5iHYvzqsg==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -10901,8 +10910,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
-      postcss: 8.4.20
-      postcss-sorting: 7.0.1_postcss@8.4.20
+      postcss: 8.4.21
+      postcss-sorting: 7.0.1_postcss@8.4.21
       stylelint: 14.16.1
     dev: true
 
@@ -11629,12 +11638,12 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vite-plugin-react-remove-attributes/1.0.3_vite@4.0.4:
+  /vite-plugin-react-remove-attributes/1.0.3_vite@4.1.1:
     resolution: {integrity: sha512-f+ox+GFeqyBHzOe94Tcf1knFXEYWMhOGH04glIZRoXoIXQJD23Z1KFgQ7/JwOoLydsvQTlGzUJ/BpLeL7lh2LQ==}
     peerDependencies:
       vite: ^2.4.4
     dependencies:
-      vite: 4.0.4_f5vcjb3akvjdur4ffzogu2hewu
+      vite: 4.1.1_f5vcjb3akvjdur4ffzogu2hewu
     dev: true
 
   /vite-tsconfig-paths/4.0.5_typescript@4.9.5:
@@ -11648,8 +11657,8 @@ packages:
       - typescript
     dev: true
 
-  /vite/4.0.4_f5vcjb3akvjdur4ffzogu2hewu:
-    resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
+  /vite/4.1.1_f5vcjb3akvjdur4ffzogu2hewu:
+    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -11675,9 +11684,9 @@ packages:
     dependencies:
       '@types/node': 18.11.18
       esbuild: 0.16.14
-      postcss: 8.4.20
+      postcss: 8.4.21
       resolve: 1.22.1
-      rollup: 3.9.1
+      rollup: 3.15.0
       sass: 1.58.0
     optionalDependencies:
       fsevents: 2.3.2
