@@ -31,7 +31,7 @@
 		"@prisma/client": "4.9.0",
 		"@reduxjs/toolkit": "1.9.2",
 		"@rjsf/core": "5.0.2",
-		"@rjsf/utils": "5.0.1",
+		"@rjsf/utils": "5.0.2",
 		"@rjsf/validator-ajv8": "5.0.2",
 		"@types/react": "18.0.27",
 		"@types/react-dom": "18.0.10",
