@@ -17,7 +17,7 @@ importers:
       commitizen: 4.3.0
       cz-vinyl: 1.6.2
       depcheck: 1.4.3
-      docker-compose: 0.23.18
+      docker-compose: 0.23.19
       dotenv-cli: 7.0.0
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0
@@ -56,7 +56,7 @@ importers:
       commitizen: 4.3.0
       cz-vinyl: 1.6.2_qqdszkrtcshgbphghj7vnvrrby
       depcheck: 1.4.3
-      docker-compose: 0.23.18
+      docker-compose: 0.23.19
       dotenv-cli: 7.0.0
       eslint: 8.33.0
       eslint-config-prettier: 8.6.0_eslint@8.33.0
@@ -5674,8 +5674,8 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /docker-compose/0.23.18:
-    resolution: {integrity: sha512-OF+mNV07oUer5QCfvpi39zjQAvFjVmy9H3MfSuwQ417vj8DNMOzvvSTGgajyOZ/rn/afkrJcKltVlQv4UzXQqw==}
+  /docker-compose/0.23.19:
+    resolution: {integrity: sha512-v5vNLIdUqwj4my80wxFDkNH+4S85zsRuH29SO7dCWVWPCMt/ohZBsGN6g6KXWifT0pzQ7uOxqEKCYCDPJ8Vz4g==}
     engines: {node: '>= 6.0.0'}
     dependencies:
       yaml: 1.10.2

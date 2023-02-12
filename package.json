@@ -49,7 +49,7 @@
 		"commitizen": "4.3.0",
 		"cz-vinyl": "1.6.2",
 		"depcheck": "1.4.3",
-		"docker-compose": "0.23.18",
+		"docker-compose": "0.23.19",
 		"dotenv-cli": "7.0.0",
 		"eslint": "8.33.0",
 		"eslint-config-prettier": "8.6.0",
