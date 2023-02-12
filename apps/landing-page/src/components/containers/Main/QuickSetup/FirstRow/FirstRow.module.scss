@@ -12,19 +12,20 @@
 		position: relative;
 		z-index: 0;
 		display: inline-block;
-		width: 611px;
-		height: 339px;
-		padding: 12px;
+		width: 711px;
+		height: 470px;
 		margin-inline-end: 113px;
 		overflow: hidden;
-		background-color: #242337;
-		border: 2.5px solid #7a4df3;
 		border-radius: 5px;
-		box-shadow: -4px 22px 56px #9747ff80;
 
-		&__code {
+		&__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: none;
 			width: 100%;
 			height: 100%;
+			overflow: hidden;
 		}
 	}
 
@@ -89,8 +90,8 @@
 		backdrop-filter: blur(2.5px);
 
 		.leftSide {
-			width: 100%;
-			height: 100%;
+			width: 321px;
+			height: 270px;
 			margin-inline-end: 0;
 			margin-top: 24px;
 		}
