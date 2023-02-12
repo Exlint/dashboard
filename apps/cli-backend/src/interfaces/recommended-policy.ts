@@ -1,7 +1,7 @@
-import type { Prisma } from '@prisma/client';
+import type { PolicyLibrary, Prisma } from '@prisma/client';
 
 export interface IRecommendedPolicy {
-	readonly library: string;
+	readonly library: PolicyLibrary;
 	readonly configuration: Prisma.JsonValue;
 	readonly lintedList: string[];
 	readonly ignoredList: string[];

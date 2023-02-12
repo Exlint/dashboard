@@ -2,7 +2,7 @@ import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const javascriptPolicies: IRecommendedResponseData = [
 	{
-		library: 'inflint',
+		library: 'Inflint',
 		configuration: {
 			rules: {
 				'**/*.{cjs,mjs,js,cts,mts,ts}': [2, 'kebab-case.point'],
@@ -12,13 +12,13 @@ export const javascriptPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'depcheck',
+		library: 'Depcheck',
 		configuration: {},
 		lintedList: [],
 		ignoredList: [],
 	},
 	{
-		library: 'prettier',
+		library: 'Prettier',
 		configuration: {
 			tabWidth: 4,
 			printWidth: 110,
@@ -35,7 +35,7 @@ export const javascriptPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'eslint',
+		library: 'ESLint',
 		configuration: {
 			root: true,
 			env: { node: true },

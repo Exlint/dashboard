@@ -2,7 +2,7 @@ import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const reactPolicies: IRecommendedResponseData = [
 	{
-		library: 'inflint',
+		library: 'Inflint',
 		configuration: {
 			rules: {
 				'**/*.{jsx,tsx}': [2, 'PascalCase.point'],
@@ -14,13 +14,13 @@ export const reactPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'depcheck',
+		library: 'Depcheck',
 		configuration: {},
 		lintedList: [],
 		ignoredList: [],
 	},
 	{
-		library: 'prettier',
+		library: 'Prettier',
 		configuration: {
 			tabWidth: 4,
 			printWidth: 110,
@@ -37,7 +37,7 @@ export const reactPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'eslint',
+		library: 'ESLint',
 		configuration: {
 			root: true,
 			env: { browser: true, es2021: true },
@@ -87,7 +87,7 @@ export const reactPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'stylelint',
+		library: 'Stylelint',
 		configuration: {
 			extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier-scss'],
 			rules: {

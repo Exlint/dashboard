@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsEnum } from 'class-validator';
 
-import { Language } from '../models/languages';
+import { Language } from '@/models/languages';
 
 export class RecommendedDto {
 	@ApiProperty({

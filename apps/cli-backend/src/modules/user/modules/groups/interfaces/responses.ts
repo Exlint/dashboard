@@ -1,6 +1,6 @@
 import type { InlinePolicy, Rule } from '@prisma/client';
 
-import type { IRecommendedPolicy } from './recommended-policy';
+import type { IRecommendedPolicy } from '../../../../../interfaces/recommended-policy';
 
 export type IGetGroupResponseData = (Pick<
 	InlinePolicy,
@@ -14,3 +14,7 @@ export type IGetGroupResponseData = (Pick<
 > & { readonly rules: Pick<Rule, 'name' | 'configuration'>[] })[];
 
 export type IRecommendedResponseData = IRecommendedPolicy[];
+
+export interface IAddRecommendedResponseData {
+	readonly groupId: string;
+}

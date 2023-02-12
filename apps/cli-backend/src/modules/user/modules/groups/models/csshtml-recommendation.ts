@@ -2,7 +2,7 @@ import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const cssHtmlPolicies: IRecommendedResponseData = [
 	{
-		library: 'stylelint',
+		library: 'Stylelint',
 		configuration: {
 			extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier-scss'],
 			rules: {
@@ -22,13 +22,13 @@ export const cssHtmlPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'depcheck',
+		library: 'Depcheck',
 		configuration: {},
 		lintedList: [],
 		ignoredList: [],
 	},
 	{
-		library: 'inflint',
+		library: 'Inflint',
 		configuration: {
 			rules: {
 				'**/*.html': [2, 'kebab-case'],
@@ -39,7 +39,7 @@ export const cssHtmlPolicies: IRecommendedResponseData = [
 		ignoredList: [],
 	},
 	{
-		library: 'prettier',
+		library: 'Prettier',
 		configuration: {
 			tabWidth: 4,
 			printWidth: 110,
