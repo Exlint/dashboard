@@ -1,3 +1,4 @@
+import { CSS_PATTERN, HTML_PATTERN } from '../constants/file-patterns';
 import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const cssHtmlPolicies: IRecommendedResponseData = [
@@ -18,8 +19,8 @@ export const cssHtmlPolicies: IRecommendedResponseData = [
 				],
 			},
 		},
-		lintedList: ['**/*.css', '**/*.scss', '**/*.less'],
-		ignoredList: [],
+		lintedList: [CSS_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'Depcheck',
@@ -31,12 +32,12 @@ export const cssHtmlPolicies: IRecommendedResponseData = [
 		library: 'Inflint',
 		configuration: {
 			rules: {
-				'**/*.html': [2, 'kebab-case'],
-				'**/*.{css,scss,less}': [2, 'kebab-case'],
+				[HTML_PATTERN]: [2, 'kebab-case'],
+				[CSS_PATTERN]: [2, 'kebab-case'],
 			},
 		},
 		lintedList: [],
-		ignoredList: [],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'Prettier',
@@ -52,7 +53,7 @@ export const cssHtmlPolicies: IRecommendedResponseData = [
 			arrowParens: 'always',
 			bracketSameLine: false,
 		},
-		lintedList: ['**/*.html', '**/*.{css,scss,less}'],
-		ignoredList: [],
+		lintedList: [HTML_PATTERN, CSS_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 ];

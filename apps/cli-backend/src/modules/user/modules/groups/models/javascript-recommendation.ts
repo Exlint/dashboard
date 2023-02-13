@@ -1,3 +1,4 @@
+import { JAVASCRIPT_PATTERN } from '../constants/file-patterns';
 import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const javascriptPolicies: IRecommendedResponseData = [
@@ -5,11 +6,11 @@ export const javascriptPolicies: IRecommendedResponseData = [
 		library: 'Inflint',
 		configuration: {
 			rules: {
-				'**/*.{cjs,mjs,js,cts,mts,ts}': [2, 'kebab-case.point'],
+				[JAVASCRIPT_PATTERN]: [2, 'kebab-case.point'],
 			},
 		},
 		lintedList: [],
-		ignoredList: [],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'Depcheck',
@@ -31,8 +32,8 @@ export const javascriptPolicies: IRecommendedResponseData = [
 			arrowParens: 'always',
 			bracketSameLine: false,
 		},
-		lintedList: ['**/*.{cjs,mjs,js,cts,mts,ts}'],
-		ignoredList: [],
+		lintedList: [JAVASCRIPT_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'ESLint',
@@ -69,7 +70,7 @@ export const javascriptPolicies: IRecommendedResponseData = [
 				'curly': ['error', 'all'],
 			},
 		},
-		lintedList: ['**/*.{cjs,mjs,js,cts,mts,ts}'],
-		ignoredList: [],
+		lintedList: [JAVASCRIPT_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 ];

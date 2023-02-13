@@ -1,3 +1,4 @@
+import { CSS_PATTERN, HTML_PATTERN, JAVASCRIPT_PATTERN, REACT_PATTERN } from '../constants/file-patterns';
 import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const reactPolicies: IRecommendedResponseData = [
@@ -5,13 +6,14 @@ export const reactPolicies: IRecommendedResponseData = [
 		library: 'Inflint',
 		configuration: {
 			rules: {
-				'**/*.{jsx,tsx}': [2, 'PascalCase.point'],
-				'**/*.html': [2, 'kebab-case'],
-				'**/*.{css,scss,less}': [2, 'PascalPoint.point'],
+				[REACT_PATTERN]: [2, 'PascalCase.Point'],
+				[JAVASCRIPT_PATTERN]: [2, 'kebab-case.point'],
+				[HTML_PATTERN]: [2, 'kebab-case'],
+				[CSS_PATTERN]: [2, 'PascalCase.Point'],
 			},
 		},
 		lintedList: [],
-		ignoredList: [],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'Depcheck',
@@ -33,8 +35,8 @@ export const reactPolicies: IRecommendedResponseData = [
 			arrowParens: 'always',
 			bracketSameLine: false,
 		},
-		lintedList: ['**/*.{jsx,tsx}'],
-		ignoredList: [],
+		lintedList: [JAVASCRIPT_PATTERN, CSS_PATTERN, HTML_PATTERN, REACT_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'ESLint',
@@ -83,8 +85,8 @@ export const reactPolicies: IRecommendedResponseData = [
 				},
 			},
 		},
-		lintedList: ['**/*.{jsx,tsx}'],
-		ignoredList: [],
+		lintedList: [JAVASCRIPT_PATTERN, REACT_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 	{
 		library: 'Stylelint',
@@ -103,7 +105,7 @@ export const reactPolicies: IRecommendedResponseData = [
 				],
 			},
 		},
-		lintedList: ['**/*.css', '**/*.scss', '**/*.less'],
-		ignoredList: [],
+		lintedList: [CSS_PATTERN],
+		ignoredList: ['node_modules'],
 	},
 ];

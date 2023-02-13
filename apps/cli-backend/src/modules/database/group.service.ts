@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CodeType } from '@prisma/client';
+import randomWords from 'random-words';
 
 import type { IRecommendedPolicy } from '@/interfaces/recommended-policy';
 import type { Language } from '@/models/languages';
@@ -44,11 +45,12 @@ export class DBGroupService {
 
 	public async addRecommendedGroup(userId: string, policies: IRecommendedPolicy[], languages: Language[]) {
 		const languagesForDescription = languages.join(', ');
+		const [randomString] = randomWords({ exactly: 1, wordsPerString: 2, separator: '-' });
 
 		const createdGroup = await this.prisma.group.create({
 			data: {
 				userId,
-				label: 'Exlint Imported Group',
+				label: `Exlint Imported Group ${randomString}`,
 				description: `This group was created using the "go" command for these languages: ${languagesForDescription}`,
 			},
 			select: { id: true },

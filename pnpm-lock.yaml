@@ -229,6 +229,7 @@ importers:
       passport-jwt: 4.0.1
       prisma: 4.9.0
       promise-retry: 2.0.1
+      random-words: 1.2.1
       reflect-metadata: 0.1.13
       rimraf: 4.1.2
       run-script-webpack-plugin: 0.1.1
@@ -255,6 +256,7 @@ importers:
       nestjs-real-ip: 2.2.0_@nestjs+common@9.3.2
       passport-jwt: 4.0.1
       promise-retry: 2.0.1
+      random-words: 1.2.1
       reflect-metadata: 0.1.13
       rxjs: 7.8.0
     devDependencies:
@@ -9669,6 +9671,10 @@ packages:
       minimist: 1.2.7
       through2: 2.0.5
     dev: true
+
+  /random-words/1.2.1:
+    resolution: {integrity: sha512-LG7ejRI9bhOeJ9+Rde4nRyCgdpfmC6vDZU/KlWdvWfMhK88aEWyl6f8qkLxlgO/qvWAXanhhulzQBZT8uDApCA==}
+    dev: false
 
   /randombytes/2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}

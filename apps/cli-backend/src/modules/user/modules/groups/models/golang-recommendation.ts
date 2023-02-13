@@ -1,3 +1,4 @@
+import { GOLANG_PATTERN } from '../constants/file-patterns';
 import type { IRecommendedResponseData } from '../interfaces/responses';
 
 export const golangPolicies: IRecommendedResponseData = [
@@ -5,7 +6,7 @@ export const golangPolicies: IRecommendedResponseData = [
 		library: 'Inflint',
 		configuration: {
 			rules: {
-				'**/*.go': [2, 'snake_case', { dot: false }],
+				[GOLANG_PATTERN]: [2, 'snake_case', { dot: false }],
 			},
 		},
 		lintedList: [],
