@@ -37,20 +37,19 @@
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.4.2",
-		"@exlint.io/inflint": "1.2.9",
+		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.30.0",
 		"@prisma/client": "4.9.0",
-		"@types/is-ci": "3.0.0",
-		"@types/node": "18.11.18",
+		"@types/node": "18.11.19",
 		"@types/totp-generator": "0.0.4",
 		"@types/wait-on": "5.3.1",
-		"@typescript-eslint/eslint-plugin": "5.49.0",
-		"@typescript-eslint/parser": "5.49.0",
+		"@typescript-eslint/eslint-plugin": "5.50.0",
+		"@typescript-eslint/parser": "5.50.0",
 		"chalk": "4.1.2",
 		"commitizen": "4.3.0",
 		"cz-vinyl": "1.6.2",
 		"depcheck": "1.4.3",
-		"docker-compose": "0.23.18",
+		"docker-compose": "0.23.19",
 		"dotenv-cli": "7.0.0",
 		"eslint": "8.33.0",
 		"eslint-config-prettier": "8.6.0",
@@ -66,18 +65,18 @@
 		"nx": "15.6.3",
 		"open": "8.4.0",
 		"playwright": "1.30.0",
-		"pnpm": "7.26.3",
+		"pnpm": "7.27.0",
 		"prettier": "2.8.3",
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.9.0",
 		"rimraf": "4.1.2",
 		"stylelint": "14.16.1",
 		"totp-generator": "0.0.14",
-		"typescript": "4.9.4",
+		"typescript": "4.9.5",
 		"wait-on": "7.0.1"
 	},
 	"engines": {
-		"pnpm": "7.26.3",
-		"node": "18.13.0"
+		"pnpm": "7.27.0",
+		"node": "18.14.0"
 	}
 }

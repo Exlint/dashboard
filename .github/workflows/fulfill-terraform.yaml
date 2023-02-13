@@ -6,7 +6,7 @@ on:
 jobs:
     fulfill_terraform:
         name: Fulfill Terraform 
-        runs-on: [self-hosted, Linux, X64, deploy]
+        runs-on: ubuntu-latest
         if: github.actor == 'tal-rofe'
         env:
             AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -32,12 +32,12 @@ jobs:
 
         steps:
             - name: Setup Node environment
-              uses: Exlint/node-environment@v1.2.5
+              uses: Exlint/node-environment@v1.2.6
               with:
                   should-cache: false
-                  node-version: 18.13.0
+                  node-version: 18.14.0
                   package-manager: pnpm
-                  package-manager-version: 7.26.3
+                  package-manager-version: 7.27.0
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16

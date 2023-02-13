@@ -176,8 +176,8 @@ module.exports = {
 			files: [
 				'./scripts/onboarding.cjs',
 				'./docker/scripts/open-dashboard.cjs',
-				'./tests/dashboard/scripts/global-setup.ts',
-				'./tests/dashboard/scripts/global-teardown.ts',
+				'./tests/scripts/global-setup.ts',
+				'./tests/scripts/global-teardown.ts',
 			],
 			rules: {
 				'no-console': 'off',
@@ -188,6 +188,12 @@ module.exports = {
 			rules: {
 				'quotes': 'off',
 				'no-useless-escape': 'off',
+			},
+		},
+		{
+			files: ['./tests/**/*'],
+			rules: {
+				'max-lines': 'off',
 			},
 		},
 	],

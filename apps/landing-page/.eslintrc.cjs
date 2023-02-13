@@ -112,6 +112,12 @@ module.exports = {
 				'react/no-unescaped-entities': 'off',
 			},
 		},
+		{
+			files: ['./next.config.js'],
+			rules: {
+				'no-process-env': 'off',
+			},
+		},
 	],
 	settings: {
 		react: {

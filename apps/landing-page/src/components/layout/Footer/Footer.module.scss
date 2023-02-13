@@ -36,11 +36,9 @@
 					align-items: center;
 					margin: 0 60px 0 50px;
 
-					.linkItem:not(:last-child) {
-						margin-inline-end: 9px;
-					}
-
 					.linkItem {
+						text-decoration: none;
+
 						&__githubIcon {
 							width: 42px;
 							height: 41px;
@@ -52,6 +50,10 @@
 							fill: #e7e7e7;
 						}
 					}
+
+					.linkItem:not(:last-child) {
+						margin-inline-end: 9px;
+					}
 				}
 			}
 
@@ -62,6 +64,7 @@
 				color: #fefefe;
 				background-color: #7a4df3;
 				border-radius: 10px;
+				text-decoration: none;
 			}
 
 			.leftLinksContainer {
@@ -71,15 +74,15 @@
 				justify-content: center;
 				margin: 0 21px 0 58px;
 
-				&__link:not(:last-child) {
-					margin-bottom: 9px;
-				}
-
 				&__link {
 					font-size: 1.6rem;
 					font-weight: 500;
 					color: #e7e7e7;
 					text-decoration: none;
+				}
+
+				&__link:not(:last-child) {
+					margin-bottom: 9px;
 				}
 			}
 
@@ -108,15 +111,15 @@
 			justify-content: center;
 			margin: 20px 0 28px;
 
-			&__link:not(:last-child) {
-				margin-inline-end: 62px;
-			}
-
 			&__link {
 				font-size: 1.6rem;
 				font-weight: 500;
 				color: #727272;
 				text-decoration: none;
+			}
+
+			&__link:not(:last-child) {
+				margin-inline-end: 62px;
 			}
 		}
 	}

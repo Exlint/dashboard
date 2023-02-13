@@ -1,11 +1,11 @@
-FROM node:18.13.0
+FROM node:18.14.0
 
-RUN npm i -g pnpm@7.26.3
+RUN npm i -g pnpm@7.27.0
 
 WORKDIR /dashboard
 
 COPY ./package.json ./pnpm-workspace.yaml ./tsconfig.base.json ./.npmrc ./
-COPY ./apps/backend/package.json ./apps/backend/tsconfig.json ./apps/backend/tsconfig.base.json ./apps/backend/tsconfig.json ./apps/backend/
+COPY ./apps/backend/package.json ./apps/backend/tsconfig.json ./apps/backend/tsconfig.base.json ./apps/backend/
 COPY ./packages/common/package.json ./packages/common/tsconfig.base.json ./packages/common/tsconfig.build.json ./packages/common/
 COPY ./prisma/schema.prisma ./prisma/
 
