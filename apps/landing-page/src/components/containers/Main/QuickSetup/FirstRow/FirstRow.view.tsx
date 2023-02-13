@@ -1,6 +1,5 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import VSvg from '@/ui/ELPSvg';
 
 import classes from './FirstRow.module.scss';
 
