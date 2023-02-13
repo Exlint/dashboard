@@ -1,6 +1,5 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import VSvg from '@/ui/ELPSvg';
 
 import classes from './FirstRow.module.scss';
 
@@ -12,7 +11,13 @@ const FirstRowView: React.FC<IProps> = () => {
 	return (
 		<div className={classes['container']}>
 			<div className={classes['leftSide']}>
-				<VSvg className={classes['leftSide__code']} name="allLintersCodeOutput" />
+				<iframe
+					className={classes['leftSide__video']}
+					src="https://demo.arcade.software/Jmndz8qF7Bw9RCJbZw4k?embed"
+					loading="lazy"
+					allowFullScreen
+					title="▶Exlint Demo"
+				/>
 			</div>
 			<div className={classes['rightSide']}>
 				<h3 className={classes['rightSide__title']}>{t('main.quickSetup.firstRow.title')}</h3>
