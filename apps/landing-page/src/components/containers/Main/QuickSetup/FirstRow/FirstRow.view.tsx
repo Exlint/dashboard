@@ -16,7 +16,7 @@ const FirstRowView: React.FC<IProps> = () => {
 					src="https://demo.arcade.software/Jmndz8qF7Bw9RCJbZw4k?embed"
 					loading="lazy"
 					allowFullScreen
-					title="▶Exlint Demo"
+					title="Exlint Demo"
 				/>
 			</div>
 			<div className={classes['rightSide']}>
