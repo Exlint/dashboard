@@ -1,6 +1,8 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
+import ELPSvg from '@/ui/ELPSvg';
+
 import classes from './FirstRow.module.scss';
 
 interface IProps {}
@@ -11,13 +13,7 @@ const FirstRowView: React.FC<IProps> = () => {
 	return (
 		<div className={classes['container']}>
 			<div className={classes['leftSide']}>
-				<iframe
-					className={classes['leftSide__video']}
-					src="https://demo.arcade.software/Jmndz8qF7Bw9RCJbZw4k?embed"
-					loading="lazy"
-					allowFullScreen
-					title="Exlint Demo"
-				/>
+				<ELPSvg className={classes['leftSide__code']} name="allLintersCodeOutput" />
 			</div>
 			<div className={classes['rightSide']}>
 				<h3 className={classes['rightSide__title']}>{t('main.quickSetup.firstRow.title')}</h3>
