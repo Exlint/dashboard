@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge';
 
-import type { IRecommendedPolicy } from '../../../../../interfaces/recommended-policy';
+import type { IRecommendedPolicy } from '@/interfaces/recommended-policy';
 
 export const mergePolicies = (policies: IRecommendedPolicy[]) => {
 	const policiesByLibraryMap = policies.reduce<
@@ -20,6 +20,9 @@ export const mergePolicies = (policies: IRecommendedPolicy[]) => {
 	}, {});
 
 	return Object.values(policiesByLibraryMap).map(
-		(groupedPolicy) => deepmerge.all(groupedPolicy) as IRecommendedPolicy,
+		(groupedPolicy) =>
+			deepmerge.all(groupedPolicy, {
+				arrayMerge: (_, sourceArray) => sourceArray,
+			}) as IRecommendedPolicy,
 	);
 };
