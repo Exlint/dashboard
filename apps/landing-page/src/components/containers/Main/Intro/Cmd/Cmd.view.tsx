@@ -8,7 +8,7 @@ const CmdView = () => {
 	return (
 		<div className={classes['cmd']}>
 			<div className={classes['innerCmd']}>
-				<AsciinemaPlayer src="/videos/556560.cast" autoPlay theme="monokai" fit="height" />
+				<AsciinemaPlayer src="/videos/559874.cast" autoPlay theme="monokai" fit="height" />
 			</div>
 		</div>
 	);
