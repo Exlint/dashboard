@@ -1,0 +1,29 @@
+name: Update docs main branch
+
+on:
+  repository_dispatch:
+    types: [docs-main]
+
+jobs:
+    deploy:
+        name: Update docs sub-module
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+            with:
+              token: ${{ secrets.UPDATE_DASHBOARD_TOKEN }}
+              submodules: true
+
+          - name: Git Sumbodule Update
+            run: |
+              git pull --recurse-submodules
+              git submodule update --remote --recursive
+
+          - name: Commit update
+            run: |
+              git config --global user.name 'exlint-dev-helper'
+              git config --global user.email 'dev@exlint.io'
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+              git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
