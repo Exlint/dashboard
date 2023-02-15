@@ -1,3 +1,11 @@
+# [1.23.0](https://github.com/Exlint/dashboard/compare/v1.22.2...v1.23.0) (2023-02-15)
+
+
+### Features
+
+* 🔥 [EXL-37] add API for recommended - support GO command in CLI ([1115353](https://github.com/Exlint/dashboard/commit/11153531846aa4d27db3bb310e87a8b30e48f1d1))
+* 🔥 [EXL-37] support go command ([9661886](https://github.com/Exlint/dashboard/commit/9661886eae9b05a6711ede807e3f0f27c1fbb5be))
+
 ## [1.22.2](https://github.com/Exlint/dashboard/compare/v1.22.1...v1.22.2) (2023-02-01)
 
 
