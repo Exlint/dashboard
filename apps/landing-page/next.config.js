@@ -2,8 +2,7 @@ const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 /** @type {import('next').NextConfig} */
 const configuration = (phase) => {
-	const shouldRemoveTestIdsProperties =
-		phase !== PHASE_DEVELOPMENT_SERVER && process.env.AUTOMATION !== 'true';
+	const shouldAdjustToProduction = phase !== PHASE_DEVELOPMENT_SERVER && process.env.AUTOMATION !== 'true';
 
 	return {
 		reactStrictMode: true,
@@ -15,7 +14,8 @@ const configuration = (phase) => {
 			unoptimized: true,
 		},
 		compiler: {
-			reactRemoveProperties: shouldRemoveTestIdsProperties,
+			removeConsole: shouldAdjustToProduction,
+			reactRemoveProperties: shouldAdjustToProduction,
 		},
 	};
 };
