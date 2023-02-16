@@ -31,7 +31,7 @@ importers:
       lint-staged: 13.1.1
       npm-run-all: 4.1.5
       nx: 15.6.3
-      open: 8.4.0
+      open: 8.4.1
       playwright: 1.30.0
       pnpm: 7.27.0
       prettier: 2.8.3
@@ -70,7 +70,7 @@ importers:
       lint-staged: 13.1.1
       npm-run-all: 4.1.5
       nx: 15.6.3
-      open: 8.4.0
+      open: 8.4.1
       playwright: 1.30.0
       pnpm: 7.27.0
       prettier: 2.8.3
@@ -3400,7 +3400,7 @@ packages:
     dependencies:
       cross-spawn: 7.0.3
       is-glob: 4.0.3
-      open: 8.4.0
+      open: 8.4.1
       picocolors: 1.0.0
       tiny-glob: 0.2.9
       tslib: 2.5.0
@@ -9074,7 +9074,7 @@ packages:
       lines-and-columns: 2.0.3
       minimatch: 3.0.5
       npm-run-path: 4.0.1
-      open: 8.4.0
+      open: 8.4.1
       semver: 7.3.4
       string-width: 4.2.3
       strong-log-transformer: 2.1.0
@@ -9215,6 +9215,15 @@ packages:
 
   /open/8.4.0:
     resolution: {integrity: sha512-XgFPPM+B28FtCCgSb9I+s9szOC1vZRSwgWsRUA5ylIxRTgKozqjOCrVOqGsYABPYK5qnfqClxZTFBa8PKt2v6Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      define-lazy-prop: 2.0.0
+      is-docker: 2.2.1
+      is-wsl: 2.2.0
+    dev: true
+
+  /open/8.4.1:
+    resolution: {integrity: sha512-/4b7qZNhv6Uhd7jjnREh1NjnPxlTq+XNWPG88Ydkj5AILcA5m3ajvcg57pB24EQjKv0dK62XnDqk9c/hkIG5Kg==}
     engines: {node: '>=12'}
     dependencies:
       define-lazy-prop: 2.0.0
