@@ -8,9 +8,15 @@ interface IProps {
 }
 
 const BluePlaceholder: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const params = useParams<{ readonly policyId: string; readonly groupId: string }>();
+	const params = useParams<{ readonly policyId: string; readonly complianceId: string }>();
 
-	return <BluePlaceholderView show={props.show} groupId={params.groupId} policyId={params.policyId} />;
+	return (
+		<BluePlaceholderView
+			show={props.show}
+			complianceId={params.complianceId}
+			policyId={params.policyId}
+		/>
+	);
 };
 
 BluePlaceholder.displayName = 'BluePlaceholder';

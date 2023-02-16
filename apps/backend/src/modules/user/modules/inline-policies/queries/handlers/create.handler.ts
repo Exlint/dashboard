@@ -14,7 +14,7 @@ export class CreateHandler implements IQueryHandler<CreateContract> {
 
 	async execute(contract: CreateContract) {
 		const createdPolicyId = await this.dbInlinePolicyService.createInlinePolicy(
-			contract.groupId,
+			contract.complianceId,
 			contract.label,
 			contract.description,
 			contract.library,

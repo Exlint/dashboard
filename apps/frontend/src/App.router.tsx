@@ -11,16 +11,18 @@ const AccountSettings = React.lazy(() => import('./pages/AccountSettings'));
 const CliAuth = React.lazy(() => import('./pages/CliAuth'));
 const CliAuthenticated = React.lazy(() => import('./pages/CliAuthenticated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
-const GroupCenter = React.lazy(() => import('./pages/GroupCenter'));
+const ComplianceCenter = React.lazy(() => import('./pages/ComplianceCenter'));
 const NewPolicy = React.lazy(() => import('./pages/NewPolicy'));
 const Policy = React.lazy(() => import('./pages/Policy'));
 const Account = React.lazy(() => import('@/containers/AccountSettings/Account'));
 const SecretManagement = React.lazy(() => import('@/containers/AccountSettings/SecretManagement'));
 const NewSecret = React.lazy(() => import('@/containers/AccountSettings/NewSecret'));
-const NewGroup = React.lazy(() => import('@/containers/GroupCenter/NewGroup'));
-const GroupDetails = React.lazy(() => import('@/containers/GroupCenter/GroupDetails'));
-const GroupSettings = React.lazy(() => import('@/containers/GroupCenter/GroupDetails/Settings'));
-const Policies = React.lazy(() => import('@/containers/GroupCenter/GroupDetails/Policies'));
+const NewCompliance = React.lazy(() => import('@/containers/ComplianceCenter/NewCompliance'));
+const ComplianceDetails = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails'));
+const ComplianceSettings = React.lazy(
+	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
+);
+const Policies = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails/Policies'));
 const PolicySettings = React.lazy(() => import('@/containers/Policy/Settings'));
 const Configurations = React.lazy(() => import('@/containers/Policy/Configurations'));
 const Configuration = React.lazy(() => import('@/containers/Policy/Configurations/Configuration'));
@@ -38,7 +40,7 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 		)}
 		{props.isAuthenticated && (
 			<>
-				<Route path="" element={<GroupCenter />} />
+				<Route path="" element={<ComplianceCenter />} />
 				<Route path="account-settings" element={<AccountSettings />}>
 					<Route path="" element={<Navigate to="account" replace />} />
 					<Route path="account" element={<Account />} />
@@ -47,16 +49,16 @@ const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 					<Route path="secret-management/*" element={<Navigate to="secret-management" replace />} />
 					<Route path="*" element={<Navigate to="account" replace />} />
 				</Route>
-				<Route path="group-center" element={<GroupCenter />}>
-					<Route path="new" element={<NewGroup />} />
-					<Route path=":groupId" element={<GroupDetails />}>
+				<Route path="compliance-center" element={<ComplianceCenter />}>
+					<Route path="new" element={<NewCompliance />} />
+					<Route path=":complianceId" element={<ComplianceDetails />}>
 						<Route path="" element={<Navigate to="policies" replace />} />
 						<Route path="policies" element={<Policies />} />
-						<Route path="settings" element={<GroupSettings />} />
+						<Route path="settings" element={<ComplianceSettings />} />
 					</Route>
 				</Route>
-				<Route path="group-center/:groupId/policies/new" element={<NewPolicy />} />
-				<Route path="group-center/:groupId/policies/:policyId" element={<Policy />}>
+				<Route path="compliance-center/:complianceId/policies/new" element={<NewPolicy />} />
+				<Route path="compliance-center/:complianceId/policies/:policyId" element={<Policy />}>
 					<Route path="" element={<Navigate to="configurations" replace />} />
 					<Route path="configurations" element={<Configurations />}>
 						<Route path="" element={<Navigate to="configuration" replace />} />

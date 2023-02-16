@@ -5,21 +5,21 @@ import type { PolicyLibrary } from '@prisma/client';
 import HeaderView from './Header.view';
 
 interface IProps {
-	readonly groupLabel: string | null;
+	readonly complianceLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
 	readonly hasRules: boolean;
 }
 
 const Header: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
+	const params = useParams<{ readonly complianceId: string; readonly policyId: string }>();
 
 	return (
 		<HeaderView
-			groupLabel={props.groupLabel}
+			complianceLabel={props.complianceLabel}
 			policyLabel={props.policyLabel}
 			library={props.library}
-			groupId={params.groupId!}
+			complianceId={params.complianceId!}
 			policyId={params.policyId!}
 			hasRules={props.hasRules}
 		/>

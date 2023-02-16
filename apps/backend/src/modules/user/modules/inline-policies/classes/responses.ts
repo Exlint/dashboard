@@ -78,9 +78,9 @@ export class CreatePolicyResponse implements ICreatePolicyResponseData {
 export class GetPolicyResponse implements IGetPolicyResponseData {
 	@ApiResponseProperty({
 		type: String,
-		example: 'Yazif Group',
+		example: 'Yazif Compliance',
 	})
-	public groupLabel!: string;
+	public complianceLabel!: string;
 
 	@ApiResponseProperty({
 		type: String,

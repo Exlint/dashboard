@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { IAvailableLabelResponseData, IGetGroupResponseData } from '@exlint.io/common';
+import type { IAvailableLabelResponseData, IGetComplianceResponseData } from '@exlint.io/common';
 
 import { backendApi } from '@/utils/http';
 import { useDebounce } from '@/hooks/use-debounce';
@@ -18,23 +18,23 @@ interface IProps {
 }
 
 const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [groupLabelState, setGroupLabelState] = useState<string | null>(null);
+	const [complianceLabelState, setComplianceLabelState] = useState<string | null>(null);
 
-	const params = useParams<{ readonly groupId: string }>();
+	const params = useParams<{ readonly complianceId: string }>();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!params.groupId) {
+		if (!params.complianceId) {
 			navigate('/not-found');
 
 			return;
 		}
 
 		backendApi
-			.get<IGetGroupResponseData>(`/user/groups/${params.groupId}`)
-			.then((response) => setGroupLabelState(() => response.data.label))
+			.get<IGetComplianceResponseData>(`/user/compliances/${params.complianceId}`)
+			.then((response) => setComplianceLabelState(() => response.data.label))
 			.catch(() => navigate('/'));
-	}, [params.groupId, backendApi]);
+	}, [params.complianceId, backendApi]);
 
 	useEffect(() => {
 		if (props.policyLabel === '' || props.policyLabel === null || props.policyLabel.length > 30) {
@@ -67,7 +67,7 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	return (
 		<DetailsView
-			selectedGroupLabel={groupLabelState}
+			selectedComplianceLabel={complianceLabelState}
 			policyLabel={props.policyLabel}
 			isPolicyLabelAvailable={props.isPolicyLabelAvailable}
 			policyDescritpion={props.policyDescription}

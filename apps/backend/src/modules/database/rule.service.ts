@@ -9,7 +9,7 @@ export class DBRuleService {
 
 	public async doesRuleBelongUser(ruleId: string, userId: string) {
 		const ruleRecord = await this.prisma.rule.findFirst({
-			where: { id: ruleId, policy: { group: { userId } } },
+			where: { id: ruleId, policy: { compliance: { userId } } },
 		});
 
 		return ruleRecord !== null;
