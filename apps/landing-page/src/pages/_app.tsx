@@ -5,6 +5,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
+import Script from 'next/script';
 import React from 'react';
 import { useRouter } from 'next/router';
 import mixpanel from 'mixpanel-browser';
@@ -55,6 +56,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<Main>
+				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-QDKYMPP7FE" />
+				<Script>
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-QDKYMPP7FE');
+					`}
+				</Script>
 				<Component {...pageProps} />
 			</Main>
 			{router.pathname !== '/404' && <Footer />}
