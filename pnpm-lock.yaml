@@ -9,7 +9,7 @@ importers:
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0
       '@types/node': 18.11.19
-      '@types/totp-generator': 0.0.4
+      '@types/totp-generator': 0.0.5
       '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.50.0
       '@typescript-eslint/parser': 5.50.0
@@ -48,7 +48,7 @@ importers:
       '@playwright/test': 1.30.0
       '@prisma/client': 4.9.0_prisma@4.9.0
       '@types/node': 18.11.19
-      '@types/totp-generator': 0.0.4
+      '@types/totp-generator': 0.0.5
       '@types/wait-on': 5.3.1
       '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
       '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
@@ -3824,8 +3824,8 @@ packages:
       '@types/node': 18.11.19
     dev: true
 
-  /@types/totp-generator/0.0.4:
-    resolution: {integrity: sha512-rs5nfg//Q6zXGRiIqZ6UUhh65lBgEM5/s8knGw3fO2TBa0i1GlSLx4+P45vXNTrp3uNnqdSS1z4I33Oi3egDDg==}
+  /@types/totp-generator/0.0.5:
+    resolution: {integrity: sha512-ryo6U5lfQg2/7pNQnpEXG49EPX7/cmRi/FX7sPBYO7QVJf0z6turM3km3w+98mpqlM4E+vkoOrN+gcjqCBmX0g==}
     dev: true
 
   /@types/use-sync-external-store/0.0.3:
