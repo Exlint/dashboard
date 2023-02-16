@@ -45,6 +45,10 @@
 	&--selected {
 		cursor: default;
 		box-shadow: unset;
+
+		&:hover {
+			border-color: map.get(variables.$colors, greys-platinum);
+		}
 	}
 
 	&__label {

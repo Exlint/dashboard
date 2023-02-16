@@ -43,6 +43,7 @@ const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					{t('accountSettings.account.deleteAccountSubHeader')}
 				</span>
 				<EDDeleteButton
+					className={classes['actionSection__button']}
 					modalTitle={t('accountSettings.account.deleteModal.header')}
 					modalSubTitle={t('accountSettings.account.deleteModal.subHeader')}
 					modalConfirmationKeyword={t('accountSettings.account.deleteModal.actionPhraseText')}

@@ -16,16 +16,27 @@
 			margin-inline-end: map.get(variables.$sizes, spacing-xxl);
 		}
 
-		&__icon {
-			width: auto;
-			height: 20px;
-			margin-inline-end: map.get(variables.$sizes, spacing-m);
-			fill: map.get(variables.$colors, greys-philippine-gray);
-		}
+		.tabItems {
+			display: flex;
+			align-items: center;
+			padding: map.get(variables.$sizes, spacing-s);
+			border-radius: 6px;
 
-		&__text {
-			font-size: 1.5rem;
-			color: map.get(variables.$colors, greys-onyx);
+			&:hover {
+				background-color: map.get(variables.$colors, greys-platinum);
+			}
+
+			&__icon {
+				width: auto;
+				height: 20px;
+				margin-inline-end: map.get(variables.$sizes, spacing-m);
+				fill: map.get(variables.$colors, greys-philippine-gray);
+			}
+
+			&__text {
+				font-size: 1.5rem;
+				color: map.get(variables.$colors, greys-onyx);
+			}
 		}
 
 		&__border {
