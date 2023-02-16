@@ -35,6 +35,7 @@
 
 	&:hover {
 		text-decoration: none;
+		border-color: map.get(variables.$colors, purples-purple);
 	}
 
 	&:focus {
