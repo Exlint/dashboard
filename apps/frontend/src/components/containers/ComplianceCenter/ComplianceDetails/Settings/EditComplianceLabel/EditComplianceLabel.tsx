@@ -14,6 +14,7 @@ interface IProps {
 
 const EditComplianceLabel: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [isNewComplianceLabelValidState, setNewIsComplianceLabelValidState] = useState<boolean>(false);
+
 	const [isNewComplianceLabelAvailableState, setNewIsComplianceLabelAvailableState] = useState<
 		boolean | null
 	>(null);

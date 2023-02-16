@@ -27,10 +27,13 @@ interface IProps extends IPropsFromDispatch {}
 
 const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const [complianceLabelInputState, setComplianceLabelInputState] = useState<string | null>(null);
+
 	const [complianceDescriptionInputState, setComplianceDescriptionInputState] = useState<string | null>(
 		null,
 	);
+
 	const [isComplianceLabelValidState, setIsComplianceLabelValidState] = useState<boolean>(false);
+
 	const [isComplianceLabelAvailableState, setIsComplianceLabelAvailableState] = useState<boolean | null>(
 		null,
 	);

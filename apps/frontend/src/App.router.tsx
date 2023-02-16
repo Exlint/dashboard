@@ -19,9 +19,11 @@ const SecretManagement = React.lazy(() => import('@/containers/AccountSettings/S
 const NewSecret = React.lazy(() => import('@/containers/AccountSettings/NewSecret'));
 const NewCompliance = React.lazy(() => import('@/containers/ComplianceCenter/NewCompliance'));
 const ComplianceDetails = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails'));
+
 const ComplianceSettings = React.lazy(
 	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
 );
+
 const Policies = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails/Policies'));
 const PolicySettings = React.lazy(() => import('@/containers/Policy/Settings'));
 const Configurations = React.lazy(() => import('@/containers/Policy/Configurations'));
