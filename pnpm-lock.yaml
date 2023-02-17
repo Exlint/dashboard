@@ -91,7 +91,7 @@ importers:
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
       '@nestjs/cqrs': 9.0.3
-      '@nestjs/jwt': 10.0.1
+      '@nestjs/jwt': 10.0.2
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
       '@nestjs/schematics': 9.0.4
@@ -141,7 +141,7 @@ importers:
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
       '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
-      '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
+      '@nestjs/jwt': 10.0.2_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
       '@nestjs/throttler': 4.0.0_pwlerhfcldutg4bxlbqlfavbwi
@@ -198,7 +198,7 @@ importers:
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
       '@nestjs/cqrs': 9.0.3
-      '@nestjs/jwt': 10.0.1
+      '@nestjs/jwt': 10.0.2
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
       '@nestjs/schematics': 9.0.4
@@ -244,7 +244,7 @@ importers:
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
       '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
-      '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
+      '@nestjs/jwt': 10.0.2_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
       '@prisma/client': 4.9.0_prisma@4.9.0
@@ -2764,13 +2764,13 @@ packages:
       uuid: 9.0.0
     dev: false
 
-  /@nestjs/jwt/10.0.1_@nestjs+common@9.3.7:
-    resolution: {integrity: sha512-LwXBKVYHnFeX6GH/Wt0WDjsWCmNDC6tEdLlwNMAvJgYp+TkiCpEmQLkgRpifdUE29mvYSbjSnVs2kW2ob935NA==}
+  /@nestjs/jwt/10.0.2_@nestjs+common@9.3.7:
+    resolution: {integrity: sha512-MLxjCSbO7C9fN2hst5kpIhnJAgglJmrKppXAXqElB8A9ip3ZuCowMDjjmNWWJyfOzE98NV0E0iEQGE2StMUC+Q==}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0
     dependencies:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
-      '@types/jsonwebtoken': 8.5.9
+      '@types/jsonwebtoken': 9.0.1
       jsonwebtoken: 9.0.0
     dev: false
 
@@ -3538,6 +3538,13 @@ packages:
     resolution: {integrity: sha512-272FMnFGzAVMGtu9tkr29hRL6bZj4Zs1KZNeHLnKqAvp06tAIcarTMwOh8/8bz4FmKRcMxZhZNeUAQsNLoiPhg==}
     dependencies:
       '@types/node': 18.13.0
+    dev: true
+
+  /@types/jsonwebtoken/9.0.1:
+    resolution: {integrity: sha512-c5ltxazpWabia/4UzhIoaDcIza4KViOQhdbjRlfcIGVnsE3c3brkz9Z+F/EeJIECOQP7W7US2hNE930cWWkPiw==}
+    dependencies:
+      '@types/node': 18.13.0
+    dev: false
 
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
