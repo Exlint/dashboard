@@ -434,7 +434,7 @@ importers:
       react-card-carousel: 1.1.3
       react-dom: 18.2.0
       react-i18next: 12.1.5
-      react-intersection-observer: 9.4.1
+      react-intersection-observer: 9.4.2
       sass: 1.58.0
       stylelint: 14.16.1
       typescript: 4.9.5
@@ -446,7 +446,7 @@ importers:
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.1.5_iakk3dtjhjpukdoa4oua5khgci
-      react-intersection-observer: 9.4.1_react@18.2.0
+      react-intersection-observer: 9.4.2_react@18.2.0
     devDependencies:
       '@types/mixpanel-browser': 2.38.1
       '@types/react': 18.0.27
@@ -9765,8 +9765,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-intersection-observer/9.4.1_react@18.2.0:
-    resolution: {integrity: sha512-IXpIsPe6BleFOEHKzKh5UjwRUaz/JYS0lT/HPsupWEQou2hDqjhLMStc5zyE3eQVT4Fk3FufM8Fw33qW1uyeiw==}
+  /react-intersection-observer/9.4.2_react@18.2.0:
+    resolution: {integrity: sha512-AdK+ryzZ7U9ZJYttDUZ8q2Am3nqE0exg5Ryl5Y124KeVsix/1hGZPbdu58EqA98TwnzwDNWHxg/kwNawmIiUig==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
