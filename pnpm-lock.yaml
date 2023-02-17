@@ -34,7 +34,7 @@ importers:
       open: 8.4.1
       playwright: 1.30.0
       pnpm: 7.27.0
-      prettier: 2.8.3
+      prettier: 2.8.4
       prettier-plugin-sh: 0.12.8
       prisma: 4.9.0
       rimraf: 4.1.2
@@ -73,8 +73,8 @@ importers:
       open: 8.4.1
       playwright: 1.30.0
       pnpm: 7.27.0
-      prettier: 2.8.3
-      prettier-plugin-sh: 0.12.8_prettier@2.8.3
+      prettier: 2.8.4
+      prettier-plugin-sh: 0.12.8_prettier@2.8.4
       prisma: 4.9.0
       rimraf: 4.1.2
       stylelint: 14.16.1
@@ -327,7 +327,7 @@ importers:
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
       i18next: 22.4.9
-      prettier: 2.8.3
+      prettier: 2.8.4
       prisma: 4.9.0
       react: 18.2.0
       react-datepicker: 4.10.0
@@ -396,7 +396,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.33.0
       eslint-plugin-unused-imports: 2.0.0_em664yknwwyh76zplyjni24oay
       hygen: 6.2.11
-      prettier: 2.8.3
+      prettier: 2.8.4
       prisma: 4.9.0
       sass: 1.58.0
       stylelint: 14.16.1
@@ -9687,20 +9687,20 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-sh/0.12.8_prettier@2.8.3:
+  /prettier-plugin-sh/0.12.8_prettier@2.8.4:
     resolution: {integrity: sha512-VOq8h2Gn5UzrCIKm4p/nAScXJbN09HdyFDknAcxt6Qu/tv/juu9bahxSrcnM9XWYA+Spz1F1ANJ4LhfwB7+Q1Q==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     peerDependencies:
       prettier: ^2.0.0
     dependencies:
       mvdan-sh: 0.10.1
-      prettier: 2.8.3
+      prettier: 2.8.4
       sh-syntax: 0.3.7
       synckit: 0.8.4
     dev: true
 
-  /prettier/2.8.3:
-    resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
