@@ -27,7 +27,7 @@ interface IProps extends IPropsFromDispatch {}
 
 const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
-	const params = useParams<{ readonly policyId: string; readonly groupId: string }>();
+	const params = useParams<{ readonly policyId: string; readonly complianceId: string }>();
 	const navigate = useNavigate();
 	const [library] = useOutletContext<[PolicyLibrary | null]>();
 
@@ -89,7 +89,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				setRulesDataState(() => response.data.rules);
 				setRulestotalCountState(() => response.data.count);
 			})
-			.catch(() => navigate(`/group-center/${params.groupId}`));
+			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
 	}, [backendApi]);
 
 	return (

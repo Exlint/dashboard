@@ -22,7 +22,7 @@ const NavLinkView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				concatClasses(
 					classes,
 					'container',
-					(props.activePathName === '/' && props.route === '/group-center') || isActive
+					(props.activePathName === '/' && props.route === '/compliance-center') || isActive
 						? 'container--active'
 						: null,
 				)

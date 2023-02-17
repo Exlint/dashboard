@@ -61,13 +61,13 @@ const SecondRowView: React.FC<IProps> = () => {
 					</span>
 					&nbsp; &nbsp;
 					<span className={classes['commandBox__chevron']}>
-						{t('main.quickSetup.secondRow.command.groupId.leftChevron')}
+						{t('main.quickSetup.secondRow.command.complianceId.leftChevron')}
 					</span>
 					<span className={classes['commandBox__text']}>
-						{t('main.quickSetup.secondRow.command.groupId.text')}
+						{t('main.quickSetup.secondRow.command.complianceId.text')}
 					</span>
 					<span className={classes['commandBox__chevron']}>
-						{t('main.quickSetup.secondRow.command.groupId.rightChevron')}
+						{t('main.quickSetup.secondRow.command.complianceId.rightChevron')}
 					</span>
 				</div>
 				<Image

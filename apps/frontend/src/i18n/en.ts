@@ -46,7 +46,7 @@ const en = {
 			deleteAccountButton: 'Delete your account',
 			deleteModal: {
 				header: 'You are about to delete your user:',
-				subHeader: 'All saved data, groups, policies and configurations will be lost',
+				subHeader: 'All saved data, compliances, policies and configurations will be lost',
 				actionPhraseText: 'DELETE-USER',
 			},
 		},
@@ -100,37 +100,37 @@ const en = {
 		},
 		message: "As far as we know,<br />This page doesn't exist!",
 		actions: {
-			linkText: 'Return To Group Center',
+			linkText: 'Return To Compliance Center',
 			textPrefix: "If you believe this shouldn't have happened, please contact us at",
 		},
 	},
 	nav: {
-		groupCenter: 'Group Center',
+		complianceCenter: 'Compliance Center',
 		accountSettings: 'Account Settings',
 		documentation: 'Documentations',
 	},
-	groupCenter: {
+	complianceCenter: {
 		uniqueId: 'Unique ID',
 		sideBar: {
-			searchInputPlaceholder: 'Search Groups',
-			newGroupAction: 'New',
-			noGroupsHeader: 'Create your first group',
+			searchInputPlaceholder: 'Search Compliances',
+			newComplianceAction: 'New',
+			noCompliancesHeader: 'Create your first Compliance',
 			policies: 'Policies',
 		},
-		newGroup: {
-			headerTitle: 'New Group',
+		newCompliance: {
+			headerTitle: 'New Compliance',
 			tabs: {
-				groupCreation: 'Group Creation',
+				complianceCreation: 'Compliance Creation',
 			},
 			content: {
-				title: 'Create a new group',
+				title: 'Create a new compliance',
 				subTitle:
-					'A group is a centralized compliance, which contains a bundle of policies that can be run together against code.',
-				groupLabelInputLabel: 'Group label',
-				groupLabelInputPlaceholder: 'Enter a name for the group...',
-				groupDescriptionInputLabelPrefix: 'Description',
-				groupDescriptionInputLabelPostfix: 'optional',
-				createGroupButton: 'Create Group',
+					'A Compliance is a centralized coding standard which contains a bundle of policies that can be run together against code.',
+				complianceLabelInputLabel: 'Compliance label',
+				complianceLabelInputPlaceholder: 'Enter a name for the compliance...',
+				complianceDescriptionInputLabelPrefix: 'Description',
+				complianceDescriptionInputLabelPostfix: 'optional',
+				createComplianceButton: 'Create Compliance',
 			},
 		},
 		tabs: {
@@ -138,16 +138,16 @@ const en = {
 			settings: 'Settings',
 		},
 		settings: {
-			tab: 'Group Settings',
+			tab: 'Compliance Settings',
 			informationTitle: 'Information',
 			deleteTitle: 'Delete',
-			groupLabelLabel: 'Group label',
-			groupLabelInputPlacehoder: 'Enter a new group label...',
+			complianceLabelLabel: 'Compliance label',
+			complianceLabelInputPlacehoder: 'Enter a new compliance label...',
 			submitButton: 'Save Changes',
 			deleteInstruction: 'Deleting ‘{{label}}’ can’t be undone. Please be certain.',
 			deleteButton: 'Delete ‘{{label}}’',
 			deleteModal: {
-				header: 'Are you sure you want to delete ‘{{label}}’ Group?',
+				header: 'Are you sure you want to delete ‘{{label}}’ Compliance?',
 				subHeader: 'Once deleted, this can’t be undone.',
 			},
 			saveChangesNotification: {
@@ -190,7 +190,7 @@ const en = {
 		formHeader: 'Create a new policy',
 		formSubHeader:
 			'A policy contains a custom-made rule set and configurations, including CLI usage history.',
-		group: 'Group',
+		compliance: 'Compliance',
 		policyLabel: 'Policy label',
 		descriptionLabel: 'Description',
 		descriptionLabelPostfix: '(optional)',

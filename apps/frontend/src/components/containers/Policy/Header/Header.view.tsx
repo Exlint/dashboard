@@ -11,10 +11,10 @@ import classes from './Header.module.scss';
 import Tabs from './Tabs';
 
 interface IProps {
-	readonly groupLabel: string | null;
+	readonly complianceLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
-	readonly groupId: string;
+	readonly complianceId: string;
 	readonly policyId: string;
 	readonly hasRules: boolean;
 }
@@ -26,16 +26,19 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 		<header className={classes['container']}>
 			<div className={classes['topHeader']}>
 				<div className={classes['labelsContainer']}>
-					<Link className={classes['linkContainer']} to={`/group-center/${props.groupId}`}>
-						<EDSvg className={classes['labelsContainer__icon']} name="group" />
-						<span className={classes['labelsContainer__label']}>{props.groupLabel}</span>
+					<Link
+						className={classes['linkContainer']}
+						to={`/compliance-center/${props.complianceId}`}
+					>
+						<EDSvg className={classes['labelsContainer__icon']} name="compliance" />
+						<span className={classes['labelsContainer__label']}>{props.complianceLabel}</span>
 					</Link>
 
 					<span className={classes['labelsContainer__divider']}>&#47;</span>
 
 					<Link
 						className={classes['linkContainer']}
-						to={`/group-center/${props.groupId}/policies/${props.policyId}`}
+						to={`/compliance-center/${props.complianceId}/policies/${props.policyId}`}
 					>
 						<EDSvg className={classes['labelsContainer__icon']} name="policy" />
 						<span

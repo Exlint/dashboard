@@ -13,7 +13,7 @@ interface IProps {}
 const NewPolicy: React.FC<IProps> = () => {
 	const navigate = useNavigate();
 
-	const params = useParams<{ readonly groupId: string }>();
+	const params = useParams<{ readonly complianceId: string }>();
 
 	const [policyLabelState, setPolicyLabelState] = useState<string | null>(null);
 	const [policyDescriptionState, setPolicyDescriptionState] = useState<string | null>(null);
@@ -36,7 +36,7 @@ const NewPolicy: React.FC<IProps> = () => {
 
 		backendApi
 			.post<ICreatePolicyResponseData, AxiosResponse<ICreatePolicyResponseData>, ICreatePolicyDto>(
-				`/user/inline-policies/${params.groupId}`,
+				`/user/inline-policies/${params.complianceId}`,
 				{
 					label: policyLabelState!,
 					description: policyDescriptionState,
@@ -44,7 +44,7 @@ const NewPolicy: React.FC<IProps> = () => {
 				},
 			)
 			.then((response) => {
-				navigate(`/group-center/${params.groupId}/policies/${response.data.id}`);
+				navigate(`/compliance-center/${params.complianceId}/policies/${response.data.id}`);
 			});
 	};
 

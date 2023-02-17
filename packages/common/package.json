@@ -32,7 +32,7 @@
 	},
 	"dependencies": {
 		"@prisma/client": "4.9.0",
-		"@rjsf/utils": "5.0.2"
+		"@rjsf/utils": "5.1.0"
 	},
 	"peerDependencies": {
 		"eslint": "8.33.0",

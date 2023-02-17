@@ -11,11 +11,11 @@ interface IProps {
 
 const DeletePolicy: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
-	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
+	const params = useParams<{ readonly complianceId: string; readonly policyId: string }>();
 
 	const onDeletePolicyConfirmClick = () => {
 		backendApi.delete(`/user/inline-policies/${params.policyId}`).then(() => {
-			navigate(`/group-center/${params.groupId}`);
+			navigate(`/compliance-center/${params.complianceId}`);
 		});
 	};
 
