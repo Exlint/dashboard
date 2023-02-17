@@ -309,7 +309,7 @@ importers:
       '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.50.0
       '@typescript-eslint/parser': 5.50.0
-      '@uiw/codemirror-themes': 4.19.7
+      '@uiw/codemirror-themes': 4.19.8
       '@uiw/react-codemirror': 4.19.7
       '@vitejs/plugin-react': 3.1.0
       axios: 1.3.2
@@ -361,7 +361,7 @@ importers:
       '@rjsf/validator-ajv8': 5.1.0_@rjsf+utils@5.1.0
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
-      '@uiw/codemirror-themes': 4.19.7_@codemirror+language@6.5.0
+      '@uiw/codemirror-themes': 4.19.8_@codemirror+language@6.5.0
       '@uiw/react-codemirror': 4.19.7_6myr4dj3ggpr5gy257sgcvplt4
       axios: 1.3.2
       bootstrap: 3.4.1
@@ -3943,8 +3943,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/codemirror-themes/4.19.7_@codemirror+language@6.5.0:
-    resolution: {integrity: sha512-M/42RkPI60ItlssmNuEoZO2MQvlY6fRmdX7XRUAhKjxczZoaq8xS6HIvv1whGf2zGsTrwdVTPCm6ls0l17dvPA==}
+  /@uiw/codemirror-themes/4.19.8_@codemirror+language@6.5.0:
+    resolution: {integrity: sha512-k+0molX6YuQZ7vYymS5DEl3NcHxVE4VP4J0nB7RBnzLrhDwT2K8R5ie7J2eH+4bpppIK1ZZdZ6Mie7U48dH5dQ==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
