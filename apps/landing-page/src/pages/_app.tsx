@@ -62,7 +62,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 						window.dataLayer = window.dataLayer || [];
 						function gtag(){dataLayer.push(arguments);}
 						gtag('js', new Date());
-						gtag('config', 'G-QDKYMPP7FE');
+						gtag('config', 'G-QDKYMPP7FE', {
+							'cookie_domain': 'https://exlint.io/',
+							'cookie_flags': 'SameSite=None;Secure',
+						});
 					`}
 				</Script>
 				<Component {...pageProps} />
