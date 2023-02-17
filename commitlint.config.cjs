@@ -78,7 +78,7 @@ module.exports = {
 						];
 					}
 
-					if (emptyCommitTicketIdRegex.test(emptyCommitTicketIdRegex)) {
+					if (emptyCommitTicketIdRegex.test(header)) {
 						return [false, 'ticket ID must not be empty (or 00..0)\n'];
 					}
 
