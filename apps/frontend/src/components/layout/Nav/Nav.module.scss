@@ -38,7 +38,7 @@
 		&__text {
 			margin-inline-end: map.get(variables.$sizes, spacing-m);
 			font-size: 1.5rem;
-			font-weight: 600;
+			font-weight: 500;
 			color: map.get(variables.$colors, greys-platinum);
 		}
 
