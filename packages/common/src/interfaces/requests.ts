@@ -11,12 +11,12 @@ export interface IEditSecretLabelDto {
 	readonly label: string;
 }
 
-export interface ICreateGroupDto {
+export interface ICreateComplianceDto {
 	readonly label: string;
 	readonly description: string | null;
 }
 
-export interface IEditGroupLabelDto {
+export interface IEditComplianceLabelDto {
 	readonly label: string;
 }
 
@@ -30,7 +30,7 @@ export interface ICreatePolicyDto {
 	readonly library: PolicyLibrary;
 }
 
-export interface IEditGroupDescriptionDto {
+export interface IEditComplianceDescriptionDto {
 	readonly description: string | null;
 }
 

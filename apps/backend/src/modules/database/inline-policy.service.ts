@@ -12,7 +12,7 @@ export class DBInlinePolicyService {
 
 	public async getPolicyLibrary(policyId: string, userId: string) {
 		const policyRecord = await this.prisma.inlinePolicy.findFirst({
-			where: { id: policyId, group: { userId } },
+			where: { id: policyId, compliance: { userId } },
 			select: { library: true },
 		});
 
@@ -24,13 +24,13 @@ export class DBInlinePolicyService {
 	}
 
 	public async createInlinePolicy(
-		groupId: string,
+		complianceId: string,
 		label: string,
 		description: string | null,
 		library: PolicyLibrary,
 	) {
 		const createdRecord = await this.prisma.inlinePolicy.create({
-			data: { groupId, label, description, library },
+			data: { complianceId, label, description, library },
 		});
 
 		return createdRecord.id;
@@ -38,7 +38,7 @@ export class DBInlinePolicyService {
 
 	public async doesInlinePolicyBelongUser(policyId: string, userId: string) {
 		const policyRecord = await this.prisma.inlinePolicy.findFirst({
-			where: { id: policyId, group: { userId } },
+			where: { id: policyId, compliance: { userId } },
 		});
 
 		return policyRecord !== null;
@@ -46,18 +46,18 @@ export class DBInlinePolicyService {
 
 	public async isLabelAvailable(userId: string, label: string) {
 		const record = await this.prisma.inlinePolicy.findFirst({
-			where: { label, group: { userId } },
+			where: { label, compliance: { userId } },
 		});
 
 		return record === null;
 	}
 
-	public getUserGroupLibraries(groupId: string) {
-		return this.prisma.inlinePolicy.findMany({ where: { groupId }, select: { library: true } });
+	public getUserComplianceLibraries(complianceId: string) {
+		return this.prisma.inlinePolicy.findMany({ where: { complianceId }, select: { library: true } });
 	}
 
-	public async groupHasLibrary(groupId: string, library: PolicyLibrary) {
-		const record = await this.prisma.inlinePolicy.findFirst({ where: { groupId, library } });
+	public async complianceHasLibrary(complianceId: string, library: PolicyLibrary) {
+		const record = await this.prisma.inlinePolicy.findFirst({ where: { complianceId, library } });
 
 		return record !== null;
 	}
@@ -66,7 +66,7 @@ export class DBInlinePolicyService {
 		return this.prisma.inlinePolicy.findUniqueOrThrow({
 			where: { id: policyId },
 			select: {
-				group: { select: { label: true } },
+				compliance: { select: { label: true } },
 				label: true,
 				library: true,
 			},

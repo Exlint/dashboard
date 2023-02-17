@@ -9,11 +9,11 @@ interface IProps {}
 const Rules: React.FC<IProps> = () => {
 	const [, , library, hasRules] = useOutletContext<[unknown, unknown, PolicyLibrary | null, boolean]>();
 	const navigate = useNavigate();
-	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
+	const params = useParams<{ readonly complianceId: string; readonly policyId: string }>();
 
 	useEffect(() => {
 		if (!hasRules) {
-			navigate(`/group-center/${params.groupId}/policies/${params.policyId}/configurations`, {
+			navigate(`/compliance-center/${params.complianceId}/policies/${params.policyId}/configurations`, {
 				replace: true,
 			});
 		}

@@ -60,16 +60,16 @@ const en = {
 				description: 'Create coding policies in minutes<br />with 0 manual files',
 				descriptionMobile: 'Create coding policies in minutes with 0 manual files',
 				ruleCreation: 'Easy configuration within our web app',
-				integrate: 'Integrate multiple policies as groups',
+				integrate: 'Integrate multiple policies as compliances',
 				updating: 'Effortless extension updates',
 				cli: 'Open Source CLI',
 				ci: 'CI Integrations',
 				command: {
 					text: '$ exlint use',
-					groupId: {
+					complianceId: {
 						leftChevron: '<',
 						rightChevron: '>',
-						text: 'group_id',
+						text: 'compliance_id',
 					},
 				},
 			},
@@ -83,7 +83,7 @@ const en = {
 			free: 'FREE',
 			description: 'Best for individual<br />developers and teams',
 			viewDocs: 'View Docs',
-			inclouds: ' Unlimited policy<br />group runs',
+			inclouds: ' Unlimited policy<br />compliance runs',
 			cli: 'Open Source CLI',
 			github: 'GitHub Action CI/CD',
 		},

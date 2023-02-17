@@ -22,10 +22,10 @@ const NavView: React.FC<IProps> = () => {
 				</Link>
 
 				<NavLink
-					route="/group-center"
-					iconName="groupCenterRoute"
-					text={t('nav.groupCenter')}
-					testId="nav-group-center-link"
+					route="/compliance-center"
+					iconName="complianceCenterRoute"
+					text={t('nav.complianceCenter')}
+					testId="nav-compliance-center-link"
 				/>
 				<NavLink
 					route="/account-settings"

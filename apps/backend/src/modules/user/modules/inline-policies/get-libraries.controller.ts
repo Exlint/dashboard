@@ -11,11 +11,11 @@ import type { PolicyLibrary } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { librariesData } from '@/data/libraries-data';
-import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
+import { BelongingComplianceGuard } from '@/guards/belonging-compliance.guard';
 
 import Routes from './inline-policies.routes';
 import { GetLibrariesResponse } from './classes/responses';
-import { UserGroupLibrariesContract } from './queries/contracts/user-group-libraries.contract';
+import { UserComplianceLibrariesContract } from './queries/contracts/user-compliance-libraries.contract';
 
 @ApiTags('Inline Policies')
 @Controller(Routes.CONTROLLER)
@@ -31,23 +31,24 @@ export class GetLibrariesController {
 		type: GetLibrariesResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is invalid or missing, or group does not belong to user',
+		description: 'If access token is invalid or missing, or compliance does not belong to user',
 	})
-	@UseGuards(BelongingGroupGuard)
+	@UseGuards(BelongingComplianceGuard)
 	@Get(Routes.GET_LIBRARIES)
 	@HttpCode(HttpStatus.OK)
 	public async getLibraries(
 		@CurrentUserId() userId: string,
-		@Param('group_id') groupId: string,
+		@Param('compliance_id') complianceId: string,
 	): Promise<GetLibrariesResponse> {
 		this.logger.log(`Will try to get libraries with a user ID: "${userId}"`);
 
-		const groupLibraries = await this.queryBus.execute<UserGroupLibrariesContract, PolicyLibrary[]>(
-			new UserGroupLibrariesContract(groupId),
-		);
+		const complianceLibraries = await this.queryBus.execute<
+			UserComplianceLibrariesContract,
+			PolicyLibrary[]
+		>(new UserComplianceLibrariesContract(complianceId));
 
 		const libraries = librariesData
-			.filter((library) => !groupLibraries.includes(library.name))
+			.filter((library) => !complianceLibraries.includes(library.name))
 			.map((library) => ({
 				...library,
 				rules: undefined,
