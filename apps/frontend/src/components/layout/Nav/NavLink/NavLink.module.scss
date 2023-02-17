@@ -26,10 +26,19 @@
 		height: 26px;
 		margin-inline-end: map.get(variables.$sizes, spacing-m);
 		fill: map.get(variables.$colors, greys-platinum);
+
+		.container:hover & {
+			fill: map.get(variables.$colors, whites-ghost-white);
+		}
 	}
 
 	&__text {
 		font-size: 1.5rem;
+		font-weight: 500;
 		color: map.get(variables.$colors, greys-platinum);
+
+		.container:hover & {
+			color: map.get(variables.$colors, whites-ghost-white);
+		}
 	}
 }

@@ -8,7 +8,7 @@ import EDInputField from '@/ui/EDInputField';
 import classes from './Details.module.scss';
 
 interface IProps {
-	readonly selectedGroupLabel: string | null;
+	readonly selectedComplianceLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly isPolicyLabelAvailable: boolean | null;
 	readonly policyDescritpion: string | null;
@@ -29,7 +29,7 @@ const DetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 			<table className={classes['labelTable']}>
 				<thead>
 					<tr>
-						<th className={classes['labelTable__header']}>{t('newPolicy.group')}</th>
+						<th className={classes['labelTable__header']}>{t('newPolicy.compliance')}</th>
 						<th
 							className={concatClasses(
 								classes,
@@ -45,11 +45,11 @@ const DetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				<tbody>
 					<tr>
 						<td>
-							<span className={classes['groupLabel']}>
-								<span className={classes['groupLabel__value']}>
-									{props.selectedGroupLabel}
+							<span className={classes['complianceLabel']}>
+								<span className={classes['complianceLabel__value']}>
+									{props.selectedComplianceLabel}
 								</span>
-								<span className={classes['groupLabel__postfix']}>&#47;</span>
+								<span className={classes['complianceLabel__postfix']}>&#47;</span>
 							</span>
 						</td>
 						<td>

@@ -52,5 +52,11 @@
 		color: map.get(variables.$colors, greys-onyx);
 		background-color: map.get(variables.$colors, whites-ghost-white);
 		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
+
+		&:hover {
+			text-decoration: none;
+			background-color: map.get(variables.$colors, whites-ghost-white);
+			box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-platinum);
+		}
 	}
 }

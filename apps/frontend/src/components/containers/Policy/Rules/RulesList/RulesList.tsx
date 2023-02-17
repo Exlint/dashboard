@@ -21,7 +21,7 @@ const RulesList: React.FC<IProps> = () => {
 	const params = useParams<{
 		readonly policyId: string;
 		readonly ruleId: string;
-		readonly groupId: string;
+		readonly complianceId: string;
 	}>();
 
 	const [rulesState, setRulesState] = useState<IGetRulesResponseData['rules']>([]);
@@ -70,23 +70,27 @@ const RulesList: React.FC<IProps> = () => {
 
 	const onDisableRule = (ruleId: string) => {
 		changeEnableStatusOfRuleById(ruleId, false);
-		navigate(`/group-center/${params.groupId}/policies/${params.policyId}/rules/rules-list`);
+		navigate(`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list`);
 
 		backendApi.patch(`/user/rules/disable/${ruleId}`).catch(() => {
 			changeEnableStatusOfRuleById(ruleId, true);
 			navigate(
-				`/group-center/${params.groupId}/policies/${params.policyId}/rules/rules-list/${ruleId}`,
+				`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${ruleId}`,
 			);
 		});
 	};
 
 	const onEnableExistRule = (ruleId: string) => {
 		changeEnableStatusOfRuleById(ruleId, true);
-		navigate(`/group-center/${params.groupId}/policies/${params.policyId}/rules/rules-list/${ruleId}`);
+		navigate(
+			`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${ruleId}`,
+		);
 
 		backendApi.patch(`/user/rules/enable/${ruleId}`).catch(() => {
 			changeEnableStatusOfRuleById(ruleId, false);
-			navigate(`/group-center/${params.groupId}/policies/${params.policyId}/rules/rules-list`);
+			navigate(
+				`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list`,
+			);
 		});
 	};
 
@@ -125,7 +129,7 @@ const RulesList: React.FC<IProps> = () => {
 				});
 
 				navigate(
-					`/group-center/${params.groupId}/policies/${params.policyId}/rules/rules-list/${response.data.id}`,
+					`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${response.data.id}`,
 				);
 			})
 			.catch(() => {

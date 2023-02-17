@@ -21,12 +21,12 @@ import {
 } from '@nestjs/swagger';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
-import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
+import { BelongingComplianceGuard } from '@/guards/belonging-compliance.guard';
 
 import Routes from './inline-policies.routes';
 import { CreatePolicyDto } from './classes/create.dto';
 import { CreateContract } from './queries/contracts/create.contract';
-import { GroupHasLibraryContract } from './queries/contracts/group-has-library.contract';
+import { ComplianceHasLibraryContract } from './queries/contracts/compliance-has-library.contract';
 import { CreatePolicyResponse } from './classes/responses';
 
 @ApiTags('Inline Policies')
@@ -43,34 +43,34 @@ export class CreateController {
 		type: CreatePolicyResponse,
 	})
 	@ApiUnauthorizedResponse({
-		description: 'If access token is missing or invalid, or group does not belong to user',
+		description: 'If access token is missing or invalid, or compliance does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to create inline policy' })
-	@UseGuards(BelongingGroupGuard)
+	@UseGuards(BelongingComplianceGuard)
 	@Post(Routes.CREATE)
 	@HttpCode(HttpStatus.CREATED)
 	public async create(
 		@CurrentUserId() userId: string,
-		@Param('group_id') groupId: string,
+		@Param('compliance_id') complianceId: string,
 		@Body() createDto: CreatePolicyDto,
 		@RealIP() ip: string,
 	): Promise<CreatePolicyResponse> {
 		this.logger.log(
-			`Will try to create an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
+			`Will try to create an inline policy for a user with an Id: "${userId}" and for compliance with Id: "${complianceId}". Label is "${createDto.label}"`,
 		);
 
-		const groupHasLibrary = await this.queryBus.execute<GroupHasLibraryContract, boolean>(
-			new GroupHasLibraryContract(groupId, createDto.library),
+		const complianceHasLibrary = await this.queryBus.execute<ComplianceHasLibraryContract, boolean>(
+			new ComplianceHasLibraryContract(complianceId, createDto.library),
 		);
 
-		if (groupHasLibrary) {
+		if (complianceHasLibrary) {
 			throw new BadRequestException();
 		}
 
 		const createdPolicyId = await this.queryBus.execute<CreateContract, string>(
 			new CreateContract(
 				userId,
-				groupId,
+				complianceId,
 				createDto.label,
 				createDto.description,
 				createDto.library,
@@ -79,7 +79,7 @@ export class CreateController {
 		);
 
 		this.logger.log(
-			`Successfully created an inline policy for a user with an Id: "${userId}" and for group with Id: "${groupId}". Label is "${createDto.label}"`,
+			`Successfully created an inline policy for a user with an Id: "${userId}" and for compliance with Id: "${complianceId}". Label is "${createDto.label}"`,
 		);
 
 		return { id: createdPolicyId };

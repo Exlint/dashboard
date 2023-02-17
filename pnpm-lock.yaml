@@ -90,8 +90,8 @@ importers:
       '@nestjs/common': 9.3.7
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
-      '@nestjs/cqrs': 9.0.1
-      '@nestjs/jwt': 10.0.1
+      '@nestjs/cqrs': 9.0.3
+      '@nestjs/jwt': 10.0.2
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
       '@nestjs/schematics': 9.0.4
@@ -140,8 +140,8 @@ importers:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
-      '@nestjs/cqrs': 9.0.1_zopo4oyrexfpa3czalg73ujjpm
-      '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
+      '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
+      '@nestjs/jwt': 10.0.2_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
       '@nestjs/throttler': 4.0.0_pwlerhfcldutg4bxlbqlfavbwi
@@ -197,8 +197,8 @@ importers:
       '@nestjs/common': 9.3.7
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
-      '@nestjs/cqrs': 9.0.1
-      '@nestjs/jwt': 10.0.1
+      '@nestjs/cqrs': 9.0.3
+      '@nestjs/jwt': 10.0.2
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
       '@nestjs/schematics': 9.0.4
@@ -243,8 +243,8 @@ importers:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
-      '@nestjs/cqrs': 9.0.1_zopo4oyrexfpa3czalg73ujjpm
-      '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
+      '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
+      '@nestjs/jwt': 10.0.2_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
       '@prisma/client': 4.9.0_prisma@4.9.0
@@ -309,8 +309,8 @@ importers:
       '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.50.0
       '@typescript-eslint/parser': 5.50.0
-      '@uiw/codemirror-themes': 4.19.7
-      '@uiw/react-codemirror': 4.19.7
+      '@uiw/codemirror-themes': 4.19.8
+      '@uiw/react-codemirror': 4.19.8
       '@vitejs/plugin-react': 3.1.0
       axios: 1.3.2
       bootstrap: 3.4.1
@@ -361,8 +361,8 @@ importers:
       '@rjsf/validator-ajv8': 5.1.0_@rjsf+utils@5.1.0
       '@types/react': 18.0.27
       '@types/react-dom': 18.0.10
-      '@uiw/codemirror-themes': 4.19.7_@codemirror+language@6.5.0
-      '@uiw/react-codemirror': 4.19.7_6myr4dj3ggpr5gy257sgcvplt4
+      '@uiw/codemirror-themes': 4.19.8_@codemirror+language@6.5.0
+      '@uiw/react-codemirror': 4.19.8_6myr4dj3ggpr5gy257sgcvplt4
       axios: 1.3.2
       bootstrap: 3.4.1
       date-fns: 2.29.3
@@ -434,7 +434,7 @@ importers:
       react-card-carousel: 1.1.3
       react-dom: 18.2.0
       react-i18next: 12.1.5
-      react-intersection-observer: 9.4.1
+      react-intersection-observer: 9.4.2
       sass: 1.58.0
       stylelint: 14.16.1
       typescript: 4.9.5
@@ -446,7 +446,7 @@ importers:
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.1.5_iakk3dtjhjpukdoa4oua5khgci
-      react-intersection-observer: 9.4.1_react@18.2.0
+      react-intersection-observer: 9.4.2_react@18.2.0
     devDependencies:
       '@types/mixpanel-browser': 2.38.1
       '@types/react': 18.0.27
@@ -2749,8 +2749,8 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/cqrs/9.0.1_zopo4oyrexfpa3czalg73ujjpm:
-    resolution: {integrity: sha512-DsqkAaIHy9+Ot4FJybmlDQk0HBDTGztz0F3LcMnatFDQv1X56W0Y2+R/7jjwHsmHzQfbffT2FGyCOx2/9apFCg==}
+  /@nestjs/cqrs/9.0.3_zopo4oyrexfpa3czalg73ujjpm:
+    resolution: {integrity: sha512-hmbrqf51BVdgmnnxErnLVXfPNTEqr4Hz8DyLa9dKLIW3BuOyI5RDwJ/9sKbJ47UDBhumC5nQlNK9qk27mhqHfw==}
     peerDependencies:
       '@nestjs/common': ^9.0.0
       '@nestjs/core': ^9.0.0
@@ -2761,16 +2761,16 @@ packages:
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
       reflect-metadata: 0.1.13
       rxjs: 7.8.0
-      uuid: 8.3.2
+      uuid: 9.0.0
     dev: false
 
-  /@nestjs/jwt/10.0.1_@nestjs+common@9.3.7:
-    resolution: {integrity: sha512-LwXBKVYHnFeX6GH/Wt0WDjsWCmNDC6tEdLlwNMAvJgYp+TkiCpEmQLkgRpifdUE29mvYSbjSnVs2kW2ob935NA==}
+  /@nestjs/jwt/10.0.2_@nestjs+common@9.3.7:
+    resolution: {integrity: sha512-MLxjCSbO7C9fN2hst5kpIhnJAgglJmrKppXAXqElB8A9ip3ZuCowMDjjmNWWJyfOzE98NV0E0iEQGE2StMUC+Q==}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0
     dependencies:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
-      '@types/jsonwebtoken': 8.5.9
+      '@types/jsonwebtoken': 9.0.1
       jsonwebtoken: 9.0.0
     dev: false
 
@@ -3538,6 +3538,13 @@ packages:
     resolution: {integrity: sha512-272FMnFGzAVMGtu9tkr29hRL6bZj4Zs1KZNeHLnKqAvp06tAIcarTMwOh8/8bz4FmKRcMxZhZNeUAQsNLoiPhg==}
     dependencies:
       '@types/node': 18.13.0
+    dev: true
+
+  /@types/jsonwebtoken/9.0.1:
+    resolution: {integrity: sha512-c5ltxazpWabia/4UzhIoaDcIza4KViOQhdbjRlfcIGVnsE3c3brkz9Z+F/EeJIECOQP7W7US2hNE930cWWkPiw==}
+    dependencies:
+      '@types/node': 18.13.0
+    dev: false
 
   /@types/mime/3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
@@ -3922,8 +3929,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uiw/codemirror-extensions-basic-setup/4.19.7_@codemirror+language@6.5.0:
-    resolution: {integrity: sha512-pk0JTFJAZOGxouBB1pdBtb59qKibO9DW4hER4VSFGBGW3TBDeXUwL/gKujhRpySHG2MtG09cgt4a3XOFIWwXTw==}
+  /@uiw/codemirror-extensions-basic-setup/4.19.8_@codemirror+language@6.5.0:
+    resolution: {integrity: sha512-hRoXG+sGoqAWBqlnqDl3InS8qPU9OW5F/pU4PQlTu7WTD+PrJSOi7jyb+4oOI9dIPNjEOiGWwWPAbG31M9qIcw==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
@@ -3936,8 +3943,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/codemirror-themes/4.19.7_@codemirror+language@6.5.0:
-    resolution: {integrity: sha512-M/42RkPI60ItlssmNuEoZO2MQvlY6fRmdX7XRUAhKjxczZoaq8xS6HIvv1whGf2zGsTrwdVTPCm6ls0l17dvPA==}
+  /@uiw/codemirror-themes/4.19.8_@codemirror+language@6.5.0:
+    resolution: {integrity: sha512-k+0molX6YuQZ7vYymS5DEl3NcHxVE4VP4J0nB7RBnzLrhDwT2K8R5ie7J2eH+4bpppIK1ZZdZ6Mie7U48dH5dQ==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
     dependencies:
@@ -3946,8 +3953,8 @@ packages:
       '@codemirror/view': 6.4.0
     dev: false
 
-  /@uiw/react-codemirror/4.19.7_6myr4dj3ggpr5gy257sgcvplt4:
-    resolution: {integrity: sha512-IHvpYWVSdiaHX0Fk6oY6YyAJigDnyvSpWKNUTRzsMNxB+8/wqZ8lior4TprXH0zyLxW5F1+bTyifFFTeg+X3Sw==}
+  /@uiw/react-codemirror/4.19.8_6myr4dj3ggpr5gy257sgcvplt4:
+    resolution: {integrity: sha512-tw7Qn4d0AAa71h2+VDvdxlLs4HSmokwtcp/RTqzFE7FG+D24zBzNRdzicnE98LWjKiC/8vUc1dTYrBNh1aNkEg==}
     peerDependencies:
       '@codemirror/view': '>=6.0.0'
       react: '>=16.8.0'
@@ -3957,7 +3964,7 @@ packages:
       '@codemirror/commands': 6.1.2
       '@codemirror/state': 6.1.2
       '@codemirror/theme-one-dark': 6.1.0
-      '@uiw/codemirror-extensions-basic-setup': 4.19.7_@codemirror+language@6.5.0
+      '@uiw/codemirror-extensions-basic-setup': 4.19.8_@codemirror+language@6.5.0
       codemirror: 6.0.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -9758,8 +9765,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-intersection-observer/9.4.1_react@18.2.0:
-    resolution: {integrity: sha512-IXpIsPe6BleFOEHKzKh5UjwRUaz/JYS0lT/HPsupWEQou2hDqjhLMStc5zyE3eQVT4Fk3FufM8Fw33qW1uyeiw==}
+  /react-intersection-observer/9.4.2_react@18.2.0:
+    resolution: {integrity: sha512-AdK+ryzZ7U9ZJYttDUZ8q2Am3nqE0exg5Ryl5Y124KeVsix/1hGZPbdu58EqA98TwnzwDNWHxg/kwNawmIiUig==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -11600,6 +11607,7 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
+    dev: true
 
   /uuid/9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}

@@ -1,7 +1,7 @@
 export const faq = [
 	{
-		question: 'What is a policy group run?',
-		answer: 'A policy is a set of rules that analyze code. When a group of policies run together, the CLI goes through the code and looks for potential errors that match the rules in the group’s policies.',
+		question: 'What is a policy compliance run?',
+		answer: 'A policy is a set of rules that analyze code. When a compliance of policies run together, the CLI goes through the code and looks for potential errors that match the rules in the compliance’s policies.',
 	},
 	{
 		question: 'Do you require access to source code?',

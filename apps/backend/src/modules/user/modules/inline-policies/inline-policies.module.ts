@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 
 import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
-import { BelongingGroupGuard } from '@/guards/belonging-group.guard';
+import { BelongingComplianceGuard } from '@/guards/belonging-compliance.guard';
 import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
 
 import { QueryHandlers } from './queries/handlers';
@@ -45,7 +45,7 @@ import { SetFormConfigurationController } from './set-form-configuration.control
 	],
 	providers: [
 		BelongingInlinePolicyGuard,
-		BelongingGroupGuard,
+		BelongingComplianceGuard,
 		RuleablePolicyGuard,
 		...QueryHandlers,
 		...CommandHandlers,

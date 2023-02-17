@@ -1,4 +1,4 @@
-import type { Group, User, InlinePolicy, Secret, PolicyLibrary, Prisma, Rule } from '@prisma/client';
+import type { Compliance, User, InlinePolicy, Secret, PolicyLibrary, Prisma, Rule } from '@prisma/client';
 
 import type { ILibraryData, ILibraryRule } from './libraries-data';
 
@@ -6,7 +6,7 @@ export interface ICliAuthResponseData extends Pick<User, 'email'> {
 	readonly cliToken: string;
 }
 
-export interface IGetGroupResponseData extends Pick<Group, 'label'> {}
+export interface IGetComplianceResponseData extends Pick<Compliance, 'label'> {}
 
 export interface IAvailableLabelResponseData {
 	readonly isAvailable: boolean;
@@ -22,7 +22,7 @@ export interface IAutoAuthResponseData extends Pick<User, 'id' | 'name'> {
 }
 
 export interface IGetPolicyResponseData extends Pick<InlinePolicy, 'label' | 'library'> {
-	readonly groupLabel: string;
+	readonly complianceLabel: string;
 	readonly hasRules: boolean;
 }
 
@@ -35,8 +35,8 @@ export type IGetCodeConfigurationResponseData = Pick<InlinePolicy, 'codeConfigur
 
 export interface IRefreshSecretResponseData extends Pick<Secret, 'secret'> {}
 
-export interface IGetAllGroupsResponseData {
-	readonly groups: (Pick<Group, 'id' | 'label'> & { readonly librariesNames: PolicyLibrary[] })[];
+export interface IGetAllCompliancesResponseData {
+	readonly compliances: (Pick<Compliance, 'id' | 'label'> & { readonly librariesNames: PolicyLibrary[] })[];
 }
 
 export interface IGetAllSecretsResponseData {
@@ -51,9 +51,9 @@ export interface IGetLibrariesResponseData {
 	readonly libraries: Omit<ILibraryData, 'rules' | 'configuration'>[];
 }
 
-export interface ICreateGroupResponseData extends Pick<Group, 'id'> {}
+export interface ICreateComplianceResponseData extends Pick<Compliance, 'id'> {}
 
-export interface IGetPoliciesResponseData extends Pick<Group, 'description'> {
+export interface IGetPoliciesResponseData extends Pick<Compliance, 'description'> {
 	readonly count: number;
 	readonly inlinePolicies: (Pick<InlinePolicy, 'id' | 'label' | 'library'> &
 		Pick<ILibraryData, 'language'>)[];

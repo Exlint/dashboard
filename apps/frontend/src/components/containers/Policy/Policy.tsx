@@ -10,12 +10,12 @@ import PolicyView from './Policy.view';
 interface IProps {}
 
 const Policy: React.FC<IProps> = () => {
-	const [groupLabelState, setGroupLabelState] = useState<string | null>(null);
+	const [complianceLabelState, setComplianceLabelState] = useState<string | null>(null);
 	const [policyLabelState, setPolicyLabelState] = useState<string | null>(null);
 	const [libraryState, setLibraryState] = useState<PolicyLibrary | null>(null);
 	const [hasRulesState, setHasRulesState] = useState<boolean | null>(null);
 
-	const params = useParams<{ readonly groupId: string; readonly policyId: string }>();
+	const params = useParams<{ readonly complianceId: string; readonly policyId: string }>();
 	const navigate = useNavigate();
 
 	const onSetPolicyLabel = (value: string) => setPolicyLabelState(() => value);
@@ -24,17 +24,17 @@ const Policy: React.FC<IProps> = () => {
 		backendApi
 			.get<IGetPolicyResponseData>(`/user/inline-policies/${params.policyId}`)
 			.then((response) => {
-				setGroupLabelState(() => response.data.groupLabel);
+				setComplianceLabelState(() => response.data.complianceLabel);
 				setPolicyLabelState(() => response.data.label);
 				setLibraryState(() => response.data.library);
 				setHasRulesState(() => response.data.hasRules);
 			})
-			.catch(() => navigate(`/group-center/${params.groupId}`));
-	}, [backendApi, params.groupId, params.policyId]);
+			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
+	}, [backendApi, params.complianceId, params.policyId]);
 
 	return (
 		<PolicyView
-			groupLabel={groupLabelState}
+			complianceLabel={complianceLabelState}
 			policyLabel={policyLabelState}
 			library={libraryState}
 			hasRules={hasRulesState}

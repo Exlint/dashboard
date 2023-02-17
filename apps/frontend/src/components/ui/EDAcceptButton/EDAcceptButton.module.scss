@@ -12,6 +12,11 @@
 	background-color: map.get(variables.$colors, greens-slimy-green);
 	border-radius: 6px;
 
+	&:hover {
+		text-decoration: none;
+		background-color: map.get(variables.$colors, greens-wageningen-green);
+	}
+
 	&__text {
 		font-size: 1.5rem;
 		font-weight: 600;

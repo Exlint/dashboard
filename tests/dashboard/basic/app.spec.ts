@@ -7,13 +7,13 @@ test.describe('Application @app-basic', () => {
 		await expect(page).toHaveTitle(/Exlint/);
 	});
 
-	test('group center page loads after successful authentication', async ({ page }) => {
+	test('compliance center page loads after successful authentication', async ({ page }) => {
 		await page.goto('/');
 
-		const navGroupCenterLinkElement = page.getByTestId('nav-group-center-link');
+		const navComplianceCenterLinkElement = page.getByTestId('nav-compliance-center-link');
 
-		await expect(navGroupCenterLinkElement).toBeVisible();
-		await expect(navGroupCenterLinkElement).toHaveClass(/container--active/);
+		await expect(navComplianceCenterLinkElement).toBeVisible();
+		await expect(navComplianceCenterLinkElement).toHaveClass(/container--active/);
 	});
 
 	test('nav documentation link should open new tab upon click event', async ({ page, context }) => {

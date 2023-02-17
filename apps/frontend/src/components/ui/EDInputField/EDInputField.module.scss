@@ -15,8 +15,12 @@
 		opacity: 1;
 	}
 
-	&:hover,
+	&:hover {
+		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-silver-sand);
+	}
+
 	&:focus {
+		background-color: map.get(variables.$colors, whites-white);
 		box-shadow: inset 0 0 0 2px map.get(variables.$colors, greys-silver-sand);
 	}
 }

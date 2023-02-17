@@ -1,0 +1,119 @@
+@use 'sass:map';
+
+@use '@/styles/variables.module.scss';
+
+.container {
+	position: relative;
+	padding-inline-start: map.get(variables.$sizes, spacing-xxl);
+
+	&:not(:last-child) {
+		margin-bottom: map.get(variables.$sizes, spacing-l);
+	}
+
+	&__border {
+		position: absolute;
+		top: 0;
+		inset-inline-start: 0;
+		width: 4px;
+		height: 100%;
+		background-color: map.get(variables.$colors, purples-purple);
+		border-start-end-radius: 6px;
+		border-end-end-radius: 6px;
+	}
+}
+
+.complianceItem {
+	display: flex;
+	flex-direction: column;
+	padding: map.get(variables.$sizes, spacing-xl);
+	text-decoration: none;
+	cursor: pointer;
+	background-color: map.get(variables.$colors, whites-white);
+	border: 2px solid map.get(variables.$colors, greys-platinum);
+	border-radius: 6px;
+	box-shadow: 0 4px 8px 0 #00000026;
+	transition: 0.3s ease border-color;
+
+	&:hover {
+		text-decoration: none;
+		border-color: map.get(variables.$colors, purples-purple);
+	}
+
+	&:focus {
+		text-decoration: none;
+	}
+
+	&--selected {
+		cursor: default;
+		box-shadow: unset;
+
+		&:hover {
+			border-color: map.get(variables.$colors, greys-platinum);
+		}
+	}
+
+	&__label {
+		width: 100%;
+		height: 27px;
+		overflow: hidden;
+		font-size: 2.1rem;
+		font-weight: 500;
+		color: map.get(variables.$colors, blacks-dark-gunmetal);
+		text-overflow: ellipsis;
+
+		&--selected {
+			color: map.get(variables.$colors, purples-purple);
+		}
+	}
+
+	.complianceIdContainer {
+		display: flex;
+		align-content: center;
+		margin-block: map.get(variables.$sizes, spacing-l);
+
+		&__value {
+			margin-inline-end: map.get(variables.$sizes, spacing-s);
+			font-size: 1.5rem;
+			color: map.get(variables.$colors, greys-independence-grey);
+		}
+
+		&__icon {
+			width: auto;
+			height: 19.9px;
+			cursor: pointer;
+			fill: map.get(variables.$colors, greys-independence-grey);
+		}
+	}
+
+	.policiesContainer {
+		display: flex;
+		align-items: center;
+
+		&__text {
+			margin-inline-end: map.get(variables.$sizes, spacing-s);
+			font-size: 1.5rem;
+			color: map.get(variables.$colors, greys-independence-grey);
+		}
+
+		.policyItem {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 27px;
+			height: 27px;
+			padding: map.get(variables.$sizes, spacing-s);
+			background-color: map.get(variables.$colors, greys-anti-flash-grey-white);
+			border: 1px solid map.get(variables.$colors, greys-platinum);
+			border-radius: 6px;
+
+			&:not(:last-child) {
+				margin-inline-end: map.get(variables.$sizes, spacing-s);
+			}
+
+			&__img {
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}
