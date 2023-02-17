@@ -39,8 +39,12 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					}
 					to="policies"
 				>
-					<EDSvg className={classes['tab__icon']} name="policies" />
-					<span className={classes['tab__text']}>{t('complianceCenter.tabs.policies')}</span>
+					<div className={classes['tabItems']}>
+						<EDSvg className={classes['tabItems__icon']} name="policies" />
+						<span className={classes['tabItems__text']}>
+							{t('complianceCenter.tabs.policies')}
+						</span>
+					</div>
 					<div className={classes['tab__border']} />
 				</NavLink>
 				<NavLink
@@ -49,8 +53,12 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					}
 					to="settings"
 				>
-					<EDSvg className={classes['tab__icon']} name="settings" />
-					<span className={classes['tab__text']}>{t('complianceCenter.tabs.settings')}</span>
+					<div className={classes['tabItems']}>
+						<EDSvg className={classes['tabItems__icon']} name="settings" />
+						<span className={classes['tabItems__text']}>
+							{t('complianceCenter.tabs.settings')}
+						</span>
+					</div>
 					<div className={classes['tab__border']} />
 				</NavLink>
 			</div>
