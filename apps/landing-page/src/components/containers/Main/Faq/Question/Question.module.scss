@@ -33,6 +33,12 @@
 	.questionInner {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 0;
+		transition: margin-bottom 0.3s ease-in-out;
+
+		&--active {
+			margin-bottom: 45px;
+		}
 
 		&__question {
 			font-size: 2.4rem;
@@ -74,12 +80,8 @@
 
 			&--link {
 				margin-inline-start: 5px;
-				font-size: 2rem;
-				font-weight: 400;
-				color: #dcdae7;
 				text-decoration: underline;
 				white-space: nowrap;
-				width: min-content;
 			}
 		}
 	}

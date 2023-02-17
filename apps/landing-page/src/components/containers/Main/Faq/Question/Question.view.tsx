@@ -7,11 +7,11 @@ import classes from './Question.module.scss';
 
 interface IProps {
 	readonly isShowMoreClicked: boolean;
-	readonly onShowMoreButton: () => void;
 	readonly question: string;
 	readonly answer: string;
 	readonly clickableText?: string;
 	readonly link?: string;
+	readonly onShowMoreButton: VoidFunction;
 }
 
 const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -26,13 +26,19 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 	const answerTextClasses = concatClasses(
 		classes,
 		'answerInner__answer',
-		props.isShowMoreClicked ? 'answerInner__answer--reveal' : 'null',
+		props.isShowMoreClicked ? 'answerInner__answer--reveal' : null,
 	);
 
 	return (
 		<div className={classes['questionsContainer']}>
 			<hr className={classes['questionsContainer__devidorLine']} />
-			<div className={classes['questionInner']}>
+			<div
+				className={concatClasses(
+					classes,
+					'questionInner',
+					props.isShowMoreClicked ? 'questionInner--active' : null,
+				)}
+			>
 				<span className={classes['questionInner__question']}>{props.question}</span>
 				<button
 					className={classes['showMoreOrLessButton']}
@@ -44,10 +50,17 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 			</div>
 			<div className={classes['answerInner']}>
 				<p className={answerTextClasses}>
-					<br />
 					{props.answer}
 					{props.clickableText && props.link && (
-						<a className={classes['answerInner__answer--link']} href={props.link} target="_blank">
+						<a
+							className={concatClasses(
+								classes,
+								'answerInner__answer',
+								'answerInner__answer--link',
+							)}
+							href={props.link}
+							target="_blank"
+						>
 							{props.clickableText}
 						</a>
 					)}
