@@ -90,7 +90,7 @@ importers:
       '@nestjs/common': 9.3.7
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
-      '@nestjs/cqrs': 9.0.1
+      '@nestjs/cqrs': 9.0.3
       '@nestjs/jwt': 10.0.1
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
@@ -140,7 +140,7 @@ importers:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
-      '@nestjs/cqrs': 9.0.1_zopo4oyrexfpa3czalg73ujjpm
+      '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
       '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
@@ -197,7 +197,7 @@ importers:
       '@nestjs/common': 9.3.7
       '@nestjs/config': 2.3.1
       '@nestjs/core': 9.3.7
-      '@nestjs/cqrs': 9.0.1
+      '@nestjs/cqrs': 9.0.3
       '@nestjs/jwt': 10.0.1
       '@nestjs/passport': 9.0.3
       '@nestjs/platform-express': 9.3.7
@@ -243,7 +243,7 @@ importers:
       '@nestjs/common': 9.3.7_welcnyot5bzd5wa2aovbkxpi4i
       '@nestjs/config': 2.3.1_ojttuksvundfk3amlyo674va74
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
-      '@nestjs/cqrs': 9.0.1_zopo4oyrexfpa3czalg73ujjpm
+      '@nestjs/cqrs': 9.0.3_zopo4oyrexfpa3czalg73ujjpm
       '@nestjs/jwt': 10.0.1_@nestjs+common@9.3.7
       '@nestjs/passport': 9.0.3_2lo5boulyhai36ocas6bn57y6i
       '@nestjs/platform-express': 9.3.7_zmctrozi6xxh3beaccl6ebop6u
@@ -2749,8 +2749,8 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/cqrs/9.0.1_zopo4oyrexfpa3czalg73ujjpm:
-    resolution: {integrity: sha512-DsqkAaIHy9+Ot4FJybmlDQk0HBDTGztz0F3LcMnatFDQv1X56W0Y2+R/7jjwHsmHzQfbffT2FGyCOx2/9apFCg==}
+  /@nestjs/cqrs/9.0.3_zopo4oyrexfpa3czalg73ujjpm:
+    resolution: {integrity: sha512-hmbrqf51BVdgmnnxErnLVXfPNTEqr4Hz8DyLa9dKLIW3BuOyI5RDwJ/9sKbJ47UDBhumC5nQlNK9qk27mhqHfw==}
     peerDependencies:
       '@nestjs/common': ^9.0.0
       '@nestjs/core': ^9.0.0
@@ -2761,7 +2761,7 @@ packages:
       '@nestjs/core': 9.3.7_ipss6dxf5icme2x7c6jvrkkrmq
       reflect-metadata: 0.1.13
       rxjs: 7.8.0
-      uuid: 8.3.2
+      uuid: 9.0.0
     dev: false
 
   /@nestjs/jwt/10.0.1_@nestjs+common@9.3.7:
@@ -11600,6 +11600,7 @@ packages:
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
+    dev: true
 
   /uuid/9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
