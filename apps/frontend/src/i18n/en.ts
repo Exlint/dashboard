@@ -114,7 +114,7 @@ const en = {
 		sideBar: {
 			searchInputPlaceholder: 'Search Compliances',
 			newComplianceAction: 'New',
-			noCompliancesHeader: 'Create your first compliance',
+			noCompliancesHeader: 'Create your first Compliance',
 			policies: 'Policies',
 		},
 		newCompliance: {
