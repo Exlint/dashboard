@@ -32,6 +32,7 @@
 	border: 2px solid map.get(variables.$colors, greys-platinum);
 	border-radius: 6px;
 	box-shadow: 0 4px 8px 0 #00000026;
+	transition: 0.3s ease border-color;
 
 	&:hover {
 		text-decoration: none;

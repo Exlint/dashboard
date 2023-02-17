@@ -67,6 +67,7 @@
 			align-items: center;
 			padding: map.get(variables.$sizes, spacing-s);
 			border-radius: 6px;
+			transition: 0.15s ease background-color;
 
 			&:hover {
 				background-color: map.get(variables.$colors, greys-platinum);
