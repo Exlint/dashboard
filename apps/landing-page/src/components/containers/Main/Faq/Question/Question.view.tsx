@@ -15,13 +15,19 @@ interface IProps {
 }
 
 const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const plusIconClasses = props.isShowMoreClicked
-		? concatClasses(classes, 'showMoreOrLessButton__icon', 'showMoreOrLessButton__icon--rotate')
-		: concatClasses(classes, 'showMoreOrLessButton__icon', 'showMoreOrLessButton__icon--rotateBack');
+	const plusIconClasses = concatClasses(
+		classes,
+		'showMoreOrLessButton__icon',
+		props.isShowMoreClicked
+			? 'showMoreOrLessButton__icon--rotate'
+			: 'showMoreOrLessButton__icon--rotateBack',
+	);
 
-	const answerTextClasses = props.isShowMoreClicked
-		? concatClasses(classes, 'answerInner__answer', 'answerInner__answer--reveal')
-		: classes['answerInner__answer'];
+	const answerTextClasses = concatClasses(
+		classes,
+		'answerInner__answer',
+		props.isShowMoreClicked ? 'answerInner__answer--reveal' : 'null',
+	);
 
 	return (
 		<div className={classes['questionsContainer']}>
