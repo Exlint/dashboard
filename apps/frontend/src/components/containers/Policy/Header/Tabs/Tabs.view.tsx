@@ -20,8 +20,12 @@ const TabsView: React.FC<IProps> = () => {
 				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
 				to="configurations"
 			>
-				<EDSvg className={classes['tab__icon']} name="configurations" />
-				<span className={classes['tab__text']}>{t('policy.header.tabs.configurations')}</span>
+				<div className={classes['tabItems']}>
+					<EDSvg className={classes['tabItems__icon']} name="configurations" />
+					<span className={classes['tabItems__text']}>
+						{t('policy.header.tabs.configurations')}
+					</span>
+				</div>
 				<div className={classes['tab__border']} />
 			</NavLink>
 
@@ -29,8 +33,10 @@ const TabsView: React.FC<IProps> = () => {
 				className={({ isActive }) => concatClasses(classes, 'tab', isActive ? 'tab--active' : null)}
 				to="settings"
 			>
-				<EDSvg className={classes['tab__icon']} name="settings" />
-				<span className={classes['tab__text']}>{t('policy.header.tabs.settings')}</span>
+				<div className={classes['tabItems']}>
+					<EDSvg className={classes['tabItems__icon']} name="settings" />
+					<span className={classes['tabItems__text']}>{t('policy.header.tabs.settings')}</span>
+				</div>
 				<div className={classes['tab__border']} />
 			</NavLink>
 		</div>
