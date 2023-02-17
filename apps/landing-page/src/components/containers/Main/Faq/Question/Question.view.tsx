@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { concatClasses } from '@/utils/component';
 import ELPSvg from '@/ui/ELPSvg';
 
 import classes from './Question.module.scss';
@@ -14,13 +15,13 @@ interface IProps {
 }
 
 const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	let showMoreOrLessButton: JSX.Element | undefined;
+	const plusIconClasses = props.isShowMoreClicked
+		? concatClasses(classes, 'showMoreOrLessButton__icon', 'showMoreOrLessButton__icon--rotate')
+		: concatClasses(classes, 'showMoreOrLessButton__icon', 'showMoreOrLessButton__icon--rotateBack');
 
-	if (props.isShowMoreClicked) {
-		showMoreOrLessButton = <ELPSvg className={classes['showMoreOrLessButton__icon']} name="showMore" />;
-	} else {
-		showMoreOrLessButton = <ELPSvg className={classes['showMoreOrLessButton__icon']} name="showLess" />;
-	}
+	const answerTextClasses = props.isShowMoreClicked
+		? concatClasses(classes, 'answerInner__answer', 'answerInner__answer--reveal')
+		: classes['answerInner__answer'];
 
 	return (
 		<div className={classes['questionsContainer']}>
@@ -32,14 +33,12 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					type="button"
 					onClick={props.onShowMoreButton}
 				>
-					{showMoreOrLessButton}
+					<ELPSvg className={plusIconClasses} name="showMore" />
 				</button>
 			</div>
 			<div className={classes['answerInner']}>
-				<p
-					className={classes['answerInner__answer']}
-					style={{ display: props.isShowMoreClicked ? 'none' : 'block' }}
-				>
+				<p className={answerTextClasses}>
+					<br />
 					{props.answer}
 					{props.clickableText && props.link && (
 						<a className={classes['answerInner__answer--link']} href={props.link} target="_blank">
