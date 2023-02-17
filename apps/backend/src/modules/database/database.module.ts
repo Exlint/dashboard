@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 
 import { DBClientSecretService } from './client-secret.service';
-import { DBGroupService } from './group.service';
+import { DBComplianceService } from './compliance.service';
 import { DBInlinePolicyService } from './inline-policy.service';
 import { PrismaService } from './prisma.service';
 import { DBRuleService } from './rule.service';
@@ -13,10 +13,16 @@ import { DBUserService } from './user.service';
 		PrismaService,
 		DBUserService,
 		DBClientSecretService,
-		DBGroupService,
+		DBComplianceService,
 		DBInlinePolicyService,
 		DBRuleService,
 	],
-	exports: [DBUserService, DBClientSecretService, DBGroupService, DBInlinePolicyService, DBRuleService],
+	exports: [
+		DBUserService,
+		DBClientSecretService,
+		DBComplianceService,
+		DBInlinePolicyService,
+		DBRuleService,
+	],
 })
 export class DatabaseModule {}

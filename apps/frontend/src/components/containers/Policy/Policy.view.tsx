@@ -9,7 +9,7 @@ import Header from './Header';
 import classes from './Policy.module.scss';
 
 interface IProps {
-	readonly groupLabel: string | null;
+	readonly complianceLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly library: PolicyLibrary | null;
 	readonly hasRules: boolean | null;
@@ -23,7 +23,7 @@ const PolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			<main className={classes['content']}>
 				{props.hasRules !== null && (
 					<Header
-						groupLabel={props.groupLabel}
+						complianceLabel={props.complianceLabel}
 						policyLabel={props.policyLabel}
 						library={props.library}
 						hasRules={props.hasRules}

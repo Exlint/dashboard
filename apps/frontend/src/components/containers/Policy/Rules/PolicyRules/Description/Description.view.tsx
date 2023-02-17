@@ -54,7 +54,7 @@ const DescriptionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 				<ReactTextareaAutosize
 					className={classes['descriptionContainer__textarea']}
 					value={props.descriptionInput ?? ''}
-					placeholder={t('groupCenter.policies.descriptionPlaceholder')}
+					placeholder={t('complianceCenter.policies.descriptionPlaceholder')}
 					readOnly={!props.isDescriptionOnEdit}
 					maxRows={15}
 					onChange={({ currentTarget: { value } }) => props.onDescriptionInputChange(value)}

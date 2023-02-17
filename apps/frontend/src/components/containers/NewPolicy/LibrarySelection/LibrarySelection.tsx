@@ -26,16 +26,16 @@ const LibrarySelection: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 		Omit<ILibraryData, 'rules' | 'configuration'>[]
 	>([]);
 
-	const params = useParams<{ readonly groupId: string }>();
+	const params = useParams<{ readonly complianceId: string }>();
 
 	useEffect(() => {
 		backendApi
-			.get<IGetLibrariesResponseData>(`/user/inline-policies/libraries/${params.groupId}`)
+			.get<IGetLibrariesResponseData>(`/user/inline-policies/libraries/${params.complianceId}`)
 			.then((response) => {
 				setLibrariesState(() => response.data.libraries);
 				setFilteredLibrariesState(() => response.data.libraries);
 			});
-	}, [backendApi, params.groupId]);
+	}, [backendApi, params.complianceId]);
 
 	useEffect(() => {
 		setFilteredLibrariesState(() => {

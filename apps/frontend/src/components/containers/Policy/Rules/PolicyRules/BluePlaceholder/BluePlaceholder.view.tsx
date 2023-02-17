@@ -9,7 +9,7 @@ import classes from './BluePlaceholder.module.scss';
 
 interface IProps {
 	readonly show: boolean;
-	readonly groupId?: string;
+	readonly complianceId?: string;
 	readonly policyId?: string;
 }
 
@@ -30,7 +30,7 @@ const BluePlaceholderView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 					&nbsp;
 					<Link
 						className={classes['list__link']}
-						to={`/group-center/${props.groupId}/policies/${props.policyId}/configurations/configuration/code`}
+						to={`/compliance-center/${props.complianceId}/policies/${props.policyId}/configurations/configuration/code`}
 					>
 						<strong>{t('policy.rules.table.blurFirstTextPostfix')}</strong>
 					</Link>

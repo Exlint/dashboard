@@ -16,7 +16,7 @@ export class GetHandler implements IQueryHandler<GetContract> {
 		const libraryData = librariesData.find((library) => library.name === policy.library)!;
 
 		return {
-			groupLabel: policy.group.label,
+			complianceLabel: policy.compliance.label,
 			label: policy.label,
 			library: policy.library,
 			hasRules: !!libraryData.rules,

@@ -40,7 +40,7 @@ model User {
 
   refreshTokens RefreshToken[]
   secrets       Secret[]
-  groups        Group[]
+  compliances        Compliance[]
 }
 
 model RefreshToken {
@@ -88,7 +88,7 @@ model Rule {
 model InlinePolicy {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  groupId             String        @db.ObjectId
+  complianceId             String        @db.ObjectId
   label               String
   description         String?
   library             PolicyLibrary
@@ -104,10 +104,10 @@ model InlinePolicy {
 
   rules Rule[]
 
-  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  compliance Compliance @relation(fields: [complianceId], references: [id], onDelete: Cascade)
 }
 
-model Group {
+model Compliance {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   userId      String  @db.ObjectId

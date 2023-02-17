@@ -30,7 +30,7 @@ interface IProps extends IPropsFromDispatch {}
 
 const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
-	const params = useParams<{ readonly policyId: string; readonly groupId: string }>();
+	const params = useParams<{ readonly policyId: string; readonly complianceId: string }>();
 	const navigate = useNavigate();
 
 	const [formSchemaState, setFormSchemaState] = useState<ILibraryData['configuration'] | null>(null);
@@ -70,7 +70,7 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 				setIsSwitchCheckedState(() => response.data.isFormConfiguration);
 				setFormConfigurationState(() => response.data.formConfiguration);
 			})
-			.catch(() => navigate(`/group-center/${params.groupId}`));
+			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
 	}, [backendApi]);
 
 	const onFormChange = (data: IChangeEvent) => {

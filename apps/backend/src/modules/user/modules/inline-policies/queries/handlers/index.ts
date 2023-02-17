@@ -5,13 +5,13 @@ import { GetFilesListHandler } from './get-files-list.handler';
 import { GetFormSchemaHandler } from './get-form-schema.handler';
 import { GetPolicyRulesHandler } from './get-policy-rules.handler';
 import { GetHandler } from './get.handler';
-import { GroupHasLibraryHandler } from './group-has-library.handler';
-import { UserGroupLibrariesHandler } from './user-group-libraries.handler';
+import { ComplianceHasLibraryHandler } from './compliance-has-library.handler';
+import { UserComplianceLibrariesHandler } from './user-compliance-libraries.handler';
 
 export const QueryHandlers = [
 	AvailableLabelHandler,
-	UserGroupLibrariesHandler,
-	GroupHasLibraryHandler,
+	UserComplianceLibrariesHandler,
+	ComplianceHasLibraryHandler,
 	CreateHandler,
 	GetHandler,
 	GetFilesListHandler,
