@@ -13,8 +13,7 @@ const FirstRowView: React.FC<IProps> = () => {
 			<div className={classes['leftSide']}>
 				<iframe
 					className={classes['leftSide__video']}
-					src="https://demo.arcade.software/Jmndz8qF7Bw9RCJbZw4k?embed"
-					loading="lazy"
+					src="https://demo.arcade.software/5tAOKDlVOa3tFEImzn8h?embed"
 					allowFullScreen
 					title="Exlint Demo"
 				/>
