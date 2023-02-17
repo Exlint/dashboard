@@ -19,7 +19,7 @@
 	"dependencies": {
 		"@exlint.io/common": "workspace:*",
 		"@nestjs/common": "9.3.7",
-		"@nestjs/config": "2.3.0",
+		"@nestjs/config": "2.3.1",
 		"@nestjs/core": "9.3.7",
 		"@nestjs/cqrs": "9.0.1",
 		"@nestjs/jwt": "10.0.1",
