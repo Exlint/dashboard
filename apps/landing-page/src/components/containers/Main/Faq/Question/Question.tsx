@@ -10,10 +10,10 @@ interface IProps {
 }
 
 const Question: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [isShowMoreClickedState, setIsShowMoreClickedState] = useState<boolean>(true);
+	const [isShowMoreClickedState, setIsShowMoreClickedState] = useState<boolean>(false);
 
 	const onShowMoreButton = () => {
-		setIsShowMoreClickedState(() => !isShowMoreClickedState);
+		setIsShowMoreClickedState((prev) => !prev);
 	};
 
 	return (

@@ -2,6 +2,24 @@
 
 @import '../../../../../styles/variables.scss';
 
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(45deg);
+	}
+}
+
+@keyframes rotateBack {
+	0% {
+		transform: rotate(45deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
 .questionsContainer {
 	display: flex;
 	flex-direction: column;
@@ -15,6 +33,12 @@
 	.questionInner {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 0;
+		transition: margin-bottom 0.3s ease-in-out;
+
+		&--active {
+			margin-bottom: 45px;
+		}
 
 		&__question {
 			font-size: 2.4rem;
@@ -26,26 +50,37 @@
 			&__icon {
 				fill: #bbb8ca;
 				stroke-width: 4px;
+
+				&--rotate {
+					animation: rotate 0.3s ease-out;
+					transform: rotate(45deg);
+				}
+
+				&--rotateBack {
+					animation: rotateBack 0.3s ease-in;
+					transform: rotate(0deg);
+				}
 			}
 		}
 	}
 
-	.answerInner {
-		&__answer {
-			margin-top: 45px;
-			font-size: 2rem;
-			font-weight: 400;
-			color: #dcdae7;
+	.answer {
+		font-size: 2rem;
+		font-weight: 400;
+		color: #dcdae7;
+		max-height: 0;
+		transition: max-height 0.4s ease;
+		overflow: hidden;
 
-			&--link {
-				margin-inline-start: 5px;
-				font-size: 2rem;
-				font-weight: 400;
-				color: #dcdae7;
-				text-decoration: underline;
-				white-space: nowrap;
-				width: min-content;
-			}
+		&--reveal {
+			max-height: 500px;
+			transition: max-height 0.7s ease;
+		}
+
+		&--link {
+			margin-inline-start: 5px;
+			text-decoration: underline;
+			white-space: nowrap;
 		}
 	}
 }
