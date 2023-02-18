@@ -25,8 +25,8 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	const answerTextClasses = concatClasses(
 		classes,
-		'answerInner__answer',
-		props.isShowMoreClicked ? 'answerInner__answer--reveal' : null,
+		'answer',
+		props.isShowMoreClicked ? 'answer--reveal' : null,
 	);
 
 	return (
@@ -48,24 +48,18 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 					<ELPSvg className={plusIconClasses} name="showMore" />
 				</button>
 			</div>
-			<div className={classes['answerInner']}>
-				<p className={answerTextClasses}>
-					{props.answer}
-					{props.clickableText && props.link && (
-						<a
-							className={concatClasses(
-								classes,
-								'answerInner__answer',
-								'answerInner__answer--link',
-							)}
-							href={props.link}
-							target="_blank"
-						>
-							{props.clickableText}
-						</a>
-					)}
-				</p>
-			</div>
+			<p className={answerTextClasses}>
+				{props.answer}
+				{props.clickableText && props.link && (
+					<a
+						className={concatClasses(classes, 'answer', 'answer--link')}
+						href={props.link}
+						target="_blank"
+					>
+						{props.clickableText}
+					</a>
+				)}
+			</p>
 		</div>
 	);
 };
