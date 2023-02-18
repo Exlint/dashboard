@@ -2,6 +2,11 @@
 
 @use '@/styles/variables.module.scss';
 
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
 .configurationTabs {
 	display: flex;
 
