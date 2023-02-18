@@ -4,6 +4,7 @@ const commitEmojiRegex =
 	/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/;
 
 const commitTicketIdRegex = /(\[((((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)))\])/;
+const emptyCommitTicketIdRegex = /(\[((((?<!([A-Z]{1,10})-?)[A-Z]+-0+)))\])/;
 const commitMessageRegex = /([^\s]+\s)*[^\s]+/;
 
 const commitRegex = new RegExp(
@@ -75,6 +76,10 @@ module.exports = {
 							false,
 							"header must be in format '<type>: <emoji?> <ticket?> <subject>\nexample => ci: 🚀 [V-123] example\n",
 						];
+					}
+
+					if (emptyCommitTicketIdRegex.test(header)) {
+						return [false, 'ticket ID must not be empty (or 00..0)\n'];
 					}
 
 					return [true, ''];
