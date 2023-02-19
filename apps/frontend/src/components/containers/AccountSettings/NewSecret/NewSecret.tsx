@@ -83,7 +83,11 @@ const NewSecret: React.FC<IProps> = () => {
 			)
 			.then((response) => {
 				navigate('/account-settings/secret-management', {
-					state: response.data,
+					state: {
+						...response.data,
+						label: secretLabelInputState!,
+						expiration: selectedDateState,
+					},
 				});
 			});
 	};
