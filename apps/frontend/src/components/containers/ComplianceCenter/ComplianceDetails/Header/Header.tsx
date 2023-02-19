@@ -1,6 +1,6 @@
 import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
-import { useParams } from 'react-router-dom';
-import React, { useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useMemo } from 'react';
 
 import useBackend from '@/hooks/use-backend';
 
@@ -13,6 +13,7 @@ const Header: React.FC<IProps> = () => {
 		useBackend<IGetAllCompliancesResponseData>('/user/compliances');
 
 	const params = useParams<{ readonly complianceId: string }>();
+	const navigate = useNavigate();
 
 	const selectedCompliance = useMemo(() => {
 		if (!getAllCompliancesResponseData) {
@@ -25,6 +26,12 @@ const Header: React.FC<IProps> = () => {
 
 		return matchingCompliance ?? null;
 	}, [params, getAllCompliancesResponseData]);
+
+	useEffect(() => {
+		if (getAllCompliancesResponseData && selectedCompliance === null) {
+			navigate('/compliance-center');
+		}
+	}, [getAllCompliancesResponseData, selectedCompliance]);
 
 	return <HeaderView complianceLabel={selectedCompliance?.label} complianceId={selectedCompliance?.id} />;
 };

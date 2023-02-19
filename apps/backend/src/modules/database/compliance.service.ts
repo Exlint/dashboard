@@ -16,7 +16,9 @@ export class DBComplianceService {
 	}
 
 	public async doesComplianceBelongUser(userId: string, complianceId: string) {
-		const complianceDB = await this.prisma.compliance.findFirst({ where: { userId, id: complianceId } });
+		const complianceDB = await this.prisma.compliance
+			.findFirst({ where: { userId, id: complianceId } })
+			.catch(() => null);
 
 		return complianceDB !== null;
 	}

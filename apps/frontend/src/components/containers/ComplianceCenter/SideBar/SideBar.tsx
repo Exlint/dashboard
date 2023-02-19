@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 
 import useBackend from '@/hooks/use-backend';
@@ -28,9 +28,22 @@ const SideBar: React.FC<IProps> = () => {
 		);
 	}, [getAllCompliancesResponseData, searchInputState]);
 
+	const params = useParams<{ readonly complianceId?: string }>();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const isNewComplianceButtonDisabled = location.pathname === '/compliance-center/new';
+
+	useEffect(() => {
+		if (
+			isNewComplianceButtonDisabled ||
+			params.complianceId ||
+			getAllCompliancesResponseData?.compliances.length === 0
+		) {
+			return;
+		}
+
+		navigate(`/compliance-center/${getAllCompliancesResponseData?.compliances[0]?.id}/policies`);
+	}, [isNewComplianceButtonDisabled, params, getAllCompliancesResponseData]);
 
 	const onSearchInputChange = (value: string) => setSearchInputState(() => value);
 
