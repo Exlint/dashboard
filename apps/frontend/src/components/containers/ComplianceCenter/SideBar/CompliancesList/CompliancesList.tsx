@@ -1,11 +1,10 @@
 import React from 'react';
-
-import type { ISideBarCompliance } from '@/store/interfaces/compliances';
+import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 
 import CompliancesListView from './CompliancesList.view';
 
 interface IProps {
-	readonly compliances: ISideBarCompliance[];
+	readonly compliances: IGetAllCompliancesResponseData['compliances'];
 }
 
 const CompliancesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

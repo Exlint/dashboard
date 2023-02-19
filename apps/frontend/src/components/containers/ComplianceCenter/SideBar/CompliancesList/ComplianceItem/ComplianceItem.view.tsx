@@ -1,16 +1,17 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 import { Link } from 'react-router-dom';
 
 import { concatClasses } from '@/utils/component';
 import EDSvg from '@/ui/EDSvg';
 import logosObject from '@/utils/libraries-logos';
-import type { ISideBarCompliance } from '@/store/interfaces/compliances';
+import type { ArrayElement } from '@/types/array-element';
 
 import classes from './ComplianceItem.module.scss';
 
 interface IProps {
-	readonly compliance: ISideBarCompliance;
+	readonly compliance: ArrayElement<IGetAllCompliancesResponseData['compliances']>;
 	readonly isSelected: boolean;
 	readonly onCopyComplianceId: () => void;
 }

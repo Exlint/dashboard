@@ -1,47 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import type { IEditComplianceDescriptionDto, IGetPoliciesResponseData } from '@exlint.io/common';
 import type { AxiosResponse } from 'axios';
 
-import type { AppState } from '@/store/app';
 import { backendApi } from '@/utils/http';
-
-import type { IPolicy } from './policy';
+import useBackend from '@/hooks/use-backend';
 
 import PoliciesView from './Policies.view';
 
-interface IPropsFromState {
-	readonly complianceId: string;
-}
+interface IProps {}
 
-interface IProps extends IPropsFromState {}
-
-const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const [policiesState, setPoliciesState] = useState<IPolicy[]>([]);
+const Policies: React.FC<IProps> = () => {
 	const [descriptionInputState, setDescriptionInputState] = useState<string | null>(null);
-	const [originalDescriptionInputState, setOriginalDescriptionInputState] = useState<string | null>(null);
 	const [isDescriptionOnEditState, setIsDescriptionOnEditState] = useState<boolean>(false);
-	const [totalInlinePoliciesState, setTotalInlinePoliciesState] = useState<number | null>(null);
 
+	const params = useParams<{ readonly complianceId: string }>();
 	const navigate = useNavigate();
+
 	const [searchParams] = useSearchParams();
 	const page = searchParams.get('p');
 	const isPageANumber = !isNaN(parseInt(page ?? ''));
 	const realPage = isPageANumber ? parseInt(page!) : 1;
 
+	const { data: getPoliciesResponseData, mutate: getPoliciesMutate } = useBackend<IGetPoliciesResponseData>(
+		`/user/compliances/inline-policies/${params.complianceId}?p=${realPage}`,
+	);
+
+	const policies = getPoliciesResponseData?.inlinePolicies ?? [];
+	const complianceDescription = getPoliciesResponseData?.description ?? null;
+	const totalInlinePolicies = getPoliciesResponseData?.count ?? 0;
+
 	useEffect(() => {
-		backendApi
-			.get<IGetPoliciesResponseData>(
-				`/user/compliances/inline-policies/${props.complianceId}?p=${realPage}`,
-			)
-			.then((response) => {
-				setPoliciesState(() => response.data.inlinePolicies);
-				setDescriptionInputState(() => response.data.description);
-				setOriginalDescriptionInputState(() => response.data.description);
-				setTotalInlinePoliciesState(() => response.data.count);
-			});
-	}, [backendApi, props.complianceId, page]);
+		if (getPoliciesResponseData) {
+			setDescriptionInputState(() => getPoliciesResponseData.description);
+		}
+	}, [getPoliciesResponseData]);
 
 	const descriptionInputChange = (value: string) => setDescriptionInputState(() => value);
 
@@ -50,20 +43,24 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onConfirmNewEditClick = () => {
 		setIsDescriptionOnEditState(() => false);
 
-		if (descriptionInputState !== originalDescriptionInputState) {
-			backendApi
-				.patch<void, AxiosResponse<void>, IEditComplianceDescriptionDto>(
-					`/user/compliances/description/${props.complianceId}`,
+		if (descriptionInputState !== complianceDescription) {
+			getPoliciesMutate(async (currentData) => {
+				if (!currentData) {
+					return;
+				}
+
+				await backendApi.patch<void, AxiosResponse<void>, IEditComplianceDescriptionDto>(
+					`/user/compliances/description/${params.complianceId}`,
 					{
 						description: descriptionInputState || null,
 					},
-				)
-				.then(() => {
-					setIsDescriptionOnEditState(() => false);
-					setOriginalDescriptionInputState(() => descriptionInputState);
-				});
-		} else {
-			setIsDescriptionOnEditState(() => false);
+				);
+
+				return {
+					...currentData,
+					description: descriptionInputState || null,
+				};
+			});
 		}
 	};
 
@@ -71,10 +68,10 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	return (
 		<PoliciesView
-			policies={policiesState}
+			policies={policies}
 			descriptionInput={descriptionInputState}
 			isDescriptionOnEdit={isDescriptionOnEditState}
-			totalInlinePolicies={totalInlinePoliciesState ?? 0}
+			totalInlinePolicies={totalInlinePolicies}
 			descriptionInputChange={descriptionInputChange}
 			onEditIconClick={onEditIconClick}
 			onConfirmNewEditClick={onConfirmNewEditClick}
@@ -86,10 +83,4 @@ const Policies: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 Policies.displayName = 'Policies';
 Policies.defaultProps = {};
 
-const mapStateToProps = (state: AppState) => {
-	return {
-		complianceId: state.compliances.selectedSideBarCompliance!.id,
-	};
-};
-
-export default connect(mapStateToProps)(React.memo(Policies));
+export default React.memo(Policies);

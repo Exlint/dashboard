@@ -1,21 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import type { PayloadAction } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
+import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 
-import { compliancesActions } from '@/store/reducers/compliances';
-import type { IDeleteSideBarCompliancePayload } from '@/store/interfaces/compliances';
 import { backendApi } from '@/utils/http';
+import useBackend from '@/hooks/use-backend';
 
 import DeleteComplianceView from './DeleteCompliance.view';
 
-interface IPropsFromDispatch {
-	readonly deleteSideBarCompliance: (
-		deletePayload: IDeleteSideBarCompliancePayload,
-	) => PayloadAction<IDeleteSideBarCompliancePayload>;
-}
-
-interface IProps extends IPropsFromDispatch {
+interface IProps {
 	readonly complianceId: string;
 	readonly complianceLabel: string;
 }
@@ -23,12 +15,44 @@ interface IProps extends IPropsFromDispatch {
 const DeleteCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
 
-	const onDeleteComplianceConfirmClick = () => {
-		backendApi.delete(`/user/compliances/${props.complianceId}`).then(() => {
-			props.deleteSideBarCompliance({ id: props.complianceId });
+	const { mutate: getAllCompliancesMutate } =
+		useBackend<IGetAllCompliancesResponseData>('/user/compliances');
 
-			navigate('/compliance-center');
-		});
+	const onDeleteComplianceConfirmClick = async () => {
+		await getAllCompliancesMutate(
+			async (currentData) => {
+				if (!currentData) {
+					return;
+				}
+
+				await backendApi.delete(`/user/compliances/${props.complianceId}`);
+
+				return {
+					...currentData,
+					compliances: currentData.compliances.filter(
+						(compliance) => compliance.id !== props.complianceId,
+					),
+				};
+			},
+			{
+				optimisticData: (currentData) => {
+					if (!currentData) {
+						return { compliances: [] };
+					}
+
+					return {
+						...currentData,
+						compliances: currentData.compliances.filter(
+							(compliance) => compliance.id !== props.complianceId,
+						),
+					};
+				},
+				throwOnError: true,
+				rollbackOnError: true,
+			},
+		);
+
+		navigate('/compliance-center');
 	};
 
 	return (
@@ -42,6 +66,4 @@ const DeleteCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 DeleteCompliance.displayName = 'DeleteCompliance';
 DeleteCompliance.defaultProps = {};
 
-export default connect(null, {
-	deleteSideBarCompliance: compliancesActions.deleteSideBarCompliance,
-})(React.memo(DeleteCompliance));
+export default React.memo(DeleteCompliance);

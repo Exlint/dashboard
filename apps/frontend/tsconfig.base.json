@@ -18,7 +18,8 @@
 			"@/assets/*": ["src/assets/*"],
 			"@/hooks/*": ["src/hooks/*"],
 			"@/models/*": ["src/models/*"],
-			"@/styles/*": ["src/styles/*"]
+			"@/styles/*": ["src/styles/*"],
+			"@/types/*": ["src/types/*"]
 		},
 		"typeRoots": ["./@types", "./node_modules/@types"]
 	}
