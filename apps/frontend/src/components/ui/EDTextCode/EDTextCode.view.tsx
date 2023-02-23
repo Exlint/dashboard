@@ -50,7 +50,6 @@ const EDTextCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>
 					searchKeymap: false,
 					foldGutter: false,
 				}}
-				height="495px"
 				onChange={(value) => props.onCodeInputChange(value)}
 			/>
 		</form>
