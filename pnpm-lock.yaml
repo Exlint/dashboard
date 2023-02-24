@@ -338,7 +338,7 @@ importers:
       react-scroll: 1.8.9
       react-switch: 7.0.0
       react-textarea-autosize: 8.4.0
-      sass: 1.58.1
+      sass: 1.58.2
       stylelint: 14.16.1
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.1.0
@@ -398,14 +398,14 @@ importers:
       hygen: 6.2.11
       prettier: 2.8.4
       prisma: 4.10.1
-      sass: 1.58.1
+      sass: 1.58.2
       stylelint: 14.16.1
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.16.1
       stylelint-config-recess-order: 3.1.0_stylelint@14.16.1
       stylelint-config-standard-scss: 6.1.0_stylelint@14.16.1
       stylelint-declaration-strict-value: 1.9.1_stylelint@14.16.1
       typescript: 4.9.5
-      vite: 4.1.1_qwczgscu5yinpidm7yywvcndf4
+      vite: 4.1.1_guh25d44rsq2usleo2v4wqbute
       vite-plugin-react-remove-attributes: 1.0.3_vite@4.1.1
       vite-tsconfig-paths: 4.0.5_typescript@4.9.5
 
@@ -435,13 +435,13 @@ importers:
       react-dom: 18.2.0
       react-i18next: 12.1.5
       react-intersection-observer: 9.4.2
-      sass: 1.58.1
+      sass: 1.58.2
       stylelint: 14.16.1
       typescript: 4.9.5
     dependencies:
       i18next: 22.4.9
       mixpanel-browser: 2.45.0
-      next: 13.1.6_uh2utgby6xxgbzeysj4z6eduvm
+      next: 13.1.6_3rhdcdgh3ykt7zbyizedhkdzbe
       react: 18.2.0
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
@@ -464,7 +464,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.34.0
       eslint-plugin-unused-imports: 2.0.0_vqeavzxdzk2atb75l6fx3anzpi
       npm-run-all: 4.1.5
-      sass: 1.58.1
+      sass: 1.58.2
       stylelint: 14.16.1
       typescript: 4.9.5
 
@@ -4071,7 +4071,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.1_qwczgscu5yinpidm7yywvcndf4
+      vite: 4.1.1_guh25d44rsq2usleo2v4wqbute
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8857,7 +8857,7 @@ packages:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
     dev: true
 
-  /next/13.1.6_uh2utgby6xxgbzeysj4z6eduvm:
+  /next/13.1.6_3rhdcdgh3ykt7zbyizedhkdzbe:
     resolution: {integrity: sha512-hHlbhKPj9pW+Cymvfzc15lvhaOZ54l+8sXDXJWm3OBNBzgrVj6hwGPmqqsXg40xO1Leq+kXpllzRPuncpC0Phw==}
     engines: {node: '>=14.6.0'}
     hasBin: true
@@ -8881,7 +8881,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      sass: 1.58.1
+      sass: 1.58.2
       styled-jsx: 5.1.1_react@18.2.0
     optionalDependencies:
       '@next/swc-android-arm-eabi': 13.1.6
@@ -10364,8 +10364,8 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /sass/1.58.1:
-    resolution: {integrity: sha512-bnINi6nPXbP1XNRaranMFEBZWUfdW/AF16Ql5+ypRxfTvCRTTKrLsMIakyDcayUt2t/RZotmL4kgJwNH5xO+bg==}
+  /sass/1.58.2:
+    resolution: {integrity: sha512-2mbyOWOv/lhEXD6nVrQZQ4KT2DlwcODbTskM42EyqBAFUWOhiiYtAXZqjZz1ygzapYf+N+2GwfIH9M5FM4GUMg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
@@ -11775,7 +11775,7 @@ packages:
     peerDependencies:
       vite: ^2.4.4
     dependencies:
-      vite: 4.1.1_qwczgscu5yinpidm7yywvcndf4
+      vite: 4.1.1_guh25d44rsq2usleo2v4wqbute
     dev: true
 
   /vite-tsconfig-paths/4.0.5_typescript@4.9.5:
@@ -11789,7 +11789,7 @@ packages:
       - typescript
     dev: true
 
-  /vite/4.1.1_qwczgscu5yinpidm7yywvcndf4:
+  /vite/4.1.1_guh25d44rsq2usleo2v4wqbute:
     resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -11819,7 +11819,7 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.15.0
-      sass: 1.58.1
+      sass: 1.58.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
