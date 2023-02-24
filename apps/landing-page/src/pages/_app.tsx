@@ -56,15 +56,25 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<Main>
-				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-QDKYMPP7FE" />
-				<Script>
-					{`
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-						gtag('config', 'G-QDKYMPP7FE');
-					`}
-				</Script>
+				{process.env.NODE_ENV === 'production' && process.env.AUTOMATION !== 'true' && (
+					<>
+						<Script
+							strategy="worker"
+							src="https://www.googletagmanager.com/gtag/js?id=G-QDKYMPP7FE"
+						/>
+						<Script strategy="worker">
+							{`
+								window.dataLayer = window.dataLayer || [];
+								function gtag(){dataLayer.push(arguments);}
+								gtag('js', new Date());
+								gtag('config', 'G-QDKYMPP7FE', {
+									'cookie_domain': 'https://exlint.io/',
+									'cookie_flags': 'SameSite=None;Secure',
+								});
+							`}
+						</Script>
+					</>
+				)}
 				<Component {...pageProps} />
 			</Main>
 			{router.pathname !== '/404' && <Footer />}
