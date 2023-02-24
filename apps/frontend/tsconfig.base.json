@@ -13,6 +13,8 @@
 			"@/layout/*": ["src/components/layout/*"],
 			"@/data/*": ["src/data/*"],
 			"@/utils/*": ["src/utils/*"],
+			"@/services/*": ["src/services/*"],
+			"@/helpers/*": ["src/helpers/*"],
 			"@/store/*": ["src/store/*"],
 			"@/images/*": ["src/assets/images/*"],
 			"@/assets/*": ["src/assets/*"],

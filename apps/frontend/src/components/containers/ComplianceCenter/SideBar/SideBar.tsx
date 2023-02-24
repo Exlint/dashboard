@@ -37,13 +37,14 @@ const SideBar: React.FC<IProps> = () => {
 		if (
 			isNewComplianceButtonDisabled ||
 			params.complianceId ||
+			!Array.isArray(getAllCompliancesResponseData?.compliances) ||
 			getAllCompliancesResponseData?.compliances.length === 0
 		) {
 			return;
 		}
 
 		navigate(`/compliance-center/${getAllCompliancesResponseData?.compliances[0]?.id}/policies`);
-	}, [isNewComplianceButtonDisabled, params, getAllCompliancesResponseData]);
+	}, [isNewComplianceButtonDisabled, params.complianceId, getAllCompliancesResponseData]);
 
 	const onSearchInputChange = (value: string) => setSearchInputState(() => value);
 

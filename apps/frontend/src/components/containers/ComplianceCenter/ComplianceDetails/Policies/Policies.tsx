@@ -23,7 +23,7 @@ const Policies: React.FC<IProps> = () => {
 	const realPage = isPageANumber ? parseInt(page!) : 1;
 
 	const { data: getPoliciesResponseData, mutate: getPoliciesMutate } = useBackend<IGetPoliciesResponseData>(
-		`/user/compliances/inline-policies/${params.complianceId}?p=${realPage}`,
+		params.complianceId ? `/user/compliances/inline-policies/${params.complianceId}?p=${realPage}` : null,
 	);
 
 	const policies = getPoliciesResponseData?.inlinePolicies ?? [];

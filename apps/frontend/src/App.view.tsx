@@ -1,25 +1,19 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import EDNotification from '@/ui/EDNotification';
-import AppRouter from './App.router';
+import RouterBuilder from './App.router';
 
 interface IProps {
 	readonly isAuthenticated: boolean | null;
 }
 
-const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
-	<BrowserRouter>
-		<Suspense fallback={null}>
-			<div id="backdrop-root" />
-			<div id="overlay-root" />
+const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+	const routes = useMemo(() => {
+		return RouterBuilder(props.isAuthenticated);
+	}, [props.isAuthenticated]);
 
-			<EDNotification />
-
-			<AppRouter isAuthenticated={props.isAuthenticated} />
-		</Suspense>
-	</BrowserRouter>
-);
+	return <RouterProvider router={createBrowserRouter(routes)} fallbackElement={null} />;
+};
 
 AppView.displayName = 'AppView';
 AppView.defaultProps = {};

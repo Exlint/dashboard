@@ -47,6 +47,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					</div>
 					<div className={classes['tab__border']} />
 				</NavLink>
+
 				<NavLink
 					className={({ isActive }) =>
 						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)

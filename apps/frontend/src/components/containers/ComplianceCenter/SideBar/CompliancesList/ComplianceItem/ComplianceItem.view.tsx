@@ -74,6 +74,7 @@ const ComplianceItemView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 					))}
 				</div>
 			</Link>
+
 			{props.isSelected && <div className={classes['container__border']} />}
 		</div>
 	);

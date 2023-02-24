@@ -1,27 +1,9 @@
 import useSWR from 'swr';
 
-const fetcher = async (path: string) => {
-	const token = sessionStorage.getItem('token');
+import { fetcher } from '@/utils/http-backend';
 
-	const res = await fetch(path, {
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
-	});
-
-	if (!res.ok) {
-		throw new Error();
-	}
-
-	const resData = await res.json();
-
-	return resData;
-};
-
-const useBackend = <D, E = unknown>(path: string) => {
-	const requestPath = import.meta.env.VITE_BACKEND_URL + path;
-
-	const { data, error, isLoading, mutate } = useSWR<D, E>(requestPath, fetcher);
+const useBackend = <D, E = unknown>(path: string | null) => {
+	const { data, error, isLoading, mutate } = useSWR<D, E>(path, fetcher);
 
 	return { data, error, isLoading, mutate };
 };

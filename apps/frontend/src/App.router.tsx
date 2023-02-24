@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Navigate, type RouteObject } from 'react-router-dom';
 
-interface IProps {
-	readonly isAuthenticated: boolean | null;
-}
+import AppLayout from './App.layout';
+import { startProgress } from './services/progress-bar';
+import { preloader } from './utils/http-backend';
 
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
@@ -19,11 +19,6 @@ const SecretManagement = React.lazy(() => import('@/containers/AccountSettings/S
 const NewSecret = React.lazy(() => import('@/containers/AccountSettings/NewSecret'));
 const NewCompliance = React.lazy(() => import('@/containers/ComplianceCenter/NewCompliance'));
 const ComplianceDetails = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails'));
-
-const ComplianceSettings = React.lazy(
-	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
-);
-
 const Policies = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails/Policies'));
 const PolicySettings = React.lazy(() => import('@/containers/Policy/Settings'));
 const Configurations = React.lazy(() => import('@/containers/Policy/Configurations'));
@@ -31,63 +26,202 @@ const Configuration = React.lazy(() => import('@/containers/Policy/Configuration
 const FilesList = React.lazy(() => import('@/containers/Policy/Configurations/FilesList'));
 const Code = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Code'));
 
-const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	return (
-		<Routes>
-			{props.isAuthenticated === false && (
-				<>
-					<Route path="" element={<Auth />} />
-					<Route path="auth" element={<Auth />} />
-					<Route path="external-auth-redirect" element={<ExternalAuthRedirect />} />
-				</>
-			)}
-			{props.isAuthenticated && (
-				<>
-					<Route path="" element={<ComplianceCenter />} />
-					<Route path="account-settings" element={<AccountSettings />}>
-						<Route path="" element={<Navigate to="account" replace />} />
-						<Route path="account" element={<Account />} />
-						<Route path="secret-management" element={<SecretManagement />} />
-						<Route path="secret-management/new" element={<NewSecret />} />
-						<Route
-							path="secret-management/*"
-							element={<Navigate to="secret-management" replace />}
-						/>
-						<Route path="*" element={<Navigate to="account" replace />} />
-					</Route>
-					<Route path="compliance-center" element={<ComplianceCenter />}>
-						<Route path="new" element={<NewCompliance />} />
-						<Route path=":complianceId" element={<ComplianceDetails />}>
-							<Route path="" element={<Navigate to="policies" replace />} />
-							<Route path="policies" element={<Policies />} />
-							<Route path="settings" element={<ComplianceSettings />} />
-						</Route>
-					</Route>
-					<Route path="compliance-center/:complianceId/policies/new" element={<NewPolicy />} />
-					<Route path="compliance-center/:complianceId/policies/:policyId" element={<Policy />}>
-						<Route path="" element={<Navigate to="configurations" replace />} />
-						<Route path="configurations" element={<Configurations />}>
-							<Route path="" element={<Navigate to="configuration" replace />} />
-							<Route path="configuration" element={<Configuration />}>
-								<Route path="" element={<Navigate to="code" replace />} />
-								<Route path="code" element={<Code />} />
-							</Route>
-							<Route path="file-list" element={<FilesList key={0} type="linted" />} />
-							<Route path="ignore-list" element={<FilesList key={1} type="ignored" />} />
-						</Route>
-						<Route path="settings" element={<PolicySettings />} />
-					</Route>
-				</>
-			)}
-			<Route path="cli-auth" element={<CliAuth />} />
-			<Route path="cli-authenticated" element={<CliAuthenticated />} />
-			<Route path="/not-found" element={<NotFound />} />
-			<Route path="*" element={props.isAuthenticated === null ? null : <NotFound />} />
-		</Routes>
-	);
+const ComplianceSettings = React.lazy(
+	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
+);
+
+const RouterBuilder = (isAuthenticated: boolean | null) => {
+	const unAuthorizedRoutes: RouteObject[] = [
+		{
+			path: '',
+			element: <Auth />,
+		},
+		{
+			path: 'auth',
+			element: <Auth />,
+		},
+		{
+			path: 'external-auth-redirect',
+			element: <ExternalAuthRedirect />,
+		},
+	];
+
+	const authorizedRoutes: RouteObject[] = [
+		{
+			path: '',
+			element: <ComplianceCenter />,
+			loader: async () => {
+				startProgress();
+
+				await preloader('/user/compliances');
+
+				return null;
+			},
+		},
+		{
+			path: 'account-settings',
+			element: <AccountSettings />,
+			children: [
+				{
+					path: '',
+					element: <Navigate to="account" replace />,
+				},
+				{
+					path: 'account',
+					element: <Account />,
+				},
+				{
+					path: 'secret-management',
+					element: <SecretManagement />,
+					loader: async () => {
+						startProgress();
+
+						await preloader('/user/secrets');
+
+						return null;
+					},
+				},
+				{
+					path: 'secret-management/new',
+					element: <NewSecret />,
+				},
+				{
+					path: 'secret-management/*',
+					element: <Navigate to="secret-management" replace />,
+				},
+				{
+					path: '*',
+					element: <Navigate to="account" replace />,
+				},
+			],
+		},
+		{
+			path: 'compliance-center',
+			element: <ComplianceCenter />,
+			loader: async () => {
+				startProgress();
+
+				await preloader('/user/compliances');
+
+				return null;
+			},
+			children: [
+				{
+					path: 'new',
+					element: <NewCompliance />,
+				},
+				{
+					path: ':complianceId',
+					element: <ComplianceDetails />,
+					children: [
+						{
+							path: '',
+							element: <Navigate to="policies" replace />,
+						},
+						{
+							path: 'policies',
+							element: <Policies />,
+							loader: async (args) => {
+								startProgress();
+
+								const complianceId = args.params['complianceId'];
+
+								if (!complianceId) {
+									return null;
+								}
+
+								await preloader(`/user/compliances/inline-policies/${complianceId}?p=1`);
+
+								return null;
+							},
+						},
+						{
+							path: 'settings',
+							element: <ComplianceSettings />,
+						},
+					],
+				},
+			],
+		},
+		{
+			path: 'compliance-center/:complianceId/policies/new',
+			element: <NewPolicy />,
+		},
+		{
+			path: 'compliance-center/:complianceId/policies/:policyId',
+			element: <Policy />,
+			children: [
+				{
+					path: '',
+					element: <Navigate to="configurations" replace />,
+				},
+				{
+					path: 'configurations',
+					element: <Configurations />,
+					children: [
+						{
+							path: '',
+							element: <Navigate to="configuration" replace />,
+						},
+						{
+							path: 'configuration',
+							element: <Configuration />,
+							children: [
+								{
+									path: '',
+									element: <Navigate to="code" replace />,
+								},
+								{
+									path: 'code',
+									element: <Code />,
+								},
+							],
+						},
+						{
+							path: 'file-list',
+							element: <FilesList key={0} type="linted" />,
+						},
+						{
+							path: 'ignore-list',
+							element: <FilesList key={1} type="ignored" />,
+						},
+					],
+				},
+				{
+					path: 'settings',
+					element: <PolicySettings />,
+				},
+			],
+		},
+	];
+
+	const generalRoutes: RouteObject[] = [
+		{
+			path: 'cli-auth',
+			element: <CliAuth />,
+		},
+		{
+			path: 'cli-authenticated',
+			element: <CliAuthenticated />,
+		},
+		{
+			path: 'not-found',
+			element: <NotFound />,
+		},
+		{
+			path: '*',
+			element: isAuthenticated === null ? null : <NotFound />,
+		},
+	];
+
+	const routes = [
+		{
+			element: <AppLayout />,
+			children: [...(isAuthenticated ? authorizedRoutes : unAuthorizedRoutes), ...generalRoutes],
+		},
+	];
+
+	return routes;
 };
 
-AppRouter.displayName = 'AppRouter';
-AppRouter.defaultProps = {};
-
-export default React.memo(AppRouter);
+export default RouterBuilder;

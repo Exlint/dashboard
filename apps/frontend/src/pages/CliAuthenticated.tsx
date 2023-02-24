@@ -1,11 +1,16 @@
 import React from 'react';
 
 import CliAuthenticated from '@/containers/CliAuthenticated';
+import Page from '@/helpers/Page';
 
 interface IProps {}
 
 const CliAuthenticatedPage: React.FC<IProps> = () => {
-	return <CliAuthenticated />;
+	return (
+		<Page>
+			<CliAuthenticated />
+		</Page>
+	);
 };
 
 CliAuthenticatedPage.displayName = 'CliAuthenticatedPage';

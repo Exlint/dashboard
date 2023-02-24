@@ -1,11 +1,16 @@
 import React from 'react';
 
 import Policy from '@/containers/Policy';
+import Page from '@/helpers/Page';
 
 interface IProps {}
 
 const PolicyPage: React.FC<IProps> = () => {
-	return <Policy />;
+	return (
+		<Page>
+			<Policy />
+		</Page>
+	);
 };
 
 PolicyPage.displayName = 'PolicyPage';

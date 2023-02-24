@@ -302,6 +302,7 @@ importers:
       '@rjsf/utils': 5.1.0
       '@rjsf/validator-ajv8': 5.1.0
       '@types/node': 18.13.0
+      '@types/nprogress': 0.2.0
       '@types/react': 18.0.27
       '@types/react-datepicker': 4.8.0
       '@types/react-dom': 18.0.10
@@ -327,6 +328,7 @@ importers:
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
       i18next: 22.4.9
+      nprogress: 0.2.0
       prettier: 2.8.4
       prisma: 4.9.0
       react: 18.2.0
@@ -368,6 +370,7 @@ importers:
       bootstrap: 3.4.1
       date-fns: 2.29.3
       i18next: 22.4.9
+      nprogress: 0.2.0
       react: 18.2.0
       react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
@@ -381,6 +384,7 @@ importers:
     devDependencies:
       '@exlint.io/common': link:../../packages/common
       '@types/node': 18.13.0
+      '@types/nprogress': 0.2.0
       '@types/react-datepicker': 4.8.0_biqbaboplfbrettd7655fr4n2y
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.6
@@ -3573,6 +3577,10 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
     dev: true
 
   /@types/oauth/0.9.1:
@@ -8917,6 +8925,10 @@ packages:
     dependencies:
       path-key: 4.0.0
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
