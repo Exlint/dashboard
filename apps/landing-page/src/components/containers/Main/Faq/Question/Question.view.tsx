@@ -1,53 +1,65 @@
 import React from 'react';
 
+import { concatClasses } from '@/utils/component';
 import ELPSvg from '@/ui/ELPSvg';
 
 import classes from './Question.module.scss';
 
 interface IProps {
 	readonly isShowMoreClicked: boolean;
-	readonly onShowMoreButton: () => void;
 	readonly question: string;
 	readonly answer: string;
 	readonly clickableText?: string;
 	readonly link?: string;
+	readonly onShowMoreButton: VoidFunction;
 }
 
 const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	let showMoreOrLessButton: JSX.Element | undefined;
+	const plusIconClasses = concatClasses(
+		classes,
+		'showMoreOrLessButton__icon',
+		props.isShowMoreClicked
+			? 'showMoreOrLessButton__icon--rotate'
+			: 'showMoreOrLessButton__icon--rotateBack',
+	);
 
-	if (props.isShowMoreClicked) {
-		showMoreOrLessButton = <ELPSvg className={classes['showMoreOrLessButton__icon']} name="showMore" />;
-	} else {
-		showMoreOrLessButton = <ELPSvg className={classes['showMoreOrLessButton__icon']} name="showLess" />;
-	}
+	const answerTextClasses = concatClasses(
+		classes,
+		'answer',
+		props.isShowMoreClicked ? 'answer--reveal' : null,
+	);
 
 	return (
 		<div className={classes['questionsContainer']}>
 			<hr className={classes['questionsContainer__devidorLine']} />
-			<div className={classes['questionInner']}>
+			<div
+				className={concatClasses(
+					classes,
+					'questionInner',
+					props.isShowMoreClicked ? 'questionInner--active' : null,
+				)}
+			>
 				<span className={classes['questionInner__question']}>{props.question}</span>
 				<button
 					className={classes['showMoreOrLessButton']}
 					type="button"
 					onClick={props.onShowMoreButton}
 				>
-					{showMoreOrLessButton}
+					<ELPSvg className={plusIconClasses} name="showMore" />
 				</button>
 			</div>
-			<div className={classes['answerInner']}>
-				<p
-					className={classes['answerInner__answer']}
-					style={{ display: props.isShowMoreClicked ? 'none' : 'block' }}
-				>
-					{props.answer}
-					{props.clickableText && props.link && (
-						<a className={classes['answerInner__answer--link']} href={props.link} target="_blank">
-							{props.clickableText}
-						</a>
-					)}
-				</p>
-			</div>
+			<p className={answerTextClasses}>
+				{props.answer}
+				{props.clickableText && props.link && (
+					<a
+						className={concatClasses(classes, 'answer', 'answer--link')}
+						href={props.link}
+						target="_blank"
+					>
+						{props.clickableText}
+					</a>
+				)}
+			</p>
 		</div>
 	);
 };

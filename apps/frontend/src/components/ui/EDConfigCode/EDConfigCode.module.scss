@@ -60,11 +60,11 @@
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-gutterElement) {
-	min-width: 0 !important;
 	font-size: 1.2rem;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
 :global(.cm-lineNumbers) {
+	width: map.get(variables.$sizes, spacing-xl);
 	margin-inline-end: map.get(variables.$sizes, spacing-l);
 }

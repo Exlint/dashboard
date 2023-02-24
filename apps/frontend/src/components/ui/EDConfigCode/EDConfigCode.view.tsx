@@ -98,7 +98,6 @@ const EDConfigCodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 					foldGutter: false,
 					autocompletion: false,
 				}}
-				height="495px"
 				extensions={[chosenExtension]}
 				onChange={(value) => props.onInputChange(value)}
 			/>
