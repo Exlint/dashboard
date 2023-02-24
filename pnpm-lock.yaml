@@ -343,7 +343,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1
       stylelint-config-recess-order: 3.1.0
       stylelint-config-standard-scss: 6.1.0
-      stylelint-declaration-strict-value: 1.9.1
+      stylelint-declaration-strict-value: 1.9.2
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-react-remove-attributes: 1.0.3
@@ -403,7 +403,7 @@ importers:
       stylelint-config-prettier-scss: 0.0.1_stylelint@14.16.1
       stylelint-config-recess-order: 3.1.0_stylelint@14.16.1
       stylelint-config-standard-scss: 6.1.0_stylelint@14.16.1
-      stylelint-declaration-strict-value: 1.9.1_stylelint@14.16.1
+      stylelint-declaration-strict-value: 1.9.2_stylelint@14.16.1
       typescript: 4.9.5
       vite: 4.1.1_guh25d44rsq2usleo2v4wqbute
       vite-plugin-react-remove-attributes: 1.0.3_vite@4.1.1
@@ -11021,10 +11021,10 @@ packages:
       stylelint-config-recommended: 9.0.0_stylelint@14.16.1
     dev: true
 
-  /stylelint-declaration-strict-value/1.9.1_stylelint@14.16.1:
-    resolution: {integrity: sha512-iIkMh2ukIfSTtJoEDgGq5cqUyYWP8NExPk2YSGcePtFikb7KmJoSi0QYajiZRxge/PTbYspci7nIcrtArJlAsw==}
+  /stylelint-declaration-strict-value/1.9.2_stylelint@14.16.1:
+    resolution: {integrity: sha512-Z/2yr7g4tq2iGOUWhZLzHL2g2GJYJGcPkfjDh++zI8ukLxW0tcLGJjo64XYCDjja6YcECPDUWbpN+OAoAtAYvw==}
     peerDependencies:
-      stylelint: '>=7 <=14'
+      stylelint: '>=7 <=15'
     dependencies:
       css-values: 0.1.0
       shortcss: 0.1.3
