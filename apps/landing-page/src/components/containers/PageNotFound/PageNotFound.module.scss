@@ -51,6 +51,7 @@
 		background-size: cover;
 
 		&__image {
+			object-fit: contain;
 			width: 371px;
 			height: 328px;
 			margin-top: 10%;
