@@ -116,7 +116,7 @@ importers:
       eslint-plugin-import: 2.27.5
       eslint-plugin-node: 11.1.0
       eslint-plugin-unused-imports: 2.0.0
-      googleapis: 110.0.0
+      googleapis: 111.0.0
       helmet: 6.0.1
       mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0
@@ -149,7 +149,7 @@ importers:
       '@prisma/client': 4.10.1_prisma@4.10.1
       class-transformer: 0.5.1
       class-validator: 0.14.0
-      googleapis: 110.0.0
+      googleapis: 111.0.0
       helmet: 6.0.1
       mixpanel: 0.17.0
       nestjs-real-ip: 2.2.0_@nestjs+common@9.3.9
@@ -7268,8 +7268,8 @@ packages:
       - supports-color
     dev: false
 
-  /googleapis/110.0.0:
-    resolution: {integrity: sha512-k6de3PGsdFEBULMiFwPYCKOBljDTDvHD3YGe/OFqe8Ot0lYQPL8QV1qjxjrPWiE/Ftf0Ar2v4DNES66jLfSO7w==}
+  /googleapis/111.0.0:
+    resolution: {integrity: sha512-nIIH+J/o/xjIscJcv3H3BCYgsFiI5ziM3Nbh2lHOWglYGqXE0Nqdt2lfCt4hX257QHEyC1y1iODDkmAMPWDYlw==}
     engines: {node: '>=12.0.0'}
     dependencies:
       google-auth-library: 8.5.2
