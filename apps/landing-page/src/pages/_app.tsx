@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 				<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-				<title>Exlint</title>
+				<title>Exlint | Centralize coding standards in seconds</title>
 
 				<link rel="canonical" href="https://www.exlint.io/" />
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
