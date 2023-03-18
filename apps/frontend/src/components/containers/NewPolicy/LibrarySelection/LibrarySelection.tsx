@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import type { PolicyLibrary } from '@prisma/client';
 import type { IGetLibrariesResponseData, ILibraryData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import type { ICategoryFilter, ILanguageFilter, ITypeFilter } from './interfaces/type-filters';
 
@@ -29,13 +29,13 @@ const LibrarySelection: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	const params = useParams<{ readonly complianceId: string }>();
 
 	useEffect(() => {
-		backendApi
-			.get<IGetLibrariesResponseData>(`/user/inline-policies/libraries/${params.complianceId}`)
-			.then((response) => {
-				setLibrariesState(() => response.data.libraries);
-				setFilteredLibrariesState(() => response.data.libraries);
-			});
-	}, [backendApi, params.complianceId]);
+		BackendService.get<IGetLibrariesResponseData>(
+			`/user/inline-policies/libraries/${params.complianceId}`,
+		).then((responseData) => {
+			setLibrariesState(() => responseData.libraries);
+			setFilteredLibrariesState(() => responseData.libraries);
+		});
+	}, [params.complianceId]);
 
 	useEffect(() => {
 		setFilteredLibrariesState(() => {

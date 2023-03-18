@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { IGetAllSecretsResponseData, IRefreshSecretResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import type { ISecretRouteState } from '../interfaces/secrets';
 import SecretsListView from './SecretsList.view';
@@ -33,23 +33,23 @@ const SecretsList: React.FC<IProps> = () => {
 		return [];
 	}, [getAllSecretsResponseData, createdSecretDetails]);
 
-	const onRefreshSecret = (secretId: string) => {
-		backendApi
-			.patch<IRefreshSecretResponseData>(`/user/secrets/refresh-secret/${secretId}`)
-			.then((response) => {
-				navigate('/account-settings/secret-management', {
-					state: {
-						id: secretId,
-						secret: response.data.secret,
-					},
-				});
-			});
+	const onRefreshSecret = async (secretId: string) => {
+		const responseData = await BackendService.patch<IRefreshSecretResponseData>(
+			`/user/secrets/refresh-secret/${secretId}`,
+		);
+
+		navigate('/account-settings/secret-management', {
+			state: {
+				id: secretId,
+				secret: responseData.secret,
+			},
+		});
 	};
 
 	const onDeleteSecret = async (secretId: string) => {
 		await getAllSecretsMutate(
 			async (currentData) => {
-				await backendApi.delete(`/user/secrets/${secretId}`);
+				await BackendService.delete(`/user/secrets/${secretId}`);
 
 				return {
 					...currentData,

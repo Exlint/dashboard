@@ -8,7 +8,7 @@ import classes from './SecretsList.module.scss';
 interface IProps {
 	readonly withCreatedSecret: boolean;
 	readonly secretsList: ISecretItem[];
-	readonly onRefreshSecret: (secretId: string) => void;
+	readonly onRefreshSecret: (secretId: string) => Promise<void>;
 	readonly onDeleteSecret: (secretId: string) => void;
 }
 
@@ -20,8 +20,6 @@ const SecretsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps
 			<span className={classes['noSecrets']}>{t('accountSettings.secretManagement.noSecrets')}</span>
 		);
 	}
-
-	console.log(JSON.stringify(props.secretsList, null, 2));
 
 	return (
 		<section className={classes['secretsList']}>

@@ -1,10 +1,9 @@
-import type { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import type { IEditPolicyDescriptionDto, ILibraryData } from '@exlint.io/common';
 import { useParams } from 'react-router-dom';
 import type { PolicyLibrary } from '@prisma/client';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import DescriptionView from './Description.view';
 
@@ -34,21 +33,19 @@ const Description: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const onDescriptionInputChange = (value: string) => setDescriptionInputState(() => value);
 	const onEditIconClick = () => setIsDescriptionOnEditState(() => true);
 
-	const onConfirmNewEditClick = () => {
+	const onConfirmNewEditClick = async () => {
 		setIsDescriptionOnEditState(() => false);
 
 		if (descriptionInputState !== originalDescriptionInputState) {
-			backendApi
-				.patch<void, AxiosResponse<void>, IEditPolicyDescriptionDto>(
-					`/user/inline-policies/description/${params.policyId}`,
-					{
-						description: descriptionInputState || null,
-					},
-				)
-				.then(() => {
-					setIsDescriptionOnEditState(() => false);
-					setOriginalDescriptionInputState(() => descriptionInputState);
-				});
+			await BackendService.patch<void, IEditPolicyDescriptionDto>(
+				`/user/inline-policies/description/${params.policyId}`,
+				{
+					description: descriptionInputState || null,
+				},
+			);
+
+			setIsDescriptionOnEditState(() => false);
+			setOriginalDescriptionInputState(() => descriptionInputState);
 		} else {
 			setIsDescriptionOnEditState(() => false);
 		}

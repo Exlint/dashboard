@@ -9,7 +9,7 @@ import PostSecretCreation from './PostSecretCreation';
 
 interface IProps {
 	readonly hasSecrets: boolean;
-	readonly onRevokeAllSecrets: VoidFunction;
+	readonly onRevokeAllSecrets: () => Promise<void>;
 }
 
 const SecretManagementView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

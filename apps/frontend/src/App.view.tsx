@@ -8,11 +8,9 @@ interface IProps {
 }
 
 const AppView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const routes = useMemo(() => {
-		return RouterBuilder(props.isAuthenticated);
-	}, [props.isAuthenticated]);
+	const routes = useMemo(() => RouterBuilder(props.isAuthenticated), [props.isAuthenticated]);
 
-	return <RouterProvider router={createBrowserRouter(routes)} fallbackElement={null} />;
+	return <RouterProvider router={createBrowserRouter(routes)} />;
 };
 
 AppView.displayName = 'AppView';

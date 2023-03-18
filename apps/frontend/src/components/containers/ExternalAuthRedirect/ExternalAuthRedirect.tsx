@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { IAutoAuthResponseData, ICliAuthResponseData } from '@exlint.io/common';
 
-import { backendApi, cliBackendApi, temporaryCliServerApi } from '@/utils/http';
 import { authActions } from '@/store/reducers/auth';
 import type { IAuthPayload } from '@/store/interfaces/auth';
+import BackendService from '@/services/backend';
+import CliBackendService from '@/services/cli-backend';
 
 import ExternalAuthRedirectView from './ExternalAuthRedirect.view';
 
@@ -31,9 +32,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				let autoAuthResponseData: IAutoAuthResponseData;
 
 				try {
-					const autoAuthResponse = await backendApi.get<IAutoAuthResponseData>('/user/auth');
-
-					autoAuthResponseData = autoAuthResponse.data;
+					autoAuthResponseData = await BackendService.get<IAutoAuthResponseData>('/user/auth');
 
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
@@ -55,12 +54,12 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					let email: string;
 
 					try {
-						const response = await cliBackendApi.get<ICliAuthResponseData>(
+						const responseData = await CliBackendService.get<ICliAuthResponseData>(
 							`/user/auth/auth?port=${port}`,
 						);
 
-						cliToken = response.data.cliToken;
-						email = response.data.email;
+						cliToken = responseData.cliToken;
+						email = responseData.email;
 					} catch {
 						navigate(`/cli-auth?port=${port}`);
 
@@ -68,7 +67,11 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					}
 
 					try {
-						await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}/${email}`);
+						const res = await fetch(`http://localhost:${port}/${cliToken}/${email}`);
+
+						if (!res.ok) {
+							throw new Error();
+						}
 
 						navigate('/cli-authenticated');
 					} catch {
@@ -85,7 +88,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				});
 
 				if (!port) {
-					navigate('/');
+					navigate('/', { replace: true });
 				}
 			};
 

@@ -1,13 +1,19 @@
 import nProgress from 'nprogress';
 
-nProgress.configure({
-	showSpinner: false,
-});
+let isInProgress = false;
+
+nProgress.configure({ showSpinner: false });
 
 export const startProgress = () => {
-	nProgress.start();
+	if (!isInProgress) {
+		isInProgress = true;
+		nProgress.start();
+	}
 };
 
 export const endProgress = () => {
-	nProgress.done();
+	if (isInProgress) {
+		isInProgress = false;
+		nProgress.done();
+	}
 };

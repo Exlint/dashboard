@@ -1,16 +1,11 @@
 import React from 'react';
 
 import Auth from '@/containers/Auth';
-import Page from '@/helpers/Page';
 
 interface IProps {}
 
 const AuthPage: React.FC<IProps> = () => {
-	return (
-		<Page>
-			<Auth />
-		</Page>
-	);
+	return <Auth />;
 };
 
 AuthPage.displayName = 'AuthPage';

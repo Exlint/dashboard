@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import { useOutletContext, useParams } from 'react-router-dom';
-import type { AxiosResponse } from 'axios';
 import type { IEditPolicyLabelDto } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
 import { uiActions } from '@/store/reducers/ui';
+import BackendService from '@/services/backend';
 
 import SettingsView from './Settings.view';
 
@@ -29,7 +28,7 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 
 	const onNewPolicyLabelInputChange = (value: string) => setNewPolicyLabelInputState(() => value);
 
-	const onSaveChangesButtonClick = (e: FormEvent<HTMLFormElement>) => {
+	const onSaveChangesButtonClick = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (newPolicyLabelInputState === policyLabel) {
@@ -42,19 +41,17 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			return;
 		}
 
-		backendApi
-			.patch<void, AxiosResponse<void>, IEditPolicyLabelDto>(
-				`/user/inline-policies/label/${params.policyId}`,
-				{ label: newPolicyLabelInputState! },
-			)
-			.then(() => {
-				onSetPolicyLabel(newPolicyLabelInputState!);
-				props.showNotification({
-					notificationType: 'checkmark',
-					notificationTitle: t('policy.settings.saveChangesNotification.title'),
-					notificationMessage: '',
-				});
-			});
+		await BackendService.patch<void, IEditPolicyLabelDto>(
+			`/user/inline-policies/label/${params.policyId}`,
+			{ label: newPolicyLabelInputState! },
+		);
+
+		onSetPolicyLabel(newPolicyLabelInputState!);
+		props.showNotification({
+			notificationType: 'checkmark',
+			notificationTitle: t('policy.settings.saveChangesNotification.title'),
+			notificationMessage: '',
+		});
 	};
 
 	return (

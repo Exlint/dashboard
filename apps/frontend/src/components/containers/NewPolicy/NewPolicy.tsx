@@ -2,9 +2,8 @@ import React, { type FormEvent, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { ICreatePolicyDto, ICreatePolicyResponseData } from '@exlint.io/common';
 import type { PolicyLibrary } from '@prisma/client';
-import type { AxiosResponse } from 'axios';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import NewPolicyView from './NewPolicy.view';
 
@@ -31,21 +30,19 @@ const NewPolicy: React.FC<IProps> = () => {
 	const onSetPolicyLabelAvailable = (value: boolean | null) => setIsPolicyLabelAvaiableState(() => value);
 	const onLibrarySelect = (library: PolicyLibrary | null) => setSelectedLibraryState(() => library);
 
-	const onCreatePolicy = (e: FormEvent<HTMLFormElement>) => {
+	const onCreatePolicy = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		backendApi
-			.post<ICreatePolicyResponseData, AxiosResponse<ICreatePolicyResponseData>, ICreatePolicyDto>(
-				`/user/inline-policies/${params.complianceId}`,
-				{
-					label: policyLabelState!,
-					description: policyDescriptionState,
-					library: selectedLibraryState!,
-				},
-			)
-			.then((response) => {
-				navigate(`/compliance-center/${params.complianceId}/policies/${response.data.id}`);
-			});
+		const responseData = await BackendService.post<ICreatePolicyResponseData, ICreatePolicyDto>(
+			`/user/inline-policies/${params.complianceId}`,
+			{
+				label: policyLabelState!,
+				description: policyDescriptionState,
+				library: selectedLibraryState!,
+			},
+		);
+
+		navigate(`/compliance-center/${params.complianceId}/policies/${responseData.id}`);
 	};
 
 	return (

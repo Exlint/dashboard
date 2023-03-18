@@ -7,11 +7,10 @@ import type {
 	ICreateComplianceResponseData,
 	IGetAllCompliancesResponseData,
 } from '@exlint.io/common';
-import type { AxiosResponse } from 'axios';
 
 import { useDebounce } from '@/hooks/use-debounce';
-import { backendApi } from '@/utils/http';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import NewComplianceView from './NewCompliance.view';
 
@@ -54,14 +53,12 @@ const NewCompliance: React.FC<IProps> = () => {
 			) {
 				setIsComplianceLabelValidState(() => false);
 			} else {
-				backendApi
-					.get<IAvailableLabelResponseData>(
-						`/user/compliances/available/${complianceLabelInputState}`,
-					)
-					.then((response) => {
-						setIsComplianceLabelValidState(() => response.data.isAvailable);
-						setIsComplianceLabelAvailableState(() => response.data.isAvailable);
-					});
+				BackendService.get<IAvailableLabelResponseData>(
+					`/user/compliances/available/${complianceLabelInputState}`,
+				).then((responseData) => {
+					setIsComplianceLabelValidState(() => responseData.isAvailable);
+					setIsComplianceLabelAvailableState(() => responseData.isAvailable);
+				});
 			}
 		},
 		[complianceLabelInputState],
@@ -78,44 +75,41 @@ const NewCompliance: React.FC<IProps> = () => {
 		setComplianceDescriptionInputState(() => value);
 	};
 
-	const onCreateCompliance = (e: FormEvent<HTMLFormElement>) => {
+	const onCreateCompliance = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		backendApi
-			.post<
-				ICreateComplianceResponseData,
-				AxiosResponse<ICreateComplianceResponseData>,
-				ICreateComplianceDto
-			>('/user/compliances', {
+		const responseData = await BackendService.post<ICreateComplianceResponseData, ICreateComplianceDto>(
+			'/user/compliances',
+			{
 				label: complianceLabelInputState!,
 				description:
 					complianceDescriptionInputState !== null && complianceDescriptionInputState !== ''
 						? complianceDescriptionInputState
 						: null,
-			})
-			.then(async (response) => {
-				await getAllCompliancesMutate((currentData) => {
-					if (!currentData) {
-						return;
-					}
+			},
+		);
 
-					return {
-						...currentData,
-						compliances: [
-							...currentData.compliances,
-							{ id: response.data.id, label: complianceLabelInputState!, librariesNames: [] },
-						],
-					};
-				});
+		await getAllCompliancesMutate((currentData) => {
+			if (!currentData) {
+				return;
+			}
 
-				scroller.scrollTo('compliance-list-end', {
-					containerId: 'compliance-list-container',
-					smooth: true,
-					duration: 500,
-				});
+			return {
+				...currentData,
+				compliances: [
+					...currentData.compliances,
+					{ id: responseData.id, label: complianceLabelInputState!, librariesNames: [] },
+				],
+			};
+		});
 
-				navigate(`/compliance-center/${response.data.id}`);
-			});
+		scroller.scrollTo('compliance-list-end', {
+			containerId: 'compliance-list-container',
+			smooth: true,
+			duration: 500,
+		});
+
+		navigate(`/compliance-center/${responseData.id}`);
 	};
 
 	return (

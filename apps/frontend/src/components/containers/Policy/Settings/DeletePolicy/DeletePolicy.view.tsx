@@ -7,7 +7,7 @@ import classes from './DeletePolicy.module.scss';
 
 interface IProps {
 	readonly policyLabel: string;
-	readonly onDeletePolicyConfirmClick: VoidFunction;
+	readonly onDeletePolicyConfirmClick: () => Promise<void>;
 }
 
 const DeletePolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

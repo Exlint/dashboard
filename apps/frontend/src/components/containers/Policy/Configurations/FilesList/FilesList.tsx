@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import type { IGetFilesListResponseData, FilesListType, ISetFilesListDto } from '@exlint.io/common';
-import type { AxiosResponse } from 'axios';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import FilesListView from './FilesList.view';
 
@@ -23,31 +22,30 @@ const FilesList: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => 
 	);
 
 	useEffect(() => {
-		backendApi
-			.get<IGetFilesListResponseData>(
-				`/user/inline-policies/files-list/${params.policyId}/${props.type}`,
-			)
-			.then((response) => {
-				setFileListState(() => response.data.filesList.join('\n'));
-				setFileListInputState(() => response.data.filesList.join('\n'));
-			});
-	}, [backendApi]);
+		BackendService.get<IGetFilesListResponseData>(
+			`/user/inline-policies/files-list/${params.policyId}/${props.type}`,
+		).then((responseData) => {
+			setFileListState(() => responseData.filesList.join('\n'));
+			setFileListInputState(() => responseData.filesList.join('\n'));
+		});
+	}, []);
 
 	const onFileListInputChange = (value: string) => setFileListInputState(() => value);
 
-	const onSaveChangesClick = () => {
-		backendApi
-			.patch<void, AxiosResponse<void>, ISetFilesListDto>(
+	const onSaveChangesClick = async () => {
+		try {
+			await BackendService.patch<void, ISetFilesListDto>(
 				`/user/inline-policies/files-list/${params.policyId}`,
 				{
 					filesList: fileListInputState ?? '',
 					type: props.type,
 				},
-			)
-			.then(() => setFileListState(() => fileListInputState))
-			.catch(() => {
-				return;
-			});
+			);
+
+			setFileListState(() => fileListInputState);
+		} catch {
+			return;
+		}
 	};
 
 	return (

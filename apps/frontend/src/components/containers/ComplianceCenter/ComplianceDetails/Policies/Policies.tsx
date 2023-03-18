@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import type { IEditComplianceDescriptionDto, IGetPoliciesResponseData } from '@exlint.io/common';
-import type { AxiosResponse } from 'axios';
 
-import { backendApi } from '@/utils/http';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import PoliciesView from './Policies.view';
 
@@ -49,7 +48,7 @@ const Policies: React.FC<IProps> = () => {
 					return;
 				}
 
-				await backendApi.patch<void, AxiosResponse<void>, IEditComplianceDescriptionDto>(
+				await BackendService.patch<void, IEditComplianceDescriptionDto>(
 					`/user/compliances/description/${params.complianceId}`,
 					{
 						description: descriptionInputState || null,

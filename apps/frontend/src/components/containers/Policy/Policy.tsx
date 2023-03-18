@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import type { IGetPolicyResponseData } from '@exlint.io/common';
 import type { PolicyLibrary } from '@prisma/client';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import PolicyView from './Policy.view';
 
@@ -21,16 +21,15 @@ const Policy: React.FC<IProps> = () => {
 	const onSetPolicyLabel = (value: string) => setPolicyLabelState(() => value);
 
 	useEffect(() => {
-		backendApi
-			.get<IGetPolicyResponseData>(`/user/inline-policies/${params.policyId}`)
-			.then((response) => {
-				setComplianceLabelState(() => response.data.complianceLabel);
-				setPolicyLabelState(() => response.data.label);
-				setLibraryState(() => response.data.library);
-				setHasRulesState(() => response.data.hasRules);
+		BackendService.get<IGetPolicyResponseData>(`/user/inline-policies/${params.policyId}`)
+			.then((responseData) => {
+				setComplianceLabelState(() => responseData.complianceLabel);
+				setPolicyLabelState(() => responseData.label);
+				setLibraryState(() => responseData.library);
+				setHasRulesState(() => responseData.hasRules);
 			})
 			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
-	}, [backendApi, params.complianceId, params.policyId]);
+	}, [params.complianceId, params.policyId]);
 
 	return (
 		<PolicyView

@@ -5,10 +5,10 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import type { IGetAllSecretsResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
 import { uiActions } from '@/store/reducers/ui';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import type { ISecretRouteState } from '../interfaces/secrets';
 import PostSecretCreationView from './PostSecretCreation.view';
@@ -36,7 +36,7 @@ const PostSecretCreation: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 	const onDelete = async () => {
 		await getAllSecretsMutate(
 			async (currentData) => {
-				await backendApi.delete(`/user/secrets/${createdSecretDetails.id}`);
+				await BackendService.delete(`/user/secrets/${createdSecretDetails.id}`);
 
 				return {
 					...currentData,

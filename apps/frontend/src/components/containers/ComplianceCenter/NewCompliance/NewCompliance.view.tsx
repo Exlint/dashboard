@@ -15,7 +15,7 @@ interface IProps {
 	readonly isComplianceLabelAvailable: boolean | null;
 	readonly onComplianceLabelInputChange: (value: string) => void;
 	readonly onComplianceDescriptionInputChange: (value: string) => void;
-	readonly onCreateCompliance: (e: FormEvent<HTMLFormElement>) => void;
+	readonly onCreateCompliance: (e: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 const NewComplianceView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

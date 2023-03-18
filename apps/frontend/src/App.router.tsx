@@ -2,8 +2,8 @@ import React from 'react';
 import { Navigate, type RouteObject } from 'react-router-dom';
 
 import AppLayout from './App.layout';
-import { startProgress } from './services/progress-bar';
-import { preloader } from './utils/http-backend';
+import BackendService from './services/backend';
+import { endProgress, startProgress } from './services/progress-bar';
 
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
@@ -35,14 +35,28 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		{
 			path: '',
 			element: <Auth />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/Auth');
+
+				endProgress();
+
+				return null;
+			},
 		},
 		{
 			path: 'auth',
 			element: <Auth />,
-		},
-		{
-			path: 'external-auth-redirect',
-			element: <ExternalAuthRedirect />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/Auth');
+
+				endProgress();
+
+				return null;
+			},
 		},
 	];
 
@@ -53,7 +67,12 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 			loader: async () => {
 				startProgress();
 
-				await preloader('/user/compliances');
+				await Promise.all([
+					BackendService.preload('/user/compliances'),
+					import('./pages/ComplianceCenter'),
+				]);
+
+				endProgress();
 
 				return null;
 			},
@@ -61,6 +80,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		{
 			path: 'account-settings',
 			element: <AccountSettings />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/AccountSettings');
+
+				endProgress();
+
+				return null;
+			},
 			children: [
 				{
 					path: '',
@@ -69,6 +97,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 				{
 					path: 'account',
 					element: <Account />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/AccountSettings/Account');
+
+						endProgress();
+
+						return null;
+					},
 				},
 				{
 					path: 'secret-management',
@@ -76,7 +113,12 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 					loader: async () => {
 						startProgress();
 
-						await preloader('/user/secrets');
+						await Promise.all([
+							BackendService.preload('/user/secrets'),
+							import('@/containers/AccountSettings/SecretManagement'),
+						]);
+
+						endProgress();
 
 						return null;
 					},
@@ -84,6 +126,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 				{
 					path: 'secret-management/new',
 					element: <NewSecret />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/AccountSettings/NewSecret');
+
+						endProgress();
+
+						return null;
+					},
 				},
 				{
 					path: 'secret-management/*',
@@ -101,7 +152,12 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 			loader: async () => {
 				startProgress();
 
-				await preloader('/user/compliances');
+				await Promise.all([
+					BackendService.preload('/user/compliances'),
+					import('./pages/ComplianceCenter'),
+				]);
+
+				endProgress();
 
 				return null;
 			},
@@ -109,10 +165,28 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 				{
 					path: 'new',
 					element: <NewCompliance />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/ComplianceCenter/NewCompliance');
+
+						endProgress();
+
+						return null;
+					},
 				},
 				{
 					path: ':complianceId',
 					element: <ComplianceDetails />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/ComplianceCenter/ComplianceDetails');
+
+						endProgress();
+
+						return null;
+					},
 					children: [
 						{
 							path: '',
@@ -127,10 +201,19 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 								const complianceId = args.params['complianceId'];
 
 								if (!complianceId) {
+									endProgress();
+
 									return null;
 								}
 
-								await preloader(`/user/compliances/inline-policies/${complianceId}?p=1`);
+								await Promise.all([
+									BackendService.preload(
+										`/user/compliances/inline-policies/${complianceId}?p=1`,
+									),
+									import('@/containers/ComplianceCenter/ComplianceDetails/Policies'),
+								]);
+
+								endProgress();
 
 								return null;
 							},
@@ -138,6 +221,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 						{
 							path: 'settings',
 							element: <ComplianceSettings />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/ComplianceCenter/ComplianceDetails/Settings');
+
+								endProgress();
+
+								return null;
+							},
 						},
 					],
 				},
@@ -146,10 +238,28 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		{
 			path: 'compliance-center/:complianceId/policies/new',
 			element: <NewPolicy />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/NewPolicy');
+
+				endProgress();
+
+				return null;
+			},
 		},
 		{
 			path: 'compliance-center/:complianceId/policies/:policyId',
 			element: <Policy />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/Policy');
+
+				endProgress();
+
+				return null;
+			},
 			children: [
 				{
 					path: '',
@@ -158,6 +268,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 				{
 					path: 'configurations',
 					element: <Configurations />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/Policy/Configurations');
+
+						endProgress();
+
+						return null;
+					},
 					children: [
 						{
 							path: '',
@@ -166,6 +285,15 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 						{
 							path: 'configuration',
 							element: <Configuration />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/Configuration');
+
+								endProgress();
+
+								return null;
+							},
 							children: [
 								{
 									path: '',
@@ -174,22 +302,58 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 								{
 									path: 'code',
 									element: <Code />,
+									loader: async () => {
+										startProgress();
+
+										await import('@/containers/Policy/Configurations/Configuration/Code');
+
+										endProgress();
+
+										return null;
+									},
 								},
 							],
 						},
 						{
 							path: 'file-list',
 							element: <FilesList key={0} type="linted" />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/FilesList');
+
+								endProgress();
+
+								return null;
+							},
 						},
 						{
 							path: 'ignore-list',
 							element: <FilesList key={1} type="ignored" />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/FilesList');
+
+								endProgress();
+
+								return null;
+							},
 						},
 					],
 				},
 				{
 					path: 'settings',
 					element: <PolicySettings />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/Policy/Settings');
+
+						endProgress();
+
+						return null;
+					},
 				},
 			],
 		},
@@ -197,16 +361,56 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 
 	const generalRoutes: RouteObject[] = [
 		{
+			path: 'external-auth-redirect',
+			element: <ExternalAuthRedirect />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/ExternalAuthRedirect');
+
+				endProgress();
+
+				return null;
+			},
+		},
+		{
 			path: 'cli-auth',
 			element: <CliAuth />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/CliAuth');
+
+				endProgress();
+
+				return null;
+			},
 		},
 		{
 			path: 'cli-authenticated',
 			element: <CliAuthenticated />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/CliAuthenticated');
+
+				endProgress();
+
+				return null;
+			},
 		},
 		{
 			path: 'not-found',
 			element: <NotFound />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/NotFound');
+
+				endProgress();
+
+				return null;
+			},
 		},
 		{
 			path: '*',
@@ -214,10 +418,20 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		},
 	];
 
-	const routes = [
+	let routesChildren = generalRoutes;
+
+	if (isAuthenticated) {
+		routesChildren = [...authorizedRoutes, ...generalRoutes];
+	}
+
+	if (isAuthenticated === false) {
+		routesChildren = [...unAuthorizedRoutes, ...generalRoutes];
+	}
+
+	const routes: RouteObject[] = [
 		{
 			element: <AppLayout />,
-			children: [...(isAuthenticated ? authorizedRoutes : unAuthorizedRoutes), ...generalRoutes],
+			children: routesChildren,
 		},
 	];
 

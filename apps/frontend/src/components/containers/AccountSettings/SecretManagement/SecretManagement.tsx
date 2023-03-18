@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import type { IGetAllSecretsResponseData } from '@exlint.io/common';
 
 import useBackend from '@/hooks/use-backend';
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import SecretManagementView from './SecretManagement.view';
 
@@ -16,30 +16,18 @@ const SecretManagement: React.FC<IProps> = () => {
 		useBackend<IGetAllSecretsResponseData>('/user/secrets');
 
 	const hasSecrets = useMemo(() => {
-		if (!getAllSecretsResponseData) {
-			return false;
-		}
-
-		return getAllSecretsResponseData.secrets.length > 0;
+		return !!getAllSecretsResponseData && getAllSecretsResponseData.secrets.length > 0;
 	}, [getAllSecretsResponseData]);
 
 	const onRevokeAllSecrets = async () => {
 		await getAllSecretsMutate(
-			async (currentData) => {
-				await backendApi.delete('/user/secrets');
+			async () => {
+				await BackendService.delete('/user/secrets');
 
-				return {
-					...currentData,
-					secrets: [],
-				};
+				return { secrets: [] };
 			},
 			{
-				optimisticData: (currentData) => {
-					return {
-						...currentData,
-						secrets: [],
-					};
-				},
+				optimisticData: { secrets: [] },
 				rollbackOnError: true,
 			},
 		);

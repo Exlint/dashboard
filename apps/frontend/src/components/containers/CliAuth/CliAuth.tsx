@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { ICliAuthResponseData } from '@exlint.io/common';
 
-import { cliBackendApi, temporaryCliServerApi } from '@/utils/http';
+import CliBackendService from '@/services/cli-backend';
 
 import CliAuthView from './CliAuth.view';
 
@@ -25,10 +25,12 @@ const CliAuth: React.FC<IProps> = () => {
 		let email: string;
 
 		try {
-			const response = await cliBackendApi.get<ICliAuthResponseData>(`/user/auth/auth?port=${port}`);
+			const responseData = await CliBackendService.get<ICliAuthResponseData>(
+				`/user/auth/auth?port=${port}`,
+			);
 
-			cliToken = response.data.cliToken;
-			email = response.data.email;
+			cliToken = responseData.cliToken;
+			email = responseData.email;
 		} catch {
 			navigate(`/auth?port=${port}`);
 
@@ -36,7 +38,11 @@ const CliAuth: React.FC<IProps> = () => {
 		}
 
 		try {
-			await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}/${email}`);
+			const res = await fetch(`http://localhost:${port}/${cliToken}/${email}`);
+
+			if (!res.ok) {
+				throw new Error();
+			}
 
 			navigate('/cli-authenticated');
 		} catch {

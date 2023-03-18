@@ -4,11 +4,12 @@ import type {
 	IAvailableLabelResponseData,
 	ICreateSecretDto,
 	ICreateSecretResponseData,
+	IGetAllSecretsResponseData,
 } from '@exlint.io/common';
-import type { AxiosResponse } from 'axios';
 
 import { useDebounce } from '@/hooks/use-debounce';
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
+import useBackend from '@/hooks/use-backend';
 
 import { WEEK_INTERVAL } from './models/time';
 
@@ -27,6 +28,8 @@ const NewSecret: React.FC<IProps> = () => {
 	const [isSecretLabelAvailableState, setIsSecretLabelAvailableState] = useState<boolean | null>(null);
 	const [selectedOptionIndexState, setSelectedOptionIndexState] = useState<number>(0);
 	const [selectedDateState, setSelectedDateState] = useState<Date | null>(nextWeekDate);
+
+	const { mutate: getAllSecretsMutate } = useBackend<IGetAllSecretsResponseData>('/user/secrets');
 
 	useEffect(() => {
 		if (
@@ -47,12 +50,12 @@ const NewSecret: React.FC<IProps> = () => {
 			) {
 				setIsSecretLabelValidState(() => false);
 			} else {
-				backendApi
-					.get<IAvailableLabelResponseData>(`/user/secrets/${secretLabelInputState}`)
-					.then((response) => {
-						setIsSecretLabelValidState(() => response.data.isAvailable);
-						setIsSecretLabelAvailableState(() => response.data.isAvailable);
-					});
+				BackendService.get<IAvailableLabelResponseData>(
+					`/user/secrets/${secretLabelInputState}`,
+				).then((responseData) => {
+					setIsSecretLabelValidState(() => responseData.isAvailable);
+					setIsSecretLabelAvailableState(() => responseData.isAvailable);
+				});
 			}
 		},
 		[secretLabelInputState],
@@ -70,26 +73,34 @@ const NewSecret: React.FC<IProps> = () => {
 		setSelectedDateState(() => value);
 	};
 
-	const onGenerateSecret = (e: FormEvent<HTMLFormElement>) => {
+	const onGenerateSecret = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		backendApi
-			.post<ICreateSecretResponseData, AxiosResponse<ICreateSecretResponseData>, ICreateSecretDto>(
-				'/user/secrets',
-				{
-					label: secretLabelInputState!,
-					expiration: selectedDateState ? selectedDateState.getTime() : null,
-				},
-			)
-			.then((response) => {
-				navigate('/account-settings/secret-management', {
-					state: {
-						...response.data,
-						label: secretLabelInputState!,
-						expiration: selectedDateState,
-					},
-				});
-			});
+		const secretExpiration = selectedDateState ? selectedDateState.getTime() : null;
+
+		const responseData = await BackendService.post<ICreateSecretResponseData, ICreateSecretDto>(
+			'/user/secrets',
+			{
+				label: secretLabelInputState!,
+				expiration: secretExpiration,
+			},
+		);
+
+		await getAllSecretsMutate((currentData) => ({
+			...currentData,
+			secrets: [
+				...currentData!.secrets,
+				{ expiration: secretExpiration, label: secretLabelInputState!, id: responseData.id },
+			],
+		}));
+
+		navigate('/account-settings/secret-management', {
+			state: {
+				...responseData,
+				label: secretLabelInputState!,
+				expiration: selectedDateState,
+			},
+		});
 	};
 
 	return (

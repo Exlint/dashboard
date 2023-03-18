@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import DeleteComplianceView from './DeleteCompliance.view';
 
@@ -25,7 +25,7 @@ const DeleteCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 					return;
 				}
 
-				await backendApi.delete(`/user/compliances/${props.complianceId}`);
+				await BackendService.delete(`/user/compliances/${props.complianceId}`);
 
 				return {
 					...currentData,

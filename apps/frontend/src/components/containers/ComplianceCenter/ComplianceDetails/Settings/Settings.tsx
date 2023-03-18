@@ -2,14 +2,13 @@ import React, { type FormEvent, useState, useMemo } from 'react';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
-import type { AxiosResponse } from 'axios';
 import type { IEditComplianceLabelDto, IGetAllCompliancesResponseData } from '@exlint.io/common';
 import { useParams } from 'react-router-dom';
 
-import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
 import { uiActions } from '@/store/reducers/ui';
 import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import SettingsView from './Settings.view';
 
@@ -67,7 +66,7 @@ const Settings: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 					return;
 				}
 
-				await backendApi.patch<void, AxiosResponse<void>, IEditComplianceLabelDto>(
+				await BackendService.patch<void, IEditComplianceLabelDto>(
 					`/user/compliances/label/${selectedCompliance.id}`,
 					{
 						label: newComplianceLabelInputState!,
