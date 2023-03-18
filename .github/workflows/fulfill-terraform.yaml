@@ -35,9 +35,9 @@ jobs:
               uses: Exlint/node-environment@v1.2.6
               with:
                   should-cache: false
-                  node-version: 18.14.1
+                  node-version: 18.14.2
                   package-manager: pnpm
-                  package-manager-version: 7.27.0
+                  package-manager-version: 7.27.1
 
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
