@@ -303,7 +303,7 @@ importers:
       '@rjsf/validator-ajv8': 5.1.0
       '@types/node': 18.14.0
       '@types/react': 18.0.28
-      '@types/react-datepicker': 4.8.0
+      '@types/react-datepicker': 4.10.0
       '@types/react-dom': 18.0.11
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.6
@@ -379,7 +379,7 @@ importers:
     devDependencies:
       '@exlint.io/common': link:../../packages/common
       '@types/node': 18.14.0
-      '@types/react-datepicker': 4.8.0_biqbaboplfbrettd7655fr4n2y
+      '@types/react-datepicker': 4.10.0_biqbaboplfbrettd7655fr4n2y
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.6
       '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
@@ -3728,8 +3728,8 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
 
-  /@types/react-datepicker/4.8.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-20uzZsIf4moPAjjHDfPvH8UaOHZBxrkiQZoLS3wgKq8Xhp+95gdercLEdoA7/I8nR9R5Jz2qQkdMIM+Lq4AS1A==}
+  /@types/react-datepicker/4.10.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Cq+ks20vBIU6XN67TbkCHu8M7V46Y6vJrKE2n+8q/GfueJyWWTIKeC3Z7cz/d+qxGDq/VCrqA929R0U4lNuztg==}
     dependencies:
       '@popperjs/core': 2.11.6
       '@types/react': 18.0.28
