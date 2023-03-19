@@ -23,7 +23,7 @@
 	"dependencies": {
 		"i18next": "22.4.11",
 		"mixpanel-browser": "2.45.0",
-		"next": "13.1.6",
+		"next": "13.2.4",
 		"react": "18.2.0",
 		"react-card-carousel": "1.1.3",
 		"react-dom": "18.2.0",
