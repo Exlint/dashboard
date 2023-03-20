@@ -4,7 +4,7 @@ test.describe('Application @app-basic', () => {
 	test('application has title', async ({ page }) => {
 		await page.goto('/');
 
-		await expect(page).toHaveTitle(/Exlint/);
+		await expect(page).toHaveTitle(/Exlint | Centralize coding standards in seconds/);
 	});
 
 	test('header first documentation link should navigate to documentations page upon click event', async ({
