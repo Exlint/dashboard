@@ -20,10 +20,10 @@ const PreTestsAuthentication = async () => {
 	 * * GitHub may automatically "click" on verify, in that case, the page navigates,
 	 * * and an error occured if testing non-existent element anymore
 	 */
-	const verifyElement = page.getByRole('button', { name: 'Verify' });
-	const shuoldVerify = await verifyElement.isVisible().catch(() => false);
+	const verifyElement = page.getByRole('button', { name: /^Verify$/ });
+	const shouldVerify = await verifyElement.isVisible().catch(() => false);
 
-	if (shuoldVerify) {
+	if (shouldVerify) {
 		await verifyElement.click();
 	}
 
@@ -32,9 +32,9 @@ const PreTestsAuthentication = async () => {
 	 * * and an error occured if testing non-existent element anymore
 	 */
 	const errorElement = page.getByRole('alert', { name: 'Two-factor authentication failed' });
-	const shuoldVerifyAgain = await errorElement.isVisible().catch(() => false);
+	const shouldVerifyAgain = await errorElement.isVisible().catch(() => false);
 
-	if (shuoldVerifyAgain) {
+	if (shouldVerifyAgain) {
 		const totpToken = totp(process.env.AUTOMATION_GITHUB_TOTP_KEY);
 
 		await page.getByPlaceholder('XXXXXX').fill(totpToken);
@@ -44,17 +44,68 @@ const PreTestsAuthentication = async () => {
 		 * * and an error occured if testing non-existent element anymore
 		 */
 		const verifyElement = page.getByRole('button', { name: 'Verify' });
-		const shuoldVerify = await verifyElement.isVisible().catch(() => false);
+		const shouldVerify = await verifyElement.isVisible().catch(() => false);
 
-		if (shuoldVerify) {
+		if (shouldVerify) {
 			await verifyElement.click();
 		}
 	}
 
-	/**
-	 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-	 * * and an error occured if testing non-existent element anymore
-	 */
+	const verify2FANowElement = page.getByRole('button', { name: 'Verify 2FA now' });
+	const shouldVerify2FANow = await verify2FANowElement.isVisible().catch(() => false);
+
+	if (shouldVerify2FANow) {
+		await verify2FANowElement.click();
+
+		const confirmElement = page.getByRole('button', { name: 'Confirm' });
+		const shouldConfirm = await confirmElement.isVisible().catch(() => false);
+
+		if (shouldConfirm) {
+			await confirmElement.click();
+		}
+
+		const totpToken = totp(process.env.AUTOMATION_GITHUB_TOTP_KEY);
+
+		await page.getByPlaceholder('XXXXXX').fill(totpToken);
+
+		/**
+		 * * GitHub may automatically "click" on verify, in that case, the page navigates,
+		 * * and an error occured if testing non-existent element anymore
+		 */
+		const verify2FAElement = page.getByRole('button', { name: /^Verify$/ });
+		const shouldVerify2FA = await verify2FAElement.isVisible().catch(() => false);
+
+		if (shouldVerify2FA) {
+			await verifyElement.click();
+		}
+
+		/**
+		 * * GitHub may automatically "click" on verify, in that case, the page navigates,
+		 * * and an error occured if testing non-existent element anymore
+		 */
+		const errorElement = page.getByRole('alert', { name: 'Two-factor authentication failed' });
+		const shouldVerifyAgain = await errorElement.isVisible().catch(() => false);
+
+		if (shouldVerifyAgain) {
+			const totpToken = totp(process.env.AUTOMATION_GITHUB_TOTP_KEY);
+
+			await page.getByPlaceholder('XXXXXX').fill(totpToken);
+
+			/**
+			 * * GitHub may automatically "click" on verify, in that case, the page navigates,
+			 * * and an error occured if testing non-existent element anymore
+			 */
+			const verifyElement = page.getByRole('button', { name: 'Verify' });
+			const shouldVerify = await verifyElement.isVisible().catch(() => false);
+
+			if (shouldVerify) {
+				await verifyElement.click();
+			}
+		}
+
+		await page.getByRole('button', { name: 'Done' }).click();
+	}
+
 	const authorizeElement = page.getByRole('button', { name: 'Authorize exlint-dev-helper' });
 	const shouldAuthorize = await authorizeElement.isVisible().catch(() => false);
 

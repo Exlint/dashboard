@@ -68,7 +68,7 @@ export class DBComplianceService {
 				label: `${policy.library} Policy`,
 				description: 'This policy was created using the "go" command',
 				library: policy.library,
-				codeConfiguration: JSON.stringify(policy.configuration),
+				codeConfiguration: JSON.stringify(policy.configuration, null, 2),
 				codeType: CodeType.JSON,
 				lintedList: policy.lintedList,
 				ignoredList: policy.ignoredList,
