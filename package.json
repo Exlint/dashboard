@@ -39,12 +39,12 @@
 		"@commitlint/cli": "17.4.4",
 		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.31.2",
-		"@prisma/client": "4.10.1",
-		"@types/node": "18.14.0",
+		"@prisma/client": "4.11.0",
+		"@types/node": "18.15.0",
 		"@types/totp-generator": "0.0.5",
 		"@types/wait-on": "5.3.1",
-		"@typescript-eslint/eslint-plugin": "5.53.0",
-		"@typescript-eslint/parser": "5.53.0",
+		"@typescript-eslint/eslint-plugin": "5.55.0",
+		"@typescript-eslint/parser": "5.55.0",
 		"chalk": "4.1.2",
 		"commitizen": "4.3.0",
 		"cz-vinyl": "1.6.2",
@@ -68,8 +68,8 @@
 		"pnpm": "7.29.1",
 		"prettier": "2.8.4",
 		"prettier-plugin-sh": "0.12.8",
-		"prisma": "4.10.1",
-		"rimraf": "4.1.2",
+		"prisma": "4.11.0",
+		"rimraf": "4.4.0",
 		"stylelint": "14.16.1",
 		"totp-generator": "0.0.14",
 		"typescript": "5.0.2",
@@ -77,6 +77,6 @@
 	},
 	"engines": {
 		"pnpm": "7.29.1",
-		"node": "18.14.2"
+		"node": "18.15.0"
 	}
 }
