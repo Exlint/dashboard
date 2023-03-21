@@ -84,7 +84,7 @@
 		"typescript": "5.0.2",
 		"vite": "4.1.4",
 		"vite-plugin-react-remove-attributes": "1.0.3",
-		"vite-tsconfig-paths": "4.0.5"
+		"vite-tsconfig-paths": "4.0.7"
 	},
 	"peerDependencies": {
 		"@types/node": "18.15.0",
