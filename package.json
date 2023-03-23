@@ -40,7 +40,7 @@
 		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.31.2",
 		"@prisma/client": "4.11.0",
-		"@types/node": "18.15.0",
+		"@types/node": "18.15.3",
 		"@types/totp-generator": "0.0.5",
 		"@types/wait-on": "5.3.1",
 		"@typescript-eslint/eslint-plugin": "5.55.0",
