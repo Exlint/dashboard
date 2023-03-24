@@ -19,4 +19,8 @@
 
 .deleteButton {
 	margin-top: map.get(variables.$sizes, spacing-m);
+
+	&:hover {
+		background-color: map.get(variables.$colors, whites-ghost-white);
+	}
 }
