@@ -40,7 +40,7 @@
 		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.31.2",
 		"@prisma/client": "4.11.0",
-		"@types/node": "18.15.0",
+		"@types/node": "18.15.3",
 		"@types/totp-generator": "0.0.5",
 		"@types/wait-on": "5.3.1",
 		"@typescript-eslint/eslint-plugin": "5.55.0",
@@ -65,7 +65,7 @@
 		"nx": "15.8.6",
 		"open": "8.4.2",
 		"playwright": "1.31.2",
-		"pnpm": "7.29.1",
+		"pnpm": "7.29.3",
 		"prettier": "2.8.4",
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.11.0",
@@ -76,7 +76,7 @@
 		"wait-on": "7.0.1"
 	},
 	"engines": {
-		"pnpm": "7.29.1",
+		"pnpm": "7.29.3",
 		"node": "18.15.0"
 	}
 }
