@@ -6,7 +6,7 @@ import BackendService from '@/services/backend';
 const useBackend = <D, E = unknown>(path: string | null) => {
 	const { data, error, isLoading, mutate } = useSWR<D, E>(path, BackendService.get);
 
-	const postMutation: KeyedMutator<D> = useCallback(
+	const forcedMutation: KeyedMutator<D> = useCallback(
 		async (mutationData, options) => {
 			const data = await mutate(mutationData, options);
 
@@ -17,7 +17,7 @@ const useBackend = <D, E = unknown>(path: string | null) => {
 		[mutate],
 	);
 
-	return { data, error, isLoading, mutate: postMutation };
+	return { data, error, isLoading, mutate: forcedMutation };
 };
 
 export default useBackend;
