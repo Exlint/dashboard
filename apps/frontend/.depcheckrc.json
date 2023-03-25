@@ -1,7 +1,6 @@
 {
 	"ignores": [
 		"bootstrap",
-		"stylelint-config-prettier-scss",
 		"stylelint-config-recess-order",
 		"stylelint-config-standard-scss",
 		"stylelint-declaration-strict-value"
