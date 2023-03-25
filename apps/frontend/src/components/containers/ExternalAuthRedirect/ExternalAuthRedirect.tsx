@@ -21,10 +21,10 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
 
-	useEffect(() => {
-		const refreshToken = searchParams.get('refreshToken');
-		const port = searchParams.get('port');
+	const refreshToken = searchParams.get('refreshToken');
+	const port = searchParams.get('port');
 
+	useEffect(() => {
 		if (refreshToken) {
 			localStorage.setItem('token', refreshToken);
 
@@ -55,7 +55,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 					try {
 						const responseData = await CliBackendService.get<ICliAuthResponseData>(
-							`/user/auth/auth?port=${port}`,
+							'/user/auth/auth',
 						);
 
 						cliToken = responseData.cliToken;
@@ -102,7 +102,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 			navigate(navigateUrl);
 		}
-	}, [searchParams]);
+	}, [refreshToken, port]);
 
 	return <ExternalAuthRedirectView />;
 };

@@ -1,13 +1,4 @@
-import {
-	BadRequestException,
-	Controller,
-	Get,
-	HttpCode,
-	HttpStatus,
-	Logger,
-	Query,
-	UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus, Logger, UseGuards } from '@nestjs/common';
 import type { ICliAuthResponseData } from '@exlint.io/common';
 
 import { Public } from '@/decorators/public.decorator';
@@ -31,12 +22,7 @@ export class AuthController {
 	public async auth(
 		@CurrentUserId() userId: string,
 		@CurrentUserEmail() userEmail: string,
-		@Query('port') port?: string,
 	): Promise<ICliAuthResponseData> {
-		if (!port) {
-			throw new BadRequestException();
-		}
-
 		this.logger.log(`Will try to generate a CLI token for user with Id: "${userId}"`);
 
 		const cliToken = await this.authService.generateJwtCliToken(userId, userEmail);

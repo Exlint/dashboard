@@ -363,54 +363,18 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		{
 			path: 'external-auth-redirect',
 			element: <ExternalAuthRedirect />,
-			loader: async () => {
-				startProgress();
-
-				await import('./pages/ExternalAuthRedirect');
-
-				endProgress();
-
-				return null;
-			},
 		},
 		{
 			path: 'cli-auth',
 			element: <CliAuth />,
-			loader: async () => {
-				startProgress();
-
-				await import('./pages/CliAuth');
-
-				endProgress();
-
-				return null;
-			},
 		},
 		{
 			path: 'cli-authenticated',
 			element: <CliAuthenticated />,
-			loader: async () => {
-				startProgress();
-
-				await import('./pages/CliAuthenticated');
-
-				endProgress();
-
-				return null;
-			},
 		},
 		{
 			path: 'not-found',
 			element: <NotFound />,
-			loader: async () => {
-				startProgress();
-
-				await import('./pages/NotFound');
-
-				endProgress();
-
-				return null;
-			},
 		},
 		{
 			path: '*',

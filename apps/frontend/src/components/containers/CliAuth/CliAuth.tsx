@@ -25,9 +25,7 @@ const CliAuth: React.FC<IProps> = () => {
 		let email: string;
 
 		try {
-			const responseData = await CliBackendService.get<ICliAuthResponseData>(
-				`/user/auth/auth?port=${port}`,
-			);
+			const responseData = await CliBackendService.get<ICliAuthResponseData>('/user/auth/auth');
 
 			cliToken = responseData.cliToken;
 			email = responseData.email;
