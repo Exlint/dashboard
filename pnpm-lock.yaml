@@ -413,7 +413,7 @@ importers:
       '@types/react': 18.0.28
       '@typescript-eslint/eslint-plugin': 5.55.0
       '@typescript-eslint/parser': 5.55.0
-      asciinema-player: 3.1.2
+      asciinema-player: 3.2.0
       depcheck: 1.4.3
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0
@@ -450,7 +450,7 @@ importers:
       '@types/react': 18.0.28
       '@typescript-eslint/eslint-plugin': 5.55.0_qsnvknysi52qtaxqdyqyohkcku
       '@typescript-eslint/parser': 5.55.0_j4766f7ecgqbon3u7zlxn5zszu
-      asciinema-player: 3.1.2
+      asciinema-player: 3.2.0
       depcheck: 1.4.3
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0_eslint@8.36.0
@@ -4607,8 +4607,8 @@ packages:
     resolution: {integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==}
     engines: {node: '>=8'}
 
-  /asciinema-player/3.1.2:
-    resolution: {integrity: sha512-47RE1EFcRUXH8qGSbIf5fyz8nt4sYnDfi6rzWO4GPTeaZDkIr3V9el2C8rqkymjVOe9YI2oDu1Z1L7qMP3FBhQ==}
+  /asciinema-player/3.2.0:
+    resolution: {integrity: sha512-fV3Coe/UGieUy+5KCrh1qZf1lFWkuj12a6KcKrr84b61UFfUOpAZfyem4UnpczuP6cjrV3w5t0u8Wd1kTz/e7g==}
     dependencies:
       '@babel/runtime': 7.20.7
       solid-js: 1.6.10
