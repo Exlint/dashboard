@@ -300,7 +300,7 @@ importers:
       '@reduxjs/toolkit': 1.9.3
       '@rjsf/core': 5.3.0
       '@rjsf/utils': 5.3.0
-      '@rjsf/validator-ajv8': 5.2.1
+      '@rjsf/validator-ajv8': 5.3.0
       '@types/node': 18.15.3
       '@types/nprogress': 0.2.0
       '@types/react': 18.0.28
@@ -360,7 +360,7 @@ importers:
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       '@rjsf/core': 5.3.0_bgkggbzdajeelpcmmhs66m5qg4
       '@rjsf/utils': 5.3.0_react@18.2.0
-      '@rjsf/validator-ajv8': 5.2.1_@rjsf+utils@5.3.0
+      '@rjsf/validator-ajv8': 5.3.0_@rjsf+utils@5.3.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       '@uiw/codemirror-themes': 4.19.9_@codemirror+language@6.6.0
@@ -419,7 +419,7 @@ importers:
       '@types/react': 18.0.28
       '@typescript-eslint/eslint-plugin': 5.55.0
       '@typescript-eslint/parser': 5.55.0
-      asciinema-player: 3.1.2
+      asciinema-player: 3.2.0
       depcheck: 1.4.3
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0
@@ -456,7 +456,7 @@ importers:
       '@types/react': 18.0.28
       '@typescript-eslint/eslint-plugin': 5.55.0_qsnvknysi52qtaxqdyqyohkcku
       '@typescript-eslint/parser': 5.55.0_j4766f7ecgqbon3u7zlxn5zszu
-      asciinema-player: 3.1.2
+      asciinema-player: 3.2.0
       depcheck: 1.4.3
       eslint: 8.36.0
       eslint-config-prettier: 8.7.0_eslint@8.36.0
@@ -3512,8 +3512,8 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8/5.2.1_@rjsf+utils@5.3.0:
-    resolution: {integrity: sha512-VHxlBECvzMQtpxfLnoB4E5HV7e+LLimID4gfXYBr+kf+tVS5Z3OVRNwTkEmInHLmBK4Zp2hIgBDE7dBIhHvnkg==}
+  /@rjsf/validator-ajv8/5.3.0_@rjsf+utils@5.3.0:
+    resolution: {integrity: sha512-LYV/OqCUAMYKLDTHIEDLQ5ETEMgxIQbWmnBreG0eMoF55DpxjRoNU7KZwk04JtFWCVJIRN4/KXuqPPv9/nV7Lw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.0.0
@@ -4617,8 +4617,8 @@ packages:
     resolution: {integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==}
     engines: {node: '>=8'}
 
-  /asciinema-player/3.1.2:
-    resolution: {integrity: sha512-47RE1EFcRUXH8qGSbIf5fyz8nt4sYnDfi6rzWO4GPTeaZDkIr3V9el2C8rqkymjVOe9YI2oDu1Z1L7qMP3FBhQ==}
+  /asciinema-player/3.2.0:
+    resolution: {integrity: sha512-fV3Coe/UGieUy+5KCrh1qZf1lFWkuj12a6KcKrr84b61UFfUOpAZfyem4UnpczuP6cjrV3w5t0u8Wd1kTz/e7g==}
     dependencies:
       '@babel/runtime': 7.20.7
       solid-js: 1.6.10
