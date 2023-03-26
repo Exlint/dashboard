@@ -9,16 +9,16 @@
 	text-decoration: none;
 	border-bottom: map.get(variables.$sizes, spacing-xs) solid transparent;
 
+	&:not(:last-child) {
+		margin-inline-end: map.get(variables.$sizes, spacing-xl);
+	}
+
 	&:hover {
 		text-decoration: none;
 	}
 
 	&--active {
 		border-bottom-color: map.get(variables.$colors, greys-platinum);
-	}
-
-	&:not(:last-child) {
-		margin-inline-end: map.get(variables.$sizes, spacing-xl);
 	}
 
 	&__icon {

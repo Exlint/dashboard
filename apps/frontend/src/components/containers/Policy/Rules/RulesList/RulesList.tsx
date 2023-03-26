@@ -5,9 +5,8 @@ import type {
 } from '@exlint.io/common';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { AxiosResponse } from 'axios';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import type { IEnabledRuleFilter } from './interfaces/rule-filter';
 
@@ -48,10 +47,10 @@ const RulesList: React.FC<IProps> = () => {
 	}, [params.ruleId, rulesState]);
 
 	useEffect(() => {
-		backendApi
-			.get<IGetRulesResponseData>(`/user/rules/${params.policyId}`)
-			.then((response) => setRulesState(() => response.data.rules));
-	}, [backendApi]);
+		BackendService.get<IGetRulesResponseData>(`/user/rules/${params.policyId}`).then((responseData) =>
+			setRulesState(() => responseData.rules),
+		);
+	}, []);
 
 	const changeEnableStatusOfRuleById = (ruleId: string, enabled: boolean) => {
 		setRulesState((prev) => {
@@ -72,7 +71,7 @@ const RulesList: React.FC<IProps> = () => {
 		changeEnableStatusOfRuleById(ruleId, false);
 		navigate(`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list`);
 
-		backendApi.patch(`/user/rules/disable/${ruleId}`).catch(() => {
+		BackendService.patch(`/user/rules/disable/${ruleId}`).catch(() => {
 			changeEnableStatusOfRuleById(ruleId, true);
 			navigate(
 				`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${ruleId}`,
@@ -86,7 +85,7 @@ const RulesList: React.FC<IProps> = () => {
 			`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${ruleId}`,
 		);
 
-		backendApi.patch(`/user/rules/enable/${ruleId}`).catch(() => {
+		BackendService.patch(`/user/rules/enable/${ruleId}`).catch(() => {
 			changeEnableStatusOfRuleById(ruleId, false);
 			navigate(
 				`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list`,
@@ -108,13 +107,11 @@ const RulesList: React.FC<IProps> = () => {
 			return prevArray;
 		});
 
-		backendApi
-			.post<
-				IEnableMissingRuleResponseData,
-				AxiosResponse<IEnableMissingRuleResponseData>,
-				IEnableMissingRuleDto
-			>(`/user/rules/enable/${params.policyId}`, { name: ruleName })
-			.then((response) => {
+		BackendService.post<IEnableMissingRuleResponseData, IEnableMissingRuleDto>(
+			`/user/rules/enable/${params.policyId}`,
+			{ name: ruleName },
+		)
+			.then((responseData) => {
 				setRulesState((prev) => {
 					const prevArray = [...prev];
 					const matchingRule = prevArray.find((rule) => rule.name === ruleName);
@@ -123,13 +120,13 @@ const RulesList: React.FC<IProps> = () => {
 						return prevArray;
 					}
 
-					matchingRule.id = response.data.id;
+					matchingRule.id = responseData.id;
 
 					return prevArray;
 				});
 
 				navigate(
-					`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${response.data.id}`,
+					`/compliance-center/${params.complianceId}/policies/${params.policyId}/rules/rules-list/${responseData.id}`,
 				);
 			})
 			.catch(() => {

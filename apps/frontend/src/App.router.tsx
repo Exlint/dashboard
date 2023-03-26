@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Navigate, type RouteObject } from 'react-router-dom';
 
-interface IProps {
-	readonly isAuthenticated: boolean | null;
-}
+import AppLayout from './App.layout';
+import BackendService from './services/backend';
+import { endProgress, startProgress } from './services/progress-bar';
 
 const Auth = React.lazy(() => import('./pages/Auth'));
 const ExternalAuthRedirect = React.lazy(() => import('./pages/ExternalAuthRedirect'));
@@ -19,11 +19,6 @@ const SecretManagement = React.lazy(() => import('@/containers/AccountSettings/S
 const NewSecret = React.lazy(() => import('@/containers/AccountSettings/NewSecret'));
 const NewCompliance = React.lazy(() => import('@/containers/ComplianceCenter/NewCompliance'));
 const ComplianceDetails = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails'));
-
-const ComplianceSettings = React.lazy(
-	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
-);
-
 const Policies = React.lazy(() => import('@/containers/ComplianceCenter/ComplianceDetails/Policies'));
 const PolicySettings = React.lazy(() => import('@/containers/Policy/Settings'));
 const Configurations = React.lazy(() => import('@/containers/Policy/Configurations'));
@@ -31,58 +26,380 @@ const Configuration = React.lazy(() => import('@/containers/Policy/Configuration
 const FilesList = React.lazy(() => import('@/containers/Policy/Configurations/FilesList'));
 const Code = React.lazy(() => import('@/containers/Policy/Configurations/Configuration/Code'));
 
-const AppRouter: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => (
-	<Routes>
-		{props.isAuthenticated === false && (
-			<>
-				<Route path="" element={<Auth />} />
-				<Route path="auth" element={<Auth />} />
-				<Route path="external-auth-redirect" element={<ExternalAuthRedirect />} />
-			</>
-		)}
-		{props.isAuthenticated && (
-			<>
-				<Route path="" element={<ComplianceCenter />} />
-				<Route path="account-settings" element={<AccountSettings />}>
-					<Route path="" element={<Navigate to="account" replace />} />
-					<Route path="account" element={<Account />} />
-					<Route path="secret-management" element={<SecretManagement />} />
-					<Route path="secret-management/new" element={<NewSecret />} />
-					<Route path="secret-management/*" element={<Navigate to="secret-management" replace />} />
-					<Route path="*" element={<Navigate to="account" replace />} />
-				</Route>
-				<Route path="compliance-center" element={<ComplianceCenter />}>
-					<Route path="new" element={<NewCompliance />} />
-					<Route path=":complianceId" element={<ComplianceDetails />}>
-						<Route path="" element={<Navigate to="policies" replace />} />
-						<Route path="policies" element={<Policies />} />
-						<Route path="settings" element={<ComplianceSettings />} />
-					</Route>
-				</Route>
-				<Route path="compliance-center/:complianceId/policies/new" element={<NewPolicy />} />
-				<Route path="compliance-center/:complianceId/policies/:policyId" element={<Policy />}>
-					<Route path="" element={<Navigate to="configurations" replace />} />
-					<Route path="configurations" element={<Configurations />}>
-						<Route path="" element={<Navigate to="configuration" replace />} />
-						<Route path="configuration" element={<Configuration />}>
-							<Route path="" element={<Navigate to="code" replace />} />
-							<Route path="code" element={<Code />} />
-						</Route>
-						<Route path="file-list" element={<FilesList key={0} type="linted" />} />
-						<Route path="ignore-list" element={<FilesList key={1} type="ignored" />} />
-					</Route>
-					<Route path="settings" element={<PolicySettings />} />
-				</Route>
-			</>
-		)}
-		<Route path="cli-auth" element={<CliAuth />} />
-		<Route path="cli-authenticated" element={<CliAuthenticated />} />
-		<Route path="/not-found" element={<NotFound />} />
-		<Route path="*" element={props.isAuthenticated === null ? null : <NotFound />} />
-	</Routes>
+const ComplianceSettings = React.lazy(
+	() => import('@/containers/ComplianceCenter/ComplianceDetails/Settings'),
 );
 
-AppRouter.displayName = 'AppRouter';
-AppRouter.defaultProps = {};
+const RouterBuilder = (isAuthenticated: boolean | null) => {
+	const unAuthorizedRoutes: RouteObject[] = [
+		{
+			path: '',
+			element: <Auth />,
+			loader: async () => {
+				startProgress();
 
-export default React.memo(AppRouter);
+				await import('./pages/Auth');
+
+				endProgress();
+
+				return null;
+			},
+		},
+		{
+			path: 'auth',
+			element: <Auth />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/Auth');
+
+				endProgress();
+
+				return null;
+			},
+		},
+	];
+
+	const authorizedRoutes: RouteObject[] = [
+		{
+			path: '',
+			element: <ComplianceCenter />,
+			loader: async () => {
+				startProgress();
+
+				await Promise.all([
+					BackendService.preload('/user/compliances'),
+					import('./pages/ComplianceCenter'),
+				]);
+
+				endProgress();
+
+				return null;
+			},
+		},
+		{
+			path: 'account-settings',
+			element: <AccountSettings />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/AccountSettings');
+
+				endProgress();
+
+				return null;
+			},
+			children: [
+				{
+					path: '',
+					element: <Navigate to="account" replace />,
+				},
+				{
+					path: 'account',
+					element: <Account />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/AccountSettings/Account');
+
+						endProgress();
+
+						return null;
+					},
+				},
+				{
+					path: 'secret-management',
+					element: <SecretManagement />,
+					loader: async () => {
+						startProgress();
+
+						await Promise.all([
+							BackendService.preload('/user/secrets'),
+							import('@/containers/AccountSettings/SecretManagement'),
+						]);
+
+						endProgress();
+
+						return null;
+					},
+				},
+				{
+					path: 'secret-management/new',
+					element: <NewSecret />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/AccountSettings/NewSecret');
+
+						endProgress();
+
+						return null;
+					},
+				},
+				{
+					path: 'secret-management/*',
+					element: <Navigate to="secret-management" replace />,
+				},
+				{
+					path: '*',
+					element: <Navigate to="account" replace />,
+				},
+			],
+		},
+		{
+			path: 'compliance-center',
+			element: <ComplianceCenter />,
+			loader: async () => {
+				startProgress();
+
+				await Promise.all([
+					BackendService.preload('/user/compliances'),
+					import('./pages/ComplianceCenter'),
+				]);
+
+				endProgress();
+
+				return null;
+			},
+			children: [
+				{
+					path: 'new',
+					element: <NewCompliance />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/ComplianceCenter/NewCompliance');
+
+						endProgress();
+
+						return null;
+					},
+				},
+				{
+					path: ':complianceId',
+					element: <ComplianceDetails />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/ComplianceCenter/ComplianceDetails');
+
+						endProgress();
+
+						return null;
+					},
+					children: [
+						{
+							path: '',
+							element: <Navigate to="policies" replace />,
+						},
+						{
+							path: 'policies',
+							element: <Policies />,
+							loader: async (args) => {
+								startProgress();
+
+								const complianceId = args.params['complianceId'];
+
+								if (!complianceId) {
+									endProgress();
+
+									return null;
+								}
+
+								await Promise.all([
+									BackendService.preload(
+										`/user/compliances/inline-policies/${complianceId}?p=1`,
+									),
+									import('@/containers/ComplianceCenter/ComplianceDetails/Policies'),
+								]);
+
+								endProgress();
+
+								return null;
+							},
+						},
+						{
+							path: 'settings',
+							element: <ComplianceSettings />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/ComplianceCenter/ComplianceDetails/Settings');
+
+								endProgress();
+
+								return null;
+							},
+						},
+					],
+				},
+			],
+		},
+		{
+			path: 'compliance-center/:complianceId/policies/new',
+			element: <NewPolicy />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/NewPolicy');
+
+				endProgress();
+
+				return null;
+			},
+		},
+		{
+			path: 'compliance-center/:complianceId/policies/:policyId',
+			element: <Policy />,
+			loader: async () => {
+				startProgress();
+
+				await import('./pages/Policy');
+
+				endProgress();
+
+				return null;
+			},
+			children: [
+				{
+					path: '',
+					element: <Navigate to="configurations" replace />,
+				},
+				{
+					path: 'configurations',
+					element: <Configurations />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/Policy/Configurations');
+
+						endProgress();
+
+						return null;
+					},
+					children: [
+						{
+							path: '',
+							element: <Navigate to="configuration" replace />,
+						},
+						{
+							path: 'configuration',
+							element: <Configuration />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/Configuration');
+
+								endProgress();
+
+								return null;
+							},
+							children: [
+								{
+									path: '',
+									element: <Navigate to="code" replace />,
+								},
+								{
+									path: 'code',
+									element: <Code />,
+									loader: async () => {
+										startProgress();
+
+										await import('@/containers/Policy/Configurations/Configuration/Code');
+
+										endProgress();
+
+										return null;
+									},
+								},
+							],
+						},
+						{
+							path: 'file-list',
+							element: <FilesList key={0} type="linted" />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/FilesList');
+
+								endProgress();
+
+								return null;
+							},
+						},
+						{
+							path: 'ignore-list',
+							element: <FilesList key={1} type="ignored" />,
+							loader: async () => {
+								startProgress();
+
+								await import('@/containers/Policy/Configurations/FilesList');
+
+								endProgress();
+
+								return null;
+							},
+						},
+					],
+				},
+				{
+					path: 'settings',
+					element: <PolicySettings />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/Policy/Settings');
+
+						endProgress();
+
+						return null;
+					},
+				},
+			],
+		},
+	];
+
+	const generalRoutes: RouteObject[] = [
+		{
+			path: 'external-auth-redirect',
+			element: <ExternalAuthRedirect />,
+		},
+		{
+			path: 'cli-auth',
+			element: <CliAuth />,
+		},
+		{
+			path: 'cli-authenticated',
+			element: <CliAuthenticated />,
+		},
+		{
+			path: 'not-found',
+			element: <NotFound />,
+		},
+		{
+			path: '*',
+			element: isAuthenticated === null ? null : <NotFound />,
+		},
+	];
+
+	let routesChildren = generalRoutes;
+
+	if (isAuthenticated) {
+		routesChildren = [...authorizedRoutes, ...generalRoutes];
+	}
+
+	if (isAuthenticated === false) {
+		routesChildren = [...unAuthorizedRoutes, ...generalRoutes];
+	}
+
+	const routes: RouteObject[] = [
+		{
+			element: <AppLayout />,
+			children: routesChildren,
+		},
+	];
+
+	return routes;
+};
+
+export default RouterBuilder;

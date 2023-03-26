@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { IAvailableLabelResponseData, IGetComplianceResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
 import { useDebounce } from '@/hooks/use-debounce';
+import BackendService from '@/services/backend';
 
 import DetailsView from './Details.view';
 
@@ -30,11 +30,10 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			return;
 		}
 
-		backendApi
-			.get<IGetComplianceResponseData>(`/user/compliances/${params.complianceId}`)
-			.then((response) => setComplianceLabelState(() => response.data.label))
+		BackendService.get<IGetComplianceResponseData>(`/user/compliances/${params.complianceId}`)
+			.then((responseData) => setComplianceLabelState(() => responseData.label))
 			.catch(() => navigate('/'));
-	}, [params.complianceId, backendApi]);
+	}, [params.complianceId]);
 
 	useEffect(() => {
 		if (props.policyLabel === '' || props.policyLabel === null || props.policyLabel.length > 30) {
@@ -47,12 +46,12 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			if (props.policyLabel === '' || props.policyLabel === null || props.policyLabel.length > 30) {
 				props.onSetPolicyLabelValid(false);
 			} else {
-				backendApi
-					.get<IAvailableLabelResponseData>(`/user/inline-policies/available/${props.policyLabel}`)
-					.then((response) => {
-						props.onSetPolicyLabelAvailable(response.data.isAvailable);
-						props.onSetPolicyLabelValid(response.data.isAvailable);
-					});
+				BackendService.get<IAvailableLabelResponseData>(
+					`/user/inline-policies/available/${props.policyLabel}`,
+				).then((responseData) => {
+					props.onSetPolicyLabelAvailable(responseData.isAvailable);
+					props.onSetPolicyLabelValid(responseData.isAvailable);
+				});
 			}
 		},
 		[props.policyLabel],

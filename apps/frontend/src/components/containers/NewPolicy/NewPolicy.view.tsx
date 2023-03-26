@@ -22,7 +22,7 @@ interface IProps {
 	readonly onSetPolicyLabelValid: (value: boolean) => void;
 	readonly onSetPolicyLabelAvailable: (value: boolean | null) => void;
 	readonly onLibrarySelect: (library: PolicyLibrary | null) => void;
-	readonly onCreatePolicy: (e: FormEvent<HTMLFormElement>) => void;
+	readonly onCreatePolicy: (e: FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 const NewPolicyView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

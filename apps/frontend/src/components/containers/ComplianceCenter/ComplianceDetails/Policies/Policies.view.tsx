@@ -7,7 +7,7 @@ import EDTable from '@/ui/EDTable';
 import logosObject from '@/utils/libraries-logos';
 
 import TablePlaceholder from './TablePlaceholder';
-import type { IPolicy } from './policy';
+import type { IPolicy } from './interfaces/policy';
 
 import classes from './Policies.module.scss';
 

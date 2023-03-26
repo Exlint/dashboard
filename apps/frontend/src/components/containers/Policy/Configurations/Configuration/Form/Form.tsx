@@ -6,7 +6,6 @@ import type {
 } from '@exlint.io/common';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { AxiosResponse } from 'axios';
 import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
@@ -14,9 +13,9 @@ import type { Prisma } from '@prisma/client';
 import type { IChangeEvent } from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 
-import { backendApi } from '@/utils/http';
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
 import { uiActions } from '@/store/reducers/ui';
+import BackendService from '@/services/backend';
 
 import FormView from './Form.view';
 
@@ -41,11 +40,10 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const onIsSwitchCheckedChange = async (checked: boolean) => {
 		setIsSwitchCheckedState(() => checked);
 
-		await backendApi
-			.patch<void, AxiosResponse<void>, ISetIsFormConfigurationDto>(
-				`/user/inline-policies/is-form-configuration/${params.policyId}`,
-				{ isFormConfiguration: checked },
-			)
+		await BackendService.patch<void, ISetIsFormConfigurationDto>(
+			`/user/inline-policies/is-form-configuration/${params.policyId}`,
+			{ isFormConfiguration: checked },
+		)
 			.then(() => {
 				props.showNotification({
 					notificationType: 'warning',
@@ -63,28 +61,27 @@ const Form: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	};
 
 	useEffect(() => {
-		backendApi
-			.get<IGetFormSchemaResponseData>(`/user/inline-policies/form-schema/${params.policyId}`)
-			.then((response) => {
-				setFormSchemaState(() => response.data.schema);
-				setIsSwitchCheckedState(() => response.data.isFormConfiguration);
-				setFormConfigurationState(() => response.data.formConfiguration);
+		BackendService.get<IGetFormSchemaResponseData>(`/user/inline-policies/form-schema/${params.policyId}`)
+			.then((responseData) => {
+				setFormSchemaState(() => responseData.schema);
+				setIsSwitchCheckedState(() => responseData.isFormConfiguration);
+				setFormConfigurationState(() => responseData.formConfiguration);
 			})
 			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
-	}, [backendApi]);
+	}, []);
 
 	const onFormChange = (data: IChangeEvent) => {
 		setIsFormValidState(() => validator.isValid(formSchemaState!, data.formData, formSchemaState!));
 		setFormConfigurationState(() => data.formData);
 	};
 
-	const onFormSubmit = () => {
-		backendApi
-			.patch<void, AxiosResponse<void>, ISetFormConfigurationDto>(
-				`/user/inline-policies/form-configuration/${params.policyId}`,
-				{ data: formConfigurationState },
-			)
-			.then(() => setIsFormValidState(() => false));
+	const onFormSubmit = async () => {
+		await BackendService.patch<void, ISetFormConfigurationDto>(
+			`/user/inline-policies/form-configuration/${params.policyId}`,
+			{ data: formConfigurationState },
+		);
+
+		setIsFormValidState(() => false);
 	};
 
 	return (

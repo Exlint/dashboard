@@ -1,63 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import type { Secret } from '@prisma/client';
+import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { IGetAllSecretsResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
-
-import type { ISecretItem } from './interfaces/secrets';
+import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import SecretManagementView from './SecretManagement.view';
 
 interface IProps {}
 
 const SecretManagement: React.FC<IProps> = () => {
-	const [secretsListState, setSecretsListState] = useState<ISecretItem[]>([]);
-
 	const navigate = useNavigate();
-	const location = useLocation();
-	const createdSecretDetails = location.state as Pick<Secret, 'id' | 'secret'> | null;
 
-	useEffect(() => {
-		backendApi
-			.get<IGetAllSecretsResponseData>('/user/secrets')
-			.then((response) => {
-				if (createdSecretDetails) {
-					setSecretsListState(() =>
-						response.data.secrets.filter((secret) => secret.id !== createdSecretDetails.id),
-					);
+	const { data: getAllSecretsResponseData, mutate: getAllSecretsMutate } =
+		useBackend<IGetAllSecretsResponseData>('/user/secrets');
 
-					return;
-				}
+	const hasSecrets = useMemo(() => {
+		return !!getAllSecretsResponseData && getAllSecretsResponseData.secrets.length > 0;
+	}, [getAllSecretsResponseData]);
 
-				setSecretsListState(() => response.data.secrets);
-			})
-			.catch(() => {
-				return;
-			});
-	}, [backendApi, createdSecretDetails]);
+	const onRevokeAllSecrets = async () => {
+		await getAllSecretsMutate(
+			async () => {
+				await BackendService.delete('/user/secrets');
 
-	const onDeleteSecret = (secretId: string) => {
-		backendApi.delete(`/user/secrets/${secretId}`).then(() => {
-			setSecretsListState((prev) => prev.filter((secret) => secret.id !== secretId));
-		});
+				return { secrets: [] };
+			},
+			{
+				optimisticData: { secrets: [] },
+				rollbackOnError: true,
+			},
+		);
+
+		navigate('', { replace: true });
 	};
 
-	const onRevokeAllSecrets = () => {
-		backendApi.delete('/user/secrets').then(() => {
-			setSecretsListState(() => []);
-			navigate('', { replace: true });
-		});
-	};
-
-	return (
-		<SecretManagementView
-			secretsList={secretsListState}
-			createdSecretDetails={createdSecretDetails}
-			onDeleteSecret={onDeleteSecret}
-			onRevokeAllSecrets={onRevokeAllSecrets}
-		/>
-	);
+	return <SecretManagementView hasSecrets={hasSecrets} onRevokeAllSecrets={onRevokeAllSecrets} />;
 };
 
 SecretManagement.displayName = 'SecretManagement';

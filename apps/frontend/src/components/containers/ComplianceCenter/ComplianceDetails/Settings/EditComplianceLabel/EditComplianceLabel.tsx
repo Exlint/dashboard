@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { IAvailableLabelResponseData } from '@exlint.io/common';
 
 import { useDebounce } from '@/hooks/use-debounce';
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import EditComplianceLabelView from './EditComplianceLabel.view';
 
@@ -34,14 +34,12 @@ const EditComplianceLabel: React.FC<IProps> = (props: React.PropsWithChildren<IP
 			) {
 				setNewIsComplianceLabelValidState(() => false);
 			} else if (props.newComplianceLabelInput !== props.complianceLabel) {
-				backendApi
-					.get<IAvailableLabelResponseData>(
-						`/user/compliances/available/${props.newComplianceLabelInput}`,
-					)
-					.then((response) => {
-						setNewIsComplianceLabelValidState(() => response.data.isAvailable);
-						setNewIsComplianceLabelAvailableState(() => response.data.isAvailable);
-					});
+				BackendService.get<IAvailableLabelResponseData>(
+					`/user/compliances/available/${props.newComplianceLabelInput}`,
+				).then((responseData) => {
+					setNewIsComplianceLabelValidState(() => responseData.isAvailable);
+					setNewIsComplianceLabelAvailableState(() => responseData.isAvailable);
+				});
 			}
 		},
 		[props.newComplianceLabelInput],

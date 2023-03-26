@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
-import type { AxiosResponse } from 'axios';
 import type {
 	IGetPolicyRulesResponseData,
 	ILibraryData,
@@ -13,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 import type { IUiShowNotificationPayload } from '@/store/interfaces/ui';
 import { uiActions } from '@/store/reducers/ui';
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import PolicyRulesView from './PolicyRules.view';
 
@@ -42,14 +41,27 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 		null,
 	);
 
+	useEffect(() => {
+		BackendService.get<IGetPolicyRulesResponseData>(`/user/inline-policies/rules/${params.policyId}`)
+			.then((responseData) => {
+				setIsFormConfigurationState(() => responseData.isFormConfiguration);
+				setDescriptionState(() => responseData.description);
+				setPolicyCreationDateState(() => responseData.createdAt);
+				setPolicyTypesState(() => responseData.types);
+				setPolicyCategoriesState(() => responseData.categories);
+				setRulesDataState(() => responseData.rules);
+				setRulestotalCountState(() => responseData.count);
+			})
+			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
+	}, []);
+
 	const onIsSwitchCheckedChange = async (checked: boolean) => {
 		setIsFormConfigurationState(() => checked);
 
-		await backendApi
-			.patch<void, AxiosResponse<void>, ISetIsFormConfigurationDto>(
-				`/user/inline-policies/is-form-configuration/${params.policyId}`,
-				{ isFormConfiguration: checked },
-			)
+		await BackendService.patch<void, ISetIsFormConfigurationDto>(
+			`/user/inline-policies/is-form-configuration/${params.policyId}`,
+			{ isFormConfiguration: checked },
+		)
 			.then(() => {
 				props.showNotification({
 					notificationType: 'warning',
@@ -71,26 +83,11 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const onConfigureRule = (ruleId: string) => navigate(`rules-list/${ruleId}`);
 
 	const onRemoveRuleClick = (ruleId: string) => {
-		backendApi.delete(`/user/rules/${ruleId}`).then(() => {
+		BackendService.delete(`/user/rules/${ruleId}`).then(() => {
 			setRulesDataState((prev) => prev.filter((ruleItem) => ruleItem.id !== ruleId));
 			setRulestotalCountState((prev) => prev! - 1);
 		});
 	};
-
-	useEffect(() => {
-		backendApi
-			.get<IGetPolicyRulesResponseData>(`/user/inline-policies/rules/${params.policyId}`)
-			.then((response) => {
-				setIsFormConfigurationState(() => response.data.isFormConfiguration);
-				setDescriptionState(() => response.data.description);
-				setPolicyCreationDateState(() => response.data.createdAt);
-				setPolicyTypesState(() => response.data.types);
-				setPolicyCategoriesState(() => response.data.categories);
-				setRulesDataState(() => response.data.rules);
-				setRulestotalCountState(() => response.data.count);
-			})
-			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
-	}, [backendApi]);
 
 	return (
 		<PolicyRulesView

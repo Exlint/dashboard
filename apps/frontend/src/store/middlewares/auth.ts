@@ -6,7 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import type { IRefreshTokenResponseData } from '@exlint.io/common';
 
-import { backendApi } from '@/utils/http';
+import BackendService from '@/services/backend';
 
 import { authActions } from '../reducers/auth';
 import { ACCESS_TOKEN_REFRESH_TIMEOUT } from '../models/auth';
@@ -23,9 +23,11 @@ const authEffect = async (
 		await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
 
 		try {
-			const response = await backendApi.get<IRefreshTokenResponseData>('/user/auth/refresh-token');
+			const responseData = await BackendService.get<IRefreshTokenResponseData>(
+				'/user/auth/refresh-token',
+			);
 
-			sessionStorage.setItem('token', response.data.accessToken);
+			sessionStorage.setItem('token', responseData.accessToken);
 		} catch {
 			listnerApi.dispatch(authActions.setUnauthenticated());
 

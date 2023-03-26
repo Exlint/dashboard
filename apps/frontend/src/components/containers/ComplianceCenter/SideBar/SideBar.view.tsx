@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import type { IGetAllCompliancesResponseData } from '@exlint.io/common';
 
 import EDInputField from '@/ui/EDInputField';
 import EDAcceptButton from '@/ui/EDAcceptButton';
-import noCompliancesImg from '@/images/no-compliances.png';
-import type { ISideBarCompliance } from '@/store/interfaces/compliances';
 
-import classes from './SideBar.module.scss';
 import CompliancesList from './CompliancesList';
 
+import classes from './SideBar.module.scss';
+
 interface IProps {
-	readonly compliances: ISideBarCompliance[];
+	readonly compliances: IGetAllCompliancesResponseData['compliances'];
 	readonly searchInput: string | null;
 	readonly isNewComplianceButtonDisabled: boolean;
 	readonly onSearchInputChange: (value: string) => void;
@@ -38,23 +38,9 @@ const SideBarView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					{t('complianceCenter.sideBar.newComplianceAction')}
 				</EDAcceptButton>
 			</div>
-
 			<hr className={classes['container__divider']} />
 
-			{props.compliances.length === 0 ? (
-				<div className={classes['noCompliancesContainer']}>
-					<h3 className={classes['noCompliancesContainer__header']}>
-						{t('complianceCenter.sideBar.noCompliancesHeader')}
-					</h3>
-					<img
-						className={classes['noCompliancesContainer__img']}
-						src={noCompliancesImg}
-						alt={t('complianceCenter.sideBar.noCompliancesHeader')}
-					/>
-				</div>
-			) : (
-				<CompliancesList compliances={props.compliances} />
-			)}
+			<CompliancesList compliances={props.compliances} />
 		</aside>
 	);
 };

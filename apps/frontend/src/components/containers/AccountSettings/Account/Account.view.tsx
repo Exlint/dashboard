@@ -8,7 +8,7 @@ import classes from './Account.module.scss';
 
 interface IProps {
 	readonly onSignOutClick: VoidFunction;
-	readonly onModalConfirmClick: VoidFunction;
+	readonly onModalConfirmClick: () => Promise<void>;
 }
 
 const AccountView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
