@@ -32,7 +32,8 @@
 		"strategies": "mappings",
 		"queries": "shader",
 		"secrets": "keys",
-		"user": "client"
+		"user": "client",
+		"_templates": "template"
 	},
 	"material-icon-theme.activeIconPack": "nest",
 	"task.allowAutomaticTasks": "on",

@@ -18,7 +18,7 @@ interface IProps {
 	readonly isFormValid: boolean;
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onFormChange: (data: IChangeEvent) => void;
-	readonly onFormSubmit: VoidFunction;
+	readonly onFormSubmit: () => Promise<void>;
 }
 
 const FormView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

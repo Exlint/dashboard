@@ -6,13 +6,20 @@ import type { ISecretItem } from '../interfaces/secrets';
 import classes from './SecretsList.module.scss';
 
 interface IProps {
+	readonly withCreatedSecret: boolean;
 	readonly secretsList: ISecretItem[];
-	readonly onRefreshSecret: (secretId: string) => void;
+	readonly onRefreshSecret: (secretId: string) => Promise<void>;
 	readonly onDeleteSecret: (secretId: string) => void;
 }
 
 const SecretsListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const { t } = useTranslation();
+
+	if (props.secretsList.length === 0 && !props.withCreatedSecret) {
+		return (
+			<span className={classes['noSecrets']}>{t('accountSettings.secretManagement.noSecrets')}</span>
+		);
+	}
 
 	return (
 		<section className={classes['secretsList']}>

@@ -13,7 +13,7 @@ interface IProps {
 	readonly onIsSwitchCheckedChange: (checked: boolean) => void;
 	readonly onFileTypeSelect: (index: number) => void;
 	readonly onCodeInputChange: (value: string) => void;
-	readonly onSaveChangesClick: VoidFunction;
+	readonly onSaveChangesClick: () => Promise<void>;
 }
 
 const CodeView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

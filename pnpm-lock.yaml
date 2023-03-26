@@ -302,6 +302,7 @@ importers:
       '@rjsf/utils': 5.3.0
       '@rjsf/validator-ajv8': 5.3.0
       '@types/node': 18.15.3
+      '@types/nprogress': 0.2.0
       '@types/react': 18.0.28
       '@types/react-datepicker': 4.10.0
       '@types/react-dom': 18.0.11
@@ -312,7 +313,6 @@ importers:
       '@uiw/codemirror-themes': 4.19.9
       '@uiw/react-codemirror': 4.19.9
       '@vitejs/plugin-react': 3.1.0
-      axios: 1.3.4
       bootstrap: 3.4.1
       date-fns: 2.29.3
       depcheck: 1.4.3
@@ -327,6 +327,7 @@ importers:
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
       i18next: 22.4.12
+      nprogress: 0.2.0
       prettier: 2.8.4
       prisma: 4.11.0
       react: 18.2.0
@@ -343,9 +344,11 @@ importers:
       stylelint-config-recess-order: 4.0.0
       stylelint-config-standard-scss: 7.0.1
       stylelint-declaration-strict-value: 1.9.2
+      swr: 2.0.3
       typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-react-remove-attributes: 1.0.3
+      vite-plugin-sass-dts: 1.3.1
       vite-tsconfig-paths: 4.0.7
     dependencies:
       '@codemirror/lang-javascript': 6.1.4
@@ -362,10 +365,10 @@ importers:
       '@types/react-dom': 18.0.11
       '@uiw/codemirror-themes': 4.19.9_@codemirror+language@6.6.0
       '@uiw/react-codemirror': 4.19.9_ker7kxegmccnypz2hsrgxl6zqm
-      axios: 1.3.4
       bootstrap: 3.4.1
       date-fns: 2.29.3
       i18next: 22.4.12
+      nprogress: 0.2.0
       react: 18.2.0
       react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
@@ -375,9 +378,11 @@ importers:
       react-scroll: 1.8.9_biqbaboplfbrettd7655fr4n2y
       react-switch: 7.0.0_biqbaboplfbrettd7655fr4n2y
       react-textarea-autosize: 8.4.0_pmekkgnqduwlme35zpnqhenc34
+      swr: 2.0.3_react@18.2.0
     devDependencies:
       '@exlint.io/common': link:../../packages/common
       '@types/node': 18.15.3
+      '@types/nprogress': 0.2.0
       '@types/react-datepicker': 4.10.0_biqbaboplfbrettd7655fr4n2y
       '@types/react-router-dom': 5.3.3
       '@types/react-scroll': 1.8.6
@@ -405,6 +410,7 @@ importers:
       typescript: 5.0.2
       vite: 4.1.4_bbhgkqmop4v24vevyan3j2nitq
       vite-plugin-react-remove-attributes: 1.0.3_vite@4.1.4
+      vite-plugin-sass-dts: 1.3.1_or7dcqymzkpxxfhq6zdp33d4ma
       vite-tsconfig-paths: 4.0.7_5jkncxdfqp3w72r2hdiuloxgki
 
   apps/landing-page:
@@ -3697,6 +3703,10 @@ packages:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: true
 
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: true
+
   /@types/oauth/0.9.1:
     resolution: {integrity: sha512-a1iY62/a3yhZ7qH7cNUsxoI3U/0Fe9+RnuFrpTKr+0WVOzbKlSLojShCKe20aOD1Sppv+i8Zlq0pLDuTJnwS4A==}
     dependencies:
@@ -4642,6 +4652,7 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: true
 
   /at-least-node/1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
@@ -4675,6 +4686,7 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
+    dev: true
 
   /axobject-query/3.1.1:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
@@ -4944,6 +4956,11 @@ packages:
     dependencies:
       no-case: 2.3.2
       upper-case: 1.1.3
+    dev: true
+
+  /camelcase-css/2.0.1:
+    resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
+    engines: {node: '>= 6'}
     dev: true
 
   /camelcase-keys/6.2.2:
@@ -5242,6 +5259,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: true
 
   /commander/10.0.0:
     resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
@@ -5760,6 +5778,7 @@ packages:
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: true
 
   /depcheck/1.4.3:
     resolution: {integrity: sha512-vy8xe1tlLFu7t4jFyoirMmOR7x7N601ubU9Gkifyr9z8rjBFtEdWHDBMqXyk6OkK+94NXutzddVXJuo0JlUQKQ==}
@@ -6954,6 +6973,7 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: true
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -6991,6 +7011,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: true
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -9091,6 +9112,10 @@ packages:
       path-key: 4.0.0
     dev: true
 
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
+
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
     dependencies:
@@ -9676,6 +9701,15 @@ packages:
     hasBin: true
     dev: true
 
+  /postcss-js/4.0.1:
+    resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
+    engines: {node: ^12 || ^14 || >= 16}
+    peerDependencies:
+      postcss: ^8.4.21
+    dependencies:
+      camelcase-css: 2.0.1
+    dev: true
+
   /postcss-media-query-parser/0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
     dev: true
@@ -9805,6 +9839,7 @@ packages:
 
   /proxy-from-env/1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: true
 
   /proxy-middleware/0.15.0:
     resolution: {integrity: sha512-EGCG8SeoIRVMhsqHQUdDigB2i7qU7fCsWASwn54+nPutYO8n4q6EiwMzyfWlC+dzRFExP+kvcnDFdBDHoZBU7Q==}
@@ -11231,6 +11266,16 @@ packages:
       upper-case: 1.1.3
     dev: true
 
+  /swr/2.0.3_react@18.2.0:
+    resolution: {integrity: sha512-sGvQDok/AHEWTPfhUWXEHBVEXmgGnuahyhmRQbjl9XBYxT/MSlAzvXEKQpyM++bMPaI52vcWS2HiKNaW7+9OFw==}
+    engines: {pnpm: '7'}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
   /symbol-observable/1.0.1:
     resolution: {integrity: sha512-Kb3PrPYz4HanVF1LVGuAdW6LoVgIwjUYJGzFe7NDrBLCN4lsV/5J0MFurV+ygS4bRVwrCEt2c7MQ1R2a72oJDw==}
     engines: {node: '>=0.10.0'}
@@ -11894,6 +11939,21 @@ packages:
     peerDependencies:
       vite: ^2.4.4
     dependencies:
+      vite: 4.1.4_bbhgkqmop4v24vevyan3j2nitq
+    dev: true
+
+  /vite-plugin-sass-dts/1.3.1_or7dcqymzkpxxfhq6zdp33d4ma:
+    resolution: {integrity: sha512-GmyXQ1PYTunOQ3LWZ1fnIQ9XNiVCDkyHRXH12XeCnJspu0LEQ4ZJKM4EdpUe+/8juuNUSb8rHzp9SwotXz7gyA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      postcss: ^8
+      prettier: ^2.7
+      sass: '*'
+      vite: ^3 || ^4
+    dependencies:
+      postcss-js: 4.0.1
+      prettier: 2.8.4
+      sass: 1.59.3
       vite: 4.1.4_bbhgkqmop4v24vevyan3j2nitq
     dev: true
 

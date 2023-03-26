@@ -6,7 +6,7 @@ interface IProps {
 	readonly fileListInput: string | null;
 	readonly isSaveChangesDisabled: boolean;
 	readonly onFileListInputChange: (value: string) => void;
-	readonly onSaveChangesClick: VoidFunction;
+	readonly onSaveChangesClick: () => Promise<void>;
 }
 
 const FilesListView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

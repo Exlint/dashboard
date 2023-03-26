@@ -4,8 +4,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 
 import { authActions } from '@/store/reducers/auth';
-import { backendApi } from '@/utils/http';
 import { uiActions } from '@/store/reducers/ui';
+import BackendService from '@/services/backend';
 
 import AccountView from './Account.view';
 
@@ -26,13 +26,13 @@ const Account: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 		navigate('/auth');
 	};
 
-	const onModalConfirmClick = () => {
-		backendApi.delete('/user/auth').then(() => {
-			props.closeNotification();
-			props.setUnauthenticated();
+	const onModalConfirmClick = async () => {
+		await BackendService.delete('/user/auth');
 
-			navigate('/auth');
-		});
+		props.closeNotification();
+		props.setUnauthenticated();
+
+		navigate('/auth');
 	};
 
 	return <AccountView onSignOutClick={onSignOutClick} onModalConfirmClick={onModalConfirmClick} />;

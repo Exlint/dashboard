@@ -1,31 +1,22 @@
 import React, { type FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import type { PayloadAction } from '@reduxjs/toolkit';
 import { scroller } from 'react-scroll';
 import type {
 	IAvailableLabelResponseData,
 	ICreateComplianceDto,
 	ICreateComplianceResponseData,
+	IGetAllCompliancesResponseData,
 } from '@exlint.io/common';
-import type { AxiosResponse } from 'axios';
 
 import { useDebounce } from '@/hooks/use-debounce';
-import { backendApi } from '@/utils/http';
-import { compliancesActions } from '@/store/reducers/compliances';
-import type { IAddSideBarCompliancesPayload } from '@/store/interfaces/compliances';
+import useBackend from '@/hooks/use-backend';
+import BackendService from '@/services/backend';
 
 import NewComplianceView from './NewCompliance.view';
 
-interface IPropsFromDispatch {
-	readonly addSideBarCompliance: (
-		compliances: IAddSideBarCompliancesPayload,
-	) => PayloadAction<IAddSideBarCompliancesPayload>;
-}
+interface IProps {}
 
-interface IProps extends IPropsFromDispatch {}
-
-const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
+const NewCompliance: React.FC<IProps> = () => {
 	const [complianceLabelInputState, setComplianceLabelInputState] = useState<string | null>(null);
 
 	const [complianceDescriptionInputState, setComplianceDescriptionInputState] = useState<string | null>(
@@ -37,6 +28,9 @@ const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 	const [isComplianceLabelAvailableState, setIsComplianceLabelAvailableState] = useState<boolean | null>(
 		null,
 	);
+
+	const { mutate: getAllCompliancesMutate } =
+		useBackend<IGetAllCompliancesResponseData>('/user/compliances');
 
 	const navigate = useNavigate();
 
@@ -59,14 +53,12 @@ const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			) {
 				setIsComplianceLabelValidState(() => false);
 			} else {
-				backendApi
-					.get<IAvailableLabelResponseData>(
-						`/user/compliances/available/${complianceLabelInputState}`,
-					)
-					.then((response) => {
-						setIsComplianceLabelValidState(() => response.data.isAvailable);
-						setIsComplianceLabelAvailableState(() => response.data.isAvailable);
-					});
+				BackendService.get<IAvailableLabelResponseData>(
+					`/user/compliances/available/${complianceLabelInputState}`,
+				).then((responseData) => {
+					setIsComplianceLabelValidState(() => responseData.isAvailable);
+					setIsComplianceLabelAvailableState(() => responseData.isAvailable);
+				});
 			}
 		},
 		[complianceLabelInputState],
@@ -83,38 +75,41 @@ const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		setComplianceDescriptionInputState(() => value);
 	};
 
-	const onCreateCompliance = (e: FormEvent<HTMLFormElement>) => {
+	const onCreateCompliance = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		backendApi
-			.post<
-				ICreateComplianceResponseData,
-				AxiosResponse<ICreateComplianceResponseData>,
-				ICreateComplianceDto
-			>('/user/compliances', {
+		const responseData = await BackendService.post<ICreateComplianceResponseData, ICreateComplianceDto>(
+			'/user/compliances',
+			{
 				label: complianceLabelInputState!,
 				description:
 					complianceDescriptionInputState !== null && complianceDescriptionInputState !== ''
 						? complianceDescriptionInputState
 						: null,
-			})
-			.then((response) => {
-				props.addSideBarCompliance({
-					sideBarCompliance: {
-						id: response.data.id,
-						label: complianceLabelInputState!,
-						librariesNames: [],
-					},
-				});
+			},
+		);
 
-				scroller.scrollTo('compliance-list-end', {
-					containerId: 'compliance-list-container',
-					smooth: true,
-					duration: 500,
-				});
+		await getAllCompliancesMutate((currentData) => {
+			if (!currentData) {
+				return;
+			}
 
-				navigate(`/compliance-center/${response.data.id}`);
-			});
+			return {
+				...currentData,
+				compliances: [
+					...currentData.compliances,
+					{ id: responseData.id, label: complianceLabelInputState!, librariesNames: [] },
+				],
+			};
+		});
+
+		scroller.scrollTo('compliance-list-end', {
+			containerId: 'compliance-list-container',
+			smooth: true,
+			duration: 500,
+		});
+
+		navigate(`/compliance-center/${responseData.id}`);
 	};
 
 	return (
@@ -133,6 +128,4 @@ const NewCompliance: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 NewCompliance.displayName = 'NewCompliance';
 NewCompliance.defaultProps = {};
 
-export default connect(null, {
-	addSideBarCompliance: compliancesActions.addSideBarCompliance,
-})(React.memo(NewCompliance));
+export default React.memo(NewCompliance);

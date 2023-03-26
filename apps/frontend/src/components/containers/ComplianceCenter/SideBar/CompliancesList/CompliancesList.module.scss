@@ -9,3 +9,24 @@
 	padding-inline-end: map.get(variables.$sizes, spacing-xxl);
 	overflow-y: auto;
 }
+
+.noCompliancesContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-inline: map.get(variables.$sizes, spacing-xxl);
+	margin-top: map.get(variables.$sizes, spacing-xxl-3);
+
+	&__header {
+		margin-bottom: map.get(variables.$sizes, spacing-xl);
+		font-size: 2.4rem;
+		font-weight: 500;
+		color: map.get(variables.$colors, blacks-dark-gunmetal);
+		text-align: center;
+	}
+
+	&__img {
+		height: 113px;
+		object-fit: contain;
+	}
+}

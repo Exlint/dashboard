@@ -13,12 +13,15 @@
 			"@/layout/*": ["src/components/layout/*"],
 			"@/data/*": ["src/data/*"],
 			"@/utils/*": ["src/utils/*"],
+			"@/services/*": ["src/services/*"],
+			"@/helpers/*": ["src/helpers/*"],
 			"@/store/*": ["src/store/*"],
 			"@/images/*": ["src/assets/images/*"],
 			"@/assets/*": ["src/assets/*"],
 			"@/hooks/*": ["src/hooks/*"],
 			"@/models/*": ["src/models/*"],
-			"@/styles/*": ["src/styles/*"]
+			"@/styles/*": ["src/styles/*"],
+			"@/types/*": ["src/types/*"]
 		},
 		"typeRoots": ["./@types", "./node_modules/@types"]
 	}

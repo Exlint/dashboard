@@ -18,7 +18,7 @@ interface IProps {
 	readonly policyCreationDate: number | null;
 	readonly onDescriptionInputChange: (value: string) => void;
 	readonly onEditIconClick: VoidFunction;
-	readonly onConfirmNewEditClick: VoidFunction;
+	readonly onConfirmNewEditClick: () => Promise<void>;
 }
 
 const DescriptionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {

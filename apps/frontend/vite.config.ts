@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import VitePluginReactRemoveAttributes from 'vite-plugin-react-remove-attributes';
+import sassDts from 'vite-plugin-sass-dts';
 
 const hasDockerCGroup = () => {
 	try {
@@ -64,6 +65,7 @@ export default defineConfig(({ mode }) => {
 			react(),
 			tsconfigPaths(),
 			prismaPlugin(),
+			sassDts(),
 			...(appMode !== 'test' ? removeDataTestIdsForProduction : []),
 		],
 		resolve: { alias: { '@/styles': path.join(__dirname, 'src', 'styles') } },

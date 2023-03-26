@@ -27,6 +27,7 @@ const NavView: React.FC<IProps> = () => {
 					text={t('nav.complianceCenter')}
 					testId="nav-compliance-center-link"
 				/>
+
 				<NavLink
 					route="/account-settings"
 					iconName="greyUser"

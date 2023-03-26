@@ -9,8 +9,8 @@ import { concatClasses } from '@/utils/component';
 import classes from './Header.module.scss';
 
 interface IProps {
-	readonly complianceLabel: string;
-	readonly complianceId: string;
+	readonly complianceLabel?: string;
+	readonly complianceId?: string;
 }
 
 const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
@@ -29,7 +29,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 						<Trans>&#58;</Trans>
 						&nbsp;
 					</span>
-					<EDCopyTextBox value={props.complianceId} />
+					<EDCopyTextBox value={props.complianceId ?? ''} />
 				</div>
 			</div>
 			<div className={classes['tabs']}>
@@ -47,6 +47,7 @@ const HeaderView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 					</div>
 					<div className={classes['tab__border']} />
 				</NavLink>
+
 				<NavLink
 					className={({ isActive }) =>
 						concatClasses(classes, 'tab', isActive ? 'tab--active' : null)

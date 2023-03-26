@@ -4,26 +4,32 @@ import { connect } from 'react-redux';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { IAutoAuthResponseData, ICliAuthResponseData } from '@exlint.io/common';
 
-import { backendApi, cliBackendApi, temporaryCliServerApi } from '@/utils/http';
 import { authActions } from '@/store/reducers/auth';
 import type { IAuthPayload } from '@/store/interfaces/auth';
+import BackendService from '@/services/backend';
+import CliBackendService from '@/services/cli-backend';
+import type { AppState } from '@/store/app';
 
 import ExternalAuthRedirectView from './ExternalAuthRedirect.view';
+
+interface IPropsFromState {
+	readonly isAuthenticated: boolean | null;
+}
 
 interface PropsFromDispatch {
 	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
 }
 
-interface IProps extends PropsFromDispatch {}
+interface IProps extends IPropsFromState, PropsFromDispatch {}
 
 const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
 
-	useEffect(() => {
-		const refreshToken = searchParams.get('refreshToken');
-		const port = searchParams.get('port');
+	const refreshToken = searchParams.get('refreshToken');
+	const port = searchParams.get('port');
 
+	useEffect(() => {
 		if (refreshToken) {
 			localStorage.setItem('token', refreshToken);
 
@@ -31,9 +37,7 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				let autoAuthResponseData: IAutoAuthResponseData;
 
 				try {
-					const autoAuthResponse = await backendApi.get<IAutoAuthResponseData>('/user/auth');
-
-					autoAuthResponseData = autoAuthResponse.data;
+					autoAuthResponseData = await BackendService.get<IAutoAuthResponseData>('/user/auth');
 
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
@@ -55,12 +59,12 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					let email: string;
 
 					try {
-						const response = await cliBackendApi.get<ICliAuthResponseData>(
-							`/user/auth/auth?port=${port}`,
+						const responseData = await CliBackendService.get<ICliAuthResponseData>(
+							'/user/auth/auth',
 						);
 
-						cliToken = response.data.cliToken;
-						email = response.data.email;
+						cliToken = responseData.cliToken;
+						email = responseData.email;
 					} catch {
 						navigate(`/cli-auth?port=${port}`);
 
@@ -68,7 +72,11 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					}
 
 					try {
-						await temporaryCliServerApi.get(`http://localhost:${port}/${cliToken}/${email}`);
+						const res = await fetch(`http://localhost:${port}/${cliToken}/${email}`);
+
+						if (!res.ok) {
+							throw new Error();
+						}
 
 						navigate('/cli-authenticated');
 					} catch {
@@ -83,10 +91,6 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					name: autoAuthResponseData.name,
 					createdAt: autoAuthResponseData.createdAt,
 				});
-
-				if (!port) {
-					navigate('/');
-				}
 			};
 
 			fetchResults();
@@ -99,7 +103,13 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 			navigate(navigateUrl);
 		}
-	}, [searchParams]);
+	}, [refreshToken, port]);
+
+	useEffect(() => {
+		if (!port && props.isAuthenticated) {
+			navigate('/', { replace: true });
+		}
+	}, [port, props.isAuthenticated]);
 
 	return <ExternalAuthRedirectView />;
 };
@@ -107,4 +117,10 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 ExternalAuthRedirect.displayName = 'ExternalAuthRedirect';
 ExternalAuthRedirect.defaultProps = {};
 
-export default connect(null, { auth: authActions.auth })(React.memo(ExternalAuthRedirect));
+const mapStateToProps = (state: AppState) => {
+	return {
+		isAuthenticated: state.auth.isAuthenticated,
+	};
+};
+
+export default connect(mapStateToProps, { auth: authActions.auth })(React.memo(ExternalAuthRedirect));
