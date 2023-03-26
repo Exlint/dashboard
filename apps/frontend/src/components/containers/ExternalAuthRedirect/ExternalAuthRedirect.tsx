@@ -8,14 +8,19 @@ import { authActions } from '@/store/reducers/auth';
 import type { IAuthPayload } from '@/store/interfaces/auth';
 import BackendService from '@/services/backend';
 import CliBackendService from '@/services/cli-backend';
+import type { AppState } from '@/store/app';
 
 import ExternalAuthRedirectView from './ExternalAuthRedirect.view';
+
+interface IPropsFromState {
+	readonly isAuthenticated: boolean | null;
+}
 
 interface PropsFromDispatch {
 	readonly auth: (loginPayload: IAuthPayload) => PayloadAction<IAuthPayload>;
 }
 
-interface IProps extends PropsFromDispatch {}
+interface IProps extends IPropsFromState, PropsFromDispatch {}
 
 const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	const navigate = useNavigate();
@@ -86,10 +91,6 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					name: autoAuthResponseData.name,
 					createdAt: autoAuthResponseData.createdAt,
 				});
-
-				if (!port) {
-					navigate('/', { replace: true });
-				}
 			};
 
 			fetchResults();
@@ -104,10 +105,22 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 		}
 	}, [refreshToken, port]);
 
+	useEffect(() => {
+		if (!port && props.isAuthenticated) {
+			navigate('/', { replace: true });
+		}
+	}, [port, props.isAuthenticated]);
+
 	return <ExternalAuthRedirectView />;
 };
 
 ExternalAuthRedirect.displayName = 'ExternalAuthRedirect';
 ExternalAuthRedirect.defaultProps = {};
 
-export default connect(null, { auth: authActions.auth })(React.memo(ExternalAuthRedirect));
+const mapStateToProps = (state: AppState) => {
+	return {
+		isAuthenticated: state.auth.isAuthenticated,
+	};
+};
+
+export default connect(mapStateToProps, { auth: authActions.auth })(React.memo(ExternalAuthRedirect));
