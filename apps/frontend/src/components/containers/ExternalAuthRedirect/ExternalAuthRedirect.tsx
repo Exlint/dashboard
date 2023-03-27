@@ -41,6 +41,8 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
+					console.log('CHEDDERER1');
+
 					localStorage.clear();
 
 					let navigateUrl = '/auth';
