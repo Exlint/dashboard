@@ -23,7 +23,7 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-to
 		});
 	}
 
-	async validate(request: Request, payload: IJwtTokenPayload) {
+	public async validate(request: Request, payload: IJwtTokenPayload) {
 		// Authorizatin header won't be undefined as the "PassportStrategy" verifies it
 		const refreshTokenHeader = request.headers.authorization!;
 		const refreshToken = refreshTokenHeader.replace('Bearer ', '');

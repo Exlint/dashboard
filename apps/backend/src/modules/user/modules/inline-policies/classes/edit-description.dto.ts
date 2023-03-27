@@ -13,5 +13,5 @@ export class EditPolicyDescriptionDto implements IEditPolicyDescriptionDto {
 	})
 	@IsString()
 	@IsNullable()
-	readonly description!: string | null;
+	public readonly description!: string | null;
 }

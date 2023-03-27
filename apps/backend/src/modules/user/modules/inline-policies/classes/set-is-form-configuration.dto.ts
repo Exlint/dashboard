@@ -9,5 +9,5 @@ export class SetIsFormConfigurationDto implements ISetIsFormConfigurationDto {
 		example: true,
 	})
 	@IsBoolean()
-	readonly isFormConfiguration!: boolean;
+	public readonly isFormConfiguration!: boolean;
 }

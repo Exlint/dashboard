@@ -21,13 +21,13 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
 		});
 	}
 
-	override authorizationParams(): { [key: string]: string } {
+	public override authorizationParams(): { [key: string]: string } {
 		return {
 			access_type: 'offline',
 		};
 	}
 
-	validate(
+	public validate(
 		req: Request,
 		accessToken: string | undefined,
 		_: string,

@@ -8,7 +8,7 @@ import { EditLabelContract } from '../contracts/edit-label.contract';
 export class EditLabelHandler implements ICommandHandler<EditLabelContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async execute(contract: EditLabelContract) {
+	public async execute(contract: EditLabelContract) {
 		await this.dbComplianceService.editComplianceLabel(contract.complianceId, contract.label);
 	}
 }

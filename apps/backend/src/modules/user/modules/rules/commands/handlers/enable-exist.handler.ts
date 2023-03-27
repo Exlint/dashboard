@@ -8,7 +8,7 @@ import { EnableExistContract } from '../contracts/enable-exist.contract';
 export class EnableExistHandler implements ICommandHandler<EnableExistContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: EnableExistContract) {
+	public async execute(contract: EnableExistContract) {
 		await this.dbRuleService.enableExistRule(contract.ruleId);
 	}
 }

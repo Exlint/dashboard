@@ -7,5 +7,5 @@ export class EditPolicyLabelDto implements IEditPolicyLabelDto {
 	@IsString()
 	@MaxLength(30)
 	@MinLength(1)
-	readonly label!: string;
+	public readonly label!: string;
 }

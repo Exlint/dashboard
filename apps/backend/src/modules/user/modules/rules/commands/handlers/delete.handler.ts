@@ -8,7 +8,7 @@ import { DeleteContract } from '../contracts/delete.contract';
 export class DeleteHandler implements ICommandHandler<DeleteContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: DeleteContract) {
+	public async execute(contract: DeleteContract) {
 		await this.dbRuleService.deleteRule(contract.ruleId);
 	}
 }

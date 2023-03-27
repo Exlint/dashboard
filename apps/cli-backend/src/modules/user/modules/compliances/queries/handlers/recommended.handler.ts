@@ -14,7 +14,7 @@ import { RecommendedContract } from '../contracts/recommended.contract';
 
 @QueryHandler(RecommendedContract)
 export class RecommendedHandler implements IQueryHandler<RecommendedContract> {
-	async execute(contract: RecommendedContract): Promise<IRecommendedResponseData> {
+	public async execute(contract: RecommendedContract): Promise<IRecommendedResponseData> {
 		const recommendedPolicies: IRecommendedPolicy[] = [];
 
 		if (contract.languages.includes(Language.Golang)) {

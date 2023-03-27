@@ -10,5 +10,5 @@ export class SetFormConfigurationDto implements ISetFormConfigurationDto {
 	@ApiProperty({ type: String, description: 'Form configuration', example: { root: true } })
 	@IsValidJsonValue()
 	@IsNullable()
-	readonly data!: Prisma.JsonValue;
+	public readonly data!: Prisma.JsonValue;
 }

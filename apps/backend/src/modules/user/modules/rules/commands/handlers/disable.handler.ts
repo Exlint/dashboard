@@ -8,7 +8,7 @@ import { DisableContract } from '../contracts/disable.contract';
 export class DisableHandler implements ICommandHandler<DisableContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: DisableContract) {
+	public async execute(contract: DisableContract) {
 		await this.dbRuleService.disableRule(contract.ruleId);
 	}
 }

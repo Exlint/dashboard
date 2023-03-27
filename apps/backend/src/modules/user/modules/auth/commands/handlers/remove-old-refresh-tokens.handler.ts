@@ -8,7 +8,7 @@ import { RemoveOldRefreshTokensContract } from '../contracts/remove-old-refresh-
 export class RemoveOldRefreshTokensHandler implements ICommandHandler<RemoveOldRefreshTokensContract> {
 	constructor(private readonly dbUserService: DBUserService) {}
 
-	async execute(contract: RemoveOldRefreshTokensContract) {
+	public async execute(contract: RemoveOldRefreshTokensContract) {
 		await this.dbUserService.removeOldRefreshTokens(contract.userId);
 	}
 }

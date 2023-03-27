@@ -11,7 +11,7 @@ import { INLINE_POLICY_CREATE } from '../../models/mixpanel-events';
 export class CreateMixpanelHandler implements ICommandHandler<CreateMixpanelContract> {
 	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
 
-	execute(contract: CreateMixpanelContract): Promise<void> {
+	public execute(contract: CreateMixpanelContract): Promise<void> {
 		const mixpanel = Mixpanel.init(this.configService.get('mixpanelToken', { infer: true }));
 
 		mixpanel.track(INLINE_POLICY_CREATE, {

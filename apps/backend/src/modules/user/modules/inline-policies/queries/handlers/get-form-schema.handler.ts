@@ -8,7 +8,7 @@ import { GetFormSchemaContract } from '../contracts/get-form-schema.contract';
 export class GetFormSchemaHandler implements IQueryHandler<GetFormSchemaContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	execute(contract: GetFormSchemaContract) {
+	public execute(contract: GetFormSchemaContract) {
 		return this.dbInlinePolicyService.getFormSchema(contract.policyId);
 	}
 }

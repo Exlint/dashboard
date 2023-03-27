@@ -11,7 +11,7 @@ import { USER_SIGNUP } from '../../models/mixpanel-events';
 export class SignupMixpanelHandler implements ICommandHandler<SignupMixpanelContract> {
 	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
 
-	execute(contract: SignupMixpanelContract): Promise<void> {
+	public execute(contract: SignupMixpanelContract): Promise<void> {
 		const mixpanel = Mixpanel.init(this.configService.get('mixpanelToken', { infer: true }));
 
 		mixpanel.track(USER_SIGNUP, {

@@ -9,5 +9,5 @@ export class UpdateRuleConfigurationDto implements IUpdateRuleConfiguratinoDto {
 		example: ['error'],
 	})
 	@IsArray()
-	readonly configuration!: IUpdateRuleConfiguratinoDto['configuration'];
+	public readonly configuration!: IUpdateRuleConfiguratinoDto['configuration'];
 }

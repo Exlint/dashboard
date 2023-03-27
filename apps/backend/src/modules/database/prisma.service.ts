@@ -6,7 +6,7 @@ import { JWT_REFRESH_TOKEN_DURATION_MINUTES } from '@/models/jwt-token';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
-	async onModuleInit() {
+	public async onModuleInit() {
 		try {
 			await promiseRetry((retry) => this.$connect().catch(retry), { retries: 5 });
 		} catch {
@@ -30,7 +30,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 		});
 	}
 
-	enableShutdownHooks(app: INestApplication) {
+	public enableShutdownHooks(app: INestApplication) {
 		this.$on('beforeExit', async () => {
 			await app.close();
 		});

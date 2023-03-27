@@ -19,7 +19,7 @@ export class CliTokenStrategy extends PassportStrategy(Strategy, 'cli-token') {
 		});
 	}
 
-	async validate(payload: IJwtTokenPayload) {
+	public async validate(payload: IJwtTokenPayload) {
 		const doesUserIdExist = await this.dbUserService.doesUserIdExist(payload.sub);
 
 		if (!doesUserIdExist) {

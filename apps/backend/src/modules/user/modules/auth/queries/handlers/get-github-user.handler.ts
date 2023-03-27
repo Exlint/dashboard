@@ -11,7 +11,7 @@ export class GetGithubUserHandler implements IQueryHandler<GetGithubUserContract
 
 	constructor(private readonly dbUserService: DBUserService) {}
 
-	async execute(contract: GetGithubUserContract) {
+	public async execute(contract: GetGithubUserContract) {
 		try {
 			const userData = await this.dbUserService.findExternalUserByEmail(contract.email);
 

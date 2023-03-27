@@ -8,7 +8,7 @@ import { UpdateExternalTokenContract } from '../contracts/update-external-token.
 export class UpdateExternalTokenHandler implements ICommandHandler<UpdateExternalTokenContract> {
 	constructor(private readonly dbUserService: DBUserService) {}
 
-	async execute(contract: UpdateExternalTokenContract) {
+	public async execute(contract: UpdateExternalTokenContract) {
 		await this.dbUserService.updateExternalToken(contract.userId, contract.externalToken);
 	}
 }

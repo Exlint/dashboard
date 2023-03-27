@@ -12,7 +12,7 @@ export class RefreshSecretHandler implements IQueryHandler<RefreshSecretContract
 		private readonly secretsService: SecretsService,
 	) {}
 
-	async execute(contract: RefreshSecretContract) {
+	public async execute(contract: RefreshSecretContract) {
 		const expiration = await this.dbClientSecretService.getSecretExpiration(contract.secretId);
 
 		const secret = await this.secretsService.generateSecret(

@@ -12,7 +12,7 @@ export class CreateComplianceHandler implements IQueryHandler<CreateComplianceCo
 		private readonly eventBus: EventBus,
 	) {}
 
-	async execute(contract: CreateComplianceContract) {
+	public async execute(contract: CreateComplianceContract) {
 		const createdComplianceId = await this.dbComplianceService.createCompliance(
 			contract.userId,
 			contract.label,

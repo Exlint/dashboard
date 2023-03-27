@@ -1,3 +1,3 @@
 export class GetFormSchemaContract {
-	constructor(readonly policyId: string) {}
+	constructor(public readonly policyId: string) {}
 }

@@ -8,7 +8,7 @@ import { SetFilesListContract } from '../contracts/set-files-list.contract';
 export class SetFilesListHandler implements ICommandHandler<SetFilesListContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: SetFilesListContract) {
+	public async execute(contract: SetFilesListContract) {
 		const fileListArray = contract.filesList.split('\n').filter(Boolean);
 
 		await this.dbInlinePolicyService.setFileList(contract.policyId, fileListArray, contract.type);

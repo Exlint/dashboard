@@ -9,7 +9,7 @@ import type { GetCodeConfigurationResponse } from '../../classes/responses';
 export class GetCodeConfigurationHandler implements IQueryHandler<GetCodeConfigurationContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	execute(contract: GetCodeConfigurationContract): Promise<GetCodeConfigurationResponse> {
+	public execute(contract: GetCodeConfigurationContract): Promise<GetCodeConfigurationResponse> {
 		return this.dbInlinePolicyService.getCodeConfiguration(contract.policyId);
 	}
 }

@@ -8,7 +8,7 @@ import { RevokeSecretsContract } from '../contracts/revoke-secrets.contract';
 export class RevokeSecretsHandler implements ICommandHandler<RevokeSecretsContract> {
 	constructor(private readonly dbClientSecretService: DBClientSecretService) {}
 
-	async execute(contract: RevokeSecretsContract) {
+	public async execute(contract: RevokeSecretsContract) {
 		await this.dbClientSecretService.revokeAllSecrets(contract.userId);
 	}
 }

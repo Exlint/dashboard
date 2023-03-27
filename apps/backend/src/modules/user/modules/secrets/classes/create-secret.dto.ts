@@ -12,7 +12,7 @@ export class CreateSecretDto implements ICreateSecretDto {
 	@IsString()
 	@MinLength(1)
 	@MaxLength(30)
-	readonly label!: string;
+	public readonly label!: string;
 
 	@ApiProperty({
 		type: Number,
@@ -32,5 +32,5 @@ export class CreateSecretDto implements ICreateSecretDto {
 
 		return endOfDate.getTime();
 	})
-	readonly expiration!: number | null;
+	public readonly expiration!: number | null;
 }

@@ -126,6 +126,10 @@ module.exports = {
 		'@typescript-eslint/no-use-before-define': ['error'],
 		'@typescript-eslint/consistent-type-imports': ['error'],
 		'@typescript-eslint/await-thenable': 'error',
+		'@typescript-eslint/explicit-member-accessibility': [
+			'error',
+			{ accessbility: 'explicit', overrides: { constructors: 'off' } },
+		],
 
 		'unused-imports/no-unused-imports': 'error',
 

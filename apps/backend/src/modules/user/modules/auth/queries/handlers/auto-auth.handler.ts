@@ -8,7 +8,7 @@ import { AutoAuthContract } from '../contracts/auto-auth.contract';
 export class AutoLoginHandler implements IQueryHandler<AutoAuthContract> {
 	constructor(private readonly dbUserService: DBUserService) {}
 
-	async execute(contract: AutoAuthContract) {
+	public async execute(contract: AutoAuthContract) {
 		const userData = await this.dbUserService.findByEmail(contract.email, {
 			id: true,
 			name: true,

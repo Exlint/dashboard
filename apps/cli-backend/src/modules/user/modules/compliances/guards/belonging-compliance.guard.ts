@@ -7,7 +7,7 @@ import { DBComplianceService } from '@/modules/database/compliance.service';
 export class BelongingComplianceGuard implements CanActivate {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async canActivate(context: ExecutionContext): Promise<boolean> {
+	public async canActivate(context: ExecutionContext): Promise<boolean> {
 		const request = context.switchToHttp().getRequest();
 		const user = request.user as IJwtTokenPayload;
 		const userId = user.sub;

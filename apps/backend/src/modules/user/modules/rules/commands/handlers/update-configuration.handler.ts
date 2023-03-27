@@ -8,7 +8,7 @@ import { UpdateConfigurationContract } from '../contracts/update-configuration.c
 export class UpdateConfigurationHandler implements ICommandHandler<UpdateConfigurationContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: UpdateConfigurationContract) {
+	public async execute(contract: UpdateConfigurationContract) {
 		await this.dbRuleService.updateRuleConfiguration(contract.ruleId, contract.configuration);
 	}
 }

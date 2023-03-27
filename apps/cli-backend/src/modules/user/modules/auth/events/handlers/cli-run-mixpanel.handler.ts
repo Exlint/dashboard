@@ -11,7 +11,7 @@ import { CLI_RUN } from '../../models/mixpanel-events';
 export class CliRunMixpanelHandler implements ICommandHandler<CliRunMixpanelContract> {
 	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
 
-	execute(contract: CliRunMixpanelContract): Promise<void> {
+	public execute(contract: CliRunMixpanelContract): Promise<void> {
 		const mixpanel = Mixpanel.init(this.configService.get('mixpanelToken', { infer: true }));
 
 		mixpanel.track(CLI_RUN, {

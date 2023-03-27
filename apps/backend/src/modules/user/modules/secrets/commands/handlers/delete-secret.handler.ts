@@ -8,7 +8,7 @@ import { DeleteSecretContract } from '../contracts/delete-secret.contract';
 export class DeleteSecretHandler implements ICommandHandler<DeleteSecretContract> {
 	constructor(private readonly dbClientSecretService: DBClientSecretService) {}
 
-	async execute(contract: DeleteSecretContract) {
+	public async execute(contract: DeleteSecretContract) {
 		await this.dbClientSecretService.deleteSecret(contract.secretId);
 	}
 }

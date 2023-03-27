@@ -14,7 +14,7 @@ interface IGuardRequest {
 export class BelongingComplianceGuard implements CanActivate {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async canActivate(context: ExecutionContext): Promise<boolean> {
+	public async canActivate(context: ExecutionContext): Promise<boolean> {
 		const request = context.switchToHttp().getRequest<IGuardRequest>();
 		const user = request.user;
 		const userId = user.sub;

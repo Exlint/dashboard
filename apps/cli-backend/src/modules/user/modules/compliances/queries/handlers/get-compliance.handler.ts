@@ -9,7 +9,7 @@ import type { IGetComplianceResponseData } from '../../interfaces/responses';
 export class GetComplianceHandler implements IQueryHandler<GetComplianceContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async execute(contract: GetComplianceContract): Promise<IGetComplianceResponseData> {
+	public async execute(contract: GetComplianceContract): Promise<IGetComplianceResponseData> {
 		const complianceData = await this.dbComplianceService.getCompliance(contract.complianceId);
 
 		return complianceData.inlinePolicies.map((inlinePolicy) => {
