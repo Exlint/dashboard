@@ -92,7 +92,13 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					createdAt: autoAuthResponseData.createdAt,
 				});
 
+				/**
+				 * * These executions are to ensure the local & session storage are synced.
+				 * * There is *.clear() for these storages in the Redux middleware,
+				 * * so when there is a race condition, the local storage will be cleared after set (in the rows above).
+				 */
 				localStorage.setItem('token', refreshToken);
+				sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 			};
 
 			fetchResults();
