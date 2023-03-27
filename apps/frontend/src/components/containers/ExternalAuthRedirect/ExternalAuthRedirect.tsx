@@ -34,10 +34,11 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 			const fetchResults = async () => {
 				let autoAuthResponseData: IAutoAuthResponseData;
 
+				localStorage.setItem('token', refreshToken);
+
 				try {
 					autoAuthResponseData = await BackendService.get<IAutoAuthResponseData>('/user/auth');
 
-					localStorage.setItem('token', refreshToken);
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
 					localStorage.clear();
