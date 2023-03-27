@@ -16,6 +16,18 @@ test.describe('Application @app-basic', () => {
 		await expect(navComplianceCenterLinkElement).toHaveClass(/container--active/);
 	});
 
+	test('compliance center page loads after successful authentication and after page reload', async ({
+		page,
+	}) => {
+		await page.goto('/');
+		await page.reload();
+
+		const navComplianceCenterLinkElement = page.getByTestId('nav-compliance-center-link');
+
+		await expect(navComplianceCenterLinkElement).toBeVisible();
+		await expect(navComplianceCenterLinkElement).toHaveClass(/container--active/);
+	});
+
 	test('nav documentation link should open new tab upon click event', async ({ page, context }) => {
 		await page.goto('/');
 
