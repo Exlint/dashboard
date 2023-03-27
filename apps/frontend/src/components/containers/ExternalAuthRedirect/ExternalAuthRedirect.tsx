@@ -39,8 +39,13 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 				try {
 					autoAuthResponseData = await BackendService.get<IAutoAuthResponseData>('/user/auth');
 
+					console.log('CHEDDERER0');
+					console.log(refreshToken);
+
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
+					console.log('CHEDDERER1');
+
 					localStorage.clear();
 
 					let navigateUrl = '/auth';
