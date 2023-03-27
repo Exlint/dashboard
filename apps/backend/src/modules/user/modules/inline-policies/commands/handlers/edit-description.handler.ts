@@ -8,7 +8,7 @@ import { EditDescriptionContract } from '../contracts/edit-description.contract'
 export class EditDescriptionHandler implements ICommandHandler<EditDescriptionContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: EditDescriptionContract) {
+	public async execute(contract: EditDescriptionContract) {
 		await this.dbInlinePolicyService.editPolicyDescription(
 			contract.policyId,
 			contract.description || null,

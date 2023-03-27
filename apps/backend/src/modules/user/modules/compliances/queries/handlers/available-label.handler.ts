@@ -8,7 +8,7 @@ import { AvailableLabelContract } from '../contracts/available-label.contract';
 export class AvailableLabelHandler implements IQueryHandler<AvailableLabelContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	execute(contract: AvailableLabelContract) {
+	public execute(contract: AvailableLabelContract) {
 		return this.dbComplianceService.isLabelAvailable(contract.userId, contract.label);
 	}
 }

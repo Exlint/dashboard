@@ -9,7 +9,7 @@ import { GetInlinePoliciesContract } from '../contracts/get-inline-policies.cont
 export class GetInlinePoliciesHandler implements IQueryHandler<GetInlinePoliciesContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async execute(contract: GetInlinePoliciesContract) {
+	public async execute(contract: GetInlinePoliciesContract) {
 		const isPageANumber = !isNaN(parseInt(contract.page ?? ''));
 
 		const data = await this.dbComplianceService.getInlinePoliciesAndDescription(

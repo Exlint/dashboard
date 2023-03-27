@@ -11,7 +11,9 @@ import { ConfigureMissingContract } from '../contracts/configure-missing.contrac
 export class ConfigureMissingHandler implements IQueryHandler<ConfigureMissingContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: ConfigureMissingContract): Promise<IConfigureMissingRuleResponseData['id']> {
+	public async execute(
+		contract: ConfigureMissingContract,
+	): Promise<IConfigureMissingRuleResponseData['id']> {
 		const libraryData = librariesData.find((library) => library.name === contract.policyLibrary)!;
 
 		if (!libraryData.rules![contract.name]) {

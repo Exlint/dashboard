@@ -8,7 +8,7 @@ import { GetFilesListContract } from '../contracts/get-files-list.contract';
 export class GetFilesListHandler implements IQueryHandler<GetFilesListContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	execute(contract: GetFilesListContract) {
+	public execute(contract: GetFilesListContract) {
 		return this.dbInlinePolicyService.getFilesList(contract.policyId, contract.type);
 	}
 }

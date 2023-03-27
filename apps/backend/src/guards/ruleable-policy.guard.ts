@@ -9,7 +9,7 @@ import { DBInlinePolicyService } from '../modules/database/inline-policy.service
 export class RuleablePolicyGuard implements CanActivate {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async canActivate(context: ExecutionContext): Promise<boolean> {
+	public async canActivate(context: ExecutionContext): Promise<boolean> {
 		const request = context.switchToHttp().getRequest();
 		const user = request.user as IJwtTokenPayload;
 		const userId = user.sub;

@@ -1,3 +1,3 @@
 export class UserComplianceLibrariesContract {
-	constructor(readonly complianceId: string) {}
+	constructor(public readonly complianceId: string) {}
 }

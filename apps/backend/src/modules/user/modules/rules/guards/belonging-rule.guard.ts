@@ -7,7 +7,7 @@ import { DBRuleService } from '@/modules/database/rule.service';
 export class BelongingRuleGuard implements CanActivate {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async canActivate(context: ExecutionContext): Promise<boolean> {
+	public async canActivate(context: ExecutionContext): Promise<boolean> {
 		const request = context.switchToHttp().getRequest();
 		const user = request.user as IJwtTokenPayload;
 		const userId = user.sub;

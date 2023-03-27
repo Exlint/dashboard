@@ -12,7 +12,7 @@ export class CreateHandler implements IQueryHandler<CreateContract> {
 		private readonly eventBus: EventBus,
 	) {}
 
-	async execute(contract: CreateContract) {
+	public async execute(contract: CreateContract) {
 		const createdPolicyId = await this.dbInlinePolicyService.createInlinePolicy(
 			contract.complianceId,
 			contract.label,

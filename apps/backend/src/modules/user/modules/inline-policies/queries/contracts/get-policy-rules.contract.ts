@@ -1,5 +1,9 @@
 import type { PolicyLibrary } from '@prisma/client';
 
 export class GetPolicyRulesContract {
-	constructor(readonly policyId: string, readonly library: PolicyLibrary, readonly page?: string) {}
+	constructor(
+		public readonly policyId: string,
+		public readonly library: PolicyLibrary,
+		public readonly page?: string,
+	) {}
 }

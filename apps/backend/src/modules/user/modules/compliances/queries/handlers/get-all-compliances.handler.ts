@@ -8,7 +8,7 @@ import { GetAllCompliancesContract } from '../contracts/get-all-compliances.cont
 export class GetAllCompliancesHandler implements IQueryHandler<GetAllCompliancesContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async execute(contract: GetAllCompliancesContract) {
+	public async execute(contract: GetAllCompliancesContract) {
 		const userCompliances = await this.dbComplianceService.getUserCompliances(contract.userId);
 
 		return userCompliances.map((userCompliance) => ({

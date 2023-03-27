@@ -11,7 +11,7 @@ import { COMPLIANCE_CREATE } from '../../models/mixpanel-events';
 export class CreateComplianceMixpanelHandler implements ICommandHandler<CreateComplianceMixpanelContract> {
 	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
 
-	execute(contract: CreateComplianceMixpanelContract): Promise<void> {
+	public execute(contract: CreateComplianceMixpanelContract): Promise<void> {
 		const mixpanel = Mixpanel.init(this.configService.get('mixpanelToken', { infer: true }));
 
 		mixpanel.track(COMPLIANCE_CREATE, {

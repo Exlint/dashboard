@@ -8,7 +8,7 @@ import { SetIsFormConfigurationContract } from '../contracts/set-is-form-configu
 export class SetIsFormConfigurationHandler implements ICommandHandler<SetIsFormConfigurationContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: SetIsFormConfigurationContract) {
+	public async execute(contract: SetIsFormConfigurationContract) {
 		await this.dbInlinePolicyService.setIsFormConfiguration(
 			contract.policyId,
 			contract.isFormConfiguration,

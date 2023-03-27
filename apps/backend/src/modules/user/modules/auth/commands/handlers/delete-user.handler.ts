@@ -9,7 +9,7 @@ import { AuthService } from '../../auth.service';
 export class DeleteUserHandler implements ICommandHandler<DeleteUserContract> {
 	constructor(private readonly dbUserService: DBUserService, private readonly authService: AuthService) {}
 
-	async execute(contract: DeleteUserContract) {
+	public async execute(contract: DeleteUserContract) {
 		const authData = await this.dbUserService.getAuthTypeData(contract.userId);
 
 		// * - Won't delete and revoke refresh token in parallel - need to ensure revoke action completed successfully

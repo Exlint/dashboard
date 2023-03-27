@@ -8,7 +8,7 @@ import { SetCodeConfigurationContract } from '../contracts/set-code-configuratio
 export class SetCodeConfigurationHandler implements ICommandHandler<SetCodeConfigurationContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: SetCodeConfigurationContract) {
+	public async execute(contract: SetCodeConfigurationContract) {
 		const codeConfiguration = contract.code === '' ? null : contract.code;
 
 		await this.dbInlinePolicyService.setCodeConfiguration(

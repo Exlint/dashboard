@@ -6,9 +6,9 @@ export class SetFilesListDto implements ISetFilesListDto {
 	@ApiProperty({ type: String, description: 'File list', example: '**/*.js\\n**/*.ts' })
 	@IsString()
 	@MaxLength(1000)
-	readonly filesList!: string;
+	public readonly filesList!: string;
 
 	@ApiProperty({ enum: ['linted', 'ignored'], description: 'The file list type' })
 	@IsIn(['linted', 'ignored'])
-	readonly type!: FilesListType;
+	public readonly type!: FilesListType;
 }

@@ -10,7 +10,7 @@ export class CreatePolicyDto implements ICreatePolicyDto {
 	@IsString()
 	@MaxLength(30)
 	@MinLength(1)
-	readonly label!: string;
+	public readonly label!: string;
 
 	@ApiProperty({
 		type: String,
@@ -19,9 +19,9 @@ export class CreatePolicyDto implements ICreatePolicyDto {
 	})
 	@IsString()
 	@IsNullable()
-	readonly description!: string | null;
+	public readonly description!: string | null;
 
 	@ApiProperty({ enum: PolicyLibrary, description: 'The library being used by the policy' })
 	@IsEnum(PolicyLibrary)
-	readonly library!: PolicyLibrary;
+	public readonly library!: PolicyLibrary;
 }

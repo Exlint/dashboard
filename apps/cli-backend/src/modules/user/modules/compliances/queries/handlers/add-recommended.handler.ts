@@ -16,7 +16,7 @@ import { AddRecommendedContract } from '../contracts/add-recommended.contract';
 export class AddRecommendedHandler implements IQueryHandler<AddRecommendedContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	async execute(contract: AddRecommendedContract): Promise<string> {
+	public async execute(contract: AddRecommendedContract): Promise<string> {
 		const recommendedPolicies: IRecommendedPolicy[] = [];
 
 		if (contract.languages.includes(Language.Golang)) {

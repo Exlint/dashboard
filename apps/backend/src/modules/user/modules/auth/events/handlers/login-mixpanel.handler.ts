@@ -11,7 +11,7 @@ import { LoginMixpanelContract } from '../contracts/login-mixpanel.contract';
 export class LoginMixpanelHandler implements ICommandHandler<LoginMixpanelContract> {
 	constructor(private readonly configService: ConfigService<IEnvironment, true>) {}
 
-	execute(contract: LoginMixpanelContract): Promise<void> {
+	public execute(contract: LoginMixpanelContract): Promise<void> {
 		const mixpanel = Mixpanel.init(this.configService.get('mixpanelToken', { infer: true }));
 
 		mixpanel.track(USER_LOGIN, {

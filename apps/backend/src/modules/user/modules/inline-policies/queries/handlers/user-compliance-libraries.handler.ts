@@ -8,7 +8,7 @@ import { UserComplianceLibrariesContract } from '../contracts/user-compliance-li
 export class UserComplianceLibrariesHandler implements IQueryHandler<UserComplianceLibrariesContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: UserComplianceLibrariesContract) {
+	public async execute(contract: UserComplianceLibrariesContract) {
 		const records = await this.dbInlinePolicyService.getUserComplianceLibraries(contract.complianceId);
 
 		return records.map((record) => record.library);

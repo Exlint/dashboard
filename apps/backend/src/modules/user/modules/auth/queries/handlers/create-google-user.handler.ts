@@ -9,7 +9,7 @@ import { SignupMixpanelContract } from '../../events/contracts/signup-mixpanel.c
 export class CreateGoogleUserHandler implements IQueryHandler<CreateGoogleUserContract> {
 	constructor(private readonly dbUserService: DBUserService, private readonly eventBus: EventBus) {}
 
-	async execute(contract: CreateGoogleUserContract) {
+	public async execute(contract: CreateGoogleUserContract) {
 		const createdUser = await this.dbUserService.createUser({
 			email: contract.data.email,
 			name: contract.data.name,

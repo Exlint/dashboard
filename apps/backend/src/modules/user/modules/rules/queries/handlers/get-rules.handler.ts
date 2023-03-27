@@ -10,7 +10,7 @@ import { GetRulesContract } from '../contracts/get-rules.contract';
 export class GetRulesHandler implements IQueryHandler<GetRulesContract> {
 	constructor(private readonly dbRuleService: DBRuleService) {}
 
-	async execute(contract: GetRulesContract): Promise<IGetRulesResponseData['rules']> {
+	public async execute(contract: GetRulesContract): Promise<IGetRulesResponseData['rules']> {
 		const policyConfiguredRulesRecords = await this.dbRuleService.getConfiguredRules(contract.policyId);
 
 		const libraryData = librariesData.find((library) => library.name === contract.policyLibrary)!;

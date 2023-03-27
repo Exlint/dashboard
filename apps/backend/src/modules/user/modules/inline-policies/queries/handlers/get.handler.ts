@@ -10,7 +10,7 @@ import type { GetPolicyResponse } from '../../classes/responses';
 export class GetHandler implements IQueryHandler<GetContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: GetContract): Promise<GetPolicyResponse> {
+	public async execute(contract: GetContract): Promise<GetPolicyResponse> {
 		const policy = await this.dbInlinePolicyService.get(contract.policyId);
 
 		const libraryData = librariesData.find((library) => library.name === policy.library)!;

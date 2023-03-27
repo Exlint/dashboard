@@ -15,7 +15,7 @@ export class AccessTokenStrategy extends PassportStrategy(Strategy, 'access-toke
 		});
 	}
 
-	validate(payload: IJwtTokenPayload) {
+	public validate(payload: IJwtTokenPayload) {
 		return payload;
 	}
 }

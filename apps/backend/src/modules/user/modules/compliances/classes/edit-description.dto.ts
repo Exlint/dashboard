@@ -13,5 +13,5 @@ export class EditComplianceDescriptionDto implements IEditComplianceDescriptionD
 	})
 	@IsString()
 	@IsNullable()
-	readonly description!: string | null;
+	public readonly description!: string | null;
 }

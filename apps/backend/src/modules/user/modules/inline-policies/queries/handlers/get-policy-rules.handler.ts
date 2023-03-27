@@ -10,7 +10,7 @@ import { GetPolicyRulesContract } from '../contracts/get-policy-rules.contract';
 export class GetPolicyRulesHandler implements IQueryHandler<GetPolicyRulesContract> {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
-	async execute(contract: GetPolicyRulesContract): Promise<IGetPolicyRulesResponseData> {
+	public async execute(contract: GetPolicyRulesContract): Promise<IGetPolicyRulesResponseData> {
 		const isPageANumber = !isNaN(parseInt(contract.page ?? ''));
 		const page = isPageANumber ? parseInt(contract.page!) : 1;
 

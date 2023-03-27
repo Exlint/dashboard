@@ -7,5 +7,5 @@ export class EditSecretDto implements IEditSecretLabelDto {
 	@IsString()
 	@MinLength(1)
 	@MaxLength(30)
-	readonly label!: string;
+	public readonly label!: string;
 }

@@ -9,7 +9,7 @@ export class CreateComplianceDto implements ICreateComplianceDto {
 	@IsString()
 	@MinLength(1)
 	@MaxLength(30)
-	readonly label!: string;
+	public readonly label!: string;
 
 	@ApiProperty({
 		type: String,
@@ -18,5 +18,5 @@ export class CreateComplianceDto implements ICreateComplianceDto {
 	})
 	@IsString()
 	@IsNullable()
-	readonly description!: string | null;
+	public readonly description!: string | null;
 }

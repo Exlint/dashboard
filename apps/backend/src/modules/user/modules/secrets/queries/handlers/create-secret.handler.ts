@@ -13,7 +13,7 @@ export class CreateSecretHandler implements IQueryHandler<CreateSecretContract> 
 		private readonly secretsService: SecretsService,
 	) {}
 
-	async execute(contract: CreateSecretContract): Promise<CreateSecretResponse> {
+	public async execute(contract: CreateSecretContract): Promise<CreateSecretResponse> {
 		const secret = await this.secretsService.generateSecret(
 			contract.userId,
 			contract.email,

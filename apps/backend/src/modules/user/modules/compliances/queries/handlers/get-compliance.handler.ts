@@ -8,7 +8,7 @@ import { GetComplianceContract } from '../contracts/get-compliance.contract';
 export class GetComplianceHandler implements IQueryHandler<GetComplianceContract> {
 	constructor(private readonly dbComplianceService: DBComplianceService) {}
 
-	execute(contract: GetComplianceContract) {
+	public execute(contract: GetComplianceContract) {
 		return this.dbComplianceService.getUserCompliance(contract.complianceId);
 	}
 }

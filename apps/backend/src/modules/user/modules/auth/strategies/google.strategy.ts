@@ -21,13 +21,13 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
 		});
 	}
 
-	override authorizationParams(): { [key: string]: string } {
+	public override authorizationParams(): { [key: string]: string } {
 		return {
 			access_type: 'offline',
 		};
 	}
 
-	validate(
+	public validate(
 		req: Request,
 		_: string,
 		refreshToken: string | undefined,

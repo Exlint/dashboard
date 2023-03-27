@@ -11,5 +11,5 @@ export class RecommendedDto {
 	})
 	@IsArray()
 	@IsEnum(Language, { each: true })
-	readonly languages!: Language[];
+	public readonly languages!: Language[];
 }

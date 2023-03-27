@@ -6,7 +6,7 @@ import type { Rule } from '@prisma/client';
 export class ConfigureMissingRuleDto implements IConfigureMissingRuleDto {
 	@ApiProperty({ type: String, description: 'The new rule name to configure', example: 'yazif-array' })
 	@IsString()
-	readonly name!: Rule['name'];
+	public readonly name!: Rule['name'];
 
 	@ApiProperty({
 		type: Array,
@@ -14,7 +14,7 @@ export class ConfigureMissingRuleDto implements IConfigureMissingRuleDto {
 		example: ['error'],
 	})
 	@IsArray()
-	readonly configuration!: IConfigureMissingRuleDto['configuration'];
+	public readonly configuration!: IConfigureMissingRuleDto['configuration'];
 }
 
 export class ConfigureMissingRuleResponse implements IConfigureMissingRuleResponseData {

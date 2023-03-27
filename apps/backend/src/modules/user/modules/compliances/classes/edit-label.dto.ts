@@ -7,5 +7,5 @@ export class EditComplianceLabelDto implements IEditComplianceLabelDto {
 	@IsString()
 	@MaxLength(30)
 	@MinLength(1)
-	readonly label!: string;
+	public readonly label!: string;
 }
