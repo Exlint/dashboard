@@ -31,9 +31,6 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 	useEffect(() => {
 		if (refreshToken) {
-			// eslint-disable-next-line no-console
-			console.log(0);
-
 			localStorage.setItem('token', refreshToken);
 
 			const fetchResults = async () => {
@@ -94,6 +91,8 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 					name: autoAuthResponseData.name,
 					createdAt: autoAuthResponseData.createdAt,
 				});
+
+				localStorage.setItem('token', refreshToken);
 			};
 
 			fetchResults();
