@@ -31,21 +31,19 @@ const ExternalAuthRedirect: React.FC<IProps> = (props: React.PropsWithChildren<I
 
 	useEffect(() => {
 		if (refreshToken) {
+			// eslint-disable-next-line no-console
+			console.log(0);
+
+			localStorage.setItem('token', refreshToken);
+
 			const fetchResults = async () => {
 				let autoAuthResponseData: IAutoAuthResponseData;
-
-				localStorage.setItem('token', refreshToken);
 
 				try {
 					autoAuthResponseData = await BackendService.get<IAutoAuthResponseData>('/user/auth');
 
-					console.log('CHEDDERER0');
-					console.log(refreshToken);
-
 					sessionStorage.setItem('token', autoAuthResponseData.accessToken);
 				} catch {
-					console.log('CHEDDERER1');
-
 					localStorage.clear();
 
 					let navigateUrl = '/auth';
