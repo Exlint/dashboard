@@ -49,6 +49,9 @@ listenerMiddleware.startListening({
 			effect: authEffect,
 		});
 
+		// eslint-disable-next-line no-console
+		console.log(1);
+
 		localStorage.clear();
 		sessionStorage.clear();
 	},
