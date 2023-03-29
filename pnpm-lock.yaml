@@ -331,7 +331,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
       hygen: 6.2.11
-      i18next: 22.4.12
+      i18next: 22.4.13
       nprogress: 0.2.0
       prettier: 2.8.6
       prisma: 4.11.0
@@ -372,12 +372,12 @@ importers:
       '@uiw/react-codemirror': 4.19.9_ker7kxegmccnypz2hsrgxl6zqm
       bootstrap: 3.4.1
       date-fns: 2.29.3
-      i18next: 22.4.12
+      i18next: 22.4.13
       nprogress: 0.2.0
       react: 18.2.0
       react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.2.0_ifcy7d6sq4oet2tbyvl27swb2m
+      react-i18next: 12.2.0_2rh65uwnd6kial3dj4kteywnti
       react-redux: 8.0.5_3xleytyzprlgycb2ded54tx72i
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
       react-scroll: 1.8.9_biqbaboplfbrettd7655fr4n2y
@@ -436,7 +436,7 @@ importers:
       eslint-plugin-react: 7.32.2
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
-      i18next: 22.4.12
+      i18next: 22.4.13
       mixpanel-browser: 2.45.0
       next: 13.2.4
       npm-run-all: 4.1.5
@@ -449,13 +449,13 @@ importers:
       stylelint: 15.3.0
       typescript: 5.0.2
     dependencies:
-      i18next: 22.4.12
+      i18next: 22.4.13
       mixpanel-browser: 2.45.0
       next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
       react: 18.2.0
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
-      react-i18next: 12.2.0_ifcy7d6sq4oet2tbyvl27swb2m
+      react-i18next: 12.2.0_2rh65uwnd6kial3dj4kteywnti
       react-intersection-observer: 9.4.3_react@18.2.0
     devDependencies:
       '@types/mixpanel-browser': 2.38.1
@@ -7624,8 +7624,8 @@ packages:
       '@babel/runtime': 7.20.7
     dev: true
 
-  /i18next/22.4.12:
-    resolution: {integrity: sha512-2lE+vRXxQ3lGLub1CVbwgO0IfkLHmUSDVOAVdPh22CsxttMXi+35n2qgxh2wZIkKl6t/NMzPfgFPRDiFQOmiCg==}
+  /i18next/22.4.13:
+    resolution: {integrity: sha512-GX7flMHRRqQA0I1yGLmaZ4Hwt1JfLqagk8QPDPZsqekbKtXsuIngSVWM/s3SLgNkrEXjA+0sMGNuOEkkmyqmWg==}
     dependencies:
       '@babel/runtime': 7.20.7
     dev: false
@@ -9981,7 +9981,7 @@ packages:
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
 
-  /react-i18next/12.2.0_ifcy7d6sq4oet2tbyvl27swb2m:
+  /react-i18next/12.2.0_2rh65uwnd6kial3dj4kteywnti:
     resolution: {integrity: sha512-5XeVgSygaGfyFmDd2WcXvINRw2WEC1XviW1LXY/xLOEMzsCFRwKqfnHN+hUjla8ZipbVJR27GCMSuTr0BhBBBQ==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -9996,7 +9996,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.7
       html-parse-stringify: 3.0.1
-      i18next: 22.4.12
+      i18next: 22.4.13
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
