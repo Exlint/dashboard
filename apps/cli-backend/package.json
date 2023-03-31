@@ -41,7 +41,6 @@
 	"devDependencies": {
 		"@compodoc/compodoc": "1.1.19",
 		"@nestjs/cli": "9.3.0",
-		"@nestjs/schematics": "9.0.4",
 		"@nestjs/swagger": "6.2.1",
 		"@total-typescript/ts-reset": "0.4.2",
 		"@types/deepmerge": "2.2.0",
