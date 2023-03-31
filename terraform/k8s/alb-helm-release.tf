@@ -2,7 +2,7 @@ resource "helm_release" "ingress" {
   name       = "aws-load-balancer-controller"
   chart      = "aws-load-balancer-controller"
   repository = "https://aws.github.io/eks-charts"
-  version    = "1.4.7"
+  version    = "1.4.8"
   namespace  = "kube-system"
   timeout    = 200
   atomic     = true
