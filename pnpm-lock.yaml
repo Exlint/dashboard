@@ -295,7 +295,7 @@ importers:
       '@codemirror/language': 6.6.0
       '@codemirror/legacy-modes': 6.3.2
       '@exlint.io/common': workspace:*
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
       '@prisma/client': 4.11.0
       '@reduxjs/toolkit': 1.9.3
       '@rjsf/core': 5.3.1
@@ -356,7 +356,7 @@ importers:
       '@codemirror/lang-json': 6.0.1
       '@codemirror/language': 6.6.0
       '@codemirror/legacy-modes': 6.3.2
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
       '@prisma/client': 4.11.0_prisma@4.11.0
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       '@rjsf/core': 5.3.1_2w5amvop2wxppmh6srvbgcqs2i
@@ -1910,7 +1910,7 @@ packages:
       '@codemirror/state': 6.1.2
       '@codemirror/view': 6.4.0
       '@lezer/common': 1.0.1
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
       '@lezer/lr': 1.2.3
       style-mod: 4.0.0
     dev: false
@@ -1947,7 +1947,7 @@ packages:
       '@codemirror/language': 6.6.0
       '@codemirror/state': 6.1.2
       '@codemirror/view': 6.4.0
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
     dev: false
 
   /@codemirror/view/6.4.0:
@@ -2639,8 +2639,8 @@ packages:
     resolution: {integrity: sha512-8TR5++Q/F//tpDsLd5zkrvEX5xxeemafEaek7mUp7Y+bI8cKQXdSqhzTOBaOogETcMOVr0pT3BBPXp13477ciw==}
     dev: false
 
-  /@lezer/highlight/1.1.3:
-    resolution: {integrity: sha512-3vLKLPThO4td43lYRBygmMY18JN3CPh9w+XS2j8WC30vR4yZeFG4z1iFe4jXE43NtGqe//zHW5q8ENLlHvz9gw==}
+  /@lezer/highlight/1.1.4:
+    resolution: {integrity: sha512-IECkFmw2l7sFcYXrV8iT9GeY4W0fU4CxX0WMwhmhMIVjoDdD1Hr6q3G2NqVtLg/yVe5n7i4menG3tJ2r4eCrPQ==}
     dependencies:
       '@lezer/common': 1.0.1
     dev: false
@@ -2648,14 +2648,14 @@ packages:
   /@lezer/javascript/1.0.2:
     resolution: {integrity: sha512-IjOVeIRhM8IuafWNnk+UzRz7p4/JSOKBNINLYLsdSGuJS9Ju7vFdc82AlTt0jgtV5D8eBZf4g0vK4d3ttBNz7A==}
     dependencies:
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
       '@lezer/lr': 1.2.3
     dev: false
 
   /@lezer/json/1.0.0:
     resolution: {integrity: sha512-zbAuUY09RBzCoCA3lJ1+ypKw5WSNvLqGMtasdW6HvVOqZoCpPr8eWrsGnOVWGKGn8Rh21FnrKRVlJXrGAVUqRw==}
     dependencies:
-      '@lezer/highlight': 1.1.3
+      '@lezer/highlight': 1.1.4
       '@lezer/lr': 1.2.3
     dev: false
 
