@@ -433,7 +433,7 @@ importers:
       eslint-plugin-react-hooks: 4.6.0
       eslint-plugin-unused-imports: 2.0.0
       i18next: 22.4.13
-      mixpanel-browser: 2.45.0
+      mixpanel-browser: 2.46.0
       next: 13.2.4
       npm-run-all: 4.1.5
       react: 18.2.0
@@ -446,7 +446,7 @@ importers:
       typescript: 5.0.2
     dependencies:
       i18next: 22.4.13
-      mixpanel-browser: 2.45.0
+      mixpanel-browser: 2.46.0
       next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
       react: 18.2.0
       react-card-carousel: 1.1.3_biqbaboplfbrettd7655fr4n2y
@@ -8814,8 +8814,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /mixpanel-browser/2.45.0:
-    resolution: {integrity: sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg==}
+  /mixpanel-browser/2.46.0:
+    resolution: {integrity: sha512-qPFhAFMf5YzzGPd/sgoEl7G0N/ypJ6IaZmjkMYEPiW60i1Muo+v2Zl/dqRcCXwYfF5GvC5175muS1ZuaaYGXAQ==}
     dev: false
 
   /mixpanel/0.17.0:
