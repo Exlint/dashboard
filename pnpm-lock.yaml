@@ -300,7 +300,7 @@ importers:
       '@reduxjs/toolkit': 1.9.3
       '@rjsf/core': 5.4.0
       '@rjsf/utils': 5.4.0
-      '@rjsf/validator-ajv8': 5.3.1
+      '@rjsf/validator-ajv8': 5.4.0
       '@total-typescript/ts-reset': 0.4.2
       '@types/node': 18.15.10
       '@types/nprogress': 0.2.0
@@ -361,7 +361,7 @@ importers:
       '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
       '@rjsf/core': 5.4.0_enhfnsef354qejmp537gnsavoi
       '@rjsf/utils': 5.4.0_react@18.2.0
-      '@rjsf/validator-ajv8': 5.3.1_@rjsf+utils@5.4.0
+      '@rjsf/validator-ajv8': 5.4.0_@rjsf+utils@5.4.0
       '@types/react': 18.0.29
       '@types/react-dom': 18.0.11
       '@uiw/codemirror-themes': 4.19.10_@codemirror+language@6.6.0
@@ -3476,8 +3476,8 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8/5.3.1_@rjsf+utils@5.4.0:
-    resolution: {integrity: sha512-nl0mcUqbCZWZsjrPy7n0rdJtc0QprIl35rfu6YltCQxFuiCpVzl3CVo99grUg9kO5X6i4be8JbXkuUMaE73DXg==}
+  /@rjsf/validator-ajv8/5.4.0_@rjsf+utils@5.4.0:
+    resolution: {integrity: sha512-OjWPQGU2tu+KzOgZqqsyhdiamyZPLXsChgdIQJ2sz4gMuedL2LgfNfOc6STcf01kXMXft2MoDZ9lHGlAHlv2Vw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.0.0
