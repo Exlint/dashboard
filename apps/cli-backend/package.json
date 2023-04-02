@@ -57,7 +57,7 @@
 		"eslint-plugin-import": "2.27.5",
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-unused-imports": "2.0.0",
-		"open-cli": "7.1.0",
+		"open-cli": "7.2.0",
 		"passport": "0.6.0",
 		"prisma": "4.11.0",
 		"rimraf": "4.4.1",
