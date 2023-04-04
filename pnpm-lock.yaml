@@ -33,7 +33,7 @@ importers:
       nx: 15.8.9
       open: 8.4.2
       playwright: 1.32.1
-      pnpm: 7.30.4
+      pnpm: 7.30.5
       prettier: 2.8.7
       prettier-plugin-sh: 0.12.8
       prisma: 4.11.0
@@ -72,7 +72,7 @@ importers:
       nx: 15.8.9
       open: 8.4.2
       playwright: 1.32.1
-      pnpm: 7.30.4
+      pnpm: 7.30.5
       prettier: 2.8.7
       prettier-plugin-sh: 0.12.8_prettier@2.8.7
       prisma: 4.11.0
@@ -9779,8 +9779,8 @@ packages:
     resolution: {integrity: sha512-k+YsbhpA9e+EFfKjTCH3VW6aoKlyNYI6NYdTfDL4CIvFnvsuO84ttonmZE7rc+v23SLTH8XX+5w/Ak9v0xGY4g==}
     dev: true
 
-  /pnpm/7.30.4:
-    resolution: {integrity: sha512-HXWCjHNC4SaK+Al2OFMglCpMr0eYlvvGLrZn0b9omOvS+yDxeISpQmw3R3xxyifyjqH3qZ4DAco1219kHHEF2w==}
+  /pnpm/7.30.5:
+    resolution: {integrity: sha512-kXiH7+iGhDcm3UVhjb4pzbRYljoT2KVR8WFL37b+c15F9CuaLau0RTozrXx/9snf1JEmGICjRnMM2XArmM01sg==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
