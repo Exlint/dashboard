@@ -28,7 +28,7 @@
 		"eslint-plugin-import": "2.27.5",
 		"eslint-plugin-unused-imports": "2.0.0",
 		"prisma": "4.11.0",
-		"typescript": "5.0.2"
+		"typescript": "5.0.3"
 	},
 	"dependencies": {
 		"@prisma/client": "4.11.0",
@@ -36,6 +36,6 @@
 	},
 	"peerDependencies": {
 		"eslint": "8.37.0",
-		"typescript": "5.0.2"
+		"typescript": "5.0.3"
 	}
 }
