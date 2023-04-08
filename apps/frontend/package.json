@@ -30,7 +30,7 @@
 		"@lezer/highlight": "1.1.4",
 		"@prisma/client": "4.11.0",
 		"@reduxjs/toolkit": "1.9.3",
-		"@rjsf/core": "5.4.0",
+		"@rjsf/core": "5.5.0",
 		"@rjsf/utils": "5.4.0",
 		"@rjsf/validator-ajv8": "5.4.0",
 		"@types/react": "18.0.31",
