@@ -332,7 +332,7 @@ importers:
       prettier: 2.8.7
       prisma: 4.11.0
       react: 18.2.0
-      react-datepicker: 4.10.0
+      react-datepicker: 4.11.0
       react-dom: 18.2.0
       react-i18next: 12.2.0
       react-redux: 8.0.5
@@ -371,7 +371,7 @@ importers:
       i18next: 22.4.13
       nprogress: 0.2.0
       react: 18.2.0
-      react-datepicker: 4.10.0_biqbaboplfbrettd7655fr4n2y
+      react-datepicker: 4.11.0_biqbaboplfbrettd7655fr4n2y
       react-dom: 18.2.0_react@18.2.0
       react-i18next: 12.2.0_2rh65uwnd6kial3dj4kteywnti
       react-redux: 8.0.5_a5pki22omvhg66elofc4io3beq
@@ -10032,8 +10032,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /react-datepicker/4.10.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-6IfBCZyWj54ZZGLmEZJ9c4Yph0s9MVfEGDC2evOvf9AmVz+RRcfP2Czqad88Ff9wREbcbqa4dk7IFYeXF1d3Ag==}
+  /react-datepicker/4.11.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-50n93o7mQwBEhg05tbopjFKgs8qgi8VBCAOMC4VqrKut72eAjESc/wXS/k5hRtnP0oe2FCGw7MJuIwh37wuXOw==}
     peerDependencies:
       react: ^16.9.0 || ^17 || ^18
       react-dom: ^16.9.0 || ^17 || ^18
