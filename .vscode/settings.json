@@ -20,8 +20,6 @@
 		".depcheckrc.json": "parcel",
 		".cz.json": "jinja",
 		"*.routes.ts": "routing",
-		"tsconfig.doc.json": "tsconfig",
-		"tsconfig.tsbuildinfo": "tsconfig",
 		".compodocrc.json": "mjml",
 		"*.strategy.ts": "nest-gateway"
 	},
