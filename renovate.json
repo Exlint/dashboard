@@ -45,5 +45,6 @@
 	],
 	"ignoreDeps": ["chalk"],
 	"commitMessageAction": "🤖 Update",
-	"stabilityDays": 7
+	"stabilityDays": 7,
+	"reviewersFromCodeOwners": true
 }
