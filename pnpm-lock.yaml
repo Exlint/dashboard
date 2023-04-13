@@ -56,8 +56,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@8.37.0)
       eslint-plugin-deprecation:
-        specifier: 1.4.0
-        version: 1.4.0(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.4.1
+        version: 1.4.1(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-import:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.57.1)(eslint@8.37.0)
@@ -240,8 +240,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@8.37.0)
       eslint-plugin-deprecation:
-        specifier: 1.4.0
-        version: 1.4.0(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.4.1
+        version: 1.4.1(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-import:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.57.1)(eslint@8.37.0)
@@ -382,8 +382,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@8.37.0)
       eslint-plugin-deprecation:
-        specifier: 1.4.0
-        version: 1.4.0(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.4.1
+        version: 1.4.1(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-import:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.57.1)(eslint@8.37.0)
@@ -548,8 +548,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@8.37.0)
       eslint-plugin-deprecation:
-        specifier: 1.4.0
-        version: 1.4.0(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.4.1
+        version: 1.4.1(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-i18next:
         specifier: 6.0.0-8
         version: 6.0.0-8
@@ -715,8 +715,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@8.37.0)
       eslint-plugin-deprecation:
-        specifier: 1.4.0
-        version: 1.4.0(eslint@8.37.0)(typescript@5.0.3)
+        specifier: 1.4.1
+        version: 1.4.1(eslint@8.37.0)(typescript@5.0.3)
       eslint-plugin-import:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.57.1)(eslint@8.37.0)
@@ -4097,19 +4097,6 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/experimental-utils@5.57.1(eslint@8.37.0)(typescript@5.0.3):
-    resolution: {integrity: sha512-5F5s8mpM1Y0RQ5iWzKQPQm5cmhARgcMfUwyHX1ZZFL8Tm0PyzyQ+9jgYSMaW74XXvpDg9/KdmMICLlwNwKtO7w==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      '@typescript-eslint/utils': 5.57.1(eslint@8.37.0)(typescript@5.0.3)
-      eslint: 8.37.0
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
   /@typescript-eslint/parser@5.57.1(eslint@8.37.0)(typescript@5.0.3):
     resolution: {integrity: sha512-hlA0BLeVSA/wBPKdPGxoVr9Pp6GutGoY380FEhbVi0Ph4WNe8kLvqIRx76RSQt1lynZKfrXKs0/XeEk4zZycuA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -6797,13 +6784,13 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-deprecation@1.4.0(eslint@8.37.0)(typescript@5.0.3):
-    resolution: {integrity: sha512-ghFrjqdtwL4sUWjcmPu0J1HTXPDonFJLFdlPwzlvUMkoJNzR9R8Ua/J10mA4vFX9p1ggf/HWvmWBwew2XMTzmQ==}
+  /eslint-plugin-deprecation@1.4.1(eslint@8.37.0)(typescript@5.0.3):
+    resolution: {integrity: sha512-4vxTghWzxsBukPJVQupi6xlTuDc8Pyi1QlRCrFiLgwLPMJQW3cJCNaehJUKQqQFvuue5m4W27e179Y3Qjzeghg==}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
       typescript: ^3.7.5 || ^4.0.0 || ^5.0.0
     dependencies:
-      '@typescript-eslint/experimental-utils': 5.57.1(eslint@8.37.0)(typescript@5.0.3)
+      '@typescript-eslint/utils': 5.57.1(eslint@8.37.0)(typescript@5.0.3)
       eslint: 8.37.0
       tslib: 2.5.0
       tsutils: 3.21.0(typescript@5.0.3)
