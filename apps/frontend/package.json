@@ -23,7 +23,7 @@
 		"template:ui": "hygen component new-ui"
 	},
 	"dependencies": {
-		"@codemirror/lang-javascript": "6.1.4",
+		"@codemirror/lang-javascript": "6.1.5",
 		"@codemirror/lang-json": "6.0.1",
 		"@codemirror/language": "6.6.0",
 		"@codemirror/legacy-modes": "6.3.2",
