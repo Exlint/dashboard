@@ -36,7 +36,7 @@
 		"@types/react": "18.0.33",
 		"@types/react-dom": "18.0.11",
 		"@uiw/codemirror-themes": "4.19.15",
-		"@uiw/react-codemirror": "4.19.11",
+		"@uiw/react-codemirror": "4.19.15",
 		"bootstrap": "3.4.1",
 		"date-fns": "2.29.3",
 		"i18next": "22.4.14",
