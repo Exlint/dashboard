@@ -16,8 +16,8 @@ const globalTeardown = async () => {
 		});
 
 		console.log(chalk.magenta('Successfully destroyed test cluster!'));
-	} catch (e) {
-		console.log(chalk.red.bold(`\n\nFailed to destroy test cluster with an error:\n${e}`));
+	} catch (error) {
+		console.log(chalk.red.bold(`\n\nFailed to destroy test cluster with an error:\n${error}`));
 
 		process.exit(1);
 	}

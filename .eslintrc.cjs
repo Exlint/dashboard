@@ -17,7 +17,7 @@ module.exports = {
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},
-	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation'],
+	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation', 'unicorn'],
 	rules: {
 		'capitalized-comments': ['error'],
 		'max-lines': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
@@ -166,6 +166,15 @@ module.exports = {
 		],
 
 		'deprecation/deprecation': 'error',
+
+		'unicorn/catch-error-name': 'error',
+		'unicorn/new-for-builtins': 'error',
+		'unicorn/prefer-node-protocol': 'error',
+		'unicorn/no-new-buffer': 'error',
+		'unicorn/throw-new-error': 'error',
+		'unicorn/text-encoding-identifier-case': 'error',
+		'unicorn/switch-case-braces': 'error',
+		'unicorn/no-empty-file': 'error',
 	},
 	overrides: [
 		{

@@ -20,24 +20,29 @@ const EDNotificationView: React.FC<IProps> = (props: React.PropsWithChildren<IPr
 	let notificationIcon: keyof typeof icons;
 
 	switch (props.notificationType) {
-		case 'info':
+		case 'info': {
 			notificationIcon = 'notificationInfo';
 
 			break;
-		case 'checkmark':
+		}
+		case 'checkmark': {
 			notificationIcon = 'notificationCheckmark';
 
 			break;
-		case 'warning':
+		}
+		case 'warning': {
 			notificationIcon = 'notificationWarning';
 
 			break;
-		case 'error':
+		}
+		case 'error': {
 			notificationIcon = 'notificationError';
 
 			break;
-		default:
+		}
+		default: {
 			notificationIcon = 'notificationInfo';
+		}
 	}
 
 	return (

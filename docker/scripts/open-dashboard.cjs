@@ -33,8 +33,8 @@ const waitOnOptions = {
 				)}`,
 			),
 		);
-	} catch (e) {
-		console.log(chalk.red.bold(`\n\nFailed to start cluster with an error:\n${e}`));
+	} catch (error) {
+		console.log(chalk.red.bold(`\n\nFailed to start cluster with an error:\n${error}`));
 
 		process.exit(1);
 	}

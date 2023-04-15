@@ -45,9 +45,11 @@ const globalSetup = async () => {
 		await PreTestsAuthentication();
 
 		console.log(chalk.magenta('Authenticated successfully!'));
-	} catch (e) {
+	} catch (error) {
 		console.log(
-			chalk.red.bold(`\n\nFailed to start test cluster with an error:\n${JSON.stringify(e, null, 2)}`),
+			chalk.red.bold(
+				`\n\nFailed to start test cluster with an error:\n${JSON.stringify(error, null, 2)}`,
+			),
 		);
 
 		await dCompose.down({
