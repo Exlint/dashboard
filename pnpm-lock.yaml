@@ -167,8 +167,8 @@ importers:
         specifier: 114.0.0
         version: 114.0.0
       helmet:
-        specifier: 6.1.4
-        version: 6.1.4
+        specifier: 6.1.5
+        version: 6.1.5
       mixpanel:
         specifier: 0.17.0
         version: 0.17.0
@@ -321,8 +321,8 @@ importers:
         specifier: 4.3.1
         version: 4.3.1
       helmet:
-        specifier: 6.1.4
-        version: 6.1.4
+        specifier: 6.1.5
+        version: 6.1.5
       mixpanel:
         specifier: 0.17.0
         version: 0.17.0
@@ -8059,8 +8059,8 @@ packages:
       upper-case: 1.1.3
     dev: true
 
-  /helmet@6.1.4:
-    resolution: {integrity: sha512-nCJIriKjOYcRmHRpK+Z5DayEh6xwOKO0U0qzWL3MEIwsB8OSxxBu/mUE9U5PRH8ln/+WySlK2eYe5FOlo0v9aA==}
+  /helmet@6.1.5:
+    resolution: {integrity: sha512-UgAvdoG0BhF9vcCh/j0bWtElo2ZHHk6OzC98NLCM6zK03DEVSM0vUAtT7iR+oTo2Mi6sGelAH3tL6B/uUWxV4g==}
     engines: {node: '>=14.0.0'}
     dev: false
 
