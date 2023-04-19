@@ -30,7 +30,7 @@
 		"@prisma/client": "4.12.0",
 		"class-transformer": "0.5.1",
 		"class-validator": "0.14.0",
-		"googleapis": "114.0.0",
+		"googleapis": "116.0.0",
 		"helmet": "6.1.5",
 		"mixpanel": "0.17.0",
 		"nestjs-real-ip": "2.2.0",
