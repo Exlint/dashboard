@@ -454,8 +454,8 @@ importers:
         specifier: 1.9.3
         version: 1.9.3(react-redux@8.0.5)(react@18.2.0)
       '@rjsf/core':
-        specifier: 5.5.2
-        version: 5.5.2(@rjsf/utils@5.5.2)(react@18.2.0)
+        specifier: 5.6.0
+        version: 5.6.0(@rjsf/utils@5.5.2)(react@18.2.0)
       '@rjsf/utils':
         specifier: 5.5.2
         version: 5.5.2(react@18.2.0)
@@ -3670,8 +3670,8 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@rjsf/core@5.5.2(@rjsf/utils@5.5.2)(react@18.2.0):
-    resolution: {integrity: sha512-TsJrYD8wUf6K2y9YBwKGPJzFcZYiaD6RpahWO3z4hlJqgfT4yTa3Ux4cadU6KLG8ox9PRiApSpu702GqykSPJA==}
+  /@rjsf/core@5.6.0(@rjsf/utils@5.5.2)(react@18.2.0):
+    resolution: {integrity: sha512-F61pIBgTrLzvGZvM16aGUUvro5QIDtI5pDdy24cfs5d9w1C/2Vc6Du6QMkml4d6B232IfQtYNHVo4Sg/8U3IYg==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.0.0
