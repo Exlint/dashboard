@@ -36,7 +36,7 @@
 		"build:nested": "nx run-many --target=build --nx-bail"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "17.6.0",
+		"@commitlint/cli": "17.6.1",
 		"@exlint.io/inflint": "1.2.10",
 		"@playwright/test": "1.32.3",
 		"@prisma/client": "4.12.0",

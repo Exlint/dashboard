@@ -5,8 +5,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 17.6.0
-        version: 17.6.0
+        specifier: 17.6.1
+        version: 17.6.1
       '@exlint.io/inflint':
         specifier: 1.2.10
         version: 1.2.10(@types/node@18.15.10)(typescript@5.0.4)
@@ -2215,8 +2215,8 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/cli@17.6.0:
-    resolution: {integrity: sha512-JaZeZ1p6kfkSiZlDoQjK09AuiI9zYQMiIUJzTOM8qNRHFOXOPmiTM56nI67yzeUSNTFu6M/DRqjmdjtA5q3hEg==}
+  /@commitlint/cli@17.6.1:
+    resolution: {integrity: sha512-kCnDD9LE2ySiTnj/VPaxy4/oRayRcdv4aCuVxtoum8SxIU7OADHc0nJPQfheE8bHcs3zZdWzDMWltRosuT13bg==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
