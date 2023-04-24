@@ -22,7 +22,7 @@ export class AvailableLabelController {
 
 	constructor(private readonly queryBus: QueryBus) {}
 
-	@ApiOperation({ description: 'Check whether a provided label is availble' })
+	@ApiOperation({ description: 'Check whether a provided label is available' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: 'Returns whether the provided label is available',

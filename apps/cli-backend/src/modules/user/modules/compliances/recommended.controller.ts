@@ -18,7 +18,9 @@ export class RecommendedController {
 	@Post(Routes.RECOMMENDED)
 	@HttpCode(HttpStatus.OK)
 	public async recommended(@Body() recommendedDto: RecommendedDto): Promise<IRecommendedResponseData> {
-		this.logger.log(`Will try to get recommeded compliance for languages: "${recommendedDto.languages}"`);
+		this.logger.log(
+			`Will try to get recommended compliance for languages: "${recommendedDto.languages}"`,
+		);
 
 		const complianceData = await this.queryBus.execute<RecommendedContract, IRecommendedResponseData>(
 			new RecommendedContract(recommendedDto.languages),

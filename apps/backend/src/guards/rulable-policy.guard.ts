@@ -6,7 +6,7 @@ import type { IJwtTokenPayload } from '../interfaces/jwt-token';
 import { DBInlinePolicyService } from '../modules/database/inline-policy.service';
 
 @Injectable()
-export class RuleablePolicyGuard implements CanActivate {
+export class RulablePolicyGuard implements CanActivate {
 	constructor(private readonly dbInlinePolicyService: DBInlinePolicyService) {}
 
 	public async canActivate(context: ExecutionContext): Promise<boolean> {

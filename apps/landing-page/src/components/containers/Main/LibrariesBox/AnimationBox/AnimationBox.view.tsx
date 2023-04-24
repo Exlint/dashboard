@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { concatClasses } from '@/utils/component';
-import stylintLogo from '@/images/stylelint.png';
+import stylelintLogo from '@/images/stylelint.png';
 import eslintLogo from '@/images/eslint.png';
 import prettierLogo from '@/images/prettier.png';
 import depcheckLogo from '@/images/depcheck.png';
@@ -12,7 +12,7 @@ import CardCarousel from './CardCarousel';
 import classes from './AnimationBox.module.scss';
 
 interface IProps {
-	readonly isStylintVisible: boolean;
+	readonly isStylelintVisible: boolean;
 	readonly isEslintVisible: boolean;
 	readonly isPrettierVisible: boolean;
 	readonly isDepcheckVisible: boolean;
@@ -20,11 +20,11 @@ interface IProps {
 }
 
 const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
-	const stylintClass = props.isStylintVisible
+	const stylelintClass = props.isStylelintVisible
 		? concatClasses(classes, 'library__img', 'library__img--fadeIn')
 		: classes['library__img'];
 
-	const stylintUnderlinClass = props.isStylintVisible
+	const stylelintUnderlineClass = props.isStylelintVisible
 		? concatClasses(classes, 'library__underline', 'library__underline--visible')
 		: classes['library__underline'];
 
@@ -32,7 +32,7 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 		? concatClasses(classes, 'library__img', 'library__img--fadeIn')
 		: classes['library__img'];
 
-	const eslintUnderlinClass = props.isEslintVisible
+	const eslintUnderlineClass = props.isEslintVisible
 		? concatClasses(classes, 'library__underline', 'library__underline--visible')
 		: classes['library__underline'];
 
@@ -40,7 +40,7 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 		? concatClasses(classes, 'library__img', 'library__img--fadeIn')
 		: classes['library__img'];
 
-	const prettierUnderlinClass = props.isPrettierVisible
+	const prettierUnderlineClass = props.isPrettierVisible
 		? concatClasses(classes, 'library__underline', 'library__underline--visible')
 		: classes['library__underline'];
 
@@ -48,7 +48,7 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 		? concatClasses(classes, 'library__img', 'library__img--fadeIn')
 		: classes['library__img'];
 
-	const depcheckUnderlinClass = props.isDepcheckVisible
+	const depcheckUnderlineClass = props.isDepcheckVisible
 		? concatClasses(classes, 'library__underline', 'library__underline--visible')
 		: classes['library__underline'];
 
@@ -56,12 +56,17 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 		<div className={classes['container']}>
 			<div className={classes['leftSide']}>
 				<div className={classes['library']}>
-					<Image className={stylintClass} src={stylintLogo} alt="Stylint logo" placeholder="blur" />
-					<hr className={stylintUnderlinClass} />
+					<Image
+						className={stylelintClass}
+						src={stylelintLogo}
+						alt="Stylelint logo"
+						placeholder="blur"
+					/>
+					<hr className={stylelintUnderlineClass} />
 				</div>
 				<div className={classes['library']}>
 					<Image className={eslintClass} src={eslintLogo} alt="Eslint logo" placeholder="blur" />
-					<hr className={eslintUnderlinClass} />
+					<hr className={eslintUnderlineClass} />
 				</div>
 				<div className={classes['library']}>
 					<Image
@@ -70,16 +75,16 @@ const AnimationBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 						alt="Prettier logo"
 						placeholder="blur"
 					/>
-					<hr className={prettierUnderlinClass} />
+					<hr className={prettierUnderlineClass} />
 				</div>
 				<div className={classes['library']}>
 					<Image
 						className={depcheckClass}
 						src={depcheckLogo}
-						alt="Depchek logo"
+						alt="Depcheck logo"
 						placeholder="blur"
 					/>
-					<hr className={depcheckUnderlinClass} />
+					<hr className={depcheckUnderlineClass} />
 				</div>
 			</div>
 			<div className={classes['rightSide']}>

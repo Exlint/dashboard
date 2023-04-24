@@ -54,7 +54,7 @@ const FirstRowView: React.FC<IProps> = () => {
 					<div className={classes['lineContainer']}>
 						<span className={classes['lineContainer__dot']} />
 						<span className={classes['lineContainer__text']}>
-							{t('main.quickSetup.firstRow.commingSoon')}
+							{t('main.quickSetup.firstRow.comingSoon')}
 						</span>
 					</div>
 				</div>

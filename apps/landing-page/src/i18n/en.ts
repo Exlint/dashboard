@@ -23,7 +23,7 @@ const en = {
 		},
 		empowerEfficient: {
 			title: 'Empower efficient<br />conventional best practices',
-			description: 'Run your first complance check in a matter of minutes',
+			description: 'Run your first compliance check in a matter of minutes',
 			github: 'GitHub Project',
 			discord: 'Discord Server',
 			getStarted: 'Get started for free today.',
@@ -53,7 +53,7 @@ const en = {
 				iteration: 'Iterate on conventions easily',
 				appliance: 'Quick appliance in multiple repositories',
 				privacy: 'Total privacy - code is analyzed locally',
-				commingSoon: 'History, analytics, permissions - Coming soon',
+				comingSoon: 'History, analytics, permissions - Coming soon',
 			},
 			secondRow: {
 				title: 'Developers',

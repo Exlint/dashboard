@@ -15,7 +15,7 @@ const en = {
 		githubAuth: 'Continue with GitHub',
 		googleAuth: 'Continue with Google',
 		permissionsDisclaimer: ' We will not make any use of the auth provider without your permission.',
-		policiesDiscalimer: {
+		policiesDisclaimer: {
 			prefix: 'By logging in or signing up, you agree to abide by our policies, including our',
 			and: 'and',
 			termsOfService: 'Terms Of Service',
@@ -87,7 +87,7 @@ const en = {
 			postfix: 'command from our CLI.',
 		},
 		buttonInstruction:
-			'Click below to authenticate your machine, so we can confirm that Exlint CLI can be associated with your accout.<br />Once completed, you can continue working from the terminal.',
+			'Click below to authenticate your machine, so we can confirm that Exlint CLI can be associated with your account.<br />Once completed, you can continue working from the terminal.',
 		buttonText: 'Authenticate',
 	},
 	cliAuthenticated: {
@@ -142,7 +142,7 @@ const en = {
 			informationTitle: 'Information',
 			deleteTitle: 'Delete',
 			complianceLabelLabel: 'Compliance label',
-			complianceLabelInputPlacehoder: 'Enter a new compliance label...',
+			complianceLabelInputPlaceholder: 'Enter a new compliance label...',
 			submitButton: 'Save Changes',
 			deleteInstruction: 'Deleting ‘{{label}}’ can’t be undone. Please be certain.',
 			deleteButton: 'Delete ‘{{label}}’',
@@ -210,7 +210,7 @@ const en = {
 				code: 'Code',
 				fileSystem: 'File System',
 				styles: 'Styles',
-				dependencies: 'Dependecies',
+				dependencies: 'Dependencies',
 			},
 			selected: 'Selected',
 		},
@@ -228,7 +228,7 @@ const en = {
 		settings: {
 			informationTitle: 'Information',
 			policyLabelLabel: 'Policy label',
-			policyLabelInputPlacehoder: 'Enter a new policy label...',
+			policyLabelInputPlaceholder: 'Enter a new policy label...',
 			submitButton: 'Save Changes',
 			saveChangesNotification: {
 				title: 'Changes saved',

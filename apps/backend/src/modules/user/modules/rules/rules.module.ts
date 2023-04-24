@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 
 import { CommandHandlers } from './commands/handlers';
 import { QueryHandlers } from './queries/handlers';
@@ -25,6 +25,6 @@ import { ConfigureMissingController } from './configure-missing.controller';
 		UpdateConfigurationController,
 		ConfigureMissingController,
 	],
-	providers: [RuleablePolicyGuard, BelongingRuleGuard, ...CommandHandlers, ...QueryHandlers],
+	providers: [RulablePolicyGuard, BelongingRuleGuard, ...CommandHandlers, ...QueryHandlers],
 })
 export class RuleModule {}

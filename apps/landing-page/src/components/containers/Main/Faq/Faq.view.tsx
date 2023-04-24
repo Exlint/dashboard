@@ -13,10 +13,10 @@ const FaqView: React.FC<IProps> = () => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={classes['qustions']}>
-			<div className={classes['qustionsInner']}>
-				<h2 className={classes['qustionsInner__title']}>{t('main.questions.title')}</h2>
-				<h2 className={classes['qustionsInner__title--mobile']}>
+		<div className={classes['questions']}>
+			<div className={classes['questionsInner']}>
+				<h2 className={classes['questionsInner__title']}>{t('main.questions.title')}</h2>
+				<h2 className={classes['questionsInner__title--mobile']}>
 					<Trans i18nKey="main.questions.titleMobile" />
 				</h2>
 				{faq.map((question, index) => (

@@ -35,7 +35,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const [policyCreationDateState, setPolicyCreationDateState] = useState<number | null>(null);
 	const [policyTypesState, setPolicyTypesState] = useState<ILibraryData['types'] | null>(null);
 	const [rulesDataState, setRulesDataState] = useState<IGetPolicyRulesResponseData['rules']>([]);
-	const [rulesTotalCountState, setRulestotalCountState] = useState<number | null>(null);
+	const [rulesTotalCountState, setRulesTotalCountState] = useState<number | null>(null);
 
 	const [policyCategoriesState, setPolicyCategoriesState] = useState<ILibraryData['categories'] | null>(
 		null,
@@ -50,7 +50,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 				setPolicyTypesState(() => responseData.types);
 				setPolicyCategoriesState(() => responseData.categories);
 				setRulesDataState(() => responseData.rules);
-				setRulestotalCountState(() => responseData.count);
+				setRulesTotalCountState(() => responseData.count);
 			})
 			.catch(() => navigate(`/compliance-center/${params.complianceId}`));
 	}, []);
@@ -85,7 +85,7 @@ const PolicyRules: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 	const onRemoveRuleClick = (ruleId: string) => {
 		BackendService.delete(`/user/rules/${ruleId}`).then(() => {
 			setRulesDataState((prev) => prev.filter((ruleItem) => ruleItem.id !== ruleId));
-			setRulestotalCountState((prev) => prev! - 1);
+			setRulesTotalCountState((prev) => prev! - 1);
 		});
 	};
 

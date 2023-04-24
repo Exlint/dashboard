@@ -27,7 +27,7 @@ const Intro: React.FC<IProps> = () => {
 	};
 
 	const onGetStartedClick = () => {
-		mixpanel.track('Get Statred button CLICKED / Intro');
+		mixpanel.track('Get started button CLICKED / Intro');
 	};
 
 	useEffect(() => {

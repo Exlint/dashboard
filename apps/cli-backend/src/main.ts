@@ -49,7 +49,7 @@ async function bootstrap() {
 	if (nodeEnv === 'development') {
 		const swaggerConfig = new DocumentBuilder()
 			.setTitle('Exlint Dashboard')
-			.setDescription('The Exlint Dashboard API Descritpion')
+			.setDescription('The Exlint Dashboard API Description')
 			.setVersion('1.0')
 			.addTag('exlint')
 			.build();

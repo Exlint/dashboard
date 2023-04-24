@@ -44,7 +44,7 @@ export class AutoAuthController {
 	@ApiUnauthorizedResponse({
 		description: 'If could not find a logged user, or refresh token is either missing or invalid',
 	})
-	@ApiInternalServerErrorResponse({ description: 'If failed to retreive logged user' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to retrieve logged user' })
 	@Public()
 	@UseGuards(RefreshTokenGuard)
 	@Get(Routes.AUTO_AUTH)

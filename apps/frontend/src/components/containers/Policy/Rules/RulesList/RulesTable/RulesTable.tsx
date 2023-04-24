@@ -40,7 +40,7 @@ const RulesTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 	];
 
 	const categoriesOptions = useMemo(() => {
-		const transformedCategoires = props.serverRules.reduce<ICategoryOption[]>((final, rule) => {
+		const transformedCategories = props.serverRules.reduce<ICategoryOption[]>((final, rule) => {
 			const doesCategoryExist = !!final.find((item) => item.value === rule.category);
 
 			if (doesCategoryExist) {
@@ -50,7 +50,7 @@ const RulesTable: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =>
 			return [...final, { value: rule.category, label: rule.category }];
 		}, []);
 
-		return [{ value: 'all', label: t('policy.rulesList.allCategoriesFilter') }, ...transformedCategoires];
+		return [{ value: 'all', label: t('policy.rulesList.allCategoriesFilter') }, ...transformedCategories];
 	}, [props.serverRules]);
 
 	const filteredRules = useMemo(() => {

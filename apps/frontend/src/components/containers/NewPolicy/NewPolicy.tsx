@@ -17,7 +17,7 @@ const NewPolicy: React.FC<IProps> = () => {
 	const [policyLabelState, setPolicyLabelState] = useState<string | null>(null);
 	const [policyDescriptionState, setPolicyDescriptionState] = useState<string | null>(null);
 	const [isPolicyLabelValidState, setIsPolicyLabelValidState] = useState<boolean>(false);
-	const [isPolicyLabelAvailableState, setIsPolicyLabelAvaiableState] = useState<boolean | null>(null);
+	const [isPolicyLabelAvailableState, setIsPolicyLabelAvailableState] = useState<boolean | null>(null);
 	const [selectedLibraryState, setSelectedLibraryState] = useState<PolicyLibrary | null>(null);
 
 	const isSubmitEnabled = useMemo(() => {
@@ -27,7 +27,7 @@ const NewPolicy: React.FC<IProps> = () => {
 	const onPolicyLabelChange = (value: string) => setPolicyLabelState(() => value);
 	const onPolicyDescriptionChange = (value: string) => setPolicyDescriptionState(() => value);
 	const onSetPolicyLabelValid = (value: boolean) => setIsPolicyLabelValidState(() => value);
-	const onSetPolicyLabelAvailable = (value: boolean | null) => setIsPolicyLabelAvaiableState(() => value);
+	const onSetPolicyLabelAvailable = (value: boolean | null) => setIsPolicyLabelAvailableState(() => value);
 	const onLibrarySelect = (library: PolicyLibrary | null) => setSelectedLibraryState(() => library);
 
 	const onCreatePolicy = async (e: FormEvent<HTMLFormElement>) => {

@@ -6,7 +6,7 @@ import { libraries } from '@/data/libraries';
 import LintersOutputView from './LintersOutput.view';
 
 interface IProps {
-	readonly isStylintVisible: boolean;
+	readonly isStylelintVisible: boolean;
 	readonly isEslintVisible: boolean;
 	readonly isPrettierVisible: boolean;
 	readonly isDepcheckVisible: boolean;
@@ -33,14 +33,14 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	const rowsContent = {
 		firstRow: [
-			'--- Stylint output ---',
+			'--- Stylelint output ---',
 			'--- ESLint output ---',
 			'--- Prettier output ---',
-			'--- Depchecks output ---',
+			'--- Depcheck output ---',
 		],
 		secondRow: [
 			'format.css',
-			'Users/inbarmatza/Exlint/test-cli/date.js',
+			'/Users/inbarmatza/Exlint/test-cli/date.js',
 			'Checking formatting...',
 			'Unused dependencies',
 		],
@@ -48,7 +48,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 
 	useEffect(() => {
 		setFirstRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? rowsContent.firstRow[0]
 				: props.isEslintVisible
 				? rowsContent.firstRow[1]
@@ -58,7 +58,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		);
 
 		setSecondRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? rowsContent.secondRow[0]
 				: props.isEslintVisible
 				? rowsContent.secondRow[1]
@@ -68,7 +68,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		);
 
 		setThirdRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? libraries[0]
 				: props.isEslintVisible
 				? libraries[1]
@@ -78,7 +78,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		);
 
 		setFourthRowState(() => {
-			if (props.isStylintVisible) {
+			if (props.isStylelintVisible) {
 				return libraries[0];
 			} else if (props.isEslintVisible) {
 				return libraries[1];
@@ -90,7 +90,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		});
 
 		setFifthRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? libraries[0]
 				: props.isEslintVisible
 				? libraries[1]
@@ -100,7 +100,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		);
 
 		setSixthRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? libraries[0]
 				: props.isEslintVisible
 				? libraries[1]
@@ -110,7 +110,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 		);
 
 		setSeventhRowState(() =>
-			props.isStylintVisible
+			props.isStylelintVisible
 				? libraries[0]
 				: props.isEslintVisible
 				? libraries[1]
@@ -118,49 +118,49 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 				? libraries[2]
 				: libraries[3],
 		);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsFirstRowVisibleState(true);
 		}, startTime);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsSecondRowVisibleState(true);
 		}, startTime + 700);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsThirdRowVisibleState(true);
 		}, startTime + 1500);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsFourthRowVisibleState(true);
 		}, startTime + 1750);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsFifthRowVisibleState(true);
 		}, startTime + 2000);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsSixthRowVisibleState(true);
 		}, startTime + 2250);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsSeventhRowVisibleState(true);
 		}, startTime + 3250);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -172,7 +172,7 @@ const LintersOutput: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			setIsSixthRowVisibleState(false);
 			setIsSeventhRowVisibleState(false);
 		}, startTime + 6000);
-	}, [props.isStylintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
+	}, [props.isStylelintVisible, props.isEslintVisible, props.isPrettierVisible, props.isDepcheckVisible]);
 
 	return (
 		<LintersOutputView

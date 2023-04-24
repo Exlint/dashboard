@@ -1,1 +1,1 @@
-export const libraries = ['stylint', 'eslint', 'prettier', 'depcheck'];
+export const libraries = ['stylelint', 'eslint', 'prettier', 'depcheck'];

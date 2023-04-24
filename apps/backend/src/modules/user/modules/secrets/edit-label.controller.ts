@@ -21,7 +21,7 @@ export class EditSecretController {
 
 	constructor(private readonly commandBus: CommandBus) {}
 
-	@ApiOperation({ description: 'Edit a label of a secret by its identifer' })
+	@ApiOperation({ description: 'Edit a label of a secret by its identifier' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: 'If successfully edit label of secret',

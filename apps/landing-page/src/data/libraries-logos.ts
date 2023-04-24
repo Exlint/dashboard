@@ -23,7 +23,7 @@ const logosObject = [
 	},
 	{
 		url: StylelintLogo,
-		alt: 'stylint logo',
+		alt: 'stylelint logo',
 	},
 ];
 

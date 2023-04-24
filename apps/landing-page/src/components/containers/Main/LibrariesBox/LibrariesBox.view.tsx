@@ -11,7 +11,7 @@ import classes from './LibrariesBox.module.scss';
 import LintersOutput from './LintersOutput';
 
 interface IProps {
-	readonly isStylintVisible: boolean;
+	readonly isStylelintVisible: boolean;
 	readonly isEslintVisible: boolean;
 	readonly isPrettierVisible: boolean;
 	readonly isDepcheckVisible: boolean;
@@ -23,7 +23,7 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 	let codeClass;
 	const { t } = useTranslation();
 
-	if (props.isStylintVisible) {
+	if (props.isStylelintVisible) {
 		cmdClass = concatClasses(classes, 'cmd', 'moveLeft');
 		codeClass = concatClasses(classes, 'code', 'code--visible');
 	}
@@ -54,7 +54,7 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 				/>
 			</div>
 			<AnimationBox
-				isStylintVisible={props.isStylintVisible}
+				isStylelintVisible={props.isStylelintVisible}
 				isEslintVisible={props.isEslintVisible}
 				isPrettierVisible={props.isPrettierVisible}
 				isDepcheckVisible={props.isDepcheckVisible}
@@ -63,7 +63,7 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 			<div className={classes['innerFirstLine']}>
 				{props.isPrettierVisible || props.isDepcheckVisible ? (
 					<span className={classes['innerFirstLine__star']} />
-				) : props.isStylintVisible ? (
+				) : props.isStylelintVisible ? (
 					<>
 						<span className={classes['innerFirstLine__firstVerticalStarBreakLine']} />
 
@@ -116,7 +116,7 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 
 			<div className={cmdClass}>
 				<LintersOutput
-					isStylintVisible={props.isStylintVisible}
+					isStylelintVisible={props.isStylelintVisible}
 					isEslintVisible={props.isEslintVisible}
 					isPrettierVisible={props.isPrettierVisible}
 					isDepcheckVisible={props.isDepcheckVisible}
@@ -126,8 +126,8 @@ const LibrariesBoxView: React.FC<IProps> = (props: React.PropsWithChildren<IProp
 			<div className={codeClass} style={{ zIndex: '10' }}>
 				<div className={classes['innerCode']}>
 					<ELPSvg className={classes['innerCode__lines']} name="linesNumber" />
-					{props.isStylintVisible && (
-						<ELPSvg className={classes['innerCode__stylint']} name="stylintCodeError" />
+					{props.isStylelintVisible && (
+						<ELPSvg className={classes['innerCode__stylelint']} name="stylelintCodeError" />
 					)}
 					{props.isEslintVisible && (
 						<ELPSvg className={classes['innerCode__eslint']} name="eslintCodeError" />

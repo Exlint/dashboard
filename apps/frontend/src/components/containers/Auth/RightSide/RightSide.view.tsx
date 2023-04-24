@@ -56,7 +56,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 			</span>
 
 			<span className={classes['rightSideContainer__policyText']}>
-				{t('auth.policiesDiscalimer.prefix')}
+				{t('auth.policiesDisclaimer.prefix')}
 				<br />
 				<a
 					className={classes['rightSideContainer__textLink']}
@@ -64,10 +64,10 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					target="_blank"
 					data-testid="auth-terms-of-service-link"
 				>
-					{t('auth.policiesDiscalimer.termsOfService')}
+					{t('auth.policiesDisclaimer.termsOfService')}
 				</a>
 				&nbsp;
-				{t('auth.policiesDiscalimer.and')}
+				{t('auth.policiesDisclaimer.and')}
 				&nbsp;
 				<a
 					className={classes['rightSideContainer__textLink']}
@@ -75,7 +75,7 @@ const RightSideView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>)
 					target="_blank"
 					data-testid="auth-privacy-policy-link"
 				>
-					{t('auth.policiesDiscalimer.privacyPolicy')}
+					{t('auth.policiesDisclaimer.privacyPolicy')}
 				</a>
 			</span>
 		</section>

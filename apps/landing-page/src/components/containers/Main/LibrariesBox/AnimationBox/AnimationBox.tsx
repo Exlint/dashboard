@@ -3,7 +3,7 @@ import React from 'react';
 import AnimationBoxView from './AnimationBox.view';
 
 interface IProps {
-	readonly isStylintVisible: boolean;
+	readonly isStylelintVisible: boolean;
 	readonly isEslintVisible: boolean;
 	readonly isPrettierVisible: boolean;
 	readonly isDepcheckVisible: boolean;
@@ -13,7 +13,7 @@ interface IProps {
 const AnimationBox: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 	return (
 		<AnimationBoxView
-			isStylintVisible={props.isStylintVisible}
+			isStylelintVisible={props.isStylelintVisible}
 			isEslintVisible={props.isEslintVisible}
 			isPrettierVisible={props.isPrettierVisible}
 			isDepcheckVisible={props.isDepcheckVisible}

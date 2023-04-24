@@ -31,7 +31,7 @@ const QuestionView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) 
 
 	return (
 		<div className={classes['questionsContainer']}>
-			<hr className={classes['questionsContainer__devidorLine']} />
+			<hr className={classes['questionsContainer__dividerLine']} />
 			<div
 				className={concatClasses(
 					classes,

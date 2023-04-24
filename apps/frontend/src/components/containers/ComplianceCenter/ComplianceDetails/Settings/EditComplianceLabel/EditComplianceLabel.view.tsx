@@ -29,7 +29,7 @@ const EditComplianceLabelView: React.FC<IProps> = (props: React.PropsWithChildre
 				isAvailable={props.isNewComplianceLabelAvailable}
 				value={props.newComplianceLabelInput}
 				maxLength={30}
-				placeholder={t('complianceCenter.settings.complianceLabelInputPlacehoder')}
+				placeholder={t('complianceCenter.settings.complianceLabelInputPlaceholder')}
 				onChange={props.onNewComplianceLabelInputChange}
 			/>
 

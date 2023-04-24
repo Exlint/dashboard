@@ -1,7 +1,11 @@
 node_modules
 build
-pnpm-worksapce.yaml
+pnpm-workspace.yaml
 dist
 pnpm-lock.yaml
 terraform
 .github
+auth-state.json
+.next
+out
+*.scss.d.ts

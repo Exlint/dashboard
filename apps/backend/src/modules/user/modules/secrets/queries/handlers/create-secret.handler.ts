@@ -3,7 +3,7 @@ import { QueryHandler, type IQueryHandler } from '@nestjs/cqrs';
 import { DBClientSecretService } from '@/modules/database/client-secret.service';
 
 import { SecretsService } from '../../secrets.service';
-import { CreateSecretContract } from '../contracts/create-secret.cotract';
+import { CreateSecretContract } from '../contracts/create-secret.contract';
 import type { CreateSecretResponse } from '../../classes/responses';
 
 @QueryHandler(CreateSecretContract)

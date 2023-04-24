@@ -60,7 +60,7 @@ export interface IEditPolicyDescriptionDto {
 
 export interface IEnableMissingRuleDto extends Pick<Rule, 'name'> {}
 
-export interface IUpdateRuleConfiguratinoDto {
+export interface IUpdateRuleConfigurationDto {
 	readonly configuration: Prisma.JsonArray;
 }
 

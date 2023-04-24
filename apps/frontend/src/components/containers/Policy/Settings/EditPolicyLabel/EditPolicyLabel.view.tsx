@@ -29,7 +29,7 @@ const EditPolicyLabelView: React.FC<IProps> = (props: React.PropsWithChildren<IP
 				isAvailable={props.isNewPolicyLabelAvailable}
 				value={props.newPolicyLabelInput}
 				maxLength={30}
-				placeholder={t('policy.settings.policyLabelInputPlacehoder')}
+				placeholder={t('policy.settings.policyLabelInputPlaceholder')}
 				onChange={props.onNewPolicyLabelInputChange}
 			/>
 

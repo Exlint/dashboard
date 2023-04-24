@@ -1,10 +1,10 @@
-# Exlint Automations
+# Exlint Automation
 
 Automation for Exlint, using `Playwright` package
 
 ## Prerequisites
 
-To run the automations locally, you must create a GitHub user, and get a [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) key using [GitHub 2FA](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+To run the automation locally, you must create a GitHub user, and get a [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) key using [GitHub 2FA](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 When enabling 2FA in GitHub, you should see a QRCode. You should decode this QRCode using some online tool, like [ZXing](https://zxing.org/w/decode.jspx). After decoding, you should get this result:
 
@@ -19,7 +19,7 @@ const token = totp('<YOUR_SECRET>');
 console.log(token);
 ```
 
-Then return back to the GitHub 2FA enable page, and enter this logged token. Now you are ready to run the automations locally.
+Then return back to the GitHub 2FA enable page, and enter this logged token. Now you are ready to run the automation locally.
 
 ## Running
 
@@ -35,5 +35,5 @@ Then, in the root folder of the project, run this command: `pnpm test:local`
 
 ## Debugging
 
-You can debug the automations tests locally by running this command: `pnpm test:debug`
+You can debug the automation tests locally by running this command: `pnpm test:debug`
 Note, the [prerequisites](#prerequisites) are the same for this command.

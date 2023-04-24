@@ -15,12 +15,12 @@ const listenerMiddleware = createListenerMiddleware();
 
 const authEffect = async (
 	_: unknown,
-	listnerApi: ListenerEffectAPI<unknown, ThunkDispatch<unknown, unknown, AnyAction>>,
+	listenerApi: ListenerEffectAPI<unknown, ThunkDispatch<unknown, unknown, AnyAction>>,
 ) => {
 	let isLoggedIn = true;
 
 	while (isLoggedIn) {
-		await listnerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
+		await listenerApi.delay(ACCESS_TOKEN_REFRESH_TIMEOUT);
 
 		try {
 			const responseData = await BackendService.get<IRefreshTokenResponseData>(
@@ -29,7 +29,7 @@ const authEffect = async (
 
 			sessionStorage.setItem('token', responseData.accessToken);
 		} catch {
-			listnerApi.dispatch(authActions.setUnauthenticated());
+			listenerApi.dispatch(authActions.setUnauthenticated());
 
 			isLoggedIn = false;
 		}

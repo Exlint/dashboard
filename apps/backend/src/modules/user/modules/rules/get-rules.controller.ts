@@ -12,7 +12,7 @@ import type { IGetRulesResponseData } from '@exlint.io/common';
 import { PolicyLibrary } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 import { Library } from '@/decorators/library.decorator';
 
 import { GetRulesResponse } from './classes/get-rules.dto';
@@ -36,7 +36,7 @@ export class GetRulesController {
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to fetch the rules' })
-	@UseGuards(RuleablePolicyGuard)
+	@UseGuards(RulablePolicyGuard)
 	@Get(Routes.GET_RULES)
 	@HttpCode(HttpStatus.OK)
 	public async getFormSchema(

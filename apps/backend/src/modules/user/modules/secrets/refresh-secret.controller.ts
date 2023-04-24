@@ -24,7 +24,7 @@ export class RefreshSecretController {
 
 	constructor(private readonly queryBus: QueryBus) {}
 
-	@ApiOperation({ description: 'Refresh a secret by its identifer' })
+	@ApiOperation({ description: 'Refresh a secret by its identifier' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: "If successfully refresh user's secret",
@@ -35,7 +35,7 @@ export class RefreshSecretController {
 	})
 	@ApiInternalServerErrorResponse({ description: "If failed to refresh the user's secret" })
 	@UseGuards(BelongingSecretGuard)
-	@Patch(Routes.REFRSH_SECRET)
+	@Patch(Routes.REFRESH_SECRET)
 	@HttpCode(HttpStatus.OK)
 	public async refreshSecret(
 		@Param('secret_id') secretId: string,

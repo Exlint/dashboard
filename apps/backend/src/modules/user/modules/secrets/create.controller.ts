@@ -14,7 +14,7 @@ import { CurrentUserEmail } from '@/decorators/current-user-email.decorator';
 
 import Routes from './secrets.routes';
 import { CreateSecretResponse } from './classes/responses';
-import { CreateSecretContract } from './queries/contracts/create-secret.cotract';
+import { CreateSecretContract } from './queries/contracts/create-secret.contract';
 import { CreateSecretDto } from './classes/create-secret.dto';
 
 @ApiTags('Secrets')
@@ -33,7 +33,7 @@ export class CreateController {
 	@ApiUnauthorizedResponse({
 		description: 'If access token is either missing or invalid',
 	})
-	@ApiInternalServerErrorResponse({ description: 'If failed to create a sercet' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to create a secret' })
 	@Post(Routes.CREATE)
 	@HttpCode(HttpStatus.CREATED)
 	public async create(

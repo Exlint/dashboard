@@ -3,7 +3,7 @@ import { CqrsModule } from '@nestjs/cqrs';
 
 import { BelongingInlinePolicyGuard } from '@/guards/belonging-inline-policy.guard';
 import { BelongingComplianceGuard } from '@/guards/belonging-compliance.guard';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 
 import { QueryHandlers } from './queries/handlers';
 import { CommandHandlers } from './commands/handlers';
@@ -46,7 +46,7 @@ import { SetFormConfigurationController } from './set-form-configuration.control
 	providers: [
 		BelongingInlinePolicyGuard,
 		BelongingComplianceGuard,
-		RuleablePolicyGuard,
+		RulablePolicyGuard,
 		...QueryHandlers,
 		...CommandHandlers,
 		...EventHandlers,

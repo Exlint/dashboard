@@ -14,7 +14,7 @@ import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { Library } from '@/decorators/library.decorator';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 
 import Routes from './rules.routes';
 import { EnableMissingDto, EnableMissingResponse } from './classes/enable-missing.dto';
@@ -38,7 +38,7 @@ export class EnableMissingController {
 		description: 'If access token is either missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to enable the missing rule' })
-	@UseGuards(RuleablePolicyGuard, ThrottlerGuard)
+	@UseGuards(RulablePolicyGuard, ThrottlerGuard)
 	@Post(Routes.ENABLE_MISSING_RULE)
 	@HttpCode(HttpStatus.CREATED)
 	public async enableMissing(

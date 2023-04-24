@@ -11,7 +11,7 @@ interface IProps {
 	readonly selectedComplianceLabel: string | null;
 	readonly policyLabel: string | null;
 	readonly isPolicyLabelAvailable: boolean | null;
-	readonly policyDescritpion: string | null;
+	readonly policyDescription: string | null;
 	readonly onPolicyLabelChange: (value: string) => void;
 	readonly onPolicyDescriptionChange: (value: string) => void;
 }
@@ -77,7 +77,7 @@ const DetailsView: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) =
 					{t('newPolicy.descriptionLabelPostfix')}
 				</span>
 			</label>
-			<EDInputField value={props.policyDescritpion} onChange={props.onPolicyDescriptionChange} />
+			<EDInputField value={props.policyDescription} onChange={props.onPolicyDescriptionChange} />
 
 			<hr className={classes['container__divider']} />
 		</section>

@@ -20,7 +20,9 @@ export class AddRecommendedController {
 		@Body() recommendedDto: RecommendedDto,
 		@CurrentUserId() userId: string,
 	): Promise<IAddRecommendedResponseData> {
-		this.logger.log(`Will try to add recommeded compliance for languages: "${recommendedDto.languages}"`);
+		this.logger.log(
+			`Will try to add recommended compliance for languages: "${recommendedDto.languages}"`,
+		);
 
 		const createdComplianceId = await this.queryBus.execute<AddRecommendedContract, string>(
 			new AddRecommendedContract(userId, recommendedDto.languages),

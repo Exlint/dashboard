@@ -5,14 +5,14 @@ import LibrariesBoxView from './LibrariesBox.view';
 interface IProps {}
 
 const LibrariesBox: React.FC<IProps> = () => {
-	const [isStylintVisible, setIsStylintVisible] = useState<boolean>(true);
+	const [isStylelintVisible, setIsStylelintVisible] = useState<boolean>(true);
 	const [isEslintVisible, setIsEslintVisible] = useState<boolean>(false);
 	const [isPrettierVisible, setIsPrettierVisible] = useState<boolean>(false);
 	const [isDepcheckVisible, setIsDepcheckVisible] = useState<boolean>(false);
 
 	const onHighlightIcons = () => {
-		if (isStylintVisible) {
-			setIsStylintVisible(false);
+		if (isStylelintVisible) {
+			setIsStylelintVisible(false);
 			setIsEslintVisible(true);
 		}
 
@@ -28,13 +28,13 @@ const LibrariesBox: React.FC<IProps> = () => {
 
 		if (isDepcheckVisible) {
 			setIsDepcheckVisible(false);
-			setIsStylintVisible(true);
+			setIsStylelintVisible(true);
 		}
 	};
 
 	return (
 		<LibrariesBoxView
-			isStylintVisible={isStylintVisible}
+			isStylelintVisible={isStylelintVisible}
 			isEslintVisible={isEslintVisible}
 			isPrettierVisible={isPrettierVisible}
 			isDepcheckVisible={isDepcheckVisible}

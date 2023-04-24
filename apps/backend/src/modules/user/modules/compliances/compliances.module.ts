@@ -11,7 +11,7 @@ import { QueryHandlers } from './queries/handlers';
 import { EventHandlers } from './events/handlers';
 import { GetAllController } from './get-all.controller';
 import { AvailableLabelController } from './available-label.controller';
-import { GetController } from './get.contoller';
+import { GetController } from './get.controller';
 import { GetInlinePoliciesController } from './get-inline-policies.controller';
 import { EditDescriptionController } from './edit-description.controller';
 

@@ -12,13 +12,13 @@ const listenerMiddleware = createListenerMiddleware();
 
 const showNotificationEffect = async (
 	_: unknown,
-	listnerApi: ListenerEffectAPI<unknown, ThunkDispatch<unknown, unknown, AnyAction>>,
+	listenerApi: ListenerEffectAPI<unknown, ThunkDispatch<unknown, unknown, AnyAction>>,
 ) => {
-	listnerApi.cancelActiveListeners();
+	listenerApi.cancelActiveListeners();
 
-	await listnerApi.delay(NOTIFICATION_SHOW_TIMEOUT);
+	await listenerApi.delay(NOTIFICATION_SHOW_TIMEOUT);
 
-	listnerApi.dispatch(uiActions.closeNotification());
+	listenerApi.dispatch(uiActions.closeNotification());
 };
 
 listenerMiddleware.startListening({

@@ -18,7 +18,7 @@ const PreTestsAuthentication = async () => {
 
 	/**
 	 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-	 * * and an error occured if testing non-existent element anymore
+	 * * and an error occurred if testing non-existent element anymore
 	 */
 	const verifyElement = page.getByRole('button', { name: /^Verify$/ });
 	const shouldVerify = await verifyElement.isVisible().catch(() => false);
@@ -29,7 +29,7 @@ const PreTestsAuthentication = async () => {
 
 	/**
 	 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-	 * * and an error occured if testing non-existent element anymore
+	 * * and an error occurred if testing non-existent element anymore
 	 */
 	const errorElement = page.getByRole('alert', { name: 'Two-factor authentication failed' });
 	const shouldVerifyAgain = await errorElement.isVisible().catch(() => false);
@@ -41,7 +41,7 @@ const PreTestsAuthentication = async () => {
 
 		/**
 		 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-		 * * and an error occured if testing non-existent element anymore
+		 * * and an error occurred if testing non-existent element anymore
 		 */
 		const verifyElement = page.getByRole('button', { name: 'Verify' });
 		const shouldVerify = await verifyElement.isVisible().catch(() => false);
@@ -70,7 +70,7 @@ const PreTestsAuthentication = async () => {
 
 		/**
 		 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-		 * * and an error occured if testing non-existent element anymore
+		 * * and an error occurred if testing non-existent element anymore
 		 */
 		const verify2FAElement = page.getByRole('button', { name: /^Verify$/ });
 		const shouldVerify2FA = await verify2FAElement.isVisible().catch(() => false);
@@ -81,7 +81,7 @@ const PreTestsAuthentication = async () => {
 
 		/**
 		 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-		 * * and an error occured if testing non-existent element anymore
+		 * * and an error occurred if testing non-existent element anymore
 		 */
 		const errorElement = page.getByRole('alert', { name: 'Two-factor authentication failed' });
 		const shouldVerifyAgain = await errorElement.isVisible().catch(() => false);
@@ -93,7 +93,7 @@ const PreTestsAuthentication = async () => {
 
 			/**
 			 * * GitHub may automatically "click" on verify, in that case, the page navigates,
-			 * * and an error occured if testing non-existent element anymore
+			 * * and an error occurred if testing non-existent element anymore
 			 */
 			const verifyElement = page.getByRole('button', { name: 'Verify' });
 			const shouldVerify = await verifyElement.isVisible().catch(() => false);

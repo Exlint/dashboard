@@ -69,7 +69,7 @@ const Details: React.FC<IProps> = (props: React.PropsWithChildren<IProps>) => {
 			selectedComplianceLabel={complianceLabelState}
 			policyLabel={props.policyLabel}
 			isPolicyLabelAvailable={props.isPolicyLabelAvailable}
-			policyDescritpion={props.policyDescription}
+			policyDescription={props.policyDescription}
 			onPolicyDescriptionChange={props.onPolicyDescriptionChange}
 			onPolicyLabelChange={onPolicyLabelChange}
 		/>

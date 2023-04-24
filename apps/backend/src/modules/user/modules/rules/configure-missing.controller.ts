@@ -13,7 +13,7 @@ import { PolicyLibrary } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { Library } from '@/decorators/library.decorator';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 
 import Routes from './rules.routes';
 import { EnableMissingResponse } from './classes/enable-missing.dto';
@@ -38,7 +38,7 @@ export class ConfigureMissingController {
 		description: 'If access token is either missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: 'If failed to configure the missing rule' })
-	@UseGuards(RuleablePolicyGuard)
+	@UseGuards(RulablePolicyGuard)
 	@Post(Routes.CONFIGURE_MISSING)
 	@HttpCode(HttpStatus.CREATED)
 	public async configureMissing(

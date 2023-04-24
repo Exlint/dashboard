@@ -1,10 +1,10 @@
 locals {
-  splitted_domain_name = split(".", var.domain_name)
+  split_domain_name = split(".", var.domain_name)
 }
 
 resource "aws_route53_record" "app_record" {
   zone_id = var.zone_id
-  name    = join(".", slice(local.splitted_domain_name, 0, length(local.splitted_domain_name) - 2))
+  name    = join(".", slice(local.split_domain_name, 0, length(local.split_domain_name) - 2))
   type    = "A"
 
   alias {

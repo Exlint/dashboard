@@ -23,7 +23,7 @@ const Footer: React.FC<IProps> = () => {
 	};
 
 	const onGetStartedClick = () => {
-		mixpanel.track('Get Statred button CLICKED / Footer');
+		mixpanel.track('Get started button CLICKED / Footer');
 	};
 
 	const onTermsOfUseClick = () => {

@@ -12,7 +12,7 @@ import { PolicyLibrary } from '@prisma/client';
 
 import { CurrentUserId } from '@/decorators/current-user-id.decorator';
 import { Library } from '@/decorators/library.decorator';
-import { RuleablePolicyGuard } from '@/guards/ruleable-policy.guard';
+import { RulablePolicyGuard } from '@/guards/rulable-policy.guard';
 
 import Routes from './inline-policies.routes';
 import { GetPolicyRulesResponse } from './classes/get-policy-rules.dto';
@@ -35,7 +35,7 @@ export class GetPolicyRulesController {
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
 	@ApiInternalServerErrorResponse({ description: "If failed to fetch the policy's rules" })
-	@UseGuards(RuleablePolicyGuard)
+	@UseGuards(RulablePolicyGuard)
 	@Get(Routes.GET_POLICY_RULES)
 	@HttpCode(HttpStatus.OK)
 	public async getPolicyRules(

@@ -27,12 +27,12 @@ export class SetIsFormConfigurationController {
 	@ApiOperation({ description: 'Set whether user selected to config the policy using form configuration' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
-		description: 'If set the paramater successfully',
+		description: 'If set the parameter successfully',
 	})
 	@ApiUnauthorizedResponse({
 		description: 'If access token is missing or invalid, or policy does not belong to user',
 	})
-	@ApiInternalServerErrorResponse({ description: 'If failed to set the paramater' })
+	@ApiInternalServerErrorResponse({ description: 'If failed to set the parameter' })
 	@UseGuards(BelongingInlinePolicyGuard, ThrottlerGuard)
 	@Patch(Routes.SET_IS_FORM_CONFIGURATION)
 	@HttpCode(HttpStatus.OK)

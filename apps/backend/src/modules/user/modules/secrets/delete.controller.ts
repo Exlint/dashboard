@@ -23,7 +23,7 @@ export class DeleteController {
 
 	constructor(private readonly commandBus: CommandBus) {}
 
-	@ApiOperation({ description: 'Delete a secret by its identifer' })
+	@ApiOperation({ description: 'Delete a secret by its identifier' })
 	@ApiBearerAuth('access-token')
 	@ApiOkResponse({
 		description: 'If successfully deleted the secret',
