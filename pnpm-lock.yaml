@@ -167,8 +167,8 @@ importers:
         specifier: 0.14.0
         version: 0.14.0
       googleapis:
-        specifier: 114.0.0
-        version: 114.0.0
+        specifier: 118.0.0
+        version: 118.0.0
       helmet:
         specifier: 6.1.5
         version: 6.1.5
@@ -8431,8 +8431,8 @@ packages:
       - supports-color
     dev: false
 
-  /googleapis@114.0.0:
-    resolution: {integrity: sha512-PbOSZXR0zkEfiX3P2mMW5CX9Kp981Te1bDJfm7Nei0ie9J5J0BscTsljro3POd0RsIQIDvNklJSAlQb6O84PtQ==}
+  /googleapis@118.0.0:
+    resolution: {integrity: sha512-Ny6zJOGn5P/YDT6GQbJU6K0lSzEu4Yuxnsn45ZgBIeSQ1RM0FolEjUToLXquZd89DU9wUfqA5XYHPEctk1TFWg==}
     engines: {node: '>=12.0.0'}
     dependencies:
       google-auth-library: 8.5.2
