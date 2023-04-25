@@ -14,13 +14,7 @@
 	},
 	// Copy all below to your user settings to get nice visual
 	"material-icon-theme.files.associations": {
-		".inflintignore": "crystal",
-		"inflint.config.ts": "crystal",
-		"czvinyl.config.ts": "ocaml",
-		".depcheckrc.json": "parcel",
-		".cz.json": "jinja",
 		"*.routes.ts": "routing",
-		".compodocrc.json": "mjml",
 		"*.strategy.ts": "nest-gateway"
 	},
 	"material-icon-theme.folders.associations": {

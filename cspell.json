@@ -13,7 +13,9 @@
 		"*.cast",
 		"./prisma",
 		"./apps/backend/src/data/**/*",
-		"_app.tsx"
+		"_app.tsx",
+		"./.dockerignore",
+		"./.vscode"
 	],
 	"words": [
 		"rofe",
