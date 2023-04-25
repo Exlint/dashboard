@@ -549,7 +549,7 @@ importers:
         version: 5.59.0(eslint@8.38.0)(typescript@5.0.4)
       '@vitejs/plugin-react':
         specifier: 3.1.0
-        version: 3.1.0(vite@4.2.1)
+        version: 3.1.0(vite@4.2.2)
       depcheck:
         specifier: 1.4.3
         version: 1.4.3
@@ -611,17 +611,17 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.2.1
-        version: 4.2.1(@types/node@18.15.10)(sass@1.62.0)
+        specifier: 4.2.2
+        version: 4.2.2(@types/node@18.15.10)(sass@1.62.0)
       vite-plugin-react-remove-attributes:
         specifier: 1.0.3
-        version: 1.0.3(vite@4.2.1)
+        version: 1.0.3(vite@4.2.2)
       vite-plugin-sass-dts:
         specifier: 1.3.3
-        version: 1.3.3(postcss@8.4.21)(prettier@2.8.7)(sass@1.62.0)(vite@4.2.1)
+        version: 1.3.3(postcss@8.4.21)(prettier@2.8.7)(sass@1.62.0)(vite@4.2.2)
       vite-tsconfig-paths:
         specifier: 4.2.0
-        version: 4.2.0(typescript@5.0.4)(vite@4.2.1)
+        version: 4.2.0(typescript@5.0.4)(vite@4.2.2)
 
   apps/landing-page:
     dependencies:
@@ -4638,7 +4638,7 @@ packages:
       - '@codemirror/search'
     dev: false
 
-  /@vitejs/plugin-react@3.1.0(vite@4.2.1):
+  /@vitejs/plugin-react@3.1.0(vite@4.2.2):
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -4649,7 +4649,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.20.12)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.2.1(@types/node@18.15.10)(sass@1.62.0)
+      vite: 4.2.2(@types/node@18.15.10)(sass@1.62.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -13197,15 +13197,15 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vite-plugin-react-remove-attributes@1.0.3(vite@4.2.1):
+  /vite-plugin-react-remove-attributes@1.0.3(vite@4.2.2):
     resolution: {integrity: sha512-f+ox+GFeqyBHzOe94Tcf1knFXEYWMhOGH04glIZRoXoIXQJD23Z1KFgQ7/JwOoLydsvQTlGzUJ/BpLeL7lh2LQ==}
     peerDependencies:
       vite: ^2.4.4
     dependencies:
-      vite: 4.2.1(@types/node@18.15.10)(sass@1.62.0)
+      vite: 4.2.2(@types/node@18.15.10)(sass@1.62.0)
     dev: true
 
-  /vite-plugin-sass-dts@1.3.3(postcss@8.4.21)(prettier@2.8.7)(sass@1.62.0)(vite@4.2.1):
+  /vite-plugin-sass-dts@1.3.3(postcss@8.4.21)(prettier@2.8.7)(sass@1.62.0)(vite@4.2.2):
     resolution: {integrity: sha512-YbGJhcLF2RYybHXCZoF5nSWR9riw0UBYdbxuqT8NiVg/kff9jGAqQ/i++IoG8ZtWL6qIxeDy+FNdlakxJKsHFA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -13218,10 +13218,10 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.21)
       prettier: 2.8.7
       sass: 1.62.0
-      vite: 4.2.1(@types/node@18.15.10)(sass@1.62.0)
+      vite: 4.2.2(@types/node@18.15.10)(sass@1.62.0)
     dev: true
 
-  /vite-tsconfig-paths@4.2.0(typescript@5.0.4)(vite@4.2.1):
+  /vite-tsconfig-paths@4.2.0(typescript@5.0.4)(vite@4.2.2):
     resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
     peerDependencies:
       vite: '*'
@@ -13232,7 +13232,7 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 2.1.1(typescript@5.0.4)
-      vite: 4.2.1(@types/node@18.15.10)(sass@1.62.0)
+      vite: 4.2.2(@types/node@18.15.10)(sass@1.62.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -13262,8 +13262,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite@4.2.1(@types/node@18.15.10)(sass@1.62.0):
-    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
+  /vite@4.2.2(@types/node@18.15.10)(sass@1.62.0):
+    resolution: {integrity: sha512-PcNtT5HeDxb3QaSqFYkEum8f5sCVe0R3WK20qxgIvNBZPXU/Obxs/+ubBMeE7nLWeCo2LDzv+8hRYSlcaSehig==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
