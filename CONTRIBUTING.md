@@ -1,4 +1,4 @@
-This Contributor Licence Agreement (“Agreement”) sets out the terms under which contributions are made to open source projects of Exlint.io (“Exlint”) by or on behalf of the Contributor. This Agreement is legally binding on the Contributor.
+This Contributor License Agreement (“Agreement”) sets out the terms under which contributions are made to open source projects of Exlint.io (“Exlint”) by or on behalf of the Contributor. This Agreement is legally binding on the Contributor.
 
 Who the “Contributor” is depends on whether the person submitting the contribution is a private individual acting on their own behalf, or is acting on behalf of someone else (for example, their employer). The “Contributor” in this Agreement is therefore either: (i) if the individual who Submits a Contribution does so on behalf of their employer or another Legal Entity, any Legal Entity on behalf of whom a Contribution has been received by Exlint; or in all other cases (ii) the individual who Submits a Contribution to Exlint. "Legal Entity" means an entity which is not a natural person (for example, a limited company or corporation).
 
@@ -22,25 +22,25 @@ Project: a software project to which the Contribution is Submitted.
 
 Submit: means to submit or send to Exlint or its representatives by any form of electronic, verbal, or written communication, for example, by means of code repositories or control systems, and issue tracking systems, that are managed by or on behalf of Exlint.
 
-Licence Grant
-2.1 Copyright: The Contributor grants to Exlint a perpetual, irrevocable, worldwide, transferable, fully sublicenseable through multiple tiers, fee-free, non-exclusive licence under the Copyright to do the following acts, subject to, and in accordance with, the terms of this Agreement: to reproduce, prepare derivative works of, publicly display, publicly perform, communicate to the public, and distribute by any means Contributions and such derivative works.
+License Grant
+2.1 Copyright: The Contributor grants to Exlint a perpetual, irrevocable, worldwide, transferable, fully sublicensable through multiple tiers, fee-free, non-exclusive License under the Copyright to do the following acts, subject to, and in accordance with, the terms of this Agreement: to reproduce, prepare derivative works of, publicly display, publicly perform, communicate to the public, and distribute by any means Contributions and such derivative works.
 
-2.2. Patent Rights: The Contributor grants to Exlint a perpetual, irrevocable, worldwide, transferable, fully sublicenseable through multiple tiers, fee-free, non-exclusive licence under the Patent Rights to do the following acts, subject to, and in accordance with, the terms of this Agreement: to make, have made, use, sell, offer for sale, import and otherwise transfer the Contribution and the Contribution in combination with a Project (and portions of such combination).
+2.2. Patent Rights: The Contributor grants to Exlint a perpetual, irrevocable, worldwide, transferable, fully sublicensable through multiple tiers, fee-free, non-exclusive License under the Patent Rights to do the following acts, subject to, and in accordance with, the terms of this Agreement: to make, have made, use, sell, offer for sale, import and otherwise transfer the Contribution and the Contribution in combination with a Project (and portions of such combination).
 
 2.3 The Contributor acknowledges that Exlint is not obliged to include the Contribution in any Project.
 
-2.4 If Exlint includes the Contribution in a Project, Exlint may license the Contribution under any licence terms, including copyleft, permissive, commercial, or proprietary licenses, provided that it shall also license the Contribution under the terms of any licenses which are approved by the Open Source Initiative on or after the Effective Date, including both permissive and copyleft licenses, whether or not such licenses are subsequently disapproved (including any right to adopt any future version of a license if permitted).
+2.4 If Exlint includes the Contribution in a Project, Exlint may license the Contribution under any License terms, including copyleft, permissive, commercial, or proprietary licenses, provided that it shall also license the Contribution under the terms of any licenses which are approved by the Open Source Initiative on or after the Effective Date, including both permissive and copyleft licenses, whether or not such licenses are subsequently disapproved (including any right to adopt any future version of a license if permitted).
 
 2.5 In the event that any moral rights apply in respect of the Contribution, the Contributor, being the sole author of the Contribution, waives all moral rights in respect of the use to be made of the Contribution under this Agreement to which the Contributor may now or at any future time be entitled.
 
 Warranties and Disclaimers
 3.1 The Contributor warrants and represents that:
 
-(a) it is the sole owner of the Copyright and any Patent Rights and legally entitled to grant the licence in section 2;
+(a) it is the sole owner of the Copyright and any Patent Rights and legally entitled to grant the License in section 2;
 
 (b) the Contribution is its own original creation;
 
-(c) the licence in section 2 does not conflict with or infringe any rights granted by the Contributor or (if applicable) its Affiliates; and
+(c) the License in section 2 does not conflict with or infringe any rights granted by the Contributor or (if applicable) its Affiliates; and
 
 (d) it is not aware of any claims, suits, or actions in respect of the Contribution.
 
