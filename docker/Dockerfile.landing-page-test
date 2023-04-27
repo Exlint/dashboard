@@ -1,4 +1,4 @@
-FROM node:18.15.0
+FROM node:18.16.0
 
 RUN npm i -g pnpm@8.2.0
 RUN npm i -g http-server@14.1.1
