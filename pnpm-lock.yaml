@@ -463,8 +463,8 @@ importers:
         specifier: 5.6.2
         version: 5.6.2(react@18.2.0)
       '@rjsf/validator-ajv8':
-        specifier: 5.6.0
-        version: 5.6.0(@rjsf/utils@5.6.2)
+        specifier: 5.6.2
+        version: 5.6.2(@rjsf/utils@5.6.2)
       '@types/react':
         specifier: 18.0.35
         version: 18.0.35
@@ -3966,11 +3966,11 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8@5.6.0(@rjsf/utils@5.6.2):
-    resolution: {integrity: sha512-QVBE7khOAW67BPk+1KG4agF/P1lQ00oGjqGZU9lkObDAMaVxRo20585+a81AWdz+TJh0tBtBMrhTZuIh14fjMw==}
+  /@rjsf/validator-ajv8@5.6.2(@rjsf/utils@5.6.2):
+    resolution: {integrity: sha512-aenj8vQ91TJdRTqFGi3Rl3j7j/EjjgYokIopCBlFqYDR3AVcoFSbLZw2JobZAADstw3eIL+ZEYi/LyvJCVV6lw==}
     engines: {node: '>=14'}
     peerDependencies:
-      '@rjsf/utils': ^5.0.0
+      '@rjsf/utils': 5.6.x
     dependencies:
       '@rjsf/utils': 5.6.2(react@18.2.0)
       ajv: 8.12.0
