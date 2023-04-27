@@ -15,7 +15,8 @@
 		"./apps/backend/src/data/**/*",
 		"_app.tsx",
 		"./.dockerignore",
-		"./.vscode"
+		"./.vscode",
+		"**/*.env.*"
 	],
 	"words": [
 		"rofe",
