@@ -1,0 +1,21 @@
+FROM node:18.16.0
+
+RUN npm i -g pnpm@8.2.0
+RUN npm i -g http-server@14.1.1
+
+WORKDIR /dashboard
+
+COPY ./package.json ./pnpm-workspace.yaml ./tsconfig.base.json ./.npmrc ./
+COPY ./apps/frontend/package.json ./apps/frontend/tsconfig.json ./apps/frontend/tsconfig.base.json ./apps/frontend/
+COPY ./packages/common/package.json ./packages/common/tsconfig.base.json ./packages/common/tsconfig.build.json ./packages/common/
+COPY ./prisma/schema.prisma ./prisma/
+
+RUN PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 pnpm i -w
+RUN pnpm --filter frontend --filter common i
+
+COPY ./apps/frontend/ ./apps/frontend/
+COPY ./packages/common/ ./packages/common/
+
+RUN pnpm exec nx build @exlint.io/frontend
+
+CMD ["http-server", "-c-1", "-p", "8080", "./apps/frontend/dist"]

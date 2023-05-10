@@ -16,7 +16,8 @@
 		"_app.tsx",
 		"./.dockerignore",
 		"./.vscode",
-		"**/*.env.*"
+		"**/*.env.*",
+		"./.github/workflows/**/*"
 	],
 	"words": [
 		"rofe",
