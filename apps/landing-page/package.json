@@ -21,7 +21,7 @@
 		"template:ui": "hygen component new-ui"
 	},
 	"dependencies": {
-		"i18next": "22.4.14",
+		"i18next": "22.4.15",
 		"mixpanel-browser": "2.46.0",
 		"next": "13.3.0",
 		"react": "18.2.0",
