@@ -5,8 +5,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 17.6.1
-        version: 17.6.1
+        specifier: 17.6.3
+        version: 17.6.3
       '@exlint.io/inflint':
         specifier: 2.0.0
         version: 2.0.0
@@ -2151,8 +2151,8 @@ packages:
     dev: true
     optional: true
 
-  /@commitlint/cli@17.6.1:
-    resolution: {integrity: sha512-kCnDD9LE2ySiTnj/VPaxy4/oRayRcdv4aCuVxtoum8SxIU7OADHc0nJPQfheE8bHcs3zZdWzDMWltRosuT13bg==}
+  /@commitlint/cli@17.6.3:
+    resolution: {integrity: sha512-ItSz2fd4F+CujgIbQOfNNerDF1eFlsBGEfp9QcCb1kxTYMuKTYZzA6Nu1YRRrIaaWwe2E7awUGpIMrPoZkOG3A==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
