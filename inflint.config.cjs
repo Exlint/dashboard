@@ -1,6 +1,4 @@
-import type { Config } from '@exlint.io/inflint';
-
-const inflintConfig: Config = {
+const inflintConfig = {
 	aliases: {
 		'[UIComponent]': `ED([A-Z][a-z0-9]+)((\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?`,
 	},
@@ -18,4 +16,4 @@ const inflintConfig: Config = {
 	},
 };
 
-export default inflintConfig;
+module.exports = inflintConfig;
