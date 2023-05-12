@@ -197,7 +197,7 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./inflint.config.ts'],
+			files: ['./inflint.config.cjs'],
 			rules: {
 				'quotes': 'off',
 				'no-useless-escape': 'off',

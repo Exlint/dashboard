@@ -25,7 +25,7 @@
 		"type-check:root": "tsc --project ./tsconfig.json",
 		"type-check:nested": "nx run-many --target=type-check --nx-bail",
 		"type-check:all": "run-p type-check:root type-check:nested",
-		"inflint": "inflint -c ./inflint.config.ts",
+		"inflint": "inflint -c ./inflint.config.cjs",
 		"depcheck:root": "depcheck --config ./.depcheckrc.json",
 		"depcheck:nested": "nx run-many --target=depcheck --nx-bail",
 		"depcheck:all": "run-p depcheck:root depcheck:nested",

@@ -16,6 +16,7 @@
 		"prettier-plugin-sh",
 		"rimraf",
 		"cspell",
-		"cz-vinyl"
+		"cz-vinyl",
+		"@exlint.io/inflint"
 	]
 }
