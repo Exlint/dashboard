@@ -69,7 +69,7 @@
 		"open": "8.4.2",
 		"playwright": "1.32.3",
 		"pnpm": "8.5.0",
-		"prettier": "2.8.7",
+		"prettier": "2.8.8",
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.12.0",
 		"rimraf": "5.0.0",
