@@ -481,8 +481,8 @@ importers:
         specifier: 3.4.1
         version: 3.4.1
       date-fns:
-        specifier: 2.29.3
-        version: 2.29.3
+        specifier: 2.30.0
+        version: 2.30.0
       i18next:
         specifier: 22.4.15
         version: 22.4.15
@@ -4127,7 +4127,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.7
       '@types/react': 18.2.6
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       react-popper: 2.3.0(@popperjs/core@2.11.7)(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react
@@ -6198,9 +6198,11 @@ packages:
     resolution: {integrity: sha512-5TXltWJGc+RdnabUGzhRae1TRq6m4gr+3K2wQX0is5/F2yS6MJXJvLyI3ErAnsAXuJoGqvfVD5icRgim07DrxQ==}
     dev: true
 
-  /date-fns@2.29.3:
-    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.21.5
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -10718,7 +10720,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.7
       classnames: 2.3.2
-      date-fns: 2.29.3
+      date-fns: 2.30.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
