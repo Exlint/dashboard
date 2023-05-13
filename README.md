@@ -91,7 +91,7 @@ cd ./apps/backend
 pnpm compodoc
 ```
 
-## Cli backend documentation
+## CLI backend documentation
 
 When you want look at the cli-backend documentation
 
@@ -105,7 +105,7 @@ pnpm compodoc
 When you want look at the backend OpenAPI (Swagger), you need to run the cluster.
 Then, you can browse to `http://localhost:3000/api` (replace the port if you use other port)
 
-## Cli backend OpenAPI
+## CLI backend OpenAPI
 
-When you want look at the cli backend OpenAPI (Swagger), you need to run the application in development mode.
+When you want look at the CLI backend OpenAPI (Swagger), you need to run the application in development mode.
 Then, you can browse to `http://localhost:4000/api` (replace the port if you use other port)
