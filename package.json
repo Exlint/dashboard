@@ -73,7 +73,7 @@
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.12.0",
 		"rimraf": "5.0.0",
-		"stylelint": "15.5.0",
+		"stylelint": "15.6.1",
 		"totp-generator": "0.0.14",
 		"typescript": "5.0.4",
 		"wait-on": "7.0.1"
