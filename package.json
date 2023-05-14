@@ -39,7 +39,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "17.6.3",
 		"@exlint.io/inflint": "2.0.0",
-		"@playwright/test": "1.32.3",
+		"@playwright/test": "1.33.0",
 		"@prisma/client": "4.12.0",
 		"@types/node": "18.15.12",
 		"@types/totp-generator": "0.0.5",
@@ -67,7 +67,7 @@
 		"npm-run-all": "4.1.5",
 		"nx": "15.9.4",
 		"open": "8.4.2",
-		"playwright": "1.32.3",
+		"playwright": "1.33.0",
 		"pnpm": "8.5.0",
 		"prettier": "2.8.8",
 		"prettier-plugin-sh": "0.12.8",
