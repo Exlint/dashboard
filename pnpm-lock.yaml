@@ -274,13 +274,13 @@ importers:
         version: 0.2.0
       ts-loader:
         specifier: 9.4.2
-        version: 9.4.2(typescript@5.0.4)(webpack@5.82.0)
+        version: 9.4.2(typescript@5.0.4)(webpack@5.82.1)
       typescript:
         specifier: 5.0.4
         version: 5.0.4
       webpack:
-        specifier: 5.82.0
-        version: 5.82.0
+        specifier: 5.82.1
+        version: 5.82.1
       webpack-node-externals:
         specifier: 3.0.0
         version: 3.0.0
@@ -422,13 +422,13 @@ importers:
         version: 0.2.0
       ts-loader:
         specifier: 9.4.2
-        version: 9.4.2(typescript@5.0.4)(webpack@5.82.0)
+        version: 9.4.2(typescript@5.0.4)(webpack@5.82.1)
       typescript:
         specifier: 5.0.4
         version: 5.0.4
       webpack:
-        specifier: 5.82.0
-        version: 5.82.0
+        specifier: 5.82.1
+        version: 5.82.1
       webpack-node-externals:
         specifier: 3.0.0
         version: 3.0.0
@@ -12151,7 +12151,7 @@ packages:
       webpack: 5.80.0
     dev: true
 
-  /terser-webpack-plugin@5.3.8(webpack@5.82.0):
+  /terser-webpack-plugin@5.3.8(webpack@5.82.1):
     resolution: {integrity: sha512-WiHL3ElchZMsK27P8uIUh4604IgJyAW47LVXGbEoB21DbQcZ+OuMpGjVYnEUaqcWM6dO8uS2qUbA7LSCWqvsbg==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -12172,7 +12172,7 @@ packages:
       schema-utils: 3.1.2
       serialize-javascript: 6.0.1
       terser: 5.17.3
-      webpack: 5.82.0
+      webpack: 5.82.1
     dev: true
 
   /terser@5.17.3:
@@ -12293,7 +12293,7 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /ts-loader@9.4.2(typescript@5.0.4)(webpack@5.82.0):
+  /ts-loader@9.4.2(typescript@5.0.4)(webpack@5.82.1):
     resolution: {integrity: sha512-OmlC4WVmFv5I0PpaxYb+qGeGOdm5giHU7HwDDUjw59emP2UYMHy9fFSDcYgSNoH8sXcj4hGCSEhlDZ9ULeDraA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -12305,7 +12305,7 @@ packages:
       micromatch: 4.0.5
       semver: 7.5.0
       typescript: 5.0.4
-      webpack: 5.82.0
+      webpack: 5.82.1
     dev: true
 
   /ts-morph@13.0.3:
@@ -12926,8 +12926,8 @@ packages:
       - uglify-js
     dev: true
 
-  /webpack@5.82.0:
-    resolution: {integrity: sha512-iGNA2fHhnDcV1bONdUu554eZx+XeldsaeQ8T67H6KKHl2nUSwX8Zm7cmzOA46ox/X1ARxf7Bjv8wQ/HsB5fxBg==}
+  /webpack@5.82.1:
+    resolution: {integrity: sha512-C6uiGQJ+Gt4RyHXXYt+v9f+SN1v83x68URwgxNQ98cvH8kxiuywWGP4XeNZ1paOzZ63aY3cTciCEQJNFUljlLw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     peerDependencies:
@@ -12957,7 +12957,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.2
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.8(webpack@5.82.0)
+      terser-webpack-plugin: 5.3.8(webpack@5.82.1)
       watchpack: 2.4.0
       webpack-sources: 3.2.3
     transitivePeerDependencies:
