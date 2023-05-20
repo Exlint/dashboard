@@ -1,6 +1,6 @@
 FROM node:18.16.0
 
-RUN npm i -g pnpm@8.5.0
+RUN npm i -g pnpm@8.5.1
 
 WORKDIR /dashboard
 
