@@ -51,7 +51,7 @@
 		"cspell": "6.31.1",
 		"cz-vinyl": "2.3.0",
 		"depcheck": "1.4.3",
-		"docker-compose": "0.24.0",
+		"docker-compose": "0.24.1",
 		"dotenv-cli": "7.2.1",
 		"eslint": "8.40.0",
 		"eslint-config-prettier": "8.8.0",
