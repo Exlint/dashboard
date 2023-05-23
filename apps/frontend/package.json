@@ -80,7 +80,7 @@
 		"prettier": "2.8.8",
 		"prisma": "4.14.0",
 		"sass": "1.62.1",
-		"stylelint": "15.6.1",
+		"stylelint": "15.6.2",
 		"stylelint-config-recess-order": "4.0.0",
 		"stylelint-config-standard-scss": "8.0.0",
 		"stylelint-declaration-strict-value": "1.9.2",
