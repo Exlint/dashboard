@@ -61,7 +61,7 @@
 		"open-cli": "7.2.0",
 		"passport": "0.6.0",
 		"prisma": "4.14.0",
-		"rimraf": "5.0.0",
+		"rimraf": "5.0.1",
 		"run-script-webpack-plugin": "0.2.0",
 		"ts-loader": "9.4.2",
 		"typescript": "5.0.4",
