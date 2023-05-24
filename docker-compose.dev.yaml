@@ -3,7 +3,7 @@ version: '3.8'
 services:
     mongo_launcher:
         container_name: mongo_launcher
-        image: mongo:6.0.5
+        image: mongo:6.0.6
         restart: on-failure
         networks:
             - dashboard_network
@@ -12,7 +12,7 @@ services:
         entrypoint: ['sh', '/scripts/mongo-setup.sh']
     mongo_replica_1:
         container_name: mongo_replica_1
-        image: mongo:6.0.5
+        image: mongo:6.0.6
         ports:
             - 27017:27017
         restart: always
@@ -34,7 +34,7 @@ services:
             - dashboard_network
     mongo_replica_2:
         container_name: mongo_replica_2
-        image: mongo:6.0.5
+        image: mongo:6.0.6
         ports:
             - 27018:27018
         restart: always
@@ -56,7 +56,7 @@ services:
             - dashboard_network
     mongo_replica_3:
         container_name: mongo_replica_3
-        image: mongo:6.0.5
+        image: mongo:6.0.6
         ports:
             - 27019:27019
         restart: always
