@@ -472,8 +472,8 @@ importers:
         specifier: 18.2.4
         version: 18.2.4
       '@uiw/codemirror-themes':
-        specifier: 4.20.1
-        version: 4.20.1(@codemirror/language@6.6.0)(@codemirror/state@6.2.0)(@codemirror/view@6.11.1)
+        specifier: 4.20.2
+        version: 4.20.2(@codemirror/language@6.6.0)(@codemirror/state@6.2.0)(@codemirror/view@6.11.1)
       '@uiw/react-codemirror':
         specifier: 4.20.1
         version: 4.20.1(@babel/runtime@7.21.5)(@codemirror/autocomplete@6.7.0)(@codemirror/language@6.6.0)(@codemirror/lint@6.2.1)(@codemirror/search@6.4.0)(@codemirror/state@6.2.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.11.1)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)
@@ -4412,8 +4412,8 @@ packages:
       '@codemirror/view': 6.11.1
     dev: false
 
-  /@uiw/codemirror-themes@4.20.1(@codemirror/language@6.6.0)(@codemirror/state@6.2.0)(@codemirror/view@6.11.1):
-    resolution: {integrity: sha512-ww+vg1bU73brjibo/hGNgEKlZc1/22nD6o7DARINm1dNos7cWBfY0JElwbJLCIt6h6wGKiP0xrsUerxZkkRvSw==}
+  /@uiw/codemirror-themes@4.20.2(@codemirror/language@6.6.0)(@codemirror/state@6.2.0)(@codemirror/view@6.11.1):
+    resolution: {integrity: sha512-ymETGtpeC7Uq5lH844DQ9pjSHKytFLODWmYUP7CQNZJipHkQ3h0NciQvAXN759Beg9BKyuq7v6wptOrA1GEhAQ==}
     peerDependencies:
       '@codemirror/language': '>=6.0.0'
       '@codemirror/state': '>=6.0.0'
