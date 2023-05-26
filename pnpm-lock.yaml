@@ -499,8 +499,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-i18next:
-        specifier: 12.2.2
-        version: 12.2.2(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 12.3.1
+        version: 12.3.1(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0)
       react-redux:
         specifier: 8.0.5
         version: 8.0.5(@types/react-dom@18.2.4)(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
@@ -644,8 +644,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-i18next:
-        specifier: 12.2.2
-        version: 12.2.2(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 12.3.1
+        version: 12.3.1(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0)
       react-intersection-observer:
         specifier: 9.4.3
         version: 9.4.3(react@18.2.0)
@@ -10722,8 +10722,8 @@ packages:
   /react-fast-compare@3.2.1:
     resolution: {integrity: sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==}
 
-  /react-i18next@12.2.2(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-KBB6buBmVKXUWNxXHdnthp+38gPyBT46hJCAIQ8rX19NFL/m2ahte2KARfIDf2tMnSAL7wwck6eDOd/9zn6aFg==}
+  /react-i18next@12.3.1(i18next@22.5.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-5v8E2XjZDFzK7K87eSwC7AJcAkcLt5xYZ4+yTPDAW1i7C93oOY1dnr4BaQM7un4Hm+GmghuiPvevWwlca5PwDA==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
