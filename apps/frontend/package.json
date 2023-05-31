@@ -27,7 +27,7 @@
 		"@codemirror/lang-json": "6.0.1",
 		"@codemirror/language": "6.7.0",
 		"@codemirror/legacy-modes": "6.3.2",
-		"@lezer/highlight": "1.1.4",
+		"@lezer/highlight": "1.1.5",
 		"@prisma/client": "4.14.1",
 		"@reduxjs/toolkit": "1.9.5",
 		"@rjsf/core": "5.7.2",
