@@ -201,8 +201,8 @@ importers:
         version: 7.8.1
     devDependencies:
       '@compodoc/compodoc':
-        specifier: 1.1.20
-        version: 1.1.20
+        specifier: 1.1.21
+        version: 1.1.21
       '@nestjs/cli':
         specifier: 9.5.0
         version: 9.5.0
@@ -349,8 +349,8 @@ importers:
         version: 7.8.1
     devDependencies:
       '@compodoc/compodoc':
-        specifier: 1.1.20
-        version: 1.1.20
+        specifier: 1.1.21
+        version: 1.1.21
       '@nestjs/cli':
         specifier: 9.5.0
         version: 9.5.0
@@ -2281,8 +2281,8 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@compodoc/compodoc@1.1.20:
-    resolution: {integrity: sha512-MLp8E65lQgmksH8vnN3BcUuck/ESFHH5mTahLerO8oageabhbVHAev4YFyRGemGqd1GDMjx0LQLyFbVNae1nkQ==}
+  /@compodoc/compodoc@1.1.21:
+    resolution: {integrity: sha512-/FDlwRgKzmkGuorDnURuCzoGY6rZ0KY7Mj5/PwnEjMs0y1CRRPHBJC9I0yVIjn8j8gxVy8PPc6dna0lY1MWwhg==}
     engines: {node: '>= 14.0.0'}
     hasBin: true
     requiresBuild: true
@@ -2312,7 +2312,7 @@ packages:
       loglevel: 1.8.1
       loglevel-plugin-prefix: 0.8.4
       lunr: 2.3.9
-      marked: 5.0.3
+      marked: 4.3.0
       minimist: 1.2.8
       opencollective-postinstall: 2.0.3
       os-name: 4.0.1
@@ -9233,9 +9233,9 @@ packages:
       react: 18.2.0
     dev: false
 
-  /marked@5.0.3:
-    resolution: {integrity: sha512-KUONa43Uk74uUNWMxh6lfaNYmSAsRMiDAaX8QBCCRVXzEufR0zX6T33vrGbvTnQLL02ungDM3KSzZtO+chJaHg==}
-    engines: {node: '>= 18'}
+  /marked@4.3.0:
+    resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
+    engines: {node: '>= 12'}
     hasBin: true
     dev: true
 
