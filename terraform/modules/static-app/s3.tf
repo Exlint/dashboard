@@ -1,6 +1,6 @@
 module "s3_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.10.1"
+  version = "3.11.0"
 
   bucket        = var.s3_bucket_name
   acl           = "private"
