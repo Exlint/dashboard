@@ -68,7 +68,7 @@
 		"nx": "16.2.2",
 		"open": "8.4.2",
 		"playwright": "1.33.0",
-		"pnpm": "8.5.1",
+		"pnpm": "8.6.0",
 		"prettier": "2.8.8",
 		"prettier-plugin-sh": "0.12.8",
 		"prisma": "4.14.1",
@@ -78,9 +78,9 @@
 		"typescript": "5.0.4",
 		"wait-on": "7.0.1"
 	},
-	"packageManager": "pnpm@8.5.1",
+	"packageManager": "pnpm@8.6.0",
 	"engines": {
-		"pnpm": "8.5.1",
+		"pnpm": "8.6.0",
 		"node": "18.16.0"
 	}
 }
