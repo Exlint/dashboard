@@ -69,8 +69,8 @@ importers:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.59.8)(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -259,8 +259,8 @@ importers:
         specifier: 11.1.0
         version: 11.1.0(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -404,8 +404,8 @@ importers:
         specifier: 11.1.0
         version: 11.1.0(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -582,8 +582,8 @@ importers:
         specifier: 4.6.0
         version: 4.6.0(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -697,8 +697,8 @@ importers:
         specifier: 4.6.0
         version: 4.6.0(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -743,8 +743,8 @@ importers:
         specifier: 2.27.5
         version: 2.27.5(@typescript-eslint/parser@5.59.8)(eslint@8.41.0)
       eslint-plugin-unicorn:
-        specifier: 46.0.1
-        version: 46.0.1(eslint@8.41.0)
+        specifier: 47.0.0
+        version: 47.0.0(eslint@8.41.0)
       eslint-plugin-unused-imports:
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/eslint-plugin@5.59.8)(eslint@8.41.0)
@@ -6950,11 +6950,11 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-unicorn@46.0.1(eslint@8.41.0):
-    resolution: {integrity: sha512-setGhMTiLAddg1asdwjZ3hekIN5zLznNa5zll7pBPwFOka6greCKDQydfqy4fqyUhndi74wpDzClSQMEcmOaew==}
-    engines: {node: '>=14.18'}
+  /eslint-plugin-unicorn@47.0.0(eslint@8.41.0):
+    resolution: {integrity: sha512-ivB3bKk7fDIeWOUmmMm9o3Ax9zbMz1Bsza/R2qm46ufw4T6VBFBaJIR1uN3pCKSmSXm8/9Nri8V+iUut1NhQGA==}
+    engines: {node: '>=16'}
     peerDependencies:
-      eslint: '>=8.28.0'
+      eslint: '>=8.38.0'
     dependencies:
       '@babel/helper-validator-identifier': 7.19.1
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.41.0)
@@ -6969,9 +6969,9 @@ packages:
       pluralize: 8.0.0
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
-      regjsparser: 0.9.1
+      regjsparser: 0.10.0
       safe-regex: 2.1.1
-      semver: 7.5.0
+      semver: 7.5.1
       strip-indent: 3.0.0
     dev: true
 
@@ -10988,6 +10988,13 @@ packages:
       regjsparser: 0.9.1
       unicode-match-property-ecmascript: 2.0.0
       unicode-match-property-value-ecmascript: 2.1.0
+    dev: true
+
+  /regjsparser@0.10.0:
+    resolution: {integrity: sha512-qx+xQGZVsy55CH0a1hiVwHmqjLryfh7wQyF5HO07XJ9f7dQMY/gPQHhlyDkIzJKC+x2fUCpCcUODUUUFrm7SHA==}
+    hasBin: true
+    dependencies:
+      jsesc: 0.5.0
     dev: true
 
   /regjsparser@0.9.1:
