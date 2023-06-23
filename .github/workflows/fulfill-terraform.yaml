@@ -166,7 +166,7 @@ jobs:
               run: pnpm exec nx build @exlint.io/frontend
 
             - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
+              uses: reggionick/s3-deploy@v4
               with:
                   folder: ./apps/frontend/dist
                   bucket: ${{ secrets.FRONTEND_AWS_S3_BUCKET }}
@@ -181,7 +181,7 @@ jobs:
               run: pnpm exec nx build @exlint.io/docs
 
             - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
+              uses: reggionick/s3-deploy@v4
               with:
                   folder: ./apps/docs/build
                   bucket: ${{ secrets.DOCS_AWS_S3_BUCKET }}
@@ -196,7 +196,7 @@ jobs:
               run: pnpm exec nx build @exlint.io/landing-page
 
             - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
+              uses: reggionick/s3-deploy@v4
               with:
                   folder: ./apps/landing-page/out
                   bucket: ${{ secrets.LANDING_PAGE_AWS_S3_BUCKET }}

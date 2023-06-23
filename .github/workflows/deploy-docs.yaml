@@ -46,7 +46,7 @@ jobs:
               run: pnpm build
 
             - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
+              uses: reggionick/s3-deploy@v4
               with:
                   folder: ./apps/docs/build
                   bucket: ${{ secrets.DOCS_AWS_S3_BUCKET }}

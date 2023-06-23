@@ -33,7 +33,7 @@ jobs:
               run: pnpm exec nx build @exlint.io/frontend
 
             - name: Deploy to S3 and invalidate Cloudfront
-              uses: reggionick/s3-deploy@v3
+              uses: reggionick/s3-deploy@v4
               with:
                   folder: ./apps/frontend/dist
                   bucket: ${{ secrets.FRONTEND_AWS_S3_BUCKET }}
