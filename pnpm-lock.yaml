@@ -96,8 +96,8 @@ importers:
         specifier: 16.3.2
         version: 16.3.2
       open:
-        specifier: 8.4.2
-        version: 8.4.2
+        specifier: 9.1.0
+        version: 9.1.0
       playwright:
         specifier: 1.33.0
         version: 1.33.0
