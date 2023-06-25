@@ -159,8 +159,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(@nestjs/common@9.4.2)(@nestjs/core@9.4.2)(reflect-metadata@0.1.13)
       '@octokit/oauth-app':
-        specifier: 4.2.2
-        version: 4.2.2
+        specifier: 4.2.4
+        version: 4.2.4
       '@prisma/client':
         specifier: 4.15.0
         version: 4.15.0(prisma@4.15.0)
@@ -3638,8 +3638,8 @@ packages:
       - encoding
     dev: false
 
-  /@octokit/oauth-app@4.2.2:
-    resolution: {integrity: sha512-/jsPd43Yu2UXJ4XGq9KyOjPj5kNWQ5pfVzeDEfIVE8ENchyIPS+/IY2a8b0+OQSAsBKBLTHVp9m51RfGHmPZlw==}
+  /@octokit/oauth-app@4.2.4:
+    resolution: {integrity: sha512-iuOVFrmm5ZKNavRtYu5bZTtmlKLc5uVgpqTfMEqYYf2OkieV6VdxKZAb5qLVdEPL8LU2lMWcGpavPBV835cgoA==}
     engines: {node: '>= 14'}
     dependencies:
       '@octokit/auth-oauth-app': 5.0.5
