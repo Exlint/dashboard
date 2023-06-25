@@ -31,7 +31,7 @@
 		"class-transformer": "0.5.1",
 		"class-validator": "0.14.0",
 		"googleapis": "118.0.0",
-		"helmet": "6.2.0",
+		"helmet": "7.0.0",
 		"mixpanel": "0.17.0",
 		"nestjs-real-ip": "2.2.0",
 		"passport": "0.6.0",
