@@ -29,7 +29,7 @@
 		"class-transformer": "0.5.1",
 		"class-validator": "0.14.0",
 		"deepmerge": "4.3.1",
-		"helmet": "6.2.0",
+		"helmet": "7.0.0",
 		"mixpanel": "0.17.0",
 		"nestjs-real-ip": "2.2.0",
 		"passport-jwt": "4.0.1",
