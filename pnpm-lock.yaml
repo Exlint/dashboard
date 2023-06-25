@@ -655,8 +655,8 @@ importers:
         version: 9.4.4(react@18.2.0)
     devDependencies:
       '@types/mixpanel-browser':
-        specifier: 2.38.1
-        version: 2.38.1
+        specifier: 2.38.2
+        version: 2.38.2
       '@types/react':
         specifier: 18.2.11
         version: 18.2.11
@@ -4003,8 +4003,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/mixpanel-browser@2.38.1:
-    resolution: {integrity: sha512-XzQbwgiOPsFXUQnjz3vSwcwrvJDbQ35bCiwa/1VXGrHvU1ti9+eqO1GY91DShzkEzKkkEEkxfNshS5dbBZqd7w==}
+  /@types/mixpanel-browser@2.38.2:
+    resolution: {integrity: sha512-GNVQqnOth4Zh+7Kqc0xr+2m00wzvrNbw5Yly9yi4zsXTvzNxhn10d5j4F+peHmgaSp8B4ml2JSlO6YHTIDO9pA==}
     dev: true
 
   /@types/node@17.0.45:
