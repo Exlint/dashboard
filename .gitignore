@@ -1,7 +1,10 @@
+.DS_Store
 node_modules
 tsconfig.tsbuildinfo
 .volumes
 .terraform
 playwright-report
+test-results
+playwright-authentication-report
 auth-state.json
 tests/.env

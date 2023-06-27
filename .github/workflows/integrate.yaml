@@ -212,6 +212,13 @@ jobs:
                   path: playwright-report/
                   retention-days: 30
 
+            - uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: playwright-authentication-report
+                path: playwright-authentication-report/
+                retention-days: 30
+
     cspell:
       name: CSpell
       runs-on: ubuntu-latest

@@ -4,6 +4,7 @@ const configuration = defineConfig({
 	globalSetup: './tests/scripts/global-setup.ts',
 	globalTeardown: './tests/scripts/global-teardown.ts',
 	reporter: [['html', { open: 'never' }]],
+	use: { video: 'retain-on-failure' },
 	projects: [
 		{
 			name: 'Dashboard',

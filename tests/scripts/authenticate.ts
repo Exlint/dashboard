@@ -3,7 +3,11 @@ import totp from 'totp-generator';
 
 const PreTestsAuthentication = async () => {
 	const browser = await chromium.launch();
-	const page = await browser.newPage({ baseURL: 'http://localhost:8080' });
+
+	const page = await browser.newPage({
+		baseURL: 'http://localhost:8080',
+		recordVideo: { dir: './playwright-authentication-report' },
+	});
 
 	await page.goto('/');
 	await page.getByTestId('auth-github-auth-button').click();
