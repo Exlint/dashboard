@@ -461,14 +461,14 @@ importers:
         specifier: 1.9.5
         version: 1.9.5(react-redux@8.0.7)(react@18.2.0)
       '@rjsf/core':
-        specifier: 5.8.1
-        version: 5.8.1(@rjsf/utils@5.8.1)(react@18.2.0)
+        specifier: 5.8.2
+        version: 5.8.2(@rjsf/utils@5.8.2)(react@18.2.0)
       '@rjsf/utils':
-        specifier: 5.8.1
-        version: 5.8.1(react@18.2.0)
+        specifier: 5.8.2
+        version: 5.8.2(react@18.2.0)
       '@rjsf/validator-ajv8':
-        specifier: 5.8.1
-        version: 5.8.1(@rjsf/utils@5.8.1)
+        specifier: 5.8.2
+        version: 5.8.2(@rjsf/utils@5.8.2)
       '@types/react':
         specifier: 18.2.13
         version: 18.2.13
@@ -721,8 +721,8 @@ importers:
         specifier: 4.15.0
         version: 4.15.0(prisma@4.15.0)
       '@rjsf/utils':
-        specifier: 5.8.1
-        version: 5.8.1(react@18.2.0)
+        specifier: 5.8.2
+        version: 5.8.2(react@18.2.0)
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: 5.59.9
@@ -3868,14 +3868,14 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@rjsf/core@5.8.1(@rjsf/utils@5.8.1)(react@18.2.0):
-    resolution: {integrity: sha512-+lJKK/fdVO+DqKhSzSY8bjyAv5weoLw44d/DnCn2U8/l9qY0nqfNSvG6gyZIC9kCNnzLS/76XFAltWXgtjjzFQ==}
+  /@rjsf/core@5.8.2(@rjsf/utils@5.8.2)(react@18.2.0):
+    resolution: {integrity: sha512-DwFPYHFGRR3xzmFa5EpffcmDoW/tKcLaDRU8t15Uv8mbr7OBhLavwTceGGgO/TYCTjNUDwofcnwquPzKRw39Cg==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.8.x
       react: ^16.14.0 || >=17
     dependencies:
-      '@rjsf/utils': 5.8.1(react@18.2.0)
+      '@rjsf/utils': 5.8.2(react@18.2.0)
       lodash: 4.17.21
       lodash-es: 4.17.21
       markdown-to-jsx: 7.2.1(react@18.2.0)
@@ -3884,8 +3884,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@rjsf/utils@5.8.1(react@18.2.0):
-    resolution: {integrity: sha512-kzWVNAW417ADG0nSEPxpqYzLrtzi9tKCCn5rOuwt6FIvSrtkatISBekyKNeycGPUfQR9VkROGrcG8cz10xUs6g==}
+  /@rjsf/utils@5.8.2(react@18.2.0):
+    resolution: {integrity: sha512-vSnXHuUAg2dUmkGn9HNoEkuykno4vTb8hef+YoMDU3+oi3z5Bb8yZw/UC02Lo40Uo5XxvQeBfLb3RN0vfeSpMg==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^16.14.0 || >=17
@@ -3898,13 +3898,13 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@rjsf/validator-ajv8@5.8.1(@rjsf/utils@5.8.1):
-    resolution: {integrity: sha512-ImMd8nZeQzgt26y90yqEmiD7XPtDCX4LYGfniCr/PeAOk79OKhcdv8OMsdGTh9pGPtHy1qOJvntALKOpHGAeYg==}
+  /@rjsf/validator-ajv8@5.8.2(@rjsf/utils@5.8.2):
+    resolution: {integrity: sha512-Rahn2D0iXVPkadpgQ12HmEocnTNg6QVy2sqmBfpXV8jYQHKZMpk4llEHw0FTjuBN8jMusKcdWYN4Dp/fLPHESQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@rjsf/utils': ^5.8.x
     dependencies:
-      '@rjsf/utils': 5.8.1(react@18.2.0)
+      '@rjsf/utils': 5.8.2(react@18.2.0)
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
       lodash: 4.17.21
