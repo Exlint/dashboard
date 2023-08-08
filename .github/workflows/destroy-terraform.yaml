@@ -31,6 +31,14 @@ jobs:
             TF_VAR_cli_token_jwt_key: ${{ secrets.CLI_TOKEN_JWT_KEY }}
 
         steps:
+            - name: Setup Node environment
+              uses: Exlint/node-environment@v1.2.6
+              with:
+                  should-cache: false
+                  node-version: 18.16.0
+                  package-manager: pnpm
+                  package-manager-version: 8.6.6
+
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1-node16
               with:
