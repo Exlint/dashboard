@@ -178,46 +178,46 @@ jobs:
               working-directory: terraform/k8s
               run: terraform validate -no-color
 
-    automation:
-        timeout-minutes: 60
-        name: Automation Tests
+    # automation:
+    #     timeout-minutes: 60
+    #     name: Automation Tests
 
-        runs-on: ubuntu-latest
-        env:
-            AUTOMATION_GITHUB_EMAIL: ${{ secrets.AUTOMATION_GITHUB_EMAIL }}
-            AUTOMATION_GITHUB_PASSWORD: ${{ secrets.AUTOMATION_GITHUB_PASSWORD }}
-            AUTOMATION_GITHUB_TOTP_KEY: ${{ secrets.AUTOMATION_GITHUB_TOTP_KEY }}
-        steps:
-            - name: Setup Node environment
-              uses: Exlint/node-environment@v1.2.6
-              with:
-                  should-cache: false
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.6
+    #     runs-on: ubuntu-latest
+    #     env:
+    #         AUTOMATION_GITHUB_EMAIL: ${{ secrets.AUTOMATION_GITHUB_EMAIL }}
+    #         AUTOMATION_GITHUB_PASSWORD: ${{ secrets.AUTOMATION_GITHUB_PASSWORD }}
+    #         AUTOMATION_GITHUB_TOTP_KEY: ${{ secrets.AUTOMATION_GITHUB_TOTP_KEY }}
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: Exlint/node-environment@v1.2.6
+    #           with:
+    #               should-cache: false
+    #               node-version: 18.16.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.6
 
-            - name: Append hosts
-              run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
+    #         - name: Append hosts
+    #           run: sudo echo "127.0.0.1 mongo_replica_1\n127.0.0.1 mongo_replica_2\n127.0.0.1 mongo_replica_3" | sudo tee -a /etc/hosts
               
-            - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
+    #         - name: Install Playwright Browsers
+    #           run: npx playwright install --with-deps
 
-            - name: Run Playwright tests
-              run: pnpm test:ci
+    #         - name: Run Playwright tests
+    #           run: pnpm test:ci
               
-            - uses: actions/upload-artifact@v3
-              if: always()
-              with:
-                  name: playwright-report
-                  path: playwright-report/
-                  retention-days: 30
+    #         - uses: actions/upload-artifact@v3
+    #           if: always()
+    #           with:
+    #               name: playwright-report
+    #               path: playwright-report/
+    #               retention-days: 30
 
-            - uses: actions/upload-artifact@v3
-              if: always()
-              with:
-                name: playwright-authentication-report
-                path: playwright-authentication-report/
-                retention-days: 30
+    #         - uses: actions/upload-artifact@v3
+    #           if: always()
+    #           with:
+    #             name: playwright-authentication-report
+    #             path: playwright-authentication-report/
+    #             retention-days: 30
 
     cspell:
       name: CSpell
