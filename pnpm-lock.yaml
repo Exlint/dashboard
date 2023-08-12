@@ -15,8 +15,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       '@playwright/test':
-        specifier: 1.33.0
-        version: 1.33.0
+        specifier: 1.36.2
+        version: 1.36.2
       '@prisma/client':
         specifier: 4.16.2
         version: 4.16.2(prisma@4.16.2)
@@ -99,8 +99,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       playwright:
-        specifier: 1.33.0
-        version: 1.33.0
+        specifier: 1.36.2
+        version: 1.36.2
       pnpm:
         specifier: 8.6.12
         version: 8.6.12
@@ -3799,13 +3799,13 @@ packages:
       tslib: 2.5.3
     dev: true
 
-  /@playwright/test@1.33.0:
-    resolution: {integrity: sha512-YunBa2mE7Hq4CfPkGzQRK916a4tuZoVx/EpLjeWlTVOnD4S2+fdaQZE0LJkbfhN5FTSKNLdcl7MoT5XB37bTkg==}
-    engines: {node: '>=14'}
+  /@playwright/test@1.36.2:
+    resolution: {integrity: sha512-2rVZeyPRjxfPH6J0oGJqE8YxiM1IBRyM8hyrXYK7eSiAqmbNhxwcLa7dZ7fy9Kj26V7FYia5fh9XJRq4Dqme+g==}
+    engines: {node: '>=16'}
     hasBin: true
     dependencies:
       '@types/node': 18.15.12
-      playwright-core: 1.33.0
+      playwright-core: 1.36.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -10456,19 +10456,19 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /playwright-core@1.33.0:
-    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
-    engines: {node: '>=14'}
+  /playwright-core@1.36.2:
+    resolution: {integrity: sha512-sQYZt31dwkqxOrP7xy2ggDfEzUxM1lodjhsQ3NMMv5uGTRDsLxU0e4xf4wwMkF2gplIxf17QMBCodSFgm6bFVQ==}
+    engines: {node: '>=16'}
     hasBin: true
     dev: true
 
-  /playwright@1.33.0:
-    resolution: {integrity: sha512-+zzU3V2TslRX2ETBRgQKsKytYBkJeLZ2xzUj4JohnZnxQnivoUvOvNbRBYWSYykQTO0Y4zb8NwZTYFUO+EpPBQ==}
-    engines: {node: '>=14'}
+  /playwright@1.36.2:
+    resolution: {integrity: sha512-4Fmlq3KWsl85Bl4InJw1NC21aeQV0iSZuFvTDcy1F8zVmXmgQRe89GxF8zMSRt/KIS+2tUolak7EXVl9aC+JdA==}
+    engines: {node: '>=16'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.33.0
+      playwright-core: 1.36.2
     dev: true
 
   /please-upgrade-node@3.2.0:
