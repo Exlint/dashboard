@@ -79,7 +79,7 @@
 		"hygen": "6.2.11",
 		"prettier": "2.8.8",
 		"prisma": "4.16.2",
-		"sass": "1.63.6",
+		"sass": "1.69.5",
 		"stylelint": "15.10.1",
 		"stylelint-config-recess-order": "4.2.0",
 		"stylelint-config-standard-scss": "8.0.0",
