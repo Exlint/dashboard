@@ -50,7 +50,7 @@
 		"react-scroll": "1.8.9",
 		"react-switch": "7.0.0",
 		"react-textarea-autosize": "8.5.2",
-		"swr": "2.2.0"
+		"swr": "2.2.4"
 	},
 	"devDependencies": {
 		"@exlint.io/common": "workspace:*",
