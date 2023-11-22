@@ -19,7 +19,7 @@ jobs:
                   should-cache: false
                   node-version: 18.16.0
                   package-manager: pnpm
-                  package-manager-version: 8.6.12
+                  package-manager-version: 8.10.5
                   sub-modules: false
 
             - name: Configure AWS credentials
