@@ -41,7 +41,7 @@
 		"@exlint.io/inflint": "2.0.0",
 		"@playwright/test": "1.36.2",
 		"@prisma/client": "4.16.2",
-		"@types/node": "18.15.12",
+		"@types/node": "18.18.9",
 		"@types/totp-generator": "0.0.5",
 		"@types/wait-on": "5.3.1",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
@@ -81,6 +81,6 @@
 	"packageManager": "pnpm@8.10.5",
 	"engines": {
 		"pnpm": "8.10.5",
-		"node": "18.16.0"
+		"node": "18.18.2"
 	}
 }
