@@ -144,8 +144,8 @@ importers:
         specifier: 10.2.9
         version: 10.2.9(@nestjs/common@10.2.9)(@nestjs/platform-express@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/cqrs':
-        specifier: 9.0.4
-        version: 9.0.4(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: 10.2.6
+        version: 10.2.6(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/jwt':
         specifier: 10.1.0
         version: 10.1.0(@nestjs/common@10.2.9)
@@ -304,8 +304,8 @@ importers:
         specifier: 10.2.9
         version: 10.2.9(@nestjs/common@10.2.9)(@nestjs/platform-express@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/cqrs':
-        specifier: 9.0.4
-        version: 9.0.4(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        specifier: 10.2.6
+        version: 10.2.6(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/jwt':
         specifier: 10.1.0
         version: 10.1.0(@nestjs/common@10.2.9)
@@ -3372,11 +3372,11 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/cqrs@9.0.4(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1):
-    resolution: {integrity: sha512-nWDF+xs4jqs6OjxFg/wVSd0NiIV9+EFCJrJNTo4VRWe78CcAaitbp56CBspUh4gKyfkci95i+EhHdEqRXKFptg==}
+  /@nestjs/cqrs@10.2.6(@nestjs/common@10.2.9)(@nestjs/core@10.2.9)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-QB5D4MnPybYK0y/Md9UoAMt5by/EleFiLVELYtSm2rzKtAcrcYbc8IrmootKs4cqonxskrcdZliqFgtQF+TdjQ==}
     peerDependencies:
-      '@nestjs/common': ^9.0.0
-      '@nestjs/core': ^9.0.0
+      '@nestjs/common': ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^9.0.0 || ^10.0.0
       reflect-metadata: 0.1.13
       rxjs: ^7.2.0
     dependencies:
