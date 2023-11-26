@@ -24,8 +24,8 @@ importers:
         specifier: 18.18.10
         version: 18.18.10
       '@types/totp-generator':
-        specifier: 0.0.5
-        version: 0.0.5
+        specifier: 0.0.8
+        version: 0.0.8
       '@types/wait-on':
         specifier: 5.3.1
         version: 5.3.1
@@ -4393,8 +4393,8 @@ packages:
       '@types/node': 18.18.10
     dev: true
 
-  /@types/totp-generator@0.0.5:
-    resolution: {integrity: sha512-ryo6U5lfQg2/7pNQnpEXG49EPX7/cmRi/FX7sPBYO7QVJf0z6turM3km3w+98mpqlM4E+vkoOrN+gcjqCBmX0g==}
+  /@types/totp-generator@0.0.8:
+    resolution: {integrity: sha512-NAiruWgCYxW1sd2LjpTT/sVarogTjjQoUyLiiL/e2DZOz9eovKxzEx5BiH8YgZoKUDZql1VXiIzgDBK7VzOmNw==}
     dev: true
 
   /@types/use-sync-external-store@0.0.3:
