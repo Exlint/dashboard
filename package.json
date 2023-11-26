@@ -50,7 +50,7 @@
 		"commitizen": "4.3.0",
 		"cspell": "7.3.9",
 		"cz-vinyl": "2.3.0",
-		"depcheck": "1.4.3",
+		"depcheck": "1.4.7",
 		"docker-compose": "0.24.3",
 		"dotenv-cli": "7.2.1",
 		"eslint": "8.53.0",
