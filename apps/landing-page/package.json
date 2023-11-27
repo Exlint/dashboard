@@ -35,7 +35,7 @@
 		"@types/react": "18.2.37",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
 		"@typescript-eslint/parser": "5.62.0",
-		"asciinema-player": "3.5.0",
+		"asciinema-player": "3.6.3",
 		"depcheck": "1.4.7",
 		"eslint": "8.53.0",
 		"eslint-config-prettier": "9.0.0",
