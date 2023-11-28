@@ -52,7 +52,7 @@
 		"cz-vinyl": "2.4.1",
 		"depcheck": "1.4.7",
 		"docker-compose": "0.24.3",
-		"dotenv-cli": "7.2.1",
+		"dotenv-cli": "7.3.0",
 		"eslint": "8.53.0",
 		"eslint-config-prettier": "9.0.0",
 		"eslint-plugin-deprecation": "1.5.0",
