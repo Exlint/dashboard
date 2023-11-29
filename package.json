@@ -41,7 +41,7 @@
 		"@exlint.io/inflint": "2.0.0",
 		"@playwright/test": "1.36.2",
 		"@prisma/client": "4.16.2",
-		"@types/node": "18.18.11",
+		"@types/node": "18.18.12",
 		"@types/totp-generator": "0.0.8",
 		"@types/wait-on": "5.3.4",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
