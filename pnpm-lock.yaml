@@ -177,8 +177,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0
       mixpanel:
-        specifier: 0.17.0
-        version: 0.17.0
+        specifier: 0.18.0
+        version: 0.18.0
       nestjs-real-ip:
         specifier: 3.0.1
         version: 3.0.1(@nestjs/common@10.2.10)
@@ -331,8 +331,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0
       mixpanel:
-        specifier: 0.17.0
-        version: 0.17.0
+        specifier: 0.18.0
+        version: 0.18.0
       nestjs-real-ip:
         specifier: 3.0.1
         version: 3.0.1(@nestjs/common@10.2.10)
@@ -10034,8 +10034,8 @@ packages:
     resolution: {integrity: sha512-Ldrva0fRBEIFWmEibBQO1PulfpJVF3pf28Guk09lDirDaSQqqU/xs9zQLwN2rL5VwVtsP1aD3JaCgaa98EjojQ==}
     dev: false
 
-  /mixpanel@0.17.0:
-    resolution: {integrity: sha512-DY5WeOy/hmkPrNiiZugJpWR0iMuOwuj1a3u0bgwB2eUFRV6oIew/pIahhpawdbNjb+Bye4a8ID3gefeNPvL81g==}
+  /mixpanel@0.18.0:
+    resolution: {integrity: sha512-VyUoiLB/S/7abYYHGD5x0LijeuJCUabG8Hb+FvYU3Y99xHf1Qh+s4/pH9lt50fRitAHncWbU1FE01EknUfVVjQ==}
     engines: {node: '>=10.0'}
     dependencies:
       https-proxy-agent: 5.0.0
