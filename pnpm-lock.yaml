@@ -633,8 +633,8 @@ importers:
         specifier: 23.7.6
         version: 23.7.6
       mixpanel-browser:
-        specifier: 2.47.0
-        version: 2.47.0
+        specifier: 2.48.1
+        version: 2.48.1
       next:
         specifier: 13.4.9
         version: 13.4.9(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)
@@ -655,8 +655,8 @@ importers:
         version: 9.5.3(react@18.2.0)
     devDependencies:
       '@types/mixpanel-browser':
-        specifier: 2.47.1
-        version: 2.47.1
+        specifier: 2.47.5
+        version: 2.47.5
       '@types/react':
         specifier: 18.2.38
         version: 18.2.38
@@ -4198,8 +4198,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/mixpanel-browser@2.47.1:
-    resolution: {integrity: sha512-4Oif1hbjmStA6KI1OLer19rbKjlPd67ujp5Wipfa7rIskA/lOFZbp6kYsPjXD0f5AiiCQTbf0R/SnnzgOaKrbA==}
+  /@types/mixpanel-browser@2.47.5:
+    resolution: {integrity: sha512-qEKrYSN4nUCPLU39YCoF2vszON0KUkPox0mFlrvhdq+amE44CB25+rdfZV4M9n3pEggXuRH+fbdP9qxthvyFUw==}
     dev: true
 
   /@types/node-fetch@2.6.9:
@@ -10030,8 +10030,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /mixpanel-browser@2.47.0:
-    resolution: {integrity: sha512-Ldrva0fRBEIFWmEibBQO1PulfpJVF3pf28Guk09lDirDaSQqqU/xs9zQLwN2rL5VwVtsP1aD3JaCgaa98EjojQ==}
+  /mixpanel-browser@2.48.1:
+    resolution: {integrity: sha512-vXTuUzZMg+ht7sRqyjtc3dUDy/81Z/H6FLFgFkUZJqKFaAqcx1JSXmOdY/2kmsxCkUdy5JN5zW9m9TMCk+rxGQ==}
     dev: false
 
   /mixpanel@0.18.0:
