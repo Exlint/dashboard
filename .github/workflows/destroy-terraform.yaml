@@ -51,7 +51,7 @@ jobs:
               uses: martinbeentjes/npm-get-version-action@main
 
             - name: Terraform setup
-              uses: hashicorp/setup-terraform@v2
+              uses: hashicorp/setup-terraform@v3
 
             - name: Terraform k8s init
               working-directory: terraform/k8s
