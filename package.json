@@ -57,7 +57,7 @@
 		"eslint-config-prettier": "9.1.0",
 		"eslint-plugin-deprecation": "2.0.0",
 		"eslint-plugin-import": "2.29.1",
-		"eslint-plugin-unicorn": "47.0.0",
+		"eslint-plugin-unicorn": "50.0.1",
 		"eslint-plugin-unused-imports": "3.0.0",
 		"figlet": "1.7.0",
 		"husky": "8.0.3",
