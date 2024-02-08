@@ -1,4 +1,4 @@
-FROM node:18.19.0
+FROM node:20.11.0
 
 RUN npm i -g pnpm@8.14.1
 
