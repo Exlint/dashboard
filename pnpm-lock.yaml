@@ -12,8 +12,8 @@ importers:
         specifier: 18.4.4
         version: 18.4.4(@types/node@20.11.16)(typescript@5.3.3)
       '@exlint.io/inflint':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.1.1
+        version: 2.1.1(@types/node@20.11.16)(typescript@5.3.3)
       '@playwright/test':
         specifier: 1.40.1
         version: 1.40.1
@@ -2973,22 +2973,26 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@exlint.io/inflint@2.0.0:
-    resolution: {integrity: sha512-awRS7jJbCzmeyxRlPyhAvAqlacfFpcaaZXtWazWbyKRsNWOro93oeeF8XukWuINa6rYKCRyQmC9VmXImf4w8VQ==}
+  /@exlint.io/inflint@2.1.1(@types/node@20.11.16)(typescript@5.3.3):
+    resolution: {integrity: sha512-sWgdh7iv2CR8EuqirZbtndooLPjIysOyZ0ojpK3F9o3hnceCVi8JDxYBHveZPXiBol5ivccH8KyoXO6empktmw==}
     engines: {node: '>=14.16'}
     hasBin: true
     dependencies:
-      '@expo/spawn-async': 1.6.0
-      chalk: 5.2.0
-      cosmiconfig: 7.0.1
-      fast-glob: 3.2.11
+      '@expo/spawn-async': 1.7.2
+      chalk: 5.3.0
+      cosmiconfig: 8.3.6(typescript@5.3.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.11.16)(cosmiconfig@8.3.6)(typescript@5.3.3)
+      fast-glob: 3.3.1
       micromatch: 4.0.5
-      minimist: 1.2.6
-      v8-compile-cache: 2.3.0
+      minimist: 1.2.8
+      v8-compile-cache: 2.4.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
     dev: true
 
-  /@expo/spawn-async@1.6.0:
-    resolution: {integrity: sha512-CynFS2y9S0OXgoBN3o6qvLSD5tBXCxEQnbByIleEocbKKYKb+/gjrjxYVvxPY8G+zqe82xG6IcmHbJoPl5g1WA==}
+  /@expo/spawn-async@1.7.2:
+    resolution: {integrity: sha512-QdWi16+CHB9JYP7gma19OVVg0BFkvU8zNj9GjWorYI8Iv8FUxjOCcYRuAmX4s/h91e4e7BPsskc8cSrZYho9Ew==}
     engines: {node: '>=12'}
     dependencies:
       cross-spawn: 7.0.3
@@ -5557,11 +5561,6 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  /chalk@5.2.0:
-    resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: true
-
   /chalk@5.3.0:
     resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
@@ -6036,17 +6035,6 @@ packages:
       cosmiconfig: 9.0.0(typescript@5.3.3)
       jiti: 1.21.0
       typescript: 5.3.3
-    dev: true
-
-  /cosmiconfig@7.0.1:
-    resolution: {integrity: sha512-a1YWNUV2HwGimB7dU2s1wUMurNKjpx60HxBB6xUM8Re+2s1g1IIfJvFR0/iCF+XHdE0GMTKTuLR32UQff4TEyQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@types/parse-json': 4.0.2
-      import-fresh: 3.3.0
-      parse-json: 5.2.0
-      path-type: 4.0.0
-      yaml: 1.10.2
     dev: true
 
   /cosmiconfig@7.1.0:
@@ -7569,8 +7557,8 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
-  /fast-glob@3.2.11:
-    resolution: {integrity: sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==}
+  /fast-glob@3.3.1:
+    resolution: {integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==}
     engines: {node: '>=8.6.0'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -9835,10 +9823,6 @@ packages:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
-    dev: true
-
-  /minimist@1.2.6:
-    resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
   /minimist@1.2.7:
@@ -13015,8 +12999,8 @@ packages:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
 
-  /v8-compile-cache@2.3.0:
-    resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
+  /v8-compile-cache@2.4.0:
+    resolution: {integrity: sha512-ocyWc3bAHBB/guyqJQVI5o4BZkPhznPYUG2ea80Gond/BgNWpap8TOmLSeeQG7bnh2KMISxskdADG59j7zruhw==}
     dev: true
 
   /validate-npm-package-license@3.0.4:
