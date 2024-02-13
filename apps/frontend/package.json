@@ -55,7 +55,7 @@
 	"devDependencies": {
 		"@exlint.io/common": "workspace:*",
 		"@total-typescript/ts-reset": "0.5.1",
-		"@types/node": "18.19.7",
+		"@types/node": "20.11.16",
 		"@types/nprogress": "0.2.3",
 		"@types/react": "18.2.48",
 		"@types/react-datepicker": "4.19.5",
@@ -91,7 +91,7 @@
 		"vite-tsconfig-paths": "4.2.3"
 	},
 	"peerDependencies": {
-		"@types/node": "18.19.7",
+		"@types/node": "20.11.16",
 		"@typescript-eslint/parser": "5.62.0",
 		"eslint": "8.56.0",
 		"prettier": "2.8.8"
