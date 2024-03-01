@@ -8,3 +8,4 @@ test-results
 playwright-authentication-report
 auth-state.json
 tests/.env
+.nx
