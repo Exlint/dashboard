@@ -82,7 +82,7 @@
 		"sass": "1.69.7",
 		"stylelint": "15.11.0",
 		"stylelint-config-recess-order": "4.2.0",
-		"stylelint-config-standard-scss": "8.0.0",
+		"stylelint-config-standard-scss": "13.1.0",
 		"stylelint-declaration-strict-value": "1.10.4",
 		"typescript": "5.3.3",
 		"vite": "5.2.14",
