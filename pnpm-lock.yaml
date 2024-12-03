@@ -105,11 +105,11 @@ importers:
         specifier: 8.14.1
         version: 8.14.1
       prettier:
-        specifier: 2.8.8
-        version: 2.8.8
+        specifier: 3.4.1
+        version: 3.4.1
       prettier-plugin-sh:
         specifier: 0.13.1
-        version: 0.13.1(prettier@2.8.8)
+        version: 0.13.1(prettier@3.4.1)
       prisma:
         specifier: 4.16.2
         version: 4.16.2
@@ -591,8 +591,8 @@ importers:
         specifier: 6.2.11
         version: 6.2.11
       prettier:
-        specifier: 2.8.8
-        version: 2.8.8
+        specifier: 3.4.1
+        version: 3.4.1
       prisma:
         specifier: 4.16.2
         version: 4.16.2
@@ -622,7 +622,7 @@ importers:
         version: 1.0.3(vite@5.2.14)
       vite-plugin-sass-dts:
         specifier: 1.3.17
-        version: 1.3.17(postcss@8.4.47)(prettier@2.8.8)(sass@1.69.7)(vite@5.2.14)
+        version: 1.3.17(postcss@8.4.47)(prettier@3.4.1)(sass@1.69.7)(vite@5.2.14)
       vite-tsconfig-paths:
         specifier: 4.2.3
         version: 4.2.3(typescript@5.3.3)(vite@5.2.14)
@@ -2377,7 +2377,7 @@ packages:
       object-assign: 4.1.1
       open: 8.4.0
       proxy-middleware: 0.15.0
-      send: 0.19.0
+      send: 1.1.0
       serve-index: 1.9.1
     transitivePeerDependencies:
       - supports-color
@@ -6469,6 +6469,18 @@ packages:
     dependencies:
       ms: 2.1.2
 
+  /debug@4.3.7:
+    resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.3
+    dev: true
+
   /decache@4.6.2:
     resolution: {integrity: sha512-2LPqkLeu8XWHU8qNCS3kcF6sCcb5zIzvWaAHYSvPfwhdd7mHuah29NssMzrTYyHN4F5oFy2ko9OBYxegtU0FEw==}
     dependencies:
@@ -6820,6 +6832,11 @@ packages:
   /encodeurl@1.0.2:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
+
+  /encodeurl@2.0.0:
+    resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
+    engines: {node: '>= 0.8'}
+    dev: true
 
   /end-of-stream@1.4.4:
     resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
@@ -10934,20 +10951,20 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-sh@0.13.1(prettier@2.8.8):
+  /prettier-plugin-sh@0.13.1(prettier@3.4.1):
     resolution: {integrity: sha512-ytMcl1qK4s4BOFGvsc9b0+k9dYECal7U29bL/ke08FEUsF/JLN0j6Peo0wUkFDG4y2UHLMhvpyd6Sd3zDXe/eg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       prettier: ^3.0.0
     dependencies:
       mvdan-sh: 0.10.1
-      prettier: 2.8.8
+      prettier: 3.4.1
       sh-syntax: 0.4.2
     dev: true
 
-  /prettier@2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
+  /prettier@3.4.1:
+    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
@@ -11813,19 +11830,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /send@0.19.0:
-    resolution: {integrity: sha512-dW41u5VfLXu8SJh5bwRmyYUbAoSB3c9uQh6L8h/KtsFREPWpbX1lrljJo186Jc4nmci/sGUZ9a0a0J2zgfq2hw==}
-    engines: {node: '>= 0.8.0'}
+  /send@1.1.0:
+    resolution: {integrity: sha512-v67WcEouB5GxbTWL/4NeToqcZiAWEq90N888fczVArY8A79J0L4FD7vj5hm3eUMua5EpoQ59wa/oovY6TLvRUA==}
+    engines: {node: '>= 18'}
     dependencies:
-      debug: 2.6.9
-      depd: 2.0.0
+      debug: 4.3.7
       destroy: 1.2.0
-      encodeurl: 1.0.2
+      encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
       fresh: 0.5.2
       http-errors: 2.0.0
-      mime: 1.6.0
+      mime-types: 2.1.35
       ms: 2.1.3
       on-finished: 2.4.1
       range-parser: 1.2.1
@@ -13238,7 +13254,7 @@ packages:
       vite: 5.2.14(@types/node@20.11.16)(sass@1.69.7)
     dev: true
 
-  /vite-plugin-sass-dts@1.3.17(postcss@8.4.47)(prettier@2.8.8)(sass@1.69.7)(vite@5.2.14):
+  /vite-plugin-sass-dts@1.3.17(postcss@8.4.47)(prettier@3.4.1)(sass@1.69.7)(vite@5.2.14):
     resolution: {integrity: sha512-1YOEaDblFafFUhqOWdCBkJaJjBA7XPcX+Y8pFKFbn4BuNO5M57snN2A4w1DkA8pF6gL/QSvSpQfswHBDDC2fjQ==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -13249,7 +13265,7 @@ packages:
     dependencies:
       postcss: 8.4.47
       postcss-js: 4.0.1(postcss@8.4.47)
-      prettier: 2.8.8
+      prettier: 3.4.1
       sass: 1.69.7
       vite: 5.2.14(@types/node@20.11.16)(sass@1.69.7)
     dev: true
