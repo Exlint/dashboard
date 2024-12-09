@@ -23,10 +23,10 @@
 		"template:ui": "hygen component new-ui"
 	},
 	"dependencies": {
-		"@codemirror/lang-javascript": "6.2.1",
+		"@codemirror/lang-javascript": "6.2.2",
 		"@codemirror/lang-json": "6.0.1",
-		"@codemirror/language": "6.10.0",
-		"@codemirror/legacy-modes": "6.3.3",
+		"@codemirror/language": "6.10.6",
+		"@codemirror/legacy-modes": "6.4.2",
 		"@lezer/highlight": "1.2.0",
 		"@prisma/client": "4.16.2",
 		"@reduxjs/toolkit": "1.9.7",
