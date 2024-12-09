@@ -17,7 +17,7 @@ jobs:
               uses: Exlint/node-environment@v1.2.6
               with:
                   should-cache: false
-                  node-version: 20.11.0
+                  node-version: 20.18.1
                   package-manager: pnpm
                   package-manager-version: 8.14.1
                   sub-modules: false
