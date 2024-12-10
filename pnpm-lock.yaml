@@ -226,8 +226,8 @@ importers:
         specifier: 2.0.16
         version: 2.0.16
       '@types/passport-jwt':
-        specifier: 4.0.0
-        version: 4.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       '@types/promise-retry':
         specifier: 1.1.6
         version: 1.1.6
@@ -371,8 +371,8 @@ importers:
         specifier: 4.17.21
         version: 4.17.21
       '@types/passport-jwt':
-        specifier: 4.0.0
-        version: 4.0.0
+        specifier: 4.0.1
+        version: 4.0.1
       '@types/promise-retry':
         specifier: 1.1.6
         version: 1.1.6
@@ -4231,8 +4231,8 @@ packages:
       '@types/passport-oauth2': 1.4.15
     dev: true
 
-  /@types/passport-jwt@4.0.0:
-    resolution: {integrity: sha512-m32144UaQENieShQDWVQ8w+CVAzCV/pDahICUlQvmqLOePGglQaMRQ28I7fKnRMFLNwVP4eWssOtcQ0kLe1vww==}
+  /@types/passport-jwt@4.0.1:
+    resolution: {integrity: sha512-Y0Ykz6nWP4jpxgEUYq8NoVZeCQPo1ZndJLfapI249g1jHChvRfZRO/LS3tqu26YgAS/laI1qx98sYGz0IalRXQ==}
     dependencies:
       '@types/jsonwebtoken': 9.0.5
       '@types/passport-strategy': 0.2.38
@@ -4491,7 +4491,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.19.1
       '@typescript-eslint/visitor-keys': 6.19.1
-      debug: 4.3.4
+      debug: 4.4.0
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
