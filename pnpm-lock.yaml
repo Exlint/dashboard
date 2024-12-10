@@ -51,8 +51,8 @@ importers:
         specifier: 1.4.7
         version: 1.4.7
       docker-compose:
-        specifier: 0.24.3
-        version: 0.24.3
+        specifier: 0.24.8
+        version: 0.24.8
       dotenv-cli:
         specifier: 7.3.0
         version: 7.3.0
@@ -6637,8 +6637,8 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /docker-compose@0.24.3:
-    resolution: {integrity: sha512-x3/QN3AIOMe7j2c8f/jcycizMft7dl8MluoB9OGPAYCyKHHiPUFqI9GjCcsU0kYy24vYKMCcfR6+5ZaEyQlrxg==}
+  /docker-compose@0.24.8:
+    resolution: {integrity: sha512-plizRs/Vf15H+GCVxq2EUvyPK7ei9b/cVesHvjnX4xaXjM9spHe2Ytq0BitndFgvTJ3E3NljPNUEl7BAN43iZw==}
     engines: {node: '>= 6.0.0'}
     dependencies:
       yaml: 2.3.4
