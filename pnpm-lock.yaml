@@ -459,7 +459,7 @@ importers:
         version: 4.16.2(prisma@4.16.2)
       '@reduxjs/toolkit':
         specifier: 1.9.7
-        version: 1.9.7(react-redux@9.1.0)(react@18.2.0)
+        version: 1.9.7(react-redux@9.1.2)(react@18.2.0)
       '@rjsf/core':
         specifier: 5.16.1
         version: 5.16.1(@rjsf/utils@5.16.1)(react@18.2.0)
@@ -506,8 +506,8 @@ importers:
         specifier: 13.5.0
         version: 13.5.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0)
       react-redux:
-        specifier: 9.1.0
-        version: 9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
+        specifier: 9.1.2
+        version: 9.1.2(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
       react-router-dom:
         specifier: 6.21.2
         version: 6.21.2(react-dom@18.2.0)(react@18.2.0)
@@ -3843,7 +3843,7 @@ packages:
     resolution: {integrity: sha512-vx1nxVvN4QeT/cepQce68deh/Turxy5Mr+4L4zClFuK1GlxN3+ivxfuv+ej/gvidWn1cE1uAhW7ALLNlYbRUAw==}
     requiresBuild: true
 
-  /@reduxjs/toolkit@1.9.7(react-redux@9.1.0)(react@18.2.0):
+  /@reduxjs/toolkit@1.9.7(react-redux@9.1.2)(react@18.2.0):
     resolution: {integrity: sha512-t7v8ZPxhhKgOKtU+uyJT13lu4vL7az5aFi4IdoDs/eS548edn2M8Ik9h8fxgvMjGoAUVFSt6ZC1P5cWmQ014QQ==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
@@ -3856,7 +3856,7 @@ packages:
     dependencies:
       immer: 9.0.21
       react: 18.2.0
-      react-redux: 9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
+      react-redux: 9.1.2(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
       redux: 4.2.1
       redux-thunk: 2.4.2(redux@4.2.1)
       reselect: 4.1.8
@@ -11089,17 +11089,14 @@ packages:
       react-fast-compare: 3.2.2
       warning: 4.0.3
 
-  /react-redux@9.1.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1):
-    resolution: {integrity: sha512-6qoDzIO+gbrza8h3hjMA9aq4nwVFCKFtY2iLxCtVT38Swyy2C/dJCGBXHeHLtx6qlg/8qzc2MrhOeduf5K32wQ==}
+  /react-redux@9.1.2(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-0OA4dhM1W48l3uzmv6B7TXPCGmokUU4p1M44DGN2/D9a1FjVPukVjER1PcPX97jIg6aUeLq1XJo1IpfbgULn0w==}
     peerDependencies:
       '@types/react': ^18.2.25
       react: ^18.0
-      react-native: '>=0.69'
       redux: ^5.0.0
     peerDependenciesMeta:
       '@types/react':
-        optional: true
-      react-native:
         optional: true
       redux:
         optional: true
