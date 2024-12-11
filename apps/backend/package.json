@@ -65,7 +65,7 @@
 		"eslint-plugin-unused-imports": "3.0.0",
 		"open-cli": "8.0.0",
 		"prisma": "4.16.2",
-		"rimraf": "5.0.5",
+		"rimraf": "5.0.10",
 		"run-script-webpack-plugin": "0.2.0",
 		"ts-loader": "9.5.1",
 		"typescript": "5.3.3",
