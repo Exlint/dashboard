@@ -667,8 +667,8 @@ importers:
         specifier: 5.62.0
         version: 5.62.0(eslint@8.56.0)(typescript@5.3.3)
       asciinema-player:
-        specifier: 3.6.3
-        version: 3.6.3
+        specifier: 3.8.1
+        version: 3.8.1
       depcheck:
         specifier: 1.4.7
         version: 1.4.7
@@ -5282,8 +5282,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /asciinema-player@3.6.3:
-    resolution: {integrity: sha512-62aDgLpbuduhmpFfNgPOzf6fOluACLsftVnjpWJjUXX6dqhqTckFqWoJ+ayA0XjSlZ9l9wXTcJqRqvAAIpMblg==}
+  /asciinema-player@3.8.1:
+    resolution: {integrity: sha512-NkpbFg81Y6iJFpDRndakLCQ0G26XSpvuT3vJTFjMRgHb26lqHgRNY9gun54e5MehZ4fEDNYkMZv+z6MfZ8c2aA==}
     dependencies:
       '@babel/runtime': 7.23.9
       solid-js: 1.8.12
