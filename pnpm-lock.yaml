@@ -567,8 +567,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.3.3)
       eslint-plugin-i18next:
-        specifier: 6.0.3
-        version: 6.0.3
+        specifier: 6.1.1
+        version: 6.1.1
       eslint-plugin-import:
         specifier: 2.29.1
         version: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint@8.57.1)
@@ -682,8 +682,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.3.3)
       eslint-plugin-i18next:
-        specifier: 6.0.3
-        version: 6.0.3
+        specifier: 6.1.1
+        version: 6.1.1
       eslint-plugin-import:
         specifier: 2.29.1
         version: 2.29.1(@typescript-eslint/parser@5.62.0)(eslint@8.57.1)
@@ -7127,8 +7127,8 @@ packages:
       regexpp: 3.2.0
     dev: true
 
-  /eslint-plugin-i18next@6.0.3:
-    resolution: {integrity: sha512-RtQXYfg6PZCjejIQ/YG+dUj/x15jPhufJ9hUDGH0kCpJ6CkVMAWOQ9exU1CrbPmzeykxLjrXkjAaOZF/V7+DOA==}
+  /eslint-plugin-i18next@6.1.1:
+    resolution: {integrity: sha512-/Vy6BfX44njxpRnbJm7bbph0KaNJF2eillqN5W+u03hHuxmh9BjtjdPSrI9HPtyoEbG4j5nBn9gXm/dg99mz3Q==}
     engines: {node: '>=0.10.0'}
     dependencies:
       lodash: 4.17.21
