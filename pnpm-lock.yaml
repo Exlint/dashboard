@@ -485,8 +485,8 @@ importers:
         specifier: 3.4.1
         version: 3.4.1
       date-fns:
-        specifier: 3.2.0
-        version: 3.2.0
+        specifier: 3.6.0
+        version: 3.6.0
       i18next:
         specifier: 23.7.16
         version: 23.7.16
@@ -6444,8 +6444,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.9
 
-  /date-fns@3.2.0:
-    resolution: {integrity: sha512-E4KWKavANzeuusPi0jUjpuI22SURAznGkx7eZV+4i6x2A+IZxAMcajgkvuDAU1bg40+xuhW1zRdVIIM/4khuIg==}
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: false
 
   /debug@2.6.9:
