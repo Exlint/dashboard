@@ -27,7 +27,7 @@
 		"eslint-plugin-deprecation": "2.0.0",
 		"eslint-plugin-import": "2.31.0",
 		"eslint-plugin-unicorn": "47.0.0",
-		"eslint-plugin-unused-imports": "3.0.0",
+		"eslint-plugin-unused-imports": "3.2.0",
 		"prisma": "4.16.2",
 		"typescript": "5.3.3"
 	},
