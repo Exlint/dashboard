@@ -488,8 +488,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: 23.7.16
-        version: 23.7.16
+        specifier: 23.16.8
+        version: 23.16.8
       nprogress:
         specifier: 0.2.0
         version: 0.2.0
@@ -504,7 +504,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-i18next:
         specifier: 13.5.0
-        version: 13.5.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0)
       react-redux:
         specifier: 9.1.2
         version: 9.1.2(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
@@ -630,8 +630,8 @@ importers:
   apps/landing-page:
     dependencies:
       i18next:
-        specifier: 23.7.16
-        version: 23.7.16
+        specifier: 23.16.8
+        version: 23.16.8
       mixpanel-browser:
         specifier: 2.48.1
         version: 2.48.1
@@ -649,7 +649,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-i18next:
         specifier: 13.5.0
-        version: 13.5.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0)
       react-intersection-observer:
         specifier: 9.5.3
         version: 9.5.3(react@18.2.0)
@@ -8745,13 +8745,6 @@ packages:
     resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
     dependencies:
       '@babel/runtime': 7.23.9
-    dev: true
-
-  /i18next@23.7.16:
-    resolution: {integrity: sha512-SrqFkMn9W6Wb43ZJ9qrO6U2U4S80RsFMA7VYFSqp7oc7RllQOYDCdRfsse6A7Cq/V8MnpxKvJCYgM8++27n4Fw==}
-    dependencies:
-      '@babel/runtime': 7.23.9
-    dev: false
 
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -11369,7 +11362,7 @@ packages:
   /react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
-  /react-i18next@13.5.0(i18next@23.7.16)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -11384,7 +11377,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.9
       html-parse-stringify: 3.0.1
-      i18next: 23.7.16
+      i18next: 23.16.8
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
