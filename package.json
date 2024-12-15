@@ -70,7 +70,7 @@
 		"playwright": "1.40.1",
 		"pnpm": "8.14.1",
 		"prettier": "2.8.8",
-		"prettier-plugin-sh": "0.13.1",
+		"prettier-plugin-sh": "0.14.0",
 		"prisma": "4.16.2",
 		"rimraf": "5.0.10",
 		"stylelint": "15.11.0",
