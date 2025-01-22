@@ -68,7 +68,7 @@
 		"rimraf": "5.0.10",
 		"run-script-webpack-plugin": "0.2.0",
 		"ts-loader": "9.5.2",
-		"typescript": "5.7.2",
+		"typescript": "5.7.3",
 		"webpack": "5.97.1",
 		"webpack-node-externals": "3.0.0"
 	}
