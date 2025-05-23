@@ -365,8 +365,8 @@ importers:
         specifier: 0.6.1
         version: 0.6.1
       '@types/deepmerge':
-        specifier: 2.2.0
-        version: 2.2.0
+        specifier: 2.2.3
+        version: 2.2.3
       '@types/express':
         specifier: 4.17.21
         version: 4.17.21
@@ -4314,8 +4314,8 @@ packages:
     resolution: {integrity: sha512-nl09VhutdjINdWyXxHWN/w9zlNCfr60JUqJbd24YXUuCwgeL0TpFSdElCwb6cxfB6ybE19Gjj4g0jsgkXxKv1Q==}
     dev: false
 
-  /@types/deepmerge@2.2.0:
-    resolution: {integrity: sha512-FEQYDHh6+Q+QXKSrIY46m+/lAmAj/bk4KpLaam+hArmzaVpMBHLcfwOH2Q2UOkWM7XsdY9PmZpGyPAjh/JRGhQ==}
+  /@types/deepmerge@2.2.3:
+    resolution: {integrity: sha512-ct4srnukH/SHdVPyJIFV73YJIt9PTYTaqQbjrCvRrbc9LxHdGcJb132SuWwnDTPyx5UjCVS/I00wj0i5IXfqSA==}
     deprecated: This is a stub types definition. deepmerge provides its own type definitions, so you do not need this installed.
     dependencies:
       deepmerge: 4.3.1
