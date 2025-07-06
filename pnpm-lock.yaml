@@ -274,8 +274,8 @@ importers:
         specifier: 5.0.10
         version: 5.0.10
       run-script-webpack-plugin:
-        specifier: 0.2.0
-        version: 0.2.0
+        specifier: 0.2.3
+        version: 0.2.3
       ts-loader:
         specifier: 9.5.2
         version: 9.5.2(typescript@5.7.3)(webpack@5.97.1)
@@ -422,8 +422,8 @@ importers:
         specifier: 5.0.10
         version: 5.0.10
       run-script-webpack-plugin:
-        specifier: 0.2.0
-        version: 0.2.0
+        specifier: 0.2.3
+        version: 0.2.3
       ts-loader:
         specifier: 9.5.2
         version: 9.5.2(typescript@5.7.3)(webpack@5.97.1)
@@ -12286,8 +12286,8 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
-  /run-script-webpack-plugin@0.2.0:
-    resolution: {integrity: sha512-SVNNq4jxzjfnaW+HkdTlyH1CWwCuSb/weYfic0D7Y/KnhY27YRYkzgybdzTDEPJlpQ73FDCRDbyBFwNsJMmwWQ==}
+  /run-script-webpack-plugin@0.2.3:
+    resolution: {integrity: sha512-GX1JqSNAmtGMAcE3iyLFlnxWpxKBWPNkpac/02w2RF3xynTjA8LWLkFzMzlvATA3c3kARWnT2OrsnvJviB79Lg==}
     engines: {node: '>=14'}
     dev: true
 
