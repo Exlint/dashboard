@@ -60,8 +60,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -247,8 +247,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -392,8 +392,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -561,8 +561,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -676,8 +676,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: ^2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -734,8 +734,8 @@ importers:
         specifier: 8.57.1
         version: 8.57.1
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: 9.1.2
+        version: 9.1.2(eslint@8.57.1)
       eslint-plugin-deprecation:
         specifier: 2.0.0
         version: 2.0.0(eslint@8.57.1)(typescript@5.7.3)
@@ -4386,7 +4386,7 @@ packages:
     resolution: {integrity: sha512-MADQgmZT1eKjp06jpI2yozxaU9uVs4GzzgSL+uEq7bVcJ9V1ZXQkeGNql1fsSI0gMy1vhvNTNbUqrx+pZfJVmg==}
     engines: {node: '>=18'}
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
       fflate: 0.8.2
       token-types: 6.0.3
     transitivePeerDependencies:
@@ -5249,7 +5249,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -7740,8 +7740,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-prettier@9.1.0(eslint@8.57.1):
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  /eslint-config-prettier@9.1.2(eslint@8.57.1):
+    resolution: {integrity: sha512-iI1f+D2ViGn+uvv5HuHVUamg8ll4tN+JRHGc6IJi4TP9Kl976C57fzPXgseXNs8v0iA8aSJpHsTWjDb9QJamGQ==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
