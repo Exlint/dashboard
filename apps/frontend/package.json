@@ -81,7 +81,7 @@
 		"prisma": "4.16.2",
 		"sass": "1.82.0",
 		"stylelint": "15.11.0",
-		"stylelint-config-recess-order": "4.2.0",
+		"stylelint-config-recess-order": "4.6.0",
 		"stylelint-config-standard-scss": "8.0.0",
 		"stylelint-declaration-strict-value": "1.10.11",
 		"typescript": "5.7.3",

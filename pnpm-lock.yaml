@@ -603,8 +603,8 @@ importers:
         specifier: 15.11.0
         version: 15.11.0(typescript@5.7.3)
       stylelint-config-recess-order:
-        specifier: 4.2.0
-        version: 4.2.0(stylelint@15.11.0)
+        specifier: 4.6.0
+        version: 4.6.0(stylelint@15.11.0)
       stylelint-config-standard-scss:
         specifier: 8.0.0
         version: 8.0.0(postcss@8.4.47)(stylelint@15.11.0)
@@ -13631,8 +13631,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /stylelint-config-recess-order@4.2.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-cWC66tUx74OgurUQaTAH4iJ4JbyisMwlJH8BO/oxglDLZBUNFggjwPFVtgsmd8rS+bUfm7sPlRrF00iAihESwA==}
+  /stylelint-config-recess-order@4.6.0(stylelint@15.11.0):
+    resolution: {integrity: sha512-V76fhv3YtcNXh/hyAuAdSzi5FmcrG54Mp2AThJ3D/PTMTSYzUPd7GIhP6z9mTqnRhmkk6YTfcu/JWB8h+Yrcaw==}
     peerDependencies:
       stylelint: '>=15'
     dependencies:
