@@ -277,8 +277,8 @@ importers:
         specifier: 0.2.3
         version: 0.2.3
       ts-loader:
-        specifier: 9.5.2
-        version: 9.5.2(typescript@5.7.3)(webpack@5.104.1)
+        specifier: 9.5.4
+        version: 9.5.4(typescript@5.7.3)(webpack@5.104.1)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -425,8 +425,8 @@ importers:
         specifier: 0.2.3
         version: 0.2.3
       ts-loader:
-        specifier: 9.5.2
-        version: 9.5.2(typescript@5.7.3)(webpack@5.104.1)
+        specifier: 9.5.4
+        version: 9.5.4(typescript@5.7.3)(webpack@5.104.1)
       typescript:
         specifier: 5.7.3
         version: 5.7.3
@@ -9505,7 +9505,7 @@ packages:
     dependencies:
       '@ljharb/through': 2.3.12
       ansi-escapes: 4.3.2
-      chalk: 5.3.0
+      chalk: 5.4.1
       cli-cursor: 3.1.0
       cli-width: 4.1.0
       external-editor: 3.1.0
@@ -14093,17 +14093,17 @@ packages:
       typescript: 5.7.3
     dev: true
 
-  /ts-loader@9.5.2(typescript@5.7.3)(webpack@5.104.1):
-    resolution: {integrity: sha512-Qo4piXvOTWcMGIgRiuFa6nHNm+54HbYaZCKqc9eeZCLRy3XqafQgwX2F7mofrbJG3g7EEb+lkiR+z2Lic2s3Zw==}
+  /ts-loader@9.5.4(typescript@5.7.3)(webpack@5.104.1):
+    resolution: {integrity: sha512-nCz0rEwunlTZiy6rXFByQU1kVVpCIgUpc/psFiKVrUwrizdnIbRFu8w7bxhUF0X613DYwT4XzrZHpVyMe758hQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
       webpack: ^5.0.0
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.17.1
+      enhanced-resolve: 5.19.0
       micromatch: 4.0.8
-      semver: 7.6.3
+      semver: 7.7.2
       source-map: 0.7.4
       typescript: 5.7.3
       webpack: 5.104.1
