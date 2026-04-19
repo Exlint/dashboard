@@ -23,7 +23,7 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v2
               with:
-                  version: 7.26.3
+                  version: 10.28.2
 
             - name: Remove root pnpm files
               run: rm ./pnpm-lock.yaml ./package.json ./pnpm-workspace.yaml
