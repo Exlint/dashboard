@@ -46,7 +46,7 @@ importers:
         version: 8.19.4
       cz-vinyl:
         specifier: 2.5.4
-        version: 2.5.4(@types/node@20.17.13)(inquirer@8.2.6)(typescript@5.7.3)
+        version: 2.5.4(@types/node@20.17.13)(inquirer@8.2.7)(typescript@5.7.3)
       depcheck:
         specifier: 1.4.7
         version: 1.4.7
@@ -479,8 +479,8 @@ importers:
         specifier: 4.25.12
         version: 4.25.12(@codemirror/language@6.12.4)(@codemirror/state@6.4.0)(@codemirror/view@6.23.1)
       '@uiw/react-codemirror':
-        specifier: 4.25.8
-        version: 4.25.8(@babel/runtime@7.23.9)(@codemirror/autocomplete@6.12.0)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.23.1)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 4.25.12
+        version: 4.25.12(@babel/runtime@7.23.9)(@codemirror/autocomplete@6.12.0)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.23.1)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)
       bootstrap:
         specifier: 3.4.1
         version: 3.4.1
@@ -4931,8 +4931,8 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@uiw/codemirror-extensions-basic-setup@4.25.8(@codemirror/autocomplete@6.12.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.1):
-    resolution: {integrity: sha512-9Rr+liiBmK4xzZHszL+twNRJApthqmITBwDP3emNTtTrkBFN4gHlqfp+nodKmoVt1+bUH1qQCtyqt+7dbDTHiw==}
+  /@uiw/codemirror-extensions-basic-setup@4.25.12(@codemirror/autocomplete@6.12.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.1):
+    resolution: {integrity: sha512-wR5lz7jbVcBGyiiLEObAmDikcc39KNqrrd4bdUhav85WZu48ttgnSf1YV+grHuMsj5l/WCw6u+r9ZuSfURJgiA==}
     peerDependencies:
       '@codemirror/autocomplete': '>=6.0.0'
       '@codemirror/commands': '>=6.0.0'
@@ -4963,8 +4963,8 @@ packages:
       '@codemirror/view': 6.23.1
     dev: false
 
-  /@uiw/react-codemirror@4.25.8(@babel/runtime@7.23.9)(@codemirror/autocomplete@6.12.0)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.23.1)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-A0aLOuJZm2yJ+U9GlMFwxwFciztjd5LhcAG4SMqFxdD58wH+sCQXuY4UU5J2hqgS390qAlShtUgREvJPUonbuQ==}
+  /@uiw/react-codemirror@4.25.12(@babel/runtime@7.23.9)(@codemirror/autocomplete@6.12.0)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.23.1)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-RE0Gj/QesD7/JWPnJREG8Kq8brGv2NAH17iUECcBrLkqXzzEAgsj/4Qqvz/OlK8XWKmzlsenLRkObT9H+gYQ0w==}
     peerDependencies:
       '@babel/runtime': '>=7.11.0'
       '@codemirror/state': '>=6.0.0'
@@ -4979,7 +4979,7 @@ packages:
       '@codemirror/state': 6.4.0
       '@codemirror/theme-one-dark': 6.1.2
       '@codemirror/view': 6.23.1
-      '@uiw/codemirror-extensions-basic-setup': 4.25.8(@codemirror/autocomplete@6.12.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.1)
+      '@uiw/codemirror-extensions-basic-setup': 4.25.12(@codemirror/autocomplete@6.12.0)(@codemirror/commands@6.3.3)(@codemirror/language@6.12.4)(@codemirror/lint@6.4.2)(@codemirror/search@6.5.5)(@codemirror/state@6.4.0)(@codemirror/view@6.23.1)
       codemirror: 6.0.1(@lezer/common@1.5.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -6815,14 +6815,14 @@ packages:
       - typescript
     dev: true
 
-  /cz-vinyl@2.5.4(@types/node@20.17.13)(inquirer@8.2.6)(typescript@5.7.3):
+  /cz-vinyl@2.5.4(@types/node@20.17.13)(inquirer@8.2.7)(typescript@5.7.3):
     resolution: {integrity: sha512-XyAnDZx654hbUuUka+kuhOG0PztGgcRsPxaUzVHis3kGTvsuLgr3/efPhKyzDXR4r+J7ZVEgEwm5C24HKTRIwA==}
     engines: {node: '>=14.16'}
     dependencies:
       cosmiconfig: 9.0.0(typescript@5.7.3)
       cosmiconfig-typescript-loader: 5.0.0(@types/node@20.17.13)(cosmiconfig@9.0.0)(typescript@5.7.3)
       fuse.js: 7.0.0
-      inquirer-autocomplete-prompt: 2.0.1(inquirer@8.2.6)
+      inquirer-autocomplete-prompt: 2.0.1(inquirer@8.2.7)
       inquirer-maxlength-input-prompt: 1.0.2
       openai: 4.65.0(zod@3.23.8)
       string-template: 1.0.0
@@ -9408,7 +9408,7 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
-  /inquirer-autocomplete-prompt@2.0.1(inquirer@8.2.6):
+  /inquirer-autocomplete-prompt@2.0.1(inquirer@8.2.7):
     resolution: {integrity: sha512-jUHrH0btO7j5r8DTQgANf2CBkTZChoVySD8zF/wp5fZCOLIuUbleXhf4ZY5jNBOc1owA3gdfWtfZuppfYBhcUg==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -9416,7 +9416,7 @@ packages:
     dependencies:
       ansi-escapes: 4.3.2
       figures: 3.2.0
-      inquirer: 8.2.6
+      inquirer: 8.2.7(@types/node@20.17.13)
       picocolors: 1.1.1
       run-async: 2.4.1
       rxjs: 7.8.2
