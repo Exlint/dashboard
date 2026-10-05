@@ -452,8 +452,8 @@ importers:
         specifier: 6.5.4
         version: 6.5.4
       '@lezer/highlight':
-        specifier: 1.2.4
-        version: 1.2.4
+        specifier: 1.2.5
+        version: 1.2.5
       '@prisma/client':
         specifier: 4.16.2
         version: 4.16.2(prisma@4.16.2)
@@ -2227,7 +2227,7 @@ packages:
       '@codemirror/state': 6.4.0
       '@codemirror/view': 6.23.1
       '@lezer/common': 1.5.0
-      '@lezer/highlight': 1.2.4
+      '@lezer/highlight': 1.2.5
       '@lezer/lr': 1.4.0
       style-mod: 4.1.0
     dev: false
@@ -2264,7 +2264,7 @@ packages:
       '@codemirror/language': 6.12.4
       '@codemirror/state': 6.4.0
       '@codemirror/view': 6.23.1
-      '@lezer/highlight': 1.2.4
+      '@lezer/highlight': 1.2.5
     dev: false
 
   /@codemirror/view@6.23.1:
@@ -3298,8 +3298,8 @@ packages:
     resolution: {integrity: sha512-PNGcolp9hr4PJdXR4ix7XtixDrClScvtSCYW3rQG106oVMOOI+jFb+0+J3mbeL/53g1Zd6s0kJzaw6Ri68GmAA==}
     dev: false
 
-  /@lezer/highlight@1.2.4:
-    resolution: {integrity: sha512-4UeRVFO0lsBaM7GA32zOqbmqNPme9jedo8Ey+5c5656MU3MLitMLIA8aCZTYjUMEpEsuSeXEm78Uea6Iq3bvSg==}
+  /@lezer/highlight@1.2.5:
+    resolution: {integrity: sha512-O1GMVKgtf5YspFaRzpmqkVgMtIk2HG9uMAbH6wdAIdNh3TVzCsch/+cRi+6l2//UGDKe6NB9BW3cvuR5ezMQ0w==}
     dependencies:
       '@lezer/common': 1.5.0
     dev: false
@@ -3308,7 +3308,7 @@ packages:
     resolution: {integrity: sha512-5IBr8LIO3xJdJH1e9aj/ZNLE4LSbdsx25wFmGRAZsj2zSmwAYjx26JyU/BYOCpRQlu1jcv1z3vy4NB9+UkfRow==}
     dependencies:
       '@lezer/common': 1.5.0
-      '@lezer/highlight': 1.2.4
+      '@lezer/highlight': 1.2.5
       '@lezer/lr': 1.4.0
     dev: false
 
@@ -3316,7 +3316,7 @@ packages:
     resolution: {integrity: sha512-xHT2P4S5eeCYECyKNPhr4cbEL9tc8w83SPwRC373o9uEdrvGKTZoJVAGxpOsZckMlEh9W23Pc72ew918RWQOBQ==}
     dependencies:
       '@lezer/common': 1.5.0
-      '@lezer/highlight': 1.2.4
+      '@lezer/highlight': 1.2.5
       '@lezer/lr': 1.4.0
     dev: false
 
