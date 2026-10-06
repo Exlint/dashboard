@@ -459,7 +459,7 @@ importers:
         version: 4.16.2(prisma@4.16.2)
       '@reduxjs/toolkit':
         specifier: 1.9.7
-        version: 1.9.7(react-redux@9.2.0)(react@18.2.0)
+        version: 1.9.7(react-redux@9.3.0)(react@18.2.0)
       '@rjsf/core':
         specifier: 5.24.13
         version: 5.24.13(@rjsf/utils@5.24.13)(react@18.2.0)
@@ -506,8 +506,8 @@ importers:
         specifier: 13.5.0
         version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0)
       react-redux:
-        specifier: 9.2.0
-        version: 9.2.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
+        specifier: 9.3.0
+        version: 9.3.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
       react-router-dom:
         specifier: 6.30.6
         version: 6.30.6(react-dom@18.2.0)(react@18.2.0)
@@ -4098,7 +4098,7 @@ packages:
     resolution: {integrity: sha512-vx1nxVvN4QeT/cepQce68deh/Turxy5Mr+4L4zClFuK1GlxN3+ivxfuv+ej/gvidWn1cE1uAhW7ALLNlYbRUAw==}
     requiresBuild: true
 
-  /@reduxjs/toolkit@1.9.7(react-redux@9.2.0)(react@18.2.0):
+  /@reduxjs/toolkit@1.9.7(react-redux@9.3.0)(react@18.2.0):
     resolution: {integrity: sha512-t7v8ZPxhhKgOKtU+uyJT13lu4vL7az5aFi4IdoDs/eS548edn2M8Ik9h8fxgvMjGoAUVFSt6ZC1P5cWmQ014QQ==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
@@ -4111,7 +4111,7 @@ packages:
     dependencies:
       immer: 9.0.21
       react: 18.2.0
-      react-redux: 9.2.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
+      react-redux: 9.3.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
       redux: 4.2.1
       redux-thunk: 2.4.2(redux@4.2.1)
       reselect: 4.1.8
@@ -12113,8 +12113,8 @@ packages:
       react-fast-compare: 3.2.2
       warning: 4.0.3
 
-  /react-redux@9.2.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1):
-    resolution: {integrity: sha512-ROY9fvHhwOD9ySfrF0wmvu//bKCQ6AeZZq1nJNtbDC+kk5DuSuNX/n6YWYF/SYy7bSba4D4FSz8DJeKY/S/r+g==}
+  /react-redux@9.3.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-KQopgqFo/p/fgmAs5qz6p5RWaNAzq40WAu7fJIXnQpYxFPbJYtsJPWvGeF2rOBaY/kEuV77AVsX8TsQzKm+A/g==}
     peerDependencies:
       '@types/react': ^18.2.25 || ^19
       react: ^18.0 || ^19
