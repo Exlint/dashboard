@@ -515,8 +515,8 @@ importers:
         specifier: 1.9.3
         version: 1.9.3(react-dom@18.2.0)(react@18.2.0)
       react-switch:
-        specifier: 7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.1.0
+        version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
       react-textarea-autosize:
         specifier: 8.5.9
         version: 8.5.9(@types/react@18.2.48)(react@18.2.0)
@@ -12172,11 +12172,11 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-switch@7.0.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-KkDeW+cozZXI6knDPyUt3KBN1rmhoVYgAdCJqAh7st7tk8YE6N0iR89zjCWO8T8dUTeJGTR0KU+5CHCRMRffiA==}
+  /react-switch@7.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4xVeyImZE8QOTDw2FmhWz0iqo2psoRiS7XzdjaZBCIP8Dzo3rT0esHUjLee5WsAPSFXWWl1eVA5arp9n2C6yQA==}
     peerDependencies:
-      react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0

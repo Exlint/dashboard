@@ -48,7 +48,7 @@
 		"react-redux": "9.2.0",
 		"react-router-dom": "6.30.6",
 		"react-scroll": "1.9.3",
-		"react-switch": "7.0.0",
+		"react-switch": "7.1.0",
 		"react-textarea-autosize": "8.5.9",
 		"swr": "2.2.5"
 	},
