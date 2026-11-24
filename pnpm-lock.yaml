@@ -488,8 +488,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: 23.16.8
-        version: 23.16.8
+        specifier: 26.3.4
+        version: 26.3.4(typescript@5.7.3)
       nprogress:
         specifier: 0.2.0
         version: 0.2.0
@@ -504,7 +504,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-i18next:
         specifier: 13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.5.0(i18next@26.3.4)(react-dom@18.2.0)(react@18.2.0)
       react-redux:
         specifier: 9.2.0
         version: 9.2.0(@types/react@18.2.48)(react@18.2.0)(redux@4.2.1)
@@ -630,8 +630,8 @@ importers:
   apps/landing-page:
     dependencies:
       i18next:
-        specifier: 23.16.8
-        version: 23.16.8
+        specifier: 26.3.4
+        version: 26.3.4(typescript@5.7.3)
       mixpanel-browser:
         specifier: 2.65.0
         version: 2.65.0
@@ -649,7 +649,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       react-i18next:
         specifier: 13.5.0
-        version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.5.0(i18next@26.3.4)(react-dom@18.2.0)(react@18.2.0)
       react-intersection-observer:
         specifier: 9.16.0
         version: 9.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -9283,6 +9283,18 @@ packages:
     resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
     dependencies:
       '@babel/runtime': 7.23.9
+    dev: true
+
+  /i18next@26.3.4(typescript@5.7.3):
+    resolution: {integrity: sha512-pa7m0d7pBDqGHZxljT+WPFeyFgQ7P7SciPPo1tTqYuO0z4sqADYhwnBESmmGp/wEof1inwdls/k8ZgTg8rxFHA==}
+    peerDependencies:
+      typescript: ^5 || ^6
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 5.7.3
+    dev: false
 
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -12051,7 +12063,7 @@ packages:
   /react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
-  /react-i18next@13.5.0(i18next@23.16.8)(react-dom@18.2.0)(react@18.2.0):
+  /react-i18next@13.5.0(i18next@26.3.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==}
     peerDependencies:
       i18next: '>= 23.2.3'
@@ -12066,7 +12078,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.9
       html-parse-stringify: 3.0.1
-      i18next: 23.16.8
+      i18next: 26.3.4(typescript@5.7.3)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -14340,7 +14352,6 @@ packages:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
